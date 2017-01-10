@@ -5,6 +5,12 @@ The primary aim of the OWASP Application Security Verification Standard (ASVS) P
 
 The standard provides a basis for testing application technical security controls, as well as any technical security controls in the environment, that are relied on to protect against vulnerabilities such as Cross-Site Scripting (XSS)and SQL injection. This standard can be used to establish a level of confidence in the security of Web applications.
 
+The latest published version is version 3.0.1, which can be found:
+* https://www.owasp.org/images/3/33/OWASP_Application_Security_Verification_Standard_3.0.1.pdf (PDF)
+* https://www.owasp.org/images/f/f0/OWASP_Application_Security_Verification_Standard_3.0.1.docx (Word)
+
+The next version is going to be version 3.1, which can be found above in Word, JSON, and Excel formats. This is due for release at AppSec EU in May 2017. 
+
 The requirements were developed with the following objectives in mind:
 
 * Use as a metric - Provide application developers and application owners with a yardstick with which to assess the degree of trust that can be placed in their Web applications,
