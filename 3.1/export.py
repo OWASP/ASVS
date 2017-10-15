@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 ''' Tool for converting the MASVS requirements to various formats.
 
