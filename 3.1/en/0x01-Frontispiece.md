@@ -2,23 +2,27 @@
 
 ## About the Standard
 
-Welcome to the Mobile Application Security Verification Standard (MASVS) 0.9.2. The MASVS is a community effort to establish a framework of security requirements needed to design, develop and test secure mobile apps on iOS and Android.
-
-The MASVS is a culmination of community effort and industry feedback. We expect this standard to evolve over time and welcome feedback from the community. The best way to get in contact with us is via the OWASP Mobile Project Slack channel:
-
-https://owasp.slack.com/messages/project-mobile_omtg/details/
-
-Accounts can be created at the following URL:
-
-http://owasp.herokuapp.com/.
+The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, and even consumers to define what a secure application is.
 
 ## Copyright and License
 
 ![license](../images/license.png)
 Copyright © 2017 The OWASP Foundation. This document is released under the Creative Commons Attribution ShareAlike 3.0 license. For any reuse or distribution, you must make clear to others the license terms of this work.
 
+## Draft Version
+
+This is a draft version of the standard, and as such should not be used until released. If you find any issues within the standard that should be addressed:
+* Design of the standard
+* Missing controls
+* Ineffective or outdated controls
+* Unclear wording, spelling, grammar issues
+* Formatting issues
+* Translation issues – if a control’s wording is such that trying express it in your language will be difficult or impossible, please let us know. If it doesn’t work in Spanish or Thai, it probably isn’t working in English either.
+* Offers of translation – please let us know so that we can direct you to folks already working on your language.
+
+Please log an issue here: https://github.com/OWASP/ASVS/issues
+
+Version 3.1, 2017
 | Project Leads | Lead Authors | Contributors and Reviewers |
 | --- | --- | --- |
-| Bernhard Mueller, Sven Schleier | Bernhard Mueller | Stephen Corbiaux, Sven Schleier, Jeroen Willemsen, Anant Shrivastava, Abdessamad Temmar, Alexander Antukh, Roberto Martelloni, Stefaan Seys, Prabhant Singh, Francesco Stillavato, Abhinav Sejpal |
-
-This document started as a fork of the OWASP Application Security Verification Standard written by Jim Manico.
+| Andrew van der Stock, Daniel Cuthbert | Jim Manico | Boy Baukema, Chris Bradley |
