@@ -11,9 +11,8 @@ Authentication is the act of establishing, or confirming, something (or someone)
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **2.1** | Verify all pages and resources by default require authentication except those specifically intended to be public (Principle of complete mediation). | ✓ | ✓ | ✓ | 1.0 |
+| **2.1** | Verify all pages and resources are protected by server-side authentication, except those specifically intended to be public. | ✓ | ✓ | ✓ | 3.1 |
 | **2.2** | Verify that the application does not automatically fill in credentials – either as hidden fields, URL arguments, Ajax requests, or in forms, as this implies plain text, reversible or de-cryptable password storage. Random time limited nonces are acceptable as stand ins, such as to protect change password forms or forgot password forms. | ✓ | ✓ | ✓ | 3.1 |
-| **2.4** | Verify all authentication controls are enforced on the server side. | ✓ | ✓ | ✓ | 1.0 |
 | **2.6** | Verify all authentication controls fail securely to ensure attackers cannot log in. | ✓ | ✓ | ✓ | 1.0 |
 | **2.7** | Verify password entry fields allow, or encourage, the use of passphrases, and do not prevent password managers, long passphrases or highly complex passwords being entered. | ✓ | ✓ | ✓ | 3.0.1 |
 | **2.8** | Verify all account identity authentication functions (such as update profile, forgot password, disabled / lost token, help desk or IVR) that might regain access to the account are at least as resistant to attack as the primary authentication mechanism. | ✓ | ✓ | ✓ | 2.0 |
