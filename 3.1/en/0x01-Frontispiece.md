@@ -25,4 +25,4 @@ Please log an issue here: https://github.com/OWASP/ASVS/issues
 Version 3.1, 2017
 | Project Leads | Lead Authors | Contributors and Reviewers |
 | --- | --- | --- |
-| Andrew van der Stock, Daniel Cuthbert | Jim Manico | Boy Baukema, Chris Bradley |
+| Andrew van der Stock, Daniel Cuthbert | Jim Manico | Boy Baukema, Chris Bradley, Dr Daniël Geerts |
