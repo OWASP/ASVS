@@ -25,7 +25,7 @@ Ensure that a verified application satisfies the following high level session ma
 | **3.11** | Test session IDs against criteria such as their randomness, uniqueness, resistance to statistical and cryptographic analysis and information leakage. | ✓ | ✓ | ✓ | 1.0 |
 | **3.12** | Verify that session IDs stored in cookies are scoped using the 'path' attribute; and have the 'HttpOnly' and 'Secure' cookie flags enabled. | ✓ | ✓ | ✓ | 3.0 |
 | **3.17** | Verify that the application tracks all active sessions. And allows users to terminate sessions selectively or globally from their account.  |  | ✓ | ✓ | 3.0 |
-| **3.18** | Verify the for high value applications, that the user is prompted with the option to terminate all other active sessions after a successful change password process. |  |  | ✓ | 3.1 |
+| **3.18** | Verify for high value applications that the user is prompted with the option to terminate all other active sessions after a successful change password process. |  |  | ✓ | 3.1 |
 | **3.1** | TBA | ✓ | ✓ | ✓ | 1.0 |
 
 
