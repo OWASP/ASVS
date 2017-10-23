@@ -14,7 +14,7 @@ Authentication is the act of establishing, or confirming, something (or someone)
 | **2.1** | Verify all pages and resources are protected by server-side authentication, except those specifically intended to be public. | ✓ | ✓ | ✓ | 3.1 |
 | **2.2** | Verify that the application does not automatically fill in credentials – either as hidden fields, URL arguments, Ajax requests, or in forms, as this implies plain text, reversible or de-cryptable password storage. Random time limited nonces are acceptable as stand ins, such as to protect change password forms or forgot password forms. | ✓ | ✓ | ✓ | 3.1 |
 | **2.6** | Verify all authentication controls fail securely to ensure attackers cannot log in. | ✓ | ✓ | ✓ | 1.0 |
-| **2.7** | Verify password entry fields allow, or encourage, the use of passphrases, and do not prevent password managers, long passphrases or highly complex passwords being entered. | ✓ | ✓ | ✓ | 3.0.1 |
+| **2.7** | Verify password entry fields allow, or encourage, the use of passphrases, and do not prevent long passphrases or highly complex passwords being entered. | ✓ | ✓ | ✓ | 3.0.1 |
 | **2.8** | Verify all identity functions (e.g. forgot password, change password, change email, manage 2FA token, etc.) have the security controls, as the primary authentication mechanism (e.g. login form). | ✓ | ✓ | ✓ | 2.0 |
 | **2.9** | Verify that the changing password functionality includes the old password, the new password, and a password confirmation. | ✓ | ✓ | ✓ | 1.0 |
 | **2.12** | Verify that all authentication decisions can be logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.  |  | ✓ | ✓ | 3.0.1 |
