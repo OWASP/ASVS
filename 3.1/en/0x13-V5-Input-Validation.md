@@ -33,7 +33,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **5.22** | Verify that untrusted HTML from WYSIWYG editors or similar are properly sanitized with an HTML sanitizer and handle it appropriately according to the input validation task and encoding task.  | ✓ | ✓ | ✓ | 3.0 |
 | **5.23** | Verify that where an application uses auto-escaping templating AND auto-escaping is disabled, output should be manually contextually encoded or sanitized to prevent XSS. |  | ✓ | ✓ | 3.1 |
 | **5.24** | Verify that where data is transferred from one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or .val. |  | ✓ | ✓ | 3.1 |
-| **5.25** | Verify when parsing JSON in browsers, that JSON.parse is used to parse JSON on the client. Do not use eval() to parse JSON on the client. |  | ✓ | ✓ | 3.0 |
+| **5.25** | Verify when parsing JSON in browsers or JavaScript based backends, that JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
 | **5.26** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the session is terminated. |  | ✓ | ✓ | 3.0 |
 | **5.27** | Test the application for Server Side Request Forgery vulnerabilities. | ✓ | ✓ | ✓ | 3.1 |
 
