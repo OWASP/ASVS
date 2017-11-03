@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **5.3** | Verify that server side input validation failures result in request rejection and are logged. | ✓ | ✓ | ✓ | 1.0 |
 | **5.5** | Verify that input validation routines are enforced on the server side. | ✓ | ✓ | ✓ | 1.0 |
 | **5.6** | Verify that a single input validation control is used by the application for each type of data that is accepted. | ✓ | ✓ | ✓ | 1.0 |
-| **5.10** | Verify that all SQL queries, HQL, OSQL, NOSQL and stored procedures, calling of stored procedures are protected by the use of prepared statements or query parameterization, and thus not susceptible to SQL injection. | ✓ | ✓ | ✓ | 2.0 |
+| **5.10** | Verify that all database queries are protected by the use of parameterized queries or proper ORM usage to avoid SQL injection. | ✓ | ✓ | ✓ | 2.0 |
 | **5.11** | Verify that the application is not susceptible to LDAP Injection, or that security controls prevent LDAP Injection. | ✓ | ✓ | ✓ | 2.0 |
 | **5.12** | Verify that the application is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection. | ✓ | ✓ | ✓ | 2.0 |
 | **5.13** | Verify that the application is not susceptible to Remote File Inclusion (RFI) or Local File Inclusion (LFI) when content is used that is a path to a file. | ✓ | ✓ | ✓ | 3.0 |
