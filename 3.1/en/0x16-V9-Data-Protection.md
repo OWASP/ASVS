@@ -30,6 +30,7 @@ Ensure that a verified application satisfies the following high level data prote
 | **9.11** | Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 3.0.1 |
 | **9.12** | Placeholder for GDPR | ✓ | ✓ | ✓ | 3.0.1 |
 | **9.13** | Placeholder for GDPR | ✓ | ✓ | ✓ | 3.0.1 |
+| **9.14** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. |  | ✓ | ✓ | 3.0 |
 
 
 
