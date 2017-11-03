@@ -36,6 +36,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **5.25** | Verify when parsing JSON in browsers or JavaScript based backends, that JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
 | **5.26** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the session is terminated. |  | ✓ | ✓ | 3.0 |
 | **5.27** | Verify the application for Server Side Request Forgery vulnerabilities. | ✓ | ✓ | ✓ | 3.1 |
+| **5.28** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that dangerous features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 3.1
 
 
 ## References
