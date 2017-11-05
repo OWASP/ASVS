@@ -21,7 +21,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **5.11** | Verify that the application is not susceptible to LDAP Injection, or that security controls prevent LDAP Injection. | ✓ | ✓ | ✓ | 2.0 |
 | **5.12** | Verify that the application is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection. | ✓ | ✓ | ✓ | 2.0 |
 | **5.13** | Verify that the application is not susceptible to Remote File Inclusion (RFI) or Local File Inclusion (LFI) when content is used that is a path to a file. | ✓ | ✓ | ✓ | 3.0 |
-| **5.14** | Verify that the application is not susceptible to common XML attacks, such as XPath query tampering, XML External Entity attacks, and XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
+| **5.14** | Verify that the application is not susceptible XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
 | **5.15** | Verify that all string variables placed into HTML or other web client code is either properly contextually encoded manually, or utilize templates that automatically contextually encode to ensure the application is not susceptible to reflected, stored or DOM Cross-Site Scripting (XSS) attacks. | ✓ | ✓ | ✓ | 3.1 |
 | **5.16** | Verify that the application does not contain mass parameter assignment (AKA automatic variable binding) vulnerabilities. |  | ✓ | ✓ | 3.1 |
 | **5.17** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, environment, etc.) |  | ✓ | ✓ | 2.0 |
