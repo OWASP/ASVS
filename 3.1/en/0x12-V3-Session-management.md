@@ -14,7 +14,6 @@ Ensure that a verified application satisfies the following high level session ma
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-
 | **3.2** | Verify that sessions are invalidated when the user logs out. | ✓ | ✓ | ✓ | 1.0 |
 | **3.3** | Verify that sessions timeout after a specified period of inactivity. |  |  | ✓ | 1.0 |
 | **3.4** | Verify that sessions timeout after an administratively-configurable maximum time period regardless of activity (an absolute timeout). |  | ✓ | ✓ | 1.0 |
