@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **10.5** | Verify that certificate paths are built and verified for all client certificates using configured trust anchors and revocation information. |  |  | ✓ | 1.0 |
 | **10.6** | Verify that all connections to external systems that involve sensitive information or functions are authenticated. |  | ✓ | ✓ | 1.0 |
 | **10.8** | Verify that there is a single standard TLS implementation that is used by the application that is configured to operate in an approved mode of operation. |  |  | ✓ | 1.0 |
-| **10.10** | Verify that TLS certificate public key pinning (HPKP) is implemented with production and backup public keys. For more information, please see the references below.  |  | ✓ | ✓ | 3.0.1 |
+| **10.10** | Verify that TLS certificate public key pinning is implemented with production and backup public keys when possible. For more information, please see the references below.  |  | ✓ | ✓ | 3.0.1 |
 | **10.11** | Verify that HTTP Strict Transport Security headers are included on all requests and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains | ✓ | ✓ | ✓ | 3.0 |
 | **10.12** | Verify that production website URL has been submitted to preloaded list of Strict Transport Security domains maintained by web browser vendors. Please see the references below. |  |  | ✓ | 3.0 |
 | **10.13** | Verify that perfect forward secrecy is configured to mitigate passive attackers recording traffic. | ✓ | ✓ | ✓ | 3.1 |
