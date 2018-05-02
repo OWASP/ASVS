@@ -31,7 +31,7 @@ Authentication is the act of establishing, or confirming, something (or someone)
 | **2.25** | Verify that high value applications can be configured to disallow the use of a configurable number of previous passwords. |  | ✓ | ✓ | 3.1 |
 | **2.26** | Verify that sensitive operations (e.g. change password, change email address, add new biller, etc.) require re-authentication (e.g. password or 2FA token). This is in addition to CSRF measures, not instead. |  | ✓ | ✓ | 3.0.1 |
 | **2.27** | Verify that measures are in place to block the use of commonly chosen passwords and weak pass-phrases. |  | ✓ | ✓ | 3.0 |
-| **2.28** | Verify that all authentication challenges, whether successful or failed, should respond in the same average response time. |  |  | ✓ | 3.0 |
+| **2.28** | Verify that all failed authentication challenges should respond in the same average response time. |  |  | ✓ | 3.0 |
 | **2.29** | Verify that secrets, API keys, and passwords are not included in the source code, or online source code repositories. |  | ✓ | ✓ | 3.0 |
 | **2.31** | Verify that users can enrol and use TOTP verification, two-factor, biometric (Touch ID or similar), or equivalent multi-factor authentication mechanism that provides protection against single factor credential disclosure. |  | ✓ | ✓ | 3.1 |
 | **2.32** | Verify that access to administrative interfaces are strictly controlled and not accessible to untrusted parties. | ✓ | ✓ | ✓ | 3.0 |
