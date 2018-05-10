@@ -29,7 +29,7 @@ If logs contain private or sensitive data, the definition of which varies from c
 | **8.10** | Verify that an audit log or similar allows for non-repudiation of key transactions. | ✓ | ✓ | ✓ | 3.0 |
 | **8.11** | Verify that security logs have some form of integrity checking or controls to prevent unauthorized modification. |  |  | ✓ | 3.0 |
 | **8.12** | Verify that logs are stored on a different partition than the application is running with proper log rotation. |  |  | ✓ | 3.1 |
-| **8.13** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | 3.1 |
+| **8.13** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | 3.0.1 |
 
 
 
