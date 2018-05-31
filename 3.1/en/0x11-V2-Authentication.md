@@ -36,6 +36,7 @@ Authentication is the act of establishing, or confirming, something (or someone)
 | **2.31** | Verify that users can enrol and use TOTP verification, two-factor, biometric (Touch ID or similar), or equivalent multi-factor authentication mechanism that provides protection against single factor credential disclosure. |  | ✓ | ✓ | 3.1 |
 | **2.32** | Verify that access to administrative interfaces are strictly controlled and not accessible to untrusted parties. | ✓ | ✓ | ✓ | 3.0 |
 | **2.33** | Verify that the application is compatible with browser based and third party password managers, unless prohibited by risk based policy. | ✓ | ✓ | ✓ | 3.1 |
+| **2.34** | Verify that users are able to directly set their own password for the application without needing to divulge their chosen password to another individual (e.g. an administrator). | ✓ | ✓ | ✓ | 3.1 |
 
 
 
