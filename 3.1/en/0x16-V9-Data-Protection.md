@@ -28,7 +28,7 @@ Ensure that a verified application satisfies the following high level data prote
 | **9.9** | Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies) does not contain sensitive data or PII. | ✓ | ✓ | ✓ | 3.0.1 |
 | **9.10** | Verify accessing sensitive data is logged, if the data is collected under relevant data protection directives or where logging of accesses is required. |  | ✓ | ✓ | 3.0 |
 | **9.11** | Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 3.0.1 |
-| **9.12** | Placeholder for GDPR | ✓ | ✓ | ✓ | 3.0.1 |
+| **9.12** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provides both confidentiality and integrity. | ✓ | ✓ | ✓ | 3.0.1 |
 | **9.13** | Placeholder for GDPR | ✓ | ✓ | ✓ | 3.0.1 |
 | **9.14** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. |  | ✓ | ✓ | 3.0 |
 
