@@ -12,7 +12,6 @@ High quality logs will often contain sensitive data, and must be protected as pe
 
 If logs contain private or sensitive data, the definition of which varies from country to country, the logs become some of the most sensitive information held by the application and thus very attractive to attackers in their own right.
 
-
 ## Security Verification Requirements
 
 | # | Description | L1 | L2 | L3 | Since |
@@ -24,12 +23,11 @@ If logs contain private or sensitive data, the definition of which varies from c
 | **8.5** | Verify that all events that include untrusted data will not execute as code in the intended log viewing software. |  | ✓ | ✓ | 1.0 |
 | **8.6** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | 1.0 |
 | **8.7** | Verify that the application does not log credentials, session tokens, payment instruments, or sensitive data, as defined under local privacy laws or organizational security policy. |  | ✓ | ✓ | 3.0 |
-| **8.8** | Verify that all non-printable symbols and field separators are properly encoded in log entries, to prevent log injection. | ✓ | ✓ | ✓ | 3.1 |
+| **8.8** | Verify the application appropriately encodes user supplied data to prevent log injection. | ✓ | ✓ | ✓ | 3.1 |
 | **8.10** | Verify that an audit log allows reconstruction of a user's activity. |  |  | ✓ | 3.1 |
 | **8.11** | Verify that security logs have some form of integrity checking or controls to prevent unauthorized modification. |  |  | ✓ | 3.0 |
 | **8.12** | Verify that logs are stored on a different partition than the application is running with proper log rotation. |  |  | ✓ | 3.1 |
 | **8.13** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | 3.1 |
-
 
 ## References
 
