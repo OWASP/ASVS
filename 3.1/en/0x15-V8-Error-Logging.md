@@ -22,7 +22,7 @@ If logs contain private or sensitive data, the definition of which varies from c
 | **8.4** | Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. |  | ✓ | ✓ | 1.0 |
 | **8.5** | Verify that all events that include untrusted data will not execute as code in the intended log viewing software. |  | ✓ | ✓ | 1.0 |
 | **8.6** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | 1.0 |
-| **8.7** | Verify that the application does not log credentials, session tokens, payment instruments, or sensitive data, as defined under local privacy laws or organizational security policy. |  | ✓ | ✓ | 3.0 |
+| **8.7** | Verify that the application does not log credentials, session tokens, payment instruments, or sensitive data, as defined under local privacy laws or relevant security policy. |  | ✓ | ✓ | 3.0 |
 | **8.8** | Verify the application appropriately encodes user supplied data to prevent log injection. | ✓ | ✓ | ✓ | 3.1 |
 | **8.10** | Verify that an audit log allows reconstruction of a user's activity. |  |  | ✓ | 3.1 |
 | **8.12** | Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation. |  |  | ✓ | 3.1 |
