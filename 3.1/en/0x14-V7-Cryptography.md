@@ -12,10 +12,9 @@ Ensure that a verified application satisfies the following high level requiremen
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **7.2** | Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable Padding Oracle. | ✓ | ✓ | ✓ | 1.0 |
+| **7.2** | Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable Padding Oracle attacks. | ✓ | ✓ | ✓ | 1.0 |
 | **7.6** | Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the cryptographic module’s approved random number generator when these random values are intended to be not guessable by an attacker. |  | ✓ | ✓ | 1.0 |
 | **7.7** | Verify that cryptographic algorithms used by the application have been validated against FIPS 140-2 or an equivalent standard. | ✓ | ✓ | ✓ | 1.0 |
-| **7.9** | Verify that there is an explicit policy for how cryptographic keys are managed (e.g., generated, distributed, revoked, and expired). |  | ✓ | ✓ | 3.1 |
 | **7.11** | Verify that consumers of cryptographic services do not have direct access to key material, such as by using key vaults or API based alternatives. |  | ✓ | ✓ | 3.1 |
 | **7.12** | Verify that Personally Identifiable Information (PII) and other sensitive data is stored encrypted while at rest. |  | ✓ | ✓ | 3.1 |
 | **7.13** | Verify that sensitive passwords or key material maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 3.1 |
