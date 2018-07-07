@@ -21,7 +21,7 @@ Ensure that a verified application has:
 | **19.7** | Verify that all application components are signed. |  |  | ✓ | 3.0 |
 | **19.8** | Verify that third party components come from trusted repositories. |  |  | ✓ | 3.0 |
 | **19.9** | Verify that build processes for system level languages have all security flags enabled, such as ASLR, DEP, and security checks.  |  |  | ✓ | 3.0 |
-| **19.10** | Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS stylesheets and web fonts are hosted by the application rather than rely on a CDN or external provider. |  |  | ✓ | 3.0.1 |
+| **19.10** | Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, sub-resource integrity (SRI) is used to validate the integrity of the asset. |  | ✓ | ✓ | 3.1 |
 | **19.11** | Verify that all application components, services, and servers each use their own low privilege service account, that is not shared between applications nor used by administrators.  |  | ✓ | ✓ | 3.1 |
 
 ## References
