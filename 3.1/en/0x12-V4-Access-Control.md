@@ -8,7 +8,6 @@ Authorization is the concept of allowing access to resources only to those permi
 * Users are associated with a well-defined set of roles and privileges.
 * Role and permission metadata is protected from replay or tampering.
 
-
 ## Security Verification Requirements
 
 | # | Description | L1 | L2 | L3 | Since |
@@ -22,11 +21,10 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.11** | Verify that there is preferably only one vetted access control mechanism for protecting access to protected data and resources, such that hard coded access control checks are not required throughout the application. |  | ✓ | ✓ | 3.1 |
 | **4.12** | Verify that all access control decisions can be logged and all failed decisions are logged. |  | ✓ | ✓ | 2.0 |
 | **4.13** | Verify that the application or framework enforces a strong anti-CSRF mechanism any sensitive functionality. | ✓ | ✓ | ✓ | 3.1 |
-| **4.14** | Verify the system can protect against aggregate or continuous access of secured functions, resources, or data. For example, consider the use of a resource governor to limit the number of edits per hour or to prevent the entire database from being scraped by an individual user. |  | ✓ | ✓ | 2.0 |
+| **4.14** | Verify the application has sufficient anti-automation to detect and protect against data exfiltration, excessive business logic requests, or denial of service attacks. |  | ✓ | ✓ | 3.1 |
 | **4.15** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. |  | ✓ | ✓ | 3.0 |
 | **4.16** | Verify that access control policy is enforced by trusted server-side components.  | ✓ | ✓ | ✓ | 3.1 |
 | **4.17** | Verify that data-level access control is implemented such that access to individual records can be managed in a centralized and standard way. | ✓ | ✓ | ✓ | 3.1 |
-
 
 ## References
 
@@ -36,3 +34,4 @@ For more information, see also:
 * [OWASP Cheat Sheet: Access Control](https://www.owasp.org/index.php/Access_Control_Cheat_Sheet)
 * [OWASP CSRF Cheat Sheet](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet)
 * [OWASP REST Cheat Sheet](https://www.owasp.org/index.php/REST_Security_Cheat_Sheet)
+* Anti-automation can be achieved in many ways, including the user of [OWASP AppSensor](https://www.owasp.org/index.php/OWASP_AppSensor_Project) and [OWASP Automated Threats to Web Applications](https://www.owasp.org/index.php/OWASP_Automated_Threats_to_Web_Applications)
