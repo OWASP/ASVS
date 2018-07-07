@@ -5,12 +5,11 @@
 Ensure that a verified application satisfies the following high level requirements:
 
 * Malicious activity is handled securely and properly as to not affect the rest of the application.
-* Do not have time bombs or other time based attacks built into them
-* Do not “phone home” to malicious or unauthorized destinations
-* Applications do not have back doors, Easter eggs, salami attacks, or logic flaws that can be controlled by an attacker
+* Do not have time bombs or other time based attacks built into them.
+* Do not “phone home” to malicious or unauthorized destinations.
+* Applications do not have back doors, Easter eggs, salami attacks, or logic flaws that can be controlled by an attacker.
 
 Malicious code is extremely rare, and is difficult to detect. Manual line by line code review can assist looking for logic bombs, but even the most experienced code reviewer will struggle to find malicious code even if they know it exists. This section is not possible to complete without access to source code, including as many third party libraries as possible.
-
 
 ## Security Verification Requirements
 

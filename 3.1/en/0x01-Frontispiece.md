@@ -12,17 +12,18 @@ Copyright © 2017 The OWASP Foundation. This document is released under the Crea
 ## Draft Version
 
 This is a draft version of the standard, and as such should not be used until released. If you find any issues within the standard that should be addressed:
-* Design of the standard
-* Missing controls
-* Ineffective or outdated controls
-* Unclear wording, spelling, grammar issues
-* Formatting issues
+
+* Design of the standard.
+* Missing controls.
+* Ineffective or outdated controls.
+* Unclear wording, spelling, grammar issues.
+* Formatting issues.
 * Translation issues – if a control’s wording is such that trying express it in your language will be difficult or impossible, please let us know. If it doesn’t work in Spanish or Thai, it probably isn’t working in English either.
 * Offers of translation – please let us know so that we can direct you to folks already working on your language.
 
 Please log an issue here: https://github.com/OWASP/ASVS/issues
 
-Version 3.1, 2017
+Version 3.1, 2018
 | Project Leads | Lead Authors | Contributors and Reviewers |
 | --- | --- | --- |
 | Andrew van der Stock, Daniel Cuthbert | Jim Manico | Boy Baukema, Chris Bradley, Dr Daniël Geerts |

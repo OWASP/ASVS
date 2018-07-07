@@ -8,10 +8,9 @@ Applications have to assume that all user devices are compromised in some way. W
 
 Ensure that a verified application satisfies the following high level data protection requirements:
 
-*	Confidentiality: Data should be protected from unauthorised observation or disclosure both in transit and when stored.
-*	Integrity: Data should be protected being maliciously created, altered or deleted by unauthorized attackers.
-*	Availability: Data should be available to authorized users as required
-
+* Confidentiality: Data should be protected from unauthorized observation or disclosure both in transit and when stored.
+* Integrity: Data should be protected being maliciously created, altered or deleted by unauthorized attackers.
+* Availability: Data should be available to authorized users as required.
 
 ## Security Verification Requirements
 
@@ -30,8 +29,6 @@ Ensure that a verified application satisfies the following high level data prote
 | **9.12** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provides both confidentiality and integrity. | ✓ | ✓ | ✓ | 3.0.1 |
 | **9.13** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | 3.1 |
 | **9.14** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. |  | ✓ | ✓ | 3.0 |
-
-
 
 ## References
 

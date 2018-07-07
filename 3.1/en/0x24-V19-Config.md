@@ -8,7 +8,6 @@ Ensure that a verified application has:
 * A secure by default configuration.
 * Sufficient hardening that user initiated changes to default configuration do not unnecessarily expose or create security weaknesses or flaws to underlying systems.
 
-
 ## Security Verification Requirements
 
 | # | Description | L1 | L2 | L3 | Since |
@@ -24,7 +23,6 @@ Ensure that a verified application has:
 | **19.9** | Verify that build processes for system level languages have all security flags enabled, such as ASLR, DEP, and security checks.  |  |  | ✓ | 3.0 |
 | **19.10** | Verify that all application assets are hosted by the application, such as JavaScript libraries, CSS stylesheets and web fonts are hosted by the application rather than rely on a CDN or external provider. |  |  | ✓ | 3.0.1 |
 | **19.11** | Verify that all application components, services, and servers each use their own low privilege service account, that is not shared between applications nor used by administrators.  |  | ✓ | ✓ | 3.1 |
-
 
 ## References
 

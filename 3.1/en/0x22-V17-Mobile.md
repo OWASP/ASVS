@@ -1,8 +1,8 @@
 # V17: Mobile Verification Requirements
 
-## ASVS Mobile Removal Notifice
+## ASVS Mobile Removal Notice
 
-This section previously contained controls that are mobile application specific. This section is being removed and replaced by the OWASP Mobile Application Security Verification Standard. 
+This section previously contained controls that are mobile application specific. This section is being removed and replaced by the OWASP Mobile Application Security Verification Standard.
 
 ## References
 
