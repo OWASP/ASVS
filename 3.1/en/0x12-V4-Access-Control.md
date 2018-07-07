@@ -19,7 +19,7 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.8** | Verify that access controls fail securely. | ✓ | ✓ | ✓ | 1.0 |
 | **4.9** | Verify that the same access control rules implied by the presentation layer are enforced on the server side. | ✓ | ✓ | ✓ | 1.0 |
 | **4.10** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. |  | ✓ | ✓ | 1.0 |
-| **4.11** | Verify that there is a centralized mechanism (including libraries that call external authorization services) for protecting access to each type of protected resource. |  | ✓ | ✓ | 3.1 |
+| **4.11** | Verify that there is preferably only one vetted access control mechanism for protecting access to protected data and resources, such that hard coded access control checks are not required throughout the application. |  | ✓ | ✓ | 3.1 |
 | **4.12** | Verify that all access control decisions can be logged and all failed decisions are logged. |  | ✓ | ✓ | 2.0 |
 | **4.13** | Verify that the application or framework enforces a strong anti-CSRF mechanism any sensitive functionality. | ✓ | ✓ | ✓ | 3.1 |
 | **4.14** | Verify the system can protect against aggregate or continuous access of secured functions, resources, or data. For example, consider the use of a resource governor to limit the number of edits per hour or to prevent the entire database from being scraped by an individual user. |  | ✓ | ✓ | 2.0 |
