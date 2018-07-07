@@ -25,7 +25,7 @@ If logs contain private or sensitive data, the definition of which varies from c
 | **8.7** | Verify that the application does not log credentials, session tokens, payment instruments, or sensitive data, as defined under local privacy laws or organizational security policy. |  | ✓ | ✓ | 3.0 |
 | **8.8** | Verify the application appropriately encodes user supplied data to prevent log injection. | ✓ | ✓ | ✓ | 3.1 |
 | **8.10** | Verify that an audit log allows reconstruction of a user's activity. |  |  | ✓ | 3.1 |
-| **8.12** | Verify that logs are stored on a different partition than the application is running with proper log rotation. |  |  | ✓ | 3.1 |
+| **8.12** | Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation. |  |  | ✓ | 3.1 |
 | **8.13** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | 3.1 |
 
 ## References
