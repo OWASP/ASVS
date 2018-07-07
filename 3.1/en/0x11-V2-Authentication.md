@@ -19,7 +19,7 @@ We strongly urge everyone to adopt NIST 800-63, and align any policies, guidelin
 | # | Description | AAL1 | AAL2 | AAL3 | Since | NIST &sect; |
 | --- | --- | --- | --- | -- | -- | -- |
 | **2.1** | Verify authenticators are resistant to compromise, such as enforcing authentication decisions on a trusted device or service. | ✓  | ✓ | ✓ | 3.1 | 5.2.7 |
-| **2.2** | Verify authenticators CANNOT return memorized secrets in responses, auto-fill parameters (visible or invisible to the end user), or store clear text credentials, because they MUST salt and one way hash memorized secrets. This requirement only applies to the target API, application, or UI, and not to the user's choice of using a credential manager or browser based credential storage. | ✓ | ✓ | ✓ | 3.1 | 5.1.1 |
+| **2.2** | Verify authenticators CANNOT store or return plain text memorized secrets, either as hidden or visible form fields, query parameters, cookie values, HTTP headers, emails, or SMS messages. | ✓ | ✓ | ✓ | 3.1 | 5.1.1 |
 | **2.6** | Verify authentication controls fail securely to ensure attackers cannot log in by inducing errors or exceptions. | ✓ | ✓ | ✓ | 1.0 | Implicit |
 | **2.7** | Verifiers SHALL require memorized secrets to be at least 8 characters in length. Verifiers SHOULD permit memorized secrets at least 64 characters in length. | ✓ | ✓ | ✓ | 3.1 | 5.1.1.2 |
 | **2.8** | Verify all identity proofing functions (registration, login, credential reset, MFA device enrollment, lookup code entry, and so on) are secured by equivalent security controls. | ✓ | ✓ | ✓ | 3.1 | Implicit |
