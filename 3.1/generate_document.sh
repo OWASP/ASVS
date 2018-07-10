@@ -28,11 +28,11 @@ generate_pdf() {
 }
 
 generate_docx() {
-    pandoc -s -f markdown_github --reference-docx=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard $1.docx" *.md
+    pandoc -s -f gfm --reference-docx=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard $1.docx" *.md
 }
 
 generate_html() {
-    pandoc -s -f markdown_github -t html5 -o "../OWASP Application Security Verification Standard $1.html" *.md
+    pandoc -s -f gfm -t html5 --css custom.css -o "../OWASP Application Security Verification Standard $1.html" *.md
 }
 
 generate() {

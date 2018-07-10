@@ -1,77 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>0x00-Header</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="custom.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-<h1 id="section"></h1>
+<h1></h1>
 <p><img src="../images/OWASP_logo.png" alt="OWASP LOGO" /></p>
-<h1 id="application-security-verification-standard-3.1">Application Security Verification Standard 3.1</h1>
+<h1 id="application-security-verification-standard-31">Application Security Verification Standard 3.1</h1>
 <p>[date]</p>
 <h1 id="frontispiece">Frontispiece</h1>
 <h2 id="about-the-standard">About the Standard</h2>
-<p>Welcome to the Mobile Application Security Verification Standard (MASVS) 0.9.2. The MASVS is a community effort to establish a framework of security requirements needed to design, develop and test secure mobile apps on iOS and Android.</p>
-<p>The MASVS is a culmination of community effort and industry feedback. We expect this standard to evolve over time and welcome feedback from the community. The best way to get in contact with us is via the OWASP Mobile Project Slack channel:</p>
-<p><a href="https://owasp.slack.com/messages/project-mobile_omtg/details/" class="uri">https://owasp.slack.com/messages/project-mobile_omtg/details/</a></p>
-<p>Accounts can be created at the following URL:</p>
-<p><a href="http://owasp.herokuapp.com/" class="uri">http://owasp.herokuapp.com/</a>.</p>
+<p>The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, and even consumers to define what a secure application is.</p>
 <h2 id="copyright-and-license">Copyright and License</h2>
-<p><img src="../images/license.png" alt="license" /><br />
-Copyright © 2017 The OWASP Foundation. This document is released under the Creative Commons Attribution ShareAlike 3.0 license. For any reuse or distribution, you must make clear to others the license terms of this work.</p>
-<table style="width:17%;">
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Project Leads</th>
-<th>Lead Authors</th>
-<th>Contributors and Reviewers</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Bernhard Mueller, Sven Schleier</td>
-<td>Bernhard Mueller</td>
-<td>Stephen Corbiaux, Sven Schleier, Jeroen Willemsen, Anant Shrivastava, Abdessamad Temmar, Alexander Antukh, Roberto Martelloni, Stefaan Seys, Prabhant Singh, Francesco Stillavato, Abhinav Sejpal</td>
-</tr>
-</tbody>
-</table>
-<p>This document started as a fork of the OWASP Application Security Verification Standard written by Jim Manico.</p>
+<p><img src="../images/license.png" alt="license" /> Copyright © 2017 The OWASP Foundation. This document is released under the Creative Commons Attribution ShareAlike 3.0 license. For any reuse or distribution, you must make clear to others the license terms of this work.</p>
+<h2 id="draft-version">Draft Version</h2>
+<p>This is a draft version of the standard, and as such should not be used until released. If you find any issues within the standard that should be addressed:</p>
+<ul>
+<li>Design of the standard.</li>
+<li>Missing controls.</li>
+<li>Ineffective or outdated controls.</li>
+<li>Unclear wording, spelling, grammar issues.</li>
+<li>Formatting issues.</li>
+<li>Translation issues – if a control’s wording is such that trying express it in your language will be difficult or impossible, please let us know. If it doesn’t work in Spanish or Thai, it probably isn’t working in English either.</li>
+<li>Offers of translation – please let us know so that we can direct you to folks already working on your language.</li>
+</ul>
+<p>Please log an issue here: <a href="https://github.com/OWASP/ASVS/issues" class="uri">https://github.com/OWASP/ASVS/issues</a></p>
+<p>Version 3.1, 2018 | Project Leads | Lead Authors | Contributors and Reviewers | | --- | --- | --- | | Andrew van der Stock, Daniel Cuthbert | Jim Manico | Boy Baukema, Chris Bradley, Dr Daniël Geerts |</p>
 <h1 id="preface">Preface</h1>
-<p>Welcome to the Application Security Verification Standard (ASVS) version 3.0. The ASVS is a community-effort to establish a framework of security requirements and controls that focus on normalising the functional and non-functional security controls required when designing, developing and testing modern web applications.<br />
-ASVS v3.0 is a culmination of community effort and industry feedback. In this release, we felt it was important to qualify the experiences of real world use cases relating to ASVS adoption. This will help newcomers to the standard plan their adoption of the ASVS, whilst assisting existing companies in learning from the experience of others.</p>
+<p>Welcome to the Application Security Verification Standard (ASVS) version 3.1. The ASVS is a community-effort to establish a framework of security requirements and controls that focus on normalizing the functional and non-functional security controls required when designing, developing and testing modern web applications.</p>
+<p>ASVS v3.1 is a culmination of community effort and industry feedback. In this release, we felt it was important to qualify the experiences of real world use cases relating to ASVS adoption. This will help newcomers to the standard plan their adoption of the ASVS, whilst assisting existing companies in learning from the experience of others.</p>
 <p>We expect that there will most likely never be 100% agreement on this standard. Risk analysis is always subjective to some extent, which creates a challenge when attempting to generalize in a one size fits all standard. However, we hope that the latest updates made in this version are a step in the right direction, and respectfully enhance the concepts introduced in this important industry standard.</p>
-<h2 id="whats-new-in-3.0">What’s new in 3.0?</h2>
-<p>In version 3.0, we have added several new sections, including Configuration, Web Services, Modern (Client) based applications, and IoT Devices to make the Standard more applicable to modern applications, which are commonly responsive applications, with an extensive HTML5 front end or mobile client that calls a common set of RESTful web services using SAML authentication.</p>
-<p>We have also de-duplicated the standard, for example, to ensure that a mobile developer does not need to re-test the same items multiple times.</p>
-<p>We have provided a mapping to the CWE common weakness enumeration (CWE) dictionary. The CWE mapping can be used to identify information such as likelihood of exploitation, consequence of a successful exploitation and broadly speaking to gain insight on what could go wrong if a security control is not used or implemented effectively and how to mitigate the weakness.</p>
-<p>Lastly, we reached out to the community and held peer review sessions at AppSec EU 2015 and a final working session at AppSec USA 2015 to include a massive amount of community feedback. During peer review, if edits to the meaning of a control changed substantially, we created a new control and deprecated the old one. We have deliberately chosen to not reuse any deprecated control requirements, as this could be a source of confusion. We have provided a comprehensive mapping of what has changed in Appendix A.</p>
-<p>Taken together, v3.0 is the single largest change to the Standard in its history. We hope that you find the update to the standard useful, and use it in ways we can only imagine.</p>
+<h2 id="whats-new-in-31">What’s new in 3.1</h2>
+<p>The single largest change in this version is the adoption of NIST 800-63, concentrating on introducing controls at authentication assurance levels 1 through 3. Although we do expect there to be some pushback on this adoption, it's important for standards to be aligned, particularly when a newer standard is evidence based.</p>
+<p>We have worked to comprehensively meet and exceed OWASP Top 10 2017 requirements. As the OWASP Top 10 2017 is the bare minimum to avoid negligence, we have deliberately set nearly all of OWASP Top 10 controls to be L1. This makes it easier for OWASP Top 10 adopters to continuously improve, especially when they want to continue the security journey by building in security into every application and API.</p>
+<p>We have completed the shift of the ASVS from monolithic server side only controls, to providing solid controls for all modern applications and APIs. In the days of functional programming, server less API, mobile, cloud, IoT, CI/CD and DevOps, and federation, we cannot keep on ignoring modern application architecture. Modern applications are designed differently to those in 2008, when the original ASVS was written. The ASVS must always look far into the future so that we provide sound advice for our primary audience - developers. We have clarified or dropped any requirement that assumes that security must be solely performed on a server owned by a single organization.</p>
+<p>We have retired the mobile section, in favor of the Mobile Application Security Verification Standard (MASVS). As that standard does not particularly strongly elucidate API security issues, we have decided to concentrate on being the best standard for web apps and all forms of API - RESTful and SOAP web services, monolithic or micro services. Mobile application developers should see the MASVS as being highly useful for mobile client issues, and the ASVS as being highly useful for mobile APIs and micro services.</p>
+<p>There is a new Internet of Things section, and during the draft phase, we will be seeking feedback if this should remain, or an IoT specific ASVS be created, again with the core ASVS focusing on the back-end APIs used by nearly all IoT. Please log issues with your views.</p>
+<p>Lastly, we have de-duped and retired controls that cannot get you hacked. Over time, the ASVS started being a comprehensive set of controls, but not all controls are equal at producing secure software. We have re-validated L1 to be a &quot;Core&quot; or &quot;Essential&quot; control set, by setting a CVSS score bar of 7.5 or above to be in L1. This helps compliant organizations adhere to PCI DSS's requirements to resolve all High and Critical findings rapidly. If an application or API has a failed L1 control, it is a serious risk to any organization.</p>
 <h1 id="using-the-asvs">Using the ASVS</h1>
 <p>ASVS has two main goals:</p>
 <ul>
-<li>to help organizations develop and maintain secure applications</li>
-<li>to allow security service, security tools vendors, and consumers to align their requirements and offerings</li>
+<li>to help organizations develop and maintain secure applications.</li>
+<li>to allow security service, security tools vendors, and consumers to align their requirements and offerings.</li>
 </ul>
-<p>Application Security Verification Levels<br />
-The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.</p>
+<p>Application Security Verification Levels The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.</p>
 <ul>
 <li>ASVS Level 1 is meant for all software.</li>
 <li>ASVS Level 2 is for applications that contain sensitive data, which requires protection.</li>
 <li>ASVS Level 3 is for the most critical applications - applications that perform high value transactions, contain sensitive medical data, or any application that requires the highest level of trust.</li>
 </ul>
 <p>Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.</p>
-<p>Figure 1 - OWASP Application Security Verification Standard 3.0 Levels</p>
+<p>Figure 1 - OWASP Application Security Verification Standard 3.1 Levels</p>
 <h2 id="how-to-use-this-standard">How to use this standard</h2>
 <p>One of the best ways to use the Application Security Verification Standard is to use it as blueprint create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus on the security requirements that are most important to your projects and environments.</p>
 <h3 id="level-1-opportunistic">Level 1: Opportunistic</h3>
@@ -79,94 +71,47 @@ The Application Security Verification Standard defines three security verificati
 <p>Level 1 is typically appropriate for applications where low confidence in the correct use of security controls is required, or to provide a quick analysis of a fleet of enterprise applications, or assisting in developing a prioritized list of security requirements as part of a multi-phase effort. Level 1 controls can be ensured either automatically by tools or simply manually without access to source code. We consider Level 1 the minimum required for all applications.</p>
 <p>Threats to the application will most likely be from attackers who are using simple and low effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If data processed by your application has high value, you would rarely want to stop at a Level 1 review.</p>
 <h3 id="level-2-standard">Level 2: Standard</h3>
-<p>An application achieves ASVS Level 2 (or Standard) if it adequately defends against most of the risks associated with software today.<br />
-Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets.<br />
-Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.</p>
+<p>An application achieves ASVS Level 2 (or Standard) if it adequately defends against most of the risks associated with software today.</p>
+<p>Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets.</p>
+<p>Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.</p>
 <h3 id="level-3-advanced">Level 3: Advanced</h3>
 <p>ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc.</p>
-<p>Organisations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.<br />
-An application at ASVS Level 3 requires more in depth analysis, architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate e.g. resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defence in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), non-repudiation, authorization, and auditing (logging).</p>
+<p>Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.</p>
+<p>An application at ASVS Level 3 requires more in depth analysis, architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate e.g. resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defense in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), non-repudiation, authorization, and auditing (logging).</p>
 <h2 id="applying-asvs-in-practice">Applying ASVS in Practice</h2>
 <p>Different threats have different motivations. Some industries have unique information and technology assets and domain specific regulatory compliance requirements.</p>
-<p>Below we provide industry-specific guidance regarding recommended ASVS levels. Although some unique criteria and some differences in threats exist for each industry, a common theme throughout all industry segments is that opportunistic attackers will look for any easily exploitable vulnerable applications, which is why ASVS Level 1 is recommended for all applications regardless of industry. This is a suggested starting point to manage the easiest to find risks. Organizations are strongly encouraged to look more deeply at their unique risk characteristics based on the nature of their business. At the other end of the spectrum is ASVS Level 3, which is reserved for those cases that might endanger human safety or when a full application breach could severely impact the organization.</p>
-<table style="width:21%;">
-<colgroup>
-<col style="width: 4%" />
-<col style="width: 4%" />
-<col style="width: 4%" />
-<col style="width: 4%" />
-<col style="width: 4%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Industry</th>
-<th>Threat Profile</th>
-<th>L1 Recommendation</th>
-<th>L2 Recommendation</th>
-<th>L3 Recommendation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Finance and Insurance</td>
-<td>Although this segment will experience attempts from opportunistic attackers, it is often viewed as a high value target by motivated attackers and attacks are often financially motivated. Commonly, attackers are looking for sensitive data or account credentials that can be used to commit fraud or to benefit directly by leveraging money movement functionality built into applications. Techniques often include stolen credentials, application-level attacks, and social engineering. Some major compliance considerations include Payment Card Industry Data Security Standard (PCI DSS),Gramm Leech Bliley Act and</td>
-</tr>
-<tr class="even">
-<td>Sarbanes-Oxley Act (SOX).</td>
-<td>Although this segment will experience attempts from opportunistic attackers, it is often viewed as a high value target by motivated attackers and attacks are often financially motivated. Commonly, attackers are looking for sensitive data or account credentials that can be used to commit fraud or to benefit directly by leveraging money movement functionality built into applications. Techniques often include stolen credentials, application-level attacks, and social engineering. Some major compliance considerations include Payment Card Industry Data Security Standard (PCI DSS),Gramm Leech Bliley Act and</td>
-</tr>
-<tr class="odd">
-<td>Sarbanes-Oxley Act (SOX). All network accessible applications.</td>
-<td>Applications that contain sensitive information like credit card numbers, personal information, that can move limited amounts of money in limited ways. Examples include:</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>transfer money between accounts at the same institution or</li>
-<li>a slower form of money movement (e.g. ACH) with transaction limits or</li>
-<li>wire transfers with hard transfer limits within a period of time. | Applications that contain sensitive information like credit card numbers, personal information, that can move limited amounts of money in limited ways. Examples include:</li>
-<li>transfer money between accounts at the same institution or</li>
-<li>a slower form of money movement (e.g. ACH) with transaction limits or</li>
-<li>wire transfers with hard transfer limits within a period of time. Applications that contain large amounts of sensitive information or that allow either rapid transfer of large sums of money (e.g. wire transfers) and/or transfer of large sums of money in the form of individual transactions or as a batch of smaller transfers. |</li>
-</ul>
+<p>Below we provide industry-specific guidance regarding recommended ASVS levels. Although some unique criteria and some differences in threats exist for each industry, a common theme throughout all industry segments is that opportunistic attackers will look for any easily exploitable vulnerable applications, which is why ASVS Level 1 is recommended for all applications regardless of industry. This is a suggested starting point to manage the easiest to find risks.</p>
+<p>Organizations are strongly encouraged to look more deeply at their unique risk characteristics based on the nature of their business. At the other end of the spectrum is ASVS Level 3, which is reserved for those cases that might endanger human safety or when a full application breach could severely impact the organization.</p>
+<p>TBD - Need to re-do case studies / applicability.</p>
 <h1 id="assessment-and-certification">Assessment and Certification</h1>
-<h2 id="owasps-stance-on-masvs-certifications-and-trust-marks">OWASP's Stance on MASVS Certifications and Trust Marks</h2>
-<p>OWASP, as a vendor-neutral not-for-profit organization, does not certify any vendors, verifiers or software.</p>
+<h2 id="owasps-stance-on-asvs-certifications-and-trust-marks">OWASP's Stance on ASVS Certifications and Trust Marks</h2>
+<p>OWASP, as a vendor-neutral not-for-profit organization, does not currently certify any vendors, verifiers or software.</p>
 <p>All such assurance assertions, trust marks, or certifications are not officially vetted, registered, or certified by OWASP, so an organization relying upon such a view needs to be cautious of the trust placed in any third party or trust mark claiming ASVS certification.</p>
 <p>This should not inhibit organizations from offering such assurance services, as long as they do not claim official OWASP certification.</p>
-<h2 id="guidance-for-certifying-mobile-apps">Guidance for Certifying Mobile Apps</h2>
-<p>The recommended way of verifying compliance of a mobile app with the MASVS is by performing an &quot;open book&quot; review, meaning that the testers are granted access to key resources such as architects and developers of the app, project documentation, source code, and authenticated access to endpoints, including access to at least one user account for each role.</p>
-<p>It is important to note that the MASVS only covers security of the (client-side) mobile app and the network communication between the app and its remote endpoint(s), as well as a few basic and generic requirements related to user authentication and session management. It does not contain specific requirements for the remote services (e.g. web services) associated with the app, safe for a limited set of generic requirements pertaining to authentication and session management. However, MASVS V1 specifies that remote services must be covered by the overall threat model, and be verified against appropriate standards, such as the OWASP ASVS.</p>
-<p>A certifying organization must include in any report the scope of the verification (particularly if a key component is out of scope), a summary of verification findings, including passed and failed tests, with clear indications of how to resolve the failed tests. Keeping detailed work papers, screenshots or movies, scripts to reliably and repeatedly exploit an issue, and electronic records of testing, such as intercepting proxy logs and associated notes such as a cleanup list, is considered standard industry practice. It is not sufficient to simply run a tool and report on the failures; this does not provide sufficient evidence that all issues at a certifying level have been tested and tested thoroughly. In case of dispute, there should be sufficient supportive evidence to demonstrate that every verified requirement has indeed been tested.</p>
-<h3 id="using-the-owasp-mobile-security-testing-guide-mstg">Using the OWASP Mobile Security Testing Guide (MSTG)</h3>
-<p>The OWASP MSTG is a manual for testing the security of mobile apps. It describes the technical processes for verifying the requirements listed in the MASVS. The MSTG includes a list of test cases, each of which map to a requirement in the MASVS. While the MASVS requirements are high-level and generic, the MSTG provides in-depth recommendations and testing procedures on a per-mobile-OS basis.</p>
+<h2 id="guidance-for-certifying-organizations">Guidance for Certifying Organizations</h2>
+<p>The Application Security Verification Standard can be used as an open book verification of the application, including open and unfettered access to key resources such as architects and developers, project documentation, source code, authenticated access to test systems (including access to at least one account in each role), particularly for L2 and L3 verifications.</p>
+<p>Historically, penetration testing and secure code reviews have included issues “by exception” - that is only failed issues appear in the final report. A certifying organization must include in any report the scope of the verification (particularly if a key component is out of scope, such as SSO authentication), a summary of verification findings, including passed and failed tests, with clear indications of how to resolve the failed tests.</p>
+<p>Keeping detailed work papers, screenshots or movies, scripts to reliably and repeatedly exploit an issue, and electronic records of testing, such as intercepting proxy logs and associated notes such as a cleanup list, is considered standard industry practice and can be really useful as proofs of the findings for the most doubts developers. It is not sufficient to simply run a tool and report on the failures; this does not (at all) provide sufficient evidence that all issues at a certifying level have been tested and tested thoroughly. In case of dispute, there should be sufficient assurance evidence to demonstrate each and every verified requirement has indeed been tested.</p>
 <h3 id="the-role-of-automated-security-testing-tools">The Role of Automated Security Testing Tools</h3>
-<p>The use of source code scanners and black-box testing tools is encouraged in order to increase efficiency whenever possible. It is however not possible to complete MASVS verification using automated tools alone: Every mobile app is different, and understanding the overall architecture, business logic, and technical pitfalls of the specific technologies and frameworks being used, is a mandatory requirement to verify security of the app.</p>
-<h2 id="other-uses">Other Uses</h2>
+<p>Automated penetration tools are encouraged to provide as much as possible coverage and to exercise as many parameters as possible with many different forms of malicious inputs as possible.</p>
+<p>It is not possible to fully complete ASVS verification using automated penetration testing tools alone. Whilst a large majority of requirements in L1 can be performed using automated tests, the overall majority of requirements are not amenable to automated penetration testing.</p>
+<p>Please note that the lines between automated and manual testing have blurred as the application security industry matures. Automated tools are often manually tuned by experts and manual testers often leverage a wide variety of automated tools.</p>
+<h2 id="the-role-of-penetration-testing">The Role of Penetration Testing</h2>
+<p>It is possible to perform a manual penetration test and verify all L1 issues without requiring access to source code, but this is not a leading practice. L2 requires at least some access to developers, documentation, code, and authenticated access to the system. Complete penetration testing coverage at Level 3 is not possible, as most of the additional issues involve review of system configuration, malicious code review, threat modeling, and other non-penetration testing artifacts.</p>
 <h3 id="as-detailed-security-architecture-guidance">As Detailed Security Architecture Guidance</h3>
-<p>One of the more common uses for the Mobile Application Security Verification Standard is as a resource for security architects. The two major security architecture frameworks, SABSA or TOGAF, are missing a great deal of information that is necessary to complete mobile application security architecture reviews. MASVS can be used to fill in those gaps by allowing security architects to choose better controls for issues common to mobile apps.</p>
+<p>One of the more common uses for the Application Security Verification Standard is as a resource for security architects. The two major security architecture frameworks, SABSA or TOGAF, are missing a great deal of information that is necessary to complete application security architecture review. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies.</p>
 <h3 id="as-a-replacement-for-off-the-shelf-secure-coding-checklists">As a Replacement for Off-the-shelf Secure Coding Checklists</h3>
-<p>Many organizations can benefit from adopting the MASVS, by choosing one of the two levels, or by forking MASVS and changing what is required for each application's risk level in a domain-specific way. We encourage this type of forking as long as traceability is maintained, so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard evolves.</p>
-<h3 id="as-a-basis-for-security-testing-methodologies">As a Basis for Security Testing Methodologies</h3>
-<p>A good mobile app security testing methodology should cover all requirements listed in the MASVS. The OWASP Mobile Security Testing Guide (MSTG) describes black-box and white-box test cases for each verification requirement.</p>
+<p>Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain specific way. We encourage this type of forking as long as traceability is maintained, so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.</p>
 <h3 id="as-a-guide-for-automated-unit-and-integration-tests">As a Guide for Automated Unit and Integration Tests</h3>
-<p>The MASVS is designed to be highly testable, with the sole exception of architectural requirements. Automated unit, integration and acceptance testing based on the MASVS requirements can be integrated in the continuous development lifecycle. This not only increases developer security awareness, but also improves the overall quality of the resulting apps, and reduces the amount of findings during security testing in the pre-release phase.</p>
+<p>The ASVS is designed to highly testable, with the sole exception of architectural and malicious code requirements. By building unit and integration tests that test for specific and relevant fuzz and abuse cases, the application becomes nearly self-verifying with each and every build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, account enumeration, and more.</p>
 <h3 id="for-secure-development-training">For Secure Development Training</h3>
-<p>MASVS can also be used to define characteristics of secure mobile apps. Many &quot;secure coding&quot; courses are simply ethical hacking courses with a light smear of coding tips. This does not help developers. Instead, secure development courses can use the MASVS, with a strong focus on the proactive controls documented in the MASVS, rather than e.g. the Top 10 code security issues.</p>
+<p>ASVS can also be used to define characteristics of secure software. Many “secure coding” courses are simply ethical hacking courses with a light smear of coding tips. This does not help developers. Instead, secure development courses can use the ASVS with a strong focus on the proactive controls found in the ASVS, rather than the Top 10 negative things not to do.</p>
 <h1 id="v1-architecture-design-and-threat-modeling-requirements">V1: Architecture, Design and Threat Modeling Requirements</h1>
 <h2 id="control-objective">Control Objective</h2>
 <p>In a perfect world, security would be considered throughout all phases of development. In reality however, security is often only a consideration at a late stage in the SDLC. Besides the technical controls, the ASVS requires processes to be in place that ensure that the security has been explicitly addressed when planning the architecture of the application or API, and that the functional and security roles of all components are known. Since single page applications and act as clients to remote API or services, it must be ensured that appropriate security standards are also applied to those services - testing the app in isolation is not sufficient.</p>
-<p>The category “V1” lists requirements pertaining to architecture and design of the app. As such, this is the only category that does not map to technical test cases in the OWASP Testing Guide. To cover topics such as threat modelling, secure SDLC, key management, users of the ASVS should consult the respective OWASP projects and/or other standards such as the ones linked below.</p>
+<p>The category “V1” lists requirements pertaining to architecture and design of the app. As such, this is the only category that does not map to technical test cases in the OWASP Testing Guide. To cover topics such as threat modeling, secure SDLC, key management, users of the ASVS should consult the respective OWASP projects and/or other standards such as the ones linked below.</p>
 <h2 id="security-verification-requirements">Security Verification Requirements</h2>
-<table style="width:31%;">
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 4%" />
-<col style="width: 4%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th>#</th>
@@ -260,7 +205,7 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </tr>
 <tr class="odd">
 <td><strong>1.11</strong></td>
-<td>all application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities</td>
+<td>All application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities.</td>
 <td></td>
 <td>✓</td>
 <td>✓</td>
@@ -290,7 +235,435 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </ul>
 <h1 id="v2-authentication-verification-requirements">V2: Authentication Verification Requirements</h1>
 <h2 id="control-objective-1">Control Objective</h2>
-<p>TBA.</p>
+<p>Authentication is the act of establishing, or confirming, something (or someone) as authentic, that is, that claims made by a person or about a device are true, resistant to impersonation, and prevents recovery or interception of memorized secrets (passwords).</p>
+<p>NIST 800-63 is a modern, evidence based standard, and represents the best advice available in 2018. The standard is extremely helpful for all organizations all over the world, but is particularly relevant to US agencies and those dealing with US agencies. Implementers requiring the full set of controls should review the entire standard, especially regarding evidence of identity, identity binding, identity assertion, the deployment and management of multi-factor, biometric and crypto devices, security usability, and a great deal more advanced topics.</p>
+<p>Verifications below are selected to address modern authentication threats such as credential stuffing, phishing, breached, weak or default memorized secrets, but by necessity are not a complete set of controls. If you require full NIST 800-63 compliance, please use this list as unit or integration tests to demonstrate a sampling of essential controls. Full compliance with the ASVS 3.1 is not the same as full compliance with NIST 800-63.</p>
+<p>ASVS V2 Authentication, V3 Session Management, and V4 Access Controls has been adapted to be a compliant subset of selected NIST 800-63 B controls, focused around commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to either be identical or strongly aligned with the intent of NIST 800-63 normative (mandatory) requirements. New NIST 800-63 verifications are enumerated from V2.40 onwards.</p>
+<p>Authentication Access Levels (AAL) replace L1 .. L3 in these chapters. You should use NIST 800-63 § 6.2 to determine the correct authentication assurance level (AAL) for your application. In some cases, AAL1 weakens L1 controls as documented in previous versions of ASVS. If you wish to retain those controls, choose AAL2 or AAL3 instead as per the risk of your application.</p>
+<p>We strongly urge everyone to adopt NIST 800-63, and align any policies, guidelines and standards with it, such as we've done here.</p>
+<h2 id="authentication-verification-requirements">Authentication Verification Requirements</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Description</th>
+<th>AAL1</th>
+<th>AAL2</th>
+<th>AAL3</th>
+<th>Since</th>
+<th>NIST §</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>2.1</strong></td>
+<td>Verify authenticators are resistant to compromise, such as enforcing authentication decisions on a trusted device or service.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.2.7</td>
+</tr>
+<tr class="even">
+<td><strong>2.2</strong></td>
+<td>Verify authenticators CANNOT store or return plain text memorized secrets, either as hidden or visible form fields, query parameters, cookie values, HTTP headers, emails, or SMS messages.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.1.1</td>
+</tr>
+<tr class="odd">
+<td><strong>2.6</strong></td>
+<td>Verify authentication controls fail securely to ensure attackers cannot log in by inducing errors or exceptions.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>1.0</td>
+<td>Implicit</td>
+</tr>
+<tr class="even">
+<td><strong>2.7</strong></td>
+<td>Verifiers SHALL require memorized secrets to be at least 8 characters in length. Verifiers SHOULD permit memorized secrets at least 64 characters in length.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.1.1.2</td>
+</tr>
+<tr class="odd">
+<td><strong>2.8</strong></td>
+<td>Verify all identity proofing functions (registration, login, credential reset, MFA device enrollment, lookup code entry, and so on) are secured by equivalent security controls.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>Implicit</td>
+</tr>
+<tr class="even">
+<td><strong>2.9</strong></td>
+<td>Verify change memorized secret includes the old secret, the new secret and confirmation secret, and if used by the user, a valid multi-factor authentication challenge.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td><strong>2.12</strong></td>
+<td>Verify all authentication decisions are logged, without storing sensitive session identifiers or memorized secrets. This should include requests with relevant metadata needed for security investigations.</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td><strong>2.13</strong></td>
+<td>Verifiers SHALL store memorized secrets in a form that is resistant to offline attacks. Memorized secrets SHALL be salted and hashed using a suitable one way key derivation function. Key derivation functions take a memorized secret, a salt, and a cost factor as inputs, and then generate a memorized secret.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.1.1.1</td>
+</tr>
+<tr class="odd">
+<td><strong>2.16</strong></td>
+<td>Verify communication between the claimant and verifier (the primary channel in the case of an out-of-band authenticator) SHALL be via an authenticated protected channel to provide confidentiality of the authenticator output and resistance to man in the middle attacks.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="even">
+<td><strong>2.17</strong></td>
+<td>Verify memorized secret credential recovery, does not reveal the current memorized secret and that a system generated new memorized secret is not sent in clear text to the user. Lookup codes or a random, time limited one time reset link should be used instead.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.18</strong></td>
+<td>Verify credential or profile enumeration is not possible via registration, login, credential reset functionality.</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td><strong>2.19</strong></td>
+<td>Removed. Default and weak memorized secrets are now covered by 2.27.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>2.0</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.20</strong></td>
+<td>Verify anti-automation or rate limiting is in place and effective to prevent breached credential testing, brute forcing, and account lockout attacks.</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.2.2</td>
+</tr>
+<tr class="even">
+<td><strong>2.21</strong></td>
+<td>Integration memorized secrets SHOULD NOT rely on unchanging memorized secrets, such as API keys or shared privileged accounts. If memorized secrets are required, the credential should not be a default account, and stored with sufficient protection to prevent offline recovery attacks, including local system access.</td>
+<td>Software</td>
+<td>OS assisted</td>
+<td>HSM</td>
+<td>3.1</td>
+<td>5.1.1.1</td>
+</tr>
+<tr class="odd">
+<td><strong>2.22</strong></td>
+<td>Verify forgotten memorized secret and other recovery paths use a TOTP or other soft token, mobile push, or other offline recovery mechanism. The use of PSTN verifiers (such as SMS tokens) has been deprecated by NIST and SHOULD NOT be used.</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="even">
+<td><strong>2.23</strong></td>
+<td>Verify the authenticator permits at least 10 attempts before soft lock out, particularly where longer memorized secrets are required. Including meaningful feedback on the number of attempts left.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.24</strong></td>
+<td>Removed. Shared knowledge questions/answers MUST NOT be present.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="even">
+<td><strong>2.25</strong></td>
+<td>Removed. Password history SHOULD NOT be enforced.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.26</strong></td>
+<td>Verify if authenticators permit users to remain logged in, that re-authentication occurs periodically both when actively used or after an idle period.</td>
+<td>30 days</td>
+<td>12 hours or 30 minutes of inactivity, 2FA optional</td>
+<td>12 hours or 15 minutes of inactivity, with 2FA</td>
+<td>3.1</td>
+<td>4.5</td>
+</tr>
+<tr class="even">
+<td><strong>2.27</strong></td>
+<td>Verify authenticators prevent the use of breached, weak, default, common memorized secrets (PINS, memorized secrets and pass-phrases).</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.1.1</td>
+</tr>
+<tr class="odd">
+<td><strong>2.28</strong></td>
+<td>Verify hardware-based authenticators and verifiers SHOULD resist relevant side-channel (e.g., timing and power-consumption analysis) attacks. Relevant side-channel attacks SHALL be determined by a risk assessment performed by the CSP.</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>3.1</td>
+<td>4.3.2</td>
+</tr>
+<tr class="even">
+<td><strong>2.29</strong></td>
+<td>Verify memorized secrets, integrations with databases and third party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a software secure key store (L1), hardware trusted platform module (TPM), or hardware security module (L3) is recommended for memorized secret storage.</td>
+<td>Software</td>
+<td>OS assisted</td>
+<td>HSM</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.32</strong></td>
+<td>Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="even">
+<td><strong>2.33</strong></td>
+<td>Verify the application allows paste into memorized secret fields, can show the memorized secret at the user's request, potentially show the last typed character for a second or two, and is compatible with browser based and third party credential managers.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.34</strong></td>
+<td>Verify that users can change their memorized secret or MFA enrollment.</td>
+<td>SFA</td>
+<td></td>
+<td></td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="even">
+<td><strong>2.41</strong></td>
+<td>Verify the permitted authenticator types TBA</td>
+<td>SFA</td>
+<td></td>
+<td></td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.42</strong></td>
+<td>Verify encryption of memorized secrets complies uses with FIPS 140 approved algorithms and verification levels. Key length SHALL comply with NIST 800-131A, with a minimum key length of 112 bits. Salts SHALL be securely randomly generated, and be no less than 32 bits in length.</td>
+<td>Level 1</td>
+<td>Level 1</td>
+<td>Level 2 Overall</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="even">
+<td><strong>2.43</strong></td>
+<td>Verify the authentication system is man-in-the-middle resistant, such as mandatory use of TLS certificates</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+<tr class="odd">
+<td><strong>2.44</strong></td>
+<td>Verify the authentication system is impersonation resistant, such as anti-phishing countermeasures or mutual authentication TLS connections.</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.2.3</td>
+</tr>
+<tr class="even">
+<td><strong>2.45</strong></td>
+<td>Verify the authentication system is compromise resistant, such as memorized secret breaches and/or client device reputation, and other controls.</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.2.7</td>
+</tr>
+<tr class="odd">
+<td><strong>2.46</strong></td>
+<td>Verify the authentication system is replay resistant, such as ensuring session or bearer tokens cannot be easily be captured or replayed by attackers.</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.2.28</td>
+</tr>
+<tr class="even">
+<td><strong>2.4x</strong></td>
+<td>Verify the authentication system explicitly challenges the user on each authentication request.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.2.9</td>
+</tr>
+<tr class="odd">
+<td><strong>2.47</strong></td>
+<td>Verify authentication challenges SHOULD be rate limited.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.2.2</td>
+</tr>
+<tr class="even">
+<td><strong>2.48</strong></td>
+<td>Verify memorized secret activation SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.1.1.2 / A.3</td>
+</tr>
+<tr class="odd">
+<td><strong>2.49</strong></td>
+<td>Verify identities cannot cannot be re-bound to a different identity (spoofing).</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.1.1.2 / A.3</td>
+</tr>
+<tr class="even">
+<td><strong>2.50</strong></td>
+<td>Verify Replay resistance.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+<td>5.1.1.2 / A.3</td>
+</tr>
+</tbody>
+</table>
+<p>Authentication intent Record retention policy Privacy controls</p>
+<h2 id="optional-requirement">Optional requirement</h2>
+<p>For US Government agencies and advanced verifiers, NIST 800-63 requires the following</p>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Description</th>
+<th>AAL1</th>
+<th>AAL2</th>
+<th>AAL3</th>
+<th>Since</th>
+<th>NIST §</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>2.50</strong></td>
+<td>Verify security controls adhere to the indicated NIST 800-53 baseline or equivalent.</td>
+<td>Low</td>
+<td>Moderate</td>
+<td>High</td>
+<td>3.1</td>
+<td>TBA</td>
+</tr>
+</tbody>
+</table>
+<p>Privacy compliance 9.4</p>
+<h2 id="glossary-of-terms">Glossary of terms</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CSP</td>
+<td>Credential Service Provider, also called an Identity Provider</td>
+</tr>
+<tr class="even">
+<td>Authenticator</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Verifier</td>
+<td>&quot;An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status&quot;</td>
+</tr>
+<tr class="even">
+<td>OTP</td>
+<td>One time password</td>
+</tr>
+<tr class="odd">
+<td>SFA</td>
+<td>Single factor authenticator, such as something you know (memorized secrets, passwords, pass phrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, cryptographic device such as a smart card),</td>
+</tr>
+<tr class="even">
+<td>MFA</td>
+<td>Multi factor authenticator, which includes two or more single factors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references-1">References</h2>
+<p>For more information, see also:</p>
+<ul>
+<li><a href="TBA">NIST 800-63 - TBA</a></li>
+<li><a href="TBA">NIST 800-63 A - Digital Identity and Authentication Lifecycle</a></li>
+<li><a href="TBA">NIST 800-63 B - TBA</a></li>
+<li><a href="TBA">NIST 800-63 C - TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_authentication">OWASP Testing Guide 4.0: Testing for Authentication</a></li>
+<li><a href="https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet">Password storage cheat sheet</a></li>
+<li><a href="https://www.owasp.org/index.php/Forgot_Password_Cheat_Sheet">Forgot password cheat sheet</a></li>
+<li><a href="https://www.owasp.org/index.php/Choosing_and_Using_Security_Questions_Cheat_Sheet">Choosing and Using Security Questions at</a></li>
+</ul>
+<h1 id="v3-session-management-verification-requirements">V3: Session Management Verification Requirements</h1>
+<h2 id="control-objective-2">Control Objective</h2>
+<p>One of the core components of any web-based application is the mechanism by which it controls and maintains the state for a user interacting with it. This is referred to this as Session Management and is defined as the set of all controls governing state-full interaction between a user and the web-based application.</p>
+<p>Ensure that a verified application satisfies the following high level session management requirements:</p>
+<ul>
+<li>Sessions are unique to each individual and cannot be guessed or shared.</li>
+<li>Sessions are invalidated when no longer required and timed out during periods of inactivity.</li>
+</ul>
 <h2 id="security-verification-requirements-1">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -305,358 +678,109 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>3.2</strong></td>
+<td>Verify that sessions are invalidated when the user logs out.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>3.3</strong></td>
+<td>Verify that sessions timeout after a specified period of inactivity.</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td><strong>3.4</strong></td>
+<td>Verify that sessions timeout after an administratively-configurable maximum time period regardless of activity (an absolute timeout).</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td><strong>3.5</strong></td>
+<td>Verify that all pages that require authentication have easy and visible access to logout functionality.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>3.6</strong></td>
+<td>Test that the session ID is never disclosed in URLs, error messages, or logs. This includes verifying that the application does not support URL rewriting of session cookies.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>3.10</strong></td>
+<td>Verify that only session IDs generated by the application framework are recognized as valid by the application.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>3.11</strong></td>
+<td>Test session IDs against criteria such as their randomness, uniqueness, length, resistance to statistical and cryptographic analysis and information leakage.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>3.12</strong></td>
+<td>Verify that session IDs stored in cookies are scoped using the 'path' attribute, and have the 'HttpOnly', 'Secure', and 'SameSite' cookie flags enabled.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>3.17</strong></td>
+<td>Verify that the application can list active sessions so users can terminate hostile sessions that they own.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>3.18</strong></td>
+<td>Verify that the user is prompted with the option to terminate all other active sessions after a successful change password process.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>3.19</strong></td>
+<td>Verify that stateless artifacts that represent sessions are properly signed and verified.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-1">References</h2>
+<h2 id="references-2">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_Session_Management">OWASP Testing Guide 4.0: Session Management Testing</a></li>
+<li><a href="https://www.owasp.org/index.php/Session_Management_Cheat_Sheet">OWASP Session Management Cheat Sheet</a></li>
 </ul>
-<h1 id="v3-session-management-verification-requirements">V3: Session Management Verification Requirements</h1>
-<h2 id="control-objective-2">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v4-access-control-verification-requirements">V4: Access Control Verification Requirements</h1>
+<h2 id="control-objective-3">Control Objective</h2>
+<p>Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>Persons accessing resources holds valid credentials to do so.</li>
+<li>Users are associated with a well-defined set of roles and privileges.</li>
+<li>Role and permission metadata is protected from replay or tampering.</li>
+</ul>
 <h2 id="security-verification-requirements-2">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -671,358 +795,128 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.1</strong></td>
+<td>Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.4</strong></td>
+<td>Verify that sensitive data and APIs are protected against direct object attacks targeting creation, reading, updating and deletion of records.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>3.1</td>
+</tr>
+<tr class="odd">
+<td><strong>4.5</strong></td>
+<td>Verify that directory browsing is disabled unless deliberately desired. Additionally, applications should not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders.</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td><strong>4.8</strong></td>
+<td>Verify that access controls fail securely.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.9</strong></td>
+<td>Verify that the same access control rules implied by the presentation layer are enforced on the server side.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>4.10</strong></td>
+<td>Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.11</strong></td>
+<td>Verify that there is preferably only one vetted access control mechanism for protecting access to protected data and resources, such that hard coded access control checks are not required throughout the application.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.12</strong></td>
+<td>Verify that all access control decisions can be logged and all failed decisions are logged.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.13</strong></td>
+<td>Verify that the application or framework enforces a strong anti-CSRF mechanism any sensitive functionality.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.14</strong></td>
+<td>Verify the application has sufficient anti-automation to detect and protect against data exfiltration, excessive business logic requests, or denial of service attacks.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.15</strong></td>
+<td>Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.16</strong></td>
+<td>Verify that access control policy is enforced by trusted server-side components.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>4.17</strong></td>
+<td>Verify that data-level access control is implemented such that access to individual records can be managed in a centralized and standard way.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-2">References</h2>
+<h2 id="references-3">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_Authorization">OWASP Testing Guide 4.0: Authorization</a></li>
+<li><a href="https://www.owasp.org/index.php/Access_Control_Cheat_Sheet">OWASP Cheat Sheet: Access Control</a></li>
+<li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet">OWASP CSRF Cheat Sheet</a></li>
+<li><a href="https://www.owasp.org/index.php/REST_Security_Cheat_Sheet">OWASP REST Cheat Sheet</a></li>
+<li>Anti-automation can be achieved in many ways, including the user of <a href="https://www.owasp.org/index.php/OWASP_AppSensor_Project">OWASP AppSensor</a> and <a href="https://www.owasp.org/index.php/OWASP_Automated_Threats_to_Web_Applications">OWASP Automated Threats to Web Applications</a></li>
 </ul>
-<h1 id="v4-access-control-verification-requirements">V4: Access Control Verification Requirements</h1>
-<h2 id="control-objective-3">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v5-input-validation-and-output-encoding-verification-requirements">V5: Input Validation and Output Encoding Verification Requirements</h1>
+<h2 id="control-objective-4">Control Objective</h2>
+<p>The most common web application security weakness is the failure to properly validate input coming from the client or from the environment before using it. This weakness leads to almost all of the major vulnerabilities in web applications, such as cross site scripting, SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.</p>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>All input is validated to be correct and fit for the intended purpose.</li>
+<li>Data from an external entity or client should never be trusted and should be handled accordingly.</li>
+</ul>
 <h2 id="security-verification-requirements-3">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -1037,358 +931,194 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.3</strong></td>
+<td>Verify that server side input validation failures result in request rejection and are logged.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.5</strong></td>
+<td>Verify that input validation is enforced on the server side.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.6</strong></td>
+<td>Verify that a centralized input validation control mechanism is used by the application.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.10</strong></td>
+<td>Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL, XPath, LDAP) are protected from respective injection attacks. In cases where query parameterization or escaping is not possible for certain variables, be sure to strictly validate or whitelist the data, such as ORDER BY values or column names.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.11</strong></td>
+<td>Verify that the application is not susceptible to LDAP Injection, or that security controls prevent LDAP Injection.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.12</strong></td>
+<td>Verify that the application is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.13</strong></td>
+<td>Verify that the application is not susceptible to Remote File Inclusion (RFI) or Local File Inclusion (LFI) when content is used that is a path to a file.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.14</strong></td>
+<td>Verify that the application is not susceptible XPath injection or XML injection attacks.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.15</strong></td>
+<td>Verify that all string variables placed into HTML or other web client code are either properly contextually encoded manually, or utilize templates that automatically contextually encode to ensure the application is not susceptible to reflected, stored or DOM Cross-Site Scripting (XSS) attacks.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.16</strong></td>
+<td>Verify that the application does not contain mass parameter assignment (AKA automatic variable binding) vulnerabilities.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.17</strong></td>
+<td>Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, environment, etc).</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.19</strong></td>
+<td>Verify that all input data is validated, not only HTML form fields but all sources of input such as REST calls, query parameters, HTTP headers, cookies, batch files, RSS feeds, etc; using positive validation (whitelisting), then lesser forms of validation such as grey listing (eliminating known bad strings), or rejecting bad inputs (blacklisting).</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.20</strong></td>
+<td>Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as validating suburbs and zip or post codes match).</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.21</strong></td>
+<td>Verify that unstructured data is sanitized to enforce generic safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. natural names with Unicode or apostrophes, such as ねこ or O'Hara).</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.22</strong></td>
+<td>Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.24</strong></td>
+<td>Verify that where data is transferred from one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.25</strong></td>
+<td>Verify when parsing JSON in browsers or JavaScript based backends, that JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.27</strong></td>
+<td>Verify the application for Server Side Request Forgery vulnerabilities.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.28</strong></td>
+<td>Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that dangerous features such as resolving external entities are disabled.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>5.29</strong></td>
+<td>Verify that deserialization of untrusted data is avoided or is extensively protected when deserialization cannot be avoided.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-3">References</h2>
+<h2 id="references-4">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_Input_Validation">OWASP Testing Guide 4.0: Input Validation Testing</a></li>
+<li><a href="https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet">OWASP Cheat Sheet: Input Validation</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_HTTP_Parameter_pollution_%28OTG-INPVAL-004%29">OWASP Testing Guide 4.0: Testing for HTTP Parameter Pollution</a></li>
+<li><a href="https://www.owasp.org/index.php/LDAP_Injection_Prevention_Cheat_Sheet">OWASP LDAP Injection Cheat Sheet </a></li>
+<li><a href="https://www.owasp.org/index.php/Client_Side_Testing">OWASP Testing Guide 4.0: Client Side Testing </a></li>
+<li><a href="https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet">OWASP Cross Site Scripting Prevention Cheat Sheet </a></li>
+<li><a href="https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet">OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet </a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project">OWASP Java Encoding Project</a></li>
 </ul>
-<h1 id="v5-input-validation-and-output-encoding-verification-requirements">V5: Input Validation and Output Encoding Verification Requirements</h1>
-<h2 id="control-objective-4">Control Objective</h2>
-<p>TBA.</p>
+<p>For more information on auto-escaping, please see:</p>
+<ul>
+<li><a href="http://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html">Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems</a></li>
+<li><a href="https://docs.angularjs.org/api/ng/service/$sce">AngularJS Strict Contextual Escaping</a></li>
+<li><a href="https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks">ReactJS Escaping</a></li>
+<li><a href="https://cwe.mitre.org/data/definitions/915.html">Improperly Controlled Modification of Dynamically-Determined Object Attributes</a></li>
+</ul>
+<h1 id="v7-cryptography-verification-requirements">V7: Cryptography Verification Requirements</h1>
+<h2 id="control-objective-5">Control Objective</h2>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>That all cryptographic modules fail in a secure manner and that errors are handled correctly.</li>
+<li>That a suitable random number generator is used when randomness is required.</li>
+<li>That access to keys is managed in a secure way.</li>
+</ul>
 <h2 id="security-verification-requirements-4">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -1403,358 +1133,95 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.2</strong></td>
+<td>Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable Padding Oracle attacks.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>7.6</strong></td>
+<td>Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the cryptographic module’s approved random number generator when these random values are intended to be not guessable by an attacker.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.7</strong></td>
+<td>Verify that cryptographic algorithms used by the application have been validated against FIPS 140-2 or an equivalent standard.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.11</strong></td>
+<td>Verify that consumers of cryptographic services do not have direct access to key material, such as by using key vaults or API based alternatives.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.12</strong></td>
+<td>Verify that Personally Identifiable Information (PII) and other sensitive data is stored encrypted while at rest.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.13</strong></td>
+<td>Verify that sensitive passwords or key material maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.14</strong></td>
+<td>Verify that all keys and passwords are replaceable, and are generated or replaced at installation time.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.15</strong></td>
+<td>Verify that random numbers are created with proper entropy even when the application is under heavy load, or that the application degrades gracefully in such circumstances.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>7.16</strong></td>
+<td>Verify that industry proven cryptographic modules are used instead of custom coded cryptography.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-4">References</h2>
+<h2 id="references-5">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_weak_Cryptography">OWASP Testing Guide 4.0: Testing for weak Cryptography</a></li>
+<li><a href="https://www.owasp.org/index.php/Cryptographic_Storage_Cheat_Sheet">OWASP Cheat Sheet: Cryptographic Storage</a></li>
 </ul>
-<h1 id="v7-cryptography-verification-requirements">V7: Cryptography Verification Requirements</h1>
-<h2 id="control-objective-5">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v8-error-handling-and-logging-verification-requirements">V8: Error Handling and Logging Verification Requirements</h1>
+<h2 id="control-objective-6">Control Objective</h2>
+<p>The primary objective of error handling and logging is to provide a useful reaction by the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high quality logs, with more signal than discarded noise.</p>
+<p>High quality logs will often contain sensitive data, and must be protected as per local data privacy laws or directives. This should include:</p>
+<ul>
+<li>Not collecting or logging sensitive information if not specifically required.</li>
+<li>Ensuring all logged information is handled securely and protected as per its data classification.</li>
+<li>Ensuring that logs are not forever, but have an absolute lifetime that is as short as possible.</li>
+</ul>
+<p>If logs contain private or sensitive data, the definition of which varies from country to country, the logs become some of the most sensitive information held by the application and thus very attractive to attackers in their own right.</p>
 <h2 id="security-verification-requirements-5">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -1769,358 +1236,110 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.1</strong></td>
+<td>Verify that the application does not output error messages or stack traces containing sensitive data that could assist an attacker, including session id, software/framework versions and personal information.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.2</strong></td>
+<td>Verify that error handling logic in security controls denies access by default.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.3</strong></td>
+<td>Verify that the application logs security relevant events.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>8.4</strong></td>
+<td>Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>8.5</strong></td>
+<td>Verify that all events that include untrusted data will not execute as code in the intended log viewing software.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>8.6</strong></td>
+<td>Verify that security logs are protected from unauthorized access and modification.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.7</strong></td>
+<td>Verify that the application does not log credentials, session tokens, payment instruments, or sensitive data, as defined under local privacy laws or relevant security policy.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.8</strong></td>
+<td>Verify the application appropriately encodes user supplied data to prevent log injection.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.10</strong></td>
+<td>Verify that an audit log allows reconstruction of a user's activity.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.12</strong></td>
+<td>Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>8.13</strong></td>
+<td>Verify that time sources are synchronized to the correct time and time zone.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-5">References</h2>
+<h2 id="references-6">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_Error_Handling">OWASP Testing Guide 4.0 content: Testing for Error Handling</a></li>
 </ul>
-<h1 id="v8-error-handling-and-logging-verification-requirements">V8: Error Handling and Logging Verification Requirements</h1>
-<h2 id="control-objective-6">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v9-data-protection-verification-requirements">V9: Data Protection Verification Requirements</h1>
+<h2 id="control-objective-7">Control Objective</h2>
+<p>There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.</p>
+<p>Applications have to assume that all user devices are compromised in some way. Where an application transmits or stores sensitive information on insecure devices, such as shared computers, phones and tablets, the application is responsible for ensuring data stored on these devices is encrypted and cannot be easily illicitly obtained, altered or disclosed.</p>
+<p>Ensure that a verified application satisfies the following high level data protection requirements:</p>
+<ul>
+<li>Confidentiality: Data should be protected from unauthorized observation or disclosure both in transit and when stored.</li>
+<li>Integrity: Data should be protected being maliciously created, altered or deleted by unauthorized attackers.</li>
+<li>Availability: Data should be available to authorized users as required.</li>
+</ul>
 <h2 id="security-verification-requirements-6">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -2135,358 +1354,125 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.2</strong></td>
+<td>Verify that sensitive data is classified and a policy is created for how access to this data must be protected.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.3</strong></td>
+<td>Verify that all sensitive data is sent to the server in the HTTP message body or headers (i.e., URL parameters are never used to send sensitive data).</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.4</strong></td>
+<td>Verify that the application sets sufficient anti-caching headers such that any sensitive and personal information displayed by the application or entered by the user should not be cached on disk by mainstream modern browsers (e.g. visit about:cache to review disk cache).</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>9.5</strong></td>
+<td>Verify that on the server, all cached or temporary copies of sensitive data stored are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.6</strong></td>
+<td>Verify that users have a method to remove or export their data on demand.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.7</strong></td>
+<td>Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.8</strong></td>
+<td>Verify the application has the ability to detect and alert on abnormal numbers of requests.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.9</strong></td>
+<td>Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies) does not contain sensitive data or PII.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.10</strong></td>
+<td>Verify accessing sensitive data is logged, if the data is collected under relevant data protection directives or where logging of accesses is required.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.11</strong></td>
+<td>Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.12</strong></td>
+<td>Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provides both confidentiality and integrity.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.13</strong></td>
+<td>Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt in consent for the use of that data before it is used in any way.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>9.14</strong></td>
+<td>Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-6">References</h2>
+<h2 id="references-7">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://securityheaders.io">Consider using Security Headers website to check security and anti-caching headers</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP_Secure_Headers_Project">OWASP Secure Headers project</a></li>
+<li><a href="https://www.owasp.org/index.php/User_Privacy_Protection_Cheat_Sheet">User Privacy Protection Cheat Sheet</a></li>
 </ul>
-<h1 id="v9-data-protection-verification-requirements">V9: Data Protection Verification Requirements</h1>
-<h2 id="control-objective-7">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v10-communications-verification-requirements">V10: Communications Verification Requirements</h1>
+<h2 id="control-objective-8">Control Objective</h2>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>That TLS is used where sensitive data is transmitted.</li>
+<li>That strong algorithms and ciphers are used at all times.</li>
+</ul>
 <h2 id="security-verification-requirements-7">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -2501,358 +1487,105 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>10.1</strong></td>
+<td>Verify that a path can be built from a trusted CA to each Transport Layer Security (TLS) server certificate, and that each server certificate is valid.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>10.3</strong></td>
+<td>Verify that TLS is used for all connections (including both external and backend connections) that are authenticated or that involve sensitive data or functions, and does not fall back to insecure or unencrypted protocols. Ensure the strongest alternative is the preferred algorithm.</td>
 <td>✓</td>
 <td>✓</td>
+<td>✓</td>
+<td>3.0</td>
+</tr>
+<tr class="odd">
+<td><strong>10.4</strong></td>
+<td>Verify that backend TLS connection failures are logged.</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td><strong>10.5</strong></td>
+<td>Verify that certificate paths are built and verified for all client certificates using configured trust anchors and revocation information.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>10.6</strong></td>
+<td>Verify that all connections to external systems that involve sensitive information or functions are authenticated.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>10.11</strong></td>
+<td>Verify that HTTP Strict Transport Security headers are included on all requests and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>10.12</strong></td>
+<td>Verify that the application's URL has been submitted to a preloaded list of Strict Transport Security domains maintained by web browser vendors. Please see the references below.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>10.14</strong></td>
+<td>Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>10.15</strong></td>
+<td>Verify that only strong algorithms, ciphers, and protocols to provide both confidentiality and integrity.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>10.17</strong></td>
+<td>Verify that old versions of SSL and TLS settings are not used, such as SSLv2/3 or TLS 1.0. The latest version of TLS should be the preferred cipher suite.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-7">References</h2>
+<h2 id="references-8">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Transport_Layer_Protection_Cheat_Sheet">OWASP – TLS Cheat Sheet</a></li>
+<li>Notes on “Approved modes of TLS”. In the past, the ASVS referred to the US standard FIPS 140-2, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply. A better method of achieving compliance with 10.8 would be to review guides such as <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Mozilla's Server Side TLS</a> or <a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">generate known good configurations</a>, and use known TLS evaluation tools, such as sslyze, various vulnerability scanners or trusted TLS online assessment services to obtain a desired level of security. In general, we see non-compliance for this section being the use of outdated or insecure ciphers and algorithms, the lack of perfect forward secrecy, outdated or insecure SSL protocols, weak preferred ciphers, and so on.</li>
+<li><a href="https://tools.ietf.org/html/rfc7469">Certificate pinning</a>. The rationale behind certificate pinning for production and backup keys is <a href="https://noncombatant.org/2015/05/01/about-http-public-key-pinning/">business continuity</a></li>
+<li><a href="https://www.owasp.org/index.php/Pinning_Cheat_Sheet">OWASP Certificate Pinning Cheat Sheet</a></li>
+<li><a href="https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning">OWASP Certificate and Public Key Pinning</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning">Time of first use (TOFU) Pinning</a></li>
+<li><a href="https://www.chromium.org/hsts">Pre-loading HTTP Strict Transport Security</a></li>
 </ul>
-<h1 id="v10-communications-verification-requirements">V10: Communications Verification Requirements</h1>
-<h2 id="control-objective-8">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v11-http-security-configuration-verification-requirements">V11: HTTP Security Configuration Verification Requirements</h1>
+<h2 id="control-objective-9">Control Objective</h2>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>The application server is suitably hardened from a default configuration.</li>
+<li>HTTP responses contain a safe character set in the content type header.</li>
+</ul>
 <h2 id="security-verification-requirements-8">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -2867,358 +1600,97 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.1</strong></td>
+<td>Verify that the application server accepts the HTTP methods in use by the application or API, including pre-flight OPTIONS.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.2</strong></td>
+<td>Verify that every HTTP response contains a content type header specifying a safe character set (e.g., UTF-8, ISO 8859-1).</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.3</strong></td>
+<td>Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.4</strong></td>
+<td>Verify that a suitable X-FRAME-OPTIONS header is in use for sites where content should not be viewed in a 3rd-party X-Frame.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.5</strong></td>
+<td>Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.6</strong></td>
+<td>Verify that all API responses contain X-Content-Type-Options: nosniff and Content-Disposition: attachment; filename=&quot;api.json&quot; (or other appropriate filename for the content type).</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.7</strong></td>
+<td>Verify that a content security policy (CSPv2) is in place that helps mitigate common DOM, XSS, JSON, and JavaScript injection vulnerabilities.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.8</strong></td>
+<td>Verify that the X-XSS-Protection: 1; mode=block header is in place to enable browser reflected XSS filters.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>11.9</strong></td>
+<td>Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-8">References</h2>
-<p>For more information, see also:</p>
+<h2 id="references-9">References</h2>
+<p>For more information, please see:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_HTTP_Verb_Tampering_%28OTG-INPVAL-003%29">OWASP Testing Guide 4.0: Testing for HTTP Verb Tampering</a></li>
+<li>Adding Content-Disposition to API responses helps prevent many attacks based on misunderstanding on the MIME type between client and server, and the &quot;filename&quot; option specifically helps prevent <a href="https://www.blackhat.com/docs/eu-14/materials/eu-14-Hafif-Reflected-File-Download-A-New-Web-Attack-Vector.pdf">Reflected File Download attacks.</a></li>
+<li><a href="https://www.owasp.org/index.php?title=Content_Security_Policy_Cheat_Sheet">Content Security Policy Cheat Sheet</a></li>
+<li><a href="https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties">Exploiting CORS misconfiguration for BitCoins and Bounties</a></li>
 </ul>
-<h1 id="v11-http-security-configuration-verification-requirements">V11: HTTP Security Configuration Verification Requirements</h1>
-<h2 id="control-objective-9">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v13-malicious-code-verification-requirements">V13: Malicious Code Verification Requirements</h1>
+<h2 id="control-objective-10">Control Objective</h2>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>Malicious activity is handled securely and properly as to not affect the rest of the application.</li>
+<li>Do not have time bombs or other time based attacks built into them.</li>
+<li>Do not “phone home” to malicious or unauthorized destinations.</li>
+<li>Applications do not have back doors, Easter eggs, salami attacks, or logic flaws that can be controlled by an attacker.</li>
+</ul>
+<p>Malicious code is extremely rare, and is difficult to detect. Manual line by line code review can assist looking for logic bombs, but even the most experienced code reviewer will struggle to find malicious code even if they know it exists. This section is not possible to complete without access to source code, including as many third party libraries as possible.</p>
 <h2 id="security-verification-requirements-9">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -3233,358 +1705,32 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>13.1</strong></td>
+<td>Verify all malicious activity is adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>13.2</strong></td>
+<td>Verify that the application source code, and as many third party libraries as possible, does not contain back doors, Easter eggs, and logic flaws in authentication, access control, input validation, and the business logic of high value transactions.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-9">References</h2>
-<p>For more information, see also:</p>
+<h2 id="references-10">References</h2>
+<h1 id="v15-business-logic-verification-requirements">V15: Business Logic Verification Requirements</h1>
+<h2 id="control-objective-11">Control Objective</h2>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li>The business logic flow is sequential, cannot be obviated, and processed in order.</li>
+<li>Business logic includes limits to detect and prevent automated attacks, such as continuous small funds transfers, or adding a million friends one at a time, and so on.</li>
+<li>High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, repudiation, information disclosure, and elevation of privilege attacks.</li>
 </ul>
-<h1 id="v13-malicious-code-verification-requirements">V13: Malicious Code Verification Requirements</h1>
-<h2 id="control-objective-10">Control Objective</h2>
-<p>TBA.</p>
 <h2 id="security-verification-requirements-10">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -3599,358 +1745,36 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>15.1</strong></td>
+<td>Verify the application will only process business logic flows in sequential step order, with all steps being processed in realistic human time, and not process out of order, skipped steps, process steps from another user, or too quickly submitted transactions.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>15.2</strong></td>
+<td>Verify the application has business limits and correctly enforces on a per user basis, with configurable alerting and automated reactions to automated or unusual attack.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-10">References</h2>
+<h2 id="references-11">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_business_logic">OWASP Testing Guide 4.0: Business Logic Testing </a></li>
+<li><a href="https://www.owasp.org/index.php/Business_Logic_Security_Cheat_Sheet">OWASP Cheat Sheet</a></li>
 </ul>
-<h1 id="v15-business-logic-verification-requirements">V15: Business Logic Verification Requirements</h1>
-<h2 id="control-objective-11">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v16-file-and-resources-verification-requirements">V16: File and Resources Verification Requirements</h1>
+<h2 id="control-objective-12">Control Objective</h2>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>Untrusted file data should be handled accordingly and in a secure manner.</li>
+<li>Obtained from untrusted sources are stored outside the web root and limited permissions.</li>
+</ul>
 <h2 id="security-verification-requirements-11">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -3965,358 +1789,108 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.1</strong></td>
+<td>Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.2</strong></td>
+<td>Verify that untrusted file data submitted to the application is not used directly with file I/O commands, particularly to protect against path traversal, local file include, file mime type, reflective file download, and OS command injection vulnerabilities.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.3</strong></td>
+<td>Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.4</strong></td>
+<td>Verify that untrusted data is not used within inclusion, class loader, or reflection capabilities to prevent remote/local code execution vulnerabilities.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.5</strong></td>
+<td>Verify that untrusted data is not used within cross-domain resource sharing (CORS) to protect against arbitrary remote content.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.6</strong></td>
+<td>Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.7</strong></td>
+<td>Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.8</strong></td>
+<td>Verify the application code does not execute uploaded data obtained from untrusted sources.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.9</strong></td>
+<td>Verify that unsupported, insecure or deprecated client-side technologies are not used, such as NSAPI plugins, Flash, Shockwave, Active-X, Silverlight, NACL, or client-side Java applets.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>16.10</strong></td>
+<td>Verify that the cross-domain resource sharing (CORS) Access-Control-Allow-Origin header does not reflect the request's origin header or support the &quot;null&quot; origin.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-11">References</h2>
+<h2 id="references-12">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload">File Extension Handling for Sensitive Information</a></li>
+<li><a href="https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/">Reflective file download by Oren Hatif</a></li>
 </ul>
-<h1 id="v16-file-and-resources-verification-requirements">V16: File and Resources Verification Requirements</h1>
-<h2 id="control-objective-12">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v17-mobile-verification-requirements">V17: Mobile Verification Requirements</h1>
+<h2 id="asvs-mobile-removal-notice">ASVS Mobile Removal Notice</h2>
+<p>This section previously contained controls that are mobile application specific. This section is being removed and replaced by the OWASP Mobile Application Security Verification Standard.</p>
+<h2 id="references-13">References</h2>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP_Mobile_Security_Project">OWASP Mobile Application Security Verification Standard</a></li>
+</ul>
+<h1 id="v18-api-and-web-service-verification-requirements">V18: API and Web Service Verification Requirements</h1>
+<h2 id="control-objective-13">Control Objective</h2>
+<p>Ensure that a verified application that uses RESTful or SOAP based web services has:</p>
+<ul>
+<li>Adequate authentication, session management and authorization of all web services.</li>
+<li>Input validation of all parameters that transit from a lower to higher trust level.</li>
+<li>Basic interoperability of SOAP web services layer to promote API use.</li>
+</ul>
 <h2 id="security-verification-requirements-12">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -4331,358 +1905,94 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.1</strong></td>
+<td>Verify that the same encoding style is used between the client and the server.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.2</strong></td>
+<td>Verify that access to administration and management functions within the Web Service Application is limited to web service administrators.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.3</strong></td>
+<td>Verify that XML or JSON schema is in place and verified before accepting input.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.4</strong></td>
+<td>Verify that all input is limited to an appropriate size limit.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.5</strong></td>
+<td>Verify that SOAP based web services are compliant with Web Services-Interoperability (WS-I) Basic Profile at minimum. This essentially means TLS encryption.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.7</strong></td>
+<td>Verify that the REST service is protected from Cross-Site Request Forgery via the use of at least one or more of the following: double submit cookie pattern, CSRF nonces, ORIGIN request header checks, and referrer request header checks.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.8</strong></td>
+<td>Verify the REST service explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/json.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.9</strong></td>
+<td>Verify that the message payload is signed to ensure reliable transport between client and service, using JSON Web Signing or WS-Security for SOAP requests.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>18.10</strong></td>
+<td>Verify that alternative and less secure access paths do not exist.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-12">References</h2>
+<h2 id="references-14">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_configuration_management">OWASP Testing Guide 4.0: Configuration and Deployment Management Testing</a></li>
+<li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet">OWASP Cross-Site Request Forgery cheat sheet</a></li>
+<li><a href="https://jwt.io/">JSON Web Tokens (and Signing)</a></li>
 </ul>
-<h1 id="v17-mobile-verification-requirements">V17: Mobile Verification Requirements</h1>
-<h2 id="control-objective-13">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v19-configuration-verification-requirements">V19: Configuration Verification Requirements</h1>
+<h2 id="control-objective-14">Control Objective</h2>
+<p>Ensure that a verified application has:</p>
+<ul>
+<li>Up to date libraries and platform(s).</li>
+<li>A secure by default configuration.</li>
+<li>Sufficient hardening that user initiated changes to default configuration do not unnecessarily expose or create security weaknesses or flaws to underlying systems.</li>
+</ul>
 <h2 id="security-verification-requirements-13">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -4697,358 +2007,109 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.1</strong></td>
+<td>Verify that all components are up to date with proper security configuration(s) and version(s). This should include removal of unneeded configurations and folders such as sample applications, platform documentation, and default or example users.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.2</strong></td>
+<td>Verify that communications between components, such as between the application server and the database server, are encrypted, particularly when the components are in different containers or on different systems.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.3</strong></td>
+<td>Verify that communications between components, such as between the application server and the database server, is authenticated using an account with the least necessary privileges.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.4</strong></td>
+<td>Verify application deployments are adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.5</strong></td>
+<td>Verify that the application build and deployment processes are performed in a secure and repeatable method, such as CI / CD automation and automated configuration management.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.6</strong></td>
+<td>Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.7</strong></td>
+<td>Verify that all application components are signed.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.8</strong></td>
+<td>Verify that third party components come from trusted repositories.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.9</strong></td>
+<td>Verify that build processes for system level languages have all security flags enabled, such as ASLR, DEP, and security checks.</td>
+<td></td>
+<td></td>
 <td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.10</strong></td>
+<td>Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, sub-resource integrity (SRI) is used to validate the integrity of the asset.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>19.11</strong></td>
+<td>Verify that all application components, services, and servers each use their own low privilege service account, that is not shared between applications nor used by administrators.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
+<td>3.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="references-13">References</h2>
+<h2 id="references-15">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/index.php/Testing_for_configuration_management">OWASP Testing Guide 4.0: Configuration and Deployment Management Testing</a></li>
 </ul>
-<h1 id="v18-api-and-web-service-verification-requirements">V18: API and Web Service Verification Requirements</h1>
-<h2 id="control-objective-14">Control Objective</h2>
-<p>TBA.</p>
+<h1 id="v20-internet-of-things-verification-requirements">V20: Internet of Things Verification Requirements</h1>
+<p>This section contains controls that are Embedded/IoT device specific. These controls must be taken in conjunction with all other sections of the relevant ASVS Verification Level.</p>
+<h2 id="control-objective-15">Control Objective</h2>
+<p>Embedded/IoT devices should:</p>
+<ul>
+<li>Have the same level of security controls within the device as found in the server, by enforcing security controls in a trusted environment.</li>
+<li>Sensitive data stored on the device should be done so in a secure manner.</li>
+<li>All sensitive data transmitted from the device should utilize transport layer security.</li>
+</ul>
 <h2 id="security-verification-requirements-14">Security Verification Requirements</h2>
 <table>
 <thead>
@@ -5063,1070 +2124,234 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-</tbody>
-</table>
-<h2 id="references-14">References</h2>
-<p>For more information, see also:</p>
-<ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-</ul>
-<h1 id="v19-configuration-verification-requirements">V19: Configuration Verification Requirements</h1>
-<h2 id="control-objective-15">Control Objective</h2>
-<p>TBA.</p>
-<h2 id="security-verification-requirements-15">Security Verification Requirements</h2>
-<table>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Description</th>
-<th>L1</th>
-<th>L2</th>
-<th>L3</th>
-<th>Since</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>1.0</td>
-</tr>
-</tbody>
-</table>
-<h2 id="references-15">References</h2>
-<p>For more information, see also:</p>
-<ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-</ul>
-<h1 id="v20-internet-of-things-verification-requirements">V20: Internet of Things Verification Requirements</h1>
-<h2 id="control-objective-16">Control Objective</h2>
-<p>TBA.</p>
-<h2 id="security-verification-requirements-16">Security Verification Requirements</h2>
-<table>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Description</th>
-<th>L1</th>
-<th>L2</th>
-<th>L3</th>
-<th>Since</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that application layer debugging interfaces such USB or serial are disabled.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that cryptographic keys are unique to each individual device.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that memory protection controls such as ASLR and DEP are enabled by the embedded/IoT operating system, if applicable.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that on-chip debugging interfaces such as JTAG or SWD are disabled or that available protection mechanism is enabled and configured appropriately.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that physical debug headers are not present on the device.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that sensitive data is not stored unencrypted on the device.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the device prevents leaking of sensitive information.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the firmware apps protect data-in-transit using transport security.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the firmware apps validate the digital signature of server connections.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that wireless communications are mutually authenticated.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
+<td><strong>20.1</strong></td>
+<td>Verify that wireless communications are sent over an encrypted channel.</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the firmware apps pin the digital signature to a trusted server(s).</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify the presence of physical tamper resistance and/or tamper detection features, including epoxy.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that identifying markings on chips have been removed.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that any available Intellectual Property protection technologies provided by the chip manufacturer are enabled.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify security controls are in place to hinder firmware reverse engineering (e.g., removal of verbose debugging strings).</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify the device validates the boot image signature before loading.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the firmware update process is not vulnerable to time-of-check vs time-of-use attacks.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify the device uses code signing and validates firmware upgrade files before installing.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the device cannot be downgraded to old versions of valid firmware.</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify usage of cryptographically secure pseudo-random number generator on embedded device (e.g., using chip-provided random number generators).</td>
+<td></td>
 <td>✓</td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the device wipes firmware and sensitive data upon detection of tampering or receipt of invalid message.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that only micro controllers that support disabling debugging interfaces (e.g. JTAG, SWD) are used.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that only micro controllers that provide substantial protection from de-capping and side channel attacks are used.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that sensitive traces are not exposed to outer layers of the printed circuit board.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that inter-chip communication is encrypted.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify the device uses code signing and validates code before execution.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
 <tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="odd">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>3.1</td>
-</tr>
-<tr class="even">
-<td><strong>TBA</strong></td>
-<td>TBA</td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>20.1</strong></td>
+<td>Verify that the firmware apps utilize kernel containers for isolation between apps.</td>
+<td></td>
+<td></td>
 <td>✓</td>
 <td>3.1</td>
 </tr>
@@ -6135,14 +2360,9 @@ An application at ASVS Level 3 requires more in depth analysis, architecture, co
 <h2 id="references-16">References</h2>
 <p>For more information, see also:</p>
 <ul>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
-<li><a href="">TBA</a></li>
+<li><a href="https://www.owasp.org/images/7/71/Internet_of_Things_Top_Ten_2014-OWASP.pdf">OWASP Internet of Things Top 10</a></li>
+<li><a href="https://www.owasp.org/index.php/OWASP_Internet_of_Things_Project">OWASP Internet of Things Project</a></li>
+<li><a href="https://github.com/praetorian-inc/trudy">Trudy TCP Proxy Tool</a></li>
 </ul>
 <h1 id="appendix-a-glossary">Appendix A: Glossary</h1>
 <ul>
