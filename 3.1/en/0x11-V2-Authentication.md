@@ -73,7 +73,6 @@ Privacy compliance 9.4
 
 | Term | Meaning |
 | -- | -- |
-
 | CSP | Credential Service Provider, also called an Identity Provider |
 | Authenticator | |
 | Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status" |
