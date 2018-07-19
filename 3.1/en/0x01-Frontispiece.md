@@ -23,7 +23,7 @@ This is a draft version of the standard, and as such should not be used until re
 
 Please log an issue here: https://github.com/OWASP/ASVS/issues
 
-Version 3.1, 2018
+Version 4.0, 2018
 | Project Leads | Lead Authors | Contributors and Reviewers |
 | --- | --- | --- |
 | Andrew van der Stock, Daniel Cuthbert | Jim Manico | Boy Baukema, Chris Bradley, Dr Daniël Geerts |

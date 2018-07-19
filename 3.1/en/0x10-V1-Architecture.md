@@ -21,7 +21,7 @@ The category “V1” lists requirements pertaining to architecture and design o
 | **1.9** | A mechanism for enforcing updates of the application exists. | | ✓ | ✓ | 3.0 |
 | **1.10** | Security is addressed within all parts of the software development lifecycle. | | ✓ | ✓ | 3.0 |
 | **1.11** | All application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities. | |✓ |✓ | 3.0.1 |
-| **1.12** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced. Ideally, follow a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 3.1 |
+| **1.12** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced. Ideally, follow a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 4.0 |
 
 ## References
 

@@ -16,18 +16,18 @@ Ensure that a verified application satisfies the following high level data prote
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **9.2** | Verify that sensitive data is classified and a policy is created for how access to this data must be protected. | ✓ | ✓ | ✓ | 3.1 |
+| **9.2** | Verify that sensitive data is classified and a policy is created for how access to this data must be protected. | ✓ | ✓ | ✓ | 4.0 |
 | **9.3** | Verify that all sensitive data is sent to the server in the HTTP message body or headers (i.e., URL parameters are never used to send sensitive data). | ✓ | ✓ | ✓ | 1.0 |
-| **9.4** | Verify that the application sets sufficient anti-caching headers such that any sensitive and personal information displayed by the application or entered by the user should not be cached on disk by mainstream modern browsers (e.g. visit about:cache to review disk cache). | ✓ | ✓ | ✓ | 3.1 |
+| **9.4** | Verify that the application sets sufficient anti-caching headers such that any sensitive and personal information displayed by the application or entered by the user should not be cached on disk by mainstream modern browsers (e.g. visit about:cache to review disk cache). | ✓ | ✓ | ✓ | 4.0 |
 | **9.5** | Verify that on the server, all cached or temporary copies of sensitive data stored are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. |  | ✓ | ✓ | 1.0 |
-| **9.6** | Verify that users have a method to remove or export their data on demand. | ✓ | ✓ | ✓ | 3.1 |
+| **9.6** | Verify that users have a method to remove or export their data on demand. | ✓ | ✓ | ✓ | 4.0 |
 | **9.7** | Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values. |  | ✓ | ✓ | 2.0 |
-| **9.8** | Verify the application has the ability to detect and alert on abnormal numbers of requests. |  | ✓ | ✓ | 3.1 |
+| **9.8** | Verify the application has the ability to detect and alert on abnormal numbers of requests. |  | ✓ | ✓ | 4.0 |
 | **9.9** | Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies) does not contain sensitive data or PII. | ✓ | ✓ | ✓ | 3.0.1 |
 | **9.10** | Verify accessing sensitive data is logged, if the data is collected under relevant data protection directives or where logging of accesses is required. |  | ✓ | ✓ | 3.0 |
 | **9.11** | Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 3.0.1 |
 | **9.12** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provides both confidentiality and integrity. | ✓ | ✓ | ✓ | 3.0.1 |
-| **9.13** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | 3.1 |
+| **9.13** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | 4.0 |
 | **9.14** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. |  | ✓ | ✓ | 3.0 |
 
 ## References

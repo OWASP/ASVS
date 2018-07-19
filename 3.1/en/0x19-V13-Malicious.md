@@ -15,7 +15,7 @@ Malicious code is extremely rare, and is difficult to detect. Manual line by lin
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **13.1** | Verify all malicious activity is adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications. | ✓ | ✓ | ✓ | 2.0 |
+| **14.0** | Verify all malicious activity is adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications. | ✓ | ✓ | ✓ | 2.0 |
 | **13.2** | Verify that the application source code, and as many third party libraries as possible, does not contain back doors, Easter eggs, and logic flaws in authentication, access control, input validation, and the business logic of high value transactions.  | ✓ | ✓ | ✓ | 3.0.1 |
 
 
