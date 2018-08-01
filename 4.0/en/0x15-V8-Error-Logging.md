@@ -17,7 +17,6 @@ If logs contain private or sensitive data, the definition of which varies from c
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | **8.1** | Verify that the application does not output error messages or stack traces containing sensitive data that could assist an attacker, including session id, software/framework versions and personal information. | ✓ | ✓ | ✓ | 1.0 |
-| **8.2** | Verify that error handling logic in security controls denies access by default. | ✓ | ✓ | ✓ | 1.0 |
 | **8.3** | Verify that the application logs security relevant events. | ✓ | ✓ | ✓ | 4.0 |
 | **8.4** | Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. |  | ✓ | ✓ | 1.0 |
 | **8.5** | Verify that all events that include untrusted data will not execute as code in the intended log viewing software. |  | ✓ | ✓ | 1.0 |
