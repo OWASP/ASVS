@@ -16,7 +16,7 @@ Ensure that a verified application satisfies the following high level data prote
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **9.2** | Verify that sensitive data is classified and a policy is created for how access to this data must be protected. | ✓ | ✓ | ✓ | 4.0 |
+| **9.2** | Verify that sensitive data is classified and a policy is created for how this data must be protected. | ✓ | ✓ | ✓ | 4.0 |
 | **9.3** | Verify that all sensitive data is sent to the server in the HTTP message body or headers (i.e., URL parameters are never used to send sensitive data). | ✓ | ✓ | ✓ | 1.0 |
 | **9.4** | Verify that the application sets sufficient anti-caching headers such that any sensitive and personal information displayed by the application or entered by the user should not be cached on disk by mainstream modern browsers (e.g. visit about:cache to review disk cache). | ✓ | ✓ | ✓ | 4.0 |
 | **9.5** | Verify that on the server, all cached or temporary copies of sensitive data stored are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. |  | ✓ | ✓ | 1.0 |
