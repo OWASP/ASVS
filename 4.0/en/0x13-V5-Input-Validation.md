@@ -34,6 +34,8 @@ Ensure that a verified application satisfies the following high level requiremen
 | **5.27** | Verify the application for Server Side Request Forgery vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
 | **5.28** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that dangerous features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 4.0
 | **5.29** | Verify that deserialization of untrusted data is avoided or is extensively protected when deserialization cannot be avoided.  | ✓ | ✓ | ✓ | 4.0
+| **5.30** | Verify the application is not vulnerable to Server Side Request Forgery (SSRF) vulnerabilities.  | ✓ | ✓ | ✓ | 4.0
+
 
 ## References
 
