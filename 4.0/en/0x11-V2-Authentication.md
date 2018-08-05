@@ -53,7 +53,6 @@ We strongly urge everyone to adopt NIST 800-63, and align any policies, guidelin
 | **2.47** | Verify authentication challenges SHOULD be rate limited. | ✓ | ✓ | ✓ | 4.0 | 5.2.2 |
 | **2.48** | Verify memorized secret activation SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers. | ✓ | ✓ | ✓ | 4.0 | 5.1.1.2 / A.3 |
 | **2.49** | Verify identities cannot cannot be re-bound to a different identity (spoofing). | ✓ | ✓ | ✓ | 4.0 | 5.1.1.2 / A.3 |
-| **2.50** | Verify Replay resistance. | ✓ | ✓ | ✓ | 4.0 | 5.1.1.2 / A.3 |
 
 Authentication intent
 Record retention policy
