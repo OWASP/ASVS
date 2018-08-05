@@ -45,8 +45,6 @@ We strongly urge everyone to adopt NIST 800-63, and align any policies, guidelin
 | **2.34** | Verify that users can change their memorized secret or MFA enrollment. | SFA | | | 4.0 | TBA |
 | **2.41** | Verify the permitted authenticator types TBA | SFA | | | 4.0 | TBA |
 | **2.42** | Verify encryption of memorized secrets complies uses with FIPS 140 approved algorithms and verification levels. Key length SHALL comply with NIST 800-131A, with a minimum key length of 112 bits. Salts SHALL be securely randomly generated, and be no less than 32 bits in length. | Level 1 | Level 1 | Level 2 Overall | 4.0 | TBA |
-| **2.43** | Verify the authentication system is man-in-the-middle resistant, such as mandatory use of TLS certificates | ✓ | ✓ | ✓ | 4.0 | TBA |
-| **2.44** | Verify the authentication system is impersonation resistant, such as anti-phishing countermeasures or mutual authentication TLS connections. |  |  | ✓ | 4.0 | 5.2.3 |
 | **2.45** | Verify the authentication system is compromise resistant, such as memorized secret breaches and/or client device reputation, and other controls. | | | ✓ | 4.0 | 5.2.7 |
 | **2.46** | Verify the authentication system is replay resistant, such as ensuring session or bearer tokens cannot be easily be captured or replayed by attackers. | | | ✓ | 4.0 | 5.2.28 |
 | **2.4x** | Verify the authentication system explicitly challenges the user on each authentication request. | ✓ | ✓ | ✓ | 4.0 | 5.2.9 |
