@@ -1,4 +1,4 @@
-# V5: Input Validation and Output Encoding Verification Requirements
+# V5: Validation, Sanitization and Encoding Verification Requirements
 
 ## Control Objective
 
