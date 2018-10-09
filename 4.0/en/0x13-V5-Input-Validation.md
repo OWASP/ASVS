@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The most common web application security weakness is the failure to properly validate input coming from the client or from the environment before using it. This weakness leads to almost all of the major vulnerabilities in web applications, such as cross site scripting, SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.
+The most common web application security weakness is the failure to properly validate input coming from the client or from the environment before using it. This weakness leads to almost all of the major vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.
 
 Ensure that a verified application satisfies the following high level requirements:
 
@@ -14,10 +14,10 @@ Ensure that a verified application satisfies the following high level requiremen
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **5.3** | Verify that server side input validation failures result in request rejection and are logged. | ✓ | ✓ | ✓ | 1.0 |
-| **5.5** | Verify that input validation is enforced on the server side. | ✓ | ✓ | ✓ | 1.0 |
+| **5.3** | Verify that server-side input validation failures result in request rejection and are logged. | ✓ | ✓ | ✓ | 1.0 |
+| **5.5** | Verify that input validation is enforced on the server-side. | ✓ | ✓ | ✓ | 1.0 |
 | **5.6** | Verify that a centralized input validation control mechanism is used by the application. | ✓ | ✓ | ✓ | 1.0 |
-| **5.10** | Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL, XPath, LDAP) are protected from respective injection attacks. In cases where query parameterization or escaping is not possible for certain variables, be sure to strictly validate or whitelist the data, such as ORDER BY values or column names. | ✓ | ✓ | ✓ | 4.0 |
+| **5.10** | Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL, XPath, LDAP) are protected from respective injection attacks. In cases where query parameterization or escaping is not possible for certain variables, be sure to strictly validate or whitelist the data, such as ORDER BY values, or column names. | ✓ | ✓ | ✓ | 4.0 |
 | **5.11** | Verify that the application is not susceptible to LDAP Injection, or that security controls prevent LDAP Injection. | ✓ | ✓ | ✓ | 2.0 |
 | **5.12** | Verify that the application is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection. | ✓ | ✓ | ✓ | 2.0 |
 | **5.13** | Verify that the application is not susceptible to Remote File Inclusion (RFI) or Local File Inclusion (LFI) when content is used that is a path to a file. | ✓ | ✓ | ✓ | 3.0 |
@@ -29,12 +29,12 @@ Ensure that a verified application satisfies the following high level requiremen
 | **5.20** | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as validating suburbs and zip or post codes match).  |  | ✓ | ✓ | 3.0 |
 | **5.21** | Verify that unstructured data is sanitized to enforce generic safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. natural names with Unicode or apostrophes, such as ねこ or O'Hara). |  | ✓ | ✓ | 3.0 |
 | **5.22** | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.  | ✓ | ✓ | ✓ | 3.0 |
-| **5.24** | Verify that where data is transferred from one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. |  | ✓ | ✓ | 4.0 |
+| **5.24** | Verify that where data is transferred from one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or JQuery .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. |  | ✓ | ✓ | 4.0 |
 | **5.25** | Verify when parsing JSON in browsers or JavaScript based backends, that JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
-| **5.27** | Verify the application for Server Side Request Forgery vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
+| **5.27** | Verify the application for Server-Side Request Forgery vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
 | **5.28** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that dangerous features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 4.0
 | **5.29** | Verify that deserialization of untrusted data is avoided or is extensively protected when deserialization cannot be avoided.  | ✓ | ✓ | ✓ | 4.0
-| **5.30** | Verify the application is not vulnerable to Server Side Request Forgery (SSRF) vulnerabilities.  | ✓ | ✓ | ✓ | 4.0
+| **5.30** | Verify the application is not vulnerable to Server-Side Request Forgery (SSRF) vulnerabilities.  | ✓ | ✓ | ✓ | 4.0
 
 
 ## References
@@ -54,5 +54,8 @@ For more information on auto-escaping, please see:
 
 * [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](http://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
 * [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
+* [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
+* [Angular  Sanitzation](https://angular.io/guide/security#sanitization-and-security-contexts)
+* [Angular Template Security](https://angular.io/guide/template-syntax#content-security)
 * [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
 * [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
