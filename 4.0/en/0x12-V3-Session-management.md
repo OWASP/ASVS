@@ -11,6 +11,23 @@ Ensure that a verified application satisfies the following high level session ma
 
 ## Security Verification Requirements
 
+### Fundamental Session Management
+
+### Cookie based Session Management
+
+### Token based Session Management
+
+### Single Sign On
+
+### Delegation Session Management
+
+### Federated Session Management 
+
+| # | Description | L1 | L2 | L3 | Since |
+| --- | --- | --- | --- | -- | -- |
+| **2.26** | Verify if authenticators permit users to remain logged in, that re-authentication occurs periodically both when actively used or after an idle period. | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 4.0 | 4.5 |
+
+
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | **3.2** | Verify that sessions are invalidated when the user logs out. | ✓ | ✓ | ✓ | 1.0 |
