@@ -26,6 +26,7 @@ If logs contain private or sensitive data, the definition of which varies from c
 | **8.10** | Verify that an audit log allows reconstruction of a user's activity. |  |  | ✓ | 4.0 |
 | **8.12** | Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation. |  |  | ✓ | 4.0 |
 | **8.13** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | 4.0 |
+| **8.14** | Verify all authentication decisions are logged, without storing sensitive session identifiers or memorized secrets. This should include requests with relevant metadata needed for security investigations.  | ✓ | ✓ | ✓ | 4.0 |
 
 ## References
 

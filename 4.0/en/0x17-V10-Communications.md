@@ -4,22 +4,26 @@
 
 Ensure that a verified application satisfies the following high level requirements:
 
-* That TLS is used where sensitive data is transmitted.
-* That strong algorithms and ciphers are used at all times.
+* TLS or strong encryption is always used, regardless of the sensitivity of the data being transmitted
+* Current best advice is used to enable and order preferred algorithms and ciphers
+* weak algorithms or ciphers are presented as a last resort
+* Insecure algorithms and ciphers are disabled.
+
+Leading industry advice on secure TLS configuration changes frequently, often due to catastrophic breaks in existing algorithms and ciphers. Always use the most recent versions of TLS configuration review tools (such as SSLyze or other online scanners) to configure the preferred order and algorithm selection. Configuration should be periodically checked to ensure that secure communications configuration is always present and effective.
 
 ## Security Verification Requirements
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | **10.1** | Verify that a path can be built from a trusted CA to each Transport Layer Security (TLS) server certificate, and that each server certificate is valid. | ✓ | ✓ | ✓ | 1.0 |
-| **10.3** | Verify that TLS is used for all connections (including both external and backend connections) that are authenticated or that involve sensitive data or functions, and does not fall back to insecure or unencrypted protocols. Ensure the strongest alternative is the preferred algorithm. | ✓ | ✓ | ✓ | 3.0 |
+| **10.3** | Verify that TLS is used for all connections (including for authentication, middleware,  backend, and partner connections) that are authenticated or that involve sensitive data or functions, and does not fall back to insecure or unencrypted protocols. | ✓ | ✓ | ✓ | 3.0 |
 | **10.4** | Verify that backend TLS connection failures are logged. |  |  | ✓ | 1.0 |
 | **10.5** | Verify that certificate paths are built and verified for all client certificates using configured trust anchors and revocation information. |  |  | ✓ | 1.0 |
 | **10.6** | Verify that all connections to external systems that involve sensitive information or functions are authenticated. |  | ✓ | ✓ | 1.0 |
 | **10.11** | Verify that HTTP Strict Transport Security headers are included on all requests and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 3.0 |
 | **10.12** | Verify that the application's URL has been submitted to a preloaded list of Strict Transport Security domains maintained by web browser vendors. Please see the references below. |  |  | ✓ | 3.0 |
 | **10.14** | Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | ✓ | ✓ | ✓ | 3.0 |
-| **10.15** | Verify that only strong algorithms, ciphers, and protocols to provide both confidentiality and integrity. | ✓ | ✓ | ✓ | 3.0 |
+| **10.15** | Verify that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred, to provide both confidentiality and integrity. | ✓ | ✓ | ✓ | 3.0 |
 | **10.17** | Verify that old versions of SSL and TLS settings are not used, such as SSLv2/3 or TLS 1.0. The latest version of TLS should be the preferred cipher suite. | ✓ | ✓ | ✓ | 3.0 |
 
 ## References
