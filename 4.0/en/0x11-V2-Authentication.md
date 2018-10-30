@@ -91,7 +91,7 @@ The list of approved one way key derivation functions is detailed in NIST 800-63
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| **2.5.1** | Verify that memorized secrets are stored in a form that is resistant to offline attacks. Memorized secrets SHALL be salted and hashed using an approved one-way key derivation function. Key derivation functions take a password, a salt, and a cost factor as inputs then generate a password hash. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.5.1** | Verify that memorized secrets are stored in a form that is resistant to offline attacks. Memorized secrets SHALL be salted and hashed using an approved one-way key derivation or password hashing function. Key derivation and password hashing functions take a password and a cost factor as inputs then generate a password hash. These functions either require or generate their own salt as well. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.5.2** | Verify that the salt is at least 32 bits in length and be chosen arbitrarily so as to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.5.3** | Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 10,000 iterations. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.5.4** | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 13. | ✓ | ✓ | ✓ |  |
