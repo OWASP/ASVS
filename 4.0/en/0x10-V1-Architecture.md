@@ -15,13 +15,14 @@ The category “V1” lists requirements pertaining to architecture and design o
 | **1.3** | A high-level architecture for the application and all connected remote services has been defined and security has been addressed in that architecture. |  | ✓ | ✓ | 1.0 |
 | **1.4** | Data considered sensitive in the context of the application is clearly identified. |  |  | ✓ | 1.0 |
 | **1.5** | All app components are defined in terms of the business functions and/or security functions they provide. | | | ✓ | 1.0 |
-| **1.6** | A threat model for the application and the associated remote services has been produced that identifies potential threats and countermeasures. |  |  | ✓ | 1.0 |
-| **1.7** | All security controls have a centralized implementation. | | ✓ | ✓ | 3.0 |
-| **1.8** | Components are segregated from each other via a defined security control, such as network segmentation, firewall rules, or cloud based security groups. | | ✓ | ✓ | 3.0 |
-| **1.9** | A mechanism for enforcing updates of the application exists. | | ✓ | ✓ | 3.0 |
-| **1.10** | Security is addressed within all parts of the software development lifecycle. | | ✓ | ✓ | 3.0 |
-| **1.11** | All application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities. | |✓ |✓ | 3.0.1 |
-| **1.12** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced. Ideally, follow a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 4.0 |
+| **1.6** | A rudimentary threat analysis has been made to determine which attackers are in scope, and which are currently not in scope (e.g. the internal network is considered safe). |  | ✓ | ✓ | 4.0 |
+| **1.7** | A detailed threat model for the application and the associated remote services has been produced that identifies potential threats and countermeasures. |  |  | ✓ | 1.0 |
+| **1.8** | All security controls have a centralized implementation. | | ✓ | ✓ | 3.0 |
+| **1.9** | Components are segregated from each other via a defined security control, such as network segmentation, firewall rules, or cloud based security groups. | | ✓ | ✓ | 3.0 |
+| **1.10** | A mechanism for enforcing updates of the application exists. | | ✓ | ✓ | 3.0 |
+| **1.11** | Security is addressed within all parts of the software development lifecycle. | | ✓ | ✓ | 3.0 |
+| **1.12** | All application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities. | |✓ |✓ | 3.0.1 |
+| **1.13** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced. Ideally, follow a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 4.0 |
 
 ## References
 
