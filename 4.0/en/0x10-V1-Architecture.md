@@ -16,7 +16,7 @@ The category “V1” lists requirements pertaining to architecture and design o
 | **1.4** | Data considered sensitive in the context of the application is clearly identified. |  |  | ✓ | 1.0 |
 | **1.5** | All app components are defined in terms of the business functions and/or security functions they provide. | | | ✓ | 1.0 |
 | **1.6** | A threat model for the application and the associated remote services has been produced that identifies potential threats and countermeasures. |  |  | ✓ | 1.0 |
-| **1.7** | All security controls have a centralized implementation. | | ✓ | ✓ | 3.0 |
+| **1.7** | All security controls have a centralized implementation as to avoid duplication of critical code. | | ✓ | ✓ | 3.0 |
 | **1.8** | Components are segregated from each other via a defined security control, such as network segmentation, firewall rules, or cloud based security groups. | | ✓ | ✓ | 3.0 |
 | **1.9** | A mechanism for enforcing updates of the application exists. | | ✓ | ✓ | 3.0 |
 | **1.10** | Security is addressed within all parts of the software development lifecycle. | | ✓ | ✓ | 3.0 |
@@ -31,7 +31,7 @@ For more information, please see:
 * [OWASP Threat Modeling Cheat Sheet](https://www.owasp.org/index.php/Application_Security_Architecture_Cheat_Sheet)
 * [OWASP Attack Surface Analysis Cheat Sheet](https://www.owasp.org/index.php/Attack_Surface_Analysis_Cheat_Sheet)
 * [OWASP Security Architecture Cheat Sheet](https://www.owasp.org/index.php/Application_Security_Architecture_Cheat_Sheet)
-* [OWASP Thread modelling](https://www.owasp.org/index.php/Application_Threat_Modeling)
+* [OWASP Threat modelling](https://www.owasp.org/index.php/Application_Threat_Modeling)
 * [OWASP Secure SDLC Cheat Sheet](https://www.owasp.org/index.php/Secure_SDLC_Cheat_Sheet)
 * [Microsoft SDL](https://www.microsoft.com/en-us/sdl/)
 * [NIST SP 800-57](http://csrc.nist.gov/publications/nistpubs/800-57/sp800-57-Part1-revised2_Mar08-2007.pdf)
