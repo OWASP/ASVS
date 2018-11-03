@@ -19,8 +19,8 @@ fi
 echo ""
 
 generate_pdf() {
-    if command_exists xelatex; then
-        # pandoc -N --template ../templates/template.tex --variable mainfont="Merriweather" --variable sansfont="Roboto" --variable monofont="Menlo" --variable fontsize=10pt --variable version=1.17.2 --latex-engine=xelatex --toc -fmarkdown-implicit_figures -o "../OWASP-Top-10-2017-$1.pdf" *.md
+    if command_exists pdflatex; then
+        pandoc -N --template ../templates/template.tex --variable mainfont="Merriweather" --variable sansfont="Roboto" --variable monofont="Menlo" --variable fontsize=10pt --variable version=1.17.2 --latex-engine=pdflatex --toc -fmarkdown-implicit_figures -o "../OWASP Application Security Verification Standard 4.0-$1.pdf" *.md
         echo " no PDF generated due to bugs"
     else
         echo " could not generate PDF, missing pdflatex"
@@ -28,15 +28,15 @@ generate_pdf() {
 }
 
 generate_docx() {
-    pandoc -s -f markdown_github --reference-docx=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard $1.docx" *.md
+    pandoc -s -f markdown_github --reference-docx=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard 4.0-$1.docx" *.md
 }
 
 generate_html() {
-    pandoc -s -f markdown_github -t html5 -o "../OWASP Application Security Verification Standard $1.html" *.md
+    pandoc -s -f markdown_github -t html5 -o "../OWASP Application Security Verification Standard 4.0-$1.html" *.md
 }
 
 generate() {
-    echo -n "Generating OWASP ASVS ($1)..."
+    echo -n "Generating OWASP ASVS 4.0 ($1)..."
     if [ -d "$1" ]; 
     then
         cd "$1"
@@ -90,4 +90,4 @@ generate "en"
 #generate "ukr"
 
 echo 
-echo "Generated OWASP Application Security Verification Standard"
+echo "Generated OWASP Application Security Verification Standard 4.0"

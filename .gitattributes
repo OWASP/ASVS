@@ -1,0 +1,10 @@
+# Let git fix markdown files to the appropriate ending for the platform
+*.md	text
+
+# Images are blobs. Don't touch
+*.jpg	binary
+*.png	binary
+
+# Make git leave Python and shell scripts alone to prevent bugs when running them under Windows Subsystem for Linux bash
+*.py	-text
+*.sh	-text
