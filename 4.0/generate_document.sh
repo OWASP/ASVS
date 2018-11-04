@@ -12,28 +12,13 @@ if ! command_exists pandoc; then
     exit;
 fi
 
-if ! command_exists xelatex; then
-    echo "Warning: Install xelatex to produce PDF output"
-fi
-
-echo ""
-
-generate_pdf() {
-    if command_exists pdflatex; then
-        pandoc -N --template ../templates/template.tex --variable mainfont="Merriweather" --variable sansfont="Roboto" --variable monofont="Menlo" --variable fontsize=10pt --variable version=1.17.2 --latex-engine=pdflatex --toc -fmarkdown-implicit_figures -o "../OWASP Application Security Verification Standard 4.0-$1.pdf" *.md
-        echo " no PDF generated due to bugs"
-    else
-        echo " could not generate PDF, missing pdflatex"
-    fi
-}
-
 generate_docx() {
     pandoc -s -f markdown_github --reference-docx=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard 4.0-$1.docx" *.md
 }
 
-generate_html() {
-    pandoc -s -f markdown_github -t html5 -o "../OWASP Application Security Verification Standard 4.0-$1.html" *.md
-}
+# generate_html() {
+#     pandoc -s -f markdown_github -t html5 -o "../OWASP Application Security Verification Standard 4.0-$1.html" *.md
+# }
 
 generate() {
     echo -n "Generating OWASP ASVS 4.0 ($1)..."
@@ -41,8 +26,7 @@ generate() {
     then
         cd "$1"
         generate_docx $1
-        generate_pdf $1
-        generate_html $1
+        # generate_html $1
         cd ..
         echo " done."
     else

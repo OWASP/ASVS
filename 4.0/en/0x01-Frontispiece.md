@@ -7,7 +7,7 @@ The Application Security Verification Standard is a list of application security
 ## Copyright and License
 
 ![license](../images/license.png)
-Copyright © 2017 The OWASP Foundation. This document is released under the Creative Commons Attribution ShareAlike 3.0 license. For any reuse or distribution, you must make clear to others the license terms of this work.
+Copyright © 2018 The OWASP Foundation. This document is released under the Creative Commons Attribution ShareAlike 3.0 license. For any reuse or distribution, you must make clear to others the license terms of this work.
 
 ## Draft Version
 
@@ -24,6 +24,13 @@ This is a draft version of the standard, and as such should not be used until re
 Please log an issue here: https://github.com/OWASP/ASVS/issues
 
 Version 4.0, 2018
-| Project Leads | Lead Authors | Contributors and Reviewers |
-| --- | --- | --- |
-| Andrew van der Stock, Daniel Cuthbert | Jim Manico | Boy Baukema, Chris Bradley, Dr Daniël Geerts |
+
+## Project Leads
+
+Andrew van der Stock
+Daniel Cuthbert
+Jim Manico
+
+## Contributors and Reviewers
+
+- Find from closed bugs on Github
