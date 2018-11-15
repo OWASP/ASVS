@@ -2,9 +2,13 @@
 
 ## Control Objective
 
-In a perfect world, security would be considered throughout all phases of development. In reality however, security is often only a consideration at a late stage in the SDLC. Besides the technical controls, the ASVS requires processes to be in place that ensure that the security has been explicitly addressed when planning the architecture of the application or API, and that the functional and security roles of all components are known. Since single page applications and act as clients to remote API or services, it must be ensured that appropriate security standards are also applied to those services - testing the app in isolation is not sufficient.
+To build secure software, we need to consider security throughout all development phases. However, in reality, security is often only an afterthought in the SDLC. 
 
-The category “V1” lists requirements pertaining to architecture and design of the app. As such, this is the only category that does not map to technical test cases in the OWASP Testing Guide. To cover topics such as threat modeling, secure SDLC, key management, users of the ASVS should consult the respective OWASP projects and/or other standards such as the ones linked below.
+The ASVS remediates this problem by not only focusing on technical controls. It also requires the explicit adoption of security processes. These processes ensure that security is taken into account as soon as the first architecture is drawn. Additionally, the ASVS requires specifying both functional and security properties for application components.
+
+Note that distributed applications cannot be tested in isolation. They need to be tested in their distributed setup. Prime examples of such applications are mobile clients or Single Page Applications (SPAs) that interact with an API. Examining such a client without taking the API into account will yield incomplete results. 
+
+Category “V1” lists requirements related to the architecture and design of the application. Unlike other requirements in the ASVS, these requirements do not map to technical test cases in the OWASP Testing Guide. The resources at the end of this category include related OWASP projects that do cover these requirements. Example requirements are threat modeling, a secure SDLC, cryptographic key management.
 
 ## Security Verification Requirements
 
