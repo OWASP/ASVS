@@ -34,16 +34,16 @@ Applications can always exceed the current level's requirements. To assist in es
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.1.1 | Verify physical authenticators can be suspended or revoked, and this is effective including through Identity Providers and Relying Parties (RPs). | o | ✓ | ✓ | 5.2.1 |
-| 2.1.2 | Verify one or more of anti-automation, rate limiting, CAPTCHA, increasing delays, IP address restrictions, risk-based restrictions, is in place and effective to prevent breached credential testing, brute forcing, and account lockout attacks. Verify that no more than 100 failed attempts is possible on a single account. | ✓ | ✓ | ✓ | 5.2.2 / 5.1.1.2|
-| 2.1.3 | Verify biometric authenticators are used as one factor of multi-factor authentication in conjunction with an other factor of either something you have and/or something you know. |  | o | ✓ | 5.2.3 |
-| 2.1.4 | Verify attestation information is available. For more information, please see NIST 800-63 B &sect; 5.2.4 |  |  | ✓ | 5.2.4 |
-| 2.1.5 | Verify impersonation resistance against phishing is in place, such as the use of client-side certificates. |  | o | ✓ | 5.2.5 |
-| 2.1.6 | Verify where a verifier and CSP are separate, mutually authenticated TLS must be in place between the verifier and the CSP. |  | o | ✓ | 5.2.6 |
-| 2.1.7 | Verify verifier compromise resistance by ensuring sufficient strength of approved public key cryptographic algorithms as per standards such as NIST 800-131A or similar. |  | o | ✓ | 5.2.7 |
-| 2.1.8 | Verify replay resistance is present, such as the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  | o | ✓ | 5.2.8 |
-| 2.1.9 | Verify authentication intent by the entry of an OTP token in authentication or high value re-authentication flows, or user initiated action resulting in cryptographic device authentication, such as a button press on a FIDO hardware key. |  | o | ✓ | 5.2.9 |
-| 2.1.10 | Verify restricted authenticators - such as email and SMS - are not a preferred recovery mechanism or second factor, and at least one alternative is offered to the user first. If the user selects a restricted authenticator, a meaningful warning covering the potential risks of that restricted authenticator SHOULD be presented to the user, including that the future use of the restricted authenticator may be removed in the future. | ✓ | ✓ | ✓ | 5.2.10 |
+| 2.1.1 | Verify revocability of physical authenticators in case of theft or other loss. Ensure that revocation is immediately effective across all Identity Providers and Relying Parties. | o | ✓ | ✓ | 5.2.1 |
+| 2.1.2 | Verify that one or more anti-automation controls--including rate limiting, CAPTCHA, increasing delays, IP address restrictions, risk-based restrictions--are in place and effective to mitigate breached credential testing, brute forcing, and account lockout attacks. Verify that no more than 100 failed attempts is possible on a single account. | ✓ | ✓ | ✓ | 5.2.2 / 5.1.1.2|
+| 2.1.3 | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and/or something you know. |  | o | ✓ | 5.2.3 |
+| 2.1.4 | Verify availability of attestation information. For more information, please see NIST 800-63 B &sect; 5.2.4 |  |  | ✓ | 5.2.4 |
+| 2.1.5 | Verify impersonation resistance against phishing, such as the use of client-side certificates. |  | o | ✓ | 5.2.5 |
+| 2.1.6 | Verify that in cases where a verifier and CSP are separate, mutually authenticated TLS is in place between the two endpoints. |  | o | ✓ | 5.2.6 |
+| 2.1.7 | Verify verifier compromise resistance by ensuring sufficient strength of approved public key cryptographic algorithms as per standards such as NIST 800-131A or similar |  | o | ✓ | 5.2.7 |
+| 2.1.8 | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  | o | ✓ | 5.2.8 |
+| 2.1.9 | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  | o | ✓ | 5.2.9 |
+| 2.1.10 | Verify that restricted authenticators--such as email and SMS--are not a preferred recovery mechanism or second factor, and at least one alternative is offered to the user first. If the user selects a restricted authenticator, a meaningful warning covering the potential risks of that restricted authenticator SHOULD be presented to the user, including that the future use of the restricted authenticator may be removed in the future. | ✓ | ✓ | ✓ | 5.2.10 |
 
 In the future, email and SMS restricted authenticators will be removed from NIST 800-63 and thus the ASVS, so they should not be the sole form of credential recovery or second factor authenticator. (Introduce concept of authenticator agility?)
 
