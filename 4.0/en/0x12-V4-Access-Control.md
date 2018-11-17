@@ -25,7 +25,8 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.15** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. |  | ✓ | ✓ | 3.0 |
 | **4.16** | Verify that access control policy is enforced by trusted server-side components.  | ✓ | ✓ | ✓ | 4.0 |
 | **4.17** | Verify that data-level access control is implemented such that access to individual records can be managed in a centralized and standard way. | ✓ | ✓ | ✓ | 4.0 |
-| **2.32** | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use. | ✓ | ✓ | ✓ | 4.0 | TBA |
+| **4.18** | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use. | ✓ | ✓ | ✓ | 4.0 |
+
 ## References
 
 For more information, see also:
