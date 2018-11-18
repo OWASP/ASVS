@@ -2,9 +2,9 @@
 
 ## Control Objective
 
-One of the core components of any web-based application is the mechanism by which it controls and maintains the state for a user interacting with it. This is referred to this as Session Management and is defined as the set of all controls governing state-full interaction between a user and the web-based application.
+One of the core components of any web-based application or API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical at differentiating different users or devices. 
 
-Ensure that a verified application satisfies the following high level session management requirements:
+Ensure that a verified application satisfies the following high-level session management requirements:
 
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and timed out during periods of inactivity.
@@ -15,7 +15,7 @@ Ensure that a verified application satisfies the following high level session ma
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 3.1.1 | Verify that the session token is never disclosed in URLs, error messages, or logs. This includes verifying that the application does not support URL rewriting of session cookies. |  | ✓ | ✓ | 1.0 |
+| 3.1.1 | Verify that the session token is never disclosed in URLs, error messages, or logs. This includes verifying that the application does not support URL rewriting of session cookies. |  | ✓ | ✓ | - |
 
 ### V3.2 Session Binding Requirements
 
@@ -30,9 +30,9 @@ TLS or another secure transport channel is mandatory for session management. Thi
 
 ### V3.3 Session logout and timeout Requirements
 
-Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted. This reflects modern common industry practice, but is backed by increasing timeouts when multi-factor or stronger authenticators are used. 
+Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted. This reflects modern common industry practice but is backed by increasing timeouts when multi-factor or stronger authenticators are used. 
 
-L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2 and IAL3/AAL3, the shorter idle timeout is the lower bound of idle times for being logged out or re-authenticated to resume the session. 
+L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2 and IAL3/AAL3, the shorter idle timeout is, the lower bound of idle times for being logged out or re-authenticated to resume the session. 
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -41,7 +41,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | 3.3.3 | Verify if authenticators permit users to remain logged in, that re-authentication occurs periodically both when actively used or after an idle period. | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 7.2 |
 | 3.3.4 | Verify that the user can terminate all other active sessions after a successful change password process, and this is effective across the application, federated login (if present) and any relying parties. |  | ✓ | ✓ | - |
 
-### V3.4 Cookie based Session Management
+### V3.4 Cookie-based Session Management
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -53,13 +53,13 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 
 ### V3.5 Token based Session Management
 
-Token based session management includes JWT, oAuth, SAML, and API keys. Of these, API keys are known weak and should not be used in new code. 
+Token-based session management includes JWT, oAuth, SAML, and API keys. Of these, API keys are known weak and should not be used in new code. 
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 3.5.1 | Verify that OAuth and refresh tokens are not considered as the presence of the subscriber; this pertains to high value transactions where re-authentication may be required to protect the user. |  | ✓ | ✓ | 7.1.2 |
-| 3.5.2 | Verify single factor unchanging API secrets and keys are not used, except with legacy implementations. |  | ✓ | ✓ | - |
-| 3.5.3 | Verify that stateless session tokens enveloping sensitive session data are digitally signed or encrypted and regularly verified in a timely fasion to protect against tampering, enveloping, replay, null cipher and and key substitution attacks. |  | ✓ | ✓ | - |
+| 3.5.1 | Verify that OAuth and refresh tokens are not considered as the presence of the subscriber; this pertains to high-value transactions where re-authentication may be required to protect the user. |  | ✓ | ✓ | 7.1.2 |
+| 3.5.2 | Verify single factor unchanging API secrets, and keys are not used, except with legacy implementations. |  | ✓ | ✓ | - |
+| 3.5.3 | Verify that stateless session tokens enveloping sensitive session data are digitally signed or encrypted and regularly verified in a timely fashion to protect against tampering, enveloping, replay, null cipher and key substitution attacks. |  | ✓ | ✓ | - |
 
 
 ### V3.6 Re-authentication from a federation or assertion
@@ -68,18 +68,18 @@ This section relates to those writing relying party (RP) or credential service p
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 3.6.1 | Verify that replying parties specify the maximum authentication time to CSPs, and that CSPs re-authenticate the subscriber if they haven't used a session within that period. |  | | ✓ | 7.2.1 |
+| 3.6.1 | Verify that relying parties specify the maximum authentication time to CSPs and that CSPs re-authenticate the subscriber if they haven't used a session within that period. |  | | ✓ | 7.2.1 |
 | 3.6.2 | Verify that CSPs inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the subscriber. |  |  | ✓ | 7.2.1 |
 
 ### V3.7 Defences against session management exploits
 
-There are a small number of session management attacks, some releated to the user experience (UX) of sessions. Previously, we have asked that multiple sessions be blocked, based on ISO 27002 requirements. This is not appropriate, as typically the last authenticator wins, and that is often the attacker. This section provides leading guideance on detering, delaying and detecting session management attacks using code. 
+There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code. 
 
-Description on the half-open attack
+#### Description of the half-open attack
 
-In early 2018, a number of financial insitutions were compromised using what the attackers called "half open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. This means the half open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.
+In early 2018, several financial institutions were compromised using what the attackers called "half-open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.
 
-Attackers will attempt a half-open attack by starting with attempting to lock, reset, or recover a credential. A popular design pattern re-uses user profile session objects / models between unauthenticated, half-authenticated (resets, etc), and fully authenticated code. This design pattern populates a valid session object or token containing the victim's profile, including password hashses and roles. If access control checks in controllers or routers does not correctly verify that the user is actually logged in, the attacker will be able to change the user's password to a known value, update the profile or email address to perform a valid password reset, disable multi-factor authentication or enrol a new MFA device, change API keys, and so on.
+Attackers start a half-open attack by attempting to lock, reset, or recover a credential. A popular session management design pattern re-uses user profile session objects/models between unauthenticated, half-authenticated (password resets, forgot username), and fully authenticated code. This design pattern populates a valid session object or token containing the victim's profile, including password hashes and roles. If access control checks in controllers or routers does not correctly verify that the user is fully logged in, the attacker will be able to act as the user. Attacks could include changing the user's password to a known value, update the email address to perform a valid password reset, disable multi-factor authentication or enrol a new MFA device, reveal or change API keys, and so on.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -92,3 +92,4 @@ For more information, see also:
 
 * [OWASP Testing Guide 4.0: Session Management Testing](https://www.owasp.org/index.php/Testing_for_Session_Management)
 * [OWASP Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
+
