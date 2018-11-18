@@ -39,7 +39,6 @@ Applications can always exceed the current level's requirements. To assist in es
 | 2.1.3 | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and/or something you know. |  | o | ✓ | 5.2.3 |
 | 2.1.5 | Verify impersonation resistance against phishing, such as the use of client-side certificates. |  | o | ✓ | 5.2.5 |
 | 2.1.6 | Verify that in cases where a verifier and CSP are separate, mutually authenticated TLS is in place between the two endpoints. |  | o | ✓ | 5.2.6 |
-| 2.1.7 | Verify verifier compromise resistance by ensuring sufficient strength of approved public key cryptographic algorithms as per standards such as NIST 800-131A or similar |  | o | ✓ | 5.2.7 |
 | 2.1.8 | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  | o | ✓ | 5.2.8 |
 | 2.1.9 | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  | o | ✓ | 5.2.9 |
 | 2.1.10 | Verify that restricted authenticators--such as email and SMS--are not a preferred recovery mechanism or second factor, and at least one alternative is offered to the user first. If the user selects a restricted authenticator, a meaningful warning covering the potential risks of that restricted authenticator SHOULD be presented to the user, including that the future use of the restricted authenticator may be removed in the future. | ✓ | ✓ | ✓ | 5.2.10 |
