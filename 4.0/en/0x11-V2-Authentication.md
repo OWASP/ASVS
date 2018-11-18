@@ -37,7 +37,6 @@ Applications can always exceed the current level's requirements. To assist in es
 | 2.1.1 | Verify revocability of physical authenticators in case of theft or other loss. Ensure that revocation is immediately effective across all Identity Providers and Relying Parties. | o | ✓ | ✓ | 5.2.1 |
 | 2.1.2 | Verify that one or more anti-automation controls--including rate limiting, CAPTCHA, increasing delays, IP address restrictions, risk-based restrictions--are in place and effective to mitigate breached credential testing, brute forcing, and account lockout attacks. Verify that no more than 100 failed attempts is possible on a single account. | ✓ | ✓ | ✓ | 5.2.2 / 5.1.1.2|
 | 2.1.3 | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and/or something you know. |  | o | ✓ | 5.2.3 |
-| 2.1.4 | Verify availability of attestation information. For more information, please see NIST 800-63 B &sect; 5.2.4 |  |  | ✓ | 5.2.4 |
 | 2.1.5 | Verify impersonation resistance against phishing, such as the use of client-side certificates. |  | o | ✓ | 5.2.5 |
 | 2.1.6 | Verify that in cases where a verifier and CSP are separate, mutually authenticated TLS is in place between the two endpoints. |  | o | ✓ | 5.2.6 |
 | 2.1.7 | Verify verifier compromise resistance by ensuring sufficient strength of approved public key cryptographic algorithms as per standards such as NIST 800-131A or similar |  | o | ✓ | 5.2.7 |
