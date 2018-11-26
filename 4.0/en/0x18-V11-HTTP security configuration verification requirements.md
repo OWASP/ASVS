@@ -4,8 +4,8 @@
 
 Ensure that a verified application satisfies the following high level requirements:
 
-* The application server is suitably hardened from a default configuration.
-* HTTP responses contain a safe character set in the content type header.
+* The application server contains HTTP response headers that help provide a layer of security to help users mitigate certain types of attacks and vulnerabilities.
+
 
 ## Security Verification Requirements
 
