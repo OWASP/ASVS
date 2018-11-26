@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-''' Tool for converting the MASVS requirements to various formats.
+''' Tool for converting the ASVS requirements to various formats.
 
     Usage: ./export.py [--format <csv/xml/json]
 
@@ -31,7 +31,7 @@
 import argparse
 from asvs import ASVS
 
-parser = argparse.ArgumentParser(description='Export the MASVS requirements.')
+parser = argparse.ArgumentParser(description='Export the ASVS requirements.')
 parser.add_argument('--format', choices=['json', 'xml', 'csv'], default='json')
 
 args = parser.parse_args()
