@@ -18,7 +18,7 @@ Keeping detailed work papers, screenshots or movies, scripts to reliably and rep
 
 ### The Role of Automated Security Testing Tools
 
-Automated penetration tools are encouraged to provide as much as possible coverage and to exercise as many parameters as possible with many different forms of malicious inputs as possible.
+The use of automated penetration testing tools is encouraged to provide as much coverage as possible.
 
 It is not possible to fully complete ASVS verification using automated penetration testing tools alone. Whilst a large majority of requirements in L1 can be performed using automated tests, the overall majority of requirements are not amenable to automated penetration testing.
 
@@ -26,11 +26,11 @@ Please note that the lines between automated and manual testing have blurred as 
 
 ## The Role of Penetration Testing
 
-It is possible to perform a manual penetration test and verify all L1 issues without requiring access to source code, but this is not a leading practice. L2 requires at least some access to developers, documentation, code, and authenticated access to the system. Complete penetration testing coverage at Level 3 is not possible, as most of the additional issues involve review of system configuration, malicious code review, threat modeling, and other non-penetration testing artifacts.
+It is possible to perform a manual penetration test and verify a large number of L1 issues without requiring access to source code, however there are a handful of situations where this isn't possible. Where possible, access to developers, documentation, code, and  varying levels of user access for the target system, is required when performing a L2 Assessment. Complete penetration testing coverage at Level 3 is not possible, as most of the additional issues involve review of system configuration, malicious code review, threat modeling, and other non-penetration testing artifacts.
 
 ### As Detailed Security Architecture Guidance
 
-One of the more common uses for the Application Security Verification Standard is as a resource for security architects. The two major security architecture frameworks, SABSA or TOGAF, are missing a great deal of information that is necessary to complete application security architecture review. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies.
+One of the more common uses for the Application Security Verification Standard is as a resource for security architects. The Sherwood Applied Business Security Architecture (SABSA) is missing a great deal of information that is necessary to complete a thorough application security architecture review. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies.
 
 ### As a Replacement for Off-the-shelf Secure Coding Checklists
 
