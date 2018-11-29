@@ -5,7 +5,7 @@
 Ensure that a verified application satisfies the following high level requirements:
 
 * Untrusted file data should be handled accordingly and in a secure manner.
-* Obtained from untrusted sources are stored outside the web root and limited permissions.
+* Untrusted file data obtained from untrusted sources are stored outside the web root and limited permissions.
 
 ## Security Verification Requirements
 
