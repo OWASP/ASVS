@@ -50,7 +50,7 @@ NIST considers email and SMS as "restricted" plain text authentication channels.
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
 | 2.2.1 | Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers. | ✓ | ✓ | ✓ | 5.1.1.2 / A.3 |
-| 2.2.2 | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. | ✓ | ✓ |  | 6.1.3 |
+| 2.2.2 | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. | ✓ | ✓ | ✓ | 6.1.3 |
 | 2.2.3 | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | ✓ | ✓ | ✓ | 6.1.4 |
 
 There are additional requirements in section 6.2 for US agencies that are out of scope for the ASVS. 
