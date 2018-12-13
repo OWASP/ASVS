@@ -17,13 +17,13 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.5** | Verify that directory browsing is disabled unless deliberately desired. Additionally, applications should not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | ✓ | ✓ | ✓ | 1.0 |
 | **4.8** | Verify that access controls fail securely. | ✓ | ✓ | ✓ | 1.0 |
 | **4.9** | Verify that the same access control rules implied by the presentation layer are enforced on the server side. | ✓ | ✓ | ✓ | 1.0 |
-| **4.10** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. |  | ✓ | ✓ | 1.0 |
+| **4.10** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | 1.0 |
 | **4.11** | Verify that there is preferably only one vetted access control mechanism for protecting access to protected data and resources, such that hard coded access control checks are not required throughout the application. |  | ✓ | ✓ | 4.0 |
 | **4.12** | Verify that all access control decisions can be logged and all failed decisions are logged. |  | ✓ | ✓ | 2.0 |
-| **4.13** | Verify that the application or framework enforces a strong anti-CSRF mechanism any sensitive functionality. | ✓ | ✓ | ✓ | 4.0 |
+| **4.13** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect any sensitive functionality. | ✓ | ✓ | ✓ | 4.0 |
 | **4.14** | Verify the application has sufficient anti-automation to detect and protect against data exfiltration, excessive business logic requests, or denial of service attacks. |  | ✓ | ✓ | 4.0 |
 | **4.15** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. |  | ✓ | ✓ | 3.0 |
-| **4.16** | Verify that access control policy is enforced by trusted server-side components.  | ✓ | ✓ | ✓ | 4.0 |
+| **4.16** | Verify that access control policy is enforced server-side.  | ✓ | ✓ | ✓ | 4.0 |
 | **4.17** | Verify that data-level access control is implemented such that access to individual records can be managed in a centralized and standard way. | ✓ | ✓ | ✓ | 4.0 |
 | **4.18** | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use. | ✓ | ✓ | ✓ | 4.0 |
 
