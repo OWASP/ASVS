@@ -2,13 +2,13 @@
 
 ## Control Objective
 
-Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of memorized secrets (passwords).
+Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.
 
-ASVS V2 Authentication, V3 Session Management, and V4 Access Controls have been adapted to be a compliant subset of selected NIST 800-63 controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to either be identical or strongly aligned with the intent of NIST 800-63 normative (mandatory) requirements. Logging requirements are now located the V8 Error and Logging chapter, and TLS requirements are now found in the V10 Communications Chapter.
+ASVS V2 Authentication, V3 Session Management, and V4 Access Controls have been adapted to be a compliant subset of selected NIST 800-63 controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory NIST 800-63 requirements.
 
 NIST 800-63 is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
 
-Implementers requiring the full set of controls should review the entire standard, especially regarding evidence of identity, identity binding, identity assertion, the deployment and management of multi-factor, biometric and crypto devices, security usability, and a great deal more advanced topics. Full compliance with the ASVS 4.0 is not the same as full compliance with NIST 800-63.
+Implementers requiring the full set of controls should review the entire standard, especially regarding evidence of identity, identity binding, identity assertion, the deployment and management of multi-factor, biometric and crypto devices, security usability, and more.
 
  NB: We use the term "password" when NIST uses "memorized secret" throughout this standard.
 
@@ -18,7 +18,9 @@ The Application Security Verification Standard has mapped ASVS L1 to AAL1 requir
 
 The choice of NIST compliant authentication assertion level (AAL) should be performed as per NIST 800-63 guidelines as set out in *Selecting AAL* in [NIST 800-63 Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA). 
 
-We strongly urge everyone to adopt NIST 800-63, and align any policies, guidelines and standards with it, such as we've done here.
+## Warning
+
+While we strongly urge everyone to adopt NIST 800-63, full compliance with the ASVS 4.0 is not the same as full compliance with NIST 800-63.
 
 ## Authentication Verification Requirements
 
