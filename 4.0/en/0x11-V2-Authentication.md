@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Authentication is the act of establishing, or confirming, something (or someone) as authentic, that is, that claims made by a person or about a device are correct, resistant to impersonation (phishing), and prevents recovery or interception of memorized secrets (passwords).
+Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of memorized secrets (passwords).
 
 ASVS V2 Authentication, V3 Session Management, and V4 Access Controls have been adapted to be a compliant subset of selected NIST 800-63 controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to either be identical or strongly aligned with the intent of NIST 800-63 normative (mandatory) requirements. Logging requirements are now located the V8 Error and Logging chapter, and TLS requirements are now found in the V10 Communications Chapter.
 
