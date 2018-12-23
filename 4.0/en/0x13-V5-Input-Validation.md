@@ -28,7 +28,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | 5.2.1 | Verify that output encoding occurs close to or by the interpreter for which it is intended. | ✓ | ✓ | ✓ | 4.0 |
-| 5.2.2 | Verify that output encoding is contextually relevant for the interpreter and context required. For example, using encoders specifically for HTML values, attributes, HTTP headers, JSON, SMTP, as the case requires. | ✓ | ✓ | ✓ | 4.0 |
+| 5.2.2 | Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, attributes, URL Parameters, HTTP headers, SMTP, and others as the context requires. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.3 | Verify that output encoding preserves the user's chosen character set and locale, such that any Unicode character point is valid and safely handled. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.4 | Verify that context-aware, preferably automated - or at worst, manual - output escaping protects against reflected, stored, and DOM based XSS. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.5 | Verify that any user-supplied data included in the browser's DOM or web views protects against JavaScript code execution and XSS attacks. | ✓ | ✓ | ✓ | 4.0 |
