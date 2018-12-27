@@ -4,9 +4,9 @@
 
 Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.
 
-ASVS V2 Authentication, V3 Session Management, and V4 Access Controls have been adapted to be a compliant subset of selected NIST 800-63 controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory NIST 800-63 requirements.
+ASVS V2 Authentication, V3 Session Management, and V4 Access Controls have been adapted to be a compliant subset of selected NIST 800-63b controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html#5-authenticator-and-verifier-requirements) requirements.
 
-NIST 800-63 is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
+NIST 800-63b is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
 
 Implementers requiring the full set of controls should review the entire standard, especially regarding evidence of identity, identity binding, identity assertion, the deployment and management of multi-factor, biometric and crypto devices, security usability, and more.
 
@@ -16,11 +16,11 @@ Implementers requiring the full set of controls should review the entire standar
 
 The Application Security Verification Standard has mapped ASVS L1 to AAL1 requirements, L2 to AAL2, and L3 to AAL3. However, the approach of ASVS Level 1 as "essential" controls may not necessarily be the correct AAL level to verify an application or API. For example, if the application is a Level 3 application or has regulatory requirements to be AAL3, Level 3 should be chosen in Sections V2 and V3 Session Management.
 
-The choice of NIST compliant authentication assertion level (AAL) should be performed as per NIST 800-63 guidelines as set out in *Selecting AAL* in [NIST 800-63 Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA). 
+The choice of NIST compliant authentication assertion level (AAL) should be performed as per NIST 800-63b guidelines as set out in *Selecting AAL* in [NIST 800-63b Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
 
 ## Warning
 
-While we strongly urge everyone to adopt NIST 800-63, full compliance with the ASVS 4.0 is not the same as full compliance with NIST 800-63.
+While we strongly urge everyone to adopt NIST 800-63b, full compliance with the ASVS 4.0 is not the same as full compliance with NIST 800-63b.
 
 ## Authentication Verification Requirements
 
@@ -55,7 +55,7 @@ NIST considers email and SMS as "restricted" plain text authentication channels.
 | 2.2.2 | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. | ✓ | ✓ | ✓ | 6.1.3 |
 | 2.2.3 | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | ✓ | ✓ | ✓ | 6.1.4 |
 
-There are additional requirements in section 6.2 for US agencies that are out of scope for the ASVS. 
+There are additional requirements in section 6.2 for US agencies that are out of scope for the ASVS.
 
 ### V2.3 Authenticator Recovery Requirements
 
@@ -151,9 +151,9 @@ Single factor one time passwords are physical or soft tokens that display a cont
 
 ### V2.9 Multi-factor OTP Verifier Requirements
 
-Multi-factor tokens are similar to single factor OTP tokens, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP. 
+Multi-factor tokens are similar to single factor OTP tokens, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
 
-In the context of this section, the claimant should be read as the person or organization who enrolled the OTP device. Claimants may not necessarily be the person in possession of the OTP device. 
+In the context of this section, the claimant should be read as the person or organization who enrolled the OTP device. Claimants may not necessarily be the person in possession of the OTP device.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -167,9 +167,9 @@ In the context of this section, the claimant should be read as the person or org
 
 ### V2.10 Cryptographic Software and Devices Verifier Requirements
 
-Cryptographic security keys are smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. Verifiers send a challenge nonce to the cryptographic devices or software, and the device or software calculates a response based upon a securely stored cryptographic key. 
+Cryptographic security keys are smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. Verifiers send a challenge nonce to the cryptographic devices or software, and the device or software calculates a response based upon a securely stored cryptographic key.
 
-The requirements for single factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic authenticator proves possession of the authentication factor. 
+The requirements for single factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic authenticator proves possession of the authentication factor.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -186,7 +186,7 @@ The requirements for single factor cryptographic devices and software, and multi
 
 ### Additional US Agency Requirements
 
-US Agencies have mandatory requirements concerning NIST 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications. 
+US Agencies have mandatory requirements concerning NIST 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications.
 
 We strongly urge US government agencies to review and implement NIST 800-63 in its entirety.
 
@@ -214,4 +214,3 @@ For more information, see also:
 * [OWASP Cheat Sheet - Password storage](https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet)
 * [OWASP Cheat Sheet - Forgot password](https://www.owasp.org/index.php/Forgot_Password_Cheat_Sheet)
 * [OWASP Cheat Sheet - Choosing and using security questions](https://www.owasp.org/index.php/Choosing_and_Using_Security_Questions_Cheat_Sheet)
-
