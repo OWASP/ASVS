@@ -14,7 +14,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | --- | --- | --- | --- | -- | -- |
 | **15.1** | Verify the application will only process business logic flows for the same user in sequential step order and without skipping steps.  | ✓ | ✓ | ✓ | 2.0 |
 | **15.2** | Verify the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.  |  | ✓ | ✓ | 2.0 |
-| **15.3** | Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis. |  | ✓ | ✓ | 2.0 |
+| **15.3** | Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis. | ✓ | ✓ | ✓ | 2.0 |
 | **15.4** | Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. |  | ✓ | ✓ | 2.0 |
 | **15.5** | Verify the application has configurable alerting when automated attacks or unusual activity is detected. |  | ✓ | ✓ | 2.0 |
 | **15.6** | Verify the application has automated reactions when automated attacks or unusual activity is detected. |  |  | ✓ | 2.0 | 
