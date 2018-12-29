@@ -14,7 +14,7 @@ Ensure that a verified application has:
 | --- | --- | --- | --- | -- | -- |
 | **19.1** | Verify that all components are up to date with proper security configuration(s) and version(s). This should include removal of unneeded configurations and functionality, such as sample applications, platform documentation, and default or example users.  | ✓ | ✓ | ✓ | 4.0 |
 | **19.2** | Verify that communications between components, such as between the application server and the database server, are encrypted, particularly when the components are in different containers or on different systems. |  | ✓ | ✓ | 4.0 |
-| **19.3** | Verify that communications between components, such as between the application server and the database server, is authenticated using an account with the least necessary privileges. | ✓   | ✓ | ✓ | 4.0 |
+| **19.3** | Verify that communications between components, such as between the application server and the database server, are authenticated using an account with the least necessary privileges. | ✓   | ✓ | ✓ | 4.0 |
 | **19.4** | Verify application deployments are adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications. |  | ✓ | ✓ | 3.0 |
 | **19.5** | Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation and automated configuration management.  |  | ✓ | ✓ | 4.0 |
 | **19.6** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | 4.0 |
