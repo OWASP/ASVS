@@ -20,11 +20,11 @@ Ensure that a verified application has:
 | **19.6** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | 4.0 |
 | **19.7** | Verify that all application components are signed with a suitable key (Digital Cert/CA). |  |  | ✓ | 3.0 |
 | **19.8** | Verify that third party components come from pre-defined, trusted repositories. |  |  | ✓ | 3.0 |
-| **19.9** | Verify that build processes for system level languages have all security flags enabled, such as ASLR, DEP, and security checks.  |  |  | ✓ | 3.0 |
-| **19.10** | Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, sub-resource integrity (SRI) is used to validate the integrity of the asset. |  | ✓ | ✓ | 4.0 |
-| **19.11** | Verify that all application components, services, and servers each use their own low privilege service account, that is not shared between applications nor used by administrators.  |  | ✓ | ✓ | 4.0 |
+| **19.9** | Verify that build processes for system-level languages have all security flags enabled, such as ASLR, DEP, and security checks.  |  |  | ✓ | 3.0 |
+| **19.10** | Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. |  | ✓ | ✓ | 4.0 |
+| **19.11** | Verify that all application components, services, and servers each use their own low-privilege service account, that is not shared between applications nor used by administrators.  |  | ✓ | ✓ | 4.0 |
 | **19.12** | Verify that all parsers used by the application such as XML parsers are configured to prevent external entity attacks.  |  | ✓ | ✓ | 4.0 |
-| **19.13** | Verify that the web tier is configured to serve only files with specific file extensions to prevent un-intentional information and source code leakage. For example, .bak, .swp and and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | 4.0 |
+| **19.13** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, .bak, .swp and and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | 4.0 |
 
 ## References
 
