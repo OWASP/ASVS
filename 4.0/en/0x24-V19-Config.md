@@ -5,7 +5,7 @@
 Ensure that a verified application has:
 
 * Up to date libraries and platform(s).
-* A secure by default configuration.
+* A secure-by-default configuration.
 * Sufficient hardening that user initiated changes to default configuration do not unnecessarily expose or create security weaknesses or flaws to underlying systems.
 
 ## Security Verification Requirements
