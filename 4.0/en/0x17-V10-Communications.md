@@ -5,7 +5,7 @@
 Ensure that a verified application satisfies the following high level requirements:
 
 * TLS or strong encryption is always used, regardless of the sensitivity of the data being transmitted
-* The most recent leading configuration advice is used to enable and order preferred algorithms and ciphers
+* The most recent, leading configuration advice is used to enable and order preferred algorithms and ciphers
 * Weak or soon to be deprecated algorithms and ciphers are ordered as a last resort
 * Deprecated or known insecure algorithms and ciphers are disabled.
 
@@ -32,8 +32,4 @@ For more information, see also:
 
 * [OWASP – TLS Cheat Sheet](https://www.owasp.org/index.php/Transport_Layer_Protection_Cheat_Sheet)
 * Notes on “Approved modes of TLS”. In the past, the ASVS referred to the US standard FIPS 140-2, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply. A better method of achieving compliance with 10.8 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or  [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known TLS evaluation tools, such as sslyze, various vulnerability scanners or trusted TLS online assessment services to obtain a desired level of security. In general, we see non-compliance for this section being the use of outdated or insecure ciphers and algorithms, the lack of perfect forward secrecy, outdated or insecure SSL protocols, weak preferred ciphers, and so on.
-* [Certificate pinning](https://tools.ietf.org/html/rfc7469). The rationale behind certificate pinning for production and backup keys is [business continuity](https://noncombatant.org/2015/05/01/about-http-public-key-pinning/)
-* [OWASP Certificate Pinning Cheat Sheet](https://www.owasp.org/index.php/Pinning_Cheat_Sheet)
-* [OWASP Certificate and Public Key Pinning](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning)
-* [Time of first use (TOFU) Pinning](https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning)
 * [Pre-loading HTTP Strict Transport Security](https://www.chromium.org/hsts)
