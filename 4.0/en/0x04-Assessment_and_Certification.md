@@ -24,9 +24,13 @@ It is not possible to fully complete ASVS verification using automated penetrati
 
 Please note that the lines between automated and manual testing have blurred as the application security industry matures. Automated tools are often manually tuned by experts and manual testers often leverage a wide variety of automated tools.
 
-## The Role of Penetration Testing
+### The Role of Penetration Testing
 
 It is possible to perform a manual penetration test and verify a large number of L1 issues without requiring access to source code, however there are a handful of situations where this isn't possible. Where possible, access to developers, documentation, code, and  varying levels of user access for the target system, is required when performing a L2 Assessment. Complete penetration testing coverage at Level 3 is not possible, as most of the additional issues involve review of system configuration, malicious code review, threat modeling, and other non-penetration testing artifacts.
+
+## Other uses for the ASVS
+
+Aside from being used to assess the security of an application, we have identified a number of other potential uses for the ASVS.
 
 ### As Detailed Security Architecture Guidance
 
