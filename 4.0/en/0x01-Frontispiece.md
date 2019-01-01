@@ -18,7 +18,7 @@ This is a draft version of the standard, and as such should not be used until re
 * Ineffective or outdated controls.
 * Unclear wording, spelling, grammar issues.
 * Formatting issues.
-* Translation issues – if a control’s wording is such that trying express it in your language will be difficult or impossible, please let us know. If it doesn’t work in Spanish or Thai, it probably isn’t working in English either.
+* Translation issues – if a control's wording is such that trying express it in your language will be difficult or impossible, please let us know. If it doesn't work in Spanish or Thai, it probably isn't working in English either.
 * Offers of translation – please let us know so that we can direct you to folks already working on your language.
 
 Please log an issue here: https://github.com/OWASP/ASVS/issues

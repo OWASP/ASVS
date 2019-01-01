@@ -6,7 +6,7 @@ ASVS v4.0 is a culmination of community effort and industry feedback. In this re
 
 We expect that there will most likely never be 100% agreement on this standard. Risk analysis is always subjective to some extent, which creates a challenge when attempting to generalize in a one-size-fits-all standard. However, we hope that the latest updates made in this version are a step in the right direction, and respectfully enhance the concepts introduced in this important industry standard.
 
-## What’s new in 4.0
+## What's new in 4.0
 
 In June 2017, The National Institute of Science and Technology (NIST) released Special Publication (SP) 800-63-3, which is an updated set of digital identity guidelines. These technical guidelines provides an overview of general identity frameworks, using authenticators, credentials, and assertions together in a digital system, and a risk-based process of selecting assurance levels.
 
