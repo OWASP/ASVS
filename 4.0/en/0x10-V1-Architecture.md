@@ -14,7 +14,7 @@ Category “V1” lists requirements related to the architecture and design of t
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **1.1** | All app components are identified and known to be needed. | ✓ | ✓ | ✓ | 1.0 |
+| **1.1** | All app components and data flows are identified and known to be needed. | ✓ | ✓ | ✓ | 1.0 |
 | **1.2** | Security controls are never enforced only on the client side, but on the respective remote endpoints. |  | ✓ | ✓ | 1.0 |
 | **1.3** | A high-level architecture for the application and all connected remote services has been defined and security has been addressed in that architecture. |  | ✓ | ✓ | 1.0 |
 | **1.4** | Data considered sensitive in the context of the application is clearly identified. |  |  | ✓ | 1.0 |
