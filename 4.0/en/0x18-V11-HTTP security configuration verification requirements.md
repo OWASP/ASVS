@@ -20,6 +20,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **11.7** | Verify that a content security policy (CSPv2) is in place that helps mitigate common DOM, XSS, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 3.0.1 |
 | **11.8** | Verify that the X-XSS-Protection: 1; mode=block header is in place to enable browser reflected XSS filters. | ✓ | ✓ | ✓ | 3.0 |
 | **11.9** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | 4.0 |
+| **11.10** | Verify that the cross-domain resource sharing (CORS) Access-Control-Allow-Origin header does not reflect the request's origin header or support the "null" origin. | ✓ | ✓ | ✓ | 4.0 |
 
 ## References
 
