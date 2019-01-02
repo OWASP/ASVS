@@ -4,9 +4,9 @@
 
 Ensure that a verified application satisfies the following high level requirements:
 
-* That all cryptographic modules fail in a secure manner and that errors are handled correctly.
-* That a suitable random number generator is used.
-* That access to keys is managed in a secure way.
+* All cryptographic modules fail in a secure manner and that errors are handled correctly.
+* A suitable random number generator is used.
+* Access to keys is managed in a secure way.
 
 ## 7.1 Data Classification
 
@@ -20,9 +20,9 @@ The most important asset is the data processed, stored or transmitted by an appl
 
 ## 7.2 Architecture
 
-Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectual or high level design, design sprints or architectual spikes. Designing cryptography as you go or retrofitting it will inevitably cost a great deal more to implement and secure than simply building it in from the start.
+Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectual or high level design, design sprints or architectual spikes. Designing cryptography as you go or retrofitting it will inevitably cost a great deal more to implement securely than simply building it in from the start.
 
-Architectural requirements are intrinsic to the entire code base, and thus difficult to unit or integrate test. Architectural requirements require consideration in coding standards, throughout the coding phase, and reviewed during security architecture, peer or code reviews, or retrospectives.
+Architectural requirements are intrinsic to the entire code base, and thus difficult to unit or integrate test. Architectural requirements require consideration in coding standards, throughout the coding phase, and should be reviewed during security architecture, peer or code reviews, or retrospectives.
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
@@ -32,7 +32,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 ## 7.3 Algorithms
 
-Recent advances in cryptography means that previously safe algorithms and key lengths are no longer safe or sufficient to protect data. Therefore, it should be possible to change algoriuthsm
+Recent advances in cryptography mean that previously safe algorithms and key lengths are no longer safe or sufficient to protect data. Therefore, it should be possible to change algorithms.
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
