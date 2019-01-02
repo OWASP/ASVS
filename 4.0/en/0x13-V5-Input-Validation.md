@@ -28,7 +28,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | 5.2.1 | Verify that output encoding occurs close to or by the interpreter for which it is intended. | ✓ | ✓ | ✓ | 4.0 |
-| 5.2.2 | Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, attributes, URL Parameters, HTTP headers, SMTP, and others as the context requires. | ✓ | ✓ | ✓ | 4.0 |
+| 5.2.2 | Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, URL Parameters, HTTP headers, SMTP, and others as the context requires. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.3 | Verify that output encoding preserves the user's chosen character set and locale, such that any Unicode character point is valid and safely handled. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.4 | Verify that context-aware, preferably automated - or at worst, manual - output escaping protects against reflected, stored, and DOM based XSS. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.5 | Verify that any user-supplied data included in the browser's DOM or web views protects against JavaScript code execution and XSS attacks. | ✓ | ✓ | ✓ | 4.0 |
@@ -41,10 +41,10 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | 5.3.1 | Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or otherwise protected from database injection attacks. | ✓ | ✓ | ✓ | 4.0 |
-| 5.3.2 | Verify that LDAP queries are not susceptible to LDAP Injection by using either parameterized LDAP queries or the use of contextual LDAP output encoding. | ✓ | ✓ | ✓ | 2.0 |
-| 5.3.3 | Verify that operating system calls are not susceptible to OS command injection by using either parameterized OS queries or the use of contextual command line output encoding. | ✓ | ✓ | ✓ | 2.0 |
-| 5.3.4 | Verify that file and path handling is not susceptible to Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks. | ✓ | ✓ | ✓ | 3.0 |
-| 5.3.5 | Verify that XML parsing and XML queries are not susceptible to XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
+| 5.3.2 | Verify that the application protects against  LDAP Injection vulnerabilities, or that specific security controls to prevent LDAP Injection have been implemented. | ✓ | ✓ | ✓ | 2.0 |
+| 5.3.3 | Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | ✓ | ✓ | ✓ | 2.0 |
+| 5.3.4 | Verify that the application protects against Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks. | ✓ | ✓ | ✓ | 3.0 |
+| 5.3.5 | Verify that the application protects against XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.6 | Verify that where potentially untrusted data is copied one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or JQuery .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.7 | Verify that the application protects against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.8 | Verify that the application protects against eval(), template injection, or remote code execution attacks. | ✓ | ✓ | ✓ | 4.0 |
@@ -82,7 +82,7 @@ For more information on auto-escaping, please see:
 * [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](http://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
 * [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
 * [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
-* [Angular  Sanitzation](https://angular.io/guide/security#sanitization-and-security-contexts)
+* [Angular Sanitzation](https://angular.io/guide/security#sanitization-and-security-contexts)
 * [Angular Template Security](https://angular.io/guide/template-syntax#content-security)
 * [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
 * [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
