@@ -43,7 +43,7 @@ Dependency management is critical to the safe operation of any application of an
 
 | # | Description | L1 | L2 | L3 | CWE | CVSSv3 |
 | --- | --- | --- | --- | -- | -- | -- |
-| **19.4.1** | Verify that all parsers used by the application such as XML parsers are configured to prevent external entity attacks. | ✓ | ✓ | ✓ | 1030 | 9.8 |
+| **19.4.1** | Verify that all parsers used by the application such as XML parsers are configured to prevent external entity attacks (XXE). | ✓ | ✓ | ✓ | 1030 | 9.8 |
 | **19.4.2** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | -- | -- |
 
 ## References
