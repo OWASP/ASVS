@@ -5,7 +5,7 @@
 Ensure that a verified application satisfies the following high level requirements:
 
 * That all cryptographic modules fail in a secure manner and that errors are handled correctly.
-* That a suitable random number generator is used when randomness is required.
+* That a suitable random number generator is used.
 * That access to keys is managed in a secure way.
 
 ## 7.1 Data Classification
@@ -62,3 +62,4 @@ For more information, see also:
 
 * [OWASP Testing Guide 4.0: Testing for weak Cryptography](https://www.owasp.org/index.php/Testing_for_weak_Cryptography)
 * [OWASP Cheat Sheet: Cryptographic Storage](https://www.owasp.org/index.php/Cryptographic_Storage_Cheat_Sheet)
+* [FIPS 140-2] https://csrc.nist.gov/publications/detail/fips/140/2/final
