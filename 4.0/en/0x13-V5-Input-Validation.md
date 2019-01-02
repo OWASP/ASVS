@@ -44,7 +44,7 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | 5.3.2 | Verify that LDAP queries are not susceptible to LDAP Injection by using either parameterized LDAP queries or the use of contextual LDAP output encoding. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.3 | Verify that operating system calls are not susceptible to OS command injection by using either parameterized OS queries or the use of contextual command line output encoding. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.4 | Verify that file and path handling is not susceptible to Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks. | ✓ | ✓ | ✓ | 3.0 |
-| 5.3.5 | Verify that XML parsing and queries are not susceptible to XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
+| 5.3.5 | Verify that XML parsing and XML queries are not susceptible to XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.6 | Verify that where potentially untrusted data is copied one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or JQuery .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.7 | Verify that the application protects against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.8 | Verify that the application protects against eval(), template injection, or remote code execution attacks. | ✓ | ✓ | ✓ | 4.0 |
@@ -86,3 +86,8 @@ For more information on auto-escaping, please see:
 * [Angular Template Security](https://angular.io/guide/template-syntax#content-security)
 * [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
 * [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
+
+For more information on deserialization, please see:
+
+* [OWASP Deserialization Cheat Sheet](https://www.owasp.org/index.php/Deserialization_Cheat_Sheet)
+* [OWASP Deserialization of Untrusted Data Guide](https://www.owasp.org/index.php/Deserialization_of_untrusted_data)
