@@ -8,7 +8,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 * Input validation and output encoding architecture have an agreed pipeline to prevent injection attacks.
 * Input data is strongly typed, validated, range or length checked, or at worst, sanitized or filtered.
-* Output data is encoded as per the context of the data as close to the interpreter as possible.
+* Output data is encoded or escaped as per the context of the data as close to the interpreter as possible.
 
 ## 5.1 Input Validation Reqirements
 
@@ -20,7 +20,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 | 5.1.4 | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.  | ✓ | ✓ | ✓ | 3.0 |
 | 5.1.5 | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables). |  | ✓ | ✓ | 2.0 |
 | 5.1.6 | Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (whitelisting). |  | ✓ | ✓ | 3.0 |
-| 5.1.7 | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as validating suburbs and zip or postcodes match).  |  | ✓ | ✓ | 3.0 |
+| 5.1.7 | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match).  |  | ✓ | ✓ | 3.0 |
 | 5.1.8 | Verify that unstructured data is sanitized to enforce safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. names with Unicode or apostrophes, such as ねこ or O'Hara). |  | ✓ | ✓ | 3.0 |
 
 ## 5.2 Output Encoding Requirements
@@ -32,7 +32,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 | 5.2.3 | Verify that output encoding preserves the user's chosen character set and locale, such that any Unicode character point is valid and safely handled. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.4 | Verify that context-aware, preferably automated - or at worst, manual - output escaping protects against reflected, stored, and DOM based XSS. | ✓ | ✓ | ✓ | 4.0 |
 | 5.2.5 | Verify that any user-supplied data included in the browser's DOM or web views protects against JavaScript code execution and XSS attacks. | ✓ | ✓ | ✓ | 4.0 |
-| 5.2.6 | Verify that where parameterized or safer mechanisms are not present, that context-specific output encoding is used to protect against injection attacks, such as the use of SQL escaping to protect against SQL injection. | ✓ | ✓ | ✓ | 4.0 |
+| 5.2.6 | Verify that where parameterized or safer mechanisms are not present, context-specific output encoding is used to protect against injection attacks, such as the use of SQL escaping to protect against SQL injection. | ✓ | ✓ | ✓ | 4.0 |
 
 Note that escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
@@ -40,8 +40,8 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| 5.3.1 | Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or otherwise protected from database injection attacks. | ✓ | ✓ | ✓ | 4.0 |
-| 5.3.2 | Verify that the application protects against  LDAP Injection vulnerabilities, or that specific security controls to prevent LDAP Injection have been implemented. | ✓ | ✓ | ✓ | 2.0 |
+| 5.3.1 | Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from database injection attacks. | ✓ | ✓ | ✓ | 4.0 |
+| 5.3.2 | Verify that the application protects against LDAP Injection vulnerabilities, or that specific security controls to prevent LDAP Injection have been implemented. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.3 | Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.4 | Verify that the application protects against Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks. | ✓ | ✓ | ✓ | 3.0 |
 | 5.3.5 | Verify that the application protects against XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
@@ -75,14 +75,14 @@ For more information, see also:
 * [OWASP Cross Site Scripting Prevention Cheat Sheet ](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)
 * [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet ](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet)
 * [OWASP Java Encoding Project](https://www.owasp.org/index.php/OWASP_Java_Encoder_Project)
-* [OWASP Mass Binding Prevention Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet)
+* [OWASP Mass Assignment Prevention Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet)
 
 For more information on auto-escaping, please see:
 
 * [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](http://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
 * [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
 * [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
-* [Angular Sanitzation](https://angular.io/guide/security#sanitization-and-security-contexts)
+* [Angular Sanitization](https://angular.io/guide/security#sanitization-and-security-contexts)
 * [Angular Template Security](https://angular.io/guide/template-syntax#content-security)
 * [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
 * [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
