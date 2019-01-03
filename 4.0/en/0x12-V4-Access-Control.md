@@ -19,7 +19,7 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.9** | Verify that the same access control rules implied by the presentation layer are enforced on the server side. | ✓ | ✓ | ✓ | 1.0 |
 | **4.10** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | 1.0 |
 | **4.1** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ | 1.0 |
-| **4.x2** | Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until this is explicitly assigned.
+| **4.x2** | Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until this is explicitly assigned.  | ✓ | ✓ | ✓ | 4.0 |
 | **4.8** | Verify that access controls fail securely including when an exception occurs. | ✓ | ✓ | ✓ | 1.0 |
 | **4.12** | Verify that all access control decisions can be logged and all failed decisions are logged. |  | ✓ | ✓ | 2.0 |
 
@@ -32,7 +32,7 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.13** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect any sensitive functionality. | ✓ | ✓ | ✓ | 4.0 |
 | **4.16** | Verify that data-level access control is implemented such that access to individual records can be managed in a centralized and standard way. | ✓ | ✓ | ✓ | 4.0 |
 
-### V4.2 Other Access Control Considerations
+### V4.3 Other Access Control Considerations
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
