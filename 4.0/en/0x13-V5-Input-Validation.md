@@ -76,6 +76,7 @@ For more information, see also:
 * [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet ](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet)
 * [OWASP Java Encoding Project](https://www.owasp.org/index.php/OWASP_Java_Encoder_Project)
 * [OWASP Mass Assignment Prevention Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet)
+* [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
 
 For more information on auto-escaping, please see:
 
