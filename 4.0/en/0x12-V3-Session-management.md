@@ -28,7 +28,7 @@ Ensure that a verified application satisfies the following high-level session ma
 
 TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
 
-### V3.3 Session logout and timeout Requirements
+### V3.3 Session Logout and Timeout Requirements
 
 Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted. This reflects modern common industry practice but is backed by increasing timeouts when multi-factor or stronger authenticators are used. 
 
@@ -51,7 +51,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | 3.4.4 | Verify that cookie-based session IDs are set to expire soon after the default session timeout period. | ✓ | ✓ | ✓ | 7.1.1 |
 
 
-### V3.5 Token based Session Management
+### V3.5 Token-based Session Management
 
 Token-based session management includes JWT, oAuth, SAML, and API keys. Of these, API keys are known weak and should not be used in new code. 
 
@@ -62,7 +62,7 @@ Token-based session management includes JWT, oAuth, SAML, and API keys. Of these
 | 3.5.3 | Verify that stateless session tokens enveloping sensitive session data are digitally signed or encrypted and regularly verified in a timely fashion to protect against tampering, enveloping, replay, null cipher and key substitution attacks. |  | ✓ | ✓ | - |
 
 
-### V3.6 Re-authentication from a federation or assertion
+### V3.6 Re-authentication from a Federation or Assertion
 
 This section relates to those writing relying party (RP) or credential service provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly. 
 
@@ -71,11 +71,11 @@ This section relates to those writing relying party (RP) or credential service p
 | 3.6.1 | Verify that relying parties specify the maximum authentication time to CSPs and that CSPs re-authenticate the subscriber if they haven't used a session within that period. |  | | ✓ | 7.2.1 |
 | 3.6.2 | Verify that CSPs inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the subscriber. |  |  | ✓ | 7.2.1 |
 
-### V3.7 Defences against session management exploits
+### V3.7 Defences Against Session Management Exploits
 
 There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code. 
 
-#### Description of the half-open attack
+#### Description of the Half-open Attack
 
 In early 2018, several financial institutions were compromised using what the attackers called "half-open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.
 
