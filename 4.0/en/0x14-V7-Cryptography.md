@@ -54,7 +54,8 @@ True pseudo-random number generation (PRNG) is incredibly difficult to get right
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **7.5.1** | Verify that sensitive passwords or key material maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 4.0 |
+| **7.5.1** | Verify that a secrets management solution such as a key vault is used to main secrests rather than code, config files or environment variables. | ✓ | ✓ | ✓ | 4.0 |
+| **7.5.2** | Verify that sensitive passwords or key material maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 4.0 |
 
 ## References
 
