@@ -43,7 +43,7 @@ Recent advances in cryptography mean that previously safe algorithms and key len
 
 ## 7.4 Random Values
 
-True pseudo-random number generation (PRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets. 
+True pseudo-random number generation (PRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets.
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
@@ -62,4 +62,4 @@ For more information, see also:
 
 * [OWASP Testing Guide 4.0: Testing for weak Cryptography](https://www.owasp.org/index.php/Testing_for_weak_Cryptography)
 * [OWASP Cheat Sheet: Cryptographic Storage](https://www.owasp.org/index.php/Cryptographic_Storage_Cheat_Sheet)
-* [FIPS 140-2] https://csrc.nist.gov/publications/detail/fips/140/2/final
+* [FIPS 140-2](https://csrc.nist.gov/publications/detail/fips/140/2/final)
