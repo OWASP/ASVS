@@ -36,7 +36,7 @@ Recent advances in cryptography mean that previously safe algorithms and key len
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **7.3.1** | Verify that industry proven or government approved cryptographic algorithms and modes are used, instead of custom coded cryptography. | ✓ | ✓ | ✓ | 4.0 |
+| **7.3.1** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | ✓ | ✓ | ✓ | 4.0 |
 | **7.3.2** | Verify that encryption input vector, cipher configuration, and block modes are configured securely using the latest advice. | ✓ | ✓ | ✓ | 4.0 |
 | **7.3.3** | Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable Padding Oracle attacks. | ✓ | ✓ | ✓ | 1.0 |
 | **7.3.4** | Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. | ✓ | ✓ | ✓ | 4.0 |
