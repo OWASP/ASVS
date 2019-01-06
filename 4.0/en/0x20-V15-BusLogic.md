@@ -17,14 +17,14 @@ Ensure that a verified application satisfies the following high level requiremen
 | **15.3** | Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis. | ✓ | ✓ | ✓ | 2.0 |
 | **15.4** | Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. |  | ✓ | ✓ | 2.0 |
 | **15.5** | Verify the application has configurable alerting when automated attacks or unusual activity is detected. |  | ✓ | ✓ | 2.0 |
-| **15.6** | Verify the application has automated reactions when automated attacks or unusual activity is detected. |  |  | ✓ | 2.0 | 
+| **15.6** | Verify the application has automated reactions when automated attacks or unusual activity is detected. |  |  | ✓ | 2.0 |
 | **15.7** | Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, or denial of service attacks. |  | ✓ | ✓ | 2.0 |
 
 ## References
 
 For more information, see also:
 
-* [OWASP Testing Guide 4.0: Business Logic Testing ](https://www.owasp.org/index.php/Testing_for_business_logic)
+* [OWASP Testing Guide 4.0: Business Logic Testing](https://www.owasp.org/index.php/Testing_for_business_logic)
 * [OWASP Cheat Sheet](https://www.owasp.org/index.php/Business_Logic_Security_Cheat_Sheet)
 * Anti-automation can be achieved in many ways, including the use of [OWASP AppSensor](https://www.owasp.org/index.php/OWASP_AppSensor_Project) and [OWASP Automated Threats to Web Applications](https://www.owasp.org/index.php/OWASP_Automated_Threats_to_Web_Applications)
 * [OWASP AppSensor](https://www.owasp.org/index.php/OWASP_AppSensor_Project) can also help with Attack Detection and Response.
