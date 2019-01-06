@@ -46,7 +46,7 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | 5.3.4 | Verify that the application protects against Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks. | ✓ | ✓ | ✓ | 3.0 |
 | 5.3.5 | Verify that the application protects against XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.6 | Verify that where potentially untrusted data is copied one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or JQuery .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. | ✓ | ✓ | ✓ | 4.0 |
-| 5.3.7 | Verify that the application santizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 4.0 |
+| 5.3.7 | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.8 | Verify that the application avoids the use of eval() or other dynamic code execution features and that, where there is no alternative, any user input being included is sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.9 | Verify that the application protects against template injection attacks by ensuring that any user input being included is sanitized or sandboxed. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.10 | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. |  | ✓ | ✓ | 4.0 |
