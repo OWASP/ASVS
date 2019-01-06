@@ -10,7 +10,7 @@ Authorization is the concept of allowing access to resources only to those permi
 
 ## Security Verification Requirements
 
-### V4.1 General Access Control design
+### 4.1 General Access Control design
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
@@ -23,7 +23,7 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.1.7** | Verify that access controls fail securely including when an exception occurs. | ✓ | ✓ | ✓ | 1.0 |
 | **4.1.8** | Verify that all access control decisions can be logged and all failed decisions are logged. | ✓ | ✓ | ✓ | 2.0 |
 
-### V4.2 Operation Level Access Control
+### 4.2 Operation Level Access Control
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
@@ -33,7 +33,7 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.2.4** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect any sensitive functionality. | ✓ | ✓ | ✓ | 4.0 |
 | **4.2.5** | Verify that data-level access control is implemented such that access to individual records can be managed in a centralized and standard way. | ✓ | ✓ | ✓ | 4.0 |
 
-### V4.3 Other Access Control Considerations
+### 4.3 Other Access Control Considerations
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
