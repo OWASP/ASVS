@@ -46,13 +46,14 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | 5.3.4 | Verify that the application protects against Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks. | ✓ | ✓ | ✓ | 3.0 |
 | 5.3.5 | Verify that the application protects against XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.6 | Verify that where potentially untrusted data is copied one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or JQuery .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. | ✓ | ✓ | ✓ | 4.0 |
-| 5.3.7 | Verify that the application protects against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 4.0 |
-| 5.3.8 | Verify that the application protects against eval(), template injection, or remote code execution attacks. | ✓ | ✓ | ✓ | 4.0 |
-| 5.3.9 | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. |  | ✓ | ✓ | 4.0 |
-| 5.3.10 | Verify that if the application uses a systems language or unmanaged code, it uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. |  | ✓ | ✓ | 4.0 |
-| 5.3.11 | Verify that if the application uses a systems language or unmanaged code, format strings do not take potentially hostile input, and are constant. |  | ✓ | ✓ | 4.0 |
-| 5.3.12 | Verify that if the application uses a systems language or unmanaged code, sign, range, and input validation techniques are used to prevent integer overflows. |  | ✓ | ✓ | 4.0 |
-| 5.3.13 | Verify that if the application uses a systems language or unmanaged code, compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  |  | ✓ | 4.0 |
+| 5.3.7 | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 4.0 |
+| 5.3.8 | Verify that the application avoids the use of eval() or other dynamic code execution features and that, where there is no alternative, any user input being included is sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 4.0 |
+| 5.3.9 | Verify that the application protects against template injection attacks by ensuring that any user input being included is sanitized or sandboxed. | ✓ | ✓ | ✓ | 4.0 |
+| 5.3.10 | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. |  | ✓ | ✓ | 4.0 |
+| 5.3.11 | Verify that if the application uses a systems language or unmanaged code, it uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. |  | ✓ | ✓ | 4.0 |
+| 5.3.12 | Verify that if the application uses a systems language or unmanaged code, format strings do not take potentially hostile input, and are constant. |  | ✓ | ✓ | 4.0 |
+| 5.3.13 | Verify that if the application uses a systems language or unmanaged code, sign, range, and input validation techniques are used to prevent integer overflows. |  | ✓ | ✓ | 4.0 |
+| 5.3.14 | Verify that if the application uses a systems language or unmanaged code, compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  |  | ✓ | 4.0 |
 
 ## 5.4 Deserialization Prevention Requirements
 
@@ -70,10 +71,10 @@ For more information, see also:
 * [OWASP Testing Guide 4.0: Input Validation Testing](https://www.owasp.org/index.php/Testing_for_Input_Validation)
 * [OWASP Cheat Sheet: Input Validation](https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet)
 * [OWASP Testing Guide 4.0: Testing for HTTP Parameter Pollution](https://www.owasp.org/index.php/Testing_for_HTTP_Parameter_pollution_%28OTG-INPVAL-004%29)
-* [OWASP LDAP Injection Cheat Sheet ](https://www.owasp.org/index.php/LDAP_Injection_Prevention_Cheat_Sheet)
-* [OWASP Testing Guide 4.0: Client Side Testing ](https://www.owasp.org/index.php/Client_Side_Testing)
-* [OWASP Cross Site Scripting Prevention Cheat Sheet ](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)
-* [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet ](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet)
+* [OWASP LDAP Injection Cheat Sheet](https://www.owasp.org/index.php/LDAP_Injection_Prevention_Cheat_Sheet)
+* [OWASP Testing Guide 4.0: Client Side Testing](https://www.owasp.org/index.php/Client_Side_Testing)
+* [OWASP Cross Site Scripting Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)
+* [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet)
 * [OWASP Java Encoding Project](https://www.owasp.org/index.php/OWASP_Java_Encoder_Project)
 * [OWASP Mass Assignment Prevention Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet)
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
