@@ -16,6 +16,7 @@ Ensure that a verified application has:
 | **19.1.2** | Verify application deployments are adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications. | ✓ | ✓ | ✓ | 265 | [7.7](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:N) |
 | **19.1.3** | Verify that all application components, services, and servers each use their own low-privilege service account, that is not shared between applications nor used by administrators.  | ✓ | ✓ | ✓ | 250 | [7.4](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H) |
 | **19.1.4** | Verify that communications between components, such as between the application server and the database server, are encrypted, particularly when the components are in different containers or on different systems. |  | ✓ | ✓ | 319 | [4.8](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N) |
+| **19.1.5** | Verify that all mission critical components have at least one level of redundancy. |  |  | ✓ |  |  |
 
 ## 19.2 Build
 
