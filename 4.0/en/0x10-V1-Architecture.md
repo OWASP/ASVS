@@ -24,7 +24,7 @@ Category “V1” lists requirements related to the architecture and design of t
 | **1.8** | All security controls have a centralized implementation as to avoid duplication of critical code. | | ✓ | ✓ | 3.0 |
 | **1.9** | Components are segregated from each other via a defined security control, such as network segmentation, firewall rules, or cloud based security groups. | | ✓ | ✓ | 3.0 |
 | **1.10** | A mechanism for enforcing updates of the application exists. | | ✓ | ✓ | 3.0 |
-| **1.11** | Security is addressed within all parts of the software development lifecycle. | | ✓ | ✓ | 3.0 |
+| **1.11** | Security is addressed within all parts of the software development lifecycle. | ✓ | ✓ | ✓ | 3.0 |
 | **1.12** | All application components, libraries, modules, frameworks, platform, and operating systems are free from known vulnerabilities. | |✓ |✓ | 3.0.1 |
 | **1.13** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced following a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 4.0 |
 
