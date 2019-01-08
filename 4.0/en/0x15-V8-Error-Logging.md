@@ -37,7 +37,7 @@ It is also important to ensure that the application fails securely and that erro
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | **8.2.1** | Verify that a generic message is shown when an error occurs, potentially with a unique ID which support personnel can use to investigate.  | ✓ | ✓ | ✓ | 4.0 |
-| **8.3.2** | Verify that exception handling is used across the codebase to account for expected or unexpected error conditions.  | ✓ | ✓ | ✓ | 4.0 |
+| **8.3.2** | Verify that exception handling is used across the codebase to account for expected and unexpected error conditions.  | ✓ | ✓ | ✓ | 4.0 |
 | **8.3.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions.  | ✓ | ✓ | ✓ | 4.0 |
 
 ## References
