@@ -27,8 +27,8 @@ Version 4.0, 2018
 
 ## Project Leads
 
-Andrew van der Stock
-Daniel Cuthbert
+Andrew van der Stock  
+Daniel Cuthbert  
 Jim Manico
 
 ## Contributors and Reviewers
