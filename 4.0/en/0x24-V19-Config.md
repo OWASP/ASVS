@@ -63,6 +63,7 @@ The application server contains HTTP response headers that help provide a layer 
 | --- | --- | --- | --- | -- | -- | -- |
 | **19.5.1** | Verify that all parsers used by the application such as XML parsers are configured to prevent external entity attacks (XXE). | ✓ | ✓ | ✓ | 1030 | 9.8 |
 | **19.5.2** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | -- | -- |
+| **19.5.3** | Verify that regular backups of all customer data, configuration files and other custom components are performed and that the application can be restored to a previous working state from that backup. | ✓ | ✓ | ✓ |  |  |
 
 ## References
 
