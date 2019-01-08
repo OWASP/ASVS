@@ -37,7 +37,7 @@ Dependency management is critical to the safe operation of any application of an
 | **19.3.1** | Verify that all components are up to date with proper security configuration(s) and version(s), preferably using a dependency checker during build or compile time.  | ✓ | ✓ | ✓ | 1026 | [10.0](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H) |
 | **19.3.2** | Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.  | ✓ | ✓ | ✓ | 1002 | [10.0](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H) |
 | **19.3.3** | Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 714 | [8.1](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N) |
-| **19.3.4** | Verify that third party components come from pre-defined, trusted repositories. | ✓ | ✓ | ✓ | 829 | [8.1](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N) |
+| **19.3.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. | ✓ | ✓ | ✓ | 829 | [8.1](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N) |
 
 ## 19.4 HTTP Configuration
 
