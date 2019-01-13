@@ -14,7 +14,7 @@ The single largest change in this version is the adoption of the NIST 800-63-3 g
 
 We have worked to comprehensively meet and exceed the requirements for addressing the OWASP Top 10 Risks (2017). As the OWASP Top 10 Risks is the bare minimum to avoid negligence, we have deliberately set nearly all controls relating to OWASP Top 10 Risks to be L1. This makes it easier for OWASP Top 10 adopters to continuously improve, especially when they want to continue the security journey by building security into every application and API.
 
-Similarly, we have ensured that the ASVS includes all the requirements and controls defined by the OWASP Top Ten Proactive Controls project (2018)
+Similarly, we have ensured that the ASVS includes all the requirements and controls defined by the OWASP Top Ten Proactive Controls project (2018).
 
 We have completed the shift of the ASVS from monolithic server side only controls, to providing solid controls for all modern applications and APIs. In the days of functional programming, server less API, mobile, cloud, IoT, CI/CD and DevOps, and federation, we cannot keep on ignoring modern application architecture. Modern applications are designed differently to those in 2008, when the original ASVS was written. The ASVS must always look far into the future so that we provide sound advice for our primary audience - developers. We have clarified or dropped any requirement that assumes that security must be solely performed on a server owned by a single organization.
 
