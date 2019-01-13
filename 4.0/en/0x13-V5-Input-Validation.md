@@ -61,8 +61,9 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | 5.4.1 | Verify when parsing JSON in browsers or JavaScript-based backends, that JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
-| 5.4.2 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 4.0
-| 5.4.3 | Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).  | ✓ | ✓ | ✓ | 4.0
+| 5.4.2 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 4.0 |
+| 5.4.3 | Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).  | ✓ | ✓ | ✓ | 4.0 |
+| 5.4.4 | Verify that serialized objects use integrity checks or are encrypted to prevent hostile object creation or data tampering.| | ✓ | ✓ | 4.0 |
 
 ## References
 
