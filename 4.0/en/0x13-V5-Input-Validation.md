@@ -22,6 +22,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 | 5.1.6 | Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (whitelisting). |  | ✓ | ✓ | 3.0 |
 | 5.1.7 | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match).  |  | ✓ | ✓ | 3.0 |
 | 5.1.8 | Verify that unstructured data is sanitized to enforce safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. names with Unicode or apostrophes, such as ねこ or O'Hara). |  | ✓ | ✓ | 3.0 |
+| 5.1.9 | Verify that untrusted data, particularly filenames and URL input fields, use whitelisting of protocols, domains, paths and ports to protect against Server-Side Request Forgery (SSRF) vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
 
 ## 5.2 Output Encoding Requirements
 
@@ -60,9 +61,8 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
 | 5.4.1 | Verify when parsing JSON in browsers or JavaScript-based backends, that JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
-| 5.4.2 | Verify that untrusted data, particularly filenames and URL input fields, use positive input validation and output encoding methods to protect against Server-Side Request Forgery (SSRF) vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
-| 5.4.3 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 4.0
-| 5.4.4 | Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).  | ✓ | ✓ | ✓ | 4.0
+| 5.4.2 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 4.0
+| 5.4.3 | Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).  | ✓ | ✓ | ✓ | 4.0
 
 ## References
 
