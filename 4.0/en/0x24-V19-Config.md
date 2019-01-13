@@ -21,7 +21,7 @@ Ensure that a verified application has:
 
 Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We are strongly encouraging the use of build pipelines with automatic security and dependency checks that warn or break the build to prevent known security issues into production. Manual steps performed irregularly directly leads to avoidable security mistakes.
 
-Compliance with this section requires an automated build system, and access to build and deployment scripts. 
+Compliance with this section requires an automated build system, and access to build and deployment scripts.
 
 | # | Description | L1 | L2 | L3 | CWE | CVSSv3 |
 | --- | --- | --- | --- | -- | -- | -- |
@@ -63,6 +63,7 @@ The application server contains HTTP response headers that help provide a layer 
 | --- | --- | --- | --- | -- | -- | -- |
 | **19.5.1** | Verify that all parsers used by the application such as XML parsers are configured to prevent external entity attacks (XXE). | ✓ | ✓ | ✓ | 1030 | 9.8 |
 | **19.5.2** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | -- | -- |
+| **19.5.3** | Make sure that other component configurations have been hardened in accordance with relevant guidance.  |  |  | ✓ | -- | -- |
 
 ## References
 
