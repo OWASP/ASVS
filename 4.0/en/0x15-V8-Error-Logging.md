@@ -22,7 +22,7 @@ It is also important to ensure that the application fails securely and that erro
 | --- | --- | --- | --- | -- | -- |
 | **8.1.1** | Verify that the application does not log credentials, session tokens or payment details. | ✓ | ✓ | ✓ | 4.0 |
 | **8.1.2** | Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. |  | ✓ | ✓ | 3.0 |
-| **8.1.3** | Verify that the application logs security relevant events including successful and failed authentication events, access control failures and input validation failures. | ✓ | ✓ | ✓ | 4.0 |
+| **8.1.3** | Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures. | ✓ | ✓ | ✓ | 4.0 |
 | **8.1.4** | Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. |  | ✓ | ✓ | 1.0 |
 | **8.1.5** | Verify that all events are protected from injection when viewed in log viewing software. |  | ✓ | ✓ | 1.0 |
 | **8.1.6** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | 1.0 |
@@ -39,6 +39,7 @@ It is also important to ensure that the application fails securely and that erro
 | **8.2.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  | ✓ | ✓ | ✓ | 4.0 |
 | **8.3.2** | Verify that exception handling is used across the codebase to account for expected and unexpected error conditions.  | ✓ | ✓ | ✓ | 4.0 |
 | **8.3.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions.  | | ✓ | ✓ | 4.0 |
+
 
 ## References
 
