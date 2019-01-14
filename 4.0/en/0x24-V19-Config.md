@@ -13,7 +13,7 @@ Ensure that a verified application has:
 | # | Description | L1 | L2 | L3 | CWE | CVSSv3 |
 | --- | --- | --- | --- | -- | -- | -- |
 | **19.1.1** | Verify that communications between components, such as between the application server and traditional, cloud or NoSQL database servers, are authenticated using an account with the least necessary privileges. | ✓ | ✓ | ✓ | 306 | [8.1](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N) |
-| **19.1.2** | Verify application deployments are adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications. | ✓ | ✓ | ✓ | 265 | [7.7](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:N) |
+| **19.1.2** | Verify application deployments are adequately sandboxed, containerized and/or isolated at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | ✓ | ✓ | ✓ | 265 | [7.7](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:N) |
 | **19.1.3** | Verify that all application components, services, and servers each use their own low-privilege service account, that is not shared between applications nor used by administrators.  | ✓ | ✓ | ✓ | 250 | [7.4](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H) |
 | **19.1.4** | Verify that communications between components, such as between the application server and the database server, are encrypted, particularly when the components are in different containers or on different systems. |  | ✓ | ✓ | 319 | [4.8](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N) |
 
@@ -21,7 +21,7 @@ Ensure that a verified application has:
 
 Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We are strongly encouraging the use of build pipelines with automatic security and dependency checks that warn or break the build to prevent known security issues into production. Manual steps performed irregularly directly leads to avoidable security mistakes.
 
-Compliance with this section requires an automated build system, and access to build and deployment scripts. 
+Compliance with this section requires an automated build system, and access to build and deployment scripts.
 
 | # | Description | L1 | L2 | L3 | CWE | CVSSv3 |
 | --- | --- | --- | --- | -- | -- | -- |
@@ -63,7 +63,8 @@ The application server contains HTTP response headers that help provide a layer 
 | --- | --- | --- | --- | -- | -- | -- |
 | **19.5.1** | Verify that all parsers used by the application such as XML parsers are configured to prevent external entity attacks (XXE). | ✓ | ✓ | ✓ | 1030 | 9.8 |
 | **19.5.2** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | -- | -- |
-| **19.5.3** | Verify that regular backups of all customer data, configuration files and other custom components are performed and that the application can be restored to a previous working state from that backup. | ✓ | ✓ | ✓ |  |  |
+| **19.5.3** | Make sure that other component configurations have been hardened in accordance with relevant guidance.  |  |  | ✓ | -- | -- |
+| **19.5.4** | Verify that regular backups of all customer data, configuration files and other custom components are performed and that the application can be restored to a previous working state from that backup. | ✓ | ✓ | ✓ |  |  |
 
 ## References
 
