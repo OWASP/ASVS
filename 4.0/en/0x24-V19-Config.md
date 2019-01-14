@@ -19,7 +19,6 @@ Ensure that a verified application has:
 | **19.1.5** | Verify that any communication encryption solution between components verifies the authenticity of both sides to prevent a Person in the Middle attack. For example, TLS certificate validation. |  | ✓ | ✓ | |  |
 | **19.1.6** | Verify that all mission critical components have at least one level of redundancy. |  |  | ✓ |  |  |
 
-
 ## 19.2 Build
 
 Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We are strongly encouraging the use of build pipelines with automatic security and dependency checks that warn or break the build to prevent known security issues into production. Manual steps performed irregularly directly leads to avoidable security mistakes.
