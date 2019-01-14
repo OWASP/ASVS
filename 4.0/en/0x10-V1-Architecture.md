@@ -32,8 +32,6 @@ Category “V1” lists requirements related to the architecture and design of t
 
 For more information, see also:
 
-For more information, please see:
-
 * [OWASP Threat Modeling Cheat Sheet](https://www.owasp.org/index.php/Threat_Modeling_Cheat_Sheet)
 * [OWASP Attack Surface Analysis Cheat Sheet](https://www.owasp.org/index.php/Attack_Surface_Analysis_Cheat_Sheet)
 * [OWASP Threat modeling](https://www.owasp.org/index.php/Application_Threat_Modeling)
