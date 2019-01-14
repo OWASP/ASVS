@@ -30,6 +30,8 @@ Ensure that a verified application satisfies the following high level data prote
 | **9.13** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provide both confidentiality and integrity. | ✓ | ✓ | ✓ | 3.0.1 |
 | **9.14** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | 4.0 |
 | **9.15** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. |  | ✓ | ✓ | 3.0 |
+| **9.16** | Verify that regular backups of important data are performed and that restore tests are performed. || ✓ | ✓ | 4.0 |
+| **9.17** | Verify that backups are stored securely to prevent the data being stolen or corrupted. || ✓ | ✓ | 4.0 |
 
 ## References
 
