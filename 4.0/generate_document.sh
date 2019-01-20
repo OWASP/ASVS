@@ -13,7 +13,7 @@ if ! command_exists pandoc; then
 fi
 
 generate_docx() {
-    pandoc -s -f markdown_github --reference-docx=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard 4.0-$1.docx" *.md
+    pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard 4.0-$1.docx" *.md
 }
 
 # generate_html() {
