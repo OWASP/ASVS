@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **15.4** | Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. |  | ✓ | ✓ | 2.0 |
 | **15.5** | Verify the application has configurable alerting when automated attacks or unusual activity is detected. |  | ✓ | ✓ | 2.0 |
 | **15.6** | Verify the application has automated reactions when automated attacks or unusual activity is detected. |  |  | ✓ | 2.0 |
-| **15.7** | Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, or denial of service attacks. |  | ✓ | ✓ | 2.0 |
+| **15.7** | Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, excessive file uploads or denial of service attacks. |  | ✓ | ✓ | 2.0 |
 
 ## References
 
