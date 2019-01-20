@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **16.5** | Verify that untrusted data is not used within cross-domain resource sharing (CORS) to protect against arbitrary remote content. See [0x92-Appendix-C_CodeExamples.md](0x92-Appendix-C_CodeExamples.md) for an example of how you might approach this. | ✓ | ✓ | ✓ | 2.0 |
 | **16.6** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation. |  | ✓ | ✓ | 3.0 |
 | **16.7** | Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server. |  | ✓ | ✓ | 2.0 |
-| **16.8** | Verify that application code does not execute uploaded data obtained from untrusted sources including both server side code but also client side code such as an HTML file with an XSS attack built in. | ✓ | ✓ | ✓ | 3.0 |
+| **16.8** | Verify that application code does not execute uploaded data obtained from untrusted sources. | ✓ | ✓ | ✓ | 3.0 |
 | **16.9** | Verify that unsupported, insecure or deprecated client-side technologies are not used, such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | ✓ | ✓ | ✓ | 4.0 |
 | **16.10** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, .bak, .swp and and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | 4.0 |
 | **16.11** | Verify that the application will not files which are too big and could fill up the server or incur exccessive storage costs.]]. | ✓ | ✓ | ✓ | 4.0 |
