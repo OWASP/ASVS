@@ -9,7 +9,7 @@ The latest published version is version 3.0.1, which can be found:
 * https://www.owasp.org/images/3/33/OWASP_Application_Security_Verification_Standard_3.0.1.pdf (PDF)
 * https://www.owasp.org/images/f/f0/OWASP_Application_Security_Verification_Standard_3.0.1.docx (Word)
 
-The next version is going to be version 3.1, which can be found above in Word, JSON, and Excel formats. This is due for release at AppSec EU in May 2017. 
+The next version is going to be version 4.0, which is currently undergoing final changes. This is due for release in February 2019.
 
 The requirements were developed with the following objectives in mind:
 
