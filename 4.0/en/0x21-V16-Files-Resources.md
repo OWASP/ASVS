@@ -21,7 +21,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | **16.8** | Verify that application code does not execute uploaded data obtained from untrusted sources. | ✓ | ✓ | ✓ | 3.0 |
 | **16.9** | Verify that unsupported, insecure or deprecated client-side technologies are not used, such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | ✓ | ✓ | ✓ | 4.0 |
 | **16.10** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, .bak, .swp and and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | 4.0 |
-| **16.11** | Verify that the application will not files which are too big and could fill up the server or incur exccessive storage costs.]]. | ✓ | ✓ | ✓ | 4.0 |
+| **16.11** | Verify that the application will not accept files which are too big and could fill up the server or incur exccessive storage costs. | ✓ | ✓ | ✓ | 4.0 |
 
 ## References
 
