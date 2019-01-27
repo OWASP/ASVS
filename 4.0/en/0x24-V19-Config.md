@@ -65,10 +65,9 @@ The application server contains HTTP response headers that help provide a layer 
 
 | # | Description | L1 | L2 | L3 | CWE | CVSSv3 |
 | --- | --- | --- | --- | -- | -- | -- |
-| **19.5.1** | Verify that all parsers used by the application such as XML parsers are configured to prevent external entity attacks (XXE). | ✓ | ✓ | ✓ | 1030 | 9.8 |
-| **19.5.2** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | -- | -- |
-| **19.5.3** | Make sure that other component configurations have been hardened in accordance with relevant guidance.  |  |  | ✓ | -- | -- |
-| **19.5.4** | Verify that regular backups of all configuration files and other custom components are performed and that the application can be restored to a previous working state from that backup. | ✓ | ✓ | ✓ |  |  |
+| **19.5.1** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering.  |  |  | ✓ | -- | -- |
+| **19.5.2** | Make sure that other component configurations have been hardened in accordance with relevant guidance.  |  |  | ✓ | -- | -- |
+| **19.5.3** | Verify that regular backups of all configuration files and other custom components are performed and that the application can be restored to a previous working state from that backup. | ✓ | ✓ | ✓ |  |  |
 
 ## References
 
@@ -79,4 +78,3 @@ For more information, see also:
 * [Content Security Policy Cheat Sheet](https://www.owasp.org/index.php?title=Content_Security_Policy_Cheat_Sheet)
 * [Exploiting CORS misconfiguration for BitCoins and Bounties](https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)
 * [OWASP Testing Guide --: Configuration and Deployment Management Testing](https://www.owasp.org/index.php/Testing_for_configuration_management)
-* [XML External Entity (XXE) Prevention Cheat Sheet](https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Prevention_Cheat_Sheet))

@@ -10,11 +10,11 @@ Ensure that a verified application satisfies the following high-level requiremen
 * Input data is strongly typed, validated, range or length checked, or at worst, sanitized or filtered.
 * Output data is encoded or escaped as per the context of the data as close to the interpreter as possible.
 
-## 5.1 Input Validation Reqirements
+## 5.1 Input Validation Requirements
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| 5.1.1 | Verify that server-side input validation failures result in request rejection and are logged. | ✓ | ✓ | ✓ | 1.0 |
+| 5.1.1 | Verify that server-side input validation failures which result in request rejection and are logged. | ✓ | ✓ | ✓ | 1.0 |
 | 5.1.2 | Verify that input validation is enforced on the server-side. | ✓ | ✓ | ✓ | 1.0 |
 | 5.1.3 | Verify that the application uses a centralized input validation control mechanism. | ✓ | ✓ | ✓ | 1.0 |
 | 5.1.4 | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.  | ✓ | ✓ | ✓ | 3.0 |
@@ -48,7 +48,7 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | 5.3.5 | Verify that the application protects against XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 2.0 |
 | 5.3.6 | Verify that where potentially untrusted data is copied one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or JQuery .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.7 | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 4.0 |
-| 5.3.8 | Verify that the application avoids the use of eval() or other dynamic code execution features and that, where there is no alternative, any user input being included is sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 4.0 |
+| 5.3.8 | Verify that the application avoids the use of eval() or other dynamic code execution features. Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.9 | Verify that the application protects against template injection attacks by ensuring that any user input being included is sanitized or sandboxed. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.10 | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. |  | ✓ | ✓ | 4.0 |
 | 5.3.11 | Verify that if the application uses a systems language or unmanaged code, it uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. |  | ✓ | ✓ | 4.0 |
@@ -60,8 +60,8 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| 5.4.1 | Verify when parsing JSON in browsers or JavaScript-based backends, that JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
-| 5.4.2 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled.  | ✓ | ✓ | ✓ | 4.0 |
+| 5.4.1 | Verify that when parsing JSON in browsers or JavaScript-based backends, JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
+| 5.4.2 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XXE.  | ✓ | ✓ | ✓ | 4.0 |
 | 5.4.3 | Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).  | ✓ | ✓ | ✓ | 4.0 |
 | 5.4.4 | Verify that serialized objects use integrity checks or are encrypted to prevent hostile object creation or data tampering.| | ✓ | ✓ | 4.0 |
 
@@ -79,6 +79,7 @@ For more information, see also:
 * [OWASP Java Encoding Project](https://www.owasp.org/index.php/OWASP_Java_Encoder_Project)
 * [OWASP Mass Assignment Prevention Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet)
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
+* [XML External Entity (XXE) Prevention Cheat Sheet](https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Prevention_Cheat_Sheet))
 
 For more information on auto-escaping, please see:
 
