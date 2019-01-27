@@ -149,7 +149,6 @@ Single factor one time passwords are physical or soft tokens that display a cont
 | 2.8.4 | Verify that time-based OTP can be used only once within the validity period. | ✓ | ✓ | ✓ | 5.1.4.2 |
 | 2.8.5 | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric OTP authenticators). | o | ✓ | ✓ | 5.1.4.2 |
 
-
 ### V2.9 Multi-factor OTP Verifier Requirements
 
 Multi-factor tokens are similar to single factor OTP tokens, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
