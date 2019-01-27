@@ -61,14 +61,14 @@ The following requirements will only apply when the application uses a systems l
 | 5.4.3 | Verify that sign, range, and input validation techniques are used to prevent integer overflows. |  | ✓ | ✓ | 4.0 |
 | 5.4.4 | Verify that  compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  |  | ✓ | 4.0 |
 
-## 5.4 Deserialization Prevention Requirements
+## 5.5 Deserialization Prevention Requirements
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| 5.4.1 | Verify that when parsing JSON in browsers or JavaScript-based backends, JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
-| 5.4.2 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XXE.  | ✓ | ✓ | ✓ | 4.0 |
-| 5.4.3 | Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).  | ✓ | ✓ | ✓ | 4.0 |
-| 5.4.4 | Verify that serialized objects use integrity checks or are encrypted to prevent hostile object creation or data tampering.| | ✓ | ✓ | 4.0 |
+| 5.5.1 | Verify that when parsing JSON in browsers or JavaScript-based backends, JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. |  | ✓ | ✓ | 3.0 |
+| 5.5.2 | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XXE.  | ✓ | ✓ | ✓ | 4.0 |
+| 5.5.3 | Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).  | ✓ | ✓ | ✓ | 4.0 |
+| 5.5.4 | Verify that serialized objects use integrity checks or are encrypted to prevent hostile object creation or data tampering.| | ✓ | ✓ | 4.0 |
 
 ## References
 
