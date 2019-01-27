@@ -51,10 +51,15 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | 5.3.8 | Verify that the application avoids the use of eval() or other dynamic code execution features. Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.9 | Verify that the application protects against template injection attacks by ensuring that any user input being included is sanitized or sandboxed. | ✓ | ✓ | ✓ | 4.0 |
 | 5.3.10 | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. |  | ✓ | ✓ | 4.0 |
-| 5.3.11 | Verify that if the application uses a systems language or unmanaged code, it uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. |  | ✓ | ✓ | 4.0 |
-| 5.3.12 | Verify that if the application uses a systems language or unmanaged code, format strings do not take potentially hostile input, and are constant. |  | ✓ | ✓ | 4.0 |
-| 5.3.13 | Verify that if the application uses a systems language or unmanaged code, sign, range, and input validation techniques are used to prevent integer overflows. |  | ✓ | ✓ | 4.0 |
-| 5.3.14 | Verify that if the application uses a systems language or unmanaged code, compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  |  | ✓ | 4.0 |
+
+## 5.4 Unmanaged Code Requirements
+
+The following requirements will only apply when the application uses a systems language or unmanaged code.
+
+| 5.4.1 | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. |  | ✓ | ✓ | 4.0 |
+| 5.4.2 | Verify that format strings do not take potentially hostile input, and are constant. |  | ✓ | ✓ | 4.0 |
+| 5.4.3 | Verify that sign, range, and input validation techniques are used to prevent integer overflows. |  | ✓ | ✓ | 4.0 |
+| 5.4.4 | Verify that  compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  |  | ✓ | 4.0 |
 
 ## 5.4 Deserialization Prevention Requirements
 
