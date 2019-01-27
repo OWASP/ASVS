@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-One of the core components of any web-based application or API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical at differentiating different users or devices. 
+One of the core components of any web-based application or API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical at differentiating different users or devices.
 
 Ensure that a verified application satisfies the following high-level session management requirements:
 
@@ -30,9 +30,9 @@ TLS or another secure transport channel is mandatory for session management. Thi
 
 ### V3.3 Session Logout and Timeout Requirements
 
-Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted. This reflects modern common industry practice but is backed by increasing timeouts when multi-factor or stronger authenticators are used. 
+Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted. This reflects modern common industry practice but is backed by increasing timeouts when multi-factor or stronger authenticators are used.
 
-L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2 and IAL3/AAL3, the shorter idle timeout is, the lower bound of idle times for being logged out or re-authenticated to resume the session. 
+L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2 and IAL3/AAL3, the shorter idle timeout is, the lower bound of idle times for being logged out or re-authenticated to resume the session.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -50,10 +50,9 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | 3.4.3 | Verify that cookie-based session IDs have minimum practical hostnames, domain and path attributes, along with the 'SameSite' attribute. | ✓ | ✓ | ✓ | 7.1.1 |
 | 3.4.4 | Verify that cookie-based session IDs are set to expire soon after the default session timeout period. | ✓ | ✓ | ✓ | 7.1.1 |
 
-
 ### V3.5 Token-based Session Management
 
-Token-based session management includes JWT, oAuth, SAML, and API keys. Of these, API keys are known weak and should not be used in new code. 
+Token-based session management includes JWT, oAuth, SAML, and API keys. Of these, API keys are known to be weak and should not be used in new code.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -61,10 +60,9 @@ Token-based session management includes JWT, oAuth, SAML, and API keys. Of these
 | 3.5.2 | Verify single factor unchanging API secrets, and keys are not used, except with legacy implementations. |  | ✓ | ✓ | - |
 | 3.5.3 | Verify that stateless session tokens enveloping sensitive session data are digitally signed or encrypted and regularly verified in a timely fashion to protect against tampering, enveloping, replay, null cipher and key substitution attacks. |  | ✓ | ✓ | - |
 
-
 ### V3.6 Re-authentication from a Federation or Assertion
 
-This section relates to those writing relying party (RP) or credential service provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly. 
+This section relates to those writing relying party (RP) or credential service provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
@@ -73,7 +71,7 @@ This section relates to those writing relying party (RP) or credential service p
 
 ### V3.7 Defences Against Session Management Exploits
 
-There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code. 
+There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
 
 #### Description of the Half-open Attack
 
@@ -85,11 +83,9 @@ Attackers start a half-open attack by attempting to lock, reset, or recover a cr
 | --- | --- | --- | --- | -- | -- |
 | 3.7.1 | Verify that all post-reset, post-registration, and post-authentication high value or adminstrative functionality verifies the user session is both fully logged in and has a valid post-authentication role before permitting any changes or transactions, especially in relation to user profile updates, password changes, MFA enrollment, and administrative functionality.  | ✓ | ✓ | ✓ | - |
 
-
 ## References
 
 For more information, see also:
 
 * [OWASP Testing Guide 4.0: Session Management Testing](https://www.owasp.org/index.php/Testing_for_Session_Management)
 * [OWASP Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
-
