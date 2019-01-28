@@ -44,6 +44,7 @@ Applications can always exceed the current level's requirements. The following k
 | 2.1.6 | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  | o | ✓ | 5.2.8 |
 | 2.1.7 | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  | o | ✓ | 5.2.9 |
 | 2.1.8 | Verify that restricted authenticators--such as email and SMS--are not a preferred recovery mechanism or second factor, and at least one alternative is offered to the user first. If the user selects a restricted authenticator, a meaningful warning covering the potential risks of that restricted authenticator SHOULD be presented to the user, including that the future use of the restricted authenticator may be removed in the future. | ✓ | ✓ | ✓ | 5.2.10 |
+| 2.1.9 | Verify that all authentication data provided by the user is checked for validity, even if it is unexpected. For example, if an authentication form offers a username and password and an optional token, the server should always check a token value provided, even if the user was not expected to have a token value to provide. | | ✓ | ✓ ||
 
 NIST considers email and SMS as "restricted" plain text authentication channels. As restricted authenticators, they will be removed from NIST 800-63 and thus the ASVS at some point the future. Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.  
 
@@ -147,7 +148,6 @@ Single factor one time passwords are physical or soft tokens that display a cont
 | 2.8.3 | Verify that time-based tokens have a defined lifetime before needing re-seeding or replacement. | o | o | ✓ | 5.1.4.2 |
 | 2.8.4 | Verify that time-based OTP can be used only once within the validity period. | ✓ | ✓ | ✓ | 5.1.4.2 |
 | 2.8.5 | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric OTP authenticators). | o | ✓ | ✓ | 5.1.4.2 |
-
 
 ### V2.9 Multi-factor OTP Verifier Requirements
 
