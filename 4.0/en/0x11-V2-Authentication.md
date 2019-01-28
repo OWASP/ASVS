@@ -36,15 +36,15 @@ Applications can always exceed the current level's requirements. The following k
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.1.1 | Verify revocability of physical authenticators in case of theft or other loss. Ensure that revocation is immediately effective across all Identity Providers and Relying Parties. | o | ✓ | ✓ | 5.2.1 |
-| 2.1.2 | Verify that one or more anti-automation controls--including rate limiting, CAPTCHA, increasing delays, IP address restrictions, risk-based restrictions--are in place and effective to mitigate breached credential testing, brute force, and account lockout attacks. Verify that no more than 100 failed attempts is possible on a single account. | ✓ | ✓ | ✓ | 5.2.2 / 5.1.1.2|
-| 2.1.3 | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know. |  | o | ✓ | 5.2.3 |
-| 2.1.4 | Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or at higher AAL levels, client-side certificates. |  | o | ✓ | 5.2.5 |
-| 2.1.5 | Verify that in cases where a verifier and CSP are separate, mutually authenticated TLS is in place between the two endpoints. |  | o | ✓ | 5.2.6 |
-| 2.1.6 | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  | o | ✓ | 5.2.8 |
-| 2.1.7 | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  | o | ✓ | 5.2.9 |
-| 2.1.8 | Verify that restricted authenticators--such as email and SMS--are not a preferred recovery mechanism or second factor, and at least one alternative is offered to the user first. If the user selects a restricted authenticator, a meaningful warning covering the potential risks of that restricted authenticator SHOULD be presented to the user, including that the future use of the restricted authenticator may be removed in the future. | ✓ | ✓ | ✓ | 5.2.10 |
-| 2.1.9 | Verify that all authentication data provided by the user is checked for validity, even if it is unexpected. For example, if an authentication form offers a username and password and an optional token, the server should always check a token value provided, even if the user was not expected to have a token value to provide. | | ✓ | ✓ ||
+| **2.1.1** | Verify revocability of physical authenticators in case of theft or other loss. Ensure that revocation is immediately effective across all Identity Providers and Relying Parties. | o | ✓ | ✓ | 5.2.1 |
+| **2.1.2** | Verify that one or more anti-automation controls--including rate limiting, CAPTCHA, increasing delays, IP address restrictions, risk-based restrictions--are in place and effective to mitigate breached credential testing, brute force, and account lockout attacks. Verify that no more than 100 failed attempts is possible on a single account. | ✓ | ✓ | ✓ | 5.2.2 / 5.1.1.2|
+| **2.1.3** | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know. |  | o | ✓ | 5.2.3 |
+| **2.1.4** | Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or at higher AAL levels, client-side certificates. |  | o | ✓ | 5.2.5 |
+| **2.1.5** | Verify that in cases where a verifier and CSP are separate, mutually authenticated TLS is in place between the two endpoints. |  | o | ✓ | 5.2.6 |
+| **2.1.6** | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  | o | ✓ | 5.2.8 |
+| **2.1.7** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  | o | ✓ | 5.2.9 |
+| **2.1.8** | Verify that restricted authenticators--such as email and SMS--are not a preferred recovery mechanism or second factor, and at least one alternative is offered to the user first. If the user selects a restricted authenticator, a meaningful warning covering the potential risks of that restricted authenticator SHOULD be presented to the user, including that the future use of the restricted authenticator may be removed in the future. | ✓ | ✓ | ✓ | 5.2.10 |
+| **2.1.9** | Verify that all authentication data provided by the user is checked for validity, even if it is unexpected. For example, if an authentication form offers a username and password and an optional token, the server should always check a token value provided, even if the user was not expected to have a token value to provide. | | ✓ | ✓ ||
 
 NIST considers email and SMS as "restricted" plain text authentication channels. As restricted authenticators, they will be removed from NIST 800-63 and thus the ASVS at some point the future. Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.  
 
@@ -52,9 +52,9 @@ NIST considers email and SMS as "restricted" plain text authentication channels.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.2.1 | Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers. | ✓ | ✓ | ✓ | 5.1.1.2 / A.3 |
-| 2.2.2 | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. | ✓ | ✓ | ✓ | 6.1.3 |
-| 2.2.3 | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | ✓ | ✓ | ✓ | 6.1.4 |
+| **2.2.1** | Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers. | ✓ | ✓ | ✓ | 5.1.1.2 / A.3 |
+| **2.2.2** | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. | ✓ | ✓ | ✓ | 6.1.3 |
+| **2.2.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | ✓ | ✓ | ✓ | 6.1.4 |
 
 There are additional requirements in section 6.2 for US agencies that are out of scope for the ASVS.
 
@@ -62,13 +62,13 @@ There are additional requirements in section 6.2 for US agencies that are out of
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.3.1 | Verify that a system generated activation or recovery password is not sent in clear text to the user. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.3.2 | Verify password hints or knowledge-based answers (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.3.3 | Verify password credential recovery does not reveal the current password in any way. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.3.4 | Verify forgotten password, and other recovery paths use a TOTP or other soft token, mobile push, or another offline recovery mechanism. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.3.5 | Verify identities cannot be re-bound to a different identity (spoofing), and shared accounts are not present ("root", "admin", or "sa"). | ✓ | ✓ | ✓ | 5.1.1.2 / A.3 |
-| 2.3.6 | Verify that if one or more multi-factor authentication factors are lost, that identity proofing and binding is performed at the same level as during enrollment. Once replaced, the verifier MAY use a single factor to re-bind the account to the new factor. | ✓ | ✓ | ✓ | 6.1.2.3 |
-| 2.3.7 | Verify that if an authentication factor is changed or replaced, that the user is notified of this event. | ✓ | ✓ | ✓ | 6.1.2.3 |
+| **2.3.1** | Verify that a system generated activation or recovery password is not sent in clear text to the user. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.3.2** | Verify password hints or knowledge-based answers (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.3.3** | Verify password credential recovery does not reveal the current password in any way. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.3.4** | Verify forgotten password, and other recovery paths use a TOTP or other soft token, mobile push, or another offline recovery mechanism. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.3.5** | Verify identities cannot be re-bound to a different identity (spoofing), and shared accounts are not present ("root", "admin", or "sa"). | ✓ | ✓ | ✓ | 5.1.1.2 / A.3 |
+| **2.3.6** | Verify that if one or more multi-factor authentication factors are lost, that identity proofing and binding is performed at the same level as during enrollment. Once replaced, the verifier MAY use a single factor to re-bind the account to the new factor. | ✓ | ✓ | ✓ | 6.1.2.3 |
+| **2.3.7** | Verify that if an authentication factor is changed or replaced, that the user is notified of this event. | ✓ | ✓ | ✓ | 6.1.2.3 |
 
 The use of email or PSTN verifiers (such as SMS tokens) has been deprecated by NIST and SHOULD NOT be used.
 
@@ -80,18 +80,18 @@ Memorized secrets are not sufficient to protect against today's threats. The ASV
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.4.1 | Verify that passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.2 | Verify that passwords 64 characters or longer are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.3 | Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.4 | Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 8 emoji or 64 kanji characters should be valid and permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.5 | Verify users can change their password, and the change validates the current secret. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.6 | Verify that new or changed passwords are validated against a list of compromised secrets, and if found to be compromised, the user is prompted to choose another secret. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.7 | Verify that a password strength meter is provided to help users set a stronger secret. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.8 | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.9 | Verify that there are no arbitrary or periodic credential rotation requirements. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.10 | Verify that the user is required to change their password if the credential has found to be compromised. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.11 | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.4.12 | Verify that the user can choose to either temporarily view the masked entered password, or temporarily view the last typed character of the password. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.1** | Verify that passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.2** | Verify that passwords 64 characters or longer are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.3** | Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.4** | Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 8 emoji or 64 kanji characters should be valid and permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.5** | Verify users can change their password, and the change validates the current secret. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.6** | Verify that new or changed passwords are validated against a list of compromised secrets, and if found to be compromised, the user is prompted to choose another secret. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.7** | Verify that a password strength meter is provided to help users set a stronger secret. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.8** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.9** | Verify that there are no arbitrary or periodic credential rotation requirements. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.10** | Verify that the user is required to change their password if the credential has found to be compromised. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.12** | Verify that the user can choose to either temporarily view the masked entered password, or temporarily view the last typed character of the password. | ✓ | ✓ | ✓ | 5.1.1.2 |
 
 ### V2.5 Credential Storage Requirements
 
@@ -101,11 +101,11 @@ The list of approved one-way key derivation functions is detailed in NIST 800-63
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.5.1 | Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be salted and hashed using an approved one-way key derivation or password hashing function. Key derivation and password hashing functions take a password, and a cost factor as inputs then generate a password hash. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.5.2 | Verify that the salt is at least 32 bits in length and be chosen arbitrarily to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.5.3 | Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| 2.5.4 | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 13. | ✓ | ✓ | ✓ |  |
-| 2.5.5 | Verify that an additional iteration of a key derivation function using a salt value that is secret and known only to the verifier. This salt value, if used, SHALL be generated by an approved random bit generator [SP 800-90Ar1] and provide at least the minimum security strength specified in the latest revision of SP 800-131A. The secret salt value SHALL be stored separately from the hashed passwords (e.g., in a specialized device like a hardware security module). | o | ✓ | ✓ | 5.1.1.2 |
+| **2.5.1** | Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be salted and hashed using an approved one-way key derivation or password hashing function. Key derivation and password hashing functions take a password, and a cost factor as inputs then generate a password hash. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.5.2** | Verify that the salt is at least 32 bits in length and be chosen arbitrarily to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.5.3** | Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.5.4** | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 13. | ✓ | ✓ | ✓ |  |
+| **2.5.5** | Verify that an additional iteration of a key derivation function using a salt value that is secret and known only to the verifier. This salt value, if used, SHALL be generated by an approved random bit generator [SP 800-90Ar1] and provide at least the minimum security strength specified in the latest revision of SP 800-131A. The secret salt value SHALL be stored separately from the hashed passwords (e.g., in a specialized device like a hardware security module). | o | ✓ | ✓ | 5.1.1.2 |
 
 ### V2.6 Look-up Secret Verifier Requirements
 
@@ -113,10 +113,10 @@ Look up secrets are pre-generated lists of secret codes, similar to Transaction 
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.6.1 | Verify that lookup secrets can be used only once. | o | ✓ | ✓ | 5.1.2.2 |
-| 2.6.2 | Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash. | o | ✓ | ✓ | 5.1.2.2 |
-| 2.6.3 | Verify that lookup secrets are resistant to offline attacks, such as predictable values. | o | ✓ | ✓ | 5.1.2.2 |
-| 2.6.4 | Verify that lookup secrets are rate limited, particularly when using less than 64 bits of entropy. | o | ✓ | ✓ | 5.1.2.2 |
+| **2.6.1** | Verify that lookup secrets can be used only once. | o | ✓ | ✓ | 5.1.2.2 |
+| **2.6.2** | Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash. | o | ✓ | ✓ | 5.1.2.2 |
+| **2.6.3** | Verify that lookup secrets are resistant to offline attacks, such as predictable values. | o | ✓ | ✓ | 5.1.2.2 |
+| **2.6.4** | Verify that lookup secrets are rate limited, particularly when using less than 64 bits of entropy. | o | ✓ | ✓ | 5.1.2.2 |
 
 ### V2.7 Out of Band Verifier Requirements
 
@@ -128,14 +128,14 @@ Unsafe out of band authenticators such as e-mail and VOIP is not permitted. PSTN
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.7.1 | Verify that prohibited unencrypted out of band authenticators, such as e-mail or VOIP, is not in use. | ✓ | ✓ | ✓ | 5.1.3.1 |
-| 2.7.2 | Verify that restricted out of band authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 5.1.3.2 |
-| 2.7.3 | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 5.1.3.2 |
-| 2.7.4 | Verify that the out of band verifier retains only a hashed version of the authentication key. | ✓ | ✓ | ✓ | 5.1.3.2 |
-| 2.7.5 | Verify that the out of band verifier rejects out of band authentication attempts after 10 minutes. | ✓ | ✓ | ✓ | 5.1.3.2 |
-| 2.7.6 | Verify that the out of band verifier authentication keys is only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 5.1.3.2 |
-| 2.7.7 | Verify that the authentication key is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). | ✓ | ✓ | ✓ | 5.1.3.2 |
-| 2.7.8 | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric authenticators). | ✓ | ✓ | ✓ | 5.1.3.2 |
+| **2.7.1** | Verify that prohibited unencrypted out of band authenticators, such as e-mail or VOIP, is not in use. | ✓ | ✓ | ✓ | 5.1.3.1 |
+| **2.7.2** | Verify that restricted out of band authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 5.1.3.2 |
+| **2.7.3** | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 5.1.3.2 |
+| **2.7.4** | Verify that the out of band verifier retains only a hashed version of the authentication key. | ✓ | ✓ | ✓ | 5.1.3.2 |
+| **2.7.5** | Verify that the out of band verifier rejects out of band authentication attempts after 10 minutes. | ✓ | ✓ | ✓ | 5.1.3.2 |
+| **2.7.6** | Verify that the out of band verifier authentication keys is only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 5.1.3.2 |
+| **2.7.7** | Verify that the authentication key is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). | ✓ | ✓ | ✓ | 5.1.3.2 |
+| **2.7.8** | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric authenticators). | ✓ | ✓ | ✓ | 5.1.3.2 |
 
 ### V2.8 Single Factor OTP Requirements
 
@@ -143,11 +143,11 @@ Single factor one time passwords are physical or soft tokens that display a cont
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.8.1 | Verify that symmetric keys used to verify submitted codes is highly protected, such as using an HSM or OS based key storage. | o | ✓ | ✓ | 5.1.4.2 |
-| 2.8.2 | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.4.2 |
-| 2.8.3 | Verify that time-based tokens have a defined lifetime before needing re-seeding or replacement. | o | o | ✓ | 5.1.4.2 |
-| 2.8.4 | Verify that time-based OTP can be used only once within the validity period. | ✓ | ✓ | ✓ | 5.1.4.2 |
-| 2.8.5 | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric OTP authenticators). | o | ✓ | ✓ | 5.1.4.2 |
+| **2.8.1** | Verify that symmetric keys used to verify submitted codes is highly protected, such as using an HSM or OS based key storage. | o | ✓ | ✓ | 5.1.4.2 |
+| **2.8.2** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.4.2 |
+| **2.8.3** | Verify that time-based tokens have a defined lifetime before needing re-seeding or replacement. | o | o | ✓ | 5.1.4.2 |
+| **2.8.4** | Verify that time-based OTP can be used only once within the validity period. | ✓ | ✓ | ✓ | 5.1.4.2 |
+| **2.8.5** | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric OTP authenticators). | o | ✓ | ✓ | 5.1.4.2 |
 
 ### V2.9 Multi-factor OTP Verifier Requirements
 
@@ -157,13 +157,13 @@ In the context of this section, the claimant should be read as the person or org
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.9.1 | Verify that symmetric keys used to verify submitted codes is highly protected, such as using an HSM or OS based key storage. | o | ✓ | ✓ | 5.1.5.2 |
-| 2.9.2 | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.5.2 |
-| 2.9.3 | Verify that MFA OTP device is a multi-factor device. Otherwise, the device should be treated as a single factor OTP device. | o | o | ✓ | 5.1.5.2 |
-| 2.9.4 | Verify that time-based OTPs have a defined lifetime before needing re-seeding or replacement. | o | o | ✓ | 5.1.5.2 |
-| 2.9.5 | Verify that time-based OTP can be used only once within the validity period. | o | ✓ | ✓ | 5.1.5.2 |
-| 2.9.6 | Verify that if a time-based OTP is re-used during the validity period, a warning is presented to the claimant, and optionally the user or the existing session. | o | ✓ | ✓ | 5.1.5.2 |
-| 2.9.7 | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric OTP authenticators). | o | ✓ | ✓ | 5.1.5.2 |
+| **2.9.1** | Verify that symmetric keys used to verify submitted codes is highly protected, such as using an HSM or OS based key storage. | o | ✓ | ✓ | 5.1.5.2 |
+| **2.9.2** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.5.2 |
+| **2.9.3** | Verify that MFA OTP device is a multi-factor device. Otherwise, the device should be treated as a single factor OTP device. | o | o | ✓ | 5.1.5.2 |
+| **2.9.4** | Verify that time-based OTPs have a defined lifetime before needing re-seeding or replacement. | o | o | ✓ | 5.1.5.2 |
+| **2.9.5** | Verify that time-based OTP can be used only once within the validity period. | o | ✓ | ✓ | 5.1.5.2 |
+| **2.9.6** | Verify that if a time-based OTP is re-used during the validity period, a warning is presented to the claimant, and optionally the user or the existing session. | o | ✓ | ✓ | 5.1.5.2 |
+| **2.9.7** | Verify that rate limiting is in place if the authentication secret uses less than 64 bits of entropy (typically all numeric OTP authenticators). | o | ✓ | ✓ | 5.1.5.2 |
 
 ### V2.10 Cryptographic Software and Devices Verifier Requirements
 
@@ -173,16 +173,16 @@ The requirements for single factor cryptographic devices and software, and multi
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.10.1 | Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a TPM or HSM, or an OS service that can use this secure storage. | ✓ | ✓ | ✓ | 5.1.7.2 |
-| 2.10.2 | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | ✓ | ✓ | ✓ | 5.1.7.2 |
-| 2.10.3 | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.7.2 |
+| **2.10.1** | Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a TPM or HSM, or an OS service that can use this secure storage. | ✓ | ✓ | ✓ | 5.1.7.2 |
+| **2.10.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | ✓ | ✓ | ✓ | 5.1.7.2 |
+| **2.10.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.7.2 |
 
 ### V2.11 Service Authentication Requirements
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 2.11.1 | Integration secrets SHOULD NOT rely on unchanging passwords, such as API keys or shared privileged accounts. If passwords are required, the credential should not be a default account and stored with sufficient protection to prevent offline recovery attacks, including local system access. | Software | OS assisted | HSM | 5.1.1.1 |
-| 2.11.2 | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware trusted platform module (TPM), or a hardware security module (L3) is recommended for password storage. |  Software | OS assisted | HSM | TBA |
+| **2.11.1** | Integration secrets SHOULD NOT rely on unchanging passwords, such as API keys or shared privileged accounts. If passwords are required, the credential should not be a default account and stored with sufficient protection to prevent offline recovery attacks, including local system access. | Software | OS assisted | HSM | 5.1.1.1 |
+| **2.11.2** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware trusted platform module (TPM), or a hardware security module (L3) is recommended for password storage. |  Software | OS assisted | HSM | TBA |
 
 ### Additional US Agency Requirements
 
