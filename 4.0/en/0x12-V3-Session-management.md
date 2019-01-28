@@ -69,19 +69,19 @@ This section relates to those writing relying party (RP) or credential service p
 | 3.6.1 | Verify that relying parties specify the maximum authentication time to CSPs and that CSPs re-authenticate the subscriber if they haven't used a session within that period. |  | | ✓ | 7.2.1 |
 | 3.6.2 | Verify that CSPs inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the subscriber. |  |  | ✓ | 7.2.1 |
 
-### V3.7 Defences Against Session Management Exploits
+### V3.7 Defenses Against Session Management Exploits
 
-There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
+There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
 
-#### Description of the Half-open Attack
+#### Description of the half-open Attack
 
 In early 2018, several financial institutions were compromised using what the attackers called "half-open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.
 
-Attackers start a half-open attack by attempting to lock, reset, or recover a credential. A popular session management design pattern re-uses user profile session objects/models between unauthenticated, half-authenticated (password resets, forgot username), and fully authenticated code. This design pattern populates a valid session object or token containing the victim's profile, including password hashes and roles. If access control checks in controllers or routers does not correctly verify that the user is fully logged in, the attacker will be able to act as the user. Attacks could include changing the user's password to a known value, update the email address to perform a valid password reset, disable multi-factor authentication or enrol a new MFA device, reveal or change API keys, and so on.
+Attackers start a half-open attack by attempting to lock, reset, or recover a credential. A popular session management design pattern re-uses user profile session objects/models between unauthenticated, half-authenticated (password resets, forgot username), and fully authenticated code. This design pattern populates a valid session object or token containing the victim's profile, including password hashes and roles. If access control checks in controllers or routers does not correctly verify that the user is fully logged in, the attacker will be able to act as the user. Attacks could include changing the user's password to a known value, update the email address to perform a valid password reset, disable multi-factor authentication or enroll a new MFA device, reveal or change API keys, and so on.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
 | --- | --- | --- | --- | -- | -- |
-| 3.7.1 | Verify that all post-reset, post-registration, and post-authentication high value or adminstrative functionality verifies the user session is both fully logged in and has a valid post-authentication role before permitting any changes or transactions, especially in relation to user profile updates, password changes, MFA enrollment, and administrative functionality.  | ✓ | ✓ | ✓ | - |
+| 3.7.1 | Verify that all post-reset, post-registration, and post-authentication high value or administrative functionality verifies the user session is both fully logged in and has a valid post-authentication role before permitting any changes or transactions, especially in relation to user profile updates, password changes, MFA enrollment, and administrative functionality.  | ✓ | ✓ | ✓ | - |
 
 ## References
 
