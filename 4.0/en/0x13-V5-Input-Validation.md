@@ -14,15 +14,16 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 | # | Description | L1 | L2 | L3 | Since |
 | --- | --- | --- | --- | -- | -- |
-| **5.1.1** | Verify that server-side input validation failures which result in request rejection and are logged. | ✓ | ✓ | ✓ | 1.0 |
-| **5.1.2** | Verify that input validation is enforced on the server-side. | ✓ | ✓ | ✓ | 1.0 |
+| **5.1.1** | Verify that input validation is enforced on the server-side. | ✓ | ✓ | ✓ | 1.0 |
+| **5.1.2** | Verify that server-side input validation failures which result in request rejection and are logged. | ✓ | ✓ | ✓ | 1.0 |
 | **5.1.3** | Verify that the application uses a centralized input validation control mechanism. | ✓ | ✓ | ✓ | 1.0 |
-| **5.1.4** | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.  | ✓ | ✓ | ✓ | 3.0 |
-| **5.1.5** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables). |  | ✓ | ✓ | 2.0 |
-| **5.1.6** | Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (whitelisting). |  | ✓ | ✓ | 3.0 |
-| **5.1.7** | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match).  |  | ✓ | ✓ | 3.0 |
-| **5.1.8** | Verify that unstructured data is sanitized to enforce safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. names with Unicode or apostrophes, such as ねこ or O'Hara). |  | ✓ | ✓ | 3.0 |
-| **5.1.9** | Verify that untrusted data, particularly filenames and URL input fields, use whitelisting of protocols, domains, paths and ports to protect against Server-Side Request Forgery (SSRF) vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
+| **5.1.4** | Verify that server side validation faults for rules, enforced on both the client and server, are logged. | ✓ | ✓ | ✓ | 4.0 |
+| **5.1.5** | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.  | ✓ | ✓ | ✓ | 3.0 |
+| **5.1.6** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables). |  | ✓ | ✓ | 2.0 |
+| **5.1.7** | Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (whitelisting). |  | ✓ | ✓ | 3.0 |
+| **5.1.8** | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match).  |  | ✓ | ✓ | 3.0 |
+| **5.1.9** | Verify that unstructured data is sanitized to enforce safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. names with Unicode or apostrophes, such as ねこ or O'Hara). |  | ✓ | ✓ | 3.0 |
+| **5.1.10** | Verify that untrusted data, particularly filenames and URL input fields, use whitelisting of protocols, domains, paths and ports to protect against Server-Side Request Forgery (SSRF) vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
 
 ## 5.2 Output Encoding Requirements
 
