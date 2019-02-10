@@ -34,8 +34,8 @@ Applications can always exceed the current level's requirements. The following k
 
 ### V2.1 General Authenticator Requirements
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.1.1** | Verify revocability of physical authenticators in case of theft or other loss. Ensure that revocation is immediately effective across all Identity Providers and Relying Parties. | o | ✓ | ✓ | 5.2.1 |
 | **2.1.2** | Verify that one or more anti-automation controls--including rate limiting, CAPTCHA, increasing delays, IP address restrictions, risk-based restrictions--are in place and effective to mitigate breached credential testing, brute force, and account lockout attacks. Verify that no more than 100 failed attempts is possible on a single account. | ✓ | ✓ | ✓ | 5.2.2 / 5.1.1.2|
 | **2.1.3** | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know. |  | o | ✓ | 5.2.3 |
@@ -50,8 +50,8 @@ NIST considers email and SMS as "restricted" plain text authentication channels.
 
 ### V2.2 Authenticator Lifecycle Requirements
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.2.1** | Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers. | ✓ | ✓ | ✓ | 5.1.1.2 / A.3 |
 | **2.2.2** | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. | ✓ | ✓ | ✓ | 6.1.3 |
 | **2.2.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | ✓ | ✓ | ✓ | 6.1.4 |
@@ -60,8 +60,8 @@ There are additional requirements in section 6.2 for US agencies that are out of
 
 ### V2.3 Authenticator Recovery Requirements
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.3.1** | Verify that a system generated activation or recovery password is not sent in clear text to the user. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.3.2** | Verify password hints or knowledge-based answers (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.3.3** | Verify password credential recovery does not reveal the current password in any way. | ✓ | ✓ | ✓ | 5.1.1.2 |
@@ -78,8 +78,8 @@ Memorized secrets are passwords, PINs, unlock patterns, pick the correct kitten 
 
 Memorized secrets are not sufficient to protect against today's threats. The ASVS has long required multi-factor authentication. We have not relaxed this point of view. NIST 800-63 recommends but does not require multi-factor authentication at IAL1/AAL1. The ASVS Leadership Team strongly feels that it is essential to start the process of universal multi-factor authentication, as it defeats the most common attacks against passwords. Therefore, we have set multi-factor authentication as a baseline L1 requirement.
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.4.1** | Verify that passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.2** | Verify that passwords 64 characters or longer are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.3** | Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced. | ✓ | ✓ | ✓ | 5.1.1.2 |
@@ -99,8 +99,8 @@ Architects and developers should adhere to this section when building or refacto
 
 The list of approved one-way key derivation functions is detailed in NIST 800-63 B section 5.1.1.2, and in [BSI Kryptographische Verfahren: Empfehlungen und Schlussell&auml;ngen (2018)](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile). The latest national or regional algorithm and key length standards can be chosen in place of these choices.
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.5.1** | Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be salted and hashed using an approved one-way key derivation or password hashing function. Key derivation and password hashing functions take a password, and a cost factor as inputs then generate a password hash. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.5.2** | Verify that the salt is at least 32 bits in length and be chosen arbitrarily to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.5.3** | Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations. | ✓ | ✓ | ✓ | 5.1.1.2 |
@@ -111,8 +111,8 @@ The list of approved one-way key derivation functions is detailed in NIST 800-63
 
 Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), Google Recovery Codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.6.1** | Verify that lookup secrets can be used only once. | o | ✓ | ✓ | 5.1.2.2 |
 | **2.6.2** | Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash. | o | ✓ | ✓ | 5.1.2.2 |
 | **2.6.3** | Verify that lookup secrets are resistant to offline attacks, such as predictable values. | o | ✓ | ✓ | 5.1.2.2 |
@@ -126,8 +126,8 @@ The ASVS assumes that only a few developers will be developing new out of band a
 
 Unsafe out of band authenticators such as e-mail and VOIP is not permitted. PSTN and SMS authentication are currently restricted and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out of band authentication, please see &sect; 5.1.3.3.
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.7.1** | Verify that prohibited unencrypted out of band authenticators, such as e-mail or VOIP, is not in use. | ✓ | ✓ | ✓ | 5.1.3.1 |
 | **2.7.2** | Verify that restricted out of band authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 5.1.3.2 |
 | **2.7.3** | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 5.1.3.2 |
@@ -141,8 +141,8 @@ Unsafe out of band authenticators such as e-mail and VOIP is not permitted. PSTN
 
 Single factor one time passwords are physical or soft tokens that display a continually changing pseudo-random one time challenge. These devices make phishing (impersonation) difficult, but not impossible. This type of authenticator is considered "something you have".
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.8.1** | Verify that symmetric keys used to verify submitted codes is highly protected, such as using an HSM or OS based key storage. | o | ✓ | ✓ | 5.1.4.2 |
 | **2.8.2** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.4.2 |
 | **2.8.3** | Verify that time-based tokens have a defined lifetime before needing re-seeding or replacement. | o | o | ✓ | 5.1.4.2 |
@@ -155,8 +155,8 @@ Multi-factor tokens are similar to single factor OTP tokens, but require a valid
 
 In the context of this section, the claimant should be read as the person or organization who enrolled the OTP device. Claimants may not necessarily be the person in possession of the OTP device.
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.9.1** | Verify that symmetric keys used to verify submitted codes is highly protected, such as using an HSM or OS based key storage. | o | ✓ | ✓ | 5.1.5.2 |
 | **2.9.2** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.5.2 |
 | **2.9.3** | Verify that MFA OTP device is a multi-factor device. Otherwise, the device should be treated as a single factor OTP device. | o | o | ✓ | 5.1.5.2 |
@@ -171,8 +171,8 @@ Cryptographic security keys are smart cards or FIDO keys, where the user has to 
 
 The requirements for single factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic authenticator proves possession of the authentication factor.
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.10.1** | Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a TPM or HSM, or an OS service that can use this secure storage. | ✓ | ✓ | ✓ | 5.1.7.2 |
 | **2.10.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | ✓ | ✓ | ✓ | 5.1.7.2 |
 | **2.10.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | o | ✓ | ✓ | 5.1.7.2 |
@@ -180,7 +180,7 @@ The requirements for single factor cryptographic devices and software, and multi
 ### V2.11 Service Authentication Requirements
 
 | # | Description | L1 | L2 | L3 | NIST &sect; |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.11.1** | Integration secrets SHOULD NOT rely on unchanging passwords, such as API keys or shared privileged accounts. If passwords are required, the credential should not be a default account and stored with sufficient protection to prevent offline recovery attacks, including local system access. | Software | OS assisted | HSM | 5.1.1.1 |
 | **2.11.2** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware trusted platform module (TPM), or a hardware security module (L3) is recommended for password storage. |  Software | OS assisted | HSM | TBA |
 

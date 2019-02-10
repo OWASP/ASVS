@@ -17,10 +17,10 @@ The best defence against malicious code is "trust, but verify". Introducing unau
 
 Lead developers should regularly review code checkins, particularly those that might access time, I/O, or network functions.
 
-| # | Description | L1 | L2 | L3 | Since |
-| --- | --- | --- | --- | -- | -- |
-| **13.1.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | ✓ | ✓ | ✓ | 4.0 |
-| **13.1.2** | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections. | | | ✓ | 4.0 |
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **13.1.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **13.1.2** | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections. | | | ✓ | tbd | tbd | 
 
 ## 13.2 Malicious Code Search
 
@@ -28,13 +28,13 @@ Malicious code is extremely rare, and is difficult to detect. Manual line by lin
 
 Complying with this section is not possible without complete access to source code, including third-party libraries.
 
-| # | Description | L1 | L2 | L3 | Since |
-| --- | --- | --- | --- | -- | -- |
-| **13.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate prior to collecting any data. |  | ✓ | ✓ | 4.0 |
-| **13.2.2** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, root kits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.  | | | ✓ | 4.0 |
-| **13.2.3** | Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.  |  |  | ✓ | 4.0 |
-| **13.2.4** | Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.  |  |  | ✓ | 4.0 |
-| **13.2.5** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. |  |  | ✓ | 4.0 |
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **13.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate prior to collecting any data. |  | ✓ | ✓ | tbd | tbd | 
+| **13.2.2** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, root kits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.  | | | ✓ | tbd | tbd | 
+| **13.2.3** | Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.  |  |  | ✓ | tbd | tbd | 
+| **13.2.4** | Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.  |  |  | ✓ | tbd | tbd | 
+| **13.2.5** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. |  |  | ✓ | tbd | tbd | 
 
 ## 13.3 Deployed Application Integrity Controls
 
@@ -42,11 +42,11 @@ Once an application is deployed, malicious code can still be inserted. Applicati
 
 Complying with this section is likely to be operational and continuous in nature.
 
-| # | Description | L1 | L2 | L3 | Since |
-| --- | --- | --- | --- | -- | -- |
-| **13.3.1** | Verify that if the application has an auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.  | ✓ | ✓ | ✓ | 4.0 |
-| **13.3.2** | Verify that the application employs integrity protections, such as code signing or sub-resource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet. |  | ✓ | ✓ | 4.0 |
-| **13.3.3** | Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (*autogen-bucket-id*.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change. |  | ✓ | ✓ | 4.0 |
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **13.3.1** | Verify that if the application has an auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update.  | ✓ | ✓ | ✓ | tbd | tbd | 
+| **13.3.2** | Verify that the application employs integrity protections, such as code signing or sub-resource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet. |  | ✓ | ✓ | tbd | tbd | 
+| **13.3.3** | Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (*autogen-bucket-id*.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change. |  | ✓ | ✓ | tbd | tbd | 
 
 ## References
 

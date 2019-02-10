@@ -18,27 +18,27 @@ It is also important to ensure that the application fails securely and that erro
 
 ### 8.1 Error Logging
 
-| # | Description | L1 | L2 | L3 | Since |
-| --- | --- | --- | --- | -- | -- |
-| **8.1.1** | Verify that the application does not log credentials, session tokens or payment details. | ✓ | ✓ | ✓ | 4.0 |
-| **8.1.2** | Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. |  | ✓ | ✓ | 3.0 |
-| **8.1.3** | Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures. | ✓ | ✓ | ✓ | 4.0 |
-| **8.1.4** | Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. |  | ✓ | ✓ | 1.0 |
-| **8.1.5** | Verify that all events are protected from injection when viewed in log viewing software. |  | ✓ | ✓ | 1.0 |
-| **8.1.6** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | 1.0 |
-| **8.1.7** | Verify that the application appropriately encodes user-supplied data to prevent log injection. | ✓ | ✓ | ✓ | 4.0 |
-| **8.1.8** | Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation. |  |  | ✓ | 4.0 |
-| **8.1.9** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | 4.0 |
-| **8.1.10** | Verify that all authentication decisions are logged, without storing sensitive session identifiers or memorized secrets. This should include requests with relevant metadata needed for security investigations.  | ✓ | ✓ | ✓ | 4.0 |
-| **8.1.11** | Verify that a common logging format and approach is used across the system.  | ✓ | ✓ | ✓ | 4.0 |
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **8.1.1** | Verify that the application does not log credentials, session tokens or payment details. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.1.2** | Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. |  | ✓ | ✓ | tbd | tbd | 
+| **8.1.3** | Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.1.4** | Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. |  | ✓ | ✓ | tbd | tbd | 
+| **8.1.5** | Verify that all events are protected from injection when viewed in log viewing software. |  | ✓ | ✓ | tbd | tbd | 
+| **8.1.6** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | tbd | tbd | 
+| **8.1.7** | Verify that the application appropriately encodes user-supplied data to prevent log injection. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.1.8** | Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation. |  |  | ✓ | tbd | tbd | 
+| **8.1.9** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.1.10** | Verify that all authentication decisions are logged, without storing sensitive session identifiers or memorized secrets. This should include requests with relevant metadata needed for security investigations.  | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.1.11** | Verify that a common logging format and approach is used across the system.  | ✓ | ✓ | ✓ | tbd | tbd | 
 
 ### 8.2 Error Handling
 
-| # | Description | L1 | L2 | L3 | Since |
-| --- | --- | --- | --- | -- | -- |
-| **8.2.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  | ✓ | ✓ | ✓ | 4.0 |
-| **8.3.2** | Verify that exception handling is used across the codebase to account for expected and unexpected error conditions.  | ✓ | ✓ | ✓ | 4.0 |
-| **8.3.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions.  | | ✓ | ✓ | 4.0 |
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **8.2.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.3.2** | Verify that exception handling is used across the codebase to account for expected and unexpected error conditions.  | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.3.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions.  | | ✓ | ✓ | tbd | tbd | 
 
 
 ## References
