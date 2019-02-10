@@ -73,7 +73,7 @@ Category “V1” lists requirements related to the architecture and design of t
 | **19.1.4** | Verify that communications between components, such as between the application server and the database server, are encrypted, particularly when the components are in different containers or on different systems.|  | ✓ | ✓ | 319 | tbd |
 | **19.1.5** | Verify that any communication encryption solution between components verifies the authenticity of both sides to prevent a Person in the Middle attack. For example, TLS certificate validation. |  | ✓ | ✓ | tbd | tbd |
 
-## V1.15 Business logic Architectural Requirements
+## V1.15 Business Logic Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
