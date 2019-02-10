@@ -40,7 +40,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.3.1** | Verify that logout invalidates or erases any client- or server-side session storage, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. | ✓ | ✓ | ✓ | 7.1 | tbd |
 | **3.3.2** | Verify that absolute or idle timeouts invalidates or erases any client- or server-side session storage. |  | ✓ | ✓ | 7.1 | tbd |
-| **3.3.3 | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 7.2 | tbd |
+| **3.3.3** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 7.2 | tbd |
 | **3.3.4** | Verify that the user can terminate all other active sessions after a successful change password process, and this is effective across the application, federated login (if present) and any relying parties. |  | ✓ | ✓ | - | tbd |
 
 ### V3.4 Cookie-based Session Management
