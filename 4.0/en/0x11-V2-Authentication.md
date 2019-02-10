@@ -109,7 +109,7 @@ The list of approved one-way key derivation functions is detailed in NIST 800-63
 
 ### V2.6 Look-up Secret Verifier Requirements
 
-Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), Google Recovery Codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
+Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), Google Recovery Codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded.
 
 | # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
