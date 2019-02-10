@@ -10,80 +10,86 @@ It should be noted that distributed applications, such as mobile clients or Sing
 
 Category “V1” lists requirements related to the architecture and design of the application. Unlike other requirements in the ASVS, these requirements do not map to technical test cases in the OWASP Testing Guide. The resources at the end of this category include related OWASP projects that do cover these requirements. Example requirements are threat modeling, a secure SDLC, cryptographic key management etc.
 
-## Secure Software Development Lifecycle
+## V1.1 Secure Software Development Lifecycle Requirements 
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.11** | Security is addressed within all parts of the software development lifecycle. | ✓ | ✓ | ✓ | tbd | tbd |
-| **1.7** | A threat modeling exercise for all components should be performed to help identify potential threats and countermeasures, facilitate appropriate risk responses and guide testing of weaknesses and countermeasures. | | ✓ | ✓ | tbd | tbd |
-| **1.6** | Verify that rudimentary threat analysis has been made to determine which attackers are in scope, and which are currently not in scope. | | ✓ | ✓ | tbd | tbd |
-| **1.7** | Verify that all user stories and features have functional constraints, such as "As a user, I should be able to view and edit only my own profile." | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.1** | Verify that a secure software development lifecycle is in place, to ensure that security is addressed within all parts of the software development lifecycle. | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.2** | Verify that threat modeling is performed with every design change or planning sprint to help identify potential threats and countermeasures, facilitate appropriate risk responses and guide testing of weaknesses and countermeasures. | | ✓ | ✓ | tbd | tbd |
+| **1.1.3** | Verify that attacker-driven design is used to determine likely threat actors, such that effective controls and countermeasures are in place sufficient to detect, deter and delay that class of threat actor. | | ✓ | ✓ | tbd | tbd |
+| **1.1.4** | Verify that all user stories and features have functional constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.5** | Verify that all app trust boundaries, components, and significant data flows are identified and known to be needed. | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.6** | Verify that a high-level architecture for the application and all connected remote services has been defined and security has been addressed in that architecture. | | ✓ | ✓ | tbd | tbd |
+| **1.1.7** | Verify that all security controls have a centralized, vetted, secure, and re-usable implementation, to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | tbd | tbd |
 
-## General architecture requirements
-
-| # | Description | L1 | L2 | L3 | CWE | CWSS |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.1** | Verify that all app trust boundaries, components, and significant data flows are identified and known to be needed. | ✓ | ✓ | ✓ | tbd | tbd |
-| **1.3** | Verify that a high-level architecture for the application and all connected remote services has been defined and security has been addressed in that architecture. | | ✓ | ✓ | tbd | tbd |
-| **1.8** | Verify that all security controls have a centralized implementation as to avoid duplication of critical code. | | ✓ | ✓ | tbd | tbd |
-| **1.8** | Verify that all security controls have a centralized implementation as to avoid duplication of critical code. | | ✓ | ✓ | tbd | tbd |
-
-## Authentication Architecture
+## V1.2 Authentication Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **19.2.1** | Verify that all application components, services, and servers use unique low-privilege service account, that is not shared between applications nor used by administrators. | ✓ | ✓ | ✓ | 250 | tbd |
+| **19.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. | ✓ | ✓ | ✓ | 306 | tbd |
+| **19.2.3** | Verify that the application consumes a single vetted authentication mechanism that is known secure, has capabilities to be extended to include strong authentication, and sufficient logging and monitoring to detect acccount abuse or breaches. | ✓ | ✓ | ✓ | 306 | tbd |
 
-## Access Control Architecture
+## V1.3 Session Management Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.2** | Security controls are never enforced only on the client side, but on the respective remote endpoints. | | ✓ | ✓ | tbd | tbd |
 
+## V1.4 Access Control Architectural Requirements
 
-## Input pipeline architecture
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **1.4.1** | Verify that access controls are enforced on trusted enforcement points, such as on access control gateways, servers, or server-less functions. Access control can be evaluated on untrusted clients, but should never be enforced there. | | ✓ | ✓ | tbd | tbd |
+| **1.4.2** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.4.3** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ |  tbd | tbd |
+| **1.4.4** | Verify that there is only one vetted access control mechanism for protecting access to protected data and resources which all requests must go through. This should mean that hard coded access control checks are not required throughout the application. | ✓ | ✓ | ✓ | tbd | tbd |
+
+## V1.5 Input and Output Pipeline Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.4** | All data, including data flows, should be clearly defined on type, how it is processed and what laws/regulations/compliance requirements relate to said data and how it is handled and processed. | | ✓ | ✓ | tbd | tbd |
 
-## Output pipeline architecture 
-
-| # | Description | L1 | L2 | L3 | CWE | CWSS |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-
-## Cryptographic architecture
+## V1.7 Cryptographic Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.13** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced following a key management standard such as NIST SP 800-57. | | ✓ | ✓ | tbd | tbd |
 
-## Auditing and assurance architecture 
+## V1.8 Errors, Logging and Auditing Architectural Requirements 
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 
-## Data Protection and Privacy architecture
+## V1.9 Data Protection and Privacy Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 
-## Business logic architecture
+## V1.10 Communciations Architectural Requirements
+
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **19.1.4** | Verify that communications between components, such as between the application server and the database server, are encrypted, particularly when the components are in different containers or on different systems.|  | ✓ | ✓ | 319 | tbd |
+| **19.1.5** | Verify that any communication encryption solution between components verifies the authenticity of both sides to prevent a Person in the Middle attack. For example, TLS certificate validation. |  | ✓ | ✓ | tbd | tbd |
+
+## V1.15 Business logic Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.5** | All components are defined in terms of the business functions, and/or security functions, they provide. | | | ✓ | tbd | tbd |
 
-## Files architecture
+## V1.16 Secure Files Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 
-## API architecture
+## V1.17 API Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 
-## Configuration architecture
+## V1.19 Configuration Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -91,14 +97,9 @@ Category “V1” lists requirements related to the architecture and design of t
 | **1.10** | Verify that if binaries are delivered to untrusted devices, ensure that an secure automatic updating mechanism is present in the architecture that ensures only signed binaries are downloaded from trusted sites over a secure connection. | | ✓ | ✓ | tbd | tbd |
 | **1.12** | Verify that the build pipeline has a mandatory build step that warns if it finds out of date components, and breaks the build if vulnerable components are discovered. | | ✓ | ✓ | tbd | tbd |
 | **1.12** | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | | ✓ | ✓ | tbd | tbd |
-| **19.1.1** | Verify that communications between components, such as between the application server and traditional, cloud or NoSQL database servers, are authenticated using an account with the least necessary privileges. | ✓ | ✓ | ✓ | 306 | tbd |
 | **19.1.2** | Verify application deployments are adequately sandboxed, containerized and/or isolated at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | ✓ | ✓ | ✓ | 265 | tbd |
-| **19.1.3** | Verify that all application components, services, and servers each use their own low-privilege service account, that is not shared between applications nor used by administrators.  | ✓ | ✓ | ✓ | 250 | tbd |
-| **19.1.4** | Verify that communications between components, such as between the application server and the database server, are encrypted, particularly when the components are in different containers or on different systems.|  | ✓ | ✓ | 319 | tbd |
-| **19.1.5** | Verify that any communication encryption solution between components verifies the authenticity of both sides to prevent a Person in the Middle attack. For example, TLS certificate validation. |  | ✓ | ✓ | tbd | tbd |
 | **19.1.6** | Verify that all mission critical components have at least one level of redundancy. |  |  | ✓ | tbd | tbd |
 | **16.9** | Verify that unsupported, insecure or deprecated client-side technologies are not used, such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | ✓ | ✓ | ✓ | tbd | tbd | 
-
 
 ## References
 

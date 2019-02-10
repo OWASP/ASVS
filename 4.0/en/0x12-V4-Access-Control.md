@@ -14,11 +14,8 @@ Authorization is the concept of allowing access to resources only to those permi
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **4.1.1** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | ✓ | ✓ | ✓ | tbd | tbd |
-| **4.1.2** | Verify that access control policy is enforced server-side.  | ✓ | ✓ | ✓ | tbd | tbd |
 | **4.1.3** | Verify that the same access control rules implied by the presentation layer are enforced on the server side. | ✓ | ✓ | ✓ | tbd | tbd |
 | **4.1.4** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | tbd | tbd |
-| **4.1.5** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ |  tbd | tbd |
 | **4.1.6** | Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until access is explicitly assigned.  | ✓ | ✓ | ✓ |  tbd | tbd |
 | **4.1.7** | Verify that access controls fail securely including when an exception occurs. | ✓ | ✓ | ✓ |  tbd | tbd |
 | **4.1.8** | Verify that all access control decisions can be logged and all failed decisions are logged. | ✓ | ✓ | ✓ | tbd | tbd |
@@ -27,7 +24,6 @@ Authorization is the concept of allowing access to resources only to those permi
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **4.2.1** | Verify that there is only one vetted access control mechanism for protecting access to protected data and resources which all requests must go through. This should mean that hard coded access control checks are not required throughout the application. | ✓ | ✓ | ✓ | tbd | tbd |
 | **4.2.2** | Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles. | ✓ | ✓ | ✓ | tbd | tbd |
 | **4.2.3** | Verify that sensitive data and APIs are protected against direct object attacks targeting creation, reading, updating and deletion of records. | ✓ | ✓ | ✓ | tbd | tbd |
 | **4.2.4** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect any sensitive functionality. | ✓ | ✓ | ✓ | tbd | tbd |
