@@ -48,13 +48,13 @@ Category “V1” lists requirements related to the architecture and design of t
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.4** | All data, including data flows, should be clearly defined on type, how it is processed and what laws/regulations/compliance requirements relate to said data and how it is handled and processed. | | ✓ | ✓ | tbd | tbd |
+| **1.4** | Verify that all data, including data flows, is clearly defined based on type, how it is processed and what laws/regulations/compliance requirements relate to the data and how it is handled and processed. | | ✓ | ✓ | tbd | tbd |
 
 ## V1.7 Cryptographic Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.13** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced following a key management standard such as NIST SP 800-57. | | ✓ | ✓ | tbd | tbd |
+| **1.13** | Verify that there is an explicit policy for how cryptographic keys (if any) are managed, and that a cryptographic key lifecycle is enforced following a key management standard such as NIST SP 800-57. | | ✓ | ✓ | tbd | tbd |
 
 ## V1.8 Errors, Logging and Auditing Architectural Requirements
 
@@ -94,10 +94,10 @@ Category “V1” lists requirements related to the architecture and design of t
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.9** | Verify that components of differing trust levels are segregated from each other via a defined security control, such as network or micro segmentation, firewall rules, API gateways, reverse proxies, or cloud based security groups. | | ✓ | ✓ | tbd | tbd |
-| **1.10** | Verify that if binaries are delivered to untrusted devices, ensure that an secure automatic updating mechanism is present in the architecture that ensures only signed binaries are downloaded from trusted sites over a secure connection. | | ✓ | ✓ | tbd | tbd |
+| **1.10** | Verify that if binaries are delivered to untrusted devices, ensure that an secure automatic updating mechanism is present in the architecture which ensures that only signed binaries are downloaded from trusted sites over a secure connection. | | ✓ | ✓ | tbd | tbd |
 | **1.12** | Verify that the build pipeline has a mandatory build step that warns if it finds out of date components, and breaks the build if vulnerable components are discovered. | | ✓ | ✓ | tbd | tbd |
 | **1.12** | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | | ✓ | ✓ | tbd | tbd |
-| **19.1.2** | Verify application deployments are adequately sandboxed, containerized and/or isolated at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | ✓ | ✓ | ✓ | 265 | tbd |
+| **19.1.2** | Verify that application deployments are adequately sandboxed, containerized and/or isolated at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | ✓ | ✓ | ✓ | 265 | tbd |
 | **19.1.6** | Verify that all mission critical components have at least one level of redundancy. |  |  | ✓ | tbd | tbd |
 | **16.9** | Verify that unsupported, insecure or deprecated client-side technologies are not used, such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | ✓ | ✓ | ✓ | tbd | tbd |
 
