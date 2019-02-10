@@ -4,21 +4,21 @@
 
 To build secure software, we need to consider security throughout all development phases. However, in reality, security is often only an afterthought in the Software Development Life Cycle (SDLC).
 
-The ASVS remediates this problem by not only focusing on technical controls but also by requiring the explicit adoption of security processes. These processes ensure that security is taken into account as soon as the first architecture is drawn. Additionally, the ASVS requires specifying both functional and security properties for application components.
+The ASVS remediates this problem by not only focusing on technical controls but also by requiring the explicit adoption of security processes. These processes ensure that security is taken into account as soon as the first architecture diagram is drawn. Additionally, the ASVS requires specifying both functional and security properties for application components.
 
-It should be noted that distributed applications, such as mobile clients or Single Page Applications (SPAs) that interact with an APIs, should not be tested in isolation, rather tested in their intended distributed setups.
+It should be noted that distributed applications, such as mobile clients or Single Page Applications (SPAs) that interact with APIs, should not be tested in isolation, but rather tested in their intended distributed setups.
 
-Category “V1” lists requirements related to the architecture and design of the application. Unlike other requirements in the ASVS, these requirements do not map to technical test cases in the OWASP Testing Guide. The resources at the end of this category include related OWASP projects that do cover these requirements. Example requirements are threat modeling, a secure SDLC, cryptographic key management etc.
+Category “V1” lists requirements related to the architecture and design of the application. Unlike other requirements in the ASVS, these requirements do not map to technical test cases in the OWASP Testing Guide. The resources at the end of this category include related OWASP projects that do cover these requirements. Example requirements are threat modeling, a secure SDLC, cryptographic key management, etc.
 
-## V1.1 Secure Software Development Lifecycle Requirements 
+## V1.1 Secure Software Development Lifecycle Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.1.1** | Verify that a secure software development lifecycle is in place, to ensure that security is addressed within all parts of the software development lifecycle. | ✓ | ✓ | ✓ | tbd | tbd |
-| **1.1.2** | Verify that threat modeling is performed with every design change or planning sprint to help identify potential threats and countermeasures, facilitate appropriate risk responses and guide testing of weaknesses and countermeasures. | | ✓ | ✓ | tbd | tbd |
+| **1.1.2** | Verify that threat modeling is performed for every design change or planning sprint to help identify potential threats and countermeasures, facilitate appropriate risk responses and guide testing of weaknesses and countermeasures. | | ✓ | ✓ | tbd | tbd |
 | **1.1.3** | Verify that attacker-driven design is used to determine likely threat actors, such that effective controls and countermeasures are in place sufficient to detect, deter and delay that class of threat actor. | | ✓ | ✓ | tbd | tbd |
 | **1.1.4** | Verify that all user stories and features have functional constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" | ✓ | ✓ | ✓ | tbd | tbd |
-| **1.1.5** | Verify that all app trust boundaries, components, and significant data flows are identified and known to be needed. | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.5** | Verify that all app trust boundaries, components, and significant data flows are identified and are known to be needed. | ✓ | ✓ | ✓ | tbd | tbd |
 | **1.1.6** | Verify that a high-level architecture for the application and all connected remote services has been defined and security has been addressed in that architecture. | | ✓ | ✓ | tbd | tbd |
 | **1.1.7** | Verify that all security controls have a centralized, vetted, secure, and re-usable implementation, to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | tbd | tbd |
 
@@ -26,9 +26,9 @@ Category “V1” lists requirements related to the architecture and design of t
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **19.2.1** | Verify that all application components, services, and servers use unique low-privilege service account, that is not shared between applications nor used by administrators. | ✓ | ✓ | ✓ | 250 | tbd |
+| **19.2.1** | Verify that all application components, services, and servers use unique, low-privilege service accounts, that are not shared between applications nor used by administrators. | ✓ | ✓ | ✓ | 250 | tbd |
 | **19.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. | ✓ | ✓ | ✓ | 306 | tbd |
-| **19.2.3** | Verify that the application consumes a single vetted authentication mechanism that is known secure, has capabilities to be extended to include strong authentication, and sufficient logging and monitoring to detect acccount abuse or breaches. | ✓ | ✓ | ✓ | 306 | tbd |
+| **19.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect acccount abuse or breaches. | ✓ | ✓ | ✓ | 306 | tbd |
 
 ## V1.3 Session Management Architectural Requirements
 
@@ -39,10 +39,10 @@ Category “V1” lists requirements related to the architecture and design of t
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.4.1** | Verify that access controls are enforced on trusted enforcement points, such as on access control gateways, servers, or server-less functions. Access control can be evaluated on untrusted clients, but should never be enforced there. | | ✓ | ✓ | tbd | tbd |
+| **1.4.1** | Verify that access controls are enforced at trusted enforcement points, such as at access control gateways, servers, or serverless functions. Access control can be evaluated on untrusted clients, but should never be enforced there. | | ✓ | ✓ | tbd | tbd |
 | **1.4.2** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | ✓ | ✓ | ✓ | tbd | tbd |
 | **1.4.3** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ |  tbd | tbd |
-| **1.4.4** | Verify that there is only one vetted access control mechanism for protecting access to protected data and resources which all requests must go through. This should mean that hard coded access control checks are not required throughout the application. | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.4.4** | Verify that there is only one vetted access control mechanism for protecting access to protected data and resources which all requests must go through. This should mean that hardcoded access control checks are not required throughout the application. | ✓ | ✓ | ✓ | tbd | tbd |
 
 ## V1.5 Input and Output Pipeline Architectural Requirements
 
@@ -56,7 +56,7 @@ Category “V1” lists requirements related to the architecture and design of t
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.13** | There is an explicit policy for how cryptographic keys (if any) are managed, and the lifecycle of cryptographic keys is enforced following a key management standard such as NIST SP 800-57. | | ✓ | ✓ | tbd | tbd |
 
-## V1.8 Errors, Logging and Auditing Architectural Requirements 
+## V1.8 Errors, Logging and Auditing Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -99,7 +99,7 @@ Category “V1” lists requirements related to the architecture and design of t
 | **1.12** | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | | ✓ | ✓ | tbd | tbd |
 | **19.1.2** | Verify application deployments are adequately sandboxed, containerized and/or isolated at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | ✓ | ✓ | ✓ | 265 | tbd |
 | **19.1.6** | Verify that all mission critical components have at least one level of redundancy. |  |  | ✓ | tbd | tbd |
-| **16.9** | Verify that unsupported, insecure or deprecated client-side technologies are not used, such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **16.9** | Verify that unsupported, insecure or deprecated client-side technologies are not used, such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | ✓ | ✓ | ✓ | tbd | tbd |
 
 ## References
 
