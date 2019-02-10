@@ -16,11 +16,10 @@ Category “V1” lists requirements related to the architecture and design of t
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.1.1** | Verify that a secure software development lifecycle is in place, to ensure that security is addressed within all parts of the software development lifecycle. | ✓ | ✓ | ✓ | tbd | tbd |
 | **1.1.2** | Verify that threat modeling is performed for every design change or planning sprint to help identify potential threats and countermeasures, facilitate appropriate risk responses and guide testing of weaknesses and countermeasures. | | ✓ | ✓ | tbd | tbd |
-| **1.1.3** | Verify that attacker-driven design is used to determine likely threat actors, such that effective controls and countermeasures are in place sufficient to detect, deter and delay that class of threat actor. | | ✓ | ✓ | tbd | tbd |
 | **1.1.4** | Verify that all user stories and features have functional constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" | ✓ | ✓ | ✓ | tbd | tbd |
 | **1.1.5** | Verify that all app trust boundaries, components, and significant data flows are identified and are known to be needed. | ✓ | ✓ | ✓ | tbd | tbd |
 | **1.1.6** | Verify that a high-level architecture for the application and all connected remote services has been defined and security has been addressed in that architecture. | | ✓ | ✓ | tbd | tbd |
-| **1.1.7** | Verify that all security controls have a centralized, vetted, secure, and re-usable implementation, to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | tbd | tbd |
+| **1.1.7** | Verify that all security controls have a centralized, simple (economy of design), vetted, secure, and re-usable implementation, to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 | tbd |
 
 ## V1.2 Authentication Architectural Requirements
 
