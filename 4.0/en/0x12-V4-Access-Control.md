@@ -10,7 +10,7 @@ Authorization is the concept of allowing access to resources only to those permi
 
 ## Security Verification Requirements
 
-### 4.1 General Access Control design
+### 4.1 General Access Control Design
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
