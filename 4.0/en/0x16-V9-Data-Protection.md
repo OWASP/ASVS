@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level data prote
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **9.2** | Identify all sensitive data created and processed by the application and ensure that a policy is in place on how to deal with sensitive data. | ✓ | ✓ | ✓ | 200 | tbd | 
 | **9.3** | Verify that sensitive data is sent to the server in the HTTP/S message body or headers and that query string parameters from any HTTP verb do not contain sensitive data. | ✓ | ✓ | ✓ | 319 | tbd | 
-| **9.4** | Verify that the application sets sufficient anti-caching headers so that sensitive data us not cached in modern browsers. | ✓ | ✓ | ✓ | 525 | tbd | 
+| **9.4** | Verify that the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers. | ✓ | ✓ | ✓ | 525 | tbd | 
 | **9.5** | Verify that the application protects sensitive data from being cached in server components such as load balancers and application caches. | ✓ | ✓ | ✓ | 524 | tbd | 
 | **9.6** | Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. |  | ✓ | ✓ | 524 | tbd | 
 | **9.7** | Verify that users have a method to remove or export their data on demand. | ✓ | ✓ | ✓ | 212 | tbd | 
