@@ -32,8 +32,8 @@ Complying with this section is not possible without complete access to source co
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **13.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate prior to collecting any data. |  | ✓ | ✓ | tbd | tbd | 
 | **13.2.2** | Verify that the application source code and third party libraries do not contain back doors, such as hardcoded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, root kits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.  | | | ✓ | tbd | tbd | 
-| **13.2.3** | Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.  |  |  | ✓ | tbd | tbd | 
-| **13.2.4** | Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.  |  |  | ✓ | tbd | tbd | 
+| **13.2.3** | Verify that the application source code and third party libraries do not contain time bombs by searching for date and time related functions.  |  |  | ✓ | tbd | tbd | 
+| **13.2.4** | Verify that the application source code and third party libraries do not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.  |  |  | ✓ | tbd | tbd | 
 | **13.2.5** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. |  |  | ✓ | tbd | tbd | 
 
 ## 13.3 Deployed Application Integrity Controls
