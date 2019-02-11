@@ -39,7 +39,7 @@ Ensure that a verified application satisfies the following high level requiremen
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.10** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, .bak, .swp and and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **16.10** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, .bak, .swp and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | tbd | tbd | 
 | **16.12** | Verify that untrusted uploaded HTML and SVG files are only returned as text/plain or as direct downloads and not as text/html or that a separate sub-domain is used to prevent the uploaded file being used to launch an XSS attack. | ✓ | ✓ | ✓ | tbd | tbd | 
 
 ## SSRF Protection Requirements
