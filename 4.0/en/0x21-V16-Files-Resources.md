@@ -50,8 +50,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **16.6.1** | Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server. |  | ✓ | ✓ | 15 | tbd |
-| **16.6.2** | Verify that untrusted data is not used within cross-domain resource sharing (CORS) to protect against arbitrary remote content. See [0x92-Appendix-C_CodeExamples.md](0x92-Appendix-C_CodeExamples.md) for an example of how you might approach this. | ✓ | ✓ | ✓ | 942 | tbd |
-| **16.6.3** | Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content. | ✓ | ✓ | ✓ | 601 | tbd |
+| **16.6.2** | Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content. | ✓ | ✓ | ✓ | 601 | tbd |
 
 ## References
 
