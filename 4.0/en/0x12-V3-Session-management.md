@@ -39,7 +39,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | # | Description | L1 | L2 | L3 | NIST &sect; | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: | :---: |
 | **3.3.1** | Verify that logout invalidates or erases any client- or server-side session storage, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. | ✓ | ✓ | ✓ | 7.1 | 613 | tbd |
-| **3.3.2** | Verify that absolute or idle timeouts invalidates or erases any client- or server-side session storage. |  | ✓ | ✓ | 7.1 | 613 | tbd |
+| **3.3.2** | Verify that session binding secrets are erased on the server when the user logs out or when the secrets are deemed to have expired. |  | ✓ | ✓ | 7.1.4 | 613 | tbd |
 | **3.3.3 | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 7.2 | 613 | tbd |
 | **3.3.4** | Verify that the user can terminate all other active sessions after a successful change password process, and this is effective across the application, federated login (if present) and any relying parties. |  | ✓ | ✓ | - | 613 | tbd |
 
@@ -50,7 +50,6 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | **3.4.1** | Verify that cookie-based session IDs have the 'Secure' attribute. | ✓ | ✓ | ✓ | 7.1.1 | 614 | tbd |
 | **3.4.2** | Verify that cookie-based session IDs have the 'HttpOnly' attributes. | ✓ | ✓ | ✓ | 7.1.1 | 1004 | tbd |
 | **3.4.3** | Verify that cookie-based session IDs have minimum practical hostnames, domain and path attributes, along with the 'SameSite' attribute. | ✓ | ✓ | ✓ | 7.1.1 | 16 | tbd |
-| **3.4.4** | Verify that cookie-based session IDs are set to expire soon after the default session timeout period. | ✓ | ✓ | ✓ | 7.1.1 | 613 | tbd |
 
 ### V3.5 Token-based Session Management
 
