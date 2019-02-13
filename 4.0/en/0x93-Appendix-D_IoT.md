@@ -18,37 +18,36 @@ Embedded/IoT devices should:
 | **20.2** | Verify that cryptographic keys and certificates are unique to each individual device. | ✓ | ✓ | ✓ | 4.0 |
 | **20.3** | Verify that memory protection controls such as ASLR and DEP are enabled by the embedded/IoT operating system, if applicable. | ✓ | ✓ | ✓ | 4.0 |
 | **20.4** | Verify that on-chip debugging interfaces such as JTAG or SWD are disabled or that available protection mechanism is enabled and configured appropriately. | ✓ | ✓ | ✓ | 4.0 |
-| **20.5** | Verify that physical debug headers are not present on the device. | ✓ | ✓ | ✓ | 4.0 |
-| **20.6** | Verify that trusted execution is implemented and enabled, if available on the device SoC or CPU. | ✓ | ✓ | ✓ | 4.0 |
-| **20.7** | Verify that sensitive data, private keys and certificates are stored securely in a Secure Element, TPM, TEE (Trusted Execution Environment), or protected using strong cryptography. | ✓ | ✓ | ✓ | 4.0 |
-| **20.8** | Verify that the firmware apps protect data-in-transit using transport layer security. | ✓ | ✓ | ✓ | 4.0 |
-| **20.9** | Verify that the firmware apps validate the digital signature of server connections. | ✓ | ✓ | ✓ | 4.0 |
-| **20.10** | Verify that wireless communications are mutually authenticated. | ✓ | ✓ | ✓ | 4.0 |
-| **20.11** | Verify that wireless communications are sent over an encrypted channel.  | ✓ | ✓ | ✓ | 4.0 |
-| **20.12** | Verify that any use of banned C functions are replaced with the appropriate safe equivalent functions. | ✓ | ✓ | ✓ | 4.0 |
-| **20.13** | Verify that each firmware maintains a software bill of materials cataloging third-party components, versioning, and published vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
-| **20.14** | Verify all code including third-party binaries, libraries, frameworks are reviewed for hardcoded credentials (backdoors). | ✓ | ✓ | ✓ | 4.0 |
-| **20.15** | Verify that the application and firmware components are not susceptible to OS Command Injection by invoking shell command wrappers, scripts, or that security controls prevent OS Command Injection. | ✓ | ✓ | ✓ | 4.0 |
-| **20.16** | Verify that the firmware apps pin the digital signature to a trusted server(s). |  | ✓ | ✓ | 4.0 |
-| **20.17** | Verify the presence of tamper resistance and/or tamper detection features. |  | ✓ | ✓ | 4.0 |
-| **20.18** | Verify that any available Intellectual Property protection technologies provided by the chip manufacturer are enabled. |  | ✓ | ✓ | 4.0 |
-| **20.19** | Verify security controls are in place to hinder firmware reverse engineering (e.g., removal of verbose debugging symbols). |  | ✓ | ✓ | 4.0 |
-| **20.20** | Verify the device validates the boot image signature before loading. |  | ✓ | ✓ | 4.0 |
-| **20.21** | Verify that the firmware update process is not vulnerable to time-of-check vs time-of-use attacks. |  | ✓ | ✓ | 4.0 |
-| **20.22** | Verify the device uses code signing and validates firmware upgrade files before installing. |  | ✓ | ✓ | 4.0 |
-| **20.23** | Verify that the device cannot be downgraded to old versions (anti-rollback) of valid firmware. |  | ✓ | ✓ | 4.0 |
-| **20.24** | Verify usage of cryptographically secure pseudo-random number generator on embedded device (e.g., using chip-provided random number generators). |  | ✓ | ✓ | 4.0 |
-| **20.25** | Verify that firmware has the ability to perform automatic firmware updates upon a predefined schedule. |  | ✓ | ✓ | 4.0 |
-| **20.26** | Verify that the device wipes firmware and sensitive data upon detection of tampering or receipt of invalid message. |  |  | ✓ | 4.0 |
-| **20.27** | Verify that only micro controllers that support disabling debugging interfaces (e.g. JTAG, SWD) are used. |  |  | ✓ | 4.0 |
-| **20.28** | Verify that only micro controllers that provide substantial protection from de-capping and side channel attacks are used. |  |  | ✓ | 4.0 |
-| **20.29** | Verify that sensitive traces are not exposed to outer layers of the printed circuit board. |  |  | ✓ | 4.0 |
-| **20.30** | Verify that inter-chip communication is encrypted (e.g. Main board to daughter board communication). |  |  | ✓ | 4.0 |
-| **20.31** | Verify the device uses code signing and validates code before execution. |  |  | ✓ | 4.0 |
-| **20.32** | Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required. |  |  | ✓ | 4.0 |
-| **20.33** | Verify that the firmware apps utilize kernel containers for isolation between apps. |  |  | ✓ | 4.0 |
-| **20.34** | Verify that secure compiler flags such as -fPIE, -fstack-protector-all, -Wl,-z,noexecstack, -Wl,-z,noexecheap are configured for firmware builds. |  |  | ✓ | 4.0 |
-| **20.35** | Verify that micro controllers are configured with code protection (if applicable). |  |  | ✓ | 4.0 |
+| **20.5** | Verify that trusted execution is implemented and enabled, if available on the device SoC or CPU. | ✓ | ✓ | ✓ | 4.0 |
+| **20.6** | Verify that sensitive data, private keys and certificates are stored securely in a Secure Element, TPM, TEE (Trusted Execution Environment), or protected using strong cryptography. | ✓ | ✓ | ✓ | 4.0 |
+| **20.7** | Verify that the firmware apps protect data-in-transit using transport layer security. | ✓ | ✓ | ✓ | 4.0 |
+| **20.8** | Verify that the firmware apps validate the digital signature of server connections. | ✓ | ✓ | ✓ | 4.0 |
+| **20.9** | Verify that wireless communications are mutually authenticated. | ✓ | ✓ | ✓ | 4.0 |
+| **20.10** | Verify that wireless communications are sent over an encrypted channel.  | ✓ | ✓ | ✓ | 4.0 |
+| **20.11** | Verify that any use of banned C functions are replaced with the appropriate safe equivalent functions. | ✓ | ✓ | ✓ | 4.0 |
+| **20.12** | Verify that each firmware maintains a software bill of materials cataloging third-party components, versioning, and published vulnerabilities. | ✓ | ✓ | ✓ | 4.0 |
+| **20.13** | Verify all code including third-party binaries, libraries, frameworks are reviewed for hardcoded credentials (backdoors). | ✓ | ✓ | ✓ | 4.0 |
+| **20.14** | Verify that the application and firmware components are not susceptible to OS Command Injection by invoking shell command wrappers, scripts, or that security controls prevent OS Command Injection. | ✓ | ✓ | ✓ | 4.0 |
+| **20.15** | Verify that the firmware apps pin the digital signature to a trusted server(s). |  | ✓ | ✓ | 4.0 |
+| **20.16** | Verify the presence of tamper resistance and/or tamper detection features. |  | ✓ | ✓ | 4.0 |
+| **20.17** | Verify that any available Intellectual Property protection technologies provided by the chip manufacturer are enabled. |  | ✓ | ✓ | 4.0 |
+| **20.18** | Verify security controls are in place to hinder firmware reverse engineering (e.g., removal of verbose debugging symbols). |  | ✓ | ✓ | 4.0 |
+| **20.19** | Verify the device validates the boot image signature before loading. |  | ✓ | ✓ | 4.0 |
+| **20.20** | Verify that the firmware update process is not vulnerable to time-of-check vs time-of-use attacks. |  | ✓ | ✓ | 4.0 |
+| **20.21** | Verify the device uses code signing and validates firmware upgrade files before installing. |  | ✓ | ✓ | 4.0 |
+| **20.22** | Verify that the device cannot be downgraded to old versions (anti-rollback) of valid firmware. |  | ✓ | ✓ | 4.0 |
+| **20.23** | Verify usage of cryptographically secure pseudo-random number generator on embedded device (e.g., using chip-provided random number generators). |  | ✓ | ✓ | 4.0 |
+| **20.24** | Verify that firmware has the ability to perform automatic firmware updates upon a predefined schedule. |  | ✓ | ✓ | 4.0 |
+| **20.25** | Verify that the device wipes firmware and sensitive data upon detection of tampering or receipt of invalid message. |  |  | ✓ | 4.0 |
+| **20.26** | Verify that only micro controllers that support disabling debugging interfaces (e.g. JTAG, SWD) are used. |  |  | ✓ | 4.0 |
+| **20.27** | Verify that only micro controllers that provide substantial protection from de-capping and side channel attacks are used. |  |  | ✓ | 4.0 |
+| **20.28** | Verify that sensitive traces are not exposed to outer layers of the printed circuit board. |  |  | ✓ | 4.0 |
+| **20.29** | Verify that inter-chip communication is encrypted (e.g. Main board to daughter board communication). |  |  | ✓ | 4.0 |
+| **20.30** | Verify the device uses code signing and validates code before execution. |  |  | ✓ | 4.0 |
+| **20.31** | Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required. |  |  | ✓ | 4.0 |
+| **20.32** | Verify that the firmware apps utilize kernel containers for isolation between apps. |  |  | ✓ | 4.0 |
+| **20.33** | Verify that secure compiler flags such as -fPIE, -fstack-protector-all, -Wl,-z,noexecstack, -Wl,-z,noexecheap are configured for firmware builds. |  |  | ✓ | 4.0 |
+| **20.34** | Verify that micro controllers are configured with code protection (if applicable). |  |  | ✓ | 4.0 |
 
 ## References
 
