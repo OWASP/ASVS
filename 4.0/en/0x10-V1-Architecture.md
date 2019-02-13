@@ -14,19 +14,19 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.1.1** | Verify that a secure software development lifecycle is in place, to ensure that security is addressed within all parts of the software development lifecycle. | ✓ | ✓ | ✓ | tbd | tbd |
-| **1.1.2** | Verify that threat modeling is performed for every design change or planning sprint to help identify potential threats and countermeasures, facilitate appropriate risk responses and guide testing of weaknesses and countermeasures. | | ✓ | ✓ | tbd | tbd |
-| **1.1.4** | Verify that all user stories and features have functional constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" | ✓ | ✓ | ✓ | tbd | tbd |
-| **1.1.5** | Verify that all app trust boundaries, components, and significant data flows are identified and are known to be needed. | ✓ | ✓ | ✓ | tbd | tbd |
-| **1.1.6** | Verify that a high-level architecture for the application and all connected remote services has been defined and security has been addressed in that architecture. | | ✓ | ✓ | tbd | tbd |
-| **1.1.7** | Verify that all security controls have a centralized, simple (economy of design), vetted, secure, and re-usable implementation, to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 | tbd |
-| **1.1.8** | Verify that a secure coding checklist or guideline is available to all developers and testers. | ✓ | ✓ | ✓ | 637 | tbd |
+| **1.1.1** | Verify the use of a secure software development lifecycle that addresses security in all stages of development. | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.2** | Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing. | | ✓ | ✓ | tbd | tbd |
+| **1.1.4** | Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.5** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | ✓ | ✓ | ✓ | tbd | tbd |
+| **1.1.6** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | tbd | tbd |
+| **1.1.7** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 | tbd |
+| **1.1.8** | Verify availablity of a secure coding checklist, guideline, or policy to all developers and testers. | ✓ | ✓ | ✓ | 637 | tbd |
 
 ## V1.2 Authentication Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.2.1** | Verify that all application components, services, and servers use unique, low-privilege service accounts, that are not shared between applications nor used by administrators. | ✓ | ✓ | ✓ | 250 | tbd |
+| **1.2.1** | Verify the use of unique, low-privilege service accounts for all application components, services, and servers--that are applications do not share nor administrators use these accounts. | ✓ | ✓ | ✓ | 250 | tbd |
 | **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. | ✓ | ✓ | ✓ | 306 | tbd |
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect acccount abuse or breaches. | ✓ | ✓ | ✓ | 306 | tbd |
 
