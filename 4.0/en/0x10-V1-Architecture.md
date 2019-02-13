@@ -20,7 +20,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | **1.1.5** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | ✓ | ✓ | ✓ | tbd | tbd |
 | **1.1.6** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | tbd | tbd |
 | **1.1.7** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 | tbd |
-| **1.1.8** | Verify availablity of a secure coding checklist, security requirements, guideline, or policy to all developers and testers. | ✓ | ✓ | ✓ | 637 | tbd |
+| **1.1.8** | Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers. | ✓ | ✓ | ✓ | 637 | tbd |
 
 ## V1.2 Authentication Architectural Requirements
 
@@ -28,7 +28,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.2.1** | Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. | ✓ | ✓ | ✓ | 250 | tbd |
 | **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. | ✓ | ✓ | ✓ | 306 | tbd |
-| **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect acccount abuse or breaches. | ✓ | ✓ | ✓ | 306 | tbd |
+| **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | ✓ | ✓ | ✓ | 306 | tbd |
 
 ## V1.3 Session Management Architectural Requirements
 
@@ -66,7 +66,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 
-## V1.10 Communciations Architectural Requirements
+## V1.10 Communications Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
