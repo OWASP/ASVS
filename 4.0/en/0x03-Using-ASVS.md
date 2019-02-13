@@ -17,7 +17,7 @@ Figure 1 - OWASP Application Security Verification Standard 4.0 Levels
 
 ## How to use this standard
 
-One of the best ways to use the Application Security Verification Standard is to use it as blueprint create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus on the security requirements that are most important to your projects and environments.
+One of the best ways to use the Application Security Verification Standard is to use it as a blueprint to create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus on the security requirements that are most important to your projects and environments.
 
 ### Level 1: Opportunistic
 

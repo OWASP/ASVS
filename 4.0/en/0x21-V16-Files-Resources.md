@@ -7,48 +7,51 @@ Ensure that a verified application satisfies the following high level requiremen
 * Untrusted file data should be handled accordingly and in a secure manner.
 * Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.
 
-## File Upload Requirements
+## V16.1 File Upload Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.13** | Verify that a file size quota per user is enforced to ensure that a single user cannot fill up the server with too many files. | | ✓ | ✓ | tbd | tbd | 
-| **16.11** | Verify that the application will not accept files which are too big and could fill up the server or incur exccessive storage costs. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **16.1.1** | Verify that the application will not accept files which are too big and could fill up the server or incur exccessive storage costs. | ✓ | ✓ | ✓ | tbd | tbd |
+| **16.1.2** | Verify that a file size quota per user is enforced to ensure that a single user cannot fill up the server with too many files. | | ✓ | ✓ | tbd | tbd |
 
-## File Integrity Requirements
-
-| # | Description | L1 | L2 | L3 | CWE | CWSS |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.14** | Verify that files obtained from untrusted sources are validated to be of expected type based on the file's "magic number" or other content. | | ✓ | ✓ | tbd | tbd | 
-
-## File execution Requirements
+## V16.2 File Integrity Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.2** | Verify that untrusted file data submitted to the application is not used directly with file I/O commands, particularly to protect against vulnerabilities involving path traversal, local file include, file mime type, reflective file download, and OS command injection. | ✓ | ✓ | ✓ | tbd | tbd | 
-| **16.4** | Verify that untrusted data is not used within inclusion, class loader, or reflection capabilities to prevent remote/local code execution vulnerabilities. | ✓ | ✓ | ✓ | tbd | tbd | 
-| **16.8** | Verify that application code does not execute uploaded data obtained from untrusted sources. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **16.2.1** | Verify that files obtained from untrusted sources are validated to be of expected type based on the file's "magic number" or other content. | | ✓ | ✓ | tbd | tbd |
 
-## File Storage Requirements
+## V16.3 File execution Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.6** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation. |  | ✓ | ✓ | tbd | tbd | 
-| **16.3** | Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **16.3.1** | Verify that user-submitted filename metadata is not used directly with system or framework file and URL API to protect against path traversal. | ✓ | ✓ | ✓ | 22 | tbd |
+| **16.3.2** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files (LFI). | ✓ | ✓ | ✓ | 73 | tbd |
+| **16.3.3** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files (RFI), which may also lead to SSRF.  | ✓ | ✓ | ✓ | 98 | tbd |
+| **16.3.4** | Verify that the application protects against reflective file download (RFD) by ensuring where an application allows a user-submitted filename in a JSON, JSONP, or URL parameter, the filename is validated or ignored, the resulting Content-Type is set to text/plain, the Content-Disposition header has a fixed filename. | ✓ | ✓ | ✓ | XXX | tbd |
+| **16.3.5** | Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection. | ✓ | ✓ | ✓ | 78 | tbd |
+| **16.3.3** | Verify that application does not include and execute functionality, such as external JavaScript libraries or server-side DLLs, from untrusted sources. | ✓ | ✓ | ✓ | 829 | tbd |
 
-## File Download Requirements
-
-| # | Description | L1 | L2 | L3 | CWE | CWSS |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.10** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, .bak, .swp and and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | tbd | tbd | 
-| **16.12** | Verify that untrusted uploaded HTML and SVG files are only returned as text/plain or as direct downloads and not as text/html or that a separate sub-domain is used to prevent the uploaded file being used to launch an XSS attack. | ✓ | ✓ | ✓ | tbd | tbd | 
-
-## SSRF Protection Requirements
+## V16.4 File Storage Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.7** | Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server. |  | ✓ | ✓ | tbd | tbd | 
-| **16.5** | Verify that untrusted data is not used within cross-domain resource sharing (CORS) to protect against arbitrary remote content. See [0x92-Appendix-C_CodeExamples.md](0x92-Appendix-C_CodeExamples.md) for an example of how you might approach this. | ✓ | ✓ | ✓ | tbd | tbd | 
-| **16.1** | Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content. | ✓ | ✓ | ✓ | tbd | tbd | 
+| **16.4.1** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation. | ✓ | ✓ | ✓ | 922 | tbd |
+| **16.4.2** | Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content. | ✓ | ✓ | ✓ | 509 | tbd |
+
+## V16.5 File Download Requirements
+
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **16.5.1** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, .bak, .swp and similar extensions commonly used by editors should not be served by the web tier. | ✓ | ✓ | ✓ | 552 | tbd |
+| **16.5.2** | Verify that untrusted uploaded HTML and SVG files are only returned as text/plain, and a separate sub-domain with no permission to access session cookies or tokens is used to prevent the uploaded file being used to launch an XSS attack. | ✓ | ✓ | ✓ | 434 | tbd |
+
+## V16.6 SSRF Protection Requirements
+
+| # | Description | L1 | L2 | L3 | CWE | CWSS |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **16.6.1** | Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server. |  | ✓ | ✓ | 15 | tbd |
+| **16.6.2** | Verify that untrusted data is not used within cross-domain resource sharing (CORS) to protect against arbitrary remote content. See [0x92-Appendix-C_CodeExamples.md](0x92-Appendix-C_CodeExamples.md) for an example of how you might approach this. | ✓ | ✓ | ✓ | 942 | tbd |
+| **16.6.3** | Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content. | ✓ | ✓ | ✓ | 601 | tbd |
 
 ## References
 
