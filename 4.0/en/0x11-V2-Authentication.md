@@ -43,7 +43,7 @@ Applications can always exceed the current level's requirements. The following k
 | **2.1.5** | Verify that in cases where a verifier and CSP are separate, mutually authenticated TLS is in place between the two endpoints. |  | o | ✓ | 5.2.6 |
 | **2.1.6** | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  | o | ✓ | 5.2.8 |
 | **2.1.7** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  | o | ✓ | 5.2.9 |
-| **2.1.8** | Verify that the use of weak authenticators (such as SMS and email) is limited to secondary verification and transaction approval and is not used as a replacement for more secure authentication methods. If offering weak authenticators, verify that stronger methods are made available first, that users are aware of the risks, or that proper measures are in place to limit the risks of account compromise. | ✓ | ✓ | ✓ | 5.2.10 |
+| **2.1.8** | Verify that the use of weak authenticators (such as SMS and email) is limited to secondary verification and transaction approval and not as a replacement for more secure authentication methods. If offering weak authenticators, verify that stronger methods are made available first, that users are aware of the risks, or that proper measures are in place to limit the risks of account compromise. | ✓ | ✓ | ✓ | 5.2.10 |
 | **2.1.9** | Verify that all authentication data provided by the user is checked for validity, even if it is unexpected. For example, if an authentication form offers a username and password and an optional token, the server should always check a token value provided, even if the user was not expected to have a token value to provide. | | ✓ | ✓ ||
 
 NIST considers email and SMS as "restricted" plain text authentication channels. As restricted authenticators, they will be removed from NIST 800-63 and thus the ASVS at some point the future. Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.  
@@ -92,6 +92,7 @@ Memorized secrets are not sufficient to protect against today's threats. The ASV
 | **2.4.10** | Verify that the user is required to change their password if the credential has found to be compromised. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.12** | Verify that the user can choose to either temporarily view the masked entered password, or temporarily view the last typed character of the password. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.13** | Verify that the application allows to use a passphrases as a password. |  |  | ✓ |  |
 
 ### V2.5 Credential Storage Requirements
 
