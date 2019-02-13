@@ -179,9 +179,9 @@ The requirements for single factor cryptographic devices and software, and multi
 
 ### V2.11 Service Authentication Requirements
 
-| # | Description | L1 | L2 | L3 | NIST &sect; |
+| # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.11.1** | Verify that ntegration secrets do not rely on unchanging passwords, such as API keys or shared privileged accounts. | Software | OS assisted | HSM | 5.1.1.1 |
+| **2.11.1** | Verify that integration secrets do not rely on unchanging passwords, such as API keys or shared privileged accounts. | Software | OS assisted | HSM | 5.1.1.1 |
 | **2.11.2** | Verify that if passwords are required, the credential are not a default account. | Software | OS assisted | HSM | 5.1.1.1 |
 | **2.11.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. | Software | OS assisted | HSM | 5.1.1.1 |
 | **2.11.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware trusted platform module (TPM), or a hardware security module (L3) is recommended for password storage. |  Software | OS assisted | HSM | TBA |

@@ -20,7 +20,7 @@ The most important asset is the data processed, stored or transmitted by an appl
 
 ## 7.2 Architecture
 
-Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectual or high level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost a great deal more to implement securely than simply building it in from the start.
+Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost a great deal more to implement securely than simply building it in from the start.
 
 Architectural requirements are intrinsic to the entire code base, and thus difficult to unit or integrate test. Architectural requirements require consideration in coding standards, throughout the coding phase, and should be reviewed during security architecture, peer or code reviews, or retrospectives.
 
