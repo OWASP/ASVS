@@ -20,8 +20,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | **1.1.5** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | ✓ | ✓ | ✓ | tbd | tbd |
 | **1.1.6** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | tbd | tbd |
 | **1.1.7** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 | tbd |
-| **1.1.8** | Verify availablity of a secure coding checklist, guideline, or policy to all developers and testers. | ✓ | ✓ | ✓ | 637 | tbd |
-| **1.1.9** | Verify that there are security requirements and test scenarios to cover the undesired behaviour of the application. |  |  | ✓ | tbd | tbd |
+| **1.1.8** | Verify availablity of a secure coding checklist, security requirements, guideline, or policy to all developers and testers. | ✓ | ✓ | ✓ | 637 | tbd |
 
 ## V1.2 Authentication Architectural Requirements
 
