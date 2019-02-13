@@ -27,7 +27,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **1.2.1** | Verify the use of unique, low-privilege service accounts for all application components, services, and servers--that are applications do not share nor administrators use these accounts. | ✓ | ✓ | ✓ | 250 | tbd |
+| **1.2.1** | Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. | ✓ | ✓ | ✓ | 250 | tbd |
 | **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. | ✓ | ✓ | ✓ | 306 | tbd |
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect acccount abuse or breaches. | ✓ | ✓ | ✓ | 306 | tbd |
 
