@@ -98,7 +98,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **1.19.1** | Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | tbd | tbd |
 | **1.19.2** | Verify that deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints. | | ✓ | ✓ | tbd | tbd |
-| **1.19.3** | Verify that the build pipeline has a mandatory build step that warns if it finds out of date components, and breaks the build if vulnerable components are discovered. | | ✓ | ✓ | tbd | tbd |
+| **1.19.3** | Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions. | | ✓ | ✓ | tbd | tbd |
 | **1.19.4** | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | | ✓ | ✓ | tbd | tbd |
 | **1.19.5** | Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | ✓ | ✓ | ✓ | 265 | tbd |
 | **1.19.6** | Verify that all mission critical components have at least one level of redundancy. |  |  | ✓ | tbd | tbd |
