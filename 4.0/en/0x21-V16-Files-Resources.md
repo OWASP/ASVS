@@ -11,7 +11,7 @@ Ensure that a verified application satisfies the following high level requiremen
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **16.1.1** | Verify that the application will not accept files which are too big and could fill up the server or incur exccessive storage costs. | ✓ | ✓ | ✓ | tbd | tbd |
+| **16.1.1** | Verify that the application will not accept files which are too big and could fill up the server or incur excessive storage costs. | ✓ | ✓ | ✓ | tbd | tbd |
 | **16.1.2** | Verify that a file size quota per user is enforced to ensure that a single user cannot fill up the server with too many files. | | ✓ | ✓ | tbd | tbd |
 
 ## V16.2 File Integrity Requirements
