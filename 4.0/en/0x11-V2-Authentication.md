@@ -92,7 +92,6 @@ Memorized secrets are not sufficient to protect against today's threats. The ASV
 | **2.4.10** | Verify that the user is required to change their password if the credential has found to be compromised. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.12** | Verify that the user can choose to either temporarily view the masked entered password, or temporarily view the last typed character of the password. | ✓ | ✓ | ✓ | 5.1.1.2 |
-| **2.4.13** | Verify that the application allows to use a passphrases as a password. |  |  | ✓ |  |
 
 ### V2.5 Credential Storage Requirements
 
