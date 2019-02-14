@@ -36,7 +36,7 @@ Ensure that a verified application satisfies the following high level requiremen
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **16.4.1** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation. | ✓ | ✓ | ✓ | 922 | tbd |
-| **16.4.2** | Verify that files obtained from untrusted sources are validated to be of expected type. | ✓ | ✓ | ✓ | 509 | tbd |
+| **16.4.2** | Verify that files obtained from untrusted sources are validated to be of the expected type. | ✓ | ✓ | ✓ | 509 | tbd |
 | **16.4.3** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content. | ✓ | ✓ | ✓ | 509 | tbd |
 
 ## V16.5 File Download Requirements
