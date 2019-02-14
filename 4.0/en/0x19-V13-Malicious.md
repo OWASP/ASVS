@@ -7,7 +7,7 @@ Ensure that code satisfies the following high level requirements:
 * Malicious activity is handled securely and properly so as to not affect the rest of the application.
 * Does not have time bombs or other time-based attacks.
 * Does not "phone home" to malicious or unauthorized destinations.
-* Does not have back doors, Easter eggs, salami attacks, root kits, or unauthorized code that can be controlled by an attacker.
+* Does not have back doors, Easter eggs, salami attacks, rootkits, or unauthorized code that can be controlled by an attacker.
 
 Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that
 
@@ -15,7 +15,7 @@ Finding malicious code is proof of the negative, which is impossible to complete
 
 The best defence against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offence in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
 
-Lead developers should regularly review code checkins, particularly those that might access time, I/O, or network functions.
+Lead developers should regularly review code check-ins, particularly those that might access time, I/O, or network functions.
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -31,7 +31,7 @@ Complying with this section is not possible without complete access to source co
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **13.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate prior to collecting any data. |  | ✓ | ✓ | 359 | tbd | 
-| **13.2.2** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, root kits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.  | | | ✓ | 507 | tbd | 
+| **13.2.2** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered.  | | | ✓ | 507 | tbd | 
 | **13.2.3** | Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.  |  |  | ✓ | 511 | tbd | 
 | **13.2.4** | Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.  |  |  | ✓ | 511 | tbd | 
 | **13.2.5** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. |  |  | ✓ | 507 | tbd | 
