@@ -21,7 +21,6 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.1.5** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ |  285 | tbd |
 | **4.1.6** | Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until access is explicitly assigned.  | ✓ | ✓ | ✓ |  276 | tbd |
 | **4.1.7** | Verify that access controls fail securely including when an exception occurs. | ✓ | ✓ | ✓ |  285 | tbd |
-| **4.1.8** | Verify that all access control decisions can be logged and all failed decisions are logged. | ✓ | ✓ | ✓ | 285 | tbd |
 
 ### 4.2 Operation Level Access Control
 

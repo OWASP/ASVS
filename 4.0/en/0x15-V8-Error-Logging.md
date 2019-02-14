@@ -30,7 +30,8 @@ It is also important to ensure that the application fails securely and that erro
 | **8.1.8** | Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation. |  |  | ✓ | tbd | tbd | 
 | **8.1.9** | Verify that time sources are synchronized to the correct time and time zone. | ✓ | ✓ | ✓ | tbd | tbd | 
 | **8.1.10** | Verify that all authentication decisions are logged, without storing sensitive session identifiers or memorized secrets. This should include requests with relevant metadata needed for security investigations.  | ✓ | ✓ | ✓ | tbd | tbd | 
-| **8.1.11** | Verify that a common logging format and approach is used across the system.  | ✓ | ✓ | ✓ | tbd | tbd | 
+| **8.1.11** | Verify that all access control decisions can be logged and all failed decisions are logged. This should include requests with relevant metadata needed for security investigations. | ✓ | ✓ | ✓ | 285 | tbd |
+| **8.1.12** | Verify that a common logging format and approach is used across the system.  | ✓ | ✓ | ✓ | tbd | tbd | 
 
 ### 8.2 Error Handling
 
