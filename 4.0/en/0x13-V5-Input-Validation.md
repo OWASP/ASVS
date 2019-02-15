@@ -14,10 +14,8 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **5.1.1** | Verify that input validation is enforced on the server-side. | ✓ | ✓ | ✓ | 602 | tbd | 
-| **5.1.2** | Verify that server-side input validation failures which result in request rejection and are logged. | ✓ | ✓ | ✓ | 778 | tbd | 
-| **5.1.3** | Verify that the application uses a centralized input validation control mechanism. | ✓ | ✓ | ✓ | 20 | tbd | 
-| **5.1.4** | Verify that server side validation faults for rules, enforced on both the client and server, are logged. | ✓ | ✓ | ✓ | 778 | tbd | 
+| **5.1.1** | Verify that input validation is enforced on the server-side. | ✓ | ✓ | ✓ | 602 | tbd |
+| **5.1.3** | Verify that the application uses a centralized input validation control mechanism. | ✓ | ✓ | ✓ | 20 | tbd |
 | **5.1.5** | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.  | ✓ | ✓ | ✓ | 116 | tbd | 
 | **5.1.6** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables). |  | ✓ | ✓ | 235 | tbd | 
 | **5.1.7** | Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (whitelisting). |  | ✓ | ✓ | 20 | tbd | 

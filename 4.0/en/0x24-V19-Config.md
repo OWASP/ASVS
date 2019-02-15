@@ -4,9 +4,11 @@
 
 Ensure that a verified application has:
 
-* Up to date libraries and platform(s).
-* A secure-by-default configuration.
-* Sufficient hardening so that user-initiated changes to the default configuration do not unnecessarily expose or create security weaknesses or flaws in underlying systems.
+* A secure, repeatable, automatable build environment.
+* Hardended third party library, dependency and configuration management such that out of date or insecure components are not included by the application.
+* A secure-by-default configuration, such that administrators and users have to weaken the default security posture.
+
+Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration. 
 
 ## 19.2 Build
 
@@ -30,9 +32,9 @@ Dependency management is critical to the safe operation of any application of an
 | **19.3.3** | Verify that if application assets, such as JavaScript libraries, CSS stylesheets or web fonts, are hosted externally on a content delivery network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 714 | tbd |
 | **19.3.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. | ✓ | ✓ | ✓ | 829 | tbd |
 | **19.3.5** | Verify that an inventory catalog is maintained of all third party libraries in use. | ✓ | ✓ | ✓ | tbd | tbd |
-| **19.3.6** | Verify that the attack surface is reduced by encapsulating third party libraries to expose only the required behaviour into the application. | | ✓ | ✓ | tbd | tbd |
+| **19.3.6** | Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application. | | ✓ | ✓ | tbd | tbd |
 
-## 19.4 HTTP Configuration
+## 19.4 Hardened Configuration
 
 The application server contains HTTP response headers that help provide a layer of security to help users mitigate certain types of attacks and vulnerabilities.
 
@@ -49,6 +51,9 @@ The application server contains HTTP response headers that help provide a layer 
 | **19.4.9** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ |  tbd | tbd |
 | **19.4.10** | Verify that the cross-domain resource sharing (CORS) Access-Control-Allow-Origin header uses a strict white-list of trusted domains to match against and does not support the "null" origin. | ✓ | ✓ | ✓ |  tbd | tbd |
 | **19.4.11** | Verify that all responses contain X-Content-Type-Options: nosniff. | ✓ | ✓ | ✓ |  tbd | tbd |
+| **19.4.12** | Verify that application components remove, disable, or sandbox inline scripts found in SVG files. | ✓ | ✓ | ✓ |  tbd | tbd |
+| **19.4.13** | Verify that application components remove, disable, or sandbox scripts by Markdown and other markup languages such as BBCode. | ✓ | ✓ | ✓ |  tbd | tbd |
+
 
 ## 19.5 Other Configuration
 
@@ -66,3 +71,4 @@ For more information, see also:
 * [Content Security Policy Cheat Sheet](https://www.owasp.org/index.php?title=Content_Security_Policy_Cheat_Sheet)
 * [Exploiting CORS misconfiguration for BitCoins and Bounties](https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)
 * [OWASP Testing Guide 4.0: Configuration and Deployment Management Testing](https://www.owasp.org/index.php/Testing_for_configuration_management)
+* [Sandboxing third party components](https://www.owasp.org/index.php/3rd_Party_Javascript_Management_Cheat_Sheet#Sandboxing_Content)
