@@ -23,7 +23,7 @@ Ensure that a verified application satisfies the following high level data prote
 | **9.6** | Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. |  | ✓ | ✓ | 524 | tbd | 
 | **9.7** | Verify that users have a method to remove or export their data on demand. | ✓ | ✓ | ✓ | 212 | tbd | 
 | **9.8** | Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values. |  | ✓ | ✓ | 233 | tbd | 
-| **9.9** | Verify the application has the ability to detect and alert on abnormal numbers of requests. |  | ✓ | ✓ | 770 | tbd | 
+| **9.9** | Verify the application has the ability to detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application.  |  | ✓ | ✓ | 770 | tbd |
 | **9.10** | Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies) does not contain sensitive data or PII. | ✓ | ✓ | ✓ | 922 | tbd |
 | **9.11** | Verify accessing sensitive data is logged, if the data is collected under relevant data protection directives or where logging of access is required. |  | ✓ | ✓ | 532 | tbd | 
 | **9.12** | Verify that sensitive information maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 401 | tbd |
@@ -32,6 +32,8 @@ Ensure that a verified application satisfies the following high level data prote
 | **9.15** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. |  | ✓ | ✓ | 922 | tbd | 
 | **9.16** | Verify that regular backups of important data are performed and that restore tests are performed. || ✓ | ✓ | 19 | tbd | 
 | **9.17** | Verify that backups are stored securely to prevent the data being stolen or corrupted. || ✓ | ✓ | 19 | tbd | 
+
+When considering data protection, a primary consideration should be around bulk extraction or modification or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euro of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. The important criteria is the ability to detect, deter, or preferably block such abnormal bulk actions.
 
 ## References
 
