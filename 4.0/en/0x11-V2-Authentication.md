@@ -80,7 +80,7 @@ Memorized secrets are not sufficient to protect against today's threats. The ASV
 
 | # | Description | L1 | L2 | L3 | NIST &sect; | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.4.1** | Verify that passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 5.1.1.2 |
+| **2.4.1** | Verify that passwords are at least 12 characters in length. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.2** | Verify that passwords 64 characters or longer are permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.3** | Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced. | ✓ | ✓ | ✓ | 5.1.1.2 |
 | **2.4.4** | Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 8 emoji or 64 kanji characters should be valid and permitted. | ✓ | ✓ | ✓ | 5.1.1.2 |
