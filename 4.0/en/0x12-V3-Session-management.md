@@ -48,9 +48,9 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: | :---: |
 | **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. | ✓ | ✓ | ✓ | 7.1.1 | 614 | tbd |
 | **3.4.2** | Verify that cookie-based session tokens have the 'HttpOnly' attribute set. | ✓ | ✓ | ✓ | 7.1.1 | 1004 | tbd |
-| **3.4.3** | Verify that cookie-based session tokens utilize the domain and path attributes to properly limit cookie scope. | ✓ | ✓ | ✓ | 7.1.1 | 16 | tbd |
-| **3.4.4** | Verify that cookie-based session tokens utilize the SameSite attribute to limit exposure to cross-site request forgery attacks. | ✓ | ✓ | ✓ | 7.1.1 | 16 | tbd |
-
+| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. | ✓ | ✓ | ✓ | 7.1.1 | 16 | tbd |
+| **3.4.4** | Verify that cookie-based session tokens limit the 'path' attribute to the most precise path possible. | ✓ | ✓ | ✓ | 7.1.1 | 16 | tbd |
+| **3.4.5** | Verify that cookie-based session tokens utilize the 'host' attribute. If the 'host' attribute is missing ensure the 'domain' attribute is set and is as precise as possible. | ✓ | ✓ | ✓ | 7.1.1 | 16 | tbd |
 
 ### V3.5 Token-based Session Management
 
