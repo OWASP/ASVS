@@ -16,7 +16,13 @@ Historically, penetration testing and secure code reviews have included issues â
 
 Keeping detailed work papers, screenshots or movies, scripts to reliably and repeatedly exploit an issue, and electronic records of testing, such as intercepting proxy logs and associated notes such as a cleanup list, is considered standard industry practice and can be really useful as proofs of the findings for the most doubtful developers. It is not sufficient to simply run a tool and report on the failures; this does not (at all) provide sufficient evidence that all issues at a certifying level have been tested and tested thoroughly. In case of dispute, there should be sufficient assurance evidence to demonstrate each and every verified requirement has indeed been tested.
 
-### The Role of Automated Security Testing Tools
+### Testing Method
+
+Certifying organizations are free to choose the appropriate testing method(s), but should indicate them in a report.
+
+Depending on the application under test and the verification requirement, different testing methods may be used to gain similar confidence in the results. For example, validating the effectiveness of an application's input verification mechanisms may either be analysed with a manual penetration test or by means of source code analyses.
+
+#### The Role of Automated Security Testing Tools
 
 The use of automated penetration testing tools is encouraged to provide as much coverage as possible.
 
@@ -24,7 +30,7 @@ It is not possible to fully complete ASVS verification using automated penetrati
 
 Please note that the lines between automated and manual testing have blurred as the application security industry matures. Automated tools are often manually tuned by experts and manual testers often leverage a wide variety of automated tools.
 
-### The Role of Penetration Testing
+#### The Role of Penetration Testing
 
 It is possible to perform a manual penetration test and verify a large number of L1 issues without requiring access to source code, however there are a handful of situations where this isn't possible. Where possible, access to developers, documentation, code, and  varying levels of user access for the target system, is required when performing a L2 Assessment. Complete penetration testing coverage at Level 3 is not possible, as most of the additional issues involve review of system configuration, malicious code review, threat modeling, and other non-penetration testing artifacts.
 
