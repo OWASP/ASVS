@@ -14,13 +14,12 @@ Authorization is the concept of allowing access to resources only to those permi
 
 | # | Description | L1 | L2 | L3 | CWE | CWSS |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **4.1.1** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | ✓ | ✓ | ✓ | 285 | tbd |
-| **4.1.2** | Verify that access control policy is enforced server-side.  | ✓ | ✓ | ✓ | 602 | tbd |
-| **4.1.3** | Verify that the same access control rules implied by the presentation layer are enforced on the server side. | ✓ | ✓ | ✓ | 602 | tbd |
-| **4.1.4** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | 639 | tbd |
-| **4.1.5** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ |  285 | tbd |
-| **4.1.6** | Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until access is explicitly assigned.  | ✓ | ✓ | ✓ |  276 | tbd |
-| **4.1.7** | Verify that access controls fail securely including when an exception occurs. | ✓ | ✓ | ✓ |  285 | tbd |
+| **4.1.1** | Verify that access control policy is enforced server-side.  | ✓ | ✓ | ✓ | 602 | tbd |
+| **4.1.2** | Verify that the same access control rules implied by the presentation layer are enforced on the server side. | ✓ | ✓ | ✓ | 602 | tbd |
+| **4.1.3** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | 639 | tbd |
+| **4.1.4** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ |  285 | tbd |
+| **4.1.5** | Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until access is explicitly assigned.  | ✓ | ✓ | ✓ |  276 | tbd |
+| **4.1.6** | Verify that access controls fail securely including when an exception occurs. | ✓ | ✓ | ✓ |  285 | tbd |
 
 ### 4.2 Operation Level Access Control
 
