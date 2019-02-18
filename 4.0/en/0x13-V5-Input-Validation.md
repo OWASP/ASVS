@@ -22,6 +22,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 | **5.1.8** | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match).  |  | ✓ | ✓ | 20 | tbd | 
 | **5.1.9** | Verify that unstructured data is sanitized to enforce safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. names with Unicode or apostrophes, such as ねこ or O'Hara). |  | ✓ | ✓ | 138 | tbd | 
 | **5.1.10** | Verify that untrusted data, particularly filenames and URL input fields, use whitelisting of protocols, domains, paths and ports to protect against Server-Side Request Forgery (SSRF) vulnerabilities. | ✓ | ✓ | ✓ | 601 | tbd | 
+| **5.3.11** | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. |  | ✓ | ✓ | 915 | tbd | 
 
 ## 5.2 Output Encoding Requirements
 
@@ -48,8 +49,7 @@ Note that escaping SQL is not always sufficient; table and column names, ORDER B
 | **5.3.6** | Verify that where potentially untrusted data is copied one DOM context to another, the transfer uses safe JavaScript methods, such as using innerText or JQuery .val to ensure the application is not susceptible to DOM Cross-Site Scripting (XSS) attacks. | ✓ | ✓ | ✓ | 79 | tbd | 
 | **5.3.7** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 147 | tbd | 
 | **5.3.8** | Verify that the application avoids the use of eval() or other dynamic code execution features. Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 94 | tbd | 
-| **5.3.9** | Verify that the application protects against template injection attacks by ensuring that any user input being included is sanitized or sandboxed. | ✓ | ✓ | ✓ | 94 | tbd | 
-| **5.3.10** | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. |  | ✓ | ✓ | 915 | tbd | 
+| **5.3.9** | Verify that the application protects against template injection attacks by ensuring that any user input being included is sanitized or sandboxed. | ✓ | ✓ | ✓ | 94 | tbd |  
 
 ## 5.4 Unmanaged Code Requirements
 
