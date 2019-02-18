@@ -25,11 +25,10 @@ Authorization is the concept of allowing access to resources only to those permi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.2.1** | Verify that there is only one vetted access control mechanism for protecting access to protected data and resources which all requests must go through. This should mean that hard coded access control checks are not required throughout the application. | ✓ | ✓ | ✓ | 264 |
-| **4.2.2** | Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles. | ✓ | ✓ | ✓ | 275 |
-| **4.2.3** | Verify that sensitive data and APIs are protected against direct object attacks targeting creation, reading, updating and deletion of records. | ✓ | ✓ | ✓ | 639 |
-| **4.2.4** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect any functionality. | ✓ | ✓ | ✓ | 352 |
-| **4.2.5** | Verify that data-level access control is implemented such that access to individual records can be managed in a centralized and standard way. | ✓ | ✓ | ✓ | 264 |
+| **4.2.1** | Verify that sensitive data and APIs are protected against direct object attacks targeting creation, reading, updating and deletion of records, such as creating or updating someone else's record, viewing everyone's records, or deleting all records. | ✓ | ✓ | ✓ | 639 |
+| **4.2.2** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect authenticated functionality, and effective anti-automation or anti-CSRF protects unauthenticated functionality. | ✓ | ✓ | ✓ | 352 |
+| **4.2.3** | Verify that there is only one vetted access control mechanism for protecting access to protected data and resources which all requests must go through. This should mean that hard coded access control checks are not required throughout the application. |  | ✓ | ✓ | 264 |
+| **4.2.4** | Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles. | | ✓ | ✓ | 275 |
 
 ### 4.3 Other Access Control Considerations
 
