@@ -47,7 +47,7 @@ The application server contains HTTP response headers that help provide a layer 
 | **19.4.5** | Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components. | ✓ | ✓ | ✓ | tbd |
 | **19.4.6** | Verify that all API responses contain Content-Disposition: attachment; filename="api.json" (or other appropriate filename for the content type). | ✓ | ✓ | ✓ | tbd |
 | **19.4.7** | Verify that a content security policy (CSPv2) is in place that helps mitigate common DOM, XSS, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | tbd |
-| **19.4.8** | Verify that the X-XSS-Protection: 1; mode=block header is in place to enable browser reflected XSS filters. | ✓ | ✓ | ✓ | tbd | tbd |
+| **19.4.8** | Verify that the X-XSS-Protection: 1; mode=block header is in place to enable browser reflected XSS filters. | ✓ | ✓ | ✓ | tbd |
 | **19.4.9** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | tbd |
 | **19.4.10** | Verify that the cross-domain resource sharing (CORS) Access-Control-Allow-Origin header uses a strict white-list of trusted domains to match against and does not support the "null" origin. | ✓ | ✓ | ✓ | tbd |
 | **19.4.11** | Verify that all responses contain X-Content-Type-Options: nosniff. | ✓ | ✓ | ✓ | tbd |
