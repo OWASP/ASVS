@@ -23,7 +23,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.2.1** | Verify the application generates a new session token upon user authentication. | ✓ | ✓ | ✓ | 384 | 7.1 |
+| **3.2.1** | Verify the application generates a new session token on user authentication. | ✓ | ✓ | ✓ | 384 | 7.1 |
 | **3.2.2** | Verify that session tokens use approved cryptographic algorithms with at least 64 bits of entropy. | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | Verify the application does not store session tokens using insecure methods such as HTML 5 local storage. | ✓ | ✓ | ✓ | 539 | 7.1 |
 
@@ -39,7 +39,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.3.1** | Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. | ✓ | ✓ | ✓ | 613 | 7.1 |
 | **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
-| **3.3.3** | Verify that the application terminates all other active sessions after a successful password change, and this is effective across the application, federated login, (if present) and any relying parties. |  | ✓ | ✓ | 613 | |
+| **3.3.3** | Verify that the application terminates all other active sessions after a successful password change, and that this is effective across the application, federated login, (if present) and any relying parties. |  | ✓ | ✓ | 613 | |
 | **3.3.4** | Verify that users are able to view and log out of any or all currently active sessions and devices. |  | ✓ | ✓ | 613 | 7.1 |
 
 ### V3.4 Cookie-based Session Management
