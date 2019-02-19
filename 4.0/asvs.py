@@ -47,7 +47,7 @@ class ASVS:
 
             if re.match("0x\d{2}-V", file):
                 for line in open(os.path.join("en", file)):
-                    regex = re.compile('\\*\\*(\d\.\d+)\\*\\*\s\|\s{0,1}(.*?)\s{0,1}\|')
+                    regex = re.compile('\\*\\*([\d\.]+)\\*\\*\s\|\s{0,1}(.*?)\s{0,1}\|')
                     m = re.search(regex, line)
                     if m:
                         req = {}
