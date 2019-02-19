@@ -60,7 +60,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.5.1** | Verify the application does not treat OAuth and refresh tokens &mdash; on their own &mdash; as the presence of the subscriber and allows users to terminate trust relationships with linked applications.  |  | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. |  | ✓ | ✓ | 798 | |
-| **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. |  | ✓ | ✓ | 345 | | 
+| **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. |  | ✓ | ✓ | 345 | |
 
 ### V3.6 Re-authentication from a Federation or Assertion
 
@@ -85,11 +85,9 @@ Attackers start a half-open attack by attempting to lock, reset, or recover a cr
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.7.1** | Verify the application ensures a valid login session or requires re-authentication or secondary verification before allowing any sensitive transactions or account modifications.   | ✓ | ✓ | ✓ | 778 | |
 
-
 ## References
 
 For more information, see also:
 
 * [OWASP Testing Guide 4.0: Session Management Testing](https://www.owasp.org/index.php/Testing_for_Session_Management)
 * [OWASP Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
-

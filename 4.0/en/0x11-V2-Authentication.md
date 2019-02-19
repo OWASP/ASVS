@@ -27,7 +27,7 @@ Applications can always exceed the current level's requirements, especially if m
 | Mark | Description |
 | :--: | :-- |
 | | Not required |
-| o | Recommended, but not required | 
+| o | Recommended, but not required |
 | ✓ | Required |
 
 ### V2.1 Password Security Requirements
@@ -70,9 +70,9 @@ NIST considers email and SMS as plain text authentication channels, and they are
 
 ### V2.3 Authenticator Lifecycle Requirements
 
-Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like REddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application. 
+Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like REddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
 
-Note: Passwords are not to have a maximum lifetime or be subject to password rotation. Passwords should be checked for being breached, not regularly replaced. 
+Note: Passwords are not to have a maximum lifetime or be subject to password rotation. Passwords should be checked for being breached, not regularly replaced.
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -120,7 +120,7 @@ Look up secrets are pre-generated lists of secret codes, similar to Transaction 
 
 ### V2.7 Out of Band Verifier Requirements
 
-In the past, a common out of band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out of band verification. 
+In the past, a common out of band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out of band verification.
 
 Secure out of band authenticators are physical devices that can communicate with the verifier over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered "something you have". When a user wishes to authenticate, the verifying application sends a message to the out of band authenticator via a connection to the authenticator directly or indirectly through a third party service. The message contains an authentication key (typically a random six digit number or a modal approval dialog). The verifying application waits to receive the authentication key through the primary channel and compares the hash of the received value to the hash of the original authentication key. If they match, the out of band verifier can assume that the user has authenticated.
 

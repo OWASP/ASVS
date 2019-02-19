@@ -1,4 +1,4 @@
-#  V9: Communications Verification Requirements
+# V9: Communications Verification Requirements
 
 ## Control Objective
 
