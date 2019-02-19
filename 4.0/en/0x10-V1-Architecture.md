@@ -13,7 +13,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 ## V1.1 Secure Software Development Lifecycle Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.1.1** | Verify the use of a secure software development lifecycle that addresses security in all stages of development. | ✓ | ✓ | ✓ | tbd |
 | **1.1.2** | Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing. | | ✓ | ✓ | tbd |
 | **1.1.4** | Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" | ✓ | ✓ | ✓ | tbd |
@@ -25,7 +25,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 ## V1.2 Authentication Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.2.1** | Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. | ✓ | ✓ | ✓ | 250 |
 | **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. | ✓ | ✓ | ✓ | 306 |
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | ✓ | ✓ | ✓ | 306 |
@@ -33,12 +33,12 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 ## V1.3 Session Management Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 
 ## V1.4 Access Control Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.4.1** | Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client. | | ✓ | ✓ | tbd |
 | **1.4.2** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | ✓ | ✓ | ✓ | tbd |
 | **1.4.3** | Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ | tbd |
@@ -47,36 +47,36 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 ## V1.5 Input and Output Pipeline Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.5.1** | Verify that input and output requirements cleary define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.  | | ✓ | ✓ | tbd |
 
 ## V1.7 Cryptographic Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.7.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | tbd |
 
 ## V1.8 Errors, Logging and Auditing Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 
 ## V1.9 Data Protection and Privacy Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 
 ## V1.10 Communications Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.10.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.|  | ✓ | ✓ | 319 |
 | **1.10.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-In-the-middle attacks. For example, application components should validate TLS certificates and chains. |  | ✓ | ✓ | tbd |
 
 ## V1.15 Business Logic Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.15.1** | Verify the definition and documentation of all application components in terms of the business or security functions they provide. | | | ✓ | tbd |
 | **1.15.2** | Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions. | | | ✓ | 367 |
 | **1.15.2** | Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state. | | ✓ | ✓ | 362 |
@@ -84,17 +84,17 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 ## V1.16 Secure Files Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 
 ## V1.17 API Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 
 ## V1.19 Configuration Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.19.1** | Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | tbd |
 | **1.19.2** | Verify that deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints. | | ✓ | ✓ | tbd |
 | **1.19.3** | Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions. | | ✓ | ✓ | tbd |
