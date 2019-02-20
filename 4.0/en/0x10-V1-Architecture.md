@@ -85,6 +85,8 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
+| **1.16.1** | Verify that user-uploaded files are stored outside of the web root. | | ✓ | ✓ | 552 |
+| **1.16.2** | Verify that user-uploaded files - if required to be displayed or downloaded by the application - are served from an unrelated domain, such as a cloud file storage bucket or similar, to reduce the risk of image or other files exploiting XSS vectors via using content security policy and same origin policy restrictions. | | ✓ | ✓ | 646 |
 
 ## V1.17 API Architectural Requirements
 
