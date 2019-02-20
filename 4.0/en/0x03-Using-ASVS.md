@@ -51,4 +51,4 @@ Below we provide industry-specific guidance regarding recommended ASVS levels. A
 
 Organizations are strongly encouraged to look more deeply at their unique risk characteristics based on the nature of their business. At the other end of the spectrum is ASVS Level 3, which is reserved for those cases that might endanger human safety or when a full application breach could severely impact the organization.
 
-TBD - Need to re-do case studies / applicability.
+

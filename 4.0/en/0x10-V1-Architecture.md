@@ -14,11 +14,11 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.1.1** | Verify the use of a secure software development lifecycle that addresses security in all stages of development. | | ✓ | ✓ | tbd |
-| **1.1.2** | Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing. | | ✓ | ✓ | tbd |
-| **1.1.4** | Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" |  | ✓ | ✓ | tbd |
-| **1.1.5** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | | ✓ | ✓ | tbd |
-| **1.1.6** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | tbd |
+| **1.1.1** | Verify the use of a secure software development lifecycle that addresses security in all stages of development. | | ✓ | ✓ | |
+| **1.1.2** | Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing. | | ✓ | ✓ | 1053 |
+| **1.1.4** | Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile" |  | ✓ | ✓ | 1110 |
+| **1.1.5** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | | ✓ | ✓ | 1059 |
+| **1.1.6** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | 1059 |
 | **1.1.7** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 |
 | **1.1.8** | Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers. | | ✓ | ✓ | 637 |
 
@@ -39,22 +39,22 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.4.1** | Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client. | | ✓ | ✓ | tbd |
-| **1.4.2** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | | ✓ | ✓ | tbd |
-| **1.4.3** | Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege. |  | ✓ | ✓ | tbd |
-| **1.4.4** | Verify the application uses a single, centralized, and well-vetted access control mechanism for accessing  protected data and resources. To avoid disperse and potentially neglected resource access, all requests must pass through this mechanism. |  | ✓ | ✓ | tbd |
+| **1.4.1** | Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client. | | ✓ | ✓ | 602 |
+| **1.4.2** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | | ✓ | ✓ | 284 |
+| **1.4.3** | Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege. |  | ✓ | ✓ | 272 |
+| **1.4.4** | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. |  | ✓ | ✓ | 284 |
 
 ## V1.5 Input and Output Pipeline Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.5.1** | Verify that input and output requirements cleary define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.  | | ✓ | ✓ | tbd |
+| **1.5.1** | Verify that input and output requirements cleary define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.  | | ✓ | ✓ | 1029 |
 
 ## V1.6 Cryptographic Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | tbd |
+| **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 320 |
 
 ## V1.7 Errors, Logging and Auditing Architectural Requirements
 
@@ -71,7 +71,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.9.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.|  | ✓ | ✓ | 319 |
-| **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-In-the-middle attacks. For example, application components should validate TLS certificates and chains. |  | ✓ | ✓ | tbd |
+| **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-In-the-middle attacks. For example, application components should validate TLS certificates and chains. |  | ✓ | ✓ | 295 |
 
 ## V1.10 Malicious Software Architectural Requirements
 
@@ -82,7 +82,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.11.1** | Verify the definition and documentation of all application components in terms of the business or security functions they provide. | | ✓ | ✓ | tbd |
+| **1.11.1** | Verify the definition and documentation of all application components in terms of the business or security functions they provide. | | ✓ | ✓ | 1059 |
 | **1.11.2** | Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state. | | ✓ | ✓ | 362 |
 | **1.11.3** | Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions. | | | ✓ | 367 |
 
@@ -102,13 +102,12 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.14.1** | Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | tbd |
-| **1.14.2** | Verify that deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints. | | ✓ | ✓ | tbd |
-| **1.14.3** | Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions. | | ✓ | ✓ | tbd |
-| **1.14.4** | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | | ✓ | ✓ | tbd |
+| **1.14.1** | Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | 923 |
+| **1.14.2** | Verify that deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints. | | ✓ | ✓ | 494 |
+| **1.14.3** | Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions. | | ✓ | ✓ | 1104 |
+| **1.14.4** | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | | ✓ | ✓ | |
 | **1.14.5** | Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | | ✓ | ✓ | 265 |
-| **1.14.6** | Verify  the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | tbd |
-| **1.14.7** | Verify that all mission critical components have at least one level of redundancy. |  |  | ✓ | tbd |
+| **1.14.6** | Verify  the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
 
 ## References
 
