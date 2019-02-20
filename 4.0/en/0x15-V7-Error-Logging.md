@@ -32,7 +32,7 @@ V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 ### V7.2 Log Processing Requirements
 
-Timely logging is critical for audit events, triage, and escalation. Ensure that the application's logs are clear and can be easily monitored and analyzed either in situ, or log shipped to a remote monitoring system.
+Timely logging is critical for audit events, triage, and escalation. Ensure that the application's logs are clear and can be easily monitored and analyzed either locally or log shipped to a remote monitoring system.
 
 V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetration testable, it's important for:
 
@@ -54,8 +54,10 @@ Logs that can be trivially modified or deleted are useless for investigations an
 | **7.3.1** | Verify that all events are protected from injection when viewed in log viewing software. | ✓ | ✓ | ✓ | tbd |
 | **7.3.2** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | tbd |
 | **7.3.3** | Verify that the application appropriately encodes user-supplied data to prevent log injection. |  | ✓ | ✓ | tbd |
-| **7.3.4** | Verify that logs are transmitted to a remote system for analysis, detection, alerting, and escalation. |  |  | ✓ | tbd |
-| **7.3.5** | Verify that time sources are synchronized to the correct time and time zone. |  | ✓ | ✓ | tbd |
+| **7.3.4** | Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. |  | ✓ | ✓ | tbd |
+| **7.3.5** | Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global in nature to assist with post-incident forensic analysis. |  | ✓ | ✓ | tbd |
+
+Note: Log encoding (7.3.3) is difficult to test and review using automated dynamic tools and penetration tests, but architects, developers, and source code reviewers should consider it a L1 requirement. 
 
 ### V7.4 Error Handling
 
@@ -64,8 +66,10 @@ The purpose of error handling is to allow the application to provide security re
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **7.4.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  | ✓ | ✓ | ✓ | tbd |
-| **7.4.2** | Verify that exception handling is used across the codebase to account for expected and unexpected error conditions. | | ✓ | ✓ | tbd |
+| **7.4.2** | Verify that exception handling (or a functional equivalent) is used across the codebase to account for expected and unexpected error conditions. | | ✓ | ✓ | tbd |
 | **7.4.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. | | ✓ | ✓ | tbd |
+
+Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last resort event handlers. In this case, architects and developers should use a pattern, language, or framework friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
 
 ## References
 
