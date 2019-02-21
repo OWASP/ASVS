@@ -15,7 +15,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **12.1.1** | Verify that the application will not accept files which are too big and could fill up the server or incur excessive storage costs. | ✓ | ✓ | ✓ | 400 |
 | **12.1.2** | Verify that compressed files are checked for "zip bombs" - small input files that will decompress into huge files thus exhausting file storage limits. | | ✓ | ✓ | 409 |
-| **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the server with large or too many files. | | ✓ | ✓ | 770 |
+| **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
 
 ## V12.2 File Integrity Requirements
 
