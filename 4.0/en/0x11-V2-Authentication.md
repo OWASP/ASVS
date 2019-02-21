@@ -101,7 +101,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.5.1** | Verify that a system generated initial activation or recovery secret is not sent in clear text to the user. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.2** | Verify password hints or knowledge-based answers (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.2** | Verify password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.3** | Verify password credential recovery does not reveal the current password in any way. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.4** | Verify shared or default accounts are not present (e.g. "root", "admin", or "sa"). | ✓ | ✓ | ✓ | 16 | 5.1.1.2 / A.3 |
 | **2.5.5** | Verify that if an authentication factor is changed or replaced, that the user is notified of this event. | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
