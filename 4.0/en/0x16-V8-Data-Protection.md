@@ -20,8 +20,8 @@ Ensure that a verified application satisfies the following high level data prote
 | **8.1.2** | Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. | | ✓ | ✓ | 524 |
 | **8.1.3** | Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values. | | ✓ | ✓ | 233 |
 | **8.1.4** | Verify the application has the ability to detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
-| **8.1.5** | Verify that regular backups of important data are performed and that test restoration of data is performed. | | ✓ | ✓ | 19 |
-| **8.1.6** | Verify that backups are stored securely to prevent the data being stolen or corrupted. | | ✓ | ✓ | 19 |
+| **8.1.5** | Verify that regular backups of important data are performed and that test restoration of data is performed. | | | ✓ | 19 |
+| **8.1.6** | Verify that backups are stored securely to prevent the data being stolen or corrupted. | | | ✓ | 19 |
 
 ## V8.2 Client-side Data Protection
 
