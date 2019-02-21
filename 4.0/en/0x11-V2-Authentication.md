@@ -41,7 +41,7 @@ Applications should strongly encourage users to enrol in multi-factor authentica
 | **2.1.1** | Verify that user set passwords are at least 12 characters in length. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | Verify that passwords 64 characters or longer are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.3** | Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.4** | Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 8 emoji or 64 kanji characters should be valid and permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.4** | Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 12 emoji or 64 kanji characters should be valid and permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
 | **2.1.7** | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally or via API, either using a zero knowledge proof or otherwise ensuring that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to re-choose a non-breached password. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
