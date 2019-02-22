@@ -58,7 +58,7 @@ Although this section is not easily penetration tested, developers should consid
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **6.5.1** | Verify that a secrets management solution such as a key vault is used to main secrets rather than code, config files or environment variables. |  | ✓ | ✓ | 798 |
+| **6.5.1** | Verify that a secrets management solution such as a key vault is used to securely create, store, control access to and destroy secrets. |  | ✓ | ✓ | 798 |
 | **6.5.2** | Verify that sensitive passwords or key material maintained in memory is overwritten with zeros as soon as it is no longer required, to mitigate memory dumping attacks. |  | ✓ | ✓ | 212 |
 
 ## References
