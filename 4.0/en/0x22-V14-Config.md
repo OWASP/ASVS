@@ -61,7 +61,7 @@ If traditional models are still in place, then manual steps must be taken to har
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
-| **14.5.1** | Verify that server side configuration is hardened as per the recommendations of the application server and frameworks in use. | | ✓ | ✓ | |
+| **14.5.1** | Verify that server side configuration is hardened as per the recommendations of the application server and frameworks in use. | | ✓ | ✓ | 16 |
 | **14.5.2** | Verify that either the system can be automatically re-deployed using software-defined deployment scripts or that regular backups of all configuration files and other custom components are performed and that the application can be restored to a functional state. | | ✓ | ✓ | |
 | **14.5.3** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
 
