@@ -5,7 +5,7 @@
 Ensure that a verified application has:
 
 * A secure, repeatable, automatable build environment.
-* Hardended third party library, dependency and configuration management such that out of date or insecure components are not included by the application.
+* Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application.
 * A secure-by-default configuration, such that administrators and users have to weaken the default security posture.
 
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.
@@ -36,7 +36,7 @@ Dependency management is critical to the safe operation of any application of an
 
 ## 14.4 Hardened Configuration
 
-Configurations for production should be hardened to protect against common attacks, such as debug consoles, raise the bar for cross-site XSS and RFI attacks, and to eliminate trivial information discovery "vulnerabilities" that are the unwelcome hallmark of many penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed. 
+Configurations for production should be hardened to protect against common attacks, such as debug consoles, raise the bar for cross-site XSS and RFI attacks, and to eliminate trivial information discovery "vulnerabilities" that are the unwelcome hallmark of many penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
@@ -55,9 +55,9 @@ Configurations for production should be hardened to protect against common attac
 
 ## 14.5 Other Configuration
 
-As the industry moves to a DevSecOps model, it is important to ensure the continued availability and integrity of deployment and configuration to achieve a "known good" state. In the past, if a system was hacked, it would take days to months to prove that no further intrusions had taken place. Today, with the advent of software defined infrastructure, rapid A/B deployments with zero downtime, and automated containerized builds, it is possible to automatically and continuously build, harden, and deploy a "known good" replacement for any compromised system. 
+As the industry moves to a DevSecOps model, it is important to ensure the continued availability and integrity of deployment and configuration to achieve a "known good" state. In the past, if a system was hacked, it would take days to months to prove that no further intrusions had taken place. Today, with the advent of software defined infrastructure, rapid A/B deployments with zero downtime, and automated containerized builds, it is possible to automatically and continuously build, harden, and deploy a "known good" replacement for any compromised system.
 
-If traditional models are still in place, then manual steps must be taken to harden and back up that configuration to allow the compromised systems to be quickly replaced with high integrity, uncompromised systems in a timely fashion. 
+If traditional models are still in place, then manual steps must be taken to harden and back up that configuration to allow the compromised systems to be quickly replaced with high integrity, uncompromised systems in a timely fashion.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |

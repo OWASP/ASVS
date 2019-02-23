@@ -47,17 +47,17 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 ### V7.3 Log Protection Requirements
 
-Logs that can be trivially modified or deleted are useless for investigations and prosecutions. Disclosure of logs can expose inner details about the application or the data it containts. Care must be taken when protecting logs from unauthorized disclosure, modification or deletion.
+Logs that can be trivially modified or deleted are useless for investigations and prosecutions. Disclosure of logs can expose inner details about the application or the data it contains. Care must be taken when protecting logs from unauthorized disclosure, modification or deletion.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **7.3.1** | Verify that all events are protected from injection when viewed in log viewing software. | ✓ | ✓ | ✓ | 117 |
-| **7.3.2** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | 200 |
-| **7.3.3** | Verify that the application appropriately encodes user-supplied data to prevent log injection. |  | ✓ | ✓ | 117 |
+| **7.3.1** | Verify that the application appropriately encodes user-supplied data to prevent log injection. |  | ✓ | ✓ | 117 |
+| **7.3.2** | Verify that all events are protected from injection when viewed in log viewing software. |  | ✓ | ✓ | 117 |
+| **7.3.3** | Verify that security logs are protected from unauthorized access and modification. |  | ✓ | ✓ | 200 |
 | **7.3.4** | Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. |  | ✓ | ✓ | |
 | **7.3.5** | Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global in nature to assist with post-incident forensic analysis. |  | ✓ | ✓ | |
 
-Note: Log encoding (7.3.3) is difficult to test and review using automated dynamic tools and penetration tests, but architects, developers, and source code reviewers should consider it a L1 requirement. 
+Note: Log encoding (7.3.1) is difficult to test and review using automated dynamic tools and penetration tests, but architects, developers, and source code reviewers should consider it a L1 requirement.
 
 ### V7.4 Error Handling
 

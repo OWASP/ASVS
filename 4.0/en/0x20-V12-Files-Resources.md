@@ -9,13 +9,13 @@ Ensure that a verified application satisfies the following high level requiremen
 
 ## V12.1 File Upload Requirements
 
-Although zip bombs are eminently testable using penetration testing techniques, they are considered L2 and above to encourage design and development consideration with careful manual testing, and to avoid automated or unskilled manual penetration testing of a denial of service condition. 
+Although zip bombs are eminently testable using penetration testing techniques, they are considered L2 and above to encourage design and development consideration with careful manual testing, and to avoid automated or unskilled manual penetration testing of a denial of service condition.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.1.1** | Verify that the application will not accept files which are too big and could fill up the server or incur excessive storage costs. | ✓ | ✓ | ✓ | 400 |
+| **12.1.1** | Verify that the application will not accept large files that could fill up storage or cause a denial of service attack. | ✓ | ✓ | ✓ | 400 |
 | **12.1.2** | Verify that compressed files are checked for "zip bombs" - small input files that will decompress into huge files thus exhausting file storage limits. | | ✓ | ✓ | 409 |
-| **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the server with large or too many files. | | ✓ | ✓ | 770 |
+| **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
 
 ## V12.2 File Integrity Requirements
 
@@ -32,7 +32,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | **12.3.3** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files (RFI), which may also lead to SSRF.  | ✓ | ✓ | ✓ | 98 |
 | **12.3.4** | Verify that the application protects against reflective file download (RFD) by validating or ignoring user-submitted filenames in a JSON, JSONP, or URL parameter, the response Content-Type header should be set to text/plain, and the Content-Disposition header should have a fixed filename. | ✓ | ✓ | ✓ | 641 |
 | **12.3.5** | Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection. | ✓ | ✓ | ✓ | 78 |
-| **12.3.6** | Verify that application does not include and execute functionality, such as external JavaScript libraries or server-side DLLs, from untrusted sources. |  | ✓ | ✓ | 829 |
+| **12.3.6** | Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs. |  | ✓ | ✓ | 829 |
 
 ## V12.4 File Storage Requirements
 
