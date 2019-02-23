@@ -6,7 +6,7 @@ Security architecture has almost become a lost art in many organizations. The da
 
 A specific implementation of a web application is likely to be revised continuously throughout its lifetime, but the overall architecture will likely rarely change but evolve slowly. Security architecture is identical - we need authentication today, we will require authentication tomorrow, and we will need it five years from now. If we make sound decisions today, we can save a lot of effort, time, and money if we select and re-use architecturally compliant solutions. For example, a decade ago, multifactor authentication was rarely implemented.
 
-If developers had invested in a single, secure identity provider model, such as SAML federated identity, the identity provider could be updated to incorporate new requirements such as NIST 800-63 compliance, while not changing the interfaces of the original application. If many applications shared the same security architecture and thus that same component, they all benefit from this upgrade at once. SAML is neither the best or remain the authentication solution - it might be swapped out with JWT or similar as needs arise. Changes like this are either complicated, so costly as to necessitate a complete re-write, or outright impossible without security architecture.  
+If developers had invested in a single, secure identity provider model, such as SAML federated identity, the identity provider could be updated to incorporate new requirements such as NIST 800-63 compliance, while not changing the interfaces of the original application. If many applications shared the same security architecture and thus that same component, they all benefit from this upgrade at once. SAML is neither the best or remain the authentication solution - it might be swapped out with JWT or similar as needs arise. Changes like this are either complicated, so costly as to necessitate a complete re-write, or outright impossible without security architecture.
 
 In this chapter, the ASVS covers off the primary aspects of any sound security architecture: security, availability, confidentiality, processing integrity, and privacy. Each of these security principles must be built in and be innate to all applications. It is critical to "shift left", starting with developer enablement with secure coding checklists, mentoring and training, coding and testing, building, deployment, configuration, and operations, and finishing with follow up independent testing to assure that all of the security controls are present and functional. The last step used to be everything we did as an industry, but that is no longer sufficient when developers push code into production tens or hundreds of times a day. Application security professionals must keep up with agile techniques, which means adopting developer tools, learning to code, and working with developers rather than criticizing the project months after everyone else has moved on.
 
@@ -48,7 +48,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.5.1** | Verify that input and output requirements cleary define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.  | | ✓ | ✓ | 1029 |
+| **1.5.1** | Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.  | | ✓ | ✓ | 1029 |
 
 ## V1.6 Cryptographic Architectural Requirements
 
@@ -91,7 +91,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.12.1** | Verify that user-uploaded files are stored outside of the web root. | | ✓ | ✓ | 552 |
-| **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded by the application - are served from an unrelated domain, such as a cloud file storage bucket or similar, to reduce the risk of image or other files exploiting XSS vectors via using content security policy and same origin policy restrictions. | | ✓ | ✓ | 646 |
+| **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded by the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy to to reduce the risk from XSS vectors or other attacks from the uploaded file. | | ✓ | ✓ | 646 |
 
 ## V1.13 API Architectural Requirements
 

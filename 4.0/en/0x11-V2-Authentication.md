@@ -41,11 +41,11 @@ Applications should strongly encourage users to enrol in multi-factor authentica
 | **2.1.1** | Verify that user set passwords are at least 12 characters in length. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | Verify that passwords 64 characters or longer are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.3** | Verify that passwords can contain spaces and truncation is not performed. Consecutive multiple spaces MAY optionally be coalesced. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.4** | Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 8 emoji or 64 kanji characters should be valid and permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.4** | Verify that Unicode characters are permitted in passwords. A single Unicode code point is considered a character, so 12 emoji or 64 kanji characters should be valid and permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
-| **2.1.7** | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally or via API, either using a zero knowledge proof or otherwise ensuring that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to re-choose a non-breached password. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.8** | Verify that a password strength meter is provided to help users set a stronger secret. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.7** | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally or via API, either using a zero knowledge proof or otherwise ensuring that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.8** | Verify that a password strength meter is provided to help users set a stronger password. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.10** | Verify that there are no periodic credential rotation or password history requirements. | ✓ | ✓ | ✓ | 263 | 5.1.1.2 |
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
@@ -53,7 +53,7 @@ Applications should strongly encourage users to enrol in multi-factor authentica
 
 ### V2.2 General Authenticator Requirements
 
-Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.  
+Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.
 
 NIST considers email and SMS as plain text authentication channels, and they are likely to be removed from NIST 800-63 and thus the ASVS at some point the future. Applications should plan a roadmap that does not require the use of email or SMS.
 
@@ -61,16 +61,16 @@ NIST considers email and SMS as plain text authentication channels, and they are
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.2.1** | Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 |
 | **2.2.2** | Verify that the use of weak authenticators (such as SMS and email) is limited to secondary verification and transaction approval and not as a replacement for more secure authentication methods. Verify that stronger methods are offered before weak methods, users are aware of the risks, or that proper measures are in place to limit the risks of account compromise. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
-| **2.2.3** | Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the abscence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification. | | ✓ | ✓ | 620 | |
+| **2.2.3** | Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification. | ✓ | ✓ | ✓ | 620 | |
 | **2.2.4** | Verify that all authentication data provided by the user is checked for validity, even if it is unexpected. For example, if an authentication form offers a username and password and an optional token, the server should always check a token value provided, even if the user was not expected to have a token value to provide. | | ✓ | ✓ | 287 | |
 | **2.2.5** | Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or at higher AAL levels, client-side certificates. |  |  | ✓ | 308 | 5.2.5 |
-| **2.2.6** | Verify that where a credential service provider (CSP, such as Azure AD, Facebook, Google, etc) and the application verifying authentication are seperated, mutually authenticated TLS is in place between the two endpoints. |  |  | ✓ | 319 | 5.2.6 |
+| **2.2.6** | Verify that where a credential service provider (CSP, such as Azure AD, Facebook, Google, etc) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. |  |  | ✓ | 319 | 5.2.6 |
 | **2.2.7** | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  |  | ✓ | 308 | 5.2.8 |
 | **2.2.8** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  |  | ✓ | 308 | 5.2.9 |
 
 ### V2.3 Authenticator Lifecycle Requirements
 
-Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like REddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
+Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
 
 Note: Passwords are not to have a maximum lifetime or be subject to password rotation. Passwords should be checked for being breached, not regularly replaced.
 
@@ -101,7 +101,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.5.1** | Verify that a system generated initial activation or recovery secret is not sent in clear text to the user. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.2** | Verify password hints or knowledge-based answers (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.2** | Verify password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.3** | Verify password credential recovery does not reveal the current password in any way. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.4** | Verify shared or default accounts are not present (e.g. "root", "admin", or "sa"). | ✓ | ✓ | ✓ | 16 | 5.1.1.2 / A.3 |
 | **2.5.5** | Verify that if an authentication factor is changed or replaced, that the user is notified of this event. | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
@@ -122,7 +122,7 @@ Look up secrets are pre-generated lists of secret codes, similar to Transaction 
 
 In the past, a common out of band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out of band verification.
 
-Secure out of band authenticators are physical devices that can communicate with the verifier over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered "something you have". When a user wishes to authenticate, the verifying application sends a message to the out of band authenticator via a connection to the authenticator directly or indirectly through a third party service. The message contains an authentication key (typically a random six digit number or a modal approval dialog). The verifying application waits to receive the authentication key through the primary channel and compares the hash of the received value to the hash of the original authentication key. If they match, the out of band verifier can assume that the user has authenticated.
+Secure out of band authenticators are physical devices that can communicate with the verifier over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered "something you have". When a user wishes to authenticate, the verifying application sends a message to the out of band authenticator via a connection to the authenticator directly or indirectly through a third party service. The message contains an authentication code (typically a random six digit number or a modal approval dialog). The verifying application waits to receive the authentication code through the primary channel and compares the hash of the received value to the hash of the original authentication code. If they match, the out of band verifier can assume that the user has authenticated.
 
 The ASVS assumes that only a few developers will be developing new out of band authenticators, such as push notifications, and thus the following ASVS controls apply to verifiers, such as authentication API, applications, and single sign-on implementations. If developing a new out of band authenticator, please refer to NIST 800-63B &sect; 5.1.3.1.
 
@@ -134,8 +134,8 @@ Unsafe out of band authenticators such as e-mail and VOIP are not permitted. PST
 | **2.7.2** | Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.3** | Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.4** | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
-| **2.7.5** | Verify that the out of band verifier retains only a hashed version of the authentication key. |  | ✓ | ✓ | 256 | 5.1.3.2 |
-| **2.7.6** | Verify that the initial authentication key is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). |  | ✓ | ✓ | 310 | 5.1.3.2 |
+| **2.7.5** | Verify that the out of band verifier retains only a hashed version of the authentication code. |  | ✓ | ✓ | 256 | 5.1.3.2 |
+| **2.7.6** | Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). |  | ✓ | ✓ | 310 | 5.1.3.2 |
 
 ### V2.8 Single Factor One Time Verifier Requirements
 
