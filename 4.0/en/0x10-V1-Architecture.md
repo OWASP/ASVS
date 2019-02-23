@@ -49,6 +49,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.5.1** | Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.  | | ✓ | ✓ | 1029 |
+| **1.5.2** | Verify that architecturally, serialized objects are not sent to untrusted clients, either entirely, or with adequate blob encryption or integrity controls to prevent deserialization attacks, replay, and object injection. | | ✓ | ✓ | 502 |
 
 ## V1.6 Cryptographic Architectural Requirements
 
