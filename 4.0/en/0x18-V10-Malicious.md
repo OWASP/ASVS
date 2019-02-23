@@ -9,7 +9,7 @@ Ensure that code satisfies the following high level requirements:
 * Does not "phone home" to malicious or unauthorized destinations.
 * Does not have back doors, Easter eggs, salami attacks, rootkits, or unauthorized code that can be controlled by an attacker.
 
-Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that
+Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality. 
 
 ## V10.1 Code Integrity Controls
 
