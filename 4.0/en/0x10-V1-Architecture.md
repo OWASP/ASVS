@@ -26,8 +26,8 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.2.1** | Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. | | ✓ | ✓ | 250 |
-| **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. | | ✓ | ✓ | 306 |
+| **1.2.1** | Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 250 |
+| **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 306 |
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
 
 ## V1.3 Session Management Architectural Requirements
@@ -78,7 +78,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.9.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers.|  | ✓ | ✓ | 319 |
+| **1.9.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) |  ✓ | ✓ | ✓ | 319 |
 | **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-In-the-middle attacks. For example, application components should validate TLS certificates and chains. |  | ✓ | ✓ | 295 |
 
 ## V1.10 Malicious Software Architectural Requirements
