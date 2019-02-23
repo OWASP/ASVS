@@ -18,7 +18,7 @@ Properly implemented input validation controls, using positive whitelisting and 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.1.1** | Verify that input validation is enforced on the server-side. | ✓ | ✓ | ✓ | 602 |
+| **5.1.1** | Verify that input validation is enforced on a trusted service layer. | ✓ | ✓ | ✓ | 602 |
 | **5.1.2** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables). | ✓ | ✓ | ✓ | 235 |
 | **5.1.3** | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. | ✓  | ✓ | ✓ | 915 |
 | **5.1.4** | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature.  | | ✓ | ✓ | 116 |
