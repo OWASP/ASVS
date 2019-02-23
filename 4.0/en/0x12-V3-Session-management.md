@@ -23,8 +23,8 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.2.1** | Verify the application generates a new session token on user authentication. | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | Verify that session tokens use approved cryptographic algorithms with at least 64 bits of entropy. | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.1** | Verify the application generates a new session token on user authentication. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
+| **3.2.2** | Verify that session tokens use approved cryptographic algorithms with at least 64 bits of entropy. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | Verify the application does not store session tokens using insecure methods such as HTML 5 local storage. | ✓ | ✓ | ✓ | 539 | 7.1 |
 
 TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
@@ -37,8 +37,8 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.3.1** | Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. | ✓ | ✓ | ✓ | 613 | 7.1 |
-| **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
+| **3.3.1** | Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
 | **3.3.3** | Verify that the application terminates all other active sessions after a successful password change, and that this is effective across the application, federated login (if present), and any relying parties. |  | ✓ | ✓ | 613 | |
 | **3.3.4** | Verify that users are able to view and log out of any or all currently active sessions and devices. |  | ✓ | ✓ | 613 | 7.1 |
 
@@ -46,11 +46,11 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. | ✓ | ✓ | ✓ | 614 | 7.1.1 |
-| **3.4.2** | Verify that cookie-based session tokens have the 'HttpOnly' attribute set. | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
-| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. | ✓ | ✓ | ✓ | 16 |7.1.1 |
-| **3.4.4** | Verify that cookie-based session tokens limit the 'path' attribute to the most precise path possible. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.5** | Verify that cookie-based session tokens utilize the 'host' attribute. If the 'host' attribute is missing ensure the 'domain' attribute is set and is as precise as possible. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.2** | Verify that cookie-based session tokens have the 'HttpOnly' attribute set. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
+| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 16 |7.1.1 |
+| **3.4.4** | Verify that cookie-based session tokens limit the 'path' attribute to the most precise path possible. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.5** | Verify that cookie-based session tokens utilize the 'host' attribute. If the 'host' attribute is missing ensure the 'domain' attribute is set and is as precise as possible. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 
 ### V3.5 Token-based Session Management
 
