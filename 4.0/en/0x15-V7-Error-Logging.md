@@ -27,7 +27,7 @@ V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **7.1.1** | Verify that the application does not log credentials, session tokens or payment details. |  | ✓ | ✓ | 532 |
 | **7.1.2** | Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. |  | ✓ | ✓ | 532 |
-| **7.1.3** | Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures. | | ✓ | ✓ | 778 |
+| **7.1.3** | Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures. ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 778 |
 | **7.1.4** | Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. |  | ✓ | ✓ | 778 |
 
 ### V7.2 Log Processing Requirements
