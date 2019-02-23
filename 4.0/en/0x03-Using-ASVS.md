@@ -7,8 +7,8 @@ ASVS has two main goals:
 ### Application Security Verification Levels
 The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
 
-* ASVS Level 1 is meant for all software.
-* ASVS Level 2 is for applications that contain sensitive data, which requires protection.
+* ASVS Level 1 is for low assurance levels, and is completely penetration testable
+* ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps
 * ASVS Level 3 is for the most critical applications - applications that perform high value transactions, contain sensitive medical data, or any application that requires the highest level of trust.
 
 Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
@@ -16,6 +16,14 @@ Each ASVS level contains a list of security requirements. Each of these requirem
 ![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "ASVS Levels")
 
 Figure 1 - OWASP Application Security Verification Standard 4.0 Levels
+
+Level 1 is the only level that is completely penetration testable using humans. All others require access to documentation, source code, configuration, and the people involved in the development process. However, even if L1 allows "black box" (no documentation and no source) testing to occur, it is not effective assurance and must stop. Malicious attackers have a great deal of time, most penetration tests are over within a couple of weeks. Defenders need to build in security controls, protect, find and resolve all weaknesses, and detect and respond to malicious actors in a reasonable time. Malicious actors have essentially infinite time and only require a single porous defence, a single weakness, or missing detection to succeed. Black box testing, often performed at the end of development, quickly, or not at all, is completely unable to cope with that asymmetry. 
+
+Over the last 30+ years, black box testing has proven over and over again to miss critical security issues that led directly to ever more massive breaches. We strongly encourage the use of a wide range of security assurance and verification, including replacing penetration tests with source code led (hybrid) penetration tests at Level 1, with full access to developers and documentation throughout the development process. Financial regulators do not tolerate external financial audits with no access to the books, sample transactions, or the people performing the controls. Industry and governments must demand the same standard of transparency in the software engineering field. 
+
+We strongly encourage the use of security tools, but within the development process itself, such as DAST and SAST tools being used continuously by the build pipeline to find easy to find security issues that should never be present. 
+
+Automated tools and online scans are unable to complete more than half of the ASVS without human assistance. If comprehensive test automation for each build is required, then a combination of custom unit and integration tests, along with build initiated online scans are used. Business logic flaws and access control testing is only possible using human assistance. These should be turned into unit and integration tests. 
 
 ## How to use this standard
 
