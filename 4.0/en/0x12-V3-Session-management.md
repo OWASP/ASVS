@@ -17,15 +17,17 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.1.1** | Verify the application never reveals session tokens as GET parameters in URLs, in error messages, or in log files.  | ✓ | ✓ | ✓ | 598 |  |
+| **3.1.1** | Verify the application never reveals session tokens as GET parameters in URLs or error messages.  | ✓ | ✓ | ✓ | 598 |  |
+| **3.1.2** | Verify the application never reveals session tokens as GET parameters in log files.  | | ✓ | ✓ | 598 |  |
 
 ### V3.2 Session Binding Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.2.1** | Verify the application generates a new session token on user authentication. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | Verify that session tokens use approved cryptographic algorithms with at least 64 bits of entropy. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.2** | Verify that session tokens possess at least 64 bits of entropy. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | Verify the application does not store session tokens using insecure methods such as HTML 5 local storage. | ✓ | ✓ | ✓ | 539 | 7.1 |
+| **3.2.4** | Verify that session token are generated using approved cryptographic algorithms. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 331 | 7.1 |
 
 TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
 
