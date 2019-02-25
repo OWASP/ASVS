@@ -32,8 +32,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 ## V1.3 Session Management Architectural Requirements
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+This is a placeholder for future architectural requirements.
 
 ## V1.4 Access Control Architectural Requirements
 
@@ -54,7 +53,6 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | **1.5.3** | Verify that input validation is enforced on a trusted service layer. ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 602 |
 | **1.5.4** | Verify that output encoding occurs close to or by the interpreter for which it is intended. ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 116 |
 
-
 ## V1.6 Cryptographic Architectural Requirements
 
 Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost a great deal more to implement securely than simply building it in from the start.
@@ -72,11 +70,15 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
+| **1.7.1** | Verify that a common logging format and approach is used across the system.  ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 1009 |
+| **1.7.2** | Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | |
 
 ## V1.8 Data Protection and Privacy Architectural Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
+| **1.8.1** | Verify that all sensitive data is identified and classified into protection levels. | | ✓ | ✓ | |
+| **1.8.2** | Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture. | | ✓ | ✓ | |
 
 ## V1.9 Communications Architectural Requirements
 
@@ -89,6 +91,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
+| **1.10.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | | ✓ | ✓ | 284 |
 
 ## V1.11 Business Logic Architectural Requirements
 
@@ -107,8 +110,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 ## V1.13 API Architectural Requirements
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+This is a placeholder for future API Architectural Requirements.
 
 ## V1.14 Configuration Architectural Requirements
 

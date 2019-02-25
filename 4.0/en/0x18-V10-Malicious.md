@@ -9,7 +9,7 @@ Ensure that code satisfies the following high level requirements:
 * Does not "phone home" to malicious or unauthorized destinations.
 * Does not have back doors, Easter eggs, salami attacks, rootkits, or unauthorized code that can be controlled by an attacker.
 
-Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality. 
+Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.
 
 ## V10.1 Code Integrity Controls
 
@@ -19,8 +19,7 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.1.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | | ✓ | ✓ | 284 |
-| **10.1.2** | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections. | | | ✓ | 749 |
+| **10.1.1** | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections. | | | ✓ | 749 |
 
 ## V10.2 Malicious Code Search
 
