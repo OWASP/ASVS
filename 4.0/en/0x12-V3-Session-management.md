@@ -25,7 +25,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.2.1** | Verify the application generates a new session token on user authentication. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
 | **3.2.2** | Verify that session tokens possess at least 64 bits of entropy. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
-| **3.2.3** | Verify the application does not store session tokens using insecure methods such as HTML 5 local storage. | ✓ | ✓ | ✓ | 539 | 7.1 |
+| **3.2.3** | Verify the application only stores session tokens in the browser using secure methods such as appropriately secured cookies (see section 3.4) or HTML 5 session storage. | ✓ | ✓ | ✓ | 539 | 7.1 |
 | **3.2.4** | Verify that session token are generated using approved cryptographic algorithms. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 331 | 7.1 |
 
 TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
