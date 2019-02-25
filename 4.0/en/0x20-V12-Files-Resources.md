@@ -52,8 +52,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.6.1** | Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content. | ✓ | ✓ | ✓ | 601 |
-| **12.6.2** | Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server. | ✓ | ✓ | ✓ | 15 |
+| **12.6.1** | Verify that the web or application server is configured with a whitelist of resources or systems to which the server can send requests or load data/files from. | ✓ | ✓ | ✓ | 918 |
 
 ## References
 
