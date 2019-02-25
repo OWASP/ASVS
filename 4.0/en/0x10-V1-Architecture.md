@@ -85,7 +85,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.9.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 319 |
-| **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-In-the-middle attacks. For example, application components should validate TLS certificates and chains. |  | ✓ | ✓ | 295 |
+| **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains. |  | ✓ | ✓ | 295 |
 
 ## V1.10 Malicious Software Architectural Requirements
 
