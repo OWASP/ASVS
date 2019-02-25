@@ -17,8 +17,8 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.1.1** | Verify the application never reveals session tokens as GET parameters in URLs or error messages.  | ✓ | ✓ | ✓ | 598 |  |
-| **3.1.2** | Verify the application never reveals session tokens as GET parameters in log files.  | | ✓ | ✓ | 598 |  |
+| **3.1.1** | Verify the application never reveals session tokens in URL parameters or error messages.  | ✓ | ✓ | ✓ | 598 |  |
+| **3.1.2** | Verify the application never stores session tokens in log files.  | | ✓ | ✓ | 598 |  |
 
 ### V3.2 Session Binding Requirements
 
