@@ -28,7 +28,7 @@ Version 4.0, 2019
 - Osama Elnaggar
 - Erland Oftedal
 - Serg Belkommen
-- David Johannsen
+- David Johansson
 - Tonimir Kisasondi 
 - Ron Perris
 - Abhay Bhargav
