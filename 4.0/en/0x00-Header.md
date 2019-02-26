@@ -4,6 +4,6 @@
 
 # Application Security Verification Standard 4.0
 
-## DRAFT
+## Release Candidate
 
 February 2019
