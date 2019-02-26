@@ -13,13 +13,13 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 ## Security Verification Requirements
 
-### V3.1 Fundamental Session Management Requirements
+## V3.1 Fundamental Session Management Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.1.1** | Verify the application never reveals session tokens in URL parameters or error messages.  | ✓ | ✓ | ✓ | 598 |  |
 
-### V3.2 Session Binding Requirements
+## V3.2 Session Binding Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -30,7 +30,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
 
-### V3.3 Session Logout and Timeout Requirements
+## V3.3 Session Logout and Timeout Requirements
 
 Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations should review the table below, and if a longer time out is desirable based around the application's risk, the NIST value should be the upper bounds of session idle timeouts. 
 
@@ -43,7 +43,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | **3.3.3** | Verify that the application terminates all other active sessions after a successful password change, and that this is effective across the application, federated login (if present), and any relying parties. |  | ✓ | ✓ | 613 | |
 | **3.3.4** | Verify that users are able to view and log out of any or all currently active sessions and devices. |  | ✓ | ✓ | 613 | 7.1 |
 
-### V3.4 Cookie-based Session Management
+## V3.4 Cookie-based Session Management
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -53,7 +53,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | **3.4.4** | Verify that cookie-based session tokens use "__Host-" prefix (see references) to provide session cookie confidentiality. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.5** | Verify that if the application is published under a domain name with other applications that set or use session cookies that might override or disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 
-### V3.5 Token-based Session Management
+## V3.5 Token-based Session Management
 
 Token-based session management includes JWT, OAuth, SAML, and API keys. Of these, API keys are known to be weak and should not be used in new code.
 
@@ -63,7 +63,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. |  | ✓ | ✓ | 798 | |
 | **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. |  | ✓ | ✓ | 345 | |
 
-### V3.6 Re-authentication from a Federation or Assertion
+## V3.6 Re-authentication from a Federation or Assertion
 
 This section relates to those writing relying party (RP) or credential service provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
 
@@ -72,11 +72,11 @@ This section relates to those writing relying party (RP) or credential service p
 | **3.6.1** | Verify that relying parties specify the maximum authentication time to CSPs and that CSPs re-authenticate the subscriber if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
 | **3.6.2** | Verify that CSPs inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613| 7.2.1 |
 
-### V3.7 Defenses Against Session Management Exploits
+## V3.7 Defenses Against Session Management Exploits
 
 There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
 
-#### Description of the half-open Attack
+### Description of the half-open Attack
 
 In early 2018, several financial institutions were compromised using what the attackers called "half-open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.
 

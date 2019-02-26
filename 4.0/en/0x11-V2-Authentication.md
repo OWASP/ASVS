@@ -30,7 +30,7 @@ Applications can always exceed the current level's requirements, especially if m
 | o | Recommended, but not required |
 | ✓ | Required |
 
-### V2.1 Password Security Requirements
+## V2.1 Password Security Requirements
 
 Passwords, called "Memorized Secrets" by NIST 800-63, includes passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
 
@@ -55,7 +55,7 @@ Credential service providers (CSPs) provide federated identity for users. Users 
 
 Note: The goal of allowing the user to view their password or see the last character temporarily is to improve the usability of credential entry, particularly around the use of longer passwords, passphrases, and password managers. Another reason for including the requirement is to deter or prevent test reports unnecessarily requiring organizations to override native platform password field behavior to remove this modern user-friendly security experience.
 
-### V2.2 General Authenticator Requirements
+## V2.2 General Authenticator Requirements
 
 Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.
 
@@ -71,7 +71,7 @@ NIST considers email and SMS as ["restricted" authenticator types](https://pages
 | **2.2.6** | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  |  | ✓ | 308 | 5.2.8 |
 | **2.2.7** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  |  | ✓ | 308 | 5.2.9 |
 
-### V2.3 Authenticator Lifecycle Requirements
+## V2.3 Authenticator Lifecycle Requirements
 
 Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
 
@@ -83,7 +83,7 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 | **2.3.2** | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. |  | ✓ | ✓ | 308 | 6.1.3 |
 | **2.3.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. |  | ✓ | ✓ | 287 | 6.1.4 |
 
-### V2.4 Credential Storage Requirements
+## V2.4 Credential Storage Requirements
 
 Architects and developers should adhere to this section when building or refactoring code. This section can only be fully verified using source code review or through  secure unit or integration tests. Penetration testing cannot identify any of these issues.
 
@@ -101,7 +101,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 
 Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
 
-### V2.5 Credential Recovery Requirements
+## V2.5 Credential Recovery Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -113,7 +113,7 @@ Where US standards are mentioned, a regional or local standard can be used in pl
 | **2.5.6** | Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as TOTP or other soft token, mobile push, or another offline recovery mechanism. ([C6](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.7** | Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. |  | ✓ | ✓ | 308 | 6.1.2.3 |
 
-### V2.6 Look-up Secret Verifier Requirements
+## V2.6 Look-up Secret Verifier Requirements
 
 Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
 
@@ -123,7 +123,7 @@ Look up secrets are pre-generated lists of secret codes, similar to Transaction 
 | **2.6.2** | Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash. |  | ✓ | ✓ | 330 | 5.1.2.2 |
 | **2.6.3** | Verify that lookup secrets are resistant to offline attacks, such as predictable values. |  | ✓ | ✓ | 310 | 5.1.2.2 |
 
-### V2.7 Out of Band Verifier Requirements
+## V2.7 Out of Band Verifier Requirements
 
 In the past, a common out of band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out of band verification.
 
@@ -142,7 +142,7 @@ Unsafe out of band authenticators such as e-mail and VOIP are not permitted. PST
 | **2.7.5** | Verify that the out of band verifier retains only a hashed version of the authentication code. |  | ✓ | ✓ | 256 | 5.1.3.2 |
 | **2.7.6** | Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). |  | ✓ | ✓ | 310 | 5.1.3.2 |
 
-### V2.8 Single or Multi Factor One Time Verifier Requirements
+## V2.8 Single or Multi Factor One Time Verifier Requirements
 
 Single factor one time passwords (OTPs) are physical or soft tokens that display a continually changing pseudo-random one time challenge. These devices make phishing (impersonation) difficult, but not impossible. This type of authenticator is considered "something you have". Multi-factor tokens are similar to single factor OTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
 
@@ -156,7 +156,7 @@ Single factor one time passwords (OTPs) are physical or soft tokens that display
 | **2.8.6** | Verify physical single factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. |  | ✓ | ✓ | 613 | 5.2.1 |
 | **2.8.7** | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know. |  | o | ✓ | 308 | 5.2.3 |
 
-### V2.9 Cryptographic Software and Devices Verifier Requirements
+## V2.9 Cryptographic Software and Devices Verifier Requirements
 
 Cryptographic security keys are smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. Verifiers send a challenge nonce to the cryptographic devices or software, and the device or software calculates a response based upon a securely stored cryptographic key.
 
@@ -168,7 +168,7 @@ The requirements for single factor cryptographic devices and software, and multi
 | **2.9.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. |  | ✓ | ✓ | 330 | 5.1.7.2 |
 | **2.9.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | | ✓ | ✓ | 327 | 5.1.7.2 |
 
-### V2.10 Service Authentication Requirements
+## V2.10 Service Authentication Requirements
 
 This section is not penetration testable, so does not have any L1 requirements. However, if used in an architecture, coding or secure code review, please assume that software (just as Java Key Store) is the minimum requirement at L1. Clear text storage of secrets is not acceptable under any circumstances.
 
@@ -179,7 +179,7 @@ This section is not penetration testable, so does not have any L1 requirements. 
 | **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. |  | OS assisted | HSM | 522 | 5.1.1.1 |
 | **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware trusted platform module (TPM), or a hardware security module (L3) is recommended for password storage. |  | OS assisted | HSM | 798 | |
 
-### Additional US Agency Requirements
+## Additional US Agency Requirements
 
 US Agencies have mandatory requirements concerning NIST 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications.
 

@@ -25,7 +25,7 @@ Properly implemented input validation controls, using positive whitelisting and 
 | **5.1.4** | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match). ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 20 |
 | **5.1.5** | Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content. | ✓ | ✓ | ✓ | 601 |
 
-## 5.2 Sanitization and Sandboxing Requirements
+## V5.2 Sanitization and Sandboxing Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -38,7 +38,7 @@ Properly implemented input validation controls, using positive whitelisting and 
 | **5.2.7** | Verify that the application sanitizes, disables, or sandboxes user-supplied SVG scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject. | ✓ | ✓ | ✓ | 116 |
 | **5.2.8** | Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | ✓ | ✓ | ✓ | 94 |
 
-## 5.3 Output encoding and Injection Prevention Requirements
+## V5.3 Output encoding and Injection Prevention Requirements
 
 Many of these items are not directly penetration testable (L1), and so although they are critical to the security of any application, they are L2. For all other uses, consider output encoding essential for every application. Failing to output encode will result in an insecure, injectable, and unsafe application, which are testable in V5.2.
 

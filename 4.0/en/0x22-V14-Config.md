@@ -10,7 +10,7 @@ Ensure that a verified application has:
 
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.
 
-## 14.1 Build
+## V14.1 Build
 
 Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We are strongly encouraging the use of build pipelines with automatic security and dependency checks that warn or break the build to prevent known security issues being deployed into production. Manual steps performed irregularly directly leads to avoidable security mistakes.
 
@@ -28,7 +28,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.4** | Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion. | | ✓ | ✓ | |
 | **14.1.5** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
 
-## 14.2 Dependency
+## V14.2 Dependency
 
 Dependency management is critical to the safe operation of any application of any type. Failure to keep up to date with outdated or insecure dependencies is the root cause of the largest and most expensive attacks to date.
 
@@ -43,7 +43,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.5** | Verify that an inventory catalog is maintained of all third party libraries in use. ([C2](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application. ([C2](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 265 |
 
-## 14.3 Unintended Security Disclosure Requirements
+## V14.3 Unintended Security Disclosure Requirements
 
 Configurations for production should be hardened to protect against common attacks, such as debug consoles, raise the bar for cross-site scripting (XSS) and remote file inclusion (RFI) attacks, and to eliminate trivial information discovery "vulnerabilities" that are the unwelcome hallmark of many penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
 
@@ -53,7 +53,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.3.2** | Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components. | ✓ | ✓ | ✓ | 200 |
 
-## 14.4 HTTP Security Headers Requirements
+## V14.4 HTTP Security Headers Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
@@ -65,7 +65,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.4.6** | Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin". | ✓ | ✓ | ✓ | 116 |
 | **14.4.7** | Verify that a suitable X-Frame-Options or Content-Security-Policy: frame-ancestors header is in use for sites where content should not be embedded in a third-party site. | ✓ | ✓ | ✓ | 346 |
 
-## 14.5 Validate HTTP Request Header Requirements
+## V14.5 Validate HTTP Request Header Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
