@@ -59,7 +59,7 @@ Many of these items are not directly penetration testable (L1), and so although 
 
 Note that using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
-## 5.4 Unmanaged Code Requirements
+## 5.4 Memory, String, and Unmanaged Code Requirements
 
 The following requirements will only apply when the application uses a systems language or unmanaged code.
 
