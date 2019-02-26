@@ -17,11 +17,11 @@ Version 4.0, 2019
 
 ## Project Leads
 
-Andrew van der Stock  
-Daniel Cuthbert  
-Jim Manico
-Josh C Grossman
-Mark Burnett
+- Andrew van der Stock
+- Daniel Cuthbert
+- Jim Manico
+- Josh C Grossman
+- Mark Burnett
 
 ## Contributors and Reviewers
 
