@@ -9,7 +9,7 @@ Applications have to assume that all user devices are compromised in some way. W
 Ensure that a verified application satisfies the following high level data protection requirements:
 
 * Confidentiality: Data should be protected from unauthorized observation or disclosure both in transit and when stored.
-* Integrity: Data should be protected being maliciously created, altered or deleted by unauthorized attackers.
+* Integrity: Data should be protected from being maliciously created, altered or deleted by unauthorized attackers.
 * Availability: Data should be available to authorized users as required.
 
 ## V8.1 General Data Protection
