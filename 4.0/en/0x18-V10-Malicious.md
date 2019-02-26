@@ -4,7 +4,7 @@
 
 Ensure that code satisfies the following high level requirements:
 
-* Malicious activity is handled securely and properly so as to not affect the rest of the application.
+* Malicious activity is handled securely and properly  to not affect the rest of the application.
 * Does not have time bombs or other time-based attacks.
 * Does not "phone home" to malicious or unauthorized destinations.
 * Does not have back doors, Easter eggs, salami attacks, rootkits, or unauthorized code that can be controlled by an attacker.
@@ -23,13 +23,13 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 ## V10.2 Malicious Code Search
 
-Malicious code is extremely rare, and is difficult to detect. Manual line by line code review can assist looking for logic bombs, but even the most experienced code reviewer will struggle to find malicious code even if they know it exists.
+Malicious code is extremely rare and is difficult to detect. Manual line by line code review can assist looking for logic bombs, but even the most experienced code reviewer will struggle to find malicious code even if they know it exists.
 
 Complying with this section is not possible without complete access to source code, including third-party libraries.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate prior to collecting any data. | | ✓ | ✓ | 359 |
+| **10.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate  before collecting any data. | | ✓ | ✓ | 359 |
 | **10.2.2** | Verify that the application does not ask for unnecessary or excessive permissions to privacy related features or sensors, such as contacts, cameras, microphones, or location. | | ✓ | ✓ | 272 |
 | **10.2.3** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered. | | | ✓ | 507 |
 | **10.2.4** | Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions. | | | ✓ | 511 |

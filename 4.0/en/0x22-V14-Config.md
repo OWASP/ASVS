@@ -26,7 +26,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.2** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  | ✓ | ✓ | 120 |
 | **14.1.3** | Verify that server configuration is hardened as per the recommendations of the application server and frameworks in use. | | ✓ | ✓ | 16 |
 | **14.1.4** | Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion. | | ✓ | ✓ | |
-| **14.1.5** | Verify that authorized administrators have the capability to verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
+| **14.1.5** | Verify that authorized administrators can verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
 
 ## V14.2 Dependency
 
