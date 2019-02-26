@@ -15,7 +15,7 @@ With modern web application architecture, output encoding is more important than
 
 ## V5.1 Input Validation Requirements
 
-Properly implemented input validation controls, using positive whitelisting and strong data typing, can eliminate more than 90% of all injection attacks. Length and range checks can reduce this further. Building in secure input validation is required during application architecture, design sprints, coding, and unit and integration testing. Although many of these items cannot be found in penetration tests, the results of not implementing them are trivially found in V5.3 - Output encoding and Injection Preventation Requirements. Developers and secure code reviewers are recommended to treat this section as if L1 is required for all items to prevent injections.
+Properly implemented input validation controls, using positive whitelisting and strong data typing, can eliminate more than 90% of all injection attacks. Length and range checks can reduce this further. Building in secure input validation is required during application architecture, design sprints, coding, and unit and integration testing. Although many of these items cannot be found in penetration tests, the results of not implementing them are usually found in V5.3 - Output encoding and Injection Prevention Requirements. Developers and secure code reviewers are recommended to treat this section as if L1 is required for all items to prevent injections.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -57,7 +57,7 @@ Many of these items are not directly penetration testable (L1), and so although 
 
 Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
-Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to completely block all SVG XSS vectors. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a seperate user supplied content domain to prevent successful XSS from taking over the application.
+Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user supplied content domain to prevent successful XSS from taking over the application.
 
 ## V5.4 Memory, String, and Unmanaged Code Requirements
 

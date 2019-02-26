@@ -31,7 +31,7 @@ When designing authentication, it doesn't matter if you have strong hardware ena
 | **1.2.1** | Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 250 |
 | **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 306 |
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
-| **1.2.4** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there is no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
+| **1.2.4** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
 
 ## V1.3 Session Management Architectural Requirements
 
@@ -109,7 +109,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.12.1** | Verify that user-uploaded files are stored outside of the web root. | | ✓ | ✓ | 552 |
-| **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy to to reduce the risk from XSS vectors or other attacks from the uploaded file. | | ✓ | ✓ | 646 |
+| **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy to reduce the risk from XSS vectors or other attacks from the uploaded file. | | ✓ | ✓ | 646 |
 
 ## V1.13 API Architectural Requirements
 
