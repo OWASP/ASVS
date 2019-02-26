@@ -11,7 +11,7 @@
 - **Component** – a self-contained unit of code, with associated disk and network interfaces that communicates with other components.
 - **Cross-Site Scripting** (XSS) – A security vulnerability typically found in web applications allowing the injection of client-side scripts into content.
 - **Cryptographic module** – Hardware, software, and/or firmware that implements cryptographic algorithms and/or generates cryptographic keys.
-- **CWE** - CWE is a community-developed list of common software security weaknesses. It serves as a common language, a measuring stick for software security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.
+- **CWE** - Common Weakness Enumeration (CWE) is a community-developed list of common software security weaknesses. It serves as a common language, a measuring stick for software security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.
 - **DAST** – Dynamic application security testing (DAST) technologies are designed to detect conditions indicative of a security vulnerability in an application in its running state.
 - **Design Verification** – The technical assessment of the security architecture of an application.
 - **Dynamic Verification** – The use of automated tools that use vulnerability signatures to find problems during the execution of an application.
