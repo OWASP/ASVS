@@ -24,11 +24,14 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 ## V1.2 Authentication Architectural Requirements
 
+When designing authentication, it doesn't matter if you have strong hardware enabled multi-factor authentication if an attacker can reset an account by calling a call center and answering commonly known  questions. When proofing identity, all authentication pathways must have the same strength.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.2.1** | Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 250 |
 | **1.2.2** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated with the least necessary privileges. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 306 |
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
+| **1.2.4** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there is no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
 
 ## V1.3 Session Management Architectural Requirements
 
