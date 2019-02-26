@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-One of the core components of any web-based application or API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.
+One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.
 
 Ensure that a verified application satisfies the following high-level session management requirements:
 
