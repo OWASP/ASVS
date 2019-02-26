@@ -6,11 +6,11 @@ Ensure that a verified application satisfies the following high level requiremen
 
 * All cryptographic modules fail in a secure manner and that errors are handled correctly.
 * A suitable random number generator is used.
-* Access to keys is managed in a secure way.
+* Access to keys is securely managed.
 
 ## V6.1 Data Classification
 
-The most important asset is the data processed, stored or transmitted by an application. Always perform a privacy impact assessment to correctly classify the data protection needs of any stored data.
+The most important asset is the data processed, stored or transmitted by an application. Always perform a privacy impact assessment to classify the data protection needs of any stored data correctly.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -30,7 +30,7 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 327 |
 | **6.2.3** | Verify that encryption initialization vector, cipher configuration, and block modes are configured securely using the latest advice. |  | ✓ | ✓ | 326 |
 | **6.2.4** | Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 326 |
-| **6.2.5** | Verify that known insecure block modes (i.e. ECB, etc.), padding modes (i.e. PKCS#1 v1.5, etc.), ciphers with small black sizes (i.e. Triple-DES, Blowfish, etc.), and weak hashing algorithms (i.e. MD5, SHA1, etc.) are not used unless required for backwards compatibility. | | ✓ | ✓ | 326 |
+| **6.2.5** | Verify that known insecure block modes (i.e. ECB, etc.), padding modes (i.e. PKCS#1 v1.5, etc.), ciphers with small block sizes (i.e. Triple-DES, Blowfish, etc.), and weak hashing algorithms (i.e. MD5, SHA1, etc.) are not used unless required for backwards compatibility. | | ✓ | ✓ | 326 |
 | **6.2.6** | Verify that nonces, initialization vectors, and other single use numbers must not be used more than once with a given encryption key. The method of generation must be appropriate for the algorithm being used. | | ✓ | ✓ | 326 |
 | **6.2.7** | Verify that encrypted data is authenticated via signatures, authenticated cipher modes, or HMAC to ensure that ciphertext is not altered by an unauthorized party. | | | ✓ | 326 |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | | | ✓ | 385 |

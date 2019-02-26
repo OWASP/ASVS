@@ -37,7 +37,7 @@ Embedded/IoT devices should:
 | **C.21** | Verify the device uses code signing and validates firmware upgrade files before installing. |  | ✓ | ✓ | 4.0 |
 | **C.22** | Verify that the device cannot be downgraded to old versions (anti-rollback) of valid firmware. |  | ✓ | ✓ | 4.0 |
 | **C.23** | Verify usage of cryptographically secure pseudo-random number generator on embedded device (e.g., using chip-provided random number generators). |  | ✓ | ✓ | 4.0 |
-| **C.24** | Verify that firmware has the ability to perform automatic firmware updates upon a predefined schedule. |  | ✓ | ✓ | 4.0 |
+| **C.24** | Verify that firmware can perform automatic firmware updates upon a predefined schedule. |  | ✓ | ✓ | 4.0 |
 | **C.25** | Verify that the device wipes firmware and sensitive data upon detection of tampering or receipt of invalid message. |  |  | ✓ | 4.0 |
 | **C.26** | Verify that only micro controllers that support disabling debugging interfaces (e.g. JTAG, SWD) are used. |  |  | ✓ | 4.0 |
 | **C.27** | Verify that only micro controllers that provide substantial protection from de-capping and side channel attacks are used. |  |  | ✓ | 4.0 |

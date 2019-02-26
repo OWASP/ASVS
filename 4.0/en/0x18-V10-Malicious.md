@@ -40,7 +40,7 @@ Complying with this section is not possible without complete access to source co
 
 Once an application is deployed, malicious code can still be inserted. Applications need to protect themselves against common attacks, such as executing unsigned code from untrusted sources and sub-domain takeovers.
 
-Complying with this section is likely to be operational and continuous in nature.
+Complying with this section is likely to be operational and continuous.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
