@@ -33,7 +33,7 @@
 - **SQL Injection (SQLi)** – A code injection technique used to attack data driven applications, in which malicious SQL statements are inserted into an entry point.
 - **SSO Authentication** – Single Sign On(SSO) occurs when a user logs into one application and is then automatically logged into other applications without having to re-authenticate. For example when you log in in Google, you automatically login in the youtube , docs and mail service.
 - **Threat Modeling** - A technique consisting of developing increasingly refined security architectures to identify threat agents, security zones, security controls, and important technical and business assets.
-- **Transport Layer Security** – Cryptographic protocols that provide communication security over the Internet
+- **Transport Layer Security** – Cryptographic protocols that provide communication security over a network connection
 - **URI/URL/URL fragments** – A Uniform Resource Identifier is a string of characters used to identify a name or a web resource. A Uniform Resource Locator is often used as a reference to a resource.
 - **Verifier** – The person or team that is reviewing an application against the OWASP ASVS requirements.
 - **Whitelist** – A list of permitted data or operations, for example a list of characters that are allowed to perform input validation.
