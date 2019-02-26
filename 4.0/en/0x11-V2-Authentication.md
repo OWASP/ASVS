@@ -32,7 +32,7 @@ Applications can always exceed the current level's requirements, especially if m
 
 ### V2.1 Password Security Requirements
 
-Passwords, called "Memorized Secrets" by NIST 800-63 include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
+Passwords, called "Memorized Secrets" by NIST 800-63, includes passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
 
 Applications should strongly encourage users to enrol in multi-factor authentication, and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication, such as Okta, Ping Identity, Google, and others.
 
