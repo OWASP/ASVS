@@ -34,7 +34,9 @@ Applications can always exceed the current level's requirements, especially if m
 
 Passwords, called "Memorized Secrets" by NIST 800-63, includes passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
 
-Applications should strongly encourage users to enrol in multi-factor authentication, and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication, such as Okta, Ping Identity, Google, and others.
+Applications should strongly encourage users to enrol in multi-factor authentication, and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication.
+
+Credential service providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name a just few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -64,7 +66,7 @@ NIST considers email and SMS as plain text authentication channels, and they are
 | **2.2.3** | Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification. | ✓ | ✓ | ✓ | 620 | |
 | **2.2.4** | Verify that all authentication data provided by the user is checked for validity, even if it is unexpected. For example, if an authentication form offers a username and password and an optional token, the server should always check a token value provided, even if the user was not expected to have a token value to provide. | | ✓ | ✓ | 287 | |
 | **2.2.5** | Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or at higher AAL levels, client-side certificates. |  |  | ✓ | 308 | 5.2.5 |
-| **2.2.6** | Verify that where a credential service provider (CSP, such as Azure AD, Facebook, Google, etc) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. |  |  | ✓ | 319 | 5.2.6 |
+| **2.2.6** | Verify that where a credential service provider (CSP) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. |  |  | ✓ | 319 | 5.2.6 |
 | **2.2.7** | Verify replay resistance through the mandated use of OTP devices, cryptographic authenticators, or lookup codes. |  |  | ✓ | 308 | 5.2.8 |
 | **2.2.8** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. |  |  | ✓ | 308 | 5.2.9 |
 
@@ -110,7 +112,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 
 ### V2.6 Look-up Secret Verifier Requirements
 
-Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), Google Recovery Codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
+Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
