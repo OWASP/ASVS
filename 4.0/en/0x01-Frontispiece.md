@@ -9,19 +9,9 @@ The Application Security Verification Standard is a list of application security
 ![license](../images/license.png)
 Copyright © 2019 The OWASP Foundation. This document is released under the [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
 
-## Draft Version
+## Release Candidate
 
-This is a draft version of the standard, and as such should not be used until released. If you find any issues within the standard that should be addressed:
-
-* Design of the standard.
-* Missing controls.
-* Ineffective or outdated controls.
-* Unclear wording, spelling, grammar issues.
-* Formatting issues.
-* Translation issues – if a control's wording is such that trying to express it in your language will be difficult or impossible, please let us know. If it doesn't work in Spanish or Thai, it probably isn't working in English either.
-* Offers of translation – please let us know so that we can direct you to folks are already working on your language.
-
-Please log an issue here: https://github.com/OWASP/ASVS/issues
+This version is essentially the final version. Please don't use it just yet. If you spot issues, please log an issue here: https://github.com/OWASP/ASVS/issues
 
 Version 4.0, 2019
 
@@ -30,7 +20,36 @@ Version 4.0, 2019
 Andrew van der Stock  
 Daniel Cuthbert  
 Jim Manico
+Josh C Grossman
+Mark Burnett
 
 ## Contributors and Reviewers
 
-- Find from closed bugs on Github
+- Osama Elnaggar
+- Erland Oftedal
+- Serg Belkommen
+- David Johannsen
+- Tonimir Kisasondi 
+- Ron Perris
+- Abhay Bhargav
+- Benedikt Bauer
+- ScriptingXSS
+- Philippe De Ryck
+- Grog's Axle
+- Marco Schnüriger
+- Jacob Salassi
+- Glenn ten Cate
+- Anthony Weems
+- bschach
+- javixeneize
+- Dan Cornell
+- hello7s
+- Lewis Ardern
+- Jim Newman
+- Stuart Gunter
+- Geoff Baskwill
+- Talargoni
+- Ståle Petterse
+- Kelby Ludwig
+- Jason Morrow
+- Rogan Dawes
