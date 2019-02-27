@@ -29,7 +29,7 @@ Automated tools and online scans are unable to complete more than half of the AS
 
 One of the best ways to use the Application Security Verification Standard is to use it as a blueprint to create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus on the security requirements that are most important to your projects and environments.
 
-### Level 1 - first steps, automated, or whole of portfolio view
+### Level 1 - First steps, automated, or whole of portfolio view
 
 An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover, and included in the OWASP Top 10 and other similar checklists.
 

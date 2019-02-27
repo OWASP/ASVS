@@ -24,7 +24,9 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 
 1. OWASP Serverless Project: [https://www.owasp.org/index.php/OWASP_Serverless_Top_10_Project](https://www.owasp.org/index.php/OWASP_Serverless_Top_10_Project)
 
-## Similarly, the following web sites are most likely to be useful to users/adopters of this standard
+## Others
+
+Similarly, the following web sites are most likely to be useful to users/adopters of this standard
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [http://cwe.mitre.org/](http://cwe.mitre.org/)

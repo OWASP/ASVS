@@ -113,7 +113,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 ## V1.13 API Architectural Requirements
 
-This is a placeholder for future API Architectural Requirements.
+This is a placeholder for future Architectural Requirements.
 
 ## V1.14 Configuration Architectural Requirements
 
