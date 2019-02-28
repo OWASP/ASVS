@@ -96,7 +96,7 @@ For more information, see also:
 
 For more information on auto-escaping, please see:
 
-* [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](http://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
+* [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
 * [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
 * [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
 * [Angular Sanitization](https://angular.io/guide/security#sanitization-and-security-contexts)
