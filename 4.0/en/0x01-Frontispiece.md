@@ -29,7 +29,7 @@ Version 4.0, 2019
 - Erland Oftedal
 - Serg Belkommen
 - David Johansson
-- Tonimir Kisasondi 
+- Tonimir Kisasondi
 - Ron Perris
 - Abhay Bhargav
 - Benedikt Bauer
