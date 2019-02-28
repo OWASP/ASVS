@@ -49,6 +49,8 @@ This is a placeholder for future architectural requirements.
 
 ## V1.5 Input and Output Pipeline Architectural Requirements
 
+In 4.0, we have moved away from the term "server-side" as a loaded trust boundary term. The trust boundary is still concerning - making decisions on untrusted browsers or client devices is bypassable. However, in mainstream architectural deployments today, the trust enforcement point has dramatically changed. THerefore, where the term "trusted service layer" is used in the ASVS, we mean any trusted enforcement point, regardless of location, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. 
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.5.1** | Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.  | | ✓ | ✓ | 1029 |
