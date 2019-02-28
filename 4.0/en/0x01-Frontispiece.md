@@ -33,6 +33,7 @@ Version 4.0, 2019
 - Ron Perris
 - Abhay Bhargav
 - Benedikt Bauer
+- Elar Lang
 - ScriptingXSS
 - Philippe De Ryck
 - Grog's Axle
