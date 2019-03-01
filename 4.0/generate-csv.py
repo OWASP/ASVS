@@ -1,43 +1,45 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 """ Quick and Dirty Roberto Martelloni's script to generate a CSV """
 
+import re
 import os
 
 
-def fromFilenameToArea(filename):
-    splittedFilename = filename.split("-")
-    id = splittedFilename[1]
-    name = splittedFilename[2].split(".")
+def area_from_filename(filename):
+    filename_parts = filename.split("-")
+    area_id = filename_parts[1]
+    name = filename_parts[2].split(".")
     name = name[0].replace("_", " ")
 
-    return id, name
+    return [area_id, name]
 
 
-
-def parsemd(filename):
+def parse_md(filename):
+    in_table = False
 
     for line in open(filename):
-        if line.startswith("|"):
-            if line.find("| --- |") == 0: continue
-            if line.find("| # |") == 0: continue
-            if line.find("|  #") == 0: continue
+        if re.match(r"\s*\|", line):
+            if re.match(r"\s*\|\s*#\s*\|", line):
+                in_table = True
+                continue
+            if re.match(r"\|\s*:?--+:?\s*\|", line):
+                continue
 
-            start = fromFilenameToArea(filename)
-            line = line.replace("*", "")
-            line = line.split("|")
-            print start[0] + "|",
-            print start[1] + "|",
-            print line[1] + "|",
-            print line[2] + "|",
-            print line[3] + "|",
-            print line[4] + "|"
+            if in_table:
+                start = area_from_filename(filename)
+                line = line.replace("*", "")
+                line = line.replace('"', '""')
+                line = re.split(r"\s*\|\s*", line)
+                print('"' + '","'.join(start + line[1:-1]) + '"')
+        else:
+            in_table = False
 
 
 def main():
     for file in os.listdir("./en"):
         if file.find("-V") != -1:
-            parsemd("./en/" + file)
+            parse_md("./en/" + file)
 
 
 if __name__ == '__main__':
