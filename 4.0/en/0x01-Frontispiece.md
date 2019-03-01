@@ -26,7 +26,7 @@ Version 4.0, 2019
 ## Contributors and Reviewers
 
 - Osama Elnaggar
-- Erland Oftedal
+- Erlend Oftedal
 - Serg Belkommen
 - David Johansson
 - Tonimir Kisasondi
@@ -50,7 +50,7 @@ Version 4.0, 2019
 - Stuart Gunter
 - Geoff Baskwill
 - Talargoni
-- Ståle Petterse
+- Ståle Pettersen
 - Kelby Ludwig
 - Jason Morrow
 - Rogan Dawes
