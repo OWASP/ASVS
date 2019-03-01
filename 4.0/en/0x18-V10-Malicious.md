@@ -13,7 +13,7 @@ Finding malicious code is proof of the negative, which is impossible to complete
 
 ## V10.1 Code Integrity Controls
 
-The best defence against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offence in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
+The best defense against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offence in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
 
 Lead developers should regularly review code check-ins, particularly those that might access time, I/O, or network functions.
 

@@ -34,7 +34,9 @@ Please note that the lines between automated and manual testing have blurred as 
 
 #### The Role of Penetration Testing
 
-It is possible to perform a manual penetration test and verify a large number of L1 issues without requiring access to source code, however there are a handful of situations where this isn't possible. Where possible, access to developers, documentation, code, and  varying levels of user access for the target system, is required when performing a L2 Assessment. Complete penetration testing coverage at Level 3 is not possible, as most of the additional issues involve review of system configuration, malicious code review, threat modeling, and other non-penetration testing artifacts.
+In version 4.0, we decided to make L1 completely penetration testable without access to source code, documentation, or developers. Two logging items, which are required to comply with OWASP Top 10 2017 A10, will require interviews, screenshots or other evidence collection, just as they do in the OWASP Top 10 2017. However, testing without access to necessary information is not an ideal method of security verification, as it misses out on the possibility of reviewing the source, identifying threats and missing controls, and performing a far more thorough test in a shorter timeframe. 
+
+Where possible, access to developers, documentation, code, and access to a test application with non-production data, is required when performing a L2 or L3 Assessment. Penetration testing done at these levels requires this level of access, which we call "hybrid reviews" or "hybrid penetration tests". 
 
 ## Other uses for the ASVS
 
