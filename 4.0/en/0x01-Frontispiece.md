@@ -9,7 +9,7 @@ The Application Security Verification Standard is a list of application security
 ![license](../images/license.png)
 Copyright © 2008-2019 The OWASP Foundation. This document is released under the [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
 
-Version 4.0, March 2019
+Version 4.0.1, March 2019
 
 ## Project Leads
 
@@ -27,6 +27,7 @@ Version 4.0, March 2019
 - David Johansson
 - Tonimir Kisasondi
 - Ron Perris
+- Jason Axley
 - Abhay Bhargav
 - Benedikt Bauer
 - Elar Lang
