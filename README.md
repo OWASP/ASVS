@@ -1,18 +1,23 @@
 OWASP Application Security Verification Standard
 ====
 
-The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to normalize the range in the coverage and level of rigor available in the market when it comes to performing Web application security verification using a commercially-workable open standard. 
+The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types. 
 
-The standard provides a basis for testing application technical security controls, as well as any technical security controls in the environment, that are relied on to protect against vulnerabilities such as Cross-Site Scripting (XSS)and SQL injection. This standard can be used to establish a level of confidence in the security of Web applications.
+The standard provides a basis for designing, building, and testing technical application security controls, including architectural concerns, secure development lifecycle, threat modelling, agile security including continuous integration / deploynent, serverless, and configuration concerns. 
 
-The latest published version is version 3.0.1, which can be found:
-* https://www.owasp.org/images/3/33/OWASP_Application_Security_Verification_Standard_3.0.1.pdf (PDF)
-* https://www.owasp.org/images/f/f0/OWASP_Application_Security_Verification_Standard_3.0.1.docx (Word)
-
-The next version is going to be version 4.0, which is currently undergoing final changes. This is due for release in March 2019.
+The latest published version is version 4.0.1, which can be found:
+* [OWASP Application Security Verification Standard 4.0.1 English (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.pdf)
+* [OWASP Application Security Verification Standard 4.0.1 English (Word)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.docx)
+* [OWASP Application Security Verification Standard 4.0.1 English (CSV)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.csv)
 
 The requirements were developed with the following objectives in mind:
 
-* Use as a metric - Provide application developers and application owners with a yardstick with which to assess the degree of trust that can be placed in their Web applications,
-* Use as guidance - Provide guidance to security control developers as to what to build into security controls in order to satisfy application security requirements, and
-* Use during procurement - Provide a basis for specifying application security verification requirements in contracts
+* Help organizations adopt or adapt a high quality secure coding standard 
+* Help architects and developers build secure software by designing and building security in, and verifying that they are in place and effective by the use of unit and integration tests that implement ASVS tests
+* Help deploy secure software via the use of repeatable, secured builds
+* Help security reviewers use a comprehensive, consistent, high quality standard for hybrid code reviews, secure code reviews, peer code reviews, retrospectives, and work with developers to build security unit and integration tests. It is even possible to use this standard for penetration testing at Level 1
+* Assist tool vendors by ensuring there is an easily generatable machine readable version, with CWE mappings
+* Assist organizations to benchmark application security tools by the percentage of coverage of the ASVS for dynamic, interactive, and static analysis tools
+* Minimize overlapping and competing requirements from other standards, by either aligning strongly with them (NIST 800-63), or being strict supersets (OWASP Top 10 2017, PCI DSS 3.2.1), which will help reduce compliance costs, effort, and time wasted in accepting unnecessary differences as risks. 
+
+Please log issues if you find anything. We are actively looking for translations of the 4.0 branch. 
