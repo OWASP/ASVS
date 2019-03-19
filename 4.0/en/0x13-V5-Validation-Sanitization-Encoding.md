@@ -37,7 +37,7 @@ Properly implemented input validation controls, using positive whitelisting and 
 | **5.2.7** | Verify that the application sanitizes, disables, or sandboxes user-supplied SVG scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject. | ✓ | ✓ | ✓ | 159 |
 | **5.2.8** | Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | ✓ | ✓ | ✓ | 94 |
 
-## V5.3 Output encoding and Injection Prevention Requirements
+## V5.3 Output Encoding and Injection Prevention Requirements
 
 Output encoding close or adjacent to the interpreter in use is critical to the security of any application. Typically, output encoding is not persisted, but used to render the output safe in the appropriate output context for immediate use. Failing to output encode will result in an insecure, injectable, and unsafe application.
 
@@ -58,7 +58,7 @@ Note: Using parameterized queries or escaping SQL is not always sufficient; tabl
 
 Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user supplied content domain to prevent successful XSS from taking over the application.
 
-## V5.4 Memory, String, and Unmanaged Code Requirements
+## V5.4 Memory, String and Unmanaged Code Requirements
 
 The following requirements will only apply when the application uses a systems language or unmanaged code.
 
