@@ -22,7 +22,7 @@ The requirements were developed with the following objectives in mind:
 
 ## Latest Released Version
 
-The latest published version is version 4.0.1, which can be found:
+The latest published version is version 4.0.1 (dated 2 March 2019), which can be found:
 * [OWASP Application Security Verification Standard 4.0.1 English (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.pdf)
 * [OWASP Application Security Verification Standard 4.0.1 English (Word)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.docx)
 * [OWASP Application Security Verification Standard 4.0.1 English (CSV)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.csv)
