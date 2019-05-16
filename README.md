@@ -1,12 +1,12 @@
-## OWASP Application Security Verification Standard
+# OWASP Application Security Verification Standard
 
-### Introduction
+## Introduction
 
 The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types. 
 
 The standard provides a basis for designing, building, and testing technical application security controls, including architectural concerns, secure development lifecycle, threat modelling, agile security including continuous integration / deploynent, serverless, and configuration concerns. 
 
-### Standard Objectives
+## Standard Objectives
 
 The requirements were developed with the following objectives in mind:
 
@@ -20,7 +20,7 @@ The requirements were developed with the following objectives in mind:
 
 **Please log issues if you find anything. We are actively looking for translations of the 4.n branch.**
 
-### Latest Released Version
+## Latest Released Version
 
 The latest published version is version 4.0.1, which can be found:
 * [OWASP Application Security Verification Standard 4.0.1 English (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.pdf)
