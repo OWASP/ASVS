@@ -10,6 +10,12 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 4. OWASP Security Knowledge Framework: [https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
 5. OWASP Software Assurance Maturity Model (SAMM): [https://www.owasp.org/index.php/OWASP_SAMM_Project](https://www.owasp.org/index.php/OWASP_SAMM_Project)
 
+##  OWASP Cheat Sheet Series project
+
+[This project](https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series) has a number of cheat sheets which will be relevant for for different topics in the ASVS.
+
+There is a mapping to the ASVS which can be found here: [https://github.com/OWASP/CheatSheetSeries/blob/master/IndexASVS.md](https://github.com/OWASP/CheatSheetSeries/blob/master/IndexASVS.md)
+
 ## Mobile Security Related Projects
 
 1. OWASP Mobile Security Project: [https://www.owasp.org/index.php/OWASP_Mobile_Security_Project](https://www.owasp.org/index.php/OWASP_Mobile_Security_Project)
