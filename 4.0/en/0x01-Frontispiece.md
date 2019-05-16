@@ -51,6 +51,7 @@ Version 4.0.1, March 2019
 - Kelby Ludwig
 - Jason Morrow
 - Rogan Dawes
+- Daniël Geerts
 
 The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
 
