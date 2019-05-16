@@ -18,7 +18,7 @@ The requirements were developed with the following objectives in mind:
 * Assist organizations to benchmark application security tools by the percentage of coverage of the ASVS for dynamic, interactive, and static analysis tools
 * Minimize overlapping and competing requirements from other standards, by either aligning strongly with them (NIST 800-63), or being strict supersets (OWASP Top 10 2017, PCI DSS 3.2.1), which will help reduce compliance costs, effort, and time wasted in accepting unnecessary differences as risks. 
 
-**Please [log issues](https://github.com/OWASP/ASVS/issues) (or even better, [open a pull request!](https://github.com/OWASP/ASVS/pulls)) if you find anything. We are actively looking for translations of the 4.n branch.**
+**Please [log issues](https://github.com/OWASP/ASVS/issues) (or even better, [open a pull request](https://github.com/OWASP/ASVS/pulls)) if you find anything. We are actively looking for translations of the 4.n branch.**
 
 ## Latest Released Version
 
