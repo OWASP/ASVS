@@ -69,8 +69,8 @@ This section relates to those writing relying party (RP) or credential service p
 
 | # | Description | L1 | L2 | L3 | CWE | NIST &sect; |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.6.1** | Verify that relying parties specify the maximum authentication time to CSPs and that CSPs re-authenticate the subscriber if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
-| **3.6.2** | Verify that CSPs inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613| 7.2.1 |
+| **3.6.1** | Verify that relying parties specify the maximum authentication time to credential service providers (CSPs) and that CSPs re-authenticate the subscriber if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
+| **3.6.2** | Verify that credential service providers (CSPs) inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613| 7.2.1 |
 
 ## V3.7 Defenses Against Session Management Exploits
 
