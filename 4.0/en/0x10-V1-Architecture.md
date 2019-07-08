@@ -28,7 +28,7 @@ When designing authentication, it doesn't matter if you have strong hardware ena
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.2.1** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 306 |
+| **1.2.1** | Verify that communications between application components, including APIs, middleware and data layers, are authenticated and use individual user accounts. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 306 |
 | **1.2.2** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
 | **1.2.3** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
 
@@ -43,7 +43,7 @@ This is a placeholder for future architectural requirements.
 | **1.4.1** | Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client. | | ✓ | ✓ | 602 |
 | **1.4.2** | Verify that the chosen access control solution is flexible enough to meet the application's needs.  | | ✓ | ✓ | 284 |
 | **1.4.3** | Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege. |  | ✓ | ✓ | 272 |
-| **1.4.4** | Verify that communications between application components, including APIs, middleware and data layers, are performed with individual users with the least necessary privileges. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 272 |
+| **1.4.4** | Verify that communications between application components, including APIs, middleware and data layers, are performed with the least necessary privileges. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 272 |
 | **1.4.5** | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) |  | ✓ | ✓ | 284 |
 | **1.4.6** | Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles. ([C7](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 275 |
 
