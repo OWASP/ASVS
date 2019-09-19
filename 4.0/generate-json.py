@@ -23,15 +23,7 @@
 import os
 import re
 import json
-from xml.sax.saxutils import escape
-import csv
 import argparse
-
-try:
-    from StringIO import StringIO
-except ImportError:
-    from io import StringIO
-
 
 class ASVS:
     ''' Creates json representation of the ASVS from markdown files.
@@ -86,7 +78,7 @@ class ASVS:
                 regex = re.compile('0x\d{2}-(V([0-9]{1,3}))-(\w[^-.]*)')
                 m = re.search(regex, file)
                 if m:
-                    chapter = {};           
+                    chapter = {};
                     chapter['Shortcode'] = m.group(1)
                     chapter['Ordinal'] = int(m.group(2))
                     chapter['ShortName'] = m.group(3)
@@ -107,7 +99,7 @@ class ASVS:
                     m = re.search(regex, line)
                     if m:
                         chapter['Name'] = m.group(3)
-                     
+
 
                     regex = re.compile('## (V[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)')
                     m = re.search(regex, line)
@@ -151,7 +143,7 @@ class ASVS:
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
-        return json.dumps(self.asvs, indent = 2, sort_keys = False).strip()  
+        return json.dumps(self.asvs, indent = 2, sort_keys = False).strip()
 
 m = ASVS()
 
@@ -163,6 +155,6 @@ args = parser.parse_args()
 if args.file == None:
     print(m.to_json())
 else:
-    stream = open(args.file, 'w', encoding = args.encoding, closefd = True) 
+    stream = open(args.file, 'w', encoding = args.encoding, closefd = True)
     stream.write(m.to_json())
     stream.close()
