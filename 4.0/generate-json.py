@@ -34,7 +34,15 @@ except ImportError:
 
 
 class ASVS:
-    ''' Creates json representation of the ASVS from markdown files. '''
+    ''' Creates json representation of the ASVS from markdown files.
+    
+        On Windows 10, can be run as:
+        python .\generate-json.py --file "OWASP Application Security Verification Standard 4.0-en.json" --encoding UTF-8
+        
+        On Linux (tested on Kali), can be run as:
+        python3 ./generate-json.py --file "OWASP Application Security Verification Standard 4.0-en.json" --encoding UTF-8
+    '''
+    
     asvs = {}
     asvs['Name'] = "Application Security Verification Standard Project"
     asvs['ShortName'] = "ASVS"
