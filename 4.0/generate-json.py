@@ -90,7 +90,7 @@ class ASVS:
                     section['Ordinal'] = int(m.group(2))
                     section['Name'] = m.group(3)
                     section['Items'] = []
-                    
+
                     self.chapters.append(chapter)
 
                 for line in open(os.path.join("en", file), encoding="utf8"):
