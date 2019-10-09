@@ -62,7 +62,7 @@ class ASVS:
         for file in os.listdir("en"):
 
             if re.match("0x\d{2}-V", file):
-                chapter = {};                
+                chapter = {};
                 chapter['Shortcode'] = ""
                 chapter['Ordinal'] = ""
                 chapter['ShortName'] = ""
@@ -92,7 +92,6 @@ class ASVS:
                     section['Items'] = []
                     
                     self.chapters.append(chapter)
-                                
 
                 for line in open(os.path.join("en", file), encoding="utf8"):
                     regex = re.compile('# (V([0-9]{1,2})): ([\w\s][^\n]*)')
