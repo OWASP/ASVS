@@ -38,6 +38,8 @@ def parse_md(filename):
                 line = line.replace("*", "")
                 line = line.replace('"', '""')
                 line = re.split(r"\s*\|\s*", line)
+                while len(line) < 9:
+                    line.append('')
                 print('"' + '","'.join(start + line[1:-1]) + '"')
         else:
             in_table = False
@@ -47,6 +49,7 @@ def main():
     files = os.listdir("./en")
     files_filtered = filter(lambda el: el.find("-V") != -1, files)
     files_sorted = sorted(files_filtered, key=string_num)
+    print('Section,Name,Item,Description,L1,L2,L3,CWE,NIST')
     for file in files_sorted:
         parse_md("./en/" + file)
 
