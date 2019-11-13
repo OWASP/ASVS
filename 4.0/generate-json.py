@@ -39,7 +39,9 @@ class ASVS:
     asvs['Name'] = "Application Security Verification Standard Project"
     asvs['ShortName'] = "ASVS"
     asvs['Version'] = ""
-    asvs['Description'] = "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development."
+    asvs['Description'] = "The OWASP Application Security Verification Standard (ASVS) Project " \
+        "provides a basis for testing web application technical security controls and also " \
+        "provides developers with a list of requirements for secure development."
 
     regex = re.compile('Version (([\d.]+){3})')
 
@@ -111,7 +113,8 @@ class ASVS:
 
                         chapter['Items'].append(section)
 
-                    regex = re.compile('\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|([\w\d,\. ✓]*)\|([\w\d,\. ✓]*)\|([\w\d,\. ✓]*)\|([0-9,\s]*)\|([A-Z0-9/\s,.]*)\|{0,1}')
+                    regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|([\w\d,\. ✓]*)"\
+                        "\|([\w\d,\. ✓]*)\|([\w\d,\. ✓]*)\|([0-9,\s]*)\|([A-Z0-9/\s,.]*)\|{0,1}")
                     m = re.search(regex, line)
                     if m:
                         req = {}
@@ -151,7 +154,7 @@ parser.add_argument('--file', required = False)
 parser.add_argument('--encoding', choices=['UTF-16', 'UTF-8'], default = 'UTF-8', required = False)
 args = parser.parse_args()
 
-if args.file == None:
+if args.file is None:
     print(m.to_json())
 else:
     stream = open(args.file, 'w', encoding = args.encoding, closefd = True)
