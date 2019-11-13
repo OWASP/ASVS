@@ -27,14 +27,14 @@ import argparse
 
 class ASVS:
     ''' Creates json representation of the ASVS from markdown files.
-    
+
         On Windows 10, can be run as:
         python .\generate-json.py --file "OWASP Application Security Verification Standard 4.0-en.json" --encoding UTF-8
-        
+
         On Linux (tested on Kali), can be run as:
         python3 ./generate-json.py --file "OWASP Application Security Verification Standard 4.0-en.json" --encoding UTF-8
     '''
-    
+
     asvs = {}
     asvs['Name'] = "Application Security Verification Standard Project"
     asvs['ShortName'] = "ASVS"
@@ -48,14 +48,14 @@ class ASVS:
         if m:
             asvs['Version'] = m.group(1)
             break
-    
+
     regex = re.compile('## About the Standard\n\n(.*)')
 
     with open(os.path.join("en", "0x01-Frontispiece.md"), encoding="utf8") as content:
         m = re.search(regex, content.read())
         if m:
             asvs['Description'] = m.group(1)
-    
+
     asvs['Requirements'] = chapters = []
 
     def __init__(self):
