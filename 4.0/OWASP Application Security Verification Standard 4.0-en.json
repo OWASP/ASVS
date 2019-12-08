@@ -1,8 +1,8 @@
 {
   "Name": "Application Security Verification Standard Project",
   "ShortName": "ASVS",
-  "Version": "4.0",
-  "Description": "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.",
+  "Version": "4.0.1",
+  "Description": "The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.",
   "Requirements": [
     {
       "Shortcode": "V1",
@@ -170,7 +170,7 @@
             {
               "Shortcode": "V1.2.1",
               "Ordinal": 1,
-              "Description": "Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
+              "Description": "Verify that communications between application components, including APIs, middleware and data layers, are authenticated and use individual user accounts. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -184,14 +184,14 @@
                 "Requirement": ""
               },
               "CWE": [
-                250
+                306
               ],
               "NIST": []
             },
             {
               "Shortcode": "V1.2.2",
               "Ordinal": 2,
-              "Description": "Verify that communications between application components, including APIs, middleware and data layers, are authenticated. Components should have the least necessary privileges needed. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
+              "Description": "Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -212,27 +212,6 @@
             {
               "Shortcode": "V1.2.3",
               "Ordinal": 3,
-              "Description": "Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches.",
-              "L1": {
-                "Required": false,
-                "Requirement": ""
-              },
-              "L2": {
-                "Required": true,
-                "Requirement": ""
-              },
-              "L3": {
-                "Required": true,
-                "Requirement": ""
-              },
-              "CWE": [
-                306
-              ],
-              "NIST": []
-            },
-            {
-              "Shortcode": "V1.2.4",
-              "Ordinal": 4,
               "Description": "Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application.",
               "L1": {
                 "Required": false,
@@ -252,6 +231,12 @@
               "NIST": []
             }
           ]
+        },
+        {
+          "Shortcode": "V1.3",
+          "Ordinal": 3,
+          "Name": "Session Management Architectural Requirements",
+          "Items": []
         },
         {
           "Shortcode": "V1.4",
@@ -282,7 +267,7 @@
             {
               "Shortcode": "V1.4.2",
               "Ordinal": 2,
-              "Description": "Verify that the chosen access control solution is flexible enough to meet the application's needs.",
+              "Description": "Verify that the chosen access control solution is flexible enough to meet the application's needs. ",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -324,6 +309,27 @@
             {
               "Shortcode": "V1.4.4",
               "Ordinal": 4,
+              "Description": "Verify that communications between application components, including APIs, middleware and data layers, are performed with the least necessary privileges. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
+              "L1": {
+                "Required": false,
+                "Requirement": ""
+              },
+              "L2": {
+                "Required": true,
+                "Requirement": ""
+              },
+              "L3": {
+                "Required": true,
+                "Requirement": ""
+              },
+              "CWE": [
+                272
+              ],
+              "NIST": []
+            },
+            {
+              "Shortcode": "V1.4.5",
+              "Ordinal": 5,
               "Description": "Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
               "L1": {
                 "Required": false,
@@ -343,8 +349,8 @@
               "NIST": []
             },
             {
-              "Shortcode": "V1.4.5",
-              "Ordinal": 5,
+              "Shortcode": "V1.4.6",
+              "Ordinal": 6,
               "Description": "Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles. ([C7](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
               "L1": {
                 "Required": false,
@@ -373,7 +379,7 @@
             {
               "Shortcode": "V1.5.1",
               "Ordinal": 1,
-              "Description": "Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.",
+              "Description": "Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance. ",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -815,7 +821,7 @@
             {
               "Shortcode": "V1.12.2",
               "Ordinal": 2,
-              "Description": "Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy to reduce the risk from XSS vectors or other attacks from the uploaded file.",
+              "Description": "Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable content security policy (CSP) to reduce the risk from XSS vectors or other attacks from the uploaded file.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -836,6 +842,12 @@
           ]
         },
         {
+          "Shortcode": "V1.13",
+          "Ordinal": 13,
+          "Name": "API Architectural Requirements",
+          "Items": []
+        },
+        {
           "Shortcode": "V1.14",
           "Ordinal": 14,
           "Name": "Configuration Architectural Requirements",
@@ -843,6 +855,27 @@
             {
               "Shortcode": "V1.14.1",
               "Ordinal": 1,
+              "Description": "Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. ([C3](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
+              "L1": {
+                "Required": false,
+                "Requirement": ""
+              },
+              "L2": {
+                "Required": true,
+                "Requirement": ""
+              },
+              "L3": {
+                "Required": true,
+                "Requirement": ""
+              },
+              "CWE": [
+                250
+              ],
+              "NIST": []
+            },
+            {
+              "Shortcode": "V1.14.2",
+              "Ordinal": 2,
               "Description": "Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms.",
               "L1": {
                 "Required": false,
@@ -862,8 +895,8 @@
               "NIST": []
             },
             {
-              "Shortcode": "V1.14.2",
-              "Ordinal": 2,
+              "Shortcode": "V1.14.3",
+              "Ordinal": 3,
               "Description": "Verify that if deploying binaries to untrusted devices makes use of binary signatures, trusted connections, and verified endpoints.",
               "L1": {
                 "Required": false,
@@ -883,8 +916,8 @@
               "NIST": []
             },
             {
-              "Shortcode": "V1.14.3",
-              "Ordinal": 3,
+              "Shortcode": "V1.14.4",
+              "Ordinal": 4,
               "Description": "Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions.",
               "L1": {
                 "Required": false,
@@ -904,8 +937,8 @@
               "NIST": []
             },
             {
-              "Shortcode": "V1.14.4",
-              "Ordinal": 4,
+              "Shortcode": "V1.14.5",
+              "Ordinal": 5,
               "Description": "Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts.",
               "L1": {
                 "Required": false,
@@ -923,8 +956,8 @@
               "NIST": []
             },
             {
-              "Shortcode": "V1.14.5",
-              "Ordinal": 5,
+              "Shortcode": "V1.14.6",
+              "Ordinal": 6,
               "Description": "Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
               "L1": {
                 "Required": false,
@@ -944,8 +977,8 @@
               "NIST": []
             },
             {
-              "Shortcode": "V1.14.6",
-              "Ordinal": 6,
+              "Shortcode": "V1.14.7",
+              "Ordinal": 7,
               "Description": "Verify the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets.",
               "L1": {
                 "Required": false,
@@ -2376,7 +2409,7 @@
             {
               "Shortcode": "V3.1.1",
               "Ordinal": 1,
-              "Description": "Verify the application never reveals session tokens in URL parameters or error messages.",
+              "Description": "Verify the application never reveals session tokens in URL parameters or error messages. ",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -2722,7 +2755,7 @@
             {
               "Shortcode": "V3.5.1",
               "Ordinal": 1,
-              "Description": "Verify the application does not treat OAuth and refresh tokens &amp;amp;amp;amp;mdash; on their own &amp;amp;amp;amp;mdash; as the presence of the subscriber and allows users to terminate trust relationships with linked applications.",
+              "Description": "Verify the application does not treat OAuth and refresh tokens &mdash; on their own &mdash; as the presence of the subscriber and allows users to terminate trust relationships with linked applications. ",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -2794,7 +2827,7 @@
             {
               "Shortcode": "V3.6.1",
               "Ordinal": 1,
-              "Description": "Verify that relying parties specify the maximum authentication time to CSPs and that CSPs re-authenticate the subscriber if they haven't used a session within that period.",
+              "Description": "Verify that relying parties specify the maximum authentication time to credential service providers (CSPs) and that CSPs re-authenticate the subscriber if they haven't used a session within that period.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -2817,7 +2850,7 @@
             {
               "Shortcode": "V3.6.2",
               "Ordinal": 2,
-              "Description": "Verify that CSPs inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the user.",
+              "Description": "Verify that credential service providers (CSPs) inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the user.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -3360,7 +3393,7 @@
             {
               "Shortcode": "V5.2.7",
               "Ordinal": 7,
-              "Description": "Verify that the application sanitizes, disables, or sandboxes user-supplied SVG scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject.",
+              "Description": "Verify that the application sanitizes, disables, or sandboxes user-supplied Scalable Vector Graphics (SVG) scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3404,12 +3437,12 @@
         {
           "Shortcode": "V5.3",
           "Ordinal": 3,
-          "Name": "Output encoding and Injection Prevention Requirements",
+          "Name": "Output Encoding and Injection Prevention Requirements",
           "Items": [
             {
               "Shortcode": "V5.3.1",
               "Ordinal": 1,
-              "Description": "Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, JavaScript, URL Parameters, HTTP headers, SMTP, and others as the context requires, especially from untrusted inputs (e.g. names with Unicode or apostrophes, such as ?? or O'Hara). ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
+              "Description": "Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, JavaScript, URL Parameters, HTTP headers, SMTP, and others as the context requires, especially from untrusted inputs (e.g. names with Unicode or apostrophes, such as \u306d\u3053 or O'Hara). ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3514,7 +3547,7 @@
             {
               "Shortcode": "V5.3.6",
               "Ordinal": 6,
-              "Description": "Verify that the application projects against JavaScript or JSON injection attacks, including for eval attacks, remote JavaScript includes, CSP bypasses, DOM XSS, and JavaScript expression evaluation. ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
+              "Description": "Verify that the application protects against JavaScript or JSON injection attacks, including for eval attacks, remote JavaScript includes, content security policy (CSP) bypasses, DOM XSS, and JavaScript expression evaluation. ([C4](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3717,7 +3750,7 @@
             {
               "Shortcode": "V5.5.2",
               "Ordinal": 2,
-              "Description": "Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XXE.",
+              "Description": "Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XXE. ",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3738,7 +3771,7 @@
             {
               "Shortcode": "V5.5.3",
               "Ordinal": 3,
-              "Description": "Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).",
+              "Description": "Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers). ",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -4258,7 +4291,7 @@
             {
               "Shortcode": "V7.2.1",
               "Ordinal": 1,
-              "Description": "Verify that all authentication decisions are logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.",
+              "Description": "Verify that all authentication decisions are logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations. ",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -4855,7 +4888,7 @@
         {
           "Shortcode": "V9.1",
           "Ordinal": 1,
-          "Name": "Communications Security Requirements",
+          "Name": "Client Communications Security Requirements",
           "Items": [
             {
               "Shortcode": "V9.1.1",
@@ -5141,7 +5174,7 @@
             {
               "Shortcode": "V10.2.4",
               "Ordinal": 4,
-              "Description": "Verify that the application source code and third party libraries does not contain time bombs by searching for date and time related functions.",
+              "Description": "Verify that the application source code and third party libraries do not contain time bombs by searching for date and time related functions.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5162,7 +5195,7 @@
             {
               "Shortcode": "V10.2.5",
               "Ordinal": 5,
-              "Description": "Verify that the application source code and third party libraries does not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.",
+              "Description": "Verify that the application source code and third party libraries do not contain malicious code, such as salami attacks, logic bypasses, or logic bombs.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5253,7 +5286,7 @@
             {
               "Shortcode": "V10.3.3",
               "Ordinal": 3,
-              "Description": "Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (autogen-bucket-id.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change.",
+              "Description": "Verify that the application has protection from sub-domain takeovers if the application relies upon DNS entries or DNS sub-domains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (*autogen-bucket-id*.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5324,7 +5357,7 @@
                 "Requirement": ""
               },
               "CWE": [
-                779
+                799
               ],
               "NIST": []
             },
@@ -5373,7 +5406,7 @@
             {
               "Shortcode": "V11.1.5",
               "Ordinal": 5,
-              "Description": "Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modelling or similar methodologies.",
+              "Description": "Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modeling or similar methodologies.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5472,7 +5505,7 @@
             {
               "Shortcode": "V12.1.1",
               "Ordinal": 1,
-              "Description": "Verify that the application will not accept large files that could fill up storage or cause a denial of service attack.",
+              "Description": "Verify that the application will not accept large files that could fill up storage or cause a denial of service.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5565,12 +5598,12 @@
         {
           "Shortcode": "V12.3",
           "Ordinal": 3,
-          "Name": "File execution Requirements",
+          "Name": "File Execution Requirements",
           "Items": [
             {
               "Shortcode": "V12.3.1",
               "Ordinal": 1,
-              "Description": "Verify that user-submitted filename metadata is not used directly with system or framework file and URL API to protect against path traversal.",
+              "Description": "Verify that user-submitted filename metadata is not used directly by system or framework filesystems and that a URL API is used to protect against path traversal.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5612,7 +5645,7 @@
             {
               "Shortcode": "V12.3.3",
               "Ordinal": 3,
-              "Description": "Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files (RFI), which may also lead to SSRF.",
+              "Description": "Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files (RFI), which may also lead to SSRF. ",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -6537,7 +6570,7 @@
             {
               "Shortcode": "V14.4.3",
               "Ordinal": 3,
-              "Description": "Verify that a content security policy (CSPv2) is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities.",
+              "Description": "Verify that a content security policy (CSP) is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
