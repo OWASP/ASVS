@@ -22,10 +22,15 @@ The requirements were developed with the following objectives in mind:
 
 ## Latest Released Version
 
+The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **4.1**.
+
 The latest published version is version 4.0.1 (dated 2 March 2019), which can be found:
 * [OWASP Application Security Verification Standard 4.0.1 English (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.pdf)
 * [OWASP Application Security Verification Standard 4.0.1 English (Word)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.docx)
 * [OWASP Application Security Verification Standard 4.0.1 English (CSV)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.csv)
 * [OWASP Application Security Verification Standard 4.0.1 (GitHub Tag)](https://github.com/OWASP/ASVS/tree/v4.0.1)
 
-The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **4.1**.
+### Translations
+
+Translation into Persian:
+* [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
