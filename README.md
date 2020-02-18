@@ -31,6 +31,6 @@ The latest published version is version 4.0.1 (dated 2 March 2019), which can be
 
 The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **4.1**.
 
-# License
+## License
 
 The entire project content is under the **[Creative Commons v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
