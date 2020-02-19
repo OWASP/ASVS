@@ -1,5 +1,6 @@
 # OWASP Application Security Verification Standard
-
+![LicenseBadge](https://img.shields.io/badge/license-C_C-blue.svg)
+ </br>[![LICENSE](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-sa/3.0/) 
 ## Introduction
 
 The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types.
@@ -30,8 +31,11 @@ The latest released version is version 4.0.1 (dated 2 March 2019), which can be 
 
 The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **4.1**.
 
-
 ### Translations
 
 Translation into Persian:
 * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
+
+## License
+
+The entire project content is under the **[Creative Commons v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
