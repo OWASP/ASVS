@@ -1,6 +1,6 @@
 # OWASP Application Security Verification Standard
 ![LicenseBadge](https://img.shields.io/badge/license-C_C-blue.svg)
-
+ </br>[![LICENSE](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-sa/3.0/) 
 ## Introduction
 
 The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types.
