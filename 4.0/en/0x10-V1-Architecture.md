@@ -136,6 +136,6 @@ For more information, see also:
 * [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
 * [OWASP Attack Surface Analysis Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.html)
 * [OWASP Threat modeling](https://www.owasp.org/index.php/Application_Threat_Modeling)
-* [OWASP Secure SDLC Cheat Sheet](https://www.owasp.org/index.php/Secure_SDLC_Cheat_Sheet)
+* [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/sdl/)
 * [NIST SP 800-57](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-4/final)
