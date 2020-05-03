@@ -196,7 +196,7 @@ V8,Data,8.1.6,Verify that backups are stored securely to prevent data from being
 V8,Data,8.2.1,Verify the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers.,X,X,X,525,
 V8,Data,8.2.2,"Verify that data stored in client side storage (such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies) does not contain sensitive data or PII.",X,X,X,922,
 V8,Data,8.2.3,"Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated.",X,X,X,922,
-V8,Data,8.3.1,"Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data.",X,X,X,319,
+V8,Data,8.3.1,"Verify that sensitive data is sent to the server in the HTTPS message body or headers, and that query string parameters from any HTTP action verbs (like GET, POST, etc...) do not contain sensitive data.",X,X,X,319,
 V8,Data,8.3.2,Verify that users have a method to remove or export their data on demand.,X,X,X,212,
 V8,Data,8.3.3,Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way.,X,X,X,285,
 V8,Data,8.3.4,"Verify that all sensitive data created and processed by the application has been identified, and ensure that a policy is in place on how to deal with sensitive data. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering))",X,X,X,200,
