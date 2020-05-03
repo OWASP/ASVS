@@ -160,6 +160,27 @@
               ],
               "NIST": []
             }
+            {
+              "Shortcode": "V1.1.8",
+              "Ordinal": 8,
+              "Description": "Verify availability of a publicly available ([security.txt](https://securitytxt.org/)) under the .well-known directory of the project that clearly defines a link or e-mail address for people to contact owners about security issues.",
+              "L1": {
+                "Required": true,
+                "Requirement": ""
+              },
+              "L2": {
+                "Required": true,
+                "Requirement": ""
+              },
+              "L3": {
+                "Required": true,
+                "Requirement": ""
+              },
+              "CWE": [],
+              "NIST": []
+            }
+          ]
+        },
           ]
         },
         {
