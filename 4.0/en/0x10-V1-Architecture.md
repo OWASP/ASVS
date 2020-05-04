@@ -21,7 +21,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. ([C1](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 1059 |
 | **1.1.6** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. ([C10](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 637 |
 | **1.1.7** | Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers. | | ✓ | ✓ | 637 |
-| **1.1.8** | Verify availability of a publicly available ([security.txt](https://securitytxt.org/)) under the .well-known directory of the project that clearly defines a link or e-mail address for people to contact owners about security issues. | ✓ | ✓ | ✓ |  |
+| **1.1.8** | Verify availability of a publicly available [security.txt](https://securitytxt.org/) file under the .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues. |  | ✓ | ✓ |  |
 
 ## V1.2 Authentication Architectural Requirements
 
