@@ -17,10 +17,10 @@ All client communications should only take place over encrypted communication pa
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **9.1.1** | Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | 319 |
-| **9.1.2** | Verify using online or up to date TLS testing tools that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred. | ✓ | ✓ | ✓ | 326 |
-| **9.1.3** | Verify that old versions of SSL and TLS protocols, algorithms, ciphers, and configuration are disabled, such as SSLv2, SSLv3, or TLS 1.0 and TLS 1.1. The latest version of TLS should be the preferred cipher suite. | ✓ | ✓ | ✓ | 326 |
-| **9.1.4** | For thick client applications, verify that the app either uses its own certificate store, or pins the endpoint certificate or public key, and will not establish connections with endpoints that offer a different certificate or key, even if signed by a trusted CA. |   |   | ✓ | 295 |
+| **9.1.1** | Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols. ([C8](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | ✓ | ✓ | ✓ | [319](https://cwe.mitre.org/data/definitions/319.html) |
+| **9.1.2** | Verify using online or up to date TLS testing tools that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred. | ✓ | ✓ | ✓ | [326](https://cwe.mitre.org/data/definitions/326.html) |
+| **9.1.3** | Verify that old versions of SSL and TLS protocols, algorithms, ciphers, and configuration are disabled, such as SSLv2, SSLv3, or TLS 1.0 and TLS 1.1. The latest version of TLS should be the preferred cipher suite. | ✓ | ✓ | ✓ | [326](https://cwe.mitre.org/data/definitions/326.html) |
+| **9.1.4** | For thick client applications, verify that the app either uses its own certificate store, or pins the endpoint certificate or public key, and will not establish connections with endpoints that offer a different certificate or key, even if signed by a trusted CA. |   |   | ✓ | [295](https://cwe.mitre.org/data/definitions/295.html) |
 
 ## V9.2 Server Communications Security Requirements
 
@@ -28,11 +28,11 @@ Server communications are more than just HTTP. Secure connections to and from ot
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **9.2.1** | Verify that connections to and from the server use trusted TLS certificates. Where internally generated or self-signed certificates are used, the server must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
-| **9.2.2** | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols. |  | ✓ | ✓ | 319 |
-| **9.2.3** | Verify that all encrypted connections to external systems that involve sensitive information or functions are authenticated. |  | ✓ | ✓ | 287 |
-| **9.2.4** | Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. |  | ✓ | ✓ | 299 |
-| **9.2.5** | Verify that backend TLS connection failures are logged. |  |  | ✓ | 544 |
+| **9.2.1** | Verify that connections to and from the server use trusted TLS certificates. Where internally generated or self-signed certificates are used, the server must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | [295](https://cwe.mitre.org/data/definitions/295.html) |
+| **9.2.2** | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols. |  | ✓ | ✓ | [319](https://cwe.mitre.org/data/definitions/319.html) |
+| **9.2.3** | Verify that all encrypted connections to external systems that involve sensitive information or functions are authenticated. |  | ✓ | ✓ | [287](https://cwe.mitre.org/data/definitions/287.html) |
+| **9.2.4** | Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. |  | ✓ | ✓ | [299](https://cwe.mitre.org/data/definitions/299.html) |
+| **9.2.5** | Verify that backend TLS connection failures are logged. |  |  | ✓ | [544](https://cwe.mitre.org/data/definitions/544.html) |
 
 ## References
 
