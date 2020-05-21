@@ -63,7 +63,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.4.4** | Verify that all responses contain X-Content-Type-Options: nosniff. | ✓ | ✓ | ✓ | 116 |
 | **14.4.5** | Verify that Strict-Transport-Security header is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
 | **14.4.6** | Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin". | ✓ | ✓ | ✓ | 116 |
-| **14.4.7** | Verify that a suitable X-Frame-Options or Content-Security-Policy: frame-ancestors header is in use for sites where content should not be embedded in a third-party site. | ✓ | ✓ | ✓ | 346 |
+| **14.4.7** | Verify that content of the entire site is not allowed to be embedded by third-party by default and that embedding of the exact resources is allowed only where needed by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options header. | ✓ | ✓ | ✓ | 346 |
 
 ## V14.5 Validate HTTP Request Header Requirements
 
