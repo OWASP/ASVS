@@ -9,7 +9,7 @@ The Application Security Verification Standard is a list of application security
 ![license](../images/license.png)
 Copyright © 2008-2019 The OWASP Foundation. This document is released under the [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
 
-Version 4.0.1, March 2019
+Version 4.0.2, June 2020
 
 ## Project Leads
 
@@ -51,6 +51,7 @@ Version 4.0.1, March 2019
 - Kelby Ludwig
 - Jason Morrow
 - Rogan Dawes
+- Daniël Geerts
 
 The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
 
