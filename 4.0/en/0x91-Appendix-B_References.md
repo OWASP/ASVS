@@ -4,11 +4,11 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 
 ## OWASP Core Projects
 
-1. OWASP Top 10 Project: [https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-2. OWASP Testing Guide: [https://www.owasp.org/index.php/OWASP_Testing_Project](https://www.owasp.org/index.php/OWASP_Testing_Project)
-3. OWASP Proactive Controls: [https://www.owasp.org/index.php/OWASP_Proactive_Controls](https://www.owasp.org/index.php/OWASP_Proactive_Controls)
-4. OWASP Security Knowledge Framework: [https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework](https://www.owasp.org/index.php/OWASP_Security_Knowledge_Framework)
-5. OWASP Software Assurance Maturity Model (SAMM): [https://www.owasp.org/index.php/OWASP_SAMM_Project](https://www.owasp.org/index.php/OWASP_SAMM_Project)
+1. OWASP Top 10 Project: [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
+2. OWASP Testing Guide: [https://owasp.org/www-project-web-security-testing-guide/](https://owasp.org/www-project-web-security-testing-guide/)
+3. OWASP Proactive Controls: [https://owasp.org/www-project-proactive-controls/](https://owasp.org/www-project-proactive-controls/)
+4. OWASP Security Knowledge Framework: [https://owasp.org/www-project-security-knowledge-framework/](https://owasp.org/www-project-security-knowledge-framework/)
+5. OWASP Software Assurance Maturity Model (SAMM): [https://owasp.org/www-project-samm/](https://owasp.org/www-project-samm/)
 
 ##  OWASP Cheat Sheet Series project
 
@@ -18,17 +18,17 @@ There is a mapping to the ASVS which can be found here: [https://cheatsheetserie
 
 ## Mobile Security Related Projects
 
-1. OWASP Mobile Security Project: [https://www.owasp.org/index.php/OWASP_Mobile_Security_Project](https://www.owasp.org/index.php/OWASP_Mobile_Security_Project)
-2. OWASP Mobile Top 10 Risks: [https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks](https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks)
-3. OWASP Mobile Security Testing Guide: [https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide](https://www.owasp.org/index.php/OWASP_Mobile_Security_Testing_Guide)
+1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
+2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
+3. OWASP Mobile Security Testing Guide: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
 
 ## OWASP Internet of Things related projects
 
-1. OWASP Internet of Things Project: [https://www.owasp.org/index.php/OWASP_Internet_of_Things_Project](https://www.owasp.org/index.php/OWASP_Internet_of_Things_Project)
+1. OWASP Internet of Things Project: [https://owasp.org/www-project-internet-of-things/](https://owasp.org/www-project-internet-of-things/)
 
 ## OWASP Serverless projects
 
-1. OWASP Serverless Project: [https://www.owasp.org/index.php/OWASP_Serverless_Top_10_Project](https://www.owasp.org/index.php/OWASP_Serverless_Top_10_Project)
+1. OWASP Serverless Project: [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
 
 ## Others
 
