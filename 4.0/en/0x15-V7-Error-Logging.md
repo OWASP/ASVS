@@ -41,7 +41,7 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **7.2.1** | Verify that all authentication decisions are logged, without storing sensitive session identifiers or passwords. This should include requests with relevant metadata needed for security investigations.  | | ✓ | ✓ | 778 |
+| **7.2.1** | Verify that all authentication decisions are logged, without storing sensitive session tokens or passwords. This should include requests with relevant metadata needed for security investigations.  | | ✓ | ✓ | 778 |
 | **7.2.2** | Verify that all access control decisions can be logged and all failed decisions are logged. This should include requests with relevant metadata needed for security investigations. | | ✓ | ✓ | 285 |
 
 ## V7.3 Log Protection Requirements
