@@ -52,7 +52,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.6.1** | Verify that the web or application server is configured with a whitelist of resources or systems to which the server can send requests or load data/files from. | ✓ | ✓ | ✓ | 918 |
+| **12.6.1** | Verify that the web or application server is configured with a allow list of resources or systems to which the server can send requests or load data/files from. | ✓ | ✓ | ✓ | 918 |
 
 ## References
 
