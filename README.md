@@ -24,9 +24,9 @@ The requirements were developed with the following objectives in mind:
 ### How To Reference ASVS Controls
 
 Each control has an identifier in the format `<category>.<sub-category>.<control>` where each element is a number, ex: `1.11.3`. 
-- The `x` value corresponds to a particular category of control, ex: all `1.#.#` controls are `Architecture` related.
-- The `y` value corresponds to a particular sub-category of control, ex: all `1.11.#` controls are `Business Logic Architectural Requirements` related.
-- The `z` value corresponds to a specific control, ex: `1.11.3` which as of version 4.0.1 of this standard is:
+- The `<category>` value corresponds to a particular category of control, ex: all `1.#.#` controls are `Architecture` related.
+- The `<sub-category>` value corresponds to a particular sub-category of control, ex: all `1.11.#` controls are `Business Logic Architectural Requirements` related.
+- The `<control>` value identifies a specific control within the category and sub-category, ex: `1.11.3` which as of version 4.0.1 of this standard is:
 
 > Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
 
