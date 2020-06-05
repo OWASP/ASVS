@@ -34,6 +34,8 @@ The identifiers may change between versions of the standard therefore it is pref
 
 If identifiers are used without including the `<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
 
+ASVS control lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
+
 ## Latest Released Version - 4.0.1
 
 The latest released version is version 4.0.1 (dated 2 March 2019), which can be found:
