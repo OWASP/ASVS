@@ -1,0 +1,3 @@
+BUILDDIR=build/
+TOOLSDIR=tools/
+TARGETS= 
