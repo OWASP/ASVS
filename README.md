@@ -21,20 +21,20 @@ The requirements were developed with the following objectives in mind:
 * Assist organizations to benchmark application security tools by the percentage of coverage of the ASVS for dynamic, interactive, and static analysis tools
 * Minimize overlapping and competing requirements from other standards, by either aligning strongly with them (NIST 800-63), or being strict supersets (OWASP Top 10 2017, PCI DSS 3.2.1), which will help reduce compliance costs, effort, and time wasted in accepting unnecessary differences as risks.
 
-### How To Reference ASVS Controls
+### How To Reference ASVS Requirements
 
-Each control has an identifier in the format `<category>.<sub-category>.<control>` where each element is a number, ex: `1.11.3`. 
-- The `<category>` value corresponds to a particular category of control, ex: all `1.#.#` controls are `Architecture` related.
-- The `<sub-category>` value corresponds to a particular sub-category of control, ex: all `1.11.#` controls are `Business Logic Architectural Requirements` related.
-- The `<control>` value identifies a specific control within the category and sub-category, ex: `1.11.3` which as of version 4.0.1 of this standard is:
+Each requirement has an identifier in the format `<chapter>.<segment>.<requirement>` where each element is a number, ex: `1.11.3`. 
+- The `<chapter>` value corresponds to a particular category of requirement, ex: all `1.#.#` requirements are `Architecture` related.
+- The `<segment>` value corresponds to a particular sub-category of requirement, ex: all `1.11.#` requirement are `Business Logic Architectural Requirements` related.
+- The `<requirement>` value identifies a specific requirement within the chapter and segment, ex: `1.11.3` which as of version 4.0.1 of this standard is:
 
 > Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
 
-The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<category>.<sub-category>.<control>`, where: 'version' is the version tag with punctuation removed. For example: `v401-1.11.3` would be understood to mean specifically the 3rd Architecture Business Logic control from version 4.0.1. (This could be summarized as `v<version>-<control_identifier>`.)
+The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<segment>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.1-1.11.3` would be understood to mean specifically the 3rd Architecture Business Logic requirement from version 4.0.1. (This could be summarized as `v<version>-<requirement_identifier>`.)
 
 If identifiers are used without including the `<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
 
-ASVS control lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
+ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
 
 ## Latest Released Version - 4.0.1
 
