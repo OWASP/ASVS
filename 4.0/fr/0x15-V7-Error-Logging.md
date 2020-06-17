@@ -10,7 +10,7 @@ Les journaux de haute qualité contiennent souvent des données sensibles et doi
 * Veiller à ce que toutes les informations enregistrées soient traitées de manière sûre et protégées conformément à leur classification.
 * Veiller à ce que les journaux ne soient pas conservés éternellement, mais qu'ils aient une durée de vie absolue aussi courte que possible.
 
-Si les journaux contiennent des données privées ou sensibles, dont la définition varie d'un pays à l'autre, les journaux deviennent certaines des informations les plus sensibles détenues par l'application et donc très attrayantes pour les attaquants en soi.
+Si les journaux contiennent des données privées ou sensibles, dont la définition varie d'un pays à l'autre, les journaux deviennent parmis les informations les plus sensibles détenues par l'application et donc très attrayantes pour les attaquants en soi.
 
 Il est également important de s'assurer que l'application échoue en toute sécurité et que les erreurs ne divulguent pas d'informations inutiles.
 
@@ -18,10 +18,10 @@ Il est également important de s'assurer que l'application échoue en toute séc
 
 L'enregistrement d'informations sensibles est dangereux : les journaux deviennent eux-mêmes classifiés, ce qui signifie qu'ils doivent être cryptés, faire l'objet de politiques de conservation et être divulgués lors d'audits de sécurité. Assurez-vous que seules les informations nécessaires sont conservées dans les journaux, et certainement pas les paiements, les justificatifs d'identité (y compris les jetons de session), les informations sensibles ou identifiables personnellement.
 
-V7.1 couvre le Top 10 de l'OWASP 2017:A10. Comme 2017:A10 et cette section ne sont pas testables pour la pénétration, il est important pour :
+V7.1 couvre le Top 10 de l'OWASP 2017:A10. Comme 2017:A10 et cette section ne sont pas testables tests d'intrusions, il est important pour :
 
-* Les développeurs doivent s'assurer de la conformité totale avec cette section, comme si tous les éléments étaient marqués comme L1
-* Tests de pénétration pour valider la conformité totale de tous les éléments de la V7.1 par le biais d'un entretien, de captures d'écran ou d'une affirmation
+* Les développeurs de s'assurer de la conformité totale avec cette section, comme si tous les éléments étaient marqués comme L1
+* Tests de pénétration de valider la conformité totale de tous les éléments de la V7.1 par le biais d'un entretien, de captures d'écran ou d'une affirmation
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -36,12 +36,12 @@ Il est essentiel d'enregistrer en temps utile les événements de vérification,
 
 V7.2 couvre le Top 10 de l'OWASP 2017:A10. Comme 2017:A10 et cette section ne sont pas testables, il est important pour :
 
-* Les développeurs doivent s'assurer de la conformité totale avec cette section, comme si tous les éléments étaient marqués comme L1
-* Tests de pénétration pour valider la conformité totale de tous les éléments de la V7.2 par le biais d'un entretien, de captures d'écran ou d'une affirmation
+* Les développeurs de s'assurer de la conformité totale avec cette section, comme si tous les éléments étaient marqués comme L1
+* Tests de pénétration de valider la conformité totale de tous les éléments de la V7.2 par le biais d'un entretien, de captures d'écran ou d'une affirmation
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **7.2.1** | Vérifiez que toutes les décisions d'authentification sont consignées, sans stocker de jetons de session ou de mots de passe sensibles. Cela devrait inclure les demandes avec les métadonnées pertinentes nécessaires aux enquêtes de sécurité.  | | ✓ | ✓ | 778 |
+| **7.2.1** | Vérifiez que toutes les décisions d'authentification sont consignées, sans stocker d'identifiants de session ou de mots de passe sensibles. Cela devrait inclure les demandes avec les métadonnées pertinentes nécessaires aux enquêtes de sécurité.  | | ✓ | ✓ | 778 |
 | **7.2.2** | Vérifiez que toutes les décisions de contrôle d'accès peuvent être enregistrées et que toutes les décisions qui ont échoué sont enregistrées. Cela devrait inclure les demandes avec les métadonnées pertinentes nécessaires aux enquêtes de sécurité. | | ✓ | ✓ | 285 |
 
 ## V7.3 Exigences en matière de protection des journaux

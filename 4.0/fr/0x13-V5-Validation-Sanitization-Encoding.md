@@ -24,7 +24,7 @@ Des contrôles de validation des entrées correctement mis en œuvre, utilisant 
 | **5.1.4** | Vérifier que les données structurées sont fortement typées et validées par rapport à un schéma défini comprenant les caractères, la longueur et le modèle autorisés (par exemple, numéros de carte de crédit ou de téléphone, ou valider que deux champs connexes sont raisonnables, comme vérifier la correspondance entre la banlieue et le code postal). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
 | **5.1.5** | Vérifiez que les redirections et les transferts d'URL n'autorisent que les destinations en liste blanche, ou affichez un avertissement lors d'une redirection vers un contenu potentiellement non fiable. | ✓ | ✓ | ✓ | 601 |
 
-## V5.2 Exigences en matière d'assainissement et de bac à sable
+## V5.2 Exigences en matière d'assainissement et de « bac à sable »
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -39,7 +39,7 @@ Des contrôles de validation des entrées correctement mis en œuvre, utilisant 
 
 ## V5.3 Exigences en matière d'encodage de sortie et de prévention des injections
 
-L'encodage de la sortie à proximité ou à proximité de l'interprète utilisé est essentiel pour la sécurité de toute application. Généralement, l'encodage de sortie n'est pas persistant, mais utilisé pour rendre la sortie sûre dans le contexte de sortie approprié pour une utilisation immédiate. Le défaut d'encodage de la sortie entraînera une application non sécurisée, injectable et dangereuse.
+L'encodage de la sortie à proximité de l'interprète utilisé est essentiel pour la sécurité de toute application. Généralement, l'encodage de sortie n'est pas persistant, mais utilisé pour rendre la sortie sûre dans le contexte de sortie approprié pour une utilisation immédiate. Le défaut d'encodage de la sortie entraînera une application non sécurisée, injectable et dangereuse.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -49,7 +49,7 @@ L'encodage de la sortie à proximité ou à proximité de l'interprète utilisé
 | **5.3.4** | Vérifier que la sélection de données ou les requêtes de base de données (par exemple SQL, HQL, ORM, NoSQL) utilisent des requêtes paramétrées, des ORM, des cadres d'entités, ou sont autrement protégées contre les attaques par injection de base de données. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
 | **5.3.5** | Vérifiez que, lorsque des mécanismes paramétrés ou plus sûrs ne sont pas présents, un encodage de sortie spécifique au contexte est utilisé pour se protéger contre les attaques par injection, comme l'utilisation de l'échappement SQL pour se protéger contre l'injection SQL. ([C3, C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
 | **5.3.6** | Vérifiez que l'application protège contre les attaques par injection de JavaScript ou de JSON, y compris pour les attaques d'évaluation, les includes JavaScript distants, les contournements de la politique de sécurité du contenu (CSP), les DOM XSS et l'évaluation des expressions JavaScript. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 830 |
-| **5.3.7** | Vérifiez que l'application protège contre les vulnérabilités de LDAP Injection, ou que des contrôles de sécurité spécifiques pour empêcher LDAP Injection ont été mis en place. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 90 |
+| **5.3.7** | Vérifiez que l'application protège contre les vulnérabilités de LDAP Injection, ou que des contrôles de sécurité spécifiques pour empêcher des injections LDAP ont été mis en place. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 90 |
 | **5.3.8** | Vérifiez que l'application protège contre l'injection de commandes du système d'exploitation et que les appels du système d'exploitation utilisent des requêtes paramétrées du système d'exploitation ou utilisent l'encodage contextuel de la sortie de la ligne de commande. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 78 |
 | **5.3.9** | Vérifiez que l'application protège contre les attaques par inclusion de fichier local (LFI) ou par inclusion de fichier distant (RFI). | ✓ | ✓ | ✓ | 829 |
 | **5.3.10** | Vérifiez que l'application protège contre les attaques par injection XPath ou par injection XML. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 643 |
@@ -73,7 +73,7 @@ Les exigences suivantes ne s'appliquent que lorsque l'application utilise un lan
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **5.5.1** | Vérifiez que les objets sérialisés utilisent des contrôles d'intégrité ou sont cryptés pour empêcher la création d'objets hostiles ou la falsification de données. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 502 |
-| **5.5.2** | Vérifiez que l'application restreint correctement les analyseurs XML pour n'utiliser que la configuration la plus restrictive possible et pour s'assurer que les fonctions dangereuses telles que la résolution d'entités externes sont désactivées pour empêcher une attaque de type XML eXternal Entity (XXE).  | ✓ | ✓ | ✓ | 611 |
+| **5.5.2** | Vérifiez que l'application restreint correctement les analyseurs XML pour n'utiliser que la configuration la plus restrictive possible et pour s'assurer que les fonctions dangereuses telles que la résolution d'entités externes sont désactivées pour empêcher les XXE.  | ✓ | ✓ | ✓ | 611 |
 | **5.5.3** | Vérifiez que la désérialisation des données non fiables est évitée ou protégée à la fois dans le code personnalisé et les bibliothèques tierces (comme les analyseurs JSON, XML et YAML).  | ✓ | ✓ | ✓ | 502 |
 | **5.5.4** | Vérifiez que lors de l'analyse de JSON dans les navigateurs ou les backends basés sur JavaScript, JSON.parse est utilisé pour analyser le document JSON. N'utilisez pas eval() pour analyser JSON. | ✓ | ✓ | ✓ | 95 |
 

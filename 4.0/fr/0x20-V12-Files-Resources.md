@@ -9,7 +9,7 @@ Assurez-vous qu'une application vérifiée satisfait aux exigences de haut nivea
 
 ## V12.1 Exigences pour le téléchargement de fichiers
 
-Bien que les bombes zip soient facilement testables à l'aide de techniques de test de pénétration, elles sont considérées comme L2 et au-dessus pour encourager la prise en compte de la conception et du développement avec des tests manuels minutieux, et pour éviter les tests de pénétration manuels ou automatisés engendre une condition de déni de service.
+Bien que les bombes zip soient facilement testables à l'aide de techniques de test de pénétration, elles sont considérées comme L2 et au-dessus pour encourager la prise en compte de la conception et du développement avec des tests manuels minutieux, et pour éviter que les tests de pénétration manuels ou automatisés engendre une condition de déni de service.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -29,7 +29,7 @@ Bien que les bombes zip soient facilement testables à l'aide de techniques de t
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **12.3.1** | Vérifiez que les métadonnées de nom de fichier soumises par l'utilisateur ne sont pas utilisées directement par les systèmes de fichiers du système ou du cadre et qu'une API URL est utilisée pour protéger contre la traversée du chemin (path traversal). | ✓ | ✓ | ✓ | 22 |
 | **12.3.2** | Vérifier que les métadonnées de nom de fichier soumises par l'utilisateur sont validées ou ignorées pour empêcher la divulgation, la création, la mise à jour ou la suppression de fichiers locaux (LFI). | ✓ | ✓ | ✓ | 73 |
-| **12.3.3** | Vérifier que les métadonnées de nom de fichier soumises par l'utilisateur sont validées ou ignorées pour empêcher la divulgation ou l'exécution de fichiers distants  via des attaques de type RFI (Remote File Inclusion) ou SSRF (Server-Side Request Forgery).  | ✓ | ✓ | ✓ | 98 |
+| **12.3.3** | Vérifier que les métadonnées de nom de fichier soumises par l'utilisateur sont validées ou ignorées pour empêcher la divulgation ou l'exécution de fichiers distants (RFI), qui peuvent également conduire à des SSRF.  | ✓ | ✓ | ✓ | 98 |
 | **12.3.4** | Vérifiez que l'application protège contre le téléchargement de fichiers réfléchis (RFD) en validant ou en ignorant les noms de fichiers soumis par les utilisateurs dans un paramètre JSON, JSONP ou URL, l'en-tête Content-Type de la réponse doit être défini sur text/plain, et l'en-tête Content-Disposition doit avoir un nom de fichier fixe. | ✓ | ✓ | ✓ | 641 |
 | **12.3.5** | Vérifier que les métadonnées de fichiers non fiables ne sont pas utilisées directement avec l'API système ou les bibliothèques, pour se protéger contre l'injection de commandes du système d'exploitation. | ✓ | ✓ | ✓ | 78 |
 | **12.3.6** | Vérifiez que l'application n'inclut pas et n'exécute pas de fonctionnalités provenant de sources non fiables, telles que des réseaux de distribution de contenu non vérifiés, des bibliothèques JavaScript, des bibliothèques node npm ou des DLL côté serveur. | | ✓ | ✓ | 829 |

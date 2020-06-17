@@ -28,7 +28,7 @@ Assurez-vous qu'une application vérifiée satisfait aux exigences de haut nivea
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **8.2.1** | Vérifiez que l'application définit suffisamment d'en-têtes anticaching pour que les données sensibles ne soient pas mises en cache dans les navigateurs modernes. | ✓ | ✓ | ✓ | 525 |
-| **8.2.2** | Vérifiez que les données stockées dans le stockage côté client (telles que le stockage local HTML5, le stockage de session, IndexedDB, ou les cookies) ne contiennent pas de données sensibles ou d'IIP. | ✓ | ✓ | ✓ | 922 |
+| **8.2.2** | Vérifiez que les données stockées dans le stockage côté client (telles que le stockage local HTML5, le stockage de session, IndexedDB, les cookies réguliers ou les cookies Flash) ne contiennent pas de données sensibles ou d'IIP. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | Vérifiez que les données authentifiées sont effacées du stockage du client, tel que le DOM du navigateur, après la fin du client ou de la session. | ✓ | ✓ | ✓ | 922 |
 
 ## V8.3 Données privées sensibles
@@ -50,7 +50,7 @@ Note : Les réglementations et les lois relatives à la protection de la vie pri
 | **8.3.7** | Vérifier que les informations sensibles ou privées qui doivent être cryptées, le sont à l'aide d'algorithmes approuvés qui assurent à la fois la confidentialité et l'intégrité. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 327 |
 | **8.3.8** | Vérifier que les informations personnelles sensibles font l'objet d'une classification de conservation des données, de sorte que les données anciennes ou périmées soient supprimées automatiquement, selon un calendrier ou selon la situation. | | ✓ | ✓ | 285 |
 
-Lorsqu'on envisage la protection des données, il faut avant tout tenir compte de l'extraction ou de la modification en masse ou de l'utilisation excessive. Par exemple, de nombreux systèmes de médias sociaux ne permettent aux utilisateurs que d'ajouter 100 nouveaux amis par jour, mais le système d'où proviennent ces demandes n'a pas d'importance. Une plateforme bancaire peut souhaiter bloquer plus de 5 transactions par heure en transférant plus de 1000 euros de fonds vers des institutions externes. Les exigences de chaque système sont susceptibles d'être très différentes, de sorte que la décision d'être "anormal" doit tenir compte du modèle de menace et du risque commercial. Les critères importants sont la capacité de détecter, de dissuader ou, de préférence, de bloquer ces actions anormales en masse.
+Lorsqu'on envisage la protection des données, il faut avant tout tenir compte de l'extraction ou de la modification de masse ou de l'utilisation excessive. Par exemple, de nombreux systèmes de médias sociaux ne permettent aux utilisateurs que d'ajouter 100 nouveaux amis par jour, mais le système d'où proviennent ces demandes n'a pas d'importance. Une plateforme bancaire peut souhaiter bloquer plus de 5 transactions par heure en transférant plus de 1000 euros de fonds vers des institutions externes. Les exigences de chaque système sont susceptibles d'être très différentes, de sorte que la décision d'être "anormal" doit tenir compte du modèle de menace et du risque commercial. Les critères importants sont la capacité de détecter, de dissuader ou, de préférence, de bloquer ces actions anormales de masse.
 
 ## Références
 

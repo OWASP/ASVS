@@ -22,7 +22,7 @@ L'actif le plus important est constitué par les données traitées, stockées o
 
 Les récents progrès de la cryptographie signifient que des algorithmes et des longueurs de clé auparavant sûrs ne sont plus sûrs ou suffisants pour protéger les données. Il devrait donc être possible de modifier les algorithmes.
 
-Bien que cette section ne soit pas facilement testée en termes de pénétration, les développeurs devraient considérer toute cette section comme obligatoire même si la L1 est absente de la plupart des éléments.
+Bien que cette section ne soit pas facilement testée lors des tests d'intrusions, les développeurs devraient considérer toute cette section comme obligatoire même si la L1 est absente de la plupart des éléments.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
