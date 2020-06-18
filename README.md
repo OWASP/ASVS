@@ -24,13 +24,13 @@ The requirements were developed with the following objectives in mind:
 ### How To Reference ASVS Requirements
 
 Each requirement has an identifier in the format `<chapter>.<segment>.<requirement>` where each element is a number, ex: `1.11.3`. 
-- The `<chapter>` value corresponds to a particular category of requirement, ex: all `1.#.#` requirements are `Architecture` related.
-- The `<segment>` value corresponds to a particular sub-category of requirement, ex: all `1.11.#` requirement are `Business Logic Architectural Requirements` related.
-- The `<requirement>` value identifies a specific requirement within the chapter and segment, ex: `1.11.3` which as of version 4.0.1 of this standard is:
+- The `<chapter>` value corresponds to the chapter from which the requirement comes, ex: all `1.#.#` requirements are from the `Architecture` chapter.
+- The `<segment>` value corresponds to the segment within that chapter where the requirement appears, ex: all `1.11.#` requirements are in the 'Business Logic Architectural Requirements` segment of the `Architecture` chapter.
+- The `<requirement>` value identifies the specific requirement within the chapter and segment, ex: `1.11.3` which as of version 4.0.1 of this standard is:
 
 > Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
 
-The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<segment>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.1-1.11.3` would be understood to mean specifically the 3rd Architecture Business Logic requirement from version 4.0.1. (This could be summarized as `v<version>-<requirement_identifier>`.)
+The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<segment>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.1-1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architectural Requirements' segment of the 'Architecture' chapter from version 4.0.1. (This could be summarized as `v<version>-<requirement_identifier>`.)
 
 If identifiers are used without including the `<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
 
