@@ -25,7 +25,7 @@ The requirements were developed with the following objectives in mind:
 
 Each requirement has an identifier in the format `<chapter>.<segment>.<requirement>` where each element is a number, ex: `1.11.3`. 
 - The `<chapter>` value corresponds to the chapter from which the requirement comes, ex: all `1.#.#` requirements are from the `Architecture` chapter.
-- The `<segment>` value corresponds to the segment within that chapter where the requirement appears, ex: all `1.11.#` requirements are in the 'Business Logic Architectural Requirements` segment of the `Architecture` chapter.
+- The `<segment>` value corresponds to the segment within that chapter where the requirement appears, ex: all `1.11.#` requirements are in the `Business Logic Architectural Requirements` segment of the `Architecture` chapter.
 - The `<requirement>` value identifies the specific requirement within the chapter and segment, ex: `1.11.3` which as of version 4.0.1 of this standard is:
 
 > Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
