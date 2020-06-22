@@ -33,8 +33,8 @@ $(BUILDDIR)/en/%.md: $(BUILDDIR)
 
 
 md: $(BUILDDIR)
-	@mkdir -p $(BUILDDIR) # make sure build dir exists
-	pandoc $(PANDOC_MD_FLAGS) -o $(BUILDDIR)/source.md $(SOURCES) 
+	pandoc $(PANDOC_MD_FLAGS) -o $(BUILDDIR)/source.md $(BUILDDIR)/$(SOURCES) 
+	sed -Ei 's#../images/#./images/#' $(BUILDDIR)/source.md
 
 pdf: md
 	pandoc $(PARAMETERS) $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/source.md
