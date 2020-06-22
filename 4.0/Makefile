@@ -17,9 +17,12 @@ PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex \
 				 --number-sections \
 				 --pdf-engine-opt=--no-toc-relocation
 
-.PHONY: md $(BUILDDIR) pdf
+PANDOC_DOCX_FLAGS=-f markdown -s --reference-doc=./templates/reference.docx \
+				  --columns 10000 -t docx
 
-all: pdf
+.PHONY: md $(BUILDDIR) pdf docx clean
+
+all: $(TARGETS)	pdf docx
 
 $(BUILDDIR): 
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
