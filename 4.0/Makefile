@@ -37,4 +37,4 @@ md: $(BUILDDIR)
 	sed -Ei 's#../images/#./images/#' $(BUILDDIR)/source.md
 
 pdf: md
-	pandoc $(PARAMETERS) $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/source.md
+	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/source.md
