@@ -2,6 +2,7 @@ BUILDDIR=build
 TOOLSDIR=tools
 SOURCEDIR=en
 SOURCES = $(SOURCEDIR)/*.md
+TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
 TARGETNAME=OWASP Application Security Verification Standard 4.0
 
 # Change LaTeX engine
