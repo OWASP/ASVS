@@ -15,7 +15,7 @@ The Application Security Verification Standard defines three security verificati
 
 Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
 
-![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "ASVS Levels")
+![ASVS Levels](../images/asvs_40_levels.png "ASVS Levels")
 
 Figure 1 - OWASP Application Security Verification Standard 4.0 Levels
 
