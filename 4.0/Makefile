@@ -21,7 +21,12 @@ PANDOC_PDF_FLAGS=-f markdown -s -t latex \
 all: pdf
 
 $(BUILDDIR): 
-	@mkdir -p $(BUILDDIR) # make sure build dir exists
+	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
+
+$(BUILDDIR)/en/%.md: $(BUILDDIR)
+	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#' $(subst build,.,$@) > $@
+	 
+
 
 # pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard 4.0-$1.docx" *.md
 md: $(BUILDDIR)
