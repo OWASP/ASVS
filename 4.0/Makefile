@@ -22,4 +22,4 @@ md: $(BUILDDIR)
 	pandoc $(PANDOC_MD_FLAGS) -o $(BUILDDIR)/source.md $(SOURCES) 
 
 pdf: md
-	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/source.md
+	pandoc $(PARAMETERS) $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/source.md
