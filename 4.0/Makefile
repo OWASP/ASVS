@@ -32,7 +32,6 @@ $(BUILDDIR)/en/%.md: $(BUILDDIR)
 	 
 
 
-# pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 -t docx -o "../OWASP Application Security Verification Standard 4.0-$1.docx" *.md
 md: $(BUILDDIR)
 	@mkdir -p $(BUILDDIR) # make sure build dir exists
 	pandoc $(PANDOC_MD_FLAGS) -o $(BUILDDIR)/source.md $(SOURCES) 
