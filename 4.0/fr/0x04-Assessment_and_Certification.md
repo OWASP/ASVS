@@ -34,9 +34,9 @@ Veuillez noter que les limites entre les tests automatisés et manuels se sont e
 
 #### Le rôle des tests de pénétration
 
-Dans la version 4.0, nous avons décidé de rendre la L1 entièrement testable par pénétration sans accès au code source, à la documentation ou aux développeurs. Deux éléments d'enregistrement, qui doivent être conformes au Top 10 2017 A10 de l'OWASP, nécessiteront des entretiens, des captures d'écran ou d'autres collectes de preuves, tout comme dans le Top 10 2017 de l'OWASP. Cependant, les tests sans accès aux informations nécessaires ne constituent pas une méthode idéale de vérification de la sécurité, car ils laissent de côté la possibilité d'examiner la source, d'identifier les menaces et les contrôles manquants, et de réaliser un test beaucoup plus approfondi dans un délai plus court. 
+Dans la version 4.0, nous avons décidé de rendre la L1 entièrement testable par pénétration sans accès au code source, à la documentation ou aux développeurs. Deux éléments d'enregistrement, qui doivent être conformes au Top 10 2017 A10 de l'OWASP, nécessiteront des entretiens, des captures d'écran ou d'autres collectes de preuves, tout comme dans le Top 10 2017 de l'OWASP. Cependant, les tests sans accès aux informations nécessaires ne constituent pas une méthode idéale de vérification de la sécurité, car ils laissent de côté la possibilité d'examiner la source, d'identifier les menaces et les contrôles manquants, et de réaliser un test beaucoup plus approfondi dans un délai plus court.
 
-Dans la mesure du possible, l'accès aux développeurs, à la documentation, au code et l'accès à une application de test avec des données de non-production, est nécessaire lors de l'exécution d'une évaluation de niveau 2 ou 3. Les tests de pénétration effectués à ces niveaux nécessitent ce niveau d'accès, que nous appelons "examens hybrides" ou "tests de pénétration hybrides". 
+Dans la mesure du possible, l'accès aux développeurs, à la documentation, au code et l'accès à une application de test avec des données de non-production, est nécessaire lors de l'exécution d'une évaluation de niveau 2 ou 3. Les tests de pénétration effectués à ces niveaux nécessitent ce niveau d'accès, que nous appelons "examens hybrides" ou "tests de pénétration hybrides".
 
 ## Autres utilisations de l'ASVS
 

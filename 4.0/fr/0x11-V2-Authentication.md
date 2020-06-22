@@ -188,7 +188,7 @@ Nous demandons instamment aux agences gouvernementales américaines de revoir et
 ## Glossaire des termes
 
 | Terme | Signification |
-| -- | -- |
+| --- | --- |
 | CSP | Credential Service Provider également appelé fournisseur d'identité |
 | Authenticator | Code qui authentifie un mot de passe, un jeton, un MFA, une affirmation fédérée, etc. |
 | Vérificateur | "Entité qui vérifie l'identité du demandeur en vérifiant la possession et le contrôle par le demandeur d'un ou deux authentificateurs au moyen d'un protocole d'authentification. Pour ce faire, le vérificateur peut également avoir besoin de valider les références qui lient le ou les authentificateurs à l'identifiant de l'abonné et vérifier leur statut" |

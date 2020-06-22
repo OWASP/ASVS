@@ -21,7 +21,7 @@ Si les modèles traditionnels sont toujours en place, des mesures manuelles doiv
 La conformité à cette section nécessite un système de construction automatisé et l'accès à des scripts de construction et de déploiement.
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.1.1** | Vérifier que les processus de construction et de déploiement des applications sont effectués de manière sûre et répétable, comme l'automatisation des CI / CD, la gestion automatisée de la configuration et les scripts de déploiement automatisés. | | ✓ | ✓ | |
 | **14.1.2** | Vérifiez que les drapeaux du compilateur sont configurés pour activer toutes les protections et les avertissements disponibles contre les débordements de mémoire tampon, y compris la randomisation de la pile, la prévention de l'exécution des données, et pour casser la compilation si un pointeur, une mémoire, une chaîne de format, un entier ou une chaîne de caractères dangereux sont trouvés. | | ✓ | ✓ | 120 |
 | **14.1.3** | Vérifiez que la configuration du serveur est durcie conformément aux recommandations du serveur d'application et des cadres utilisés. | | ✓ | ✓ | 16 |
@@ -35,7 +35,7 @@ La gestion des dépendances est essentielle au bon fonctionnement de toute appli
 Remarque : au niveau 1, la conformité à la norme 14.2.1 concerne les observations ou les détections de bibliothèques et de composants côté client et autres, plutôt que l'analyse statique du code de construction ou l'analyse des dépendances, plus précise. Ces techniques plus précises pourraient être découvertes par des entretiens, le cas échéant.
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.2.1** | Vérifiez que tous les composants sont à jour, de préférence en utilisant un vérificateur de dépendances pendant le temps de construction ou de compilation. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
 | **14.2.2** | Vérifiez que toutes les fonctionnalités, la documentation, les échantillons et les configurations inutiles sont supprimés, tels que les exemples d'applications, la documentation de la plate-forme et les utilisateurs par défaut ou les exemples. | ✓ | ✓ | ✓ | 1002 |
 | **14.2.3** | Vérifier que si les actifs d'application, tels que les bibliothèques JavaScript, les feuilles de style CSS ou les polices web, sont hébergés en externe sur un réseau de diffusion de contenu (CDN) ou un fournisseur externe, l'intégrité des sous-ressources (SRI) est utilisée pour valider l'intégrité de l'actif. | ✓ | ✓ | ✓ | 829 |
@@ -48,7 +48,7 @@ Remarque : au niveau 1, la conformité à la norme 14.2.1 concerne les observati
 Les configurations de production devraient être renforcées pour se protéger contre les attaques courantes, telles que les consoles de débogage, relever la barre pour les attaques de type "cross-site scripting" (XSS) et "remote file inclusion" (RFI), et pour éliminer les "vulnérabilités" triviales de découverte d'informations qui sont la marque indésirable de nombreux rapports de tests de pénétration. Nombre de ces problèmes sont rarement considérés comme un risque important, mais ils sont liés à d'autres vulnérabilités. Si ces problèmes ne sont pas présents par défaut, elle place la barre plus haute avant que la plupart des attaques puissent réussir.
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.3.1** | Vérifiez que les messages d'erreur du serveur web ou d'application et du cadre sont configurés pour fournir des réponses personnalisées et exploitables par l'utilisateur afin d'éliminer toute divulgation involontaire de sécurité. | ✓ | ✓ | ✓ | 209 |
 | **14.3.2** | Vérifier que les modes de débogage du serveur web ou d'application et du cadre d'application sont désactivés en production afin d'éliminer les fonctionnalités de débogage, les consoles de développement et les divulgations de sécurité non intentionnelles. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Vérifiez que les en-têtes HTTP ou toute partie de la réponse HTTP n'exposent pas d'informations détaillées sur la version des composants du système. | ✓ | ✓ | ✓ | 200 |
@@ -56,7 +56,7 @@ Les configurations de production devraient être renforcées pour se protéger c
 ## V14.4 Exigences relatives aux en-têtes de sécurité HTTP
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.4.1** | Vérifiez que chaque réponse HTTP contient un en-tête Content-Type. Les types de contenu text/*, */*+xml et application/xml doivent également spécifier un jeu de caractères sûr (par exemple, UTF-8, ISO-8859-1). | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | Vérifiez que toutes les réponses de l'API contiennent Content-Disposition : attachment ; filename="api.json" (ou tout autre nom de fichier approprié pour le type de contenu). | ✓ | ✓ | ✓ | 116 |
 | **14.4.3** | Vérifier qu'une politique de sécurité du contenu (CSP) est en place pour aider à atténuer l'impact des attaques XSS comme les vulnérabilités d'injection HTML, DOM, JSON et JavaScript. | ✓ | ✓ | ✓ | 1021 |
@@ -68,7 +68,7 @@ Les configurations de production devraient être renforcées pour se protéger c
 ## V14.5 Exigences sur la validation des en-têtes de requête HTTP
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.5.1** | Vérifiez que le serveur d'application accepte seulement les méthodes HTTP utilisées par l'application/API (incluant les requetes de type OPTIONS), et les journalise/alertes sur toutes les demandes qui sont invalades pour le contexte de l'application. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | Vérifiez que l'en-tête Origin fourni n'est pas utilisé pour les décisions d'authentification ou de contrôle d'accès, car l'en-tête Origin peut facilement être modifié par un attaquant. | ✓ | ✓ | ✓ | 346 |
 | **14.5.3** | Vérifiez que l'en-tête "Cross-Origin Resource Sharing" (CORS) Access-Control-Allow-Origin utilise une liste blanche stricte de domaines et sous-domaines de confiance pour la comparaison avec l'origine "null" et ne la prend pas en charge. | ✓ | ✓ | ✓ | 346 |

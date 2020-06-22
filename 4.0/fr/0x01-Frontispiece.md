@@ -55,4 +55,4 @@ Version 4.0.1, mars 2019
 
 La norme de vérification de la sécurité des applications repose sur les épaules des personnes concernées, de ASVS 1.0 en 2008 à 3.0 en 2016. Une grande partie de la structure et des éléments de vérification qui sont encore dans l'ASVS aujourd'hui ont été écrits à l'origine par Mike Boberski, Jeff Williams et Dave Wichers, mais il y a beaucoup plus de contributeurs. Merci à tous ceux qui y ont participé précédemment. Pour une liste complète de tous ceux qui ont contribué aux versions précédentes, veuillez consulter chaque version antérieure.
 
-S'il manque un crédit dans la liste des crédits 4.0 ci-dessus, veuillez contacter vanderaj@owasp.org ou enregistrer un ticket sur GitHub pour être reconnu dans les futures mises à jour 4.x. 
+S'il manque un crédit dans la liste des crédits 4.0 ci-dessus, veuillez contacter vanderaj@owasp.org ou enregistrer un ticket sur GitHub pour être reconnu dans les futures mises à jour 4.x.
