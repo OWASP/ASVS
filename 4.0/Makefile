@@ -38,3 +38,10 @@ md: $(BUILDDIR)
 
 pdf: md
 	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/source.md
+
+docx: md
+	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/source.md
+
+clean:
+	rm -rf $(BUILDDIR)/en
+	rm $(BUILDDIR)/*.md
