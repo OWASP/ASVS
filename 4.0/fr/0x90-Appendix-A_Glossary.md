@@ -37,5 +37,5 @@
 - **Transport Layer Security** - Protocoles cryptographiques qui assurent la sécurité des communications sur une connexion réseau
 - **URI/URL/URL fragments** - Un Uniform Resource Identifier est une chaîne de caractères utilisée pour identifier un nom ou une ressource web. Un Uniform Resource Locator est souvent utilisé comme référence à une ressource.
 - **Vérificateur** - La personne ou l'équipe qui examine une demande par rapport aux exigences de l'OWASP ASVS.
-- **Whitelist** - Une liste de données ou d'opérations autorisées, par exemple une liste de caractères qui sont autorisés à effectuer une validation d'entrée.
+- **liste d'autorisation** - Une liste de données ou d'opérations autorisées, par exemple une liste de caractères qui sont autorisés à effectuer une validation d'entrée.
 - **Certificat X.509** - Un certificat X.509 est un certificat numérique qui utilise la norme internationale largement acceptée d'infrastructure à clé publique (PKI) X.509 pour vérifier qu'une clé publique appartient à l'utilisateur, à l'ordinateur ou à l'identité du service contenu dans le certificat.

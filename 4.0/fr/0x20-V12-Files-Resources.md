@@ -52,7 +52,7 @@ Bien que les bombes zip soient facilement testables à l'aide de techniques de t
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.6.1** | Vérifiez que le serveur web ou d'application est configuré avec une liste blanche de ressources ou de systèmes à partir desquels le serveur peut envoyer des requêtes ou charger des données/fichiers. | ✓ | ✓ | ✓ | 918 |
+| **12.6.1** | Vérifiez que le serveur web ou d'application est configuré avec une liste d'autorisation de ressources ou de systèmes à partir desquels le serveur peut envoyer des requêtes ou charger des données/fichiers. | ✓ | ✓ | ✓ | 918 |
 
 ## Références
 
