@@ -63,7 +63,7 @@ Dans la version 4.0, nous avons abandonné le terme "côté serveur" ayant la co
 
 Les applications doivent être conçues avec une architecture cryptographique solide pour protéger les données selon leur classification. Tout chiffrer est un gaspillage, ne rien chiffrer est une négligence légale. Un équilibre doit être trouvé, généralement lors de la conception architecturale ou de haut niveau, des sprints de conception ou des pics architecturaux. Concevoir la cryptographie au fur et à mesure ou l'adapter coûtera inévitablement beaucoup plus cher à mettre en œuvre de manière sécurisée que de l'intégrer dès le départ.
 
-Les exigences architecturales sont intrinsèques à l'entièreté du code, et donc difficiles à unifier ou à intégrer dans les tests. Les exigences architecturales doivent être prises en compte dans les normes de codage, tout au long de la phase de codage, et doivent être examinées au cours de l'architecture de sécurité, des examens du code par les pairs, ou des rétrospectives.
+Les exigences architecturales sont intrinsèques au code, et donc difficiles à unifier ou à intégrer dans les tests. Les exigences architecturales doivent être prises en compte dans les normes de codage, tout au long de la phase de codage, et doivent être examinées au cours de l'architecture de sécurité, des revues du code par les pairs, ou des rétrospectives.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -105,7 +105,7 @@ Les exigences architecturales sont intrinsèques à l'entièreté du code, et do
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.11.1** | Vérifier la définition et la documentation de tous les composants de l'application en ce qui concerne la logique d'affaire ou de sécurité qu'ils fournissent. | | ✓ | ✓ | 1059 |
 | **1.11.2** | Vérifiez que tous les flux de logique d'affaire de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, ne partagent pas un état non synchronisé. | | ✓ | ✓ | 362 |
-| **1.11.3** | Vérifier que tous les flux de logique d'entreprise de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, sont sécurisés et résistants aux conditions de concurrence ("race condition") au temps de contrôle et au temps d'utilisation. | | | ✓ | 367 |
+| **1.11.3** | Vérifier que tous les flux de logique d'affaire de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, sont sécurisés et résistants aux conditions de concurrence ("race condition") au temps de contrôle et au temps d'utilisation. | | | ✓ | 367 |
 
 ## V1.12 Téléchargement de fichiers sécurisés Exigences architecturales
 
