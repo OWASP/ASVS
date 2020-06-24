@@ -17,8 +17,11 @@ PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex \
 #				 --variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm" \
 #				 --variable geometry:a4paper \
 
-PANDOC_DOCX_FLAGS=-f markdown -s --reference-doc=./templates/reference.docx \
-				  --columns 10000 -t docx
+PANDOC_DOCX_FLAGS= -s \
+				  --reference-doc=./templates/reference.docx \
+				  --columns 10000 \
+				  -t docx \
+				  --toc
 
 .PHONY: md $(BUILDDIR) pdf docx clean
 
