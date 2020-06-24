@@ -28,10 +28,8 @@ $(BUILDDIR):
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
 
 $(BUILDDIR)/en/%.md: $(BUILDDIR)
-	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#' $(subst build,.,$@) > $@
+	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#' $(subst build,.,$@) > $@
 	 
-
-
 md: $(BUILDDIR)
 	pandoc $(PANDOC_MD_FLAGS) -o $(BUILDDIR)/source.md $(BUILDDIR)/$(SOURCES) 
 	sed -Ei 's#../images/#./images/#' $(BUILDDIR)/source.md
