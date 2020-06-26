@@ -7,15 +7,9 @@ TARGETNAME=OWASP Application Security Verification Standard 4.0
 
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
-PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex \
-				 --table-of-contents \
-				 --number-sections \
-				 --variable mainfont="DejaVu Sans" \
-				 --variable monofont="DejaVu Sans Mono" \
-				 --template ./templates/eisvogel.tex
-#				 --variable fontsize=11pt \
-#				 --variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm" \
-#				 --variable geometry:a4paper \
+PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex 
+
+PANDOC_TEX_FLAGS=-f markdown -s -t latex 
 
 PANDOC_DOCX_FLAGS= -s \
 				  --reference-doc=./templates/reference.docx \
