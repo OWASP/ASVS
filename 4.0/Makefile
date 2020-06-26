@@ -34,6 +34,8 @@ md: $(BUILDDIR)
 pdf: 
 	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/en/*.md
 
+tex:
+	pandoc $(PANDOC_TEX_FLAGS) -o "$(BUILDDIR)/output.tex" $(BUILDDIR)/en/*.md
 docx: 
 	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md
 
