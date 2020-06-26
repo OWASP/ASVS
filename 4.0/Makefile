@@ -33,10 +33,13 @@ md: $(BUILDDIR)
 	sed -Ei 's#../images/#./images/#' $(BUILDDIR)/source.md
 
 pdf: 
-	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/en/*.md
+	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME)2.pdf"  --template ./templates/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
 tex:
-	pandoc $(PANDOC_TEX_FLAGS) -o "$(BUILDDIR)/output.tex" $(BUILDDIR)/en/*.md
+	pandoc $(PANDOC_TEX_FLAGS) -o "$(BUILDDIR)/output.tex" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_TEX_FLAGS) -o "$(BUILDDIR)/output2.tex" --template ./templates/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+
 docx: 
 	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md
 
