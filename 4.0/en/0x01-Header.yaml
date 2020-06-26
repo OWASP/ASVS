@@ -1,0 +1,20 @@
+---
+    title: "Application Security Verification Standard 4.0"
+    subtitle: "Final"
+    date: "March 2019"
+    logo: images/owaspLogo.png
+    titlepage: true
+    titlepage-rule-height: 0
+    table-use-row-colors: true
+    toc: true
+    toc-own-page: true
+    geometry: "left=2cm,right=2cm,top=3cm,bottom=3cm"
+    fontfamily: sourcesanspro
+    fontfamilyoptions: 
+    - default
+    header-includes: |
+        \hypersetup{colorlinks=false,
+            allbordercolors={0 0 0},
+            pdfborderstyle={/S/U/W 1}}
+---
+
