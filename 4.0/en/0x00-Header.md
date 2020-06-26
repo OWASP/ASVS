@@ -5,6 +5,7 @@
     titlepage: true
     titlepage-rule-height: 0
     table-use-row-colors: true
+    toc: true
     toc-own-page: true
 ---
 
