@@ -2,7 +2,7 @@
 
 - **2FA** – Two-factor authentication(2FA) adds a second level of authentication to an account log-in.
 - **Address Space Layout Randomization (ASLR)** – A technique to make exploiting memory corruption bugs more difficult.
-- **Allowlist** – A list of permitted data or operations, for example a list of characters that are allowed to perform input validation.
+- **Allow list** – A list of permitted data or operations, for example a list of characters that are allowed to perform input validation.
 - **Application Security** – Application-level security focuses on the analysis of components that comprise the application layer of the Open Systems Interconnection Reference Model (OSI Model), rather than focusing on for example the underlying operating system or connected networks.
 - **Application Security Verification** – The technical assessment of an application against the OWASP ASVS.
 - **Application Security Verification Report** – A report that documents the overall results and supporting analysis produced by the verifier for a particular application.
