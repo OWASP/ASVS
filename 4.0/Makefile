@@ -21,7 +21,7 @@ PANDOC_DOCX_FLAGS= -s \
 
 .PHONY: md $(BUILDDIR) pdf docx clean
 
-all: $(TARGETS)	tex pdf docx json csv
+all: $(TARGETS)	pdf docx json csv
 
 $(BUILDDIR): 
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
