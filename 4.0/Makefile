@@ -4,7 +4,8 @@ SOURCEDIR=en
 SOURCES = $(SOURCEDIR)/*.md
 TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
 TARGETNAME=OWASP Application Security Verification Standard 4.0
-
+EXPORT_JSON_TOOL=$(TOOLSDIR)/generate-json.py
+EXPORT_CSV_TOOL=$(TOOLSDIR)/generate-csv.py
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
 PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex 
@@ -20,7 +21,7 @@ PANDOC_DOCX_FLAGS= -s \
 
 .PHONY: md $(BUILDDIR) pdf docx clean
 
-all: $(TARGETS)	pdf docx
+all: $(TARGETS)	tex pdf docx json csv
 
 $(BUILDDIR): 
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
@@ -42,6 +43,14 @@ tex:
 
 docx: 
 	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md
+
+json:
+	python3 $(EXPORT_JSON_TOOL) --file "$(BUILDDIR)/$(TARGETNAME).json"
+
+csv:
+	python3 $(EXPORT_CSV_TOOL) > "$(BUILDDIR)/$(TARGETNAME).csv"
+
+
 
 clean:
 	rm -rf $(BUILDDIR)/en
