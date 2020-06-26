@@ -24,5 +24,13 @@
         \fancyfoot[CO,CE]{Application Security Verification Standard}
         \fancyfoot[LE,RO]{\thepage}
         \fancyfoot[rE,lO]{\includegraphics[height=0.6cm]{../images/owasp_logo_header.png}}
+        \let\tableofcontentsORIG\tableofcontents
+        \renewcommand\tableofcontents{
+            \newpage
+            \tableofcontentsORIG
+            \clearpage}
+        \hypersetup{colorlinks=false,
+            allbordercolors={0 0 0},
+            pdfborderstyle={/S/U/W 1}}
 ---
 
