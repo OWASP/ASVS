@@ -12,10 +12,11 @@ PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex
 PANDOC_TEX_FLAGS=-f markdown -s -t latex 
 
 PANDOC_DOCX_FLAGS= -s \
-				  --reference-doc=./templates/reference.docx \
-				  --columns 10000 \
 				  -t docx \
-				  --toc
+				  -f markdown \
+				  --toc \
+				  --columns 10000 \
+				  --reference-doc=./templates/reference.docx 
 
 .PHONY: md $(BUILDDIR) pdf docx clean
 
