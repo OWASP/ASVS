@@ -1,5 +1,7 @@
 ---
-    title: Application Security Verification Standard 4.0
+    title: |
+        ![](../images/owasp_logo_1c_notext.png)  
+        Application Security Verification Standard 4.0  
     subtitle: Final
     date: March 2019
     titlepage: true
