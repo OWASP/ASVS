@@ -32,7 +32,7 @@ Each requirement has an identifier in the format `V<chapter>.<segment>.<requirem
 
 The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-V<chapter>.<segment>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.1-V1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architectural Requirements' segment of the 'Architecture' chapter from version 4.0.1. (This could be summarized as `v<version>-V<requirement_identifier>`.)
 
-Note: The `v` preceding the version identifier is to be lower case, while the `V` leading the identifier is a capital.
+Note: The `v` preceding the version portion is to be lower case, while the `V` leading the requirement identifier is a capital.
 
 If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
 
