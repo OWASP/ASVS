@@ -17,7 +17,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.1.1** | Verify the application never reveals session tokens in URL parameters or error messages.  | ✓ | ✓ | ✓ | 598 |  |
+| **3.1.1** | Verify the application never reveals session tokens in URL parameters.  | ✓ | ✓ | ✓ | 598 |  |
 
 ## V3.2 Session Binding Requirements
 
@@ -59,7 +59,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.5.1** | Verify the application does not treat OAuth and refresh tokens &mdash; on their own &mdash; as the presence of the subscriber and allows users to terminate trust relationships with linked applications.  |  | ✓ | ✓ | 290 | 7.1.2 |
+| **3.5.1** | Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications.  |  | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. |  | ✓ | ✓ | 798 | |
 | **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. |  | ✓ | ✓ | 345 | |
 
