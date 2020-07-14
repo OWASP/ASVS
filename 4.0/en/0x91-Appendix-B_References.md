@@ -20,7 +20,7 @@ There is a mapping to the ASVS which can be found here: [https://github.com/OWAS
 
 1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
 2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
-3. OWASP Mobile Security Testing Guide: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
+3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
 
 ## OWASP Internet of Things related projects
 
