@@ -19,9 +19,16 @@ PANDOC_DOCX_FLAGS= -s \
 				  --columns 10000 \
 				  --reference-doc=./templates/reference.docx 
 
-.PHONY: md $(BUILDDIR) pdf docx clean
+PANDOC_ODT_FLAGS= -s \
+				  -t odt \
+				  -f markdown \
+				  --toc \
+				  --columns 10000 \
+				  --reference-doc=./templates/reference.odt
 
-all: $(TARGETS)	pdf docx json csv
+.PHONY: md $(BUILDDIR) pdf docx odt clean
+
+all: $(TARGETS)	pdf docx odt json csv
 
 $(BUILDDIR): 
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
@@ -42,7 +49,10 @@ tex:
 	pandoc $(PANDOC_TEX_FLAGS) -o "$(BUILDDIR)/output2.tex" --template ./templates/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
 docx: 
-	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md
+	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+
+odt: 
+	pandoc $(PANDOC_ODT_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
 
 json:
 	python3 $(EXPORT_JSON_TOOL) --file "$(BUILDDIR)/$(TARGETNAME).json"
