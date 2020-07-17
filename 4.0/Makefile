@@ -1,6 +1,7 @@
 BUILDDIR=build
 TOOLSDIR=tools
 SOURCEDIR=en
+TEMPLATEDIR=templates
 SOURCES = $(SOURCEDIR)/*.md
 TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
 TARGETNAME=OWASP Application Security Verification Standard 4.0
@@ -8,6 +9,7 @@ EXPORT_JSON_TOOL=$(TOOLSDIR)/generate-json.py
 EXPORT_CSV_TOOL=$(TOOLSDIR)/generate-csv.py
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
+
 PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex 
 
 PANDOC_TEX_FLAGS=-f markdown -s -t latex 
@@ -41,12 +43,12 @@ md: $(BUILDDIR)
 	sed -Ei 's#../images/#./images/#' $(BUILDDIR)/source.md
 
 pdf: 
-	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
-	pandoc $(PANDOC_PDF_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME)2.pdf"  --template ./templates/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header.tex  -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(BUILDDIR)/$(TARGETNAME)2.pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
 tex:
-	pandoc $(PANDOC_TEX_FLAGS) -o "$(BUILDDIR)/output.tex" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
-	pandoc $(PANDOC_TEX_FLAGS) -o "$(BUILDDIR)/output2.tex" --template ./templates/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header.tex -o "$(BUILDDIR)/output.tex" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(BUILDDIR)/output2.tex" --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
 docx: 
 	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
