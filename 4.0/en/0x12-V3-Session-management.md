@@ -65,12 +65,12 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 
 ## V3.6 Re-authentication from a Federation or Assertion
 
-This section relates to those writing relying party (RP) or credential service provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
+This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.6.1** | Verify that relying parties specify the maximum authentication time to credential service providers (CSPs) and that CSPs re-authenticate the subscriber if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
-| **3.6.2** | Verify that credential service providers (CSPs) inform relying parties of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613| 7.2.1 |
+| **3.6.1** | Verify that relying parties specify the maximum authentication time to Credential Service Providers (CSPs) and that CSPs re-authenticate the subscriber if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
+| **3.6.2** | Verify that Credential Service Providers (CSPs) inform Relying Parties (RPs) of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613| 7.2.1 |
 
 ## V3.7 Defenses Against Session Management Exploits
 
