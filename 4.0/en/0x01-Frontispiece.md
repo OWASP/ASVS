@@ -17,42 +17,68 @@ Version 4.0.2, August 2020
 - Daniel Cuthbert
 - Jim Manico
 - Josh C Grossman
-- Mark Burnett
 
-## Contributors and Reviewers
+## Major Contributors
 
-- Osama Elnaggar
-- Erlend Oftedal
-- Serg Belkommen
-- David Johansson
-- Tonimir Kisasondi
-- Ron Perris
-- Jason Axley
 - Abhay Bhargav
 - Benedikt Bauer
 - Elar Lang
-- ScriptingXSS
-- Philippe De Ryck
-- Grog's Axle
-- Marco Schnüriger
-- Jacob Salassi
-- Glenn ten Cate
+- Mark Burnett 
+- Osama Elnaggar
+- Ron Perris
+- Tonimir Kisasondi
+
+## Other Contributors and Reviewers
+
+- Aaron Guzman
 - Anthony Weems
-- bschach
-- javixeneize
+- Barbara Schachner 
+- Christopher Loessl 
+- Clément Notin 
 - Dan Cornell
-- hello7s
-- Lewis Ardern
-- Jim Newman
-- Stuart Gunter
-- Geoff Baskwill
-- Talargoni
-- Ståle Pettersen
-- Kelby Ludwig
-- Jason Morrow
-- Rogan Dawes
 - Daniël Geerts
+- David Clarke 
+- David Johansson
+- David Quisenberry 
+- Erlend Oftedal
+- Fatih Ersinadim
+- Filip van Laenen 
+- Geoff Baskwill
+- Glenn ten Cate
+- Grant Ongers 
+- hello7s
+- Jacob Salassi
+- James Sulinski 
+- Jason Axley
+- Jason Morrow
+- Javier Dominguez
+- Jet Anderson 
+- Jim Newman
+- Jonathan Schnittger 
+- Joseph Kerby 
+- Kelby Ludwig
+- Lars Haulin 
+- Lewis Ardern
+- lyz-code 
+- Marc Aubry 
+- Marco Schnüriger
+- Philippe De Ryck
+- Ralph Andalis
+- Ravi Balla 
+- Rick Mitchell
+- Riotaro Okada
+- Robin Wood
+- Rogan Dawes
+- Ryan Goltry
+- Sajjad Pourali 
+- Serg Belkommen
+- Siim Puustusmaa 
+- Ståle Pettersen
+- Stuart Gunter
+- Tal Argoni
+- Tomasz Wrobel
+- Vincent De Schutter 
 
 The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
 
-If a credit is missing from the 4.0 credit list above, please contact vanderaj@owasp.org or log a ticket at GitHub to be recognized in future 4.x updates. 
+If a credit is missing from the 4.0.2 credit list above, please log a ticket at GitHub to be recognized in future 4.x updates. 
