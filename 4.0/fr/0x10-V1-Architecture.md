@@ -103,9 +103,9 @@ Les exigences architecturales sont intrinsèques au code, et donc difficiles à 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.11.1** | Vérifier la définition et la documentation de tous les composants de l'application en ce qui concerne la logique d'affaire ou de sécurité qu'ils fournissent. | | ✓ | ✓ | 1059 |
-| **1.11.2** | Vérifiez que tous les flux de logique d'affaire de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, ne partagent pas un état non synchronisé. | | ✓ | ✓ | 362 |
-| **1.11.3** | Vérifier que tous les flux de logique d'affaire de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, sont sécurisés et résistants aux conditions de concurrence ("race condition") au temps de contrôle et au temps d'utilisation. | | | ✓ | 367 |
+| **1.11.1** | Vérifier la définition et la documentation de tous les composants de l'application en ce qui concerne la logique métier ou de sécurité qu'ils fournissent. | | ✓ | ✓ | 1059 |
+| **1.11.2** | Vérifiez que tous les flux de logique métier de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, ne partagent pas un état non synchronisé. | | ✓ | ✓ | 362 |
+| **1.11.3** | Vérifier que tous les flux de logique métier de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, sont sécurisés et résistants aux conditions de concurrence ("race condition") au temps de contrôle et au temps d'utilisation. | | | ✓ | 367 |
 
 ## V1.12 Téléchargement de fichiers sécurisés Exigences architecturales
 
