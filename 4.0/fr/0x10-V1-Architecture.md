@@ -112,7 +112,7 @@ Les exigences architecturales sont intrinsèques au code, et donc difficiles à 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.12.1** | Vérifiez que les fichiers envoyés par l'utilisateur sont stockés en dehors de la racine du site web. | | ✓ | ✓ | 552 |
-| **1.12.2** | Vérifiez que les fichiers envoyés par l'utilisateur - s'ils doivent être affichés ou téléchargés à partir de l'application - sont servis par des téléchargements en flux d'octets, ou à partir d'un domaine sans rapport, comme un seau de stockage de fichiers en nuage. Mettre en œuvre une politique de sécurité du contenu (CSP) appropriée pour réduire le risque de vecteurs XSS ou d'autres attaques provenant du fichier téléchargé. | | ✓ | ✓ | 646 |
+| **1.12.2** | Vérifiez que les fichiers envoyés par l'utilisateur - s'ils doivent être affichés ou téléchargés à partir de l'application - sont servis par des téléchargements en flux d'octets, ou à partir d'un domaine sans rapport, comme un compartiment de stockage de fichiers en nuage. Mettre en œuvre une politique de sécurité du contenu (CSP) appropriée pour réduire le risque de vecteurs XSS ou d'autres attaques provenant du fichier téléchargé. | | ✓ | ✓ | 646 |
 
 ## V1.13 Exigences architecturales de l'API
 
