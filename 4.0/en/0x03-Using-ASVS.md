@@ -61,7 +61,7 @@ Different threats have different motivations. Some industries have unique inform
 
 Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
 
-## How To Reference ASVS Requirements
+## How to Reference ASVS Requirements
 
 Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`.
 - The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
