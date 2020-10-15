@@ -41,6 +41,8 @@ Copyright © 2008-2020 The OWASP Foundation. This document is released under the
 | Sajjad Pourali 	| Serg Belkommen   	| Siim Puustusmaa     	| Ståle Pettersen    	| Stuart Gunter       	|
 | Tal Argoni     	| Tomasz Wrobel    	| Vincent De Schutter 	|                    	|                     	|
 
+ 
+ 
 If a credit is missing from the 4.0.2 credit list above, please log a ticket at GitHub to be recognized in future 4.x updates. 
 
 ## Previous Contributors and Reviewers
