@@ -17,13 +17,13 @@ Version 4.0.2, August 2020
 - Daniel Cuthbert
 - Jim Manico
 - Josh C Grossman
+- Mark Burnett 
 
 ## Major Contributors
 
 - Abhay Bhargav
 - Benedikt Bauer
 - Elar Lang
-- Mark Burnett 
 - Osama Elnaggar
 - Ron Perris
 - Tonimir Kisasondi
