@@ -41,6 +41,9 @@ Copyright © 2008-2020 The OWASP Foundation. This document is released under the
 | Sajjad Pourali 	| Serg Belkommen   	| Siim Puustusmaa     	| Ståle Pettersen    	| Stuart Gunter       	|
 | Tal Argoni     	| Tomasz Wrobel    	| Vincent De Schutter 	|                    	|                     	|
 
+If a credit is missing from the 4.0.2 credit list above, please log a ticket at GitHub to be recognized in future 4.x updates. 
+
+## Previous Contributors and Reviewers
+
 The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
 
-If a credit is missing from the 4.0.2 credit list above, please log a ticket at GitHub to be recognized in future 4.x updates. 
