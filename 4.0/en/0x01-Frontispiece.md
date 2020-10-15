@@ -17,7 +17,7 @@ Version 4.0.2, August 2020
 - Daniel Cuthbert
 - Jim Manico
 - Josh C Grossman
-- Mark Burnett 
+- Mark Burnett
 
 ## Major Contributors
 
