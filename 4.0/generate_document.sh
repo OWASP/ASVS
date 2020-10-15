@@ -14,6 +14,8 @@ fi
 
 generate_docx() {
     pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 --toc -t docx -o "../OWASP Application Security Verification Standard 4.0-$1.docx" *.md
+	# After this process, move the Table of Contents and change the style 
+	# of the first Heading 1 so it is on the first page
 }
 
 # generate_html() {
