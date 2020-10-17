@@ -33,10 +33,11 @@ from asvs import ASVS
 
 parser = argparse.ArgumentParser(description='Export the ASVS requirements.')
 parser.add_argument('--format', choices=['json', 'xml', 'csv'], default='json')
+parser.add_argument('--language', default='en')
 
 args = parser.parse_args()
 
-m = ASVS()
+m = ASVS(args.language)
 
 if args.format == "csv":
     print(m.to_csv())
