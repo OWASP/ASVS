@@ -3,8 +3,9 @@
 ''' ASVS document parser and converter class.
 
     Based upon code written for MASVS By Bernhard Mueller
-
-    Copyright (c) 2017 OWASP Foundation
+    Significant improvement by Jonny Schnittger @JonnySchnittger
+    Additional modifications by Josh Grossman @tghosth
+    Copyright (c) 2020 OWASP Foundation
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -31,6 +32,7 @@ import re
 import json
 from xml.sax.saxutils import escape
 import csv
+import dicttoxml
 
 try:
     from StringIO import StringIO
@@ -39,29 +41,137 @@ except ImportError:
 
 
 class ASVS:
-    ''' Creates requirements list out of markdown files. '''
-    requirements = []
+    asvs = {}
+    asvs['Name'] = "Application Security Verification Standard Project"
+    asvs['ShortName'] = "ASVS"
+    asvs['Version'] = ""
+    asvs['Description'] = "The OWASP Application Security Verification Standard (ASVS) Project " \
+        "provides a basis for testing web application technical security controls and also " \
+        "provides developers with a list of requirements for secure development."
 
-    def __init__(self):
-        for file in os.listdir("en"):
+    asvs_flat = []
+
+    def __init__(self, language):    
+        
+        regex = re.compile('Version (([\d.]+){3})')
+
+        for line in open(os.path.join(language, "0x01-Frontispiece.md"), encoding="utf8"):
+            m = re.search(regex, line)
+            if m:
+                self.asvs['Version'] = m.group(1)
+                break
+
+        regex = re.compile('## About the Standard\n\n(.*)')
+
+        with open(os.path.join(language, "0x01-Frontispiece.md"), encoding="utf8") as content:
+            m = re.search(regex, content.read())
+            if m:
+                self.asvs['Description'] = m.group(1)
+
+        self.asvs['Requirements'] = chapters = []
+
+    
+        for file in os.listdir(language):
 
             if re.match("0x\d{2}-V", file):
-                for line in open(os.path.join("en", file)):
-                    regex = re.compile('\\*\\*([\d\.]+)\\*\\*\s\|\s{0,1}(.*?)\s{0,1}\|')
+                chapter = {};
+                chapter['Shortcode'] = ""
+                chapter['Ordinal'] = ""
+                chapter['ShortName'] = ""
+                chapter['Name'] = ""
+                chapter['Items'] = []
+
+                section = {}
+                section['Shortcode'] = ""
+                section['Ordinal'] = ""
+                section['Name'] = ""
+                section['Items'] = []
+
+                regex = re.compile('0x\d{2}-(V([0-9]{1,3}))-(\w[^-.]*)')
+                m = re.search(regex, file)
+                if m:
+                    chapter = {};
+                    chapter['Shortcode'] = m.group(1)
+                    chapter['Ordinal'] = int(m.group(2))
+                    chapter['ShortName'] = m.group(3)
+                    chapter['Name'] = ""
+                    chapter['Items'] = []
+
+                    section = {}
+                    section['Shortcode'] = m.group(1)
+                    section['Ordinal'] = int(m.group(2))
+                    section['Name'] = m.group(3)
+                    section['Items'] = []
+
+                    chapters.append(chapter)
+
+                for line in open(os.path.join("en", file), encoding="utf8"):
+                    regex = re.compile('# (V([0-9]{1,2})): ([\w\s][^\n]*)')
                     m = re.search(regex, line)
                     if m:
-                        req = {}
-                        req['id'] = m.group(1)
-                        req['text'] = m.group(2)
-                        req['file'] = file
+                        chapter['Name'] = m.group(3)
 
-                        self.requirements.append(req)
+
+                    regex = re.compile('## (V[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)')
+                    m = re.search(regex, line)
+                    if m:
+                        section = {}
+                        section['Shortcode'] = m.group(1)
+                        section['Ordinal'] = int(m.group(2))
+                        section['Name'] = m.group(3)
+                        section['Items'] = []
+
+                        chapter['Items'].append(section)
+
+                    regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|([\w\d,\. ✓]*)"\
+                        "\|([\w\d,\. ✓]*)\|([\w\d,\. ✓]*)\|([0-9,\s]*)\|([A-Z0-9/\s,.]*)\|{0,1}")
+                    m = re.search(regex, line)
+                    if m:
+                    
+                        req_flat = {}
+                        req_flat['chapter_id'] = chapter['Shortcode']
+                        req_flat['chapter_name'] = chapter['Name']
+                        req_flat['section_id'] = section['Shortcode']
+                        req_flat['section_name'] = section['Name']
+                        
+                        req = {}
+                        req_flat['req_id'] = req['Shortcode'] = "V" + m.group(1)
+                        req['Ordinal'] = int(m.group(1).rsplit('.', 1)[1])
+                        req_flat['req_description'] = req['Description'] = m.group(2)
+
+                        level1 = {}
+                        level2 = {}
+                        level3 = {}
+
+                        req_flat['level1'] = m.group(3).strip(' ')
+                        req_flat['level2'] = m.group(4).strip(' ')
+                        req_flat['level3'] = m.group(5).strip(' ')
+                        
+                        level1['Required'] = m.group(3).strip() != ''
+                        level2['Required'] = m.group(4).strip() != ''
+                        level3['Required'] = m.group(5).strip() != ''
+
+                        level1['Requirement'] = ("Optional" if m.group(3).strip('✓ ') == "o" else m.group(3).strip('✓ '))
+                        level2['Requirement'] = ("Optional" if m.group(4).strip('✓ ') == "o" else m.group(4).strip('✓ '))
+                        level3['Requirement'] = ("Optional" if m.group(5).strip('✓ ') == "o" else m.group(5).strip('✓ '))
+
+                        req['L1'] = level1
+                        req['L2'] = level2
+                        req['L3'] = level3
+
+                        req['CWE'] = [int(i.strip()) for i in filter(None, m.group(6).strip().split(','))]
+                        req_flat['cwe'] = m.group(6).strip()
+                        req['NIST'] = [str(i.strip()) for i in filter(None,m.group(7).strip().split('/'))]
+                        req_flat['nist'] = m.group(7).strip()
+                        
+                        section['Items'].append(req)
+                        self.asvs_flat.append(req_flat)
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
-        return json.dumps(self.requirements)
+        return json.dumps(self.asvs, indent = 2, sort_keys = False).strip()
 
-    def to_xml(self):
+    def to_xmlOLD(self):
         ''' Returns XML '''
         xml = ''
 
@@ -70,13 +180,15 @@ class ASVS:
             xml += "<requirement id = \"" + escape(r['id']) + "\">" + escape(r['text']) + "</requirement>\n"
 
         return xml
-
+    def to_xml(self):
+        return dicttoxml.dicttoxml(self.asvs, attr_type=False).decode('utf-8')
+        
     def to_csv(self):
         ''' Returns CSV '''
         si = StringIO()
 
-        writer = csv.DictWriter(si, ['id', 'text'])
+        writer = csv.DictWriter(si, ['chapter_id', 'chapter_name', 'section_id', 'section_name', 'req_id', 'req_description', 'level1', 'level2', 'level3', 'cwe', 'nist'])
         writer.writeheader()
-        writer.writerows(self.requirements)
+        writer.writerows(self.asvs_flat)
 
         return si.getvalue()
