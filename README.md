@@ -50,9 +50,11 @@ The master branch of this repository will always be the "bleeding edge version" 
 
 ### Translations
 
-Translation into Persian:
-* [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
-
+* [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
+* [OWASP Application Security Verification Standard 4.0 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-DE.pdf) (Thanks to Jörg Brünner) 
+* [OWASP Application Security Verification Standard 4.0 Japanese (PDF)](4.0/OWASP-Application-Security-Verification-Standard-4.0-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
+* [OWASP Application Security Verification Standard 4.0 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-tr.pdf) (Thanks to [
+Fatih ERSINADIM](https://github.com/fatihersinadim)) 
 ## License
 
 The entire project content is under the **[Creative Commons v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
