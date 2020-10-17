@@ -6,7 +6,7 @@ The Application Security Verification Standard is a list of application security
 
 ## Copyright and License
 
-Version 4.0.2, ??? 202?
+Version 4.0.2, October 2020
 
 ![license](../images/license.png)
 
