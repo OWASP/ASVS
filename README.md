@@ -41,10 +41,6 @@ The master branch of this repository will always be the "bleeding edge version" 
 * [OWASP Application Security Verification Standard 4.0 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-tr.pdf) (Thanks to [
 Fatih ERSINADIM](https://github.com/fatihersinadim)) 
 
-## License
-
-The entire project content is under the **[Creative Commons v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
-
 ## How To Reference ASVS Requirements
 
 Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`.
@@ -59,3 +55,7 @@ The identifiers may change between versions of the standard therefore it is pref
 Note: The `v` preceding the version portion is to be lower case.
 
 If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
+
+## License
+
+The entire project content is under the **[Creative Commons v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
