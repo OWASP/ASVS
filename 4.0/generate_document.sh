@@ -36,6 +36,7 @@ generate_docx() {
 	echo -e " - Manually review the document and move any orphaned table headings or section headings to the"
 	echo -e "   following page"
 	echo -e " - Run 'Update table...' on the Table of Contents"
+	echo -e " - Remove the lines above 'Frontispiece' from the Table of Contents"
 }
 
 # generate_html() {
