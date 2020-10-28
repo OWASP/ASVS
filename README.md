@@ -9,6 +9,25 @@ The standard provides a basis for designing, building, and testing technical app
 
 **Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for translations of the 4.n branch.**
 
+## Latest Stable Version - 4.0.2
+
+The latest stable version is version 4.0.2 (dated October 2020), which can be found:
+* [OWASP Application Security Verification Standard 4.0.2 English (PDF)](https://github.com/OWASP/ASVS/raw/v4.0.2/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-en.pdf)
+* [OWASP Application Security Verification Standard 4.0.2 English (Word)](https://github.com/OWASP/ASVS/raw/v4.0.2/4.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-en.docx)
+* [OWASP Application Security Verification Standard 4.0.2 English (CSV)](https://github.com/OWASP/ASVS/raw/v4.0.2/4.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-en.csv)
+* [OWASP Application Security Verification Standard 4.0.2 (GitHub Tag)](https://github.com/OWASP/ASVS/tree/v4.0.2)
+
+The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **4.1**.
+
+For information on changes between 4.0.1 and 4.0.2 of the standard, see [this wiki page](https://github.com/OWASP/ASVS/wiki/What-is-new-in-version-4.0.2) and for a full diff, see [this pull request](https://github.com/OWASP/ASVS/pull/780/files?file-filters%5B%5D=.md&file-filters%5B%5D=.py&file-filters%5B%5D=.sh&file-filters%5B%5D=.yml&file-filters%5B%5D=No+extension)
+
+### Translations
+
+* [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
+* [OWASP Application Security Verification Standard 4.0 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-DE.pdf) (Thanks to Jörg Brünner) 
+* [OWASP Application Security Verification Standard 4.0 Japanese (PDF)](4.0/OWASP-Application-Security-Verification-Standard-4.0-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
+* [OWASP Application Security Verification Standard 4.0 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim)) 
+
 ## Standard Objectives
 
 The requirements were developed with the following objectives in mind:
@@ -22,23 +41,6 @@ The requirements were developed with the following objectives in mind:
 * Minimize overlapping and competing requirements from other standards, by either aligning strongly with them (NIST 800-63), or being strict supersets (OWASP Top 10 2017, PCI DSS 3.2.1), which will help reduce compliance costs, effort, and time wasted in accepting unnecessary differences as risks.
 
 ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
-
-## Latest Stable Version - 4.0.2
-
-The latest stable version is version 4.0.2 (dated October 2020), which can be found:
-* [OWASP Application Security Verification Standard 4.0.2 English (PDF)](https://github.com/OWASP/ASVS/raw/v4.0.2/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-en.pdf)
-* [OWASP Application Security Verification Standard 4.0.2 English (Word)](https://github.com/OWASP/ASVS/raw/v4.0.2/4.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-en.docx)
-* [OWASP Application Security Verification Standard 4.0.2 English (CSV)](https://github.com/OWASP/ASVS/raw/v4.0.2/4.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-en.csv)
-* [OWASP Application Security Verification Standard 4.0.2 (GitHub Tag)](https://github.com/OWASP/ASVS/tree/v4.0.2)
-
-The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **4.1**.
-
-### Translations
-
-* [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
-* [OWASP Application Security Verification Standard 4.0 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-DE.pdf) (Thanks to Jörg Brünner) 
-* [OWASP Application Security Verification Standard 4.0 Japanese (PDF)](4.0/OWASP-Application-Security-Verification-Standard-4.0-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
-* [OWASP Application Security Verification Standard 4.0 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim)) 
 
 ## How To Reference ASVS Requirements
 
