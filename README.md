@@ -19,7 +19,7 @@ The latest stable version is version 4.0.2 (dated October 2020), which can be fo
 
 The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **4.1**.
 
-For information on changes between 4.0.1 and 4.0.2 of the standard, see [this wiki page](https://github.com/OWASP/ASVS/wiki/What-is-new-in-version-4.0.2) and for a full diff, see [this pull request](https://github.com/OWASP/ASVS/pull/780/files?file-filters%5B%5D=.md&file-filters%5B%5D=.py&file-filters%5B%5D=.sh&file-filters%5B%5D=.yml&file-filters%5B%5D=No+extension)
+For information on changes between 4.0.1 and 4.0.2 of the standard, see [this wiki page](https://github.com/OWASP/ASVS/wiki/What-is-new-in-version-4.0.2) and for a full diff, see [this pull request](https://github.com/OWASP/ASVS/pull/780/files?file-filters%5B%5D=.md&file-filters%5B%5D=.py&file-filters%5B%5D=.sh&file-filters%5B%5D=.yml&file-filters%5B%5D=No+extension).
 
 ### Translations
 
