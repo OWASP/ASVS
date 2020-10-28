@@ -21,6 +21,7 @@ The master branch of this repository will always be the "bleeding edge version" 
 
 For information on changes between 4.0.1 and 4.0.2 of the standard, see [this wiki page](https://github.com/OWASP/ASVS/wiki/What-is-new-in-version-4.0.2) and for a full diff, see [this pull request](https://github.com/OWASP/ASVS/pull/780/files?file-filters%5B%5D=.md&file-filters%5B%5D=.py&file-filters%5B%5D=.sh&file-filters%5B%5D=.yml&file-filters%5B%5D=No+extension).
 
+
 ### Translations
 
 * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
