@@ -24,7 +24,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 
 ## V1.2 Authentication Architectural Requirements
 
-When designing authentication, it doesn't matter if you have strong hardware enabled multi-factor authentication if an attacker can reset an account by calling a call center and answering commonly known  questions. When proofing identity, all authentication pathways must have the same strength.
+When designing authentication, it doesn't matter if you have strong hardware enabled multi-factor authentication if an attacker can reset an account by calling a call center and answering commonly known  questions. When proving identity, all authentication pathways must have the same strength.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
