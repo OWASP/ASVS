@@ -64,7 +64,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.4.5** | Verify that a Strict-Transport-Security header is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
 | **14.4.6** | Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin". | ✓ | ✓ | ✓ | 116 |
 | **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 346 |
-| **14.4.8** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted domains and subdomains as much as possible. Where `Access-Control-Allow-Origin: *` needs to be inevitably used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
+| **14.4.8** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted domains and subdomains. Where "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
 
 ## V14.5 Validate HTTP Request Header Requirements
 
@@ -72,7 +72,7 @@ Configurations for production should be hardened to protect against common attac
 | --- | --- | --- | --- | -- | -- |
 | **14.5.1** | Verify that the application server only accepts the HTTP methods in use by the application/API, including pre-flight OPTIONS, and logs/alerts on any requests that are not valid for the application context. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | 346 |
-| **14.5.3** | Verify that the Origin header is completely validated when Access-Control-Allow-Origin header is dynamically configured with its value | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | Verify that the Origin header is validated against defined list of allowed domains to meet the Cross-Origin Resource Sharing (CORS) policy | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application. | | ✓ | ✓ | 306 |
 
 ## References
