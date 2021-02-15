@@ -1,6 +1,6 @@
 # Appendix C: Internet of Things Verification Requirements
 
-This section was originally in the main branch, but with the work that the OWASP IoT team has done, it doesn't make sense to maintain two different threads on the subject. For the 4.0 release, we are moving this to the Appendix, and urge all who require this, to rather use the main [OWASP IoT project](https://owasp.org/www-project-internet-of-things/)
+This chapter was originally in the main branch, but with the work that the OWASP IoT team has done, it doesn't make sense to maintain two different threads on the subject. For the 4.0 release, we are moving this to the Appendix, and urge all who require this, to rather use the main [OWASP IoT project](https://owasp.org/www-project-internet-of-things/)
 
 ## Control Objective
 
