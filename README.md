@@ -26,8 +26,7 @@ For information on changes between 4.0.1 and 4.0.2 of the standard, see [this wi
 * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
 * [OWASP Application Security Verification Standard 4.0 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-DE.pdf) (Thanks to Jörg Brünner) 
 * [OWASP Application Security Verification Standard 4.0 Japanese (PDF)](4.0/OWASP-Application-Security-Verification-Standard-4.0-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
-* [OWASP Application Security Verification Standard 4.0 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-tr.pdf) (Thanks to [
-Fatih ERSINADIM](https://github.com/fatihersinadim)) 
+* [OWASP Application Security Verification Standard 4.0 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim)) 
 
 ## Standard Objectives
 
@@ -48,11 +47,11 @@ ASVS requirement lists are made available in CSV, JSON, and other formats which 
 Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`.
 - The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
 - The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architectural Requirements` section of the `Architecture` chapter.
-- The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.1 of this standard is:
+- The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.2 of this standard is:
 
 > Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
 
-The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.1-1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architectural Requirements' section of the 'Architecture' chapter from version 4.0.1. (This could be summarized as `v<version>-<requirement_identifier>`.)
+The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.2-1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architectural Requirements' section of the 'Architecture' chapter from version 4.0.2. (This could be summarized as `v<version>-<requirement_identifier>`.)
 
 Note: The `v` preceding the version portion is to be lower case.
 
