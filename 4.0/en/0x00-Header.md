@@ -2,8 +2,8 @@
 
 ![OWASP LOGO](../images/owasp_logo_1c_notext.png)
 
-# Application Security Verification Standard 4.0
+# Application Security Verification Standard 4.x (Bleeding Edge version)
 
 ## Final
 
-March 2019
+2021
