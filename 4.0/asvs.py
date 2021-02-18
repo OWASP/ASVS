@@ -131,16 +131,16 @@ class ASVS:
                     if m:
                     
                         req_flat = {}
-                        req_sant = {}
-                        req_sant['Section'] = req_flat['chapter_id'] = chapter['Shortcode']
-                        req_sant['Name'] = req_flat['chapter_name'] = chapter['Name']
+                        req_flat2 = {}
+                        req_flat2['Section'] = req_flat['chapter_id'] = chapter['Shortcode']
+                        req_flat2['Name'] = req_flat['chapter_name'] = chapter['Name']
                         req_flat['section_id'] = section['Shortcode']
                         req_flat['section_name'] = section['Name']
                         
                         req = {}
-                        req_sant['Item'] = req_flat['req_id'] = req['Shortcode'] = "V" + m.group(1)
+                        req_flat2['Item'] = req_flat['req_id'] = req['Shortcode'] = "V" + m.group(1)
                         req['Ordinal'] = int(m.group(1).rsplit('.', 1)[1])
-                        req_sant['Description'] = req_flat['req_description'] = req['Description'] = m.group(2)
+                        req_flat2['Description'] = req_flat['req_description'] = req['Description'] = m.group(2)
 
                         level1 = {}
                         level2 = {}
@@ -151,11 +151,11 @@ class ASVS:
                         req_flat['level3'] = m.group(5).strip(' ')
                         
                         level1['Required'] = m.group(3).strip() != ''
-                        req_sant['L1'] = ('X' if level1['Required'] else '')
+                        req_flat2['L1'] = ('X' if level1['Required'] else '')
                         level2['Required'] = m.group(4).strip() != ''
-                        req_sant['L2'] = ('X' if level2['Required'] else '')
+                        req_flat2['L2'] = ('X' if level2['Required'] else '')
                         level3['Required'] = m.group(5).strip() != ''
-                        req_sant['L3'] = ('X' if level3['Required'] else '')
+                        req_flat2['L3'] = ('X' if level3['Required'] else '')
 
                         level1['Requirement'] = ("Optional" if m.group(3).strip('✓ ') == "o" else m.group(3).strip('✓ '))
                         level2['Requirement'] = ("Optional" if m.group(4).strip('✓ ') == "o" else m.group(4).strip('✓ '))
@@ -166,13 +166,13 @@ class ASVS:
                         req['L3'] = level3
 
                         req['CWE'] = [int(i.strip()) for i in filter(None, m.group(6).strip().split(','))]
-                        req_sant['CWE'] = req_flat['cwe'] = m.group(6).strip()
+                        req_flat2['CWE'] = req_flat['cwe'] = m.group(6).strip()
                         req['NIST'] = [str(i.strip()) for i in filter(None,m.group(7).strip().split('/'))]
-                        req_sant['NIST'] = req_flat['nist'] = m.group(7).strip()
+                        req_flat2['NIST'] = req_flat['nist'] = m.group(7).strip()
                         
                         section['Items'].append(req)
                         self.asvs_flat.append(req_flat)
-                        self.asvs_flat2['requirements'].append(req_sant)
+                        self.asvs_flat2['requirements'].append(req_flat2)
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
