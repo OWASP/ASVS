@@ -50,8 +50,8 @@ class ASVS:
         "provides developers with a list of requirements for secure development."
 
     asvs_flat = []
-    asvs_sant = {}
-    asvs_sant['requirements'] = []
+    asvs_flat2 = {}
+    asvs_flat2['requirements'] = []
 
     def __init__(self, language):    
         
@@ -172,15 +172,15 @@ class ASVS:
                         
                         section['Items'].append(req)
                         self.asvs_flat.append(req_flat)
-                        self.asvs_sant['requirements'].append(req_sant)
+                        self.asvs_flat2['requirements'].append(req_sant)
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
         return json.dumps(self.asvs, indent = 2, sort_keys = False).strip()
 
-    def to_json_sant(self):
-        ''' Returns a JSON-formatted string '''
-        return json.dumps(self.asvs_sant, indent = 2, sort_keys = False).strip()
+    def to_json_flat(self):
+        ''' Returns a JSON-formatted string which is flattened and simpler '''
+        return json.dumps(self.asvs_flat2, indent = 2, sort_keys = False).strip()
 
     def to_xmlOLD(self):
         ''' Returns XML '''
