@@ -1,0 +1,1324 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>V2-Authentication · ASVS v4</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.17">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="0x12-V3-Session-management.html" />
+    
+    
+    <link rel="prev" href="0x10-V1-Architecture.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="0x00-Header.html">
+            
+                <a href="0x00-Header.html">
+            
+                    
+                    Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="0x01-Frontispiece.html">
+            
+                <a href="0x01-Frontispiece.html">
+            
+                    
+                    Frontispiece
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="0x02-Preface.html">
+            
+                <a href="0x02-Preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="0x03-Using-ASVS.html">
+            
+                <a href="0x03-Using-ASVS.html">
+            
+                    
+                    Using-ASVS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="0x04-Assessment_and_Certification.html">
+            
+                <a href="0x04-Assessment_and_Certification.html">
+            
+                    
+                    Assessment_and_Certification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="0x10-V1-Architecture.html">
+            
+                <a href="0x10-V1-Architecture.html">
+            
+                    
+                    V1-Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="0x11-V2-Authentication.html">
+            
+                <a href="0x11-V2-Authentication.html">
+            
+                    
+                    V2-Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="0x12-V3-Session-management.html">
+            
+                <a href="0x12-V3-Session-management.html">
+            
+                    
+                    V3-Session-management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="0x12-V4-Access-Control.html">
+            
+                <a href="0x12-V4-Access-Control.html">
+            
+                    
+                    V4-Access-Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="0x14-V6-Cryptography.html">
+            
+                <a href="0x14-V6-Cryptography.html">
+            
+                    
+                    V6-Cryptography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="0x15-V7-Error-Logging.html">
+            
+                <a href="0x15-V7-Error-Logging.html">
+            
+                    
+                    V7-Error-Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="0x16-V8-Data-Protection.html">
+            
+                <a href="0x16-V8-Data-Protection.html">
+            
+                    
+                    V8-Data-Protection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="0x17-V9-Communications.html">
+            
+                <a href="0x17-V9-Communications.html">
+            
+                    
+                    V9-Communications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="0x18-V10-Malicious.html">
+            
+                <a href="0x18-V10-Malicious.html">
+            
+                    
+                    V10-Malicious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="0x19-V11-BusLogic.html">
+            
+                <a href="0x19-V11-BusLogic.html">
+            
+                    
+                    V11-BusLogic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="0x20-V12-Files-Resources.html">
+            
+                <a href="0x20-V12-Files-Resources.html">
+            
+                    
+                    V12-Files-Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="0x21-V13-API.html">
+            
+                <a href="0x21-V13-API.html">
+            
+                    
+                    V13-API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="0x22-V14-Config.html">
+            
+                <a href="0x22-V14-Config.html">
+            
+                    
+                    V14-Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="0x90-Appendix-A_Glossary.html">
+            
+                <a href="0x90-Appendix-A_Glossary.html">
+            
+                    
+                    Appendix-A_Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="0x91-Appendix-B_References.html">
+            
+                <a href="0x91-Appendix-B_References.html">
+            
+                    
+                    Appendix-B_References
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="0x93-Appendix-C_IoT.html">
+            
+                <a href="0x93-Appendix-C_IoT.html">
+            
+                    
+                    Appendix-C_IoT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >V2-Authentication</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="v2-authentication-verification-requirements">V2: Authentication Verification Requirements</h1>
+<h2 id="control-objective">Control Objective</h2>
+<p>Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.</p>
+<p>When the ASVS was first released, username + password was the most common form of authentication outside of high security systems. Multi-factor Authentication (MFA) was commonly accepted in security circles but rarely required elsewhere. As the number of password breaches increased, the idea that usernames are somehow confidential and passwords unknown, rendered many security controls untenable. For example, NIST 800-63 considers usernames and Knowledge Based Authentication (KBA) as public information, SMS and email notifications as <a href="https://pages.nist.gov/800-63-FAQ/#q-b1" target="_blank">&quot;restricted&quot; authenticator types</a> , and passwords as pre-breached. This reality renders knowledge based authenticators, SMS and email recovery, password history, complexity, and rotation controls useless. These controls always have been less than helpful, often forcing users to come up with weak passwords every few months, but with the release of over 5 billion username and password breaches, it&apos;s time to move on.</p>
+<p>Of all the chapters in the ASVS, the authentication and session management chapters have changed the most. Adoption of effective, evidence-based leading practice will be challenging for many, and that&apos;s perfectly okay. We have to start the transition to a post-password future now.</p>
+<h2 id="nist-800-63---modern-evidence-based-authentication-standard">NIST 800-63 - Modern, evidence-based authentication standard</h2>
+<p><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST 800-63b</a> is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.</p>
+<p>NIST 800-63 terminology can be a little confusing at first, especially if you&apos;re only used to username + password authentication. Advancements in modern authentication are necessary, so we have to introduce terminology that will become commonplace in the future, but we do understand the difficulty in understanding until the industry settles on these new terms. We have provided a glossary at the end of this chapter to assist. We have rephrased many requirements to satisfy the intent of the requirement, rather than the letter of the requirement. For example, the ASVS uses the term &quot;password&quot; when NIST uses &quot;memorized secret&quot; throughout this standard.</p>
+<p>ASVS V2 Authentication, V3 Session Management, and to a lesser extent, V4 Access Controls have been adapted to be a compliant subset of selected NIST 800-63b controls, focused around common threats and commonly exploited authentication weaknesses. Where full NIST 800-63 compliance is required, please consult NIST 800-63.</p>
+<h3 id="selecting-an-appropriate-nist-aal-level">Selecting an appropriate NIST AAL Level</h3>
+<p>The Application Security Verification Standard has tried to map ASVS L1 to NIST AAL1 requirements, L2 to AAL2, and L3 to AAL3. However, the approach of ASVS Level 1 as &quot;essential&quot; controls may not necessarily be the correct AAL level to verify an application or API. For example, if the application is a Level 3 application or has regulatory requirements to be AAL3, Level 3 should be chosen in chapters V2 and V3 Session Management. The choice of NIST compliant Authentication Assertion Level (AAL) should be performed as per NIST 800-63b guidelines as set out in <em>Selecting AAL</em> in <a href="https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA" target="_blank">NIST 800-63b Section 6.2</a>.</p>
+<h2 id="legend">Legend</h2>
+<p>Applications can always exceed the current level&apos;s requirements, especially if modern authentication is on an application&apos;s roadmap. Previously, the ASVS has required mandatory MFA. NIST does not require mandatory MFA. Therefore, we have used an optional designation in this chapter to indicate where the ASVS encourages but does not require a control. The following keys are used throughout this standard:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Mark</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:left">Not required</td>
+</tr>
+<tr>
+<td style="text-align:center">o</td>
+<td style="text-align:left">Recommended, but not required</td>
+</tr>
+<tr>
+<td style="text-align:center">✓</td>
+<td style="text-align:left">Required</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v21-password-security-requirements">V2.1 Password Security Requirements</h2>
+<p>Passwords, called &quot;Memorized Secrets&quot; by NIST 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered &quot;something you know&quot;, and often used as single-factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.</p>
+<p>Applications should strongly encourage users to enroll in multi-factor authentication, and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication.</p>
+<p>Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name a just few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP&apos;s strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.1.1</strong></td>
+<td style="text-align:left">Verify that user set passwords are at least 12 characters in length (after multiple spaces are combined). (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.2</strong></td>
+<td style="text-align:left">Verify that passwords 64 characters or longer are permitted but may be no longer than 128 characters. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.3</strong></td>
+<td style="text-align:left">Verify that password truncation is not performed. However, consecutive multiple spaces may be replaced by a single space. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.4</strong></td>
+<td style="text-align:left">Verify that any printable Unicode character, including language neutral characters such as spaces and Emojis are permitted in passwords.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.5</strong></td>
+<td style="text-align:left">Verify users can change their password.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">620</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.6</strong></td>
+<td style="text-align:left">Verify that password change functionality requires the user&apos;s current and new password.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">620</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.7</strong></td>
+<td style="text-align:left">Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system&apos;s password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.8</strong></td>
+<td style="text-align:left">Verify that a password strength meter is provided to help users set a stronger password.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.9</strong></td>
+<td style="text-align:left">Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.10</strong></td>
+<td style="text-align:left">Verify that there are no periodic credential rotation or password history requirements.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">263</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.11</strong></td>
+<td style="text-align:left">Verify that &quot;paste&quot; functionality, browser password helpers, and external password managers are permitted.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.1.12</strong></td>
+<td style="text-align:left">Verify that the user can choose to either temporarily view the entire masked password, or temporarily view the last typed character of the password on platforms that do not have this as built-in functionality.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">521</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+</tbody>
+</table>
+<p>Note: The goal of allowing the user to view their password or see the last character temporarily is to improve the usability of credential entry, particularly around the use of longer passwords, passphrases, and password managers. Another reason for including the requirement is to deter or prevent test reports unnecessarily requiring organizations to override built-in platform password field behavior to remove this modern user-friendly security experience.</p>
+<h2 id="v22-general-authenticator-requirements">V2.2 General Authenticator Requirements</h2>
+<p>Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.</p>
+<p>NIST considers email and SMS as <a href="https://pages.nist.gov/800-63-FAQ/#q-b1" target="_blank">&quot;restricted&quot; authenticator types</a>, and they are likely to be removed from NIST 800-63 and thus the ASVS at some point the future. Applications should plan a roadmap that does not require the use of email or SMS.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.2.1</strong></td>
+<td style="text-align:left">Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">307</td>
+<td style="text-align:center">5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.2.2</strong></td>
+<td style="text-align:left">Verify that the use of weak authenticators (such as SMS and email) is limited to secondary verification and transaction approval and not as a replacement for more secure authentication methods. Verify that stronger methods are offered before weak methods, users are aware of the risks, or that proper measures are in place to limit the risks of account compromise.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">304</td>
+<td style="text-align:center">5.2.10</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.2.3</strong></td>
+<td style="text-align:left">Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">620</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.2.4</strong></td>
+<td style="text-align:left">Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or at higher AAL levels, client-side certificates.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">308</td>
+<td style="text-align:center">5.2.5</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.2.5</strong></td>
+<td style="text-align:left">Verify that where a Credential Service Provider (CSP) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">319</td>
+<td style="text-align:center">5.2.6</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.2.6</strong></td>
+<td style="text-align:left">Verify replay resistance through the mandated use of One-time Passwords (OTP) devices, cryptographic authenticators, or lookup codes.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">308</td>
+<td style="text-align:center">5.2.8</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.2.7</strong></td>
+<td style="text-align:left">Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">308</td>
+<td style="text-align:center">5.2.9</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v23-authenticator-lifecycle-requirements">V2.3 Authenticator Lifecycle Requirements</h2>
+<p>Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that&apos;s perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.</p>
+<p>Note: Passwords are not to have a maximum lifetime or be subject to password rotation. Passwords should be checked for being breached, not regularly replaced.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.3.1</strong></td>
+<td style="text-align:left">Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers, and expire after a short period of time. These initial secrets must not be permitted to become the long term password.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">330</td>
+<td style="text-align:center">5.1.1.2 / A.3</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.3.2</strong></td>
+<td style="text-align:left">Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">308</td>
+<td style="text-align:center">6.1.3</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.3.3</strong></td>
+<td style="text-align:left">Verify that renewal instructions are sent with sufficient time to renew time bound authenticators.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">287</td>
+<td style="text-align:center">6.1.4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v24-credential-storage-requirements">V2.4 Credential Storage Requirements</h2>
+<p>Architects and developers should adhere to this section when building or refactoring code. This section can only be fully verified using source code review or through  secure unit or integration tests. Penetration testing cannot identify any of these issues.</p>
+<p>The list of approved one-way key derivation functions is detailed in NIST 800-63 B section 5.1.1.2, and in <a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile" target="_blank">BSI Kryptographische Verfahren: Empfehlungen und Schlussellängen (2018)</a>. The latest national or regional algorithm and key length standards can be chosen in place of these choices.</p>
+<p>This section cannot be penetration tested, so controls are not marked as L1. However, this section is of vital importance to the security of credentials if they are stolen, so if forking the ASVS for an architecture or coding guideline or source code review checklist, please place these controls back to L1 in your private version.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.4.1</strong></td>
+<td style="text-align:left">Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be salted and hashed using an approved one-way key derivation or password hashing function. Key derivation and password hashing functions take a password, a salt, and a cost factor as inputs when generating a password hash. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">916</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.4.2</strong></td>
+<td style="text-align:left">Verify that the salt is at least 32 bits in length and be chosen arbitrarily to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">916</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.4.3</strong></td>
+<td style="text-align:left">Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">916</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.4.4</strong></td>
+<td style="text-align:left">Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 13. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">916</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.4.5</strong></td>
+<td style="text-align:left">Verify that an additional iteration of a key derivation function is performed, using a salt value that is secret and known only to the verifier. Generate the salt value using an approved random bit generator [SP 800-90Ar1] and provide at least the minimum security strength specified in the latest revision of SP 800-131A. The secret salt value SHALL be stored separately from the hashed passwords (e.g., in a specialized device like a hardware security module).</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">916</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+</tbody>
+</table>
+<p>Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.</p>
+<h2 id="v25-credential-recovery-requirements">V2.5 Credential Recovery Requirements</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.5.1</strong></td>
+<td style="text-align:left">[MODIFIED] Verify that if a system generated initial activation or recovery secret is being sent to the user, it is single-use, time-limited and random. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">640</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.5.2</strong></td>
+<td style="text-align:left">Verify password hints or knowledge-based authentication (so-called &quot;secret questions&quot;) are not present.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">640</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.5.3</strong></td>
+<td style="text-align:left">Verify password credential recovery does not reveal the current password in any way. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">640</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.5.4</strong></td>
+<td style="text-align:left">Verify shared or default accounts are not present (e.g. &quot;root&quot;, &quot;admin&quot;, or &quot;sa&quot;).</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">5.1.1.2 / A.3</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.5.5</strong></td>
+<td style="text-align:left">Verify that if an authentication factor is changed or replaced, that the user is notified of this event.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">304</td>
+<td style="text-align:center">6.1.2.3</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.5.6</strong></td>
+<td style="text-align:left">Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">640</td>
+<td style="text-align:center">5.1.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.5.7</strong></td>
+<td style="text-align:left">Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">308</td>
+<td style="text-align:center">6.1.2.3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v26-look-up-secret-verifier-requirements">V2.6 Look-up Secret Verifier Requirements</h2>
+<p>Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered &quot;something you have&quot;.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.6.1</strong></td>
+<td style="text-align:left">Verify that lookup secrets can be used only once.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">308</td>
+<td style="text-align:center">5.1.2.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.6.2</strong></td>
+<td style="text-align:left">Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">330</td>
+<td style="text-align:center">5.1.2.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.6.3</strong></td>
+<td style="text-align:left">Verify that lookup secrets are resistant to offline attacks, such as predictable values.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">5.1.2.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v27-out-of-band-verifier-requirements">V2.7 Out of Band Verifier Requirements</h2>
+<p>In the past, a common out of band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don&apos;t yet control, such as taking over a person&apos;s email account and re-using any discovered reset links. There are better ways to handle out of band verification.</p>
+<p>Secure out of band authenticators are physical devices that can communicate with the verifier over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered &quot;something you have&quot;. When a user wishes to authenticate, the verifying application sends a message to the out of band authenticator via a connection to the authenticator directly or indirectly through a third party service. The message contains an authentication code (typically a random six digit number or a modal approval dialog). The verifying application waits to receive the authentication code through the primary channel and compares the hash of the received value to the hash of the original authentication code. If they match, the out of band verifier can assume that the user has authenticated.</p>
+<p>The ASVS assumes that only a few developers will be developing new out of band authenticators, such as push notifications, and thus the following ASVS controls apply to verifiers, such as authentication API, applications, and single sign-on implementations. If developing a new out of band authenticator, please refer to NIST 800-63B § 5.1.3.1.</p>
+<p>Unsafe out of band authenticators such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently &quot;restricted&quot; by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out of band authentication, please see § 5.1.3.3.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.7.1</strong></td>
+<td style="text-align:left">Verify that clear text out of band (NIST &quot;restricted&quot;) authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">287</td>
+<td style="text-align:center">5.1.3.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.7.2</strong></td>
+<td style="text-align:left">Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">287</td>
+<td style="text-align:center">5.1.3.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.7.3</strong></td>
+<td style="text-align:left">Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">287</td>
+<td style="text-align:center">5.1.3.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.7.4</strong></td>
+<td style="text-align:left">Verify that the out of band authenticator and verifier communicates over a secure independent channel.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">523</td>
+<td style="text-align:center">5.1.3.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.7.5</strong></td>
+<td style="text-align:left">Verify that the out of band verifier retains only a hashed version of the authentication code.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">256</td>
+<td style="text-align:center">5.1.3.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.7.6</strong></td>
+<td style="text-align:left">Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient).</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">5.1.3.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v28-single-or-multi-factor-one-time-verifier-requirements">V2.8 Single or Multi-factor One Time Verifier Requirements</h2>
+<p>Single-factor One-time Passwords (OTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. These devices make phishing (impersonation) difficult, but not impossible. This type of authenticator is considered &quot;something you have&quot;. Multi-factor tokens are similar to single-factor OTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.8.1</strong></td>
+<td style="text-align:left">Verify that time-based OTPs have a defined lifetime before expiring.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center">5.1.4.2 / 5.1.5.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.8.2</strong></td>
+<td style="text-align:left">Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">320</td>
+<td style="text-align:center">5.1.4.2 / 5.1.5.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.8.3</strong></td>
+<td style="text-align:left">Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of OTPs.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">326</td>
+<td style="text-align:center">5.1.4.2 / 5.1.5.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.8.4</strong></td>
+<td style="text-align:left">Verify that time-based OTP can be used only once within the validity period.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">287</td>
+<td style="text-align:center">5.1.4.2 / 5.1.5.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.8.5</strong></td>
+<td style="text-align:left">Verify that if a time-based multi-factor OTP token is re-used during the validity period, it is logged and rejected with secure notifications being sent to the holder of the device.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">287</td>
+<td style="text-align:center">5.1.5.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.8.6</strong></td>
+<td style="text-align:left">Verify physical single-factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center">5.2.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.8.7</strong></td>
+<td style="text-align:left">Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">308</td>
+<td style="text-align:center">5.2.3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v29-cryptographic-software-and-devices-verifier-requirements">V2.9 Cryptographic Software and Devices Verifier Requirements</h2>
+<p>Cryptographic security keys are smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. Verifiers send a challenge nonce to the cryptographic devices or software, and the device or software calculates a response based upon a securely stored cryptographic key.</p>
+<p>The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic authenticator proves possession of the authentication factor.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.9.1</strong></td>
+<td style="text-align:left">Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">320</td>
+<td style="text-align:center">5.1.7.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.9.2</strong></td>
+<td style="text-align:left">[L2&gt;L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">330</td>
+<td style="text-align:center">5.1.7.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.9.3</strong></td>
+<td style="text-align:left">Verify that approved cryptographic algorithms are used in the generation, seeding, and verification.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">327</td>
+<td style="text-align:center">5.1.7.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v210-service-authentication-requirements">V2.10 Service Authentication Requirements</h2>
+<p>This section is not penetration testable, so does not have any L1 requirements. However, if used in an architecture, coding or secure code review, please assume that software (just as Java Key Store) is the minimum requirement at L1. Clear text storage of secrets is not acceptable under any circumstances.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>2.10.1</strong></td>
+<td style="text-align:left">Verify that intra-service secrets do not rely on unchanging credentials such as passwords, API keys or shared accounts with privileged access.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">OS assisted</td>
+<td style="text-align:center">HSM</td>
+<td style="text-align:center">287</td>
+<td style="text-align:center">5.1.1.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.10.2</strong></td>
+<td style="text-align:left">Verify that if passwords are required for service authentication, the service account used is not a default credential. (e.g. root/root or admin/admin are default in some services during installation).</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">OS assisted</td>
+<td style="text-align:center">HSM</td>
+<td style="text-align:center">255</td>
+<td style="text-align:center">5.1.1.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.10.3</strong></td>
+<td style="text-align:left">Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">OS assisted</td>
+<td style="text-align:center">HSM</td>
+<td style="text-align:center">522</td>
+<td style="text-align:center">5.1.1.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2.10.4</strong></td>
+<td style="text-align:left">Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">OS assisted</td>
+<td style="text-align:center">HSM</td>
+<td style="text-align:center">798</td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional-us-agency-requirements">Additional US Agency Requirements</h2>
+<p>US Agencies have mandatory requirements concerning NIST 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications.</p>
+<p>We strongly urge US government agencies to review and implement NIST 800-63 in its entirety.</p>
+<h2 id="glossary-of-terms">Glossary of terms</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSP</td>
+<td>Credential Service Provider also called an Identity Provider</td>
+</tr>
+<tr>
+<td>Authenticator</td>
+<td>Code that authenticates a password, token, MFA, federated assertion, and so on.</td>
+</tr>
+<tr>
+<td>Verifier</td>
+<td>&quot;An entity that verifies the claimant&apos;s identity by verifying the claimant&apos;s possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber&apos;s identifier and check their status&quot;</td>
+</tr>
+<tr>
+<td>OTP</td>
+<td>One-time password</td>
+</tr>
+<tr>
+<td>SFA</td>
+<td>Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card),</td>
+</tr>
+<tr>
+<td>MFA</td>
+<td>Multi-factor authentication, which includes two or more single factors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<p>For more information, see also:</p>
+<ul>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf" target="_blank">NIST 800-63 - Digital Identity Guidelines</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63a.pdf" target="_blank">NIST 800-63 A - Enrollment and Identity Proofing</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf" target="_blank">NIST 800-63 B - Authentication and Lifecycle Management</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63c.pdf" target="_blank">NIST 800-63 C - Federation and Assertions</a></li>
+<li><a href="https://pages.nist.gov/800-63-FAQ/" target="_blank">NIST 800-63 FAQ</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/04-Authentication_Testing/README.html" target="_blank">OWASP Testing Guide 4.0: Testing for Authentication</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" target="_blank">OWASP Cheat Sheet - Password storage</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html" target="_blank">OWASP Cheat Sheet - Forgot password</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html" target="_blank">OWASP Cheat Sheet - Choosing and using security questions</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="0x10-V1-Architecture.html" class="navigation navigation-prev " aria-label="Previous page: V1-Architecture">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="0x12-V3-Session-management.html" class="navigation navigation-next " aria-label="Next page: V3-Session-management">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"V2-Authentication","level":"1.8","depth":1,"next":{"title":"V3-Session-management","level":"1.9","depth":1,"path":"0x12-V3-Session-management.md","ref":"0x12-V3-Session-management.md","articles":[]},"previous":{"title":"V1-Architecture","level":"1.7","depth":1,"path":"0x10-V1-Architecture.md","ref":"0x10-V1-Architecture.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASVS v4","gitbook":"*"},"file":{"path":"0x11-V2-Authentication.md","mtime":"2021-02-24T04:53:19.762Z","type":"markdown"},"gitbook":{"version":"3.6.17","time":"2021-02-24T05:05:30.333Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

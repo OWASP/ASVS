@@ -1,0 +1,753 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>V6-Cryptography · ASVS v4</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.17">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="0x15-V7-Error-Logging.html" />
+    
+    
+    <link rel="prev" href="0x12-V4-Access-Control.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="0x00-Header.html">
+            
+                <a href="0x00-Header.html">
+            
+                    
+                    Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="0x01-Frontispiece.html">
+            
+                <a href="0x01-Frontispiece.html">
+            
+                    
+                    Frontispiece
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="0x02-Preface.html">
+            
+                <a href="0x02-Preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="0x03-Using-ASVS.html">
+            
+                <a href="0x03-Using-ASVS.html">
+            
+                    
+                    Using-ASVS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="0x04-Assessment_and_Certification.html">
+            
+                <a href="0x04-Assessment_and_Certification.html">
+            
+                    
+                    Assessment_and_Certification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="0x10-V1-Architecture.html">
+            
+                <a href="0x10-V1-Architecture.html">
+            
+                    
+                    V1-Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="0x11-V2-Authentication.html">
+            
+                <a href="0x11-V2-Authentication.html">
+            
+                    
+                    V2-Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="0x12-V3-Session-management.html">
+            
+                <a href="0x12-V3-Session-management.html">
+            
+                    
+                    V3-Session-management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="0x12-V4-Access-Control.html">
+            
+                <a href="0x12-V4-Access-Control.html">
+            
+                    
+                    V4-Access-Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11" data-path="0x14-V6-Cryptography.html">
+            
+                <a href="0x14-V6-Cryptography.html">
+            
+                    
+                    V6-Cryptography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="0x15-V7-Error-Logging.html">
+            
+                <a href="0x15-V7-Error-Logging.html">
+            
+                    
+                    V7-Error-Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="0x16-V8-Data-Protection.html">
+            
+                <a href="0x16-V8-Data-Protection.html">
+            
+                    
+                    V8-Data-Protection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="0x17-V9-Communications.html">
+            
+                <a href="0x17-V9-Communications.html">
+            
+                    
+                    V9-Communications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="0x18-V10-Malicious.html">
+            
+                <a href="0x18-V10-Malicious.html">
+            
+                    
+                    V10-Malicious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="0x19-V11-BusLogic.html">
+            
+                <a href="0x19-V11-BusLogic.html">
+            
+                    
+                    V11-BusLogic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="0x20-V12-Files-Resources.html">
+            
+                <a href="0x20-V12-Files-Resources.html">
+            
+                    
+                    V12-Files-Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="0x21-V13-API.html">
+            
+                <a href="0x21-V13-API.html">
+            
+                    
+                    V13-API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="0x22-V14-Config.html">
+            
+                <a href="0x22-V14-Config.html">
+            
+                    
+                    V14-Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="0x90-Appendix-A_Glossary.html">
+            
+                <a href="0x90-Appendix-A_Glossary.html">
+            
+                    
+                    Appendix-A_Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="0x91-Appendix-B_References.html">
+            
+                <a href="0x91-Appendix-B_References.html">
+            
+                    
+                    Appendix-B_References
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="0x93-Appendix-C_IoT.html">
+            
+                <a href="0x93-Appendix-C_IoT.html">
+            
+                    
+                    Appendix-C_IoT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >V6-Cryptography</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="v6-stored-cryptography-verification-requirements">V6: Stored Cryptography Verification Requirements</h1>
+<h2 id="control-objective">Control Objective</h2>
+<p>Ensure that a verified application satisfies the following high level requirements:</p>
+<ul>
+<li>All cryptographic modules fail in a secure manner and that errors are handled correctly.</li>
+<li>A suitable random number generator is used.</li>
+<li>Access to keys is securely managed.</li>
+</ul>
+<h2 id="v61-data-classification">V6.1 Data Classification</h2>
+<p>The most important asset is the data processed, stored or transmitted by an application. Always perform a privacy impact assessment to classify the data protection needs of any stored data correctly.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>6.1.1</strong></td>
+<td style="text-align:left">Verify that regulated private data is stored encrypted while at rest, such as Personally Identifiable Information (PII), sensitive personal information, or data assessed likely to be subject to EU&apos;s GDPR.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">311</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.1.2</strong></td>
+<td style="text-align:left">Verify that regulated health data is stored encrypted while at rest, such as medical records, medical device details, or de-anonymized research records.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">311</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.1.3</strong></td>
+<td style="text-align:left">Verify that regulated financial data is stored encrypted while at rest, such as financial accounts, defaults or credit history, tax records, pay history, beneficiaries, or de-anonymized market or research records.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">311</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v62-algorithms">V6.2 Algorithms</h2>
+<p>Recent advances in cryptography mean that previously safe algorithms and key lengths are no longer safe or sufficient to protect data. Therefore, it should be possible to change algorithms.</p>
+<p>Although this section is not easily penetration tested, developers should consider this entire section as mandatory even though L1 is missing from most of the items.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>6.2.1</strong></td>
+<td style="text-align:left">Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable Padding Oracle attacks.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">310</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.2.2</strong></td>
+<td style="text-align:left">Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C8</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">327</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.2.3</strong></td>
+<td style="text-align:left">Verify that encryption initialization vector, cipher configuration, and block modes are configured securely using the latest advice.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">326</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.2.4</strong></td>
+<td style="text-align:left">Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C8</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">326</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.2.5</strong></td>
+<td style="text-align:left">Verify that known insecure block modes (i.e. ECB, etc.), padding modes (i.e. PKCS#1 v1.5, etc.), ciphers with small block sizes (i.e. Triple-DES, Blowfish, etc.), and weak hashing algorithms (i.e. MD5, SHA1, etc.) are not used unless required for backwards compatibility.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">326</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.2.6</strong></td>
+<td style="text-align:left">Verify that nonces, initialization vectors, and other single use numbers must not be used more than once with a given encryption key. The method of generation must be appropriate for the algorithm being used.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">326</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.2.7</strong></td>
+<td style="text-align:left">Verify that encrypted data is authenticated via signatures, authenticated cipher modes, or HMAC to ensure that ciphertext is not altered by an unauthorized party.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">326</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.2.8</strong></td>
+<td style="text-align:left">Verify that all cryptographic operations are constant-time, with no &apos;short-circuit&apos; operations in comparisons, calculations, or returns, to avoid leaking information.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">385</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v63-random-values">V6.3 Random Values</h2>
+<p>True Pseudo-random Number Generation (PRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>6.3.1</strong></td>
+<td style="text-align:left">Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the cryptographic module&apos;s approved cryptographically secure random number generator when these random values are intended to be not guessable by an attacker.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">338</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.3.2</strong></td>
+<td style="text-align:left">Verify that random GUIDs are created using the GUID v4 algorithm, and a Cryptographically-secure Pseudo-random Number Generator (CSPRNG). GUIDs created using other pseudo-random number generators may be predictable.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">338</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.3.3</strong></td>
+<td style="text-align:left">Verify that random numbers are created with proper entropy even when the application is under heavy load, or that the application degrades gracefully in such circumstances.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">338</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v64-secret-management">V6.4 Secret Management</h2>
+<p>Although this section is not easily penetration tested, developers should consider this entire section as mandatory even though L1 is missing from most of the items.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>6.4.1</strong></td>
+<td style="text-align:left">Verify that a secrets management solution such as a key vault is used to securely create, store, control access to and destroy secrets. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C8</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">798</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6.4.2</strong></td>
+<td style="text-align:left">Verify that key material is not exposed to the application but instead uses an isolated security module like a vault for cryptographic operations. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C8</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">320</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<p>For more information, see also:</p>
+<ul>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/README.html" target="_blank">OWASP Testing Guide 4.0: Testing for weak Cryptography</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html" target="_blank">OWASP Cheat Sheet: Cryptographic Storage</a></li>
+<li><a href="https://csrc.nist.gov/publications/detail/fips/140/2/final" target="_blank">FIPS 140-2</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="0x12-V4-Access-Control.html" class="navigation navigation-prev " aria-label="Previous page: V4-Access-Control">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="0x15-V7-Error-Logging.html" class="navigation navigation-next " aria-label="Next page: V7-Error-Logging">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"V6-Cryptography","level":"1.11","depth":1,"next":{"title":"V7-Error-Logging","level":"1.12","depth":1,"path":"0x15-V7-Error-Logging.md","ref":"0x15-V7-Error-Logging.md","articles":[]},"previous":{"title":"V4-Access-Control","level":"1.10","depth":1,"path":"0x12-V4-Access-Control.md","ref":"0x12-V4-Access-Control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASVS v4","gitbook":"*"},"file":{"path":"0x14-V6-Cryptography.md","mtime":"2021-02-24T04:53:19.765Z","type":"markdown"},"gitbook":{"version":"3.6.17","time":"2021-02-24T05:05:30.333Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

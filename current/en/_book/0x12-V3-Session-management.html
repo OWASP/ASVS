@@ -1,0 +1,860 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>V3-Session-management · ASVS v4</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.17">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="0x12-V4-Access-Control.html" />
+    
+    
+    <link rel="prev" href="0x11-V2-Authentication.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="0x00-Header.html">
+            
+                <a href="0x00-Header.html">
+            
+                    
+                    Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="0x01-Frontispiece.html">
+            
+                <a href="0x01-Frontispiece.html">
+            
+                    
+                    Frontispiece
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="0x02-Preface.html">
+            
+                <a href="0x02-Preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="0x03-Using-ASVS.html">
+            
+                <a href="0x03-Using-ASVS.html">
+            
+                    
+                    Using-ASVS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="0x04-Assessment_and_Certification.html">
+            
+                <a href="0x04-Assessment_and_Certification.html">
+            
+                    
+                    Assessment_and_Certification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="0x10-V1-Architecture.html">
+            
+                <a href="0x10-V1-Architecture.html">
+            
+                    
+                    V1-Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="0x11-V2-Authentication.html">
+            
+                <a href="0x11-V2-Authentication.html">
+            
+                    
+                    V2-Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="0x12-V3-Session-management.html">
+            
+                <a href="0x12-V3-Session-management.html">
+            
+                    
+                    V3-Session-management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="0x12-V4-Access-Control.html">
+            
+                <a href="0x12-V4-Access-Control.html">
+            
+                    
+                    V4-Access-Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="0x14-V6-Cryptography.html">
+            
+                <a href="0x14-V6-Cryptography.html">
+            
+                    
+                    V6-Cryptography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="0x15-V7-Error-Logging.html">
+            
+                <a href="0x15-V7-Error-Logging.html">
+            
+                    
+                    V7-Error-Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="0x16-V8-Data-Protection.html">
+            
+                <a href="0x16-V8-Data-Protection.html">
+            
+                    
+                    V8-Data-Protection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="0x17-V9-Communications.html">
+            
+                <a href="0x17-V9-Communications.html">
+            
+                    
+                    V9-Communications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="0x18-V10-Malicious.html">
+            
+                <a href="0x18-V10-Malicious.html">
+            
+                    
+                    V10-Malicious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="0x19-V11-BusLogic.html">
+            
+                <a href="0x19-V11-BusLogic.html">
+            
+                    
+                    V11-BusLogic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="0x20-V12-Files-Resources.html">
+            
+                <a href="0x20-V12-Files-Resources.html">
+            
+                    
+                    V12-Files-Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="0x21-V13-API.html">
+            
+                <a href="0x21-V13-API.html">
+            
+                    
+                    V13-API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="0x22-V14-Config.html">
+            
+                <a href="0x22-V14-Config.html">
+            
+                    
+                    V14-Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="0x90-Appendix-A_Glossary.html">
+            
+                <a href="0x90-Appendix-A_Glossary.html">
+            
+                    
+                    Appendix-A_Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="0x91-Appendix-B_References.html">
+            
+                <a href="0x91-Appendix-B_References.html">
+            
+                    
+                    Appendix-B_References
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="0x93-Appendix-C_IoT.html">
+            
+                <a href="0x93-Appendix-C_IoT.html">
+            
+                    
+                    Appendix-C_IoT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >V3-Session-management</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="v3-session-management-verification-requirements">V3: Session Management Verification Requirements</h1>
+<h2 id="control-objective">Control Objective</h2>
+<p>One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.</p>
+<p>Ensure that a verified application satisfies the following high-level session management requirements:</p>
+<ul>
+<li>Sessions are unique to each individual and cannot be guessed or shared.</li>
+<li>Sessions are invalidated when no longer required and timed out during periods of inactivity.</li>
+</ul>
+<p>As previously noted, these requirements have been adapted to be a compliant subset of selected NIST 800-63b controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory <a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST 800-63b</a> requirements.</p>
+<h2 id="security-verification-requirements">Security Verification Requirements</h2>
+<h2 id="v31-fundamental-session-management-requirements">V3.1 Fundamental Session Management Requirements</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>3.1.1</strong></td>
+<td style="text-align:left">Verify the application never reveals session tokens in URL parameters.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">598</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v32-session-binding-requirements">V3.2 Session Binding Requirements</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>3.2.1</strong></td>
+<td style="text-align:left">Verify the application generates a new session token on user authentication. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">384</td>
+<td style="text-align:center">7.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.2.2</strong></td>
+<td style="text-align:left">Verify that session tokens possess at least 64 bits of entropy. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">331</td>
+<td style="text-align:center">7.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.2.3</strong></td>
+<td style="text-align:left">Verify the application only stores session tokens in the browser using secure methods such as appropriately secured cookies (see section 3.4) or HTML 5 session storage.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">539</td>
+<td style="text-align:center">7.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.2.4</strong></td>
+<td style="text-align:left">Verify that session token are generated using approved cryptographic algorithms. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">331</td>
+<td style="text-align:center">7.1</td>
+</tr>
+</tbody>
+</table>
+<p>TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.</p>
+<h2 id="v33-session-logout-and-timeout-requirements">V3.3 Session Logout and Timeout Requirements</h2>
+<p>Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations should review the table below, and if a longer time out is desirable based around the application&apos;s risk, the NIST value should be the upper bounds of session idle timeouts.</p>
+<p>L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2 and IAL3/AAL3, the shorter idle timeout is, the lower bound of idle times for being logged out or re-authenticated to resume the session.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>3.3.1</strong></td>
+<td style="text-align:left">Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center">7.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.3.2</strong></td>
+<td style="text-align:left">If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">30 days</td>
+<td style="text-align:center">12 hours or 30 minutes of inactivity, 2FA optional</td>
+<td style="text-align:center">12 hours or 15 minutes of inactivity, with 2FA</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center">7.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.3.3</strong></td>
+<td style="text-align:left">Verify that the application gives the option to terminate all other active sessions after a successful password change (including change via password reset/recovery), and that this is effective across the application, federated login (if present), and any relying parties.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.3.4</strong></td>
+<td style="text-align:left">Verify that users are able to view and (having re-entered login credentials) log out of any or all currently active sessions and devices.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center">7.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v34-cookie-based-session-management">V3.4 Cookie-based Session Management</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>3.4.1</strong></td>
+<td style="text-align:left">Verify that cookie-based session tokens have the &apos;Secure&apos; attribute set. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">614</td>
+<td style="text-align:center">7.1.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.4.2</strong></td>
+<td style="text-align:left">Verify that cookie-based session tokens have the &apos;HttpOnly&apos; attribute set. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">1004</td>
+<td style="text-align:center">7.1.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.4.3</strong></td>
+<td style="text-align:left">Verify that cookie-based session tokens utilize the &apos;SameSite&apos; attribute to limit exposure to cross-site request forgery attacks. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">7.1.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.4.4</strong></td>
+<td style="text-align:left">Verify that cookie-based session tokens use &quot;__Host-&quot; prefix (see references) to provide session cookie confidentiality.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">7.1.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.4.5</strong></td>
+<td style="text-align:left">Verify that if the application is published under a domain name with other applications that set or use session cookies that might override or disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C6</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">7.1.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v35-token-based-session-management">V3.5 Token-based Session Management</h2>
+<p>Token-based session management includes JWT, OAuth, SAML, and API keys. Of these, API keys are known to be weak and should not be used in new code.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>3.5.1</strong></td>
+<td style="text-align:left">Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">290</td>
+<td style="text-align:center">7.1.2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.5.2</strong></td>
+<td style="text-align:left">Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">798</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.5.3</strong></td>
+<td style="text-align:left">Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">345</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v36-re-authentication-from-a-federation-or-assertion">V3.6 Re-authentication from a Federation or Assertion</h2>
+<p>This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>3.6.1</strong></td>
+<td style="text-align:left">Verify that relying parties specify the maximum authentication time to Credential Service Providers (CSPs) and that CSPs re-authenticate the subscriber if they haven&apos;t used a session within that period.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center">7.2.1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3.6.2</strong></td>
+<td style="text-align:left">Verify that Credential Service Providers (CSPs) inform Relying Parties (RPs) of the last authentication event, to allow RPs to determine if they need to re-authenticate the user.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">613</td>
+<td style="text-align:center">7.2.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v37-defenses-against-session-management-exploits">V3.7 Defenses Against Session Management Exploits</h2>
+<p>There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.</p>
+<h3 id="description-of-the-half-open-attack">Description of the half-open Attack</h3>
+<p>In early 2018, several financial institutions were compromised using what the attackers called &quot;half-open attacks&quot;. This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.</p>
+<p>Attackers start a half-open attack by attempting to lock, reset, or recover a credential. A popular session management design pattern re-uses user profile session objects/models between unauthenticated, half-authenticated (password resets, forgot username), and fully authenticated code. This design pattern populates a valid session object or token containing the victim&apos;s profile, including password hashes and roles. If access control checks in controllers or routers does not correctly verify that the user is fully logged in, the attacker will be able to act as the user. Attacks could include changing the user&apos;s password to a known value, update the email address to perform a valid password reset, disable multi-factor authentication or enroll a new MFA device, reveal or change API keys, and so on.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+<th style="text-align:center"><a href="https://pages.nist.gov/800-63-3/sp800-63b.html" target="_blank">NIST §</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>3.7.1</strong></td>
+<td style="text-align:left">[MODIFIED] Verify the application requires re-authentication or secondary factor verification before allowing any sensitive transactions or account modifications.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">306</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<p>For more information, see also:</p>
+<ul>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/README.html" target="_blank">OWASP Testing Guide 4.0: Session Management Testing</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html" target="_blank">OWASP Session Management Cheat Sheet</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#Directives" target="_blank">Set-Cookie __Host- prefix details</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="0x11-V2-Authentication.html" class="navigation navigation-prev " aria-label="Previous page: V2-Authentication">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="0x12-V4-Access-Control.html" class="navigation navigation-next " aria-label="Next page: V4-Access-Control">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"V3-Session-management","level":"1.9","depth":1,"next":{"title":"V4-Access-Control","level":"1.10","depth":1,"path":"0x12-V4-Access-Control.md","ref":"0x12-V4-Access-Control.md","articles":[]},"previous":{"title":"V2-Authentication","level":"1.8","depth":1,"path":"0x11-V2-Authentication.md","ref":"0x11-V2-Authentication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASVS v4","gitbook":"*"},"file":{"path":"0x12-V3-Session-management.md","mtime":"2021-02-24T04:53:19.761Z","type":"markdown"},"gitbook":{"version":"3.6.17","time":"2021-02-24T05:05:30.333Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

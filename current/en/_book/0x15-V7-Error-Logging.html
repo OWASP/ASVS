@@ -1,0 +1,741 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>V7-Error-Logging · ASVS v4</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.17">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="0x16-V8-Data-Protection.html" />
+    
+    
+    <link rel="prev" href="0x14-V6-Cryptography.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="0x00-Header.html">
+            
+                <a href="0x00-Header.html">
+            
+                    
+                    Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="0x01-Frontispiece.html">
+            
+                <a href="0x01-Frontispiece.html">
+            
+                    
+                    Frontispiece
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="0x02-Preface.html">
+            
+                <a href="0x02-Preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="0x03-Using-ASVS.html">
+            
+                <a href="0x03-Using-ASVS.html">
+            
+                    
+                    Using-ASVS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="0x04-Assessment_and_Certification.html">
+            
+                <a href="0x04-Assessment_and_Certification.html">
+            
+                    
+                    Assessment_and_Certification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="0x10-V1-Architecture.html">
+            
+                <a href="0x10-V1-Architecture.html">
+            
+                    
+                    V1-Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="0x11-V2-Authentication.html">
+            
+                <a href="0x11-V2-Authentication.html">
+            
+                    
+                    V2-Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="0x12-V3-Session-management.html">
+            
+                <a href="0x12-V3-Session-management.html">
+            
+                    
+                    V3-Session-management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="0x12-V4-Access-Control.html">
+            
+                <a href="0x12-V4-Access-Control.html">
+            
+                    
+                    V4-Access-Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="0x14-V6-Cryptography.html">
+            
+                <a href="0x14-V6-Cryptography.html">
+            
+                    
+                    V6-Cryptography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12" data-path="0x15-V7-Error-Logging.html">
+            
+                <a href="0x15-V7-Error-Logging.html">
+            
+                    
+                    V7-Error-Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="0x16-V8-Data-Protection.html">
+            
+                <a href="0x16-V8-Data-Protection.html">
+            
+                    
+                    V8-Data-Protection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="0x17-V9-Communications.html">
+            
+                <a href="0x17-V9-Communications.html">
+            
+                    
+                    V9-Communications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="0x18-V10-Malicious.html">
+            
+                <a href="0x18-V10-Malicious.html">
+            
+                    
+                    V10-Malicious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="0x19-V11-BusLogic.html">
+            
+                <a href="0x19-V11-BusLogic.html">
+            
+                    
+                    V11-BusLogic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="0x20-V12-Files-Resources.html">
+            
+                <a href="0x20-V12-Files-Resources.html">
+            
+                    
+                    V12-Files-Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="0x21-V13-API.html">
+            
+                <a href="0x21-V13-API.html">
+            
+                    
+                    V13-API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="0x22-V14-Config.html">
+            
+                <a href="0x22-V14-Config.html">
+            
+                    
+                    V14-Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="0x90-Appendix-A_Glossary.html">
+            
+                <a href="0x90-Appendix-A_Glossary.html">
+            
+                    
+                    Appendix-A_Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="0x91-Appendix-B_References.html">
+            
+                <a href="0x91-Appendix-B_References.html">
+            
+                    
+                    Appendix-B_References
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="0x93-Appendix-C_IoT.html">
+            
+                <a href="0x93-Appendix-C_IoT.html">
+            
+                    
+                    Appendix-C_IoT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >V7-Error-Logging</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="v7-error-handling-and-logging-verification-requirements">V7: Error Handling and Logging Verification Requirements</h1>
+<h2 id="control-objective">Control Objective</h2>
+<p>The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high quality logs, with more signal than discarded noise.</p>
+<p>High quality logs will often contain sensitive data, and must be protected as per local data privacy laws or directives. This should include:</p>
+<ul>
+<li>Not collecting or logging sensitive information unless specifically required.</li>
+<li>Ensuring all logged information is handled securely and protected as per its data classification.</li>
+<li>Ensuring that logs are not stored forever, but have an absolute lifetime that is as short as possible.</li>
+</ul>
+<p>If logs contain private or sensitive data, the definition of which varies from country to country, the logs become some of the most sensitive information held by the application and thus very attractive to attackers in their own right.</p>
+<p>It is also important to ensure that the application fails securely and that errors do not disclose unnecessary information.</p>
+<h2 id="v71-log-content-requirements">V7.1 Log Content Requirements</h2>
+<p>Logging sensitive information is dangerous - the logs become classified themselves, which means they need to be encrypted, become subject to retention policies, and must be disclosed in security audits. Ensure only necessary information is kept in logs, and certainly no payment, credentials (including session tokens), sensitive or personally identifiable information.</p>
+<p>V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetration testable, it&apos;s important for:</p>
+<ul>
+<li>Developers to ensure full compliance with this section, as if all items were marked as L1</li>
+<li>Penetration testers to validate full compliance of all items in V7.1 via interview, screenshots, or assertion</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>7.1.1</strong></td>
+<td style="text-align:left">Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C9, C10</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">532</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.1.2</strong></td>
+<td style="text-align:left">Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C9</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">532</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.1.3</strong></td>
+<td style="text-align:left">Verify that the application logs security relevant events including successful and failed authentication events, access control failures, deserialization failures and input validation failures. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C5, C7</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">778</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.1.4</strong></td>
+<td style="text-align:left">Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C9</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">778</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v72-log-processing-requirements">V7.2 Log Processing Requirements</h2>
+<p>Timely logging is critical for audit events, triage, and escalation. Ensure that the application&apos;s logs are clear and can be easily monitored and analyzed either locally or log shipped to a remote monitoring system.</p>
+<p>V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetration testable, it&apos;s important for:</p>
+<ul>
+<li>Developers to ensure full compliance with this section, as if all items were marked as L1</li>
+<li>Penetration testers to validate full compliance of all items in V7.2 via interview, screenshots, or assertion</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>7.2.1</strong></td>
+<td style="text-align:left">Verify that all authentication decisions are logged, without storing sensitive session tokens or passwords. This should include requests with relevant metadata needed for security investigations.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">778</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.2.2</strong></td>
+<td style="text-align:left">Verify that all access control decisions can be logged and all failed decisions are logged. This should include requests with relevant metadata needed for security investigations.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">285</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v73-log-protection-requirements">V7.3 Log Protection Requirements</h2>
+<p>Logs that can be trivially modified or deleted are useless for investigations and prosecutions. Disclosure of logs can expose inner details about the application or the data it contains. Care must be taken when protecting logs from unauthorized disclosure, modification or deletion.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>7.3.1</strong></td>
+<td style="text-align:left">Verify that the application appropriately encodes user-supplied data to prevent log injection. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C9</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">117</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.3.2</strong></td>
+<td style="text-align:left">Verify that all events are protected from injection when viewed in log viewing software. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C9</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">117</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.3.3</strong></td>
+<td style="text-align:left">Verify that security logs are protected from unauthorized access and modification. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C9</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">200</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.3.4</strong></td>
+<td style="text-align:left">Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C9</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Log encoding (7.3.1) is difficult to test and review using automated dynamic tools and penetration tests, but architects, developers, and source code reviewers should consider it an L1 requirement.</p>
+<h2 id="v74-error-handling">V7.4 Error Handling</h2>
+<p>The purpose of error handling is to allow the application to provide security relevant events for monitoring, triage and escalation. The purpose is not to create logs. When logging security related events, ensure that there is a purpose to the log, and that it can be distinguished by SIEM or analysis software.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>7.4.1</strong></td>
+<td style="text-align:left">Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C10</a>)</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">210</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.4.2</strong></td>
+<td style="text-align:left">Verify that exception handling (or a functional equivalent) is used across the codebase to account for expected and unexpected error conditions. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C10</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">544</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7.4.3</strong></td>
+<td style="text-align:left">Verify that a &quot;last resort&quot; error handler is defined which will catch all unhandled exceptions. (<a href="https://owasp.org/www-project-proactive-controls/#div-numbering" target="_blank">C10</a>)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">431</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last resort event handlers. In this case, architects and developers should use a pattern, language, or framework friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.</p>
+<h2 id="references">References</h2>
+<p>For more information, see also:</p>
+<ul>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README.html" target="_blank">OWASP Testing Guide 4.0 content: Testing for Error Handling</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages" target="_blank">OWASP Authentication Cheat Sheet section about error messages</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="0x14-V6-Cryptography.html" class="navigation navigation-prev " aria-label="Previous page: V6-Cryptography">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="0x16-V8-Data-Protection.html" class="navigation navigation-next " aria-label="Next page: V8-Data-Protection">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"V7-Error-Logging","level":"1.12","depth":1,"next":{"title":"V8-Data-Protection","level":"1.13","depth":1,"path":"0x16-V8-Data-Protection.md","ref":"0x16-V8-Data-Protection.md","articles":[]},"previous":{"title":"V6-Cryptography","level":"1.11","depth":1,"path":"0x14-V6-Cryptography.md","ref":"0x14-V6-Cryptography.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASVS v4","gitbook":"*"},"file":{"path":"0x15-V7-Error-Logging.md","mtime":"2021-02-24T04:53:19.771Z","type":"markdown"},"gitbook":{"version":"3.6.17","time":"2021-02-24T05:05:30.333Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

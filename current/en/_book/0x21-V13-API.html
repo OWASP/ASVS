@@ -1,0 +1,764 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>V13-API · ASVS v4</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.17">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="0x22-V14-Config.html" />
+    
+    
+    <link rel="prev" href="0x20-V12-Files-Resources.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="0x00-Header.html">
+            
+                <a href="0x00-Header.html">
+            
+                    
+                    Header
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="0x01-Frontispiece.html">
+            
+                <a href="0x01-Frontispiece.html">
+            
+                    
+                    Frontispiece
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="0x02-Preface.html">
+            
+                <a href="0x02-Preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="0x03-Using-ASVS.html">
+            
+                <a href="0x03-Using-ASVS.html">
+            
+                    
+                    Using-ASVS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="0x04-Assessment_and_Certification.html">
+            
+                <a href="0x04-Assessment_and_Certification.html">
+            
+                    
+                    Assessment_and_Certification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="0x10-V1-Architecture.html">
+            
+                <a href="0x10-V1-Architecture.html">
+            
+                    
+                    V1-Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="0x11-V2-Authentication.html">
+            
+                <a href="0x11-V2-Authentication.html">
+            
+                    
+                    V2-Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="0x12-V3-Session-management.html">
+            
+                <a href="0x12-V3-Session-management.html">
+            
+                    
+                    V3-Session-management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="0x12-V4-Access-Control.html">
+            
+                <a href="0x12-V4-Access-Control.html">
+            
+                    
+                    V4-Access-Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="0x14-V6-Cryptography.html">
+            
+                <a href="0x14-V6-Cryptography.html">
+            
+                    
+                    V6-Cryptography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="0x15-V7-Error-Logging.html">
+            
+                <a href="0x15-V7-Error-Logging.html">
+            
+                    
+                    V7-Error-Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="0x16-V8-Data-Protection.html">
+            
+                <a href="0x16-V8-Data-Protection.html">
+            
+                    
+                    V8-Data-Protection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="0x17-V9-Communications.html">
+            
+                <a href="0x17-V9-Communications.html">
+            
+                    
+                    V9-Communications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="0x18-V10-Malicious.html">
+            
+                <a href="0x18-V10-Malicious.html">
+            
+                    
+                    V10-Malicious
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="0x19-V11-BusLogic.html">
+            
+                <a href="0x19-V11-BusLogic.html">
+            
+                    
+                    V11-BusLogic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="0x20-V12-Files-Resources.html">
+            
+                <a href="0x20-V12-Files-Resources.html">
+            
+                    
+                    V12-Files-Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.18" data-path="0x21-V13-API.html">
+            
+                <a href="0x21-V13-API.html">
+            
+                    
+                    V13-API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="0x22-V14-Config.html">
+            
+                <a href="0x22-V14-Config.html">
+            
+                    
+                    V14-Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="0x90-Appendix-A_Glossary.html">
+            
+                <a href="0x90-Appendix-A_Glossary.html">
+            
+                    
+                    Appendix-A_Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="0x91-Appendix-B_References.html">
+            
+                <a href="0x91-Appendix-B_References.html">
+            
+                    
+                    Appendix-B_References
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="0x93-Appendix-C_IoT.html">
+            
+                <a href="0x93-Appendix-C_IoT.html">
+            
+                    
+                    Appendix-C_IoT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >V13-API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="v13-api-and-web-service-verification-requirements">V13: API and Web Service Verification Requirements</h1>
+<h2 id="control-objective">Control Objective</h2>
+<p>Ensure that a verified application that uses trusted service layer APIs (commonly using JSON or XML or GraphQL) has:</p>
+<ul>
+<li>Adequate authentication, session management and authorization of all web services.</li>
+<li>Input validation of all parameters that transit from a lower to higher trust level.</li>
+<li>Effective security controls for all API types, including cloud and Serverless API</li>
+</ul>
+<p>Please read this chapter in combination with all other chapters at this same level; we no longer duplicate authentication or API session management concerns.</p>
+<h2 id="v131-generic-web-service-security-verification-requirements">V13.1 Generic Web Service Security Verification Requirements</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>13.1.1</strong></td>
+<td style="text-align:left">Verify that all application components use the same encodings and parsers to avoid parsing attacks that exploit different URI or file parsing behavior that could be used in SSRF and RFI attacks.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">116</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.1.2</strong></td>
+<td style="text-align:left">Verify that access to administration and management functions is limited to authorized administrators.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">419</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.1.3</strong></td>
+<td style="text-align:left">Verify API URLs do not expose sensitive information, such as the API key, session tokens etc.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">598</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.1.4</strong></td>
+<td style="text-align:left">Verify that authorization decisions are made at both the URI, enforced by programmatic or declarative security at the controller or router, and at the resource level, enforced by model-based permissions.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">285</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.1.5</strong></td>
+<td style="text-align:left">Verify that requests containing unexpected or missing content types are rejected with appropriate headers (HTTP response status 406 Unacceptable or 415 Unsupported Media Type).</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">434</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v132-restful-web-service-verification-requirements">V13.2 RESTful Web Service Verification Requirements</h2>
+<p>JSON schema validation is in a draft stage of standardization (see references). When considering using JSON schema validation, which is best practice for RESTful web services, consider using these additional data validation strategies in combination with JSON schema validation:</p>
+<ul>
+<li>Parsing validation of the JSON object, such as if there are missing or extra elements.</li>
+<li>Validation of the JSON object values using standard input validation methods, such as data type, data format, length, etc.</li>
+<li>and formal JSON schema validation.</li>
+</ul>
+<p>Once the JSON schema validation standard is formalized, ASVS will update its advice in this area. Carefully monitor any JSON schema validation libraries in use, as they will need to be updated regularly until the standard is formalized and bugs are ironed out of reference implementations.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>13.2.1</strong></td>
+<td style="text-align:left">Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">650</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.2.2</strong></td>
+<td style="text-align:left">Verify that JSON schema validation is in place and verified before accepting input.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.2.3</strong></td>
+<td style="text-align:left">Verify that RESTful web services that utilize cookies are protected from Cross-Site Request Forgery via the use of at least one or more of the following: double submit cookie pattern, CSRF nonces, or Origin request header checks.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">352</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.2.4</strong></td>
+<td style="text-align:left">Verify that REST services have anti-automation controls to protect against excessive calls, especially if the API is unauthenticated.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">770</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.2.5</strong></td>
+<td style="text-align:left">Verify that REST services explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/json.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">436</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.2.6</strong></td>
+<td style="text-align:left">Verify that the message headers and payload are trustworthy and not modified in transit. Requiring strong encryption for transport (TLS only) may be sufficient in many cases as it provides both confidentiality and integrity protection. Per-message digital signatures can provide additional assurance on top of the transport protections for high-security applications but bring with them additional complexity and risks to weigh against the benefits.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">345</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.2.7</strong></td>
+<td style="text-align:left">[ADDED] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">650</td>
+</tr>
+</tbody>
+</table>
+<h2 id="v133-soap-web-service-verification-requirements">V13.3 SOAP Web Service Verification Requirements</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>13.3.1</strong></td>
+<td style="text-align:left">Verify that XSD schema validation takes place to ensure a properly formed XML document, followed by validation of each input field before any processing of that data takes place.</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.3.2</strong></td>
+<td style="text-align:left">Verify that the message payload is signed using WS-Security to ensure reliable transport between client and service.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">345</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Due to issues with XXE attacks against DTDs, DTD validation should not be used, and framework DTD evaluation disabled as per the requirements set out in V14 Configuration.</p>
+<h2 id="v134-graphql-and-other-web-service-data-layer-security-requirements">V13.4 GraphQL and other Web Service Data Layer Security Requirements</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:center">L1</th>
+<th style="text-align:center">L2</th>
+<th style="text-align:center">L3</th>
+<th style="text-align:center">CWE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>13.4.1</strong></td>
+<td style="text-align:left">Verify that a query allow list or a combination of depth limiting and amount limiting is used to prevent GraphQL or data layer expression Denial of Service (DoS) as a result of expensive, nested queries. For more advanced scenarios, query cost analysis should be used.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">770</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>13.4.2</strong></td>
+<td style="text-align:left">Verify that GraphQL or other data layer authorization logic should be implemented at the business logic layer instead of the GraphQL layer.</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">285</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<p>For more information, see also:</p>
+<ul>
+<li><a href="https://github.com/OWASP/Serverless-Top-10-Project/raw/master/OWASP-Top-10-Serverless-Interpretation-en.pdf" target="_blank">OWASP Serverless Top 10</a></li>
+<li><a href="https://owasp.org/www-project-serverless-top-10/" target="_blank">OWASP Serverless Project</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/README.html" target="_blank">OWASP Testing Guide 4.0: Configuration and Deployment Management Testing</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" target="_blank">OWASP Cross-Site Request Forgery cheat sheet</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html#general-guidance" target="_blank">OWASP XML External Entity Prevention Cheat Sheet - General Guidance</a></li>
+<li><a href="https://jwt.io/" target="_blank">JSON Web Tokens (and Signing)</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html" target="_blank">REST Security Cheat Sheet</a></li>
+<li><a href="https://json-schema.org/specification.html" target="_blank">JSON Schema</a></li>
+<li><a href="https://www.vsecurity.com/download/publications/XMLDTDEntityAttacks.pdf" target="_blank">XML DTD Entity Attacks</a></li>
+<li><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf" target="_blank">Orange Tsai - A new era of SSRF Exploiting URL Parser In Trending Programming Languages</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="0x20-V12-Files-Resources.html" class="navigation navigation-prev " aria-label="Previous page: V12-Files-Resources">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="0x22-V14-Config.html" class="navigation navigation-next " aria-label="Next page: V14-Config">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"V13-API","level":"1.18","depth":1,"next":{"title":"V14-Config","level":"1.19","depth":1,"path":"0x22-V14-Config.md","ref":"0x22-V14-Config.md","articles":[]},"previous":{"title":"V12-Files-Resources","level":"1.17","depth":1,"path":"0x20-V12-Files-Resources.md","ref":"0x20-V12-Files-Resources.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASVS v4","gitbook":"*"},"file":{"path":"0x21-V13-API.md","mtime":"2021-02-24T04:53:19.767Z","type":"markdown"},"gitbook":{"version":"3.6.17","time":"2021-02-24T05:05:30.333Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
