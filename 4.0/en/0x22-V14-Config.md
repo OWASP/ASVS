@@ -42,6 +42,12 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
 | **14.2.5** | Verify that an inventory catalog is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
+| **14.2.7** | Verify that third party components are sourced separately from internally owned and developed applications | ✓ | ✓ | ✓ | 441 |
+
+
+Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate search order. 
+
+
 
 ## V14.3 Unintended Security Disclosure Requirements
 
@@ -84,3 +90,4 @@ For more information, see also:
 * [Exploiting CORS misconfiguration for BitCoins and Bounties](https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)
 * [OWASP Web Security Testing Guide 4.1: Configuration and Deployment Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/README.html)
 * [Sandboxing third party components](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html#sandboxing-content)
+* [Defining multiple repositories in maven](https://maven.apache.org/guides/mini/guide-multiple-repositories.html)
