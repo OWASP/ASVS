@@ -6,4 +6,4 @@
 
 ## Final
 
-marzo 2020
+Octubre 2020
