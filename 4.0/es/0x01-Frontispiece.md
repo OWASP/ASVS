@@ -1,58 +1,46 @@
-# Frontispicio
+# Frontispiece
 
 ## Acerca del Estándar
 
-El estándar de verificación de seguridad de aplicaciones es una lista de requisitos o pruebas de seguridad de aplicaciones que pueden usar arquitectos, desarrolladores, evaluadores, profesionales de seguridad, proveedores de herramientas y consumidores para definir, crear, probar y verificar aplicaciones seguras.
+La norma de verificación de la seguridad de las aplicaciones (ASVS) es una lista de requisitos o pruebas de seguridad de las aplicaciones que pueden utilizar los arquitectos, desarrolladores, probadores, profesionales de la seguridad, proveedores de herramientas y consumidores para definir, construir, probar y verificar aplicaciones seguras.
 
 ## Copyright y Licencia
 
-! [licence](../images/license.png)
-Copyright © 2008-2020 The OWASP Foundation. Este documento se publica bajo el [Creative Commons Attribution ShareAlike 3.0 license.](https://creativecommons.org/licenses/by-sa/3.0/). Para cualquier reutilización o distribución, debe dejar claro a otros los términos de licencia de este trabajo.
+Version 4.x (Bleeding Edge version), 2021
 
-Version 4.0.2, Marzo 2020
+![license](../images/license.png)
 
-## Chefs de projet
+Copyright © 2008-2021 The OWASP Foundation. Este documento se publica bajo el [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). Para cualquier reutilización o distribución, debe dejar claro a otros los términos de licencia de este trabajo.
 
-- Andrew van der Stock
-- Daniel Cuthbert
-- Jim Manico
-- Josh C Grossman
-- Mark Burnett
+## Líderes de proyecto
 
-## Collaborateurs et relecteurs
+|                      	|                 	|            	|
+|----------------------	|-----------------	|------------	|
+| Andrew van der Stock 	| Daniel Cuthbert 	| Jim Manico 	|
+| Josh C Grossman      	| Mark Burnett    	|            	|
 
-- Osama Elnaggar
-- Erlend Oftedal
-- Serg Belkommen
-- David Johansson
-- Tonimir Kisasondi
-- Ron Perris
-- Jason Axley
-- Abhay Bhargav
-- Benedikt Bauer
-- Elar Lang
-- ScriptingXSS
-- Philippe De Ryck
-- Grog's Axle
-- Marco Schnüriger
-- Jacob Salassi
-- Glenn ten Cate
-- Anthony Weems
-- bschach
-- javixeneize
-- Dan Cornell
-- hello7s
-- Lewis Ardern
-- Jim Newman
-- Stuart Gunter
-- Geoff Baskwill
-- Talargoni
-- Ståle Pettersen
-- Kelby Ludwig
-- Jason Morrow
-- Rogan Dawes
-- Daniël Geerts
+## Principales colaboradores
 
-ASVS se basa en los involucrados desde versión 1.0 en 2008 hasta 3.0 en 2016. Gran parte de la estructura y los elementos de verificación que todavía están en ASVS hoy fueron escritos originalmente por Mike Boberski, Jeff Williams y Dave Wichers. Pero hay muchos contribuyentes adicionales. Gracias a todos los involucrados anteriormente. Para obtener una lista completa de todos aquellos que han contribuido a versiones previas, consulte cada versión anterior.
+|                	|                	|                   	|
+|----------------	|----------------	|-------------------	|
+| Abhay Bhargav  	| Benedikt Bauer 	| Elar Lang         	|
+| Osama Elnaggar 	| Ron Perris     	| Tonimir Kisasondi 	|
 
-Si falta un nombre en la lista de créditos 4.0.2, registre un ticket en GitHub para ser reconocido en futuras actualizaciones 4.x.
+## Otros colaboradores y revisores
+
+|                	|                  	|                     	|                    	|                     	|
+|----------------	|------------------	|---------------------	|--------------------	|---------------------	|
+| Aaron Guzman   	| Anthony Weems    	| Barbara Schachner   	| Christopher Loessl 	| Clément Notin       	|
+| Dan Cornell    	| Daniël Geerts    	| David Clarke        	| David Johansson    	| David Quisenberry   	|
+| Erlend Oftedal 	| Fatih Ersinadim  	| Filip van Laenen    	| Geoff Baskwill     	| Glenn ten Cate      	|
+| Grant Ongers   	| hello7s          	| Jacob Salassi       	| James Sulinski     	| Jason Axley         	|
+| Jason Morrow   	| Javier Dominguez 	| Jet Anderson        	| Jim Newman         	| Jonathan Schnittger 	|
+| Joseph Kerby   	| Kelby Ludwig     	| Lars Haulin         	| Lewis Ardern       	| lyz-code            	|
+| Marc Aubry     	| Marco Schnüriger 	| Philippe De Ryck    	| Ralph Andalis      	| Ravi Balla          	|
+| Rick Mitchell  	| Riotaro Okada    	| Robin Wood          	| Rogan Dawes        	| Ryan Goltry         	|
+| Sajjad Pourali 	| Serg Belkommen   	| Siim Puustusmaa     	| Ståle Pettersen    	| Stuart Gunter       	|
+| Tal Argoni     	| Tomasz Wrobel    	| Vincent De Schutter 	|                    	|                     	|
+
+Si falta un crédito en la lista de créditos de la 4.x que aparece arriba, registre un ticket en GitHub para que se le reconozca en futuras actualizaciones de la 4.x.
+
+El Estándar de Verificación de Seguridad de Aplicaciones está construido sobre los hombros de aquellos que participaron desde el ASVS 1.0 en 2008 hasta el 3.0 en 2016. Gran parte de la estructura y de los elementos de verificación que todavía están en el ASVS hoy fueron escritos originalmente por Mike Boberski, Jeff Williams y Dave Wichers, pero hay muchos más contribuyentes. Gracias a todos los que han participado anteriormente. Para obtener una lista completa de todos los que han contribuido a las versiones anteriores, consulte cada versión anterior.
