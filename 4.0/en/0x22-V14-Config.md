@@ -80,7 +80,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.5.2** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | 346 |
 | **14.5.3** | [MODIFIED] Verify that the Origin header is validated against defined list of allowed domains to meet the Cross-Origin Resource Sharing (CORS) policy | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application. | | ✓ | ✓ | 306 |
-| **14.5.5** | Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓  | ✓ | ✓ | 650 |
+| **14.5.5** | [MOVED FROM 13.2.7] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓  | ✓ | ✓ | 650 |
 
 ## References
 
