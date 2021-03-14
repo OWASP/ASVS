@@ -45,8 +45,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications | ✓ | ✓ | ✓ | 441 |
 
 
-Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate search order. 
-
+Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate search order.
 
 
 ## V14.3 Unintended Security Disclosure Requirements
@@ -55,7 +54,7 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
-| **14.3.1** | Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures. | ✓ | ✓ | ✓ | 209 |
+| **14.3.1** | [DELETED, MERGED TO 7.4.1] | | | | |
 | **14.3.2** | Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components. | ✓ | ✓ | ✓ | 200 |
 
