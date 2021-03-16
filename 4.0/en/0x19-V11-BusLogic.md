@@ -6,7 +6,7 @@ Ensure that a verified application satisfies the following high level requiremen
 
 * The business logic flow is sequential, processed in order, and cannot be bypassed.
 * Business logic includes limits to detect and prevent automated attacks, such as continuous small funds transfers, or adding a million friends one at a time, and so on.
-* High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, repudiation, information disclosure, and elevation of privilege attacks.
+* High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
 
 ## V11.1 Business Logic Security Requirements
 
