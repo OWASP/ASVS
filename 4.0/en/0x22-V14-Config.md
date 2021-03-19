@@ -27,6 +27,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.4** | Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion. | | ✓ | ✓ | |
 | **14.1.5** | Verify that authorized administrators can verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
 | **14.1.6** | [MODIFIED, MOVED FROM 14.2.2] Verify that all unneeded features, documentation, sample applications and configurations are removed. | ✓ | ✓ | ✓ | 1002 |
+| **14.1.7** | [ADDED] Verify that production environment does not include test code. | | ✓ | ✓ | 489 |
 
 ## V14.2 Dependency
 
@@ -42,7 +43,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
 | **14.2.5** | Verify that an inventory catalog is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
-| **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications | ✓ | ✓ | ✓ | 441 |
+| **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications. | ✓ | ✓ | ✓ | 441 |
 
 
 Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate search order.
@@ -77,7 +78,7 @@ Configurations for production should be hardened to protect against common attac
 | --- | --- | --- | --- | -- | -- |
 | **14.5.1** | [MODIFIED] Verify that the application server only accepts HTTP methods (including OPTIONS during preflight requests) in use by the application or by the API. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | 346 |
-| **14.5.3** | [MODIFIED] Verify that the Origin header is validated against defined list of allowed domains to meet the Cross-Origin Resource Sharing (CORS) policy | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | [MODIFIED] Verify that the Origin header is validated against defined list of allowed domains to meet the Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application. | | ✓ | ✓ | 306 |
 | **14.5.5** | [ADDED] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
 | **14.5.6** | [ADDED] Verify that the infrastructure handles each request separately, even with conflicting Transfer-Encoding and Content-Length headers, to prevent HTTP request smuggling. | | ✓ | ✓ | 444 |
