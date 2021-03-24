@@ -227,6 +227,6 @@ class ASVS:
                     "name":self.asvs_opencontrol[key]["name"],
                     "description":self.asvs_opencontrol[key]["description"]
                 }
-            })
+            },sort_keys=False)
 
         return opencontrol_result
