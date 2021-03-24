@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 ''' ASVS document parser and converter class.
 
@@ -30,6 +31,7 @@
 import os
 import re
 import json
+import yaml
 from xml.sax.saxutils import escape
 import csv
 import dicttoxml
@@ -52,10 +54,11 @@ class ASVS:
     asvs_flat = []
     asvs_flat2 = {}
     asvs_flat2['requirements'] = []
+    asvs_opencontrol = {}
 
-    def __init__(self, language):    
-        
-        regex = re.compile('Version (([\d.]+){3})')
+    def __init__(self, language):
+
+        regex = re.compile('Version (([\d.x]+){3})')
 
         for line in open(os.path.join(language, "0x01-Frontispiece.md"), encoding="utf8"):
             m = re.search(regex, line)
@@ -72,7 +75,7 @@ class ASVS:
 
         self.asvs['Requirements'] = chapters = []
 
-    
+
         for file in os.listdir(language):
 
             if re.match("0x\d{2}-V", file):
@@ -129,18 +132,20 @@ class ASVS:
                         "\|([\w\d,\. ✓]*)\|([\w\d,\. ✓]*)\|([0-9,\s]*)\|([A-Z0-9/\s,.]*)\|{0,1}")
                     m = re.search(regex, line)
                     if m:
-                    
+
+                        opencontrol_flat = {}
+                        opencontrol_flat['family'] = f"{chapter['ShortName']}-{section['Ordinal']}"
                         req_flat = {}
                         req_flat2 = {}
                         req_flat2['Section'] = req_flat['chapter_id'] = chapter['Shortcode']
                         req_flat2['Name'] = req_flat['chapter_name'] = chapter['Name']
                         req_flat['section_id'] = section['Shortcode']
-                        req_flat['section_name'] = section['Name']
-                        
+                        req_flat['section_name'] = opencontrol_flat['name'] = section['Name']
+
                         req = {}
                         req_flat2['Item'] = req_flat['req_id'] = req['Shortcode'] = "V" + m.group(1)
                         req['Ordinal'] = int(m.group(1).rsplit('.', 1)[1])
-                        req_flat2['Description'] = req_flat['req_description'] = req['Description'] = m.group(2)
+                        req_flat2['Description'] = req_flat['req_description'] = req['Description'] = opencontrol_flat['description'] = m.group(2)
 
                         level1 = {}
                         level2 = {}
@@ -149,7 +154,7 @@ class ASVS:
                         req_flat['level1'] = m.group(3).strip(' ')
                         req_flat['level2'] = m.group(4).strip(' ')
                         req_flat['level3'] = m.group(5).strip(' ')
-                        
+
                         level1['Required'] = m.group(3).strip() != ''
                         req_flat2['L1'] = ('X' if level1['Required'] else '')
                         level2['Required'] = m.group(4).strip() != ''
@@ -169,10 +174,17 @@ class ASVS:
                         req_flat2['CWE'] = req_flat['cwe'] = m.group(6).strip()
                         req['NIST'] = [str(i.strip()) for i in filter(None,m.group(7).strip().split('/'))]
                         req_flat2['NIST'] = req_flat['nist'] = m.group(7).strip()
-                        
+
                         section['Items'].append(req)
                         self.asvs_flat.append(req_flat)
                         self.asvs_flat2['requirements'].append(req_flat2)
+                        self.asvs_opencontrol[req['Shortcode']]=opencontrol_flat
+
+    def sorted_nicely(self, l ):
+        """ Sort the given iterable in the way that humans expect."""
+        convert = lambda text: int(text) if text.isdigit() else text
+        alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ]
+        return sorted(l, key = alphanum_key)
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
@@ -193,7 +205,7 @@ class ASVS:
         return xml
     def to_xml(self):
         return dicttoxml.dicttoxml(self.asvs, attr_type=False).decode('utf-8')
-        
+
     def to_csv(self):
         ''' Returns CSV '''
         si = StringIO()
@@ -203,3 +215,18 @@ class ASVS:
         writer.writerows(self.asvs_flat)
 
         return si.getvalue()
+
+    def to_opencontrol(self):
+        ''' Returns opencontrol yaml '''
+
+        opencontrol_result=yaml.dump({'name':f"{self.asvs['ShortName']}-{self.asvs['Version']}"})
+        for key in self.sorted_nicely(self.asvs_opencontrol.keys()):
+            opencontrol_result+=yaml.dump({
+                key:{
+                    "family":self.asvs_opencontrol[key]["family"],
+                    "name":self.asvs_opencontrol[key]["name"],
+                    "description":self.asvs_opencontrol[key]["description"]
+                }
+            },sort_keys=False)
+
+        return opencontrol_result

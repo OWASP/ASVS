@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 ''' Tool for converting the ASVS requirements to various formats.
 
@@ -32,7 +32,7 @@ import argparse
 from asvs import ASVS
 
 parser = argparse.ArgumentParser(description='Export the ASVS requirements.')
-parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv'], default='json')
+parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv', 'oc'], default='json')
 parser.add_argument('--language', default='en')
 
 args = parser.parse_args()
@@ -44,6 +44,8 @@ if args.format == "csv":
 elif args.format == "xml":
     print(m.to_xml())
 elif args.format == "json_flat":
-    print(m.to_json_flat())    
+    print(m.to_json_flat())
+elif args.format == "oc":
+    print(m.to_opencontrol())
 else:
     print(m.to_json())
