@@ -28,7 +28,7 @@ Ensure that a verified application satisfies the following high level data prote
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **8.2.1** | Verify the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers. | ✓ | ✓ | ✓ | 525 |
-| **8.2.2** | Verify that data stored in browser storage (such as HTML5 local storage, session storage, IndexedDB, or cookies) does not contain sensitive data or PII. | ✓ | ✓ | ✓ | 922 |
+| **8.2.2** | [MODIFIED] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. | ✓ | ✓ | ✓ | 922 |
 
 ## V8.3 Sensitive Private Data
