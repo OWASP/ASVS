@@ -21,7 +21,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1059 |
 | **1.1.6** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 637 |
 | **1.1.7** | Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers. | | ✓ | ✓ | 637 |
-| **1.1.8** | [ADDED] Verify availability of a publicly available [security.txt](https://securitytxt.org/) file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues. | | ✓ | ✓ | 1059 |
+| **1.1.8** | [ADDED] Verify availability of a publicly available security.txt file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues. | | ✓ | ✓ | 1059 |
 
 ## V1.2 Authentication Architectural Requirements
 
@@ -143,3 +143,4 @@ For more information, see also:
 * [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/sdl/)
 * [NIST SP 800-57](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
+* [More information on the security.txt proposed standard](https://securitytxt.org/)
