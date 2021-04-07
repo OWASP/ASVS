@@ -217,8 +217,11 @@ class ASVS:
         return si.getvalue()
 
     def to_opencontrol(self):
-        ''' Returns opencontrol yaml '''
+        ''' Returns opencontrol yaml
 
+            Schema is as defined here:
+            https://github.com/opencontrol/schemas/blob/master/kwalify/standard/v1.0.0.yaml
+        '''
         opencontrol_result=yaml.dump({'name':f"{self.asvs['ShortName']}-{self.asvs['Version']}"})
         for key in self.sorted_nicely(self.asvs_opencontrol.keys()):
             opencontrol_result+=yaml.dump({
