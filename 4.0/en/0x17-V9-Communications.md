@@ -1,4 +1,4 @@
-# V9: Communications Verification Requirements
+# V9 Communications
 
 ## Control Objective
 
@@ -11,7 +11,7 @@ Ensure that a verified application satisfies the following high level requiremen
 
 Leading industry advice on secure TLS configuration changes frequently, often due to catastrophic breaks in existing algorithms and ciphers. Always use the most recent versions of TLS configuration review tools (such as SSLyze or other TLS scanners) to configure the preferred order and algorithm selection. Configuration should be periodically checked to ensure that secure communications configuration is always present and effective.
 
-## V9.1 Client Communications Security Requirements
+## V9.1 Client Communications Security
 
 All client communications should only take place over encrypted communication paths. In particular, the use of TLS 1.2 or later is essentially all but required by modern browsers and search engines. Configuration should be regularly reviewed using online tools to ensure that the latest leading practices are in place.
 
@@ -21,7 +21,7 @@ All client communications should only take place over encrypted communication pa
 | **9.1.2** | Verify using online or up to date TLS testing tools that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred. | ✓ | ✓ | ✓ | 326 |
 | **9.1.3** | Verify that old versions of SSL and TLS protocols, algorithms, ciphers, and configuration are disabled, such as SSLv2, SSLv3, or TLS 1.0 and TLS 1.1. The latest version of TLS should be the preferred cipher suite. | ✓ | ✓ | ✓ | 326 |
 
-## V9.2 Server Communications Security Requirements
+## V9.2 Server Communications Security
 
 Server communications are more than just HTTP. Secure connections to and from other systems, such as monitoring systems, management tools, remote access and ssh, middleware, database, mainframes, partner or external source systems &mdash; must be in place. All of these must be encrypted to prevent "hard on the outside, trivially easy to intercept on the inside".
 

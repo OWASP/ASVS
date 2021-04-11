@@ -1,4 +1,4 @@
-# V14: Configuration Verification Requirements
+# V14 Configuration
 
 ## Control Objective
 
@@ -43,7 +43,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.5** | Verify that an inventory catalog is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
 
-## V14.3 Unintended Security Disclosure Requirements
+## V14.3 Unintended Security Disclosure
 
 Configurations for production should be hardened to protect against common attacks, such as debug consoles, raise the bar for Cross-site Scripting (XSS) and Remote File Inclusion (RFI) attacks, and to eliminate trivial information discovery "vulnerabilities" that are the unwelcome hallmark of many penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
 
@@ -53,7 +53,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.3.2** | Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components. | ✓ | ✓ | ✓ | 200 |
 
-## V14.4 HTTP Security Headers Requirements
+## V14.4 HTTP Security Headers
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
@@ -65,7 +65,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.4.6** | Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin". | ✓ | ✓ | ✓ | 116 |
 | **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 346 |
 
-## V14.5 Validate HTTP Request Header Requirements
+## V14.5 HTTP Request Header Validation
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |

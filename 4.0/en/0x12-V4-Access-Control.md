@@ -1,4 +1,4 @@
-# V4: Access Control Verification Requirements
+# V4 Access Control
 
 ## Control Objective
 
