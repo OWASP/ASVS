@@ -10,7 +10,7 @@ Ensure that a verified application has:
 
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.
 
-## V14.1 Build
+## V14.1 Build and Deploy
 
 Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We are strongly encouraging the use of build pipelines with automatic security and dependency checks that warn or break the build to prevent known security issues being deployed into production. Manual steps performed irregularly directly leads to avoidable security mistakes.
 
