@@ -1,4 +1,4 @@
-# V10: Malicious Code Verification Requirements
+# V10 Malicious Code
 
 ## Control Objective
 
@@ -11,7 +11,7 @@ Ensure that code satisfies the following high level requirements:
 
 Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.
 
-## V10.1 Code Integrity Controls
+## V10.1 Code Integrity
 
 The best defense against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offence in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
 
@@ -36,7 +36,7 @@ Complying with this section is not possible without complete access to source co
 | **10.2.5** | Verify that the application source code and third party libraries do not contain malicious code, such as salami attacks, logic bypasses, or logic bombs. | | | ✓ | 511 |
 | **10.2.6** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. | | | ✓ | 507 |
 
-## V10.3 Deployed Application Integrity Controls
+## V10.3 Application Integrity
 
 Once an application is deployed, malicious code can still be inserted. Applications need to protect themselves against common attacks, such as executing unsigned code from untrusted sources and subdomain takeovers.
 

@@ -1,4 +1,4 @@
-# V5: Validation, Sanitization and Encoding Verification Requirements
+# V5 Validation, Sanitization and Encoding
 
 ## Control Objective
 
@@ -12,7 +12,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 With modern web application architecture, output encoding is more important than ever. It is difficult to provide robust input validation in certain scenarios, so the use of safer API such as parameterized queries, auto-escaping templating frameworks, or carefully chosen output encoding is critical to the security of the application.
 
-## V5.1 Input Validation Requirements
+## V5.1 Input Validation
 
 Properly implemented input validation controls, using positive allow lists and strong data typing, can eliminate more than 90% of all injection attacks. Length and range checks can reduce this further. Building in secure input validation is required during application architecture, design sprints, coding, and unit and integration testing. Although many of these items cannot be found in penetration tests, the results of not implementing them are usually found in V5.3 - Output encoding and Injection Prevention Requirements. Developers and secure code reviewers are recommended to treat this section as if L1 is required for all items to prevent injections.
 
@@ -26,7 +26,7 @@ Properly implemented input validation controls, using positive allow lists and s
 | **5.1.6** | [MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that input validation is enforced on a trusted service layer. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 602 |
 
 
-## V5.2 Sanitization and Sandboxing Requirements
+## V5.2 Sanitization and Sandboxing
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -39,7 +39,7 @@ Properly implemented input validation controls, using positive allow lists and s
 | **5.2.7** | Verify that the application sanitizes, disables, or sandboxes user-supplied Scalable Vector Graphics (SVG) scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject. | ✓ | ✓ | ✓ | 159 |
 | **5.2.8** | Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | ✓ | ✓ | ✓ | 94 |
 
-## V5.3 Output Encoding and Injection Prevention Requirements
+## V5.3 Output Encoding and Injection Prevention
 
 Output encoding close or adjacent to the interpreter in use is critical to the security of any application. Typically, output encoding is not persisted, but used to render the output safe in the appropriate output context for immediate use. Failing to output encode will result in an insecure, injectable, and unsafe application.
 
@@ -60,7 +60,7 @@ Note: Using parameterized queries or escaping SQL is not always sufficient; tabl
 
 Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user supplied content domain to prevent successful XSS from taking over the application.
 
-## V5.4 Memory, String, and Unmanaged Code Requirements
+## V5.4 Memory, String, and Unmanaged Code
 
 The following requirements will only apply when the application uses a systems language or unmanaged code.
 
@@ -70,7 +70,7 @@ The following requirements will only apply when the application uses a systems l
 | **5.4.2** | Verify that format strings do not take potentially hostile input, and are constant. | | ✓ | ✓ | 134 |
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | | ✓ | ✓ | 190 |
 
-## V5.5 Deserialization Prevention Requirements
+## V5.5 Deserialization Prevention
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |

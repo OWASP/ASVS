@@ -1,4 +1,4 @@
-# V14: Configuration Verification Requirements
+# V14 Configuration
 
 ## Control Objective
 
@@ -49,7 +49,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate search order.
 
 
-## V14.3 Unintended Security Disclosure Requirements
+## V14.3 Unintended Security Disclosure
 
 Configurations for production should be hardened to protect against common attacks, such as debug consoles, raise the bar for Cross-site Scripting (XSS) and Remote File Inclusion (RFI) attacks, and to eliminate trivial information discovery "vulnerabilities" that are the unwelcome hallmark of many penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
 
@@ -61,7 +61,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | ✓ | ✓ | ✓ | 548 |
 | **14.3.5** | [ADDED, SPLIT FROM 4.3.2] Verify that applications do not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | ✓ | ✓ | ✓ | |
 
-## V14.4 HTTP Security Headers Requirements
+## V14.4 HTTP Security Headers
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -74,7 +74,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 1021 |
 | **14.4.8** | [ADDED] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted domains and subdomains. Where "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
 
-## V14.5 Validate HTTP Request Header Requirements
+## V14.5 HTTP Request Header Validation
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
