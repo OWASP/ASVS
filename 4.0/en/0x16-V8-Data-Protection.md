@@ -1,4 +1,4 @@
-# V8: Data Protection Verification Requirements
+# V8 Data Protection
 
 ## Control Objective
 

@@ -1,4 +1,4 @@
-# V12: File and Resources Verification Requirements
+# V12 File and Resources
 
 ## Control Objective
 
@@ -7,7 +7,7 @@ Ensure that a verified application satisfies the following high level requiremen
 * Untrusted file data should be handled accordingly and in a secure manner.
 * Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.
 
-## V12.1 File Upload Requirements
+## V12.1 File Upload
 
 Although zip bombs are eminently testable using penetration testing techniques, they are considered L2 and above to encourage design and development consideration with careful manual testing, and to avoid automated or unskilled manual penetration testing of a denial of service condition.
 
@@ -17,13 +17,13 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | **12.1.2** | Verify that compressed files are checked for "zip bombs" - small input files that will decompress into huge files thus exhausting file storage limits. | | ✓ | ✓ | 409 |
 | **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
 
-## V12.2 File Integrity Requirements
+## V12.2 File Integrity
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **12.2.1** | Verify that files obtained from untrusted sources are validated to be of expected type based on the file's content. | | ✓ | ✓ | 434 |
 
-## V12.3 File Execution Requirements
+## V12.3 File Execution
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -34,21 +34,21 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | **12.3.5** | Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection. | ✓ | ✓ | ✓ | 78 |
 | **12.3.6** | Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs. |  | ✓ | ✓ | 829 |
 
-## V12.4 File Storage Requirements
+## V12.4 File Storage
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **12.4.1** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation. | ✓ | ✓ | ✓ | 922 |
 | **12.4.2** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content. | ✓ | ✓ | ✓ | 509 |
 
-## V12.5 File Download Requirements
+## V12.5 File Download
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **12.5.1** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak), temporary working files (e.g. .swp), compressed files (.zip, .tar.gz, etc) and other extensions commonly used by editors should be blocked unless required. | ✓ | ✓ | ✓ | 552 |
 | **12.5.2** | Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content. | ✓ | ✓ | ✓ | 434 |
 
-## V12.6 SSRF Protection Requirements
+## V12.6 SSRF Protection
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
