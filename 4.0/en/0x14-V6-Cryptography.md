@@ -1,4 +1,4 @@
-# V6: Stored Cryptography Verification Requirements
+# V6 Stored Cryptography
 
 ## Control Objective
 

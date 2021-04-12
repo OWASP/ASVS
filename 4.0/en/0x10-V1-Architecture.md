@@ -1,4 +1,4 @@
-# V1: Architecture, Design and Threat Modeling Requirements
+# V1 Architecture, Design and Threat Modeling
 
 ## Control Objective
 
@@ -10,7 +10,7 @@ If developers had invested in a single, secure identity provider model, such as 
 
 In this chapter, the ASVS covers off the primary aspects of any sound security architecture: availability, confidentiality, processing integrity, non-repudiation, and privacy. Each of these security principles must be built in and be innate to all applications. It is critical to "shift left", starting with developer enablement with secure coding checklists, mentoring and training, coding and testing, building, deployment, configuration, and operations, and finishing with follow up independent testing to assure that all of the security controls are present and functional. The last step used to be everything we did as an industry, but that is no longer sufficient when developers push code into production tens or hundreds of times a day. Application security professionals must keep up with agile techniques, which means adopting developer tools, learning to code, and working with developers rather than criticizing the project months after everyone else has moved on.
 
-## V1.1 Secure Software Development Lifecycle Requirements
+## V1.1 Secure Software Development Lifecycle
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -23,7 +23,7 @@ In this chapter, the ASVS covers off the primary aspects of any sound security a
 | **1.1.7** | Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers. | | ✓ | ✓ | 637 |
 | **1.1.8** | [ADDED] Verify availability of a publicly available security.txt file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues. | | ✓ | ✓ | 1059 |
 
-## V1.2 Authentication Architectural Requirements
+## V1.2 Authentication Architecture
 
 When designing authentication, it doesn't matter if you have strong hardware enabled multi-factor authentication if an attacker can reset an account by calling a call center and answering commonly known questions. When proving identity, all authentication pathways must have the same strength.
 
@@ -34,11 +34,11 @@ When designing authentication, it doesn't matter if you have strong hardware ena
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
 | **1.2.4** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
 
-## V1.3 Session Management Architectural Requirements
+## V1.3 Session Management Architecture
 
 This is a placeholder for future architectural requirements.
 
-## V1.4 Access Control Architectural Requirements
+## V1.4 Access Control Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -49,7 +49,7 @@ This is a placeholder for future architectural requirements.
 | **1.4.5** | Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 275 |
 | **1.4.6** | [ADDED] Verify that communications between application components, including APIs, middleware and data layers, are performed with the least necessary privileges. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 272 |
 
-## V1.5 Input and Output Architectural Requirements
+## V1.5 Input and Output Architecture
 
 In 4.0, we have moved away from the term "server-side" as a loaded trust boundary term. The trust boundary is still concerning - making decisions on untrusted browsers or client devices is bypassable. However, in mainstream architectural deployments today, the trust enforcement point has dramatically changed. Therefore, where the term "trusted service layer" is used in the ASVS, we mean any trusted enforcement point, regardless of location, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on.
 
@@ -62,7 +62,7 @@ The "untrusted client" term here refers to client-side technologies that render 
 | **1.5.3** | [MOVED TO 5.1.6] | | | | |
 | **1.5.4** | Verify that output encoding occurs close to or by the interpreter for which it is intended. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 116 |
 
-## V1.6 Cryptographic Architectural Requirements
+## V1.6 Cryptographic Architecture
 
 Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
 
@@ -75,34 +75,34 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | **1.6.3** | Verify that all keys and passwords are replaceable and are part of a well-defined process to re-encrypt sensitive data. | | ✓ | ✓ | 320 |
 | **1.6.4** | Verify that the architecture treats client-side secrets--such as symmetric keys, passwords, or API tokens--as insecure and never uses them to protect or access sensitive data. | | ✓ | ✓ | 320 |
 
-## V1.7 Errors, Logging and Auditing Architectural Requirements
+## V1.7 Errors, Logging and Auditing Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.7.1** | Verify that a common logging format and approach is used across the system. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
 | **1.7.2** | Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
-## V1.8 Data Protection and Privacy Architectural Requirements
+## V1.8 Data Protection and Privacy Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.8.1** | Verify that all sensitive data is identified and classified into protection levels. | | ✓ | ✓ | |
 | **1.8.2** | Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture. | | ✓ | ✓ | |
 
-## V1.9 Communications Architectural Requirements
+## V1.9 Communications Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.9.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 319 |
 | **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains. | | ✓ | ✓ | 295 |
 
-## V1.10 Malicious Software Architectural Requirements
+## V1.10 Malicious Software Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.10.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | | ✓ | ✓ | 284 |
 
-## V1.11 Business Logic Architectural Requirements
+## V1.11 Business Logic Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -110,18 +110,18 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | **1.11.2** | Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state. | | ✓ | ✓ | 362 |
 | **1.11.3** | Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions. | | | ✓ | 367 |
 
-## V1.12 Secure File Upload Architectural Requirements
+## V1.12 Secure File Upload Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.12.1** | Verify that user-uploaded files are stored outside of the web root. | | ✓ | ✓ | 552 |
 | **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable Content Security Policy (CSP) to reduce the risk from XSS vectors or other attacks from the uploaded file. | | ✓ | ✓ | 646 |
 
-## V1.13 API Architectural Requirements
+## V1.13 API Architecture
 
 This is a placeholder for future architectural requirements.
 
-## V1.14 Configuration Architectural Requirements
+## V1.14 Configuration Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |

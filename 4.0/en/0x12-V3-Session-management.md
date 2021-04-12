@@ -1,4 +1,4 @@
-# V3: Session Management Verification Requirements
+# V3 Session Management
 
 ## Control Objective
 
@@ -13,13 +13,13 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 ## Security Verification Requirements
 
-## V3.1 Fundamental Session Management Requirements
+## V3.1 Fundamental Session Management Security
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.1.1** | Verify the application never reveals session tokens in URL parameters. | ✓ | ✓ | ✓ | 598 | |
 
-## V3.2 Session Binding Requirements
+## V3.2 Session Binding
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -30,7 +30,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
 
-## V3.3 Session Logout and Timeout Requirements
+## V3.3 Session Termination
 
 Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations should review the table below, and if a longer time out is desirable based around the application's risk, the NIST value should be the upper bounds of session idle timeouts.
 
@@ -63,7 +63,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
 | **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. | | ✓ | ✓ | 345 | |
 
-## V3.6 Re-authentication from a Federation or Assertion
+## V3.6 Federated Re-authentication
 
 This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
 
