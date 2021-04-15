@@ -24,7 +24,7 @@ Comme indiqué précédemment, ces exigences ont été adaptées pour constituer
 | # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.2.1** | Vérifiez que l'application génère un nouveau jeton de session sur l'authentification de l'utilisateur. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | Vérifiez que les jetons de session possèdent au moins 64 bits d'entropie. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.2** | Vérifiez que les jetons de session possèdent au moins 128 bits d'entropie. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | Vérifiez que l'application ne stocke que des jetons de session dans le navigateur en utilisant des méthodes sûres telles que les cookies correctement sécurisés (voir section 3.4) ou le stockage de session HTML 5. | ✓ | ✓ | ✓ | 539 | 7.1 |
 | **3.2.4** | Vérifiez que les jetons de session sont générés à l'aide d'algorithmes cryptographiques approuvés. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
 
