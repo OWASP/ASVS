@@ -6,7 +6,6 @@ Ensure that a verified application has:
 
 * A secure, repeatable, automatable build environment.
 * Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application.
-* A secure-by-default configuration, such that administrators and users have to weaken the default security posture.
 
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.
 
@@ -21,9 +20,9 @@ If traditional models are still in place, then manual steps must be taken to har
 Compliance with this section requires an automated build system, and access to build and deployment scripts.
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.1.1** | Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts. | | ✓ | ✓ | |
-| **14.1.2** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  | ✓ | ✓ | 120 |
+| **14.1.2** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | | ✓ | ✓ | 120 |
 | **14.1.3** | Verify that server configuration is hardened as per the recommendations of the application server and frameworks in use. | | ✓ | ✓ | 16 |
 | **14.1.4** | Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion. | | ✓ | ✓ | |
 | **14.1.5** | Verify that authorized administrators can verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
@@ -35,7 +34,7 @@ Dependency management is critical to the safe operation of any application of an
 Note: At Level 1, 14.2.1 compliance relates to observations or detections of client-side and other libraries and components, rather than the more accurate build-time static code analysis or dependency analysis. These more accurate techniques could be discoverable by interview as required.
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.2.1** | Verify that all components are up to date, preferably using a dependency checker during build or compile time. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
 | **14.2.2** | Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users. | ✓ | ✓ | ✓ | 1002 |
 | **14.2.3** | Verify that if application assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
@@ -48,7 +47,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 Configurations for production should be hardened to protect against common attacks, such as debug consoles, raise the bar for Cross-site Scripting (XSS) and Remote File Inclusion (RFI) attacks, and to eliminate trivial information discovery "vulnerabilities" that are the unwelcome hallmark of many penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.3.1** | Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures. | ✓ | ✓ | ✓ | 209 |
 | **14.3.2** | Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components. | ✓ | ✓ | ✓ | 200 |
@@ -56,7 +55,7 @@ Configurations for production should be hardened to protect against common attac
 ## V14.4 HTTP Security Headers
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.4.1** | Verify that every HTTP response contains a Content-Type header. text/*, */*+xml and application/xml content types should also specify a safe character set (e.g., UTF-8, ISO-8859-1). | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | Verify that all API responses contain a Content-Disposition: attachment; filename="api.json" header (or other appropriate filename for the content type). | ✓ | ✓ | ✓ | 116 |
 | **14.4.3** | Verify that a Content Security Policy (CSP) response header is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 1021 |
@@ -68,7 +67,7 @@ Configurations for production should be hardened to protect against common attac
 ## V14.5 HTTP Request Header Validation
 
 | # | Description | L1 | L2 | L3 | CWE |
-| --- | --- | --- | --- | -- | -- |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.5.1** | Verify that the application server only accepts the HTTP methods in use by the application/API, including pre-flight OPTIONS, and logs/alerts on any requests that are not valid for the application context. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | 346 |
 | **14.5.3** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted domains and subdomains to match against and does not support the "null" origin. | ✓ | ✓ | ✓ | 346 |
