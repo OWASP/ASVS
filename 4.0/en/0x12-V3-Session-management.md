@@ -42,6 +42,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
 | **3.3.3** | [LEVEL L2 > L1] Verify that the application gives the option to terminate all other active sessions after a successful password change (including change via password reset/recovery), and that this is effective across the application, federated login (if present), and any relying parties. | ✓ | ✓ | ✓ | 613 | |
 | **3.3.4** | Verify that users are able to view and (having re-entered login credentials) log out of any or all currently active sessions and devices. | | ✓ | ✓ | 613 | 7.1 |
+| **3.3.5** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | ✓ | ✓ | ✓ | | |
 
 ## V3.4 Cookie-based Session Management
 
