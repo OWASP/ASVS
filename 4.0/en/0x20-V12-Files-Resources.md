@@ -45,7 +45,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.5.1** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak), temporary working files (e.g. .swp), compressed files (.zip, .tar.gz, etc) and other extensions commonly used by editors should be blocked unless required. | ✓ | ✓ | ✓ | 552 |
+| **12.5.1** | [MOVED TO 14.3.6] | | | | |
 | **12.5.2** | Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content. | ✓ | ✓ | ✓ | 434 |
 | **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignoring user-submitted filenames, including in a JSON, JSONP, or URL parameter. The response Content-Type header and Content-Disposition header should be fixed to the file and securely handled by the application instead of the user. | ✓ | ✓ | ✓ | 641 |
 
