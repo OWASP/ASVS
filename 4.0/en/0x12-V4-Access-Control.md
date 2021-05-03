@@ -8,8 +8,6 @@ Authorization is the concept of allowing access to resources only to those permi
 * Users are associated with a well-defined set of roles and privileges.
 * Role and permission metadata is protected from replay or tampering.
 
-## Security Verification Requirements
-
 ## V4.1 General Access Control Design
 
 | # | Description | L1 | L2 | L3 | CWE |
