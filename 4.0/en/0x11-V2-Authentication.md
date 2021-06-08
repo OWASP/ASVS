@@ -121,7 +121,7 @@ Look up secrets are pre-generated lists of secret codes, similar to Transaction 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.6.1** | Verify that lookup secrets can be used only once. | | ✓ | ✓ | 308 | 5.1.2.2 |
-| **2.6.2** | Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, are hashed with an approved password storage hashing algorithm. | | ✓ | ✓ | 330 | 5.1.2.2 |
+| **2.6.2** | [MODIFIED] Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, are hashed with an approved password storage hashing algorithm. | | ✓ | ✓ | 330 | 5.1.2.2 |
 | **2.6.3** | Verify that lookup secrets are resistant to offline attacks, such as predictable values. | | ✓ | ✓ | 310 | 5.1.2.2 |
 
 ## V2.7 Out of Band Verifier
