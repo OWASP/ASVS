@@ -51,10 +51,8 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.10** | [MODIFIED, SPLIT TO 2.1.13, LEVEL L1 > L2] Verify that the application does not require periodic credential rotation. | | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.12** | Verify that the user can choose to either temporarily view the entire masked password, or temporarily view the last typed character of the password on platforms that do not have this as built-in functionality. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.12** | [DELETED] | | | | | |
 | **2.1.13** | [ADDED, SPLIT FROM 2.1.10, LEVEL L1 > L2] Verify that the application does not keep a password history. | | ✓ | ✓ | | 5.1.1.2 |
-
-Note: The goal of allowing the user to view their password or see the last character temporarily is to improve the usability of credential entry, particularly around the use of longer passwords, passphrases, and password managers. Another reason for including the requirement is to deter or prevent test reports unnecessarily requiring organizations to override built-in platform password field behavior to remove this modern user-friendly security experience.
 
 ## V2.2 General Authenticator Security
 
