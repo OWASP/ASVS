@@ -94,8 +94,8 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.4.1** | [MODIFIED] Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be hashed using an approved password hashing function. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | [DELETED] | | | | | |
-| **2.4.3** | Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.4** | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 13. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 310,000 iterations. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.4** | [MODIFIED] Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | [DELETED] | | | | | |
 
 Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
