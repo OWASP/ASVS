@@ -160,14 +160,16 @@ The requirements for single-factor cryptographic devices and software, and multi
 
 ## V2.10 Service Authentication
 
-This section is not penetration testable, so does not have any L1 requirements. However, if used in an architecture, coding or secure code review, please assume that software (just as Java Key Store) is the minimum requirement at L1. Clear text storage of secrets is not acceptable under any circumstances.
+This section is not penetration testable, so does not have any L1 requirements.
+
+Secrets can be securely stored by using services offered by the framework, the operating system, or hardware. For example, the Java Key Store, Keychain Access and AWS Secrets Manager are services that can help store secrets securely. For optimal security, a hardware solution such as a Hardware Security Module or Trusted Platform Module should be used. To conform to level 2, secrets must be stored in a secured service offered by the framework or operating system. For level 3, secrets must be stored in a hardware-assisted service.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.10.1** | Verify that intra-service secrets do not rely on unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | OS assisted | HSM | 287 | 5.1.1.1 |
-| **2.10.2** | Verify that if passwords are required for service authentication, the service account used is not a default credential. (e.g. root/root or admin/admin are default in some services during installation). | | OS assisted | HSM | 255 | 5.1.1.1 |
-| **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. | | OS assisted | HSM | 522 | 5.1.1.1 |
-| **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | OS assisted | HSM | 798 | |
+| **2.10.1** | Verify that intra-service secrets do not rely on unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 | 5.1.1.1 |
+| **2.10.2** | Verify that if passwords are required for service authentication, the service account used is not a default credential. (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | 5.1.1.1 |
+| **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. | | ✓ | ✓ | 522 | 5.1.1.1 |
+| **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | ✓ | ✓ | 798 | |
 
 ## Additional US Agency Requirements
 
