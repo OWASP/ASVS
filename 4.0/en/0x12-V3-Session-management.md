@@ -30,7 +30,15 @@ TLS or another secure transport channel is mandatory for session management. Thi
 
 ## V3.3 Session Termination
 
-Sessions must be invalidated upon the user's request, after a certain time since the session started, and after a certain period of inactivity. The specific maximum timeout to use, both for active and inactive sessions, is specified in NIST 800-63b, sections 4.1.3, 4.2.3, and 4.3.3. Higher levels require shorter timeouts and stricter authentication; L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3.
+Sessions must be invalidated upon the user's request, after a certain time since the session started, and after a certain period of inactivity.
+
+The specific maximum timeout to use, both for active and inactive sessions, is aligned with NIST 800-63b. The following table shows for each ASVS level which NIST requirements apply, the period a session may be active with activity and without activity, and how a user can restart this period by reauthenticating.
+
+| ASVS Level | [IAL](https://pages.nist.gov/800-63-3/sp800-63a.html#22-identity-assurance-levels) | [AAL](https://pages.nist.gov/800-63-3/sp800-63b.html#4-authenticator-assurance-levels) | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) | Max. session duration | Max. inactivity timeout | Reauthentication method |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| 1 | IAL1 | AAL1 | 4.1.3 | 30 days | no timeout | no reauthentication|
+| 2 | IAL2 | AAL2 | 4.2.3 | 12 hours | 30 minutes | single factor |
+| 3 | IAL3 | AAL3 | 4.3.3 | 12 hours | 15 minutes | two factor |
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
