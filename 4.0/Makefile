@@ -5,8 +5,10 @@ TEMPLATEDIR=templates
 SOURCES = $(SOURCEDIR)/*.md
 TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
 TARGETNAME=OWASP Application Security Verification Standard 4.0
-EXPORT_JSON_TOOL=$(TOOLSDIR)/generate-json.py
-EXPORT_CSV_TOOL=$(TOOLSDIR)/generate-csv.py
+#EXPORT_JSON_TOOL=$(TOOLSDIR)/generate-json.py
+EXPORT_TOOL=$(TOOLSDIR)/export.py
+#EXPORT_CSV_TOOL=$(TOOLSDIR)/generate-csv.py
+
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
 
@@ -30,7 +32,7 @@ PANDOC_ODT_FLAGS= -s \
 
 .PHONY: md $(BUILDDIR) pdf docx odt clean
 
-all: $(TARGETS)	pdf docx json csv
+all: $(TARGETS)	pdf docx json json_flat csv xml
 
 $(BUILDDIR): 
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
@@ -57,10 +59,16 @@ odt:
 	pandoc $(PANDOC_ODT_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
 
 json:
-	python3 $(EXPORT_JSON_TOOL) --file "$(BUILDDIR)/$(TARGETNAME).json"
+	python3 $(EXPORT_TOOL) --format json --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).json"
+
+json_flat:
+	python3 $(EXPORT_TOOL) --format json_flat --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).json"
 
 csv:
-	python3 $(EXPORT_CSV_TOOL) > "$(BUILDDIR)/$(TARGETNAME).csv"
+	python3 $(EXPORT_TOOL) --format csv --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).csv"
+
+xml:
+	python3 $(EXPORT_TOOL) --format xml --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).xml"
 
 
 
