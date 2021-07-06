@@ -1,3 +1,6 @@
 .DS_Store
 *.pyc
 build/*
+docker/tests/
+.ipynb_checkpoints/
+.bash_history
