@@ -1,9 +1,9 @@
 ---
     title: |
         ![](./images/owasp_logo_1c_notext.png)  
-        Application Security Verification Standard 4.0  
-    subtitle: Final
-    date: March 2019
+        Application Security Verification Standard 4.x  
+    subtitle: Bleeding Edge Version
+    date: 2021
     titlepage: true
     titlepage-rule-height: 0
     table-use-row-colors: true
