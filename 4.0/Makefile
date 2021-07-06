@@ -30,7 +30,7 @@ PANDOC_ODT_FLAGS= -s \
 
 .PHONY: md $(BUILDDIR) pdf docx odt clean
 
-all: $(TARGETS)	pdf docx odt json csv
+all: $(TARGETS)	pdf docx json csv
 
 $(BUILDDIR): 
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
