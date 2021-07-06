@@ -10,9 +10,8 @@
     toc: true
     toc-own-page: true
     geometry: "left=2cm,right=2cm,top=1.5cm,bottom=3cm"
-    fontfamily: sourcesanspro
-    fontfamilyoptions: 
-    - default
-    
+    CJKmainfont: "Noto Sans CJK JP"
+    mainfont: "DejaVu Sans"
+    sansfont: "Source Sans 3"
 ---
 
