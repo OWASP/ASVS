@@ -20,6 +20,7 @@ RUN apt-get update -q \
     gnutls-bin \
     curl \
     gnupg \
+    python3-certifi \
  && rm -rf /var/lib/apt/lists/*
 
 FROM base as base_cert
@@ -60,9 +61,9 @@ RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
 RUN rm -rf $PWD/source*
 
 FROM base_cert as pandoc_base
-#install python depencies
 
-RUN pip3 install --upgrade pip
+#install python depencies
+RUN pip3 install --upgrade pip certifi dicttoxml
 
 #install Pandoc
 RUN useradd -ms /bin/bash non-root
@@ -125,8 +126,6 @@ RUN tlmgr --version && tlmgr update -self && \
     titling \
     bookmark \
     newunicodechar \
-    symbol \
-    psnfss \
     adjustbox \
     collectbox \
     listings \
