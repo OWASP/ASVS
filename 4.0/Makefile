@@ -4,7 +4,7 @@ SOURCEDIR=en
 TEMPLATEDIR=templates
 SOURCES = $(SOURCEDIR)/*.md
 TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
-TARGETNAME=OWASP Application Security Verification Standard 4.0
+TARGETNAME=OWASP Application Security Verification Standard 4.x
 #EXPORT_JSON_TOOL=$(TOOLSDIR)/generate-json.py
 EXPORT_TOOL=$(TOOLSDIR)/export.py
 #EXPORT_CSV_TOOL=$(TOOLSDIR)/generate-csv.py
@@ -59,16 +59,16 @@ odt:
 	pandoc $(PANDOC_ODT_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
 
 json:
-	python3 $(EXPORT_TOOL) --format json --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).json"
+	python3 $(EXPORT_TOOL) --format json --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).json"
 
 json_flat:
-	python3 $(EXPORT_TOOL) --format json_flat --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).json"
+	python3 $(EXPORT_TOOL) --format json_flat --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).flat.json"
 
 csv:
-	python3 $(EXPORT_TOOL) --format csv --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).csv"
+	python3 $(EXPORT_TOOL) --format csv --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).csv"
 
 xml:
-	python3 $(EXPORT_TOOL) --format xml --language $(SOURCE_DIR) > "$(BUILDDIR)/$(TARGETNAME).xml"
+	python3 $(EXPORT_TOOL) --format xml --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).xml"
 
 
 
