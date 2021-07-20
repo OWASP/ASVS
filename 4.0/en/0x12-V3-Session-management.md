@@ -61,7 +61,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.5.1** | Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
-| **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. | | ✓ | ✓ | 345 | |
+| **3.5.3** | [MODIFIED, LEVEL 2 > 1] Verify that stateless session tokens make use of digital signatures to protect against tampering. | ✓ | ✓ | ✓ | 345 | |
 
 ## V3.6 Federated Re-authentication
 
