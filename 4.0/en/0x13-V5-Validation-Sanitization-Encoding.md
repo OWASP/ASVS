@@ -14,7 +14,13 @@ With modern web application architecture, output encoding is more important than
 
 ## V5.1 Input Validation
 
-Properly implemented input validation controls, using positive allow lists and strong data typing, can eliminate more than 90% of all injection attacks. Length and range checks can reduce this further. Building in secure input validation is required during application architecture, design sprints, coding, and unit and integration testing. Although many of these items cannot be found in penetration tests, the results of not implementing them are usually found in V5.3 - Output encoding and Injection Prevention Requirements. Developers and secure code reviewers are recommended to treat this section as if L1 is required for all items to prevent injections.
+Properly implemented input validation controls, using positive allow lists and strong data typing, can sometimes eliminate injection attacks. However, sometimes input validation is not going to be effective in security, for example a valid e-mail address/URL can still be used to conduct successful attacks. 
+
+Input validation is still important security hygiene and should be applied to all inputs where possible. 
+
+Sometimes input validation is not going to be helpful for security, other times it will help it to a moderate degree, whilst other times it will be fundamental for security defense. It depends on the type of data and the use of that data to determine how effective input validation will be. Because input validation is not a complete security strategy, one should also make use of sandboxing, santisation, encoding and parameterisation. 
+
+
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -27,6 +33,26 @@ Properly implemented input validation controls, using positive allow lists and s
 
 
 ## V5.2 Sanitization and Sandboxing
+
+Input validation is a complicated topic. 
+
+Sometimes input validation is not going to be helpful for security, other times it will help it to a moderate degree, whilst other times it will be fundamental for security defense. It depends on the type of data and the use of that data to determine how effective input validation will be. 
+
+For example: 
+  
+  * Santization: When a user is authoring HTML, the standard defense is to standardise HTML to remove Performing JSON sanitizing before JSON parsers
+    are used, and of course HTML sanitization for XSS defense
+  * Escaping: Done in the UI when you want to preserve displaying
+    content as the user typed it in, also for some injection protection
+    like LDAP injection protection
+  * Parameterization: For SQL Injection, primarily
+  * Sandboxing:  When you can't sanitize HTML for some reason and need
+    to dump potentially active content on your web page, iFrame
+    sandboxing is critical. CSP has some sandboxing capabilities, too.
+  * Really important for URL's in Web UI's to stop
+    JavaScript and data URL's (XSS defense) - but often valid data is
+    still dangerous
+
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
