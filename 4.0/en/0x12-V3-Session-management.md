@@ -59,7 +59,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.5.1** | Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
+| **3.5.1** | [DELETED, DUPE OF 3.3.4] | | | | | |
 | **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
 | **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of digital signatures to protect against tampering. | ✓ | ✓ | ✓ | 345 | |
 
