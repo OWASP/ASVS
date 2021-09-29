@@ -43,7 +43,7 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.12** | [DELETED] | | | | | |
 | **2.1.13** | [ADDED, SPLIT FROM 2.1.10, LEVEL L1 > L2] Verify that the application does not keep a password history. | | ✓ | ✓ | | 5.1.1.2 |
-| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against [PwnedPasswordsTop100k.txt from NCSC UK](https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere#:~:text=PwnedPasswordsTop100k.txt) discovered in third party data breaches. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
+| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against PwnedPasswordsTop100k from NCSC UK discovered in third party data breaches. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
 
 
 ## V2.2 General Authenticator Security
