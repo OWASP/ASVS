@@ -26,7 +26,9 @@ Passwords, called "Memorized Secrets" by NIST 800-63, include passwords, PINs, u
 
 Applications should strongly encourage users to enroll in multi-factor authentication, and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication.
 
-Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name a just few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
+Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name a just few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established ideies. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity). proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
+
+"_...list of of breached passwords._" should include [PwnedPasswordsTop100k from NCSC UK](https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere#:~:text=PwnedPasswordsTop100k.txt).
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -43,7 +45,7 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.12** | [DELETED] | | | | | |
 | **2.1.13** | [ADDED, SPLIT FROM 2.1.10, LEVEL L1 > L2] Verify that the application does not keep a password history. | | ✓ | ✓ | | 5.1.1.2 |
-| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against PwnedPasswordsTop100k from NCSC UK discovered in third party data breaches. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
+| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are verified against a list of of breached passwords. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
 
 
 ## V2.2 General Authenticator Security
