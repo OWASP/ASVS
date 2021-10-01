@@ -62,6 +62,7 @@ NIST considers SMS as ["restricted" authenticator types](https://pages.nist.gov/
 | **2.2.6** | Verify replay resistance through the mandated use of One-time Passwords (OTP) devices, cryptographic authenticators, or lookup codes. | | | ✓ | 308 | 5.2.8 |
 | **2.2.7** | [DELETED, DUPLICATE OF 2.3.2] | | | | | |
 | **2.2.8** | [ADDED] Verify that all failed authentication challenges respond in the same average response time. | | ✓ | ✓ | | |
+| **2.2.9** | [ADDED] Verify that multi-factor authentication is required, that is, the application uses either a multi-factor authenticator or a combination of single-factor authenticators. | | ✓ | ✓ | 308 | 4.2.1 |
 
 ## V2.3 Authenticator Lifecycle
 
