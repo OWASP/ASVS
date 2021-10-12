@@ -7,7 +7,7 @@ Ensure that a verified application has:
 * A secure, repeatable, automatable build environment.
 * Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application.
 
-Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.
+Configuration of the application should be safe by default.
 
 ## V14.1 Build and Deploy
 
