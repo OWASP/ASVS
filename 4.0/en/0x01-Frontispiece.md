@@ -17,13 +17,13 @@ Copyright © 2008-2021 The OWASP Foundation. This document is released under the
 |                      	|                 	|            	|
 |----------------------	|-----------------	|------------	|
 | Andrew van der Stock 	| Daniel Cuthbert 	| Jim Manico 	|
-| Josh C Grossman      	| Mark Burnett    	|            	|
+| Josh C Grossman      	| Elar Lang     	|            	|
 
 ## Major Contributors
 
 |                	|                	|                   	|
 |----------------	|----------------	|-------------------	|
-| Abhay Bhargav  	| Benedikt Bauer 	| Elar Lang         	|
+| Abhay Bhargav  	| Benedikt Bauer 	| Isaac Lewis         	|
 | Osama Elnaggar 	| Ron Perris     	| Tonimir Kisasondi 	|
 
 ## Other Contributors and Reviewers
