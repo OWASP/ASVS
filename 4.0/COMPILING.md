@@ -4,13 +4,13 @@
 3. Run this command to create the container:
 
 ```
-docker image build --tag documentBuilder -f docker/Dockerfile .
+docker image build --tag asvs/documentbuilder -f docker/Dockerfile .
 ```
 
 4. Run this command to run the container. The Volume you are mounting (`-v `) needs to be shared in the docker settings console for this to work:
 
 ```
-docker run --rm -v "/Path/to/the/repo/4.0:/data" documentBuilder
+docker run --rm -v "/Path/to/the/repo/4.0:/data" asvs/documentbuilder
 ```
 
 5. The container will start and run the `make` command from the console. When done just it will just exit. There is nothing for you to do, but watch the show ;)
