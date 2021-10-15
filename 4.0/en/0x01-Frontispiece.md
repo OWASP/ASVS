@@ -24,7 +24,6 @@ Copyright © 2008-2021 The OWASP Foundation. This document is released under the
 |                	|                	|                   	|
 |----------------	|----------------	|-------------------	|
 | Sjoerd Langkemper	| Isaac Lewis	 	|         			 	|
-| Osama Elnaggar 	| Ron Perris     	| Tonimir Kisasondi 	|
 
 ## Other Contributors and Reviewers
 
