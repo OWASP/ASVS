@@ -21,9 +21,9 @@ Copyright © 2008-2021 The OWASP Foundation. This document is released under the
 
 ## Major Contributors
 
-|                	|                	|                   	|
-|----------------	|----------------	|-------------------	|
-| Sjoerd Langkemper	| Isaac Lewis	 	|         			 	|
+|                	|                	|
+|----------------	|----------------	|
+| Sjoerd Langkemper	| Isaac Lewis	 	|
 
 ## Other Contributors and Reviewers
 
