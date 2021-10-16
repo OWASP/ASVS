@@ -5,12 +5,6 @@ ASVS has two main goals:
 * to help organizations develop and maintain secure applications.
 * to allow security service vendors, security tools vendors, and consumers to align their requirements and offerings.
 
-```
-I am introducing this text for testing
-```
-
-Here i am introducing another change for testing
-
 ## Application Security Verification Levels
 
 The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
@@ -21,7 +15,7 @@ The Application Security Verification Standard defines three security verificati
 
 Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
 
-![ASVS Levels](../images/asvs_40_levels.png "ASVS Levels")
+![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "ASVS Levels")
 
 Figure 1 - OWASP Application Security Verification Standard 4.0 Levels
 
@@ -59,24 +53,7 @@ ASVS Level 3 is the highest level of verification within the ASVS. This level is
 
 Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.
 
-An application at ASVS Level 3 requires more in depth analysis of architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defense in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), authorization, and auditing (logging).
-
-## How to Reference ASVS Requirements
-
-Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`.
-- The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
-- The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architectural Requirements` section of the `Architecture` chapter.
-- The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.2 of this standard is:
-
-> Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
-
-The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.2-1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architectural Requirements' section of the 'Architecture' chapter from version 4.0.2. (This could be summarized as `v<version>-<requirement_identifier>`.)
-
-Note: The `v` preceding the version portion is to be lower case.
-
-If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
-
-ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
+An application at ASVS Level 3 requires more in depth analysis of architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defense in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), non-repudiation, authorization, and auditing (logging).
 
 ## Applying ASVS in Practice
 
@@ -84,31 +61,19 @@ Different threats have different motivations. Some industries have unique inform
 
 Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
 
-We have heard from various people in community on how they use the standard in practice:
+## How to Reference ASVS Requirements
 
-### Personal Case Studies
+Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`.
+- The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
+- The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architectural Requirements` section of the `Architecture` chapter.
+- The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.1 of this standard is:
 
-#### Matthew Hackling
-* Drive pen test scope and test cases
-* Drive security requirements for designs help
-* Populate an ISO27034 organisational normative framework aka requirements library.
+> Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
 
-#### Dominique Righetto
-* Used for code review and as a checklist when performing web application vulnerability assessments.
+The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.1-1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architectural Requirements' section of the 'Architecture' chapter from version 4.0.1. (This could be summarized as `v<version>-<requirement_identifier>`.)
 
-#### Giovanni Cruz
-* In the last OWASP Latam Tour Bogotá 2019 a training course was prepared totally based on ASVS. All the content was created with a vulnerable platform for training to assist developers. It got a great feedback because they showed them how to use it and what levels of security they might want to achieve based on some standard.
+Note: The `v` preceding the version portion is to be lower case.
 
-#### Sebastien Gioria
-* For some customers, uses it as a basis for mandatory requirements to perform secure design and coding.
+If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
 
-#### Riotaro Okada
-* In recent years, observed some banks in Japan included ASVS into their RFP for security testing services, as their mandatory requirement. They wanted proposals which security vendors would fit appropriate ASVS levels.
-* A local software vendor in Japan sells SFA related packages received customer criteria to check whether their products would fit ASVS, and which levels the product aligned to. (It was a good start for the vendor to introduce secure development and verifications into their teams)
-
-#### John Patrick Lita
-* Uses this and integrates this in their CI/CD activity
-
-### Use within other projects and tools
-* OWASP Defectdojo has built in ASVS support https://www.defectdojo.org/
-* A few weeks after the ASVS 4 release, RIPS added support for it: https://blog.ripstech.com/2019/rips-3.1-adds-teamcity-ldap-jsp-support/
+ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.

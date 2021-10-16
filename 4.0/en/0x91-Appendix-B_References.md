@@ -12,9 +12,9 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 
 ##  OWASP Cheat Sheet Series project
 
-[This project](https://owasp.org/www-project-cheat-sheets/) has a number of cheat sheets which will be relevant for different topics in the ASVS.
+[This project](https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series) has a number of cheat sheets which will be relevant for different topics in the ASVS.
 
-There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
+There is a mapping to the ASVS which can be found here: [https://github.com/OWASP/CheatSheetSeries/blob/master/IndexASVS.md](https://github.com/OWASP/CheatSheetSeries/blob/master/IndexASVS.md)
 
 ## Mobile Security Related Projects
 
@@ -40,4 +40,3 @@ Similarly, the following web sites are most likely to be useful to users/adopter
 4. PCI Data Security Standard (DSS) v3.2.1 Requirements and Security Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf)
 5. PCI Software Security Framework - Secure Software Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf)
 6. PCI Secure Software Lifecycle (Secure SLC) Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)
-7. OWASP ASVS 4.0 Testing Guide [https://github.com/BlazingWind/OWASP-ASVS-4.0-testing-guide](https://github.com/BlazingWind/OWASP-ASVS-4.0-testing-guide)

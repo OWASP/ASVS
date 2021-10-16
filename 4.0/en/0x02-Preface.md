@@ -2,10 +2,6 @@
 
 Welcome to the Application Security Verification Standard (ASVS) version 4.0. The ASVS is a community-driven effort to establish a framework of security requirements and controls that focus on defining the functional and non-functional security controls required when designing, developing and testing modern web applications and web services.
 
-Version 4.0.2 was the second minor patch to v4.0 intended to fix spelling errors and make requirements clearer without making breaking changes such as materially changing requirements or adding/removing requirements.
-
-This version is a "Bleeding Edge" version which is constantly being updated and should not be used for testing against a standard.
-
 ASVS v4.0 is the culmination of community effort and industry feedback over the last decade. We have attempted to make it easier to adopt the ASVS for a variety of different use cases throughout any secure software development lifecycle.
 
 We expect that there will most likely never be 100% agreement on the contents of any web application standard, including the ASVS. Risk analysis is always subjective to some extent, which creates a challenge when attempting to generalize in a one-size-fits-all standard. However, we hope that the latest updates made in this version are a step in the right direction, and enhance the concepts introduced in this critical industry standard.

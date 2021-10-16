@@ -48,7 +48,7 @@ One of the more common uses for the Application Security Verification Standard i
 
 ### As a Replacement for Off-the-shelf Secure Coding Checklists
 
-Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain-specific way. We encourage this type of forking as long as traceability is maintained so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.
+Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain specific way. We encourage this type of forking as long as traceability is maintained, so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.
 
 ### As a Guide for Automated Unit and Integration Tests
 
