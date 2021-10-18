@@ -75,4 +75,21 @@ Tags must be placed before verification description, example:
 | **12.4.2** | [MODIFIED] Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload and serving of known malicious content. | ✓ | ✓ | ✓ | 509 |
 ```
 
+### Translations
 
+We are also actively looking for translations of the 4.n branch!
+
+If you are interested in creating a translation, here are some pointers for how you can help us:
+* Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superceeded!):
+    * German
+    * French
+    * Spanish
+    * Persian
+    * Turkish
+    * Japanese
+* If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them. Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
+* We would recommend basing your translation either on the v4.0.2 branch or on the bleeding edge branch. When you submit a pull request with your translation, please be clear about which version you have targeted.
+* Please duplicate the existing markdown files, create a new folder for your language underneath the 4.0 folder and create the translated markdown files there.
+* If you are targeting the bleeding edge, please try and monitor changes and update your translation accordingly.
+
+Thanks!!
