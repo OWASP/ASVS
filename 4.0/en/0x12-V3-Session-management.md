@@ -62,6 +62,9 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.1** | [DELETED, DUPLICATE OF 3.3.4] | | | | | |
 | **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
 | **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of digital signatures to protect against tampering. | ✓ | ✓ | ✓ | 345 | |
+| **3.5.4** | [ADDED] Verify expiration of JWTs is checked in the backend service. | ✓ | ✓ | ✓ | 613 | |
+| **3.5.5** | [ADDED] Verify that integrity algorithm validation is being done by the backend service for the JWTs and that only valid algorithm types are enforced by the backend service. | ✓ | ✓ | ✓ | 347 | |
+| **3.5.6** | [ADDED] Verify proper validation of the JWT payload claims are done by the backend service including the issuer, subject, and audience. | ✓ | ✓ | ✓ | 287 | |
 
 ## V3.6 Federated Re-authentication
 
