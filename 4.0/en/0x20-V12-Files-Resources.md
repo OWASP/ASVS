@@ -38,7 +38,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.4.1** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation. | ✓ | ✓ | ✓ | 922 |
+| **12.4.1** | Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions. | ✓ | ✓ | ✓ | 552 |
 | **12.4.2** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content. | ✓ | ✓ | ✓ | 509 |
 
 ## V12.5 File Download
