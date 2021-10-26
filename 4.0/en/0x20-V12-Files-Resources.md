@@ -1,4 +1,4 @@
-# V12 File and Resources
+# V12 Files and Resources
 
 ## Control Objective
 
