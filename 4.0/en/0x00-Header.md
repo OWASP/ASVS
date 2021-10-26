@@ -2,8 +2,8 @@
 
 ![OWASP LOGO](../images/owasp_logo_1c_notext.png)
 
-# Application Security Verification Standard 4.0.3 DRAFT
+# Application Security Verification Standard 4.0.3
 
 ## Final
 
-XXXX 2021
+October 2021
