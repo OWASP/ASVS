@@ -55,7 +55,7 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 #### Use tags to describe the change
 
-The following tags should be added to any modified requirement as appropriate. These tags should all be relative to how the requirement appeared in v4.0.2.
+The following tags should be added to any modified requirement as appropriate. These tags should all be relative to how the requirement appeared in v4.0.3.
 
 * `[ADDED]` - New requirement (should only be added at the end of a sub-section.)
 * `[ADDED, SPLIT FROM x.y.z]` - New requirement which was previously part of another requirement
