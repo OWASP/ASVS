@@ -14,14 +14,14 @@ Business logic security is so individual to every application that no one checkl
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **11.1.1** | Verify the application will only process business logic flows for the same user in sequential step order and without skipping steps.| ✓ | ✓ | ✓ | 841 |
-| **11.1.2** | Verify the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.| ✓ | ✓ | ✓ | 799 |
+| **11.1.1** | Verify that the application will only process business logic flows for the same user in sequential step order and without skipping steps.| ✓ | ✓ | ✓ | 841 |
+| **11.1.2** | Verify that the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.| ✓ | ✓ | ✓ | 799 |
 | **11.1.3** | Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis. | ✓ | ✓ | ✓ | 770 |
-| **11.1.4** | Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, excessive file uploads or denial of service attacks. | ✓ | ✓ | ✓ | 770 |
+| **11.1.4** | Verify that the application has anti-automation controls to protect against excessive calls such as mass data exfiltration, business logic requests, file uploads or denial of service attacks. | ✓ | ✓ | ✓ | 770 |
 | **11.1.5** | Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modeling or similar methodologies. | ✓ | ✓ | ✓ | 841 |
-| **11.1.6** | Verify the application does not suffer from "Time Of Check to Time Of Use" (TOCTOU) issues or other race conditions for sensitive operations. | | ✓ | ✓ | 367 |
-| **11.1.7** | Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 754 |
-| **11.1.8** | Verify the application has configurable alerting when automated attacks or unusual activity is detected. | | ✓ | ✓ | 390 |
+| **11.1.6** | Verify that the application does not suffer from "Time Of Check to Time Of Use" (TOCTOU) issues or other race conditions for sensitive operations. | | ✓ | ✓ | 367 |
+| **11.1.7** | Verify that the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 754 |
+| **11.1.8** | Verify that the application has configurable alerting when automated attacks or unusual activity is detected. | | ✓ | ✓ | 390 |
 
 ## References
 

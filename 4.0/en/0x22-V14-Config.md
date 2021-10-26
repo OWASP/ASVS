@@ -36,10 +36,10 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.2.1** | Verify that all components are up to date, preferably using a dependency checker during build or compile time. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
-| **14.2.2** | Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users. | ✓ | ✓ | ✓ | 1002 |
+| **14.2.2** | Verify that all unneeded features, documentation, sample applications and configurations are removed. | ✓ | ✓ | ✓ | 1002 |
 | **14.2.3** | Verify that if application assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
 | **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
-| **14.2.5** | Verify that an inventory catalog is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
+| **14.2.5** | Verify that a Software Bill of Materials (SBOM) is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
 
 ## V14.3 Unintended Security Disclosure
@@ -48,7 +48,7 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **14.3.1** | Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures. | ✓ | ✓ | ✓ | 209 |
+| **14.3.1** | [DELETED, DUPLICATE OF 7.4.1] | | | | |
 | **14.3.2** | Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components. | ✓ | ✓ | ✓ | 200 |
 
@@ -56,12 +56,12 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **14.4.1** | Verify that every HTTP response contains a Content-Type header. text/*, */*+xml and application/xml content types should also specify a safe character set (e.g., UTF-8, ISO-8859-1). | ✓ | ✓ | ✓ | 173 |
+| **14.4.1** | Verify that every HTTP response contains a Content-Type header. Also specify a safe character set (e.g., UTF-8, ISO-8859-1) if the content types are text/*, /+xml and application/xml. Content must match with the provided Content-Type header. | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | Verify that all API responses contain a Content-Disposition: attachment; filename="api.json" header (or other appropriate filename for the content type). | ✓ | ✓ | ✓ | 116 |
 | **14.4.3** | Verify that a Content Security Policy (CSP) response header is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 1021 |
 | **14.4.4** | Verify that all responses contain a X-Content-Type-Options: nosniff header. | ✓ | ✓ | ✓ | 116 |
 | **14.4.5** | Verify that a Strict-Transport-Security header is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
-| **14.4.6** | Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin". | ✓ | ✓ | ✓ | 116 |
+| **14.4.6** | Verify that a suitable Referrer-Policy header is included to avoid exposing sensitive information in the URL through the Referer header to untrusted parties. | ✓ | ✓ | ✓ | 116 |
 | **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 1021 |
 
 ## V14.5 HTTP Request Header Validation
