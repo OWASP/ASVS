@@ -42,7 +42,7 @@ Copyright © 2008-2021 The OWASP Foundation. This document is released under the
 | Philippe De Ryck    | Ravi Balla         | Rick Mitchell     | Riotaro Okada    | Robin Wood        |
 | Rogan Dawes         | Ryan Goltry        | Sajjad Pourali    | Serg Belkommen   | Siim Puustusmaa   |
 | Ståle Pettersen     | Stuart Gunter      | Tal Argoni        | Tim Hemel        | Tomasz Wrobel     |
-| Vincent De Schutter |                    |                   |                  |                   |
+| Vincent De Schutter | Mike Jang          |                   |                  |                   |
 
 
 
