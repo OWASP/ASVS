@@ -17,7 +17,7 @@ Within these requirements:
 * Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
 * Check your configuration periodically to ensure that secure communication is always present and effective.
 
-## V9.1 Client Communications Security
+## V9.1 Client Communication Security
 
 Ensure all client messages are sent over encrypted networks, using TLS 1.2 or later.
 Use up to date tools to review the client configuration on a regular basis.
