@@ -2,18 +2,25 @@
 
 ## Control Objective
 
-Ensure that a verified application satisfies the following high level requirements:
+Ensure that a verified application meets the following high level requirements:
 
-* TLS or strong encryption is always used, regardless of the sensitivity of the data being transmitted
-* The most recent, leading configuration advice is used to enable and order preferred algorithms and ciphers
-* Weak or soon to be deprecated algorithms and ciphers are ordered as a last resort
-* Deprecated or known insecure algorithms and ciphers are disabled.
+* Require TLS or strong encryption, independent of sensitivity of the content.
+* Follow the latest guidance, including:
+  * Configuration advice
+  * Preferred algorithms and ciphers
+* Avoid weak or soon to be deprecated algorithms and ciphers, except as a last resort
+* Disable deprecated or known insecure algorithms and ciphers.
 
-Leading industry advice on secure TLS configuration changes frequently, often due to catastrophic breaks in existing algorithms and ciphers. Always use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection. Configuration should be periodically checked to ensure that secure communications configuration is always present and effective.
+Within these requirements:
 
-## V9.1 Client Communication Security
+* Stay current with recommended industry advice on secure TLS configuration, as it changes frequently (often due to catastrophic breaks in existing algorithms and ciphers).
+* Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
+* Check your configuration periodically to ensure that secure communication is always present and effective.
 
-All client communications should only take place over encrypted communication paths. In particular, the use of TLS 1.2 or later is essentially all but required by modern browsers and search engines. Configuration should be regularly reviewed using up to date tools to ensure that the latest leading practices are in place.
+## V9.1 Client Communications Security
+
+Ensure all client messages are sent over encrypted networks, using TLS 1.2 or later.
+Use up to date tools to review the client configuration on a regular basis.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
