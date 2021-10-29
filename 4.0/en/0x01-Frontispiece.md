@@ -6,7 +6,7 @@ The Application Security Verification Standard is a list of application security
 
 ## Copyright and License
 
-Version 4.x (Bleeding Edge version), 2021
+Version 4.0.3, October 2021
 
 ![license](../images/license.png)
 
@@ -21,26 +21,31 @@ Copyright © 2008-2021 The OWASP Foundation. This document is released under the
 
 ## Major Contributors
 
-|                	|                	|
-|----------------	|----------------	|
-| Sjoerd Langkemper	| Isaac Lewis	 	|
+|                	|                	|                   	|
+|----------------	|----------------	|-------------------	|
+| Abhay Bhargav  	| Benedikt Bauer 	| Osama Elnaggar    	|
+| Ralph Andalis 	| Ron Perris     	| Sjoerd Langkemper 	|
+| Tonimir Kisasondi |               	|                   	|
 
 ## Other Contributors and Reviewers
 
-|                	|                  	|                     	|                    	|                     	|
-|----------------	|------------------	|---------------------	|--------------------	|---------------------	|
-| Aaron Guzman   	| Anthony Weems    	| Barbara Schachner   	| Christopher Loessl 	| Clément Notin       	|
-| Dan Cornell    	| Daniël Geerts    	| David Clarke        	| David Johansson    	| David Quisenberry   	|
-| Erlend Oftedal 	| Fatih Ersinadim  	| Filip van Laenen    	| Geoff Baskwill     	| Glenn ten Cate      	|
-| Grant Ongers   	| hello7s          	| Jacob Salassi       	| James Sulinski     	| Jason Axley         	|
-| Jason Morrow   	| Javier Dominguez 	| Jet Anderson        	| Jim Newman         	| Jonathan Schnittger 	|
-| Joseph Kerby   	| Kelby Ludwig     	| Lars Haulin         	| Lewis Ardern       	| lyz-code            	|
-| Marc Aubry     	| Marco Schnüriger 	| Philippe De Ryck    	| Ralph Andalis      	| Ravi Balla          	|
-| Rick Mitchell  	| Riotaro Okada    	| Robin Wood          	| Rogan Dawes        	| Ryan Goltry         	|
-| Sajjad Pourali 	| Serg Belkommen   	| Siim Puustusmaa     	| Ståle Pettersen    	| Stuart Gunter       	|
-| Tal Argoni     	| Tomasz Wrobel    	| Vincent De Schutter 	| Benedikt Bauer		| Abhay Bhargav       |
-| Osama Elnaggar    | Ron Perris    	| Tonimir Kisasondi  	| Sergey Diakonov						|  |
+|                     |                    |                   |                  |                   |
+| ------------------- | ------------------ | ----------------- | ---------------- | ----------------- |
+| Aaron Guzman        | Alina Vasiljeva    | Andreas Kurtz     | Anthony Weems    | Barbara Schachner |
+| Christian Heinrich  | Christopher Loessl | Clément Notin     | Dan Cornell      | Daniël Geerts     |
+| David Clarke        | David Johansson    | David Quisenberry | Elie Saad        | Erlend Oftedal    |
+| Fatih Ersinadim     | Filip van Laenen   | Geoff Baskwill    | Glenn ten Cate   | Grant Ongers      |
+| hello7s             | Isaac Lewis        | Jacob Salassi     | James Sulinski   | Jason Axley       |
+| Jason Morrow        | Javier Dominguez   | Jet Anderson      | jeurgen          | Jim Newman        |
+| Jonathan Schnittger | Joseph Kerby       | Kelby Ludwig      | Lars Haulin      | Lewis Ardern      |
+| Liam Smit           | lyz-code           | Marc Aubry        | Marco Schnüriger | Mark Burnett      |
+| Philippe De Ryck    | Ravi Balla         | Rick Mitchell     | Riotaro Okada    | Robin Wood        |
+| Rogan Dawes         | Ryan Goltry        | Sajjad Pourali    | Serg Belkommen   | Siim Puustusmaa   |
+| Ståle Pettersen     | Stuart Gunter      | Tal Argoni        | Tim Hemel        | Tomasz Wrobel     |
+| Vincent De Schutter | Mike Jang          |                   |                  |                   |
 
-If a credit is missing from the 4.x credit list above, please log a ticket at GitHub to be recognized in future 4.x updates. 
+
+
+If a credit is missing from the 4.0.3 credit list above, please log a ticket at GitHub to be recognized in future updates. 
 
 The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
