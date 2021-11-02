@@ -31,7 +31,7 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.2** | [MODIFIED] Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.2** | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.3** | [MODIFIED] Verify that passwords are not truncated. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.4** | Verify that any printable Unicode character, including language neutral characters such as spaces and Emojis are permitted in passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
@@ -73,7 +73,7 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.3.1** | [MODIFIED, MERGED FROM 2.5.1] Verify system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
-| **2.3.2** | [MODIFIED] Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens. | | ✓ | ✓ | 308 | 6.1.3 |
+| **2.3.2** | Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens. | | ✓ | ✓ | 308 | 6.1.3 |
 | **2.3.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | | ✓ | ✓ | 287 | 6.1.4 |
 
 ## V2.4 Credential Storage
@@ -89,7 +89,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 | **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing passwords: argon2id, scrypt, bcrypt or PBKDF2. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | [DELETED] | | | | | |
 | **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, with a minimum of 720,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 310,000 iterations using PBKDF2-HMAC-SHA-256, or with a minimum of 120,000 iterations with PBKDF2-HMAC-SHA-512. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.4** | [MODIFIED] Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, with a minimum of 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.4** | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, with a minimum of 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | [DELETED] | | | | | |
 | **2.4.6** | [ADDED] Verify that if argon2id is used, the configuration SHOULD be as strong as verification server performance will allow, with a minimum configuration of 15 MiB of memory, an iteration count of 2, and 1 degree of parallelism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration SHOULD be as strong as verification server performance will allow, with a minimum CPU/memory cost parameter of (2^16), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
