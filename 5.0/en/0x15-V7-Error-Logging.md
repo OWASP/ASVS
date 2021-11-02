@@ -51,7 +51,7 @@ Logs that can be trivially modified or deleted are useless for investigations an
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **7.3.1** | [MODIFIED] Verify that all logging components appropriately encode data to prevent log injection. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
+| **7.3.1** | Verify that all logging components appropriately encode data to prevent log injection. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
 | **7.3.2** | [DELETED, DUPLICATE OF 7.3.1] | | | | |
 | **7.3.3** | Verify that security logs are protected from unauthorized access and modification. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 200 |
 | **7.3.4** | [MOVED TO 7.1.5] | | | | |
