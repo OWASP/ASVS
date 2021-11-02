@@ -36,7 +36,7 @@ The current status of the ASVS project is as follows:
 
 ### How to make changes to the bleeding edge during this period
 
-To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. If there is enough content to make a 4.0.3 or 4.1 release, this will also make it easier to get an overview of changes in place
+To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. If there is enough content to make a 4.0.4 or 4.1 release, this will also make it easier to get an overview of changes in place
 
 ### Standard for changes
 
@@ -55,17 +55,27 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 #### Use tags to describe the change
 
-The following tags should be added to any modified requirement as appropriate. These tags should all be relative to how the requirement appeared in v4.0.2.
+Projects leads will check and validate labels for changes. Ask recommendation for label in related issue before PR.
+
+These tags should all be relative to how the requirement appeared in the latest release (v4.0.3).
+
+The following tags should be added to any modified requirement as appropriate.
 
 * `[ADDED]` - New requirement (should only be added at the end of a sub-section.)
-* `[ADDED, SPLIT FROM x.y.z]` - New requirement which was previously part of another requirement
 * `[MODIFIED]` - Requirement description has been modified
-* `[MOVED FROM x.y.z]` - Requirement has been moved to a different sub-section but **not** modified. (should only be added at the end of a sub-section.)
-* `[MODIFIED, MOVED FROM x.y.z]` - Requirement description has been modified **and** requirement has been moved to a different sub-section.
-* `[MOVED TO x.y.z]` - Placeholder to keep number, requirement has been moved to another category (but not modified).
+* `[MOVED TO x.y.z]` - Placeholder to keep number, requirement has been moved to another category
+* `[MOVED FROM a.b.c]` - Requirement has been moved to a different sub-section but **not** modified. (should only be added at the end of a sub-section.)
+* `[MODIFIED, MOVED FROM a.b.c]` - Requirement description has been modified **and** requirement has been moved to a different sub-section.
+* `[MODIFIED, SPLIT TO x.y.z]` - Requirement description has been modified **and** part of the requirement is splitted to new separate requirement
+* `[ADDED, SPLIT FROM a.b.c]` - New requirement which was previously part of another requirement
 * `[DELETED]` - Placeholder to keep number, requirement has been deleted
-* `[DELETED, MERGED TO x.y.z]` - Placeholder to keep number, requirement has been merged into another requirement, e.g. to solve a duplicate
-* `[LEVEL L1 > L2]` - Requirement's level has changed
+* `[DELETED, MERGED TO x.y.z]` - Placeholder to keep number, requirement has been merged into another requirement
+* `[DELETED, DUPLICATE OF x.y.z]` - Placeholder to keep number, requirement has been deleted because of clear duplicate to referenced requirement (referenced requirement do not have changes because of that)
+* `[SPLIT TO x.y.z, i.j.f]` - Placeholder to keep number, requirement has been splitted to 2 or more requirements to another categories
+* `[LEVEL L1 > L2]` - Requirement's level has changed. Level change label may exist also for `[MODIFIED]`, `[MOVED FROM]` and `[SPLIT FROM]`
+
+
+`SPLIT TO`, `MOVED TO`, `MERGED TO` labels must have matching labels with `SPLIT FROM`, `MOVED FROM`, `MERGED FROM`.
 
 CWE and/or NIST mapping changes do not require labels.
 
@@ -88,7 +98,7 @@ If you are interested in creating a translation, here are some pointers for how 
     * Turkish
     * Japanese
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them. Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
-* We would recommend basing your translation either on the v4.0.2 branch or on the bleeding edge branch. When you submit a pull request with your translation, please be clear about which version you have targeted.
+* We would recommend basing your translation either on the v4.0.3 branch or on the bleeding edge branch. When you submit a pull request with your translation, please be clear about which version you have targeted.
 * Please duplicate the existing markdown files, create a new folder for your language underneath the 4.0 folder and create the translated markdown files there.
 * If you are targeting the bleeding edge, please try and monitor changes and update your translation accordingly.
 
