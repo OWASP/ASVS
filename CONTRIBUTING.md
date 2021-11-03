@@ -36,7 +36,8 @@ The current status of the ASVS project is as follows:
 
 ### How to make changes to the bleeding edge during this period
 
-To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. If there is enough content to make a 4.0.4 or 4.1 release, this will also make it easier to get an overview of changes in place
+To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time.
+
 
 ### Standard for changes
 
@@ -55,7 +56,7 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 #### Use tags to describe the change
 
-Projects leads will check and validate labels for changes. Ask recommendation for label in related issue before PR.
+Projects leads will check and validate labels for changes. Please ask for a recommendation regarding the proper label in the issue tracker before submitting a PR.
 
 These tags should all be relative to how the requirement appeared in the latest release (v4.0.3).
 
