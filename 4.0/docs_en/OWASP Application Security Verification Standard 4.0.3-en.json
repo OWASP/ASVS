@@ -1,19 +1,19 @@
 {
   "Name": "Application Security Verification Standard Project",
   "ShortName": "ASVS",
-  "Version": "4.0.2",
+  "Version": "4.0.3",
   "Description": "The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.",
   "Requirements": [
     {
       "Shortcode": "V1",
       "Ordinal": 1,
       "ShortName": "Architecture",
-      "Name": "Architecture, Design and Threat Modeling Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V1.1",
           "Ordinal": 1,
-          "Name": "Secure Software Development Lifecycle Requirements",
+          "Name": "Secure Software Development Lifecycle",
           "Items": [
             {
               "Shortcode": "V1.1.1",
@@ -165,7 +165,7 @@
         {
           "Shortcode": "V1.2",
           "Ordinal": 2,
-          "Name": "Authentication Architectural Requirements",
+          "Name": "Authentication Architecture",
           "Items": [
             {
               "Shortcode": "V1.2.1",
@@ -256,18 +256,18 @@
         {
           "Shortcode": "V1.3",
           "Ordinal": 3,
-          "Name": "Session Management Architectural Requirements",
+          "Name": "Session Management Architecture",
           "Items": []
         },
         {
           "Shortcode": "V1.4",
           "Ordinal": 4,
-          "Name": "Access Control Architectural Requirements",
+          "Name": "Access Control Architecture",
           "Items": [
             {
               "Shortcode": "V1.4.1",
               "Ordinal": 1,
-              "Description": "Verify that trusted enforcement points such as at access control gateways, servers, and serverless functions enforce access controls. Never enforce access controls on the client.",
+              "Description": "Verify that trusted enforcement points, such as access control gateways, servers, and serverless functions, enforce access controls. Never enforce access controls on the client.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -288,43 +288,39 @@
             {
               "Shortcode": "V1.4.2",
               "Ordinal": 2,
-              "Description": "Verify that the chosen access control solution is flexible enough to meet the application's needs. ",
+              "Description": "[DELETED, NOT ACTIONABLE]",
               "L1": {
                 "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                284
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
               "Shortcode": "V1.4.3",
               "Ordinal": 3,
-              "Description": "Verify enforcement of the principle of least privilege in functions, data files, URLs, controllers, services, and other resources. This implies protection against spoofing and elevation of privilege.",
+              "Description": "[DELETED, DUPLICATE OF 4.1.3]",
               "L1": {
                 "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                272
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
@@ -374,12 +370,12 @@
         {
           "Shortcode": "V1.5",
           "Ordinal": 5,
-          "Name": "Input and Output Architectural Requirements",
+          "Name": "Input and Output Architecture",
           "Items": [
             {
               "Shortcode": "V1.5.1",
               "Ordinal": 1,
-              "Description": "Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance. ",
+              "Description": "Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -465,7 +461,7 @@
         {
           "Shortcode": "V1.6",
           "Ordinal": 6,
-          "Name": "Cryptographic Architectural Requirements",
+          "Name": "Cryptographic Architecture",
           "Items": [
             {
               "Shortcode": "V1.6.1",
@@ -556,12 +552,12 @@
         {
           "Shortcode": "V1.7",
           "Ordinal": 7,
-          "Name": "Errors, Logging and Auditing Architectural Requirements",
+          "Name": "Errors, Logging and Auditing Architecture",
           "Items": [
             {
               "Shortcode": "V1.7.1",
               "Ordinal": 1,
-              "Description": "Verify that a common logging format and approach is used across the system.  ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that a common logging format and approach is used across the system. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -603,7 +599,7 @@
         {
           "Shortcode": "V1.8",
           "Ordinal": 8,
-          "Name": "Data Protection and Privacy Architectural Requirements",
+          "Name": "Data Protection and Privacy Architecture",
           "Items": [
             {
               "Shortcode": "V1.8.1",
@@ -648,7 +644,7 @@
         {
           "Shortcode": "V1.9",
           "Ordinal": 9,
-          "Name": "Communications Architectural Requirements",
+          "Name": "Communications Architecture",
           "Items": [
             {
               "Shortcode": "V1.9.1",
@@ -697,7 +693,7 @@
         {
           "Shortcode": "V1.10",
           "Ordinal": 10,
-          "Name": "Malicious Software Architectural Requirements",
+          "Name": "Malicious Software Architecture",
           "Items": [
             {
               "Shortcode": "V1.10.1",
@@ -725,7 +721,7 @@
         {
           "Shortcode": "V1.11",
           "Ordinal": 11,
-          "Name": "Business Logic Architectural Requirements",
+          "Name": "Business Logic Architecture",
           "Items": [
             {
               "Shortcode": "V1.11.1",
@@ -795,27 +791,25 @@
         {
           "Shortcode": "V1.12",
           "Ordinal": 12,
-          "Name": "Secure File Upload Architectural Requirements",
+          "Name": "Secure File Upload Architecture",
           "Items": [
             {
               "Shortcode": "V1.12.1",
               "Ordinal": 1,
-              "Description": "Verify that user-uploaded files are stored outside of the web root.",
+              "Description": "[DELETED, DUPLICATE OF 12.4.1]",
               "L1": {
                 "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                552
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
@@ -844,13 +838,13 @@
         {
           "Shortcode": "V1.13",
           "Ordinal": 13,
-          "Name": "API Architectural Requirements",
+          "Name": "API Architecture",
           "Items": []
         },
         {
           "Shortcode": "V1.14",
           "Ordinal": 14,
-          "Name": "Configuration Architectural Requirements",
+          "Name": "Configuration Architecture",
           "Items": [
             {
               "Shortcode": "V1.14.1",
@@ -984,12 +978,12 @@
       "Shortcode": "V2",
       "Ordinal": 2,
       "ShortName": "Authentication",
-      "Name": "Authentication Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V2.1",
           "Ordinal": 1,
-          "Name": "Password Security Requirements",
+          "Name": "Password Security",
           "Items": [
             {
               "Shortcode": "V2.1.1",
@@ -1017,7 +1011,7 @@
             {
               "Shortcode": "V2.1.2",
               "Ordinal": 2,
-              "Description": "Verify that passwords 64 characters or longer are permitted but may be no longer than 128 characters. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -1272,7 +1266,7 @@
         {
           "Shortcode": "V2.2",
           "Ordinal": 2,
-          "Name": "General Authenticator Requirements",
+          "Name": "General Authenticator Security",
           "Items": [
             {
               "Shortcode": "V2.2.1",
@@ -1441,7 +1435,7 @@
         {
           "Shortcode": "V2.3",
           "Ordinal": 3,
-          "Name": "Authenticator Lifecycle Requirements",
+          "Name": "Authenticator Lifecycle",
           "Items": [
             {
               "Shortcode": "V2.3.1",
@@ -1470,7 +1464,7 @@
             {
               "Shortcode": "V2.3.2",
               "Ordinal": 2,
-              "Description": "Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens.",
+              "Description": "Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -1518,7 +1512,7 @@
         {
           "Shortcode": "V2.4",
           "Ordinal": 4,
-          "Name": "Credential Storage Requirements",
+          "Name": "Credential Storage",
           "Items": [
             {
               "Shortcode": "V2.4.1",
@@ -1592,7 +1586,7 @@
             {
               "Shortcode": "V2.4.4",
               "Ordinal": 4,
-              "Description": "Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, typically at least 13. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, with a minimum of 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -1640,7 +1634,7 @@
         {
           "Shortcode": "V2.5",
           "Ordinal": 5,
-          "Name": "Credential Recovery Requirements",
+          "Name": "Credential Recovery",
           "Items": [
             {
               "Shortcode": "V2.5.1",
@@ -1809,7 +1803,7 @@
         {
           "Shortcode": "V2.6",
           "Ordinal": 6,
-          "Name": "Look-up Secret Verifier Requirements",
+          "Name": "Look-up Secret Verifier",
           "Items": [
             {
               "Shortcode": "V2.6.1",
@@ -1885,7 +1879,7 @@
         {
           "Shortcode": "V2.7",
           "Ordinal": 7,
-          "Name": "Out of Band Verifier Requirements",
+          "Name": "Out of Band Verifier",
           "Items": [
             {
               "Shortcode": "V2.7.1",
@@ -2030,7 +2024,7 @@
         {
           "Shortcode": "V2.8",
           "Ordinal": 8,
-          "Name": "Single or Multi-factor One Time Verifier Requirements",
+          "Name": "One Time Verifier",
           "Items": [
             {
               "Shortcode": "V2.8.1",
@@ -2202,7 +2196,7 @@
         {
           "Shortcode": "V2.9",
           "Ordinal": 9,
-          "Name": "Cryptographic Software and Devices Verifier Requirements",
+          "Name": "Cryptographic Verifier",
           "Items": [
             {
               "Shortcode": "V2.9.1",
@@ -2278,7 +2272,7 @@
         {
           "Shortcode": "V2.10",
           "Ordinal": 10,
-          "Name": "Service Authentication Requirements",
+          "Name": "Service Authentication",
           "Items": [
             {
               "Shortcode": "V2.10.1",
@@ -2378,17 +2372,17 @@
       "Shortcode": "V3",
       "Ordinal": 3,
       "ShortName": "Session",
-      "Name": "Session Management Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V3.1",
           "Ordinal": 1,
-          "Name": "Fundamental Session Management Requirements",
+          "Name": "Fundamental Session Management Security",
           "Items": [
             {
               "Shortcode": "V3.1.1",
               "Ordinal": 1,
-              "Description": "Verify the application never reveals session tokens in URL parameters. ",
+              "Description": "Verify the application never reveals session tokens in URL parameters.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -2411,7 +2405,7 @@
         {
           "Shortcode": "V3.2",
           "Ordinal": 2,
-          "Name": "Session Binding Requirements",
+          "Name": "Session Binding",
           "Items": [
             {
               "Shortcode": "V3.2.1",
@@ -2485,7 +2479,7 @@
             {
               "Shortcode": "V3.2.4",
               "Ordinal": 4,
-              "Description": "Verify that session token are generated using approved cryptographic algorithms. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that session tokens are generated using approved cryptographic algorithms. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -2510,7 +2504,7 @@
         {
           "Shortcode": "V3.3",
           "Ordinal": 3,
-          "Name": "Session Logout and Timeout Requirements",
+          "Name": "Session Termination",
           "Items": [
             {
               "Shortcode": "V3.3.1",
@@ -2681,7 +2675,7 @@
             {
               "Shortcode": "V3.4.4",
               "Ordinal": 4,
-              "Description": "Verify that cookie-based session tokens use \"__Host-\" prefix (see references) to provide session cookie confidentiality.",
+              "Description": "Verify that cookie-based session tokens use the \"__Host-\" prefix so cookies are only sent to the host that initially set the cookie.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -2704,7 +2698,7 @@
             {
               "Shortcode": "V3.4.5",
               "Ordinal": 5,
-              "Description": "Verify that if the application is published under a domain name with other applications that set or use session cookies that might override or disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that if the application is published under a domain name with other applications that set or use session cookies that might disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -2734,7 +2728,7 @@
             {
               "Shortcode": "V3.5.1",
               "Ordinal": 1,
-              "Description": "Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications. ",
+              "Description": "Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -2801,12 +2795,12 @@
         {
           "Shortcode": "V3.6",
           "Ordinal": 6,
-          "Name": "Re-authentication from a Federation or Assertion",
+          "Name": "Federated Re-authentication",
           "Items": [
             {
               "Shortcode": "V3.6.1",
               "Ordinal": 1,
-              "Description": "Verify that relying parties specify the maximum authentication time to Credential Service Providers (CSPs) and that CSPs re-authenticate the subscriber if they haven't used a session within that period.",
+              "Description": "Verify that Relying Parties (RPs) specify the maximum authentication time to Credential Service Providers (CSPs) and that CSPs re-authenticate the user if they haven't used a session within that period.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -2885,7 +2879,7 @@
       "Shortcode": "V4",
       "Ordinal": 4,
       "ShortName": "Access",
-      "Name": "Access Control Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V4.1",
@@ -2958,22 +2952,20 @@
             {
               "Shortcode": "V4.1.4",
               "Ordinal": 4,
-              "Description": "Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until access is explicitly assigned.  ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "[DELETED, DUPLICATE OF 4.1.3]",
               "L1": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                276
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
@@ -3124,12 +3116,12 @@
       "Shortcode": "V5",
       "Ordinal": 5,
       "ShortName": "Validation",
-      "Name": "Validation, Sanitization and Encoding Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V5.1",
           "Ordinal": 1,
-          "Name": "Input Validation Requirements",
+          "Name": "Input Validation",
           "Items": [
             {
               "Shortcode": "V5.1.1",
@@ -3197,7 +3189,7 @@
             {
               "Shortcode": "V5.1.4",
               "Ordinal": 4,
-              "Description": "Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers, e-mail addresses, telephone numbers, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3241,7 +3233,7 @@
         {
           "Shortcode": "V5.2",
           "Ordinal": 2,
-          "Name": "Sanitization and Sandboxing Requirements",
+          "Name": "Sanitization and Sandboxing",
           "Items": [
             {
               "Shortcode": "V5.2.1",
@@ -3416,7 +3408,7 @@
         {
           "Shortcode": "V5.3",
           "Ordinal": 3,
-          "Name": "Output Encoding and Injection Prevention Requirements",
+          "Name": "Output Encoding and Injection Prevention",
           "Items": [
             {
               "Shortcode": "V5.3.1",
@@ -3526,7 +3518,7 @@
             {
               "Shortcode": "V5.3.6",
               "Ordinal": 6,
-              "Description": "Verify that the application protects against JavaScript or JSON injection attacks, including for eval attacks, remote JavaScript includes, Content Security Policy (CSP) bypasses, DOM XSS, and JavaScript expression evaluation. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that the application protects against JSON injection attacks, JSON eval attacks, and JavaScript expression evaluation. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3633,7 +3625,7 @@
         {
           "Shortcode": "V5.4",
           "Ordinal": 4,
-          "Name": "Memory, String, and Unmanaged Code Requirements",
+          "Name": "Memory, String, and Unmanaged Code",
           "Items": [
             {
               "Shortcode": "V5.4.1",
@@ -3703,7 +3695,7 @@
         {
           "Shortcode": "V5.5",
           "Ordinal": 5,
-          "Name": "Deserialization Prevention Requirements",
+          "Name": "Deserialization Prevention",
           "Items": [
             {
               "Shortcode": "V5.5.1",
@@ -3729,7 +3721,7 @@
             {
               "Shortcode": "V5.5.2",
               "Ordinal": 2,
-              "Description": "Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. ",
+              "Description": "Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3750,7 +3742,7 @@
             {
               "Shortcode": "V5.5.3",
               "Ordinal": 3,
-              "Description": "Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers). ",
+              "Description": "Verify that deserialization of untrusted data is avoided or is protected in both custom code and third-party libraries (such as JSON, XML and YAML parsers).",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -3797,7 +3789,7 @@
       "Shortcode": "V6",
       "Ordinal": 6,
       "ShortName": "Cryptography",
-      "Name": "Stored Cryptography Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V6.1",
@@ -4169,12 +4161,12 @@
       "Shortcode": "V7",
       "Ordinal": 7,
       "ShortName": "Error",
-      "Name": "Error Handling and Logging Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V7.1",
           "Ordinal": 1,
-          "Name": "Log Content Requirements",
+          "Name": "Log Content",
           "Items": [
             {
               "Shortcode": "V7.1.1",
@@ -4265,12 +4257,12 @@
         {
           "Shortcode": "V7.2",
           "Ordinal": 2,
-          "Name": "Log Processing Requirements",
+          "Name": "Log Processing",
           "Items": [
             {
               "Shortcode": "V7.2.1",
               "Ordinal": 1,
-              "Description": "Verify that all authentication decisions are logged, without storing sensitive session tokens or passwords. This should include requests with relevant metadata needed for security investigations. ",
+              "Description": "Verify that all authentication decisions are logged, without storing sensitive session tokens or passwords. This should include requests with relevant metadata needed for security investigations.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -4314,12 +4306,12 @@
         {
           "Shortcode": "V7.3",
           "Ordinal": 3,
-          "Name": "Log Protection Requirements",
+          "Name": "Log Protection",
           "Items": [
             {
               "Shortcode": "V7.3.1",
               "Ordinal": 1,
-              "Description": "Verify that the application appropriately encodes user-supplied data to prevent log injection. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that all logging components appropriately encode data to prevent log injection. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -4340,22 +4332,20 @@
             {
               "Shortcode": "V7.3.2",
               "Ordinal": 2,
-              "Description": "Verify that all events are protected from injection when viewed in log viewing software. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "[DELETED, DUPLICATE OF 7.3.1]",
               "L1": {
                 "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                117
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
@@ -4408,7 +4398,7 @@
             {
               "Shortcode": "V7.4.1",
               "Ordinal": 1,
-              "Description": "Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate.  ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -4476,7 +4466,7 @@
       "Shortcode": "V8",
       "Ordinal": 8,
       "ShortName": "Data",
-      "Name": "Data Protection Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V8.1",
@@ -4640,7 +4630,7 @@
             {
               "Shortcode": "V8.2.2",
               "Ordinal": 2,
-              "Description": "Verify that data stored in browser storage (such as HTML5 local storage, session storage, IndexedDB, or cookies) does not contain sensitive data or PII.",
+              "Description": "Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -4862,17 +4852,17 @@
       "Shortcode": "V9",
       "Ordinal": 9,
       "ShortName": "Communications",
-      "Name": "Communications Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V9.1",
           "Ordinal": 1,
-          "Name": "Client Communications Security Requirements",
+          "Name": "Client Communication Security",
           "Items": [
             {
               "Shortcode": "V9.1.1",
               "Ordinal": 1,
-              "Description": "Verify that secured TLS is used for all client connectivity, and does not fall back to insecure or unencrypted protocols. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that TLS is used for all client connectivity, and does not fall back to insecure or unencrypted communications. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -4893,7 +4883,7 @@
             {
               "Shortcode": "V9.1.2",
               "Ordinal": 2,
-              "Description": "Verify using online or up to date TLS testing tools that only strong algorithms, ciphers, and protocols are enabled, with the strongest algorithms and ciphers set as preferred.",
+              "Description": "Verify using up to date TLS testing tools that only strong cipher suites are enabled, with the strongest cipher suites set as preferred.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -4914,7 +4904,7 @@
             {
               "Shortcode": "V9.1.3",
               "Ordinal": 3,
-              "Description": "Verify that old versions of SSL and TLS protocols, algorithms, ciphers, and configuration are disabled, such as SSLv2, SSLv3, or TLS 1.0 and TLS 1.1. The latest version of TLS should be the preferred cipher suite.",
+              "Description": "Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol should be the preferred option.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -4937,7 +4927,7 @@
         {
           "Shortcode": "V9.2",
           "Ordinal": 2,
-          "Name": "Server Communications Security Requirements",
+          "Name": "Server Communication Security",
           "Items": [
             {
               "Shortcode": "V9.2.1",
@@ -5052,12 +5042,12 @@
       "Shortcode": "V10",
       "Ordinal": 10,
       "ShortName": "Malicious",
-      "Name": "Malicious Code Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V10.1",
           "Ordinal": 1,
-          "Name": "Code Integrity Controls",
+          "Name": "Code Integrity",
           "Items": [
             {
               "Shortcode": "V10.1.1",
@@ -5090,7 +5080,7 @@
             {
               "Shortcode": "V10.2.1",
               "Ordinal": 1,
-              "Description": "Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate  before collecting any data.",
+              "Description": "Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5218,7 +5208,7 @@
         {
           "Shortcode": "V10.3",
           "Ordinal": 3,
-          "Name": "Deployed Application Integrity Controls",
+          "Name": "Application Integrity",
           "Items": [
             {
               "Shortcode": "V10.3.1",
@@ -5291,17 +5281,17 @@
       "Shortcode": "V11",
       "Ordinal": 11,
       "ShortName": "BusLogic",
-      "Name": "Business Logic Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V11.1",
           "Ordinal": 1,
-          "Name": "Business Logic Security Requirements",
+          "Name": "Business Logic Security",
           "Items": [
             {
               "Shortcode": "V11.1.1",
               "Ordinal": 1,
-              "Description": "Verify the application will only process business logic flows for the same user in sequential step order and without skipping steps.",
+              "Description": "Verify that the application will only process business logic flows for the same user in sequential step order and without skipping steps.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5322,7 +5312,7 @@
             {
               "Shortcode": "V11.1.2",
               "Ordinal": 2,
-              "Description": "Verify the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.",
+              "Description": "Verify that the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5364,7 +5354,7 @@
             {
               "Shortcode": "V11.1.4",
               "Ordinal": 4,
-              "Description": "Verify the application has sufficient anti-automation controls to detect and protect against data exfiltration, excessive business logic requests, excessive file uploads or denial of service attacks.",
+              "Description": "Verify that the application has anti-automation controls to protect against excessive calls such as mass data exfiltration, business logic requests, file uploads or denial of service attacks.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5406,7 +5396,7 @@
             {
               "Shortcode": "V11.1.6",
               "Ordinal": 6,
-              "Description": "Verify the application does not suffer from \"Time Of Check to Time Of Use\" (TOCTOU) issues or other race conditions for sensitive operations.",
+              "Description": "Verify that the application does not suffer from \"Time Of Check to Time Of Use\" (TOCTOU) issues or other race conditions for sensitive operations.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5427,7 +5417,7 @@
             {
               "Shortcode": "V11.1.7",
               "Ordinal": 7,
-              "Description": "Verify the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5448,7 +5438,7 @@
             {
               "Shortcode": "V11.1.8",
               "Ordinal": 8,
-              "Description": "Verify the application has configurable alerting when automated attacks or unusual activity is detected.",
+              "Description": "Verify that the application has configurable alerting when automated attacks or unusual activity is detected.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5474,12 +5464,12 @@
       "Shortcode": "V12",
       "Ordinal": 12,
       "ShortName": "Files",
-      "Name": "File and Resources Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V12.1",
           "Ordinal": 1,
-          "Name": "File Upload Requirements",
+          "Name": "File Upload",
           "Items": [
             {
               "Shortcode": "V12.1.1",
@@ -5505,7 +5495,7 @@
             {
               "Shortcode": "V12.1.2",
               "Ordinal": 2,
-              "Description": "Verify that compressed files are checked for \"zip bombs\" - small input files that will decompress into huge files thus exhausting file storage limits.",
+              "Description": "Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5549,7 +5539,7 @@
         {
           "Shortcode": "V12.2",
           "Ordinal": 2,
-          "Name": "File Integrity Requirements",
+          "Name": "File Integrity",
           "Items": [
             {
               "Shortcode": "V12.2.1",
@@ -5577,7 +5567,7 @@
         {
           "Shortcode": "V12.3",
           "Ordinal": 3,
-          "Name": "File Execution Requirements",
+          "Name": "File Execution",
           "Items": [
             {
               "Shortcode": "V12.3.1",
@@ -5624,7 +5614,7 @@
             {
               "Shortcode": "V12.3.3",
               "Ordinal": 3,
-              "Description": "Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files via Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. ",
+              "Description": "Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files via Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5710,12 +5700,12 @@
         {
           "Shortcode": "V12.4",
           "Ordinal": 4,
-          "Name": "File Storage Requirements",
+          "Name": "File Storage",
           "Items": [
             {
               "Shortcode": "V12.4.1",
               "Ordinal": 1,
-              "Description": "Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions, preferably with strong validation.",
+              "Description": "Verify that files obtained from untrusted sources are stored outside the web root, with limited permissions.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5729,14 +5719,14 @@
                 "Requirement": ""
               },
               "CWE": [
-                922
+                552
               ],
               "NIST": []
             },
             {
               "Shortcode": "V12.4.2",
               "Ordinal": 2,
-              "Description": "Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content.",
+              "Description": "Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload and serving of known malicious content.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -5759,7 +5749,7 @@
         {
           "Shortcode": "V12.5",
           "Ordinal": 5,
-          "Name": "File Download Requirements",
+          "Name": "File Download",
           "Items": [
             {
               "Shortcode": "V12.5.1",
@@ -5808,7 +5798,7 @@
         {
           "Shortcode": "V12.6",
           "Ordinal": 6,
-          "Name": "SSRF Protection Requirements",
+          "Name": "SSRF Protection",
           "Items": [
             {
               "Shortcode": "V12.6.1",
@@ -5839,12 +5829,12 @@
       "Shortcode": "V13",
       "Ordinal": 13,
       "ShortName": "API",
-      "Name": "API and Web Service Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V13.1",
           "Ordinal": 1,
-          "Name": "Generic Web Service Security Verification Requirements",
+          "Name": "Generic Web Service Security",
           "Items": [
             {
               "Shortcode": "V13.1.1",
@@ -5870,22 +5860,20 @@
             {
               "Shortcode": "V13.1.2",
               "Ordinal": 2,
-              "Description": "Verify that access to administration and management functions is limited to authorized administrators.",
+              "Description": "[DELETED, DUPLICATE OF 4.3.1]",
               "L1": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                419
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
@@ -5956,7 +5944,7 @@
         {
           "Shortcode": "V13.2",
           "Ordinal": 2,
-          "Name": "RESTful Web Service Verification Requirements",
+          "Name": "RESTful Web Service",
           "Items": [
             {
               "Shortcode": "V13.2.1",
@@ -6024,22 +6012,20 @@
             {
               "Shortcode": "V13.2.4",
               "Ordinal": 4,
-              "Description": "Verify that REST services have anti-automation controls to protect against excessive calls, especially if the API is unauthenticated.",
+              "Description": "[DELETED, DUPLICATE OF 11.1.4]",
               "L1": {
                 "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                770
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
@@ -6089,7 +6075,7 @@
         {
           "Shortcode": "V13.3",
           "Ordinal": 3,
-          "Name": "SOAP Web Service Verification Requirements",
+          "Name": "SOAP Web Service",
           "Items": [
             {
               "Shortcode": "V13.3.1",
@@ -6138,7 +6124,7 @@
         {
           "Shortcode": "V13.4",
           "Ordinal": 4,
-          "Name": "GraphQL and other Web Service Data Layer Security Requirements",
+          "Name": "GraphQL",
           "Items": [
             {
               "Shortcode": "V13.4.1",
@@ -6190,12 +6176,12 @@
       "Shortcode": "V14",
       "Ordinal": 14,
       "ShortName": "Config",
-      "Name": "Configuration Verification Requirements",
+      "Name": "",
       "Items": [
         {
           "Shortcode": "V14.1",
           "Ordinal": 1,
-          "Name": "Build",
+          "Name": "Build and Deploy",
           "Items": [
             {
               "Shortcode": "V14.1.1",
@@ -6327,7 +6313,7 @@
             {
               "Shortcode": "V14.2.2",
               "Ordinal": 2,
-              "Description": "Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users.",
+              "Description": "Verify that all unneeded features, documentation, sample applications and configurations are removed.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -6390,7 +6376,7 @@
             {
               "Shortcode": "V14.2.5",
               "Ordinal": 5,
-              "Description": "Verify that an inventory catalog is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verify that a Software Bill of Materials (SBOM) is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -6432,27 +6418,25 @@
         {
           "Shortcode": "V14.3",
           "Ordinal": 3,
-          "Name": "Unintended Security Disclosure Requirements",
+          "Name": "Unintended Security Disclosure",
           "Items": [
             {
               "Shortcode": "V14.3.1",
               "Ordinal": 1,
-              "Description": "Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures.",
+              "Description": "[DELETED, DUPLICATE OF 7.4.1]",
               "L1": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L2": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
               "L3": {
-                "Required": true,
+                "Required": false,
                 "Requirement": ""
               },
-              "CWE": [
-                209
-              ],
+              "CWE": [],
               "NIST": []
             },
             {
@@ -6502,12 +6486,12 @@
         {
           "Shortcode": "V14.4",
           "Ordinal": 4,
-          "Name": "HTTP Security Headers Requirements",
+          "Name": "HTTP Security Headers",
           "Items": [
             {
               "Shortcode": "V14.4.1",
               "Ordinal": 1,
-              "Description": "Verify that every HTTP response contains a Content-Type header. text/*, */*+xml and application/xml content types should also specify a safe character set (e.g., UTF-8, ISO-8859-1).",
+              "Description": "Verify that every HTTP response contains a Content-Type header. Also specify a safe character set (e.g., UTF-8, ISO-8859-1) if the content types are text/*, /+xml and application/xml. Content must match with the provided Content-Type header.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -6612,7 +6596,7 @@
             {
               "Shortcode": "V14.4.6",
               "Ordinal": 6,
-              "Description": "Verify that a suitable \"Referrer-Policy\" header is included, such as \"no-referrer\" or \"same-origin\".",
+              "Description": "Verify that a suitable Referrer-Policy header is included to avoid exposing sensitive information in the URL through the Referer header to untrusted parties.",
               "L1": {
                 "Required": true,
                 "Requirement": ""
@@ -6647,7 +6631,7 @@
                 "Requirement": ""
               },
               "CWE": [
-                346
+                1021
               ],
               "NIST": []
             }
@@ -6656,7 +6640,7 @@
         {
           "Shortcode": "V14.5",
           "Ordinal": 5,
-          "Name": "Validate HTTP Request Header Requirements",
+          "Name": "HTTP Request Header Validation",
           "Items": [
             {
               "Shortcode": "V14.5.1",
