@@ -5,7 +5,7 @@ case $ASVS_VERSION in
     ./generate-all.sh
     ;;
   *)
-    make
+    make $FORMATS
     make clean
     ;;
 esac
