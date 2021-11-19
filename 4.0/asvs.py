@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
 ''' ASVS document parser and converter class.
 
     Based upon code written for MASVS By Bernhard Mueller
@@ -108,7 +108,7 @@ class ASVS:
                     chapters.append(chapter)
 
                 for line in open(os.path.join("en", file), encoding="utf8"):
-                    regex = re.compile('# (V([0-9]{1,2})): ([\w\s][^\n]*)')
+                    regex = re.compile('^#\s(V([0-9]{1,2}))\s([\w\s][^\n]*)')
                     m = re.search(regex, line)
                     if m:
                         chapter['Name'] = m.group(3)
