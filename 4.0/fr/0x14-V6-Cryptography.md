@@ -48,6 +48,7 @@ La véritable génération de nombres pseudo-aléatoires (PRNG) est incroyableme
 ## V6.4 Gestion du secret
 
 Bien que cette section ne soit pas facilement testée, les développeurs devraient considérer toute cette section comme obligatoire même si la L1 est absente de la plupart des éléments.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **6.4.1** | Vérifiez qu'une solution de gestion des secrets, telle qu'un coffre fort de clés, est utilisé pour créer, stocker, contrôler l'accès aux secrets et les détruire en toute sécurité. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 798 |
