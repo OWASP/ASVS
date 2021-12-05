@@ -107,7 +107,7 @@ class ASVS:
 
                     chapters.append(chapter)
 
-                for line in open(os.path.join("en", file), encoding="utf8"):
+                for line in open(os.path.join(language, file), encoding="utf8"):
                     regex = re.compile('# (V([0-9]{1,2})): ([\w\s][^\n]*)')
                     m = re.search(regex, line)
                     if m:
