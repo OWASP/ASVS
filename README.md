@@ -10,6 +10,14 @@ The latest published version is version 4.0.1, which can be found:
 * [OWASP Application Security Verification Standard 4.0.1 English (Word)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.docx)
 * [OWASP Application Security Verification Standard 4.0.1 English (CSV)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.csv)
 
+Translations:
+
+* [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
+* [OWASP Application Security Verification Standard 4.0.1 Japanese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
+* [OWASP Application Security Verification Standard 4.0.1 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim))
+* [OWASP Application Security Verification Standard 4.0.1 French (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fr.pdf) and [other formats](4.0/docs_fr). (Thanks to [Sebastien gioria](https://github.com/SPoint42) and [Marc Aubry](https://github.com/Marx314))
+
+
 The requirements were developed with the following objectives in mind:
 
 * Help organizations adopt or adapt a high quality secure coding standard 
