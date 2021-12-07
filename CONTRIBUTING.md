@@ -92,15 +92,25 @@ We are also actively looking for translations of the 4.n branch!
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superceeded!):
-    * German
-    * French
-    * Spanish
-    * Persian
-    * Turkish
-    * Japanese
-* If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them. Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
-* We would recommend basing your translation either on the v4.0.3 branch or on the bleeding edge branch. When you submit a pull request with your translation, please be clear about which version you have targeted.
-* Please duplicate the existing markdown files, create a new folder for your language underneath the 4.0 folder and create the translated markdown files there.
-* If you are targeting the bleeding edge, please try and monitor changes and update your translation accordingly.
+    * v4.0.3
+        * Spanish
+        * Arabic (in-progress)
+    * v4.0.2
+        * German
+        * Russian (in-progress)
+    * v4.0.1
+        * French
+        * Persian
+        * Turkish
+        * Japanese
+* If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
+* Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
+* We would request that you base your translation on the 4.0/en folder in the master branch as this is now static at the 4.0.3 version.
+* In order to start a translation, please start by forking the ASVS repository.
+    * If you are updating an existing translation which has markdown (just French as at December 2021), you can make modifications to the files in the existing folder based on language code (just /fr as at December 2021).
+    * if you are starting a new markdown translation, take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation. 
+* When you have completed the translation, please open a Pull Request against the master ASVS branch and one of the leaders will look at integrating it.
+* The leader will also use the relevant scripts to create the documents from the raw markdown (or you can if you want to save us some trouble  )
+* Finally, the leader will back port the translation into the branch containing ASVS version which was targeted (at this point, presumably v4.0.3)
 
 Thanks!!
