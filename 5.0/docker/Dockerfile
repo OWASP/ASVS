@@ -160,3 +160,4 @@ VOLUME /data
 
 #setup default action
 ENTRYPOINT ["make"]
+CMD ["all"]
