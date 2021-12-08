@@ -96,7 +96,7 @@ ENV PATH=/home/non-root/.TinyTeX/bin/x86_64-linux/:$PATH
 
 RUN curl -L "https://raw.githubusercontent.com/yihui/tinytex/master/tools/install-unx.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" > "install-unx.sh" \
 	&& chmod +x install-unx.sh
-RUN bash -c "./install-unx.sh"
+RUN bash -c "./install-unx.sh" && rm install-unx.sh
 
 FROM tinytex_base as latex_base
 # add tlmgr to path
