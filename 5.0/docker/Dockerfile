@@ -1,3 +1,4 @@
+ARG CERT_FILE
 #First stage, start from ubuntu focal
 FROM ubuntu:focal AS base
 ENV DEBIAN_FRONTEND noninteractive
@@ -23,19 +24,18 @@ RUN apt-get update -q \
     python3-certifi \
  && rm -rf /var/lib/apt/lists/*
 
-FROM base as base_cert
-ENV SSL_CERT_DIR=/usr/local/share/ca-certificates
-ENV DEST_DIR=$SSL_CERT_DIR
+RUN if [[ -n $CERT_FILE ]]
+    ENV SSL_CERT_DIR=/usr/local/share/ca-certificates
+    COPY $CERT_FILE $SSL_CERT_DIR
+    RUN update-ca-certificates
 
-WORKDIR certs
-RUN openssl s_client -showcerts -verify 5 -connect github.com:443 < /dev/null | awk '/BEGIN/,/END/{ if(/BEGIN/){a++}; out="cert"a".crt"; print >out}' && for cert in *.crt; do mv $cert  "$DEST_DIR/" ; done 
-RUN update-ca-certificates
-
-#define environment variables
-ENV HTTPS_CA_DIR=$SSL_CERT_DIR
-ENV GIT_SSL_CAPATH=$SSL_CERT_DIR/$DEST_CA_FILE
-ENV GIT_SSL_CAINFO=$GIT_SSL_CAPATH
-ENV REQUESTS_CA_BUNDLE=$SSL_CERT_DIR
+    #define environment variables
+    ENV HTTPS_CA_DIR=$SSL_CERT_DIR
+    ENV REQUESTS_CA_BUNDLE=$SSL_CERT_DIR/$CERT_FILE
+    ENV GIT_SSL_CAPATH=$REQUESTS_CA_BUNDLE
+    ENV GIT_SSL_CAINFO=$GIT_SSL_CAPATH
+    ENV CURL_CA_BUNDLE=$REQUESTS_CA_BUNDLE
+    fi
 
 #Install opentype fonts
 FROM base_cert as font_base
