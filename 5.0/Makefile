@@ -38,6 +38,9 @@ all: $(TARGETS)	pdf docx json json_flat csv xml
 $(BUILDDIR): 
 	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
 
+$(DISTDIR): 
+	@mkdir -p $(DISTDIR)/en # make sure distribution dir exists
+
 $(BUILDDIR)/en/%.md: $(BUILDDIR)
 	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#' $(subst build,.,$@) > $@
 	 
@@ -53,25 +56,23 @@ tex:
 	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header.tex -o "$(BUILDDIR)/output.tex" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
 	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(BUILDDIR)/output2.tex" --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
-docx: 
-	pandoc $(PANDOC_DOCX_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+docx: md $(DISTDIR)
+	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
-odt: 
-	pandoc $(PANDOC_ODT_FLAGS) -o "$(BUILDDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
+odt: md $(DISTDIR)
+	pandoc $(PANDOC_ODT_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
 
-json:
-	python3 $(EXPORT_TOOL) --format json --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).json"
+json: $(DISTDIR)
+	python3 $(EXPORT_TOOL) --format json --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).json"
 
 json_flat:
-	python3 $(EXPORT_TOOL) --format json_flat --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).flat.json"
+	python3 $(EXPORT_TOOL) --format json_flat --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).flat.json"
 
 csv:
-	python3 $(EXPORT_TOOL) --format csv --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).csv"
+	python3 $(EXPORT_TOOL) --format csv --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).csv"
 
 xml:
-	python3 $(EXPORT_TOOL) --format xml --language "$(SOURCEDIR)" > "$(BUILDDIR)/$(TARGETNAME).xml"
-
-
+	python3 $(EXPORT_TOOL) --format xml --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).xml"
 
 clean:
 	rm -rf $(BUILDDIR)/en
