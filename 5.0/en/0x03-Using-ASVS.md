@@ -5,12 +5,6 @@ ASVS has two main goals:
 * to help organizations develop and maintain secure applications.
 * to allow security service vendors, security tools vendors, and consumers to align their requirements and offerings.
 
-```
-I am introducing this text for testing
-```
-
-Here i am introducing another change for testing
-
 ## Application Security Verification Levels
 
 The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
