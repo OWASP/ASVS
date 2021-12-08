@@ -48,13 +48,11 @@ md: $(BUILDDIR)
 	pandoc $(PANDOC_MD_FLAGS) -o $(BUILDDIR)/source.md $(BUILDDIR)/$(SOURCES) 
 	sed -Ei 's#../images/#./images/#' $(BUILDDIR)/source.md
 
-pdf: 
-	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header.tex  -o "$(BUILDDIR)/$(TARGETNAME).pdf" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
-	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(BUILDDIR)/$(TARGETNAME)2.pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+pdf: md $(DISTDIR)
+	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
 
-tex:
-	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header.tex -o "$(BUILDDIR)/output.tex" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
-	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(BUILDDIR)/output2.tex" --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+tex: md $(DISTDIR)
+	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).tex" --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
 
 docx: md $(DISTDIR)
 	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
