@@ -1,4 +1,5 @@
 BUILDDIR=build
+DISTDIR=dist
 TOOLSDIR=tools
 SOURCEDIR=en
 TEMPLATEDIR=templates
