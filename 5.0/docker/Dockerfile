@@ -24,7 +24,7 @@ RUN apt-get update -q \
  && rm -rf /var/lib/apt/lists/*
 
 FROM base as base_cert
-ENV SSL_CERT_DIR=/usr/local/share/ca-certificates/
+ENV SSL_CERT_DIR=/usr/local/share/ca-certificates
 ENV DEST_DIR=$SSL_CERT_DIR
 
 WORKDIR certs
