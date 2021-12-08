@@ -1,6 +1,8 @@
 .DS_Store
 *.pyc
-build/*
+*/build/*
 docker/tests/
 .ipynb_checkpoints/
 .bash_history
+5.0/cacert.pem
+pythonEnv/
