@@ -38,7 +38,7 @@ RUN if [[ -n $CERT_FILE ]]
     fi
 
 #Install opentype fonts
-FROM base_cert as font_base
+FROM base as font_base
 
 WORKDIR /fonts
 ENV DEBIAN_FRONTEND noninteractive
