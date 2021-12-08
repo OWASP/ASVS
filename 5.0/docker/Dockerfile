@@ -147,7 +147,7 @@ RUN tlmgr --version && tlmgr update -self && \
     xurl \
     zref 
 
-from latex_base as work_layer
+FROM latex_base as work_layer
 #copy fonts from font_base
 USER root
 COPY --from=font_base /fonts/adobe-fonts /usr/share/fonts/opentype/adobe-fonts
