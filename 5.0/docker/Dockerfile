@@ -25,21 +25,27 @@ RUN apt-get update -q \
     python3-certifi \
  && rm -rf /var/lib/apt/lists/*
 
-RUN if [[ -n $CERT_FILE ]]
-    ENV SSL_CERT_DIR=/usr/local/share/ca-certificates
-    COPY $CERT_FILE $SSL_CERT_DIR
-    RUN update-ca-certificates
+# Dockerfiles have no "if", then we need to create intermediate stages to match a variable
+# These stages will setup necessary environment variables and copy custom CA authorities to
+# your container. Helpful if within a corporate environment with an intercepting proxy, like e.g. Zscaler
 
-    #define environment variables
-    ENV HTTPS_CA_DIR=$SSL_CERT_DIR
-    ENV REQUESTS_CA_BUNDLE=$SSL_CERT_DIR/$CERT_FILE
-    ENV GIT_SSL_CAPATH=$REQUESTS_CA_BUNDLE
-    ENV GIT_SSL_CAINFO=$GIT_SSL_CAPATH
-    ENV CURL_CA_BUNDLE=$REQUESTS_CA_BUNDLE
-    fi
+FROM base AS base_yes
+# use the CERT_FILE parameter passed as a build-arg
+ARG CERT_FILE
+ENV SSL_CERT_DIR=/usr/local/share/ca-certificates 
+COPY ${CERT_FILE} $SSL_CERT_DIR/
+RUN update-ca-certificates
+# define environment variables
+ENV HTTPS_CA_DIR=$SSL_CERT_DIR
+ENV REQUESTS_CA_BUNDLE=$SSL_CERT_DIR/$CERT_FILE
+ENV GIT_SSL_CAPATH=$REQUESTS_CA_BUNDLE
+ENV GIT_SSL_CAINFO=$GIT_SSL_CAPATH
+ENV CURL_CA_BUNDLE=$REQUESTS_CA_BUNDLE
+
+FROM base AS base_no
 
 #Install opentype fonts
-FROM base as font_base
+FROM base_${WITH_CERT} as font_base
 
 WORKDIR /fonts
 ENV DEBIAN_FRONTEND noninteractive
@@ -61,7 +67,7 @@ RUN mkdir adobe-fonts
 RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
 RUN rm -rf $PWD/source*
 
-FROM base_cert as pandoc_base
+FROM base_${WITH_CERT} as pandoc_base
 
 #install python depencies
 RUN pip3 install --upgrade pip certifi dicttoxml
