@@ -109,9 +109,6 @@ FROM tinytex_base as latex_base
 # add tlmgr to path
 RUN /home/non-root/.TinyTeX/bin/*/tlmgr path add
 
-# verify latex version
-#RUN latex --version
-
 # verify tlmgr version and add packages needed to build the documents
 RUN tlmgr --version && tlmgr update -self && \
     tlmgr install \
