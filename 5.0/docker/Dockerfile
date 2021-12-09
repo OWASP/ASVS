@@ -1,4 +1,5 @@
-ARG CERT_FILE
+ARG CERT_FILE=none
+ARG WITH_CERT=no
 #First stage, start from ubuntu focal
 FROM ubuntu:focal AS base
 ENV DEBIAN_FRONTEND noninteractive
