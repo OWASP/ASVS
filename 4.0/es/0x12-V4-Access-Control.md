@@ -4,8 +4,8 @@
 
 La autorización es el concepto de permitir el acceso a los recursos solo a aquellos a los que se les permite utilizarlos. Asegúrese de que una aplicación verificada cumple los siguientes requisitos de alto nivel:
 
-* Las personas que acceden a los recursos tienen credenciales válidas para hacerlo. 
-* Los usuarios están asociados a un conjunto bien definido de roles y privilegios. 
+* Las personas que acceden a los recursos tienen credenciales válidas para hacerlo.
+* Los usuarios están asociados a un conjunto bien definido de roles y privilegios.
 * Los metadatos de roles y permisos están protegidos contra la reproducción o la manipulación.
 
 ## Requisitos de Verificación de Seguridad

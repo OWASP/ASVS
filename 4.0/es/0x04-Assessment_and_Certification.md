@@ -10,7 +10,7 @@ Esto no debe impedir que las organizaciones ofrezcan tales servicios de garantí
 
 ## Orientación para las Organizaciones Certificadoras
 
-ASVS se puede utilizar como una verificación de libro abierto de la aplicación, incluido el acceso abierto y sin restricciones a recursos clave como arquitectos, desarrolladores, documentación del proyecto, código fuente, acceso autenticado a sistemas de prueba (incluido el acceso a una o más cuentas en cada rol), especialmente para verificaciones de  nivel  L2 y L3. 
+ASVS se puede utilizar como una verificación de libro abierto de la aplicación, incluido el acceso abierto y sin restricciones a recursos clave como arquitectos, desarrolladores, documentación del proyecto, código fuente, acceso autenticado a sistemas de prueba (incluido el acceso a una o más cuentas en cada rol), especialmente para verificaciones de nivel L2 y L3.
 
 Históricamente, las pruebas de penetración y las revisiones de código seguro han incluido cuestiones "por excepción", es decir, las pruebas fallidas aparecen en el informe final. Una organización certificadora debe incluir en cualquier informe el alcance de la verificación (especialmente si un componente clave está fuera del ámbito, como la autenticación SSO), un resumen de los resultados de la verificación, incluidas las pruebas pasadas y erróneas, con indicaciones claras de cómo resolver las pruebas con errores.
 
