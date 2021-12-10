@@ -6,9 +6,9 @@ El objetivo principal del control y registro de errores es proporcionar informac
 
 Los registros de alta calidad a menudo contendrán datos confidenciales y deben protegerse según las leyes o directivas locales de privacidad de datos. Esto debe incluir:
 
- * No recopilar o registrar información confidencial a menos que sea específicamente necesario.
- * Garantizar que toda la información registrada se maneje de forma segura y protegida según su clasificación de datos.
- * Asegurarse de que los registros no se almacenan para siempre, pero tienen una duración absoluta que es lo más corta posible.
+* No recopilar o registrar información confidencial a menos que sea específicamente necesario.
+* Garantizar que toda la información registrada se maneje de forma segura y protegida según su clasificación de datos.
+* Asegurarse de que los registros no se almacenan para siempre, pero tienen una duración absoluta que es lo más corta posible.
 
 Si los registros contienen datos privados o confidenciales, la definición de cuyos varían de un país a otro, los registros se convierten en parte de la información más sensible de la aplicación y, por lo tanto, son muy atractivos para los atacantes por derecho propio.
 
@@ -20,8 +20,8 @@ El registro de log de información confidencial es peligroso: los registros se c
 
 V7.1 cubre OWASP Top 10 2017:A10. Como 2017:A10 y esta sección no son comprobables por prueba de penetración, es importante para:
 
- * Desarrolladores para asegurar el cumplimiento total de esta sección, como si todos los elementos estuvieran marcados como L1.
- * Probadores de penetración para validar el cumplimiento total de todos los elementos en V7.1 a través de entrevistas, capturas de pantalla o aserción.
+* Desarrolladores para asegurar el cumplimiento total de esta sección, como si todos los elementos estuvieran marcados como L1.
+* Probadores de penetración para validar el cumplimiento total de todos los elementos en V7.1 a través de entrevistas, capturas de pantalla o aserción.
 
 | # | Descripción | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -36,8 +36,8 @@ El registro oportuno es fundamental para los eventos de auditoría, el triage y 
 
 V7.2 cubre OWASP Top 10 2017:A10. Como 2017:A10 y esta sección no son comprobables por prueba de penetración, es importante para:
 
- * Desarrolladores para asegurar el cumplimiento total de esta categoría, como si todos los elementos estuvieran marcados como L1.
- * Probadores de penetración para validar el cumplimiento completo de todos los elementos en V7.2 a través de entrevistas, capturas de pantalla o aserción.
+* Desarrolladores para asegurar el cumplimiento total de esta categoría, como si todos los elementos estuvieran marcados como L1.
+* Probadores de penetración para validar el cumplimiento completo de todos los elementos en V7.2 a través de entrevistas, capturas de pantalla o aserción.
 
 | # | Descripción | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |

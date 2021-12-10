@@ -4,9 +4,9 @@
 
 Asegúrese de que una aplicación verificada cumple los siguientes requisitos de alto nivel:
 
- * El flujo de lógica de negocios es secuencial, se procesa en orden y no se puede omitir.
- * La lógica empresarial incluye límites para detectar y prevenir ataques automatizados, como transferencias continuas de montos pequeños, o agregar un millón de amigos de uno en uno, etc.
- * Los flujos de lógica de negocios de alto valor han considerado casos de abuso y actores malintencionados, y tienen protecciones contra la suplantación, manipulación, divulgación de información y ataques de elevación de privilegios.
+* El flujo de lógica de negocios es secuencial, se procesa en orden y no se puede omitir.
+* La lógica empresarial incluye límites para detectar y prevenir ataques automatizados, como transferencias continuas de montos pequeños, o agregar un millón de amigos de uno en uno, etc.
+* Los flujos de lógica de negocios de alto valor han considerado casos de abuso y actores malintencionados, y tienen protecciones contra la suplantación, manipulación, divulgación de información y ataques de elevación de privilegios.
 
 ## V11.1 Seguridad de la Lógica de Negocio
 

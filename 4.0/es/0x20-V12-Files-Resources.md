@@ -4,8 +4,8 @@
 
 Asegúrese de que una aplicación verificada cumple los siguientes requisitos de alto nivel:
 
- * Los datos de archivo que no son de confianza deben manejarse en consecuencia de una manera segura.
- * Los datos de archivos que no son de confianza obtenidos de fuentes no confiables se almacenan fuera de la raíz web y con permisos limitados.
+* Los datos de archivo que no son de confianza deben manejarse en consecuencia de una manera segura.
+* Los datos de archivos que no son de confianza obtenidos de fuentes no confiables se almacenan fuera de la raíz web y con permisos limitados.
 
 ## V12.1 Carga de Archivos
 
@@ -38,7 +38,7 @@ Aunque las bombas zip son eminentemente comprobables utilizando técnicas de pru
 
 | # | Descripción | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.4.1** | Verifique que los archivos obtenidos de fuentes no confiables se almacenen fuera de la raíz web, con permisos limitados. | ✓ | ✓ | ✓ | 922 |
+| **12.4.1** | Verifique que los archivos obtenidos de fuentes no confiables se almacenen fuera de la raíz web, con permisos limitados. | ✓ | ✓ | ✓ | 552 |
 | **12.4.2** | Verifique que los escáneres antivirus analicen los archivos obtenidos de fuentes no confiables para evitar la carga y el servicio de contenido malicioso conocido. | ✓ | ✓ | ✓ | 509 |
 
 ## V12.5 Descarga de Archivos

@@ -4,8 +4,8 @@
 
 Asegúrese de que una aplicación verificada tiene:
 
- * Un entorno de compilación seguro, repetible y automatizable.
- * La aplicación no incluye la biblioteca de terceros reforzada, la dependencia y la administración de la configuración, de modo que la aplicación no incluya componentes obsoletos o no seguros.
+* Un entorno de compilación seguro, repetible y automatizable.
+* La aplicación no incluye la biblioteca de terceros reforzada, la dependencia y la administración de la configuración, de modo que la aplicación no incluya componentes obsoletos o no seguros.
 
 La configuración de la aplicación "desde fábrica" debe ser segura para estar en Internet, lo que significa una configuración segura desde la caja.
 
