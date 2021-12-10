@@ -6,9 +6,9 @@ Esta capítulo estaba originalmente en la rama principal, pero con el trabajo qu
 
 Los dispositivos integrados/IoT deben:
 
- - Tener el mismo nivel de controles de seguridad dentro del dispositivo que se encuentra en el servidor, aplicando controles de seguridad en un entorno de confianza.
- - Los datos confidenciales almacenados en el dispositivo deben realizarse de forma segura mediante el almacenamiento respaldado por hardware, como elementos seguros.
- - Todos los datos confidenciales transmitidos desde el dispositivo deben utilizar la seguridad de la capa de transporte.
+* Tener el mismo nivel de controles de seguridad dentro del dispositivo que se encuentra en el servidor, aplicando controles de seguridad en un entorno de confianza.
+* Los datos confidenciales almacenados en el dispositivo deben realizarse de forma segura mediante el almacenamiento respaldado por hardware, como elementos seguros.
+* Todos los datos confidenciales transmitidos desde el dispositivo deben utilizar la seguridad de la capa de transporte.
 
 ## Requisitos de verificación de seguridad
 

@@ -6,8 +6,8 @@ Uno de los componentes principales de cualquier aplicación basada en web o stat
 
 Asegúrese de que una aplicación verificada cumple los siguientes requisitos de gestión de sesiones de alto nivel:
 
- - Las sesiones son únicas para cada individuo y no se pueden adivinar ni compartir.
- - Las sesiones se invalidan cuando ya no son necesarias y se agota el tiempo de espera durante los períodos de inactividad.
+* Las sesiones son únicas para cada individuo y no se pueden adivinar ni compartir.
+* Las sesiones se invalidan cuando ya no son necesarias y se agota el tiempo de espera durante los períodos de inactividad.
 
 Como se ha señalado anteriormente, estos requisitos se han adaptado para ser un subconjunto compatible de controles NIST 800-63b seleccionados, centrados en amenazas comunes y debilidades de autenticación comúnmente explotadas. Los requisitos de verificación anteriores han sido retirados, eliminado redundancias, o en la mayoría de los casos, adaptados para estar fuertemente alineados con los requisitos obligatorios de [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
