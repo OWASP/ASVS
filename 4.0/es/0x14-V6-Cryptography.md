@@ -4,8 +4,8 @@
 
 Asegúrese que una aplicación verificada cumple los siguientes requisitos de alto nivel:
 
- * Todos los módulos criptográficos fallan de forma segura y que los errores se gestionan correctamente. 
- * Se utiliza un generador de números aleatorios adecuado. 
+ * Todos los módulos criptográficos fallan de forma segura y que los errores se gestionan correctamente.
+ * Se utiliza un generador de números aleatorios adecuado.
  * El acceso a las claves se administra de forma segura.
 
 ## V6.1 Clasificación de Datos

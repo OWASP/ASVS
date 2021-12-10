@@ -16,7 +16,7 @@ La terminología NIST 800-63 puede ser un poco confusa al principio, especialmen
 
 ASVS V2 Autenticación, V3 Administración de sesiones, y en menor medida, V4 Controles de acceso se han adaptado para que sean un subconjunto compatible de controles NIST 800-63b seleccionados, centrados en amenazas comunes y debilidades de autenticación comúnmente explotadas. Cuando se requiera el cumplimiento completo del NIST 800-63, consulte NIST 800-63.63.
 
-### Seleccionando un nivel adecuado de NIST AAL 
+### Seleccionando un nivel adecuado de NIST AAL
 
 ASVS ha intentado mapear ASVS L1 con los requisitos NIST AAL1, N2 a AAL2, y L3 a AAL3. Sin embargo, el enfoque de ASVS Level 1 como controles "esenciales" puede no ser necesariamente el nivel AAL correcto para verificar una aplicación o API. Por ejemplo, si la aplicación es una aplicación de nivel 3 o tiene requisitos reglamentarios para ser AAL3, el nivel 3 debe elegirse en los capítulos V2 y V3 Administración de sesiones. La elección del nivel de afirmación de autenticación (AAL; Por sus siglas en inglés) compatible con NIST se debe realizar según las pautas NIST 800-63b como se establece en *Seleccionando AAL* en [NIST 800-63b Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
 
@@ -160,7 +160,7 @@ Las contraseñas de una sola vez de un solo factor (OTPs) son tokens físicos o 
 
 Las claves de seguridad criptográficas son tarjetas inteligentes o claves FIDO, donde el usuario tiene que conectar o emparejar el dispositivo criptográfico al equipo para completar la autenticación. Los verificadores envían un mensaje de desafío a los dispositivos o software criptográficos, y el dispositivo o software calcula una respuesta basada en una clave criptográfica almacenada de forma segura.
 
-Los requisitos para los dispositivos  y software criptográficos de un solo factor, y los dispositivos y software criptográficos multifactor son los mismos, ya que la verificación del autenticador criptográfico demuestra la posesión del factor de autenticación.
+Los requisitos para los dispositivos y software criptográficos de un solo factor, y los dispositivos y software criptográficos multifactor son los mismos, ya que la verificación del autenticador criptográfico demuestra la posesión del factor de autenticación.
 
 | # | Descripción | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
