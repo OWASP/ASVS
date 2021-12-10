@@ -4,10 +4,10 @@
 
 Asegúrese de que el código cumple los siguientes requisitos de alto nivel:
 
- * La actividad maliciosa se controla de forma segura y adecuada para no afectar al resto de la aplicación.
- * No tiene bombas de tiempo u otros ataques basados en el tiempo.
- * No permite "llamar a casa" a destinos maliciosos o no autorizados.
- * No tiene puertas traceras, huevos de pascua, salami attacks, rootkits o código no autorizado que pueda ser controlado por un atacante.
+* La actividad maliciosa se controla de forma segura y adecuada para no afectar al resto de la aplicación.
+* No tiene bombas de tiempo u otros ataques basados en el tiempo.
+* No permite "llamar a casa" a destinos maliciosos o no autorizados.
+* No tiene puertas traceras, huevos de pascua, salami attacks, rootkits o código no autorizado que pueda ser controlado por un atacante.
 
 Encontrar código malicioso es una prueba de lo negativo, que es imposible de validar por completo. Se deben realizar los mejores esfuerzos para asegurarse de que el código fuente no contiene código malicioso o funcionalidades no deseadas.
 
@@ -29,7 +29,7 @@ Cumplir con esta sección no es posible sin acceso completo al código fuente, i
 
 | # | Descripción | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.2.1** | Verifique que el código fuente de la aplicación y las bibliotecas de terceros no contienen capacidades no autorizadas de recopilación de datos o de “llamadas a casa”. Cuando detecte dicha funcionalidad, obtenga el permiso explicito del usuario para que sea operado así, antes de recopilar cualquier dato. | | ✓ | ✓ | 359 |
+| **10.2.1** | Verifique que el código fuente de la aplicación y las bibliotecas de terceros no contienen capacidades no autorizadas de recopilación de datos o de "llamadas a casa". Cuando detecte dicha funcionalidad, obtenga el permiso explicito del usuario para que sea operado así, antes de recopilar cualquier dato. | | ✓ | ✓ | 359 |
 | **10.2.2** | Verifique que la aplicación no solicite permisos innecesarios o excesivos para funciones o sensores relacionados con la privacidad, como contactos, cámaras, micrófonos o ubicación. | | ✓ | ✓ | 272 |
 | **10.2.3** | Verifique que el código fuente de la aplicación y las bibliotecas de terceros no contienen puertas traseras, como cuentas, claves o código ofuscado, blobs binarios no documentados, rootkits o anti-depuración, características de depuración inseguras o de otro modo funcionalidades desactualizadas, inseguras u ocultas que podrían usarse maliciosamente si se descubren. | | | ✓ | 507 |
 | **10.2.4** | Verifique que el código fuente de la aplicación y las bibliotecas de terceros no contienen bombas de tiempo mediante la búsqueda de funciones relacionadas con la fecha y la hora. | | | ✓ | 511 |
@@ -49,6 +49,8 @@ Cumplir con esta categoría, es probable que sea una tarea operativa y continua.
 | **10.3.3** | Verifique que la aplicación tiene protección contra takeovers de subdominios si la aplicación se basa en entradas DNS o subdominios DNS, como nombres de dominio expirados, punteros DNS obsoletos o CNAME, proyectos expirados en repositorios de código fuente públicos o API de nube transitorias, funciones serverless o buckets de almacenamiento (*autogen-bucket-id*.cloud.example.com) o similares. Las protecciones pueden incluir asegurarse de que los nombres DNS utilizados por las aplicaciones se comprueban regularmente para comprobar su caducidad o cambio. | ✓ | ✓ | ✓ | 350 |
 
 ## Referencias
+
+Para obtener más información, véase también:
 
 * [Hostile Subdomain Takeover, Detectify Labs](https://labs.detectify.com/2014/10/21/hostile-subdomain-takeover-using-herokugithubdesk-more/)
 * [Hijacking of abandoned subdomains part 2, Detectify Labs](https://labs.detectify.com/2014/12/08/hijacking-of-abandoned-subdomains-part-2/)

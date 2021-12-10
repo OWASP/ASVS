@@ -123,7 +123,7 @@ Este es un marcador de posición para los requisitos arquitectónicos futuros.
 
 | # | Descripción | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.14.1** | Verifique la segregación de componentes de diferentes niveles de confianza a través de controles de seguridad bien definidos, reglas de corta fuego, pasarelas de API, proxies reversos, grupos de seguridad basados en nube, o mecanismos similares | | ✓ | ✓ | 293 |
+| **1.14.1** | Verifique la segregación de componentes de diferentes niveles de confianza a través de controles de seguridad bien definidos, reglas de corta fuego, pasarelas de API, proxies reversos, grupos de seguridad basados en nube, o mecanismos similares. | | ✓ | ✓ | 923 |
 | **1.14.2** | Verifique que las firmas binarias, las conexiones de confianza y los puntos de conexión verificados se usan para el despliegue de archivos binarios a dispositivos remotos. | | ✓ | ✓ | 494 |
 | **1.14.3** | Verifique que el canal de compilación advierte de componentes obsoletos o inseguros y realiza las acciones adecuadas. | | ✓ | ✓ | 1104 |
 | **1.14.4** | Verifique que el canal de compilación contiene un paso para compilar y comprobar automáticamente el despliegue seguro de la aplicación, especialmente si la infraestructura de la aplicación está definida por software, como los scripts de compilación del entorno en la nube. | | ✓ | ✓ | |
