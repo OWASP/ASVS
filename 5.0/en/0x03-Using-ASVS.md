@@ -83,26 +83,33 @@ We have heard from various people in community on how they use the standard in p
 ### Personal Case Studies
 
 #### Matthew Hackling
+
 * Drive pen test scope and test cases
 * Drive security requirements for designs help
 * Populate an ISO27034 organisational normative framework aka requirements library.
 
 #### Dominique Righetto
+
 * Used for code review and as a checklist when performing web application vulnerability assessments.
 
 #### Giovanni Cruz
+
 * In the last OWASP Latam Tour Bogotá 2019 a training course was prepared totally based on ASVS. All the content was created with a vulnerable platform for training to assist developers. It got a great feedback because they showed them how to use it and what levels of security they might want to achieve based on some standard.
 
 #### Sebastien Gioria
+
 * For some customers, uses it as a basis for mandatory requirements to perform secure design and coding.
 
 #### Riotaro Okada
+
 * In recent years, observed some banks in Japan included ASVS into their RFP for security testing services, as their mandatory requirement. They wanted proposals which security vendors would fit appropriate ASVS levels.
 * A local software vendor in Japan sells SFA related packages received customer criteria to check whether their products would fit ASVS, and which levels the product aligned to. (It was a good start for the vendor to introduce secure development and verifications into their teams)
 
 #### John Patrick Lita
+
 * Uses this and integrates this in their CI/CD activity
 
 ### Use within other projects and tools
+
 * OWASP Defectdojo has built in ASVS support https://www.defectdojo.org/
 * A few weeks after the ASVS 4 release, RIPS added support for it: https://blog.ripstech.com/2019/rips-3.1-adds-teamcity-ldap-jsp-support/

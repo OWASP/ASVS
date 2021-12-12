@@ -12,7 +12,7 @@ We expect that there will most likely never be 100% agreement on the contents of
 
 ## What's new in 4.0
 
-The most significant change in this version is the adoption of the NIST 800-63-3 Digital Identity Guidelines, introducing modern, evidence based, and advanced authentication controls. Although we expect  some pushback on aligning with an advanced authentication standard, we feel that it is essential for standards to be aligned, mainly when another well-regarded application security standard is evidence-based.
+The most significant change in this version is the adoption of the NIST 800-63-3 Digital Identity Guidelines, introducing modern, evidence based, and advanced authentication controls. Although we expect some pushback on aligning with an advanced authentication standard, we feel that it is essential for standards to be aligned, mainly when another well-regarded application security standard is evidence-based.
 
 Information security standards should try to minimize the number of unique requirements, so that complying organizations do not have to decide on competing or incompatible controls. The OWASP Top 10 2017 and now the OWASP Application Security Verification Standard have now aligned with NIST 800-63 for authentication and session management. We encourage other standards-setting bodies to work with us, NIST, and others to come to a generally accepted set of application security controls to maximize security and minimize compliance costs.
 
@@ -30,4 +30,4 @@ Due to the size of the ASVS 4.0, as well as our desire to become the baseline AS
 
 Lastly, we have de-duped and retired less impactful controls. Over time, the ASVS started being a comprehensive set of controls, but not all controls are equal at producing secure software. This effort to eliminate low impact items could go further. In a future edition of the ASVS, the Common Weakness Scoring System (CWSS) will help prioritize further those controls which are truly important and those that should be retired.
 
-As of version 4.0, the ASVS will focus solely on being the leading web apps and service standard, covering traditional and modern application architecture, and agile security practices and DevSecOps culture.
+As of version 4.0, the ASVS will focus solely on being the leading web apps and service standard, covering traditional and modern application architecture, and agile security practices and DevSecOps culture.
