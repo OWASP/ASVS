@@ -85,7 +85,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.5.3** | [MODIFIED, SPLIT TO 14.4.8] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application. | | ✓ | ✓ | 306 |
 | **14.5.5** | [ADDED] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
-| **14.5.6** | [ADDED] Verify that the infrastructure handles each request separately, even with conflicting Transfer-Encoding and Content-Length headers, to prevent HTTP request smuggling. | | ✓ | ✓ | 444 |
+| **14.5.6** | [ADDED] Verify that the infrastructure follows RFC 2616 and ignores the `Content-Length` header field if also a `Transfer-Encoding` header field is present. | | ✓ | ✓ | 444 |
 
 ## References
 
