@@ -87,6 +87,14 @@ Configurations for production should be hardened to protect against common attac
 | **14.5.5** | [ADDED] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
 | **14.5.6** | [ADDED] Verify that the infrastructure handles each request separately, even with conflicting Transfer-Encoding and Content-Length headers, to prevent HTTP request smuggling. | | ✓ | ✓ | 444 |
 
+## V14.6 HTTP/2
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **14.6.1** | [ADDED] Verify that the value in the `Content-Length` matches the calculated length using the built-in mechanism. | ✓ | ✓ | ✓ | 400 |
+| **14.6.2** | [ADDED] Verify that all `Transfer-encoding` headers are stripped from the message or that the request is blocked entirely. | ✓ | ✓ | ✓ | |
+| **14.6.3** | [ADDED] Verify that a full CRLF (\r\n) sequence is property neutralized inside a HTTP/2 header.  | ✓ | ✓ | ✓ | 113 |
+
 ## References
 
 For more information, see also:
