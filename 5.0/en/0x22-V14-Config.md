@@ -91,7 +91,7 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.6.1** | [ADDED] Verify that the value in the `Content-Length` matches the calculated length using the built-in mechanism. | ✓ | ✓ | ✓ | |
+| **14.6.1** | [ADDED] Verify that the value in the `Content-Length` matches the calculated length using the built-in mechanism. | ✓ | ✓ | ✓ | 400 |
 | **14.6.2** | [ADDED] Verify that all `Transfer-encoding` headers are stripped from the message or that the request is blocked entirely. | ✓ | ✓ | ✓ | |
 | **14.6.3** | [ADDED] Verify that a full CRLF (\r\n) sequence is property neutralized inside a HTTP/2 header.  | ✓ | ✓ | ✓ | 113 |
 
