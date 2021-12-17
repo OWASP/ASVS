@@ -8,9 +8,9 @@ Las aplicaciones tienen que asumir que todos los dispositivos de usuario están 
 
 Asegúrese de que una aplicación verificada cumple los siguientes requisitos de protección de datos de alto nivel:
 
- * Confidencialidad: Los datos deben protegerse de la observación o divulgación no autorizada tanto en tránsito como cuando se almacenan. 
- * Integridad: Los datos deben protegerse de ser creados, alterados o eliminados maliciosamente por atacantes no autorizados. 
- * Disponibilidad: los datos deben estar disponibles para los usuarios autorizados según sea necesario.
+* Confidencialidad: Los datos deben protegerse de la observación o divulgación no autorizada tanto en tránsito como cuando se almacenan.
+* Integridad: Los datos deben protegerse de ser creados, alterados o eliminados maliciosamente por atacantes no autorizados.
+* Disponibilidad: los datos deben estar disponibles para los usuarios autorizados según sea necesario.
 
 ## V8.1 Protección General de Datos
 
