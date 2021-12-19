@@ -32,36 +32,36 @@ OWASP作为一个与供应商无关的非营利性组织，目前不认证任何
 
 请注意，随着应用安全行业的成熟，自动化和手动测试之间的界限已经变得模糊。 自动化工具通常由专家手动调整，而手动测试人员通常会利用各种自动化工具。
 
-#### The Role of Penetration Testing
+#### 渗透测试的作用
 
-In version 4.0, we decided to make L1 completely penetration testable without access to source code, documentation, or developers. Two logging items, which are required to comply with OWASP Top 10 2017 A10, will require interviews, screenshots or other evidence collection, just as they do in the OWASP Top 10 2017. However, testing without access to necessary information is not an ideal method of security verification, as it misses out on the possibility of reviewing the source, identifying threats and missing controls, and performing a far more thorough test in a shorter timeframe. 
+在 4.0 版本中，我们决定让 L1 完全可渗透测试，而无需访问源代码、文档或开发人员。 OWASP Top 10 2017 A10 要求的两个日志记录项目，将需要访谈、屏幕截图或其他证据，就像它们在 OWASP Top 10 2017 中的一样。 然而，在无法获得必要信息的情况下进行测试，并不是一种理想的安全验证方式，因为它不仅错过了审查来源、识别威胁和缺失控制的可能性，还会错过在更短的时间内进行更彻底测试的可能。
 
-Where possible, access to developers, documentation, code, and access to a test application with non-production data, is required when performing a L2 or L3 Assessment. Penetration testing done at these levels requires this level of access, which we call "hybrid reviews" or "hybrid penetration tests". 
+在可能的情况下，执行L2或L3评估时，需要访问开发人员、文档、代码，以及访问具有非生产数据的测试应用程序。 在这些级别进行的渗透测试，需要这种级别的访问，我们称之为 “混合审查” 或 “混合渗透测试”。
 
-## Other uses for the ASVS
+## ASVS的其他用途
 
-Aside from being used to assess the security of an application, we have identified a number of other potential uses for the ASVS.
+除了用于评估应用程序的安全性外，我们还确定了ASVS的许多其他潜在用途。
 
-### As Detailed Security Architecture Guidance
+### 作为详细的安全架构指南
 
-One of the more common uses for the Application Security Verification Standard is as a resource for security architects. The Sherwood Applied Business Security Architecture (SABSA) is missing a great deal of information that is necessary to complete a thorough application security architecture review. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies.
+应用程序安全验证标准的更常见用途之一，是作为安全架构师的资源。 Sherwood应用业务安全架构（Sherwood Applied Business Security Architecture，SABSA) 缺少大量的信息，而这些信息是完成一次彻底的应用安全架构审查所必需的。 ASVS可以用来填补这些空白，让安全架构师为常见问题选择更好的控制措施，如数据保护模式和输入验证策略。
 
-### As a Replacement for Off-the-shelf Secure Coding Checklists
+### 作为现有安全编码Checklists的替代品
 
-Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain specific way. We encourage this type of forking as long as traceability is maintained, so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.
+许多组织可以从采用ASVS中受益，通过选择三个级别中的一个，或通过fork ASVS，在特定领域改变每个应用风险级别的要求。 我们鼓励这种fork，只要保持可追溯性，因此，如果一个应用程序已经通过了标准版本中的“要求4.1”，那么也就通过了fork版本中的这个要求。
 
-### As a Guide for Automated Unit and Integration Tests
+### 作为自动化单元和集成测试的指南
 
-The ASVS is designed to be highly testable, with the sole exception of architectural and malicious code requirements. By building unit and integration tests that test for specific and relevant fuzz and abuse cases, the application becomes nearly self-verifying with each and every build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
+ASVS的设计是高度可测试的，唯一的例外是架构和恶意代码要求。 通过构建单元和集成测试，对相关的滥用情况进行fuzz测试，应用程序几乎可以在每次构建中进行自我验证。 例如，可以为登录控制器制作额外的测试，测试常见的默认用户名参数、帐户枚举、暴力破解、LDAP注入、SQL 注入以及 XSS。 同样地，对密码参数的测试，应该包括常用密码、密码长度、空字节注入、移除参数、XSS等。
 
-### For Secure Development Training
+### 用于安全开发培训
 
-ASVS can also be used to define characteristics of secure software. Many “secure coding” courses are simply ethical hacking courses with a light smear of coding tips. This may not necessarily help developers to write more secure code. Instead, secure development courses can use the ASVS with a strong focus on the proactive controls found in the ASVS, rather than the Top 10 negative things not to do.
+ASVS 还可用于定义安全软件的特征。 许多“安全编码”课程只是带有少量编码技巧的道德黑客课程。 这不一定能帮助开发人员编写更安全的代码。 相反，安全开发课程可以使用 ASVS，重点关注 ASVS 中的主动控制，而不是前 10 项不该做的负面事情。
 
-### As a Driver for Agile Application Security
+### 作为敏捷应用安全的驱动程序
 
-ASVS can be used in an agile development process as a framework to define specific tasks that need to be implemented by the team to have a secure product. One approach might be: Starting with Level 1, verify the specific application or system according to ASVS requirements for the specified level, find what controls are missing and raise specific tickets/tasks in the backlog. This helps with prioritization of specific tasks (or grooming), and makes security visible in the agile process. This can also be used to prioritize auditing and reviewing tasks in the organization, where a specific ASVS requirement can be a driver for review, refactor or auditing for a specific team member and visible as "debt" in the backlog that needs to be eventually done.
+在敏捷开发过程中，为了获得安全的产品，ASVS可以作为框架来定义团队需要实施的特定任务。 一种可能的方法是：从 Level 1 开始，根据指定级别的 ASVS 要求，验证特定应用程序或系统，查找缺少哪些项目，并在待办事项中提出特定工单/任务。 这有助于对具体任务进行优先排序（梳理），并使安全在敏捷开发中可见。 这也可用于确定组织中审计和审查任务的优先；其中，特定的 ASVS 要求，可以作为团队成员审查、重构或审计的驱动因素，并可以记录到最终的待办清单中。
 
-### As a Framework for Guiding the Procurement of Secure Software
+### 作为指导安全软件采购的框架
 
-ASVS is a great framework to help with secure software procurement or procurement of custom development services. The buyer can simply set a requirement that the software they wish to procure must be developed at ASVS level X, and request that the seller proves that the software satisfies ASVS level X. This works well when combined with the OWASP Secure Software Contract Annex
+ASVS 是一个很好的框架，可以帮助确保安全软件的采购或定制开发服务的采购。 买方可以简单地设定一个要求，即他们希望采购的软件必须按照 ASVS 的 Level x 来开发，并要求卖方证明该软件满足ASVS的x级。
