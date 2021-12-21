@@ -39,7 +39,7 @@
 
 ## V1.4 访问控制架构
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.4.1** | 验证受信任的实施点（如访问控制网关、服务器和Serverless函数）是否实施了访问控制。切勿在客户端实施访问控制。 | | ✓ | ✓ | 602 |
 | **1.4.2** | [已删除，不可操作] | | | | |
@@ -47,62 +47,62 @@
 | **1.4.4** | 验证应用程序使用单一的、经过严格审查的访问控制机制，来访问受保护的数据和资源。 所有请求都必须通过这个单一机制，以避免复制、粘贴或不安全的替代路径。 ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 284 |
 | **1.4.5** | 验证是否使用基于属性/特征的访问控制，即代码应检查用户对某一特征/数据项的授权，而不仅仅是他们的角色。 权限仍应依照不同角色进行分配。([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 275 |
 
-## V1.5 Input and Output Architecture
+## V1.5 输入和输出架构
 
-In 4.0, we have moved away from the term "server-side" as a loaded trust boundary term. The trust boundary is still concerning - making decisions on untrusted browsers or client devices is bypassable. However, in mainstream architectural deployments today, the trust enforcement point has dramatically changed. Therefore, where the term "trusted service layer" is used in the ASVS, we mean any trusted enforcement point, regardless of location, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on.
+在4.0中，我们已经不再把 “服务器端” 作为一个表示信任边界的术语。 信任边界仍然令人担忧——在不受信任的浏览器或客户端设备上做决定，很容易被绕过的。 然而，在今天的主流架构部署中，信任的执行点已经发生了巨大的变化。 因此，在 ASVS 中使用 “受信任的服务层” 这一术语时，我们描述的都是受信任的执行点，无论其位置如何，如微服务、Serverless API、服务器端、具有安全启动的客户端设备上的受信任的API、合作伙伴或外部API等等。
 
-The "untrusted client" term here refers to client-side technologies that render the presentation layer, commonly refered to as 'front-end' technologies. The term "serialization" here not only refers to sending data over the wire like an array of values or taking and reading a JSON structure, but also passing complex objects which can contain logic.
+这里的“不受信任的客户端”一词，是指呈现表示层的客户端技术，通常称为“前端”技术。 这里的术语“序列化”不仅表示通过网络发送数据（如一个数组的值或获取 JSON 结构），还指传递可以包含逻辑的复杂对象。
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.5.1** | Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance. | | ✓ | ✓ | 1029 |
-| **1.5.2** | Verify that serialization is not used when communicating with untrusted clients. If this is not possible, ensure that adequate integrity controls (and possibly encryption if sensitive data is sent) are enforced to prevent deserialization attacks including object injection. | | ✓ | ✓ | 502 |
-| **1.5.3** | Verify that input validation is enforced on a trusted service layer. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 602 |
-| **1.5.4** | Verify that output encoding occurs close to or by the interpreter for which it is intended. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 116 |
+| **1.5.1** | 验证输入和输出要求，明确规定如何根据类型、内容以及适用的法律、法规和其他政策规定，来操作和处理数据。 | | ✓ | ✓ | 1029 |
+| **1.5.2** | 验证在与不受信任的客户进行通信时，不使用序列化。 如果无法做到这一点，请确保执行足够的完整性控制（如果发送敏感数据，可能还要进行加密），以防止反序列化攻击，包括对象注入。 | | ✓ | ✓ | 502 |
+| **1.5.3** | 验证输入验证是否在可信的服务层上执行。 ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 602 |
+| **1.5.4** | 验证输出编码是否发生在其预期的解释器附近（或由解释器进行）。 ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 116 |
 
-## V1.6 Cryptographic Architecture
+## V1.6 加密架构
 
-Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
+应用程序需要设计强大的加密架构，以根据其分类保护数据资产。加密所有东西，是浪费；不加密任何东西，是法律上的疏忽。 在架构或顶层设计、设计冲刺（Design Sprint）或架构高峰期，通常需要取得一种平衡。 一边设计加密技术，一边进行开发迭代，这样的安全实施，其成本不可避免地要比一开始就做简单的构建要高得多。 
 
-Architectural requirements are intrinsic to the entire code base, and thus difficult to unit or integrate test. Architectural requirements require consideration in coding standards, throughout the coding phase, and should be reviewed during security architecture, peer or code reviews, or retrospectives.
+架构要求是整个代码库的内在要求，因此很难进行单元或集成测试。架构需求需要在整个编码阶段的编码标准中加以考虑，并应在安全架构、代码审查或复盘会议中加以审查。
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 320 |
-| **1.6.2** | Verify that consumers of cryptographic services protect key material and other secrets by using key vaults or API based alternatives. | | ✓ | ✓ | 320 |
-| **1.6.3** | Verify that all keys and passwords are replaceable and are part of a well-defined process to re-encrypt sensitive data. | | ✓ | ✓ | 320 |
-| **1.6.4** | Verify that the architecture treats client-side secrets--such as symmetric keys, passwords, or API tokens--as insecure and never uses them to protect or access sensitive data. | | ✓ | ✓ | 320 |
+| **1.6.1** | 验证是否有明确的加密密钥管理政策，以及加密密钥的生命周期是否遵循密钥管理标准，如NIST SP 800-57。 | | ✓ | ✓ | 320 |
+| **1.6.2** | 验证密码服务的消费者是否通过使用密钥库或基于API的替代方案，来保护密钥材料和其他机密。 | | ✓ | ✓ | 320 |
+| **1.6.3** | 验证所有的密钥和密码是否可替换的，并且是重新加密敏感数据的明确定义流程的一部分。 | | ✓ | ✓ | 320 |
+| **1.6.4** | 验证架构是否将客户端机密（例如对称密钥、密码或 API 令牌）视为不安全的，并且从不使用它们来保护或访问敏感数据。 | | ✓ | ✓ | 320 |
 
-## V1.7 Errors, Logging and Auditing Architecture
+## V1.7 错误、日志和审计架构
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.7.1** | Verify that a common logging format and approach is used across the system. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
-| **1.7.2** | Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
+| **1.7.1** | 验证整个系统是否使用了通用的日志记录格式和方法。 ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
+| **1.7.2** | 验证日志是否安全地传输到远程系统，以便进行分析、检测、报警和升级。 ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
-## V1.8 Data Protection and Privacy Architecture
+## V1.8 数据保护和隐私架构
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.8.1** | Verify that all sensitive data is identified and classified into protection levels. | | ✓ | ✓ | |
-| **1.8.2** | Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture. | | ✓ | ✓ | |
+| **1.8.1** | 验证所有敏感数据都已识别并归入保护级别。 | | ✓ | ✓ | |
+| **1.8.2** | 验证所有保护级别都具有一套相关的保护要求，如加密要求、完整性要求、保留、隐私和其他机密性要求，并在架构中应用这些要求。 | | ✓ | ✓ | |
 
 ## V1.9 Communications Architecture
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.9.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 319 |
 | **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains. | | ✓ | ✓ | 295 |
 
 ## V1.10 Malicious Software Architecture
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.10.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | | ✓ | ✓ | 284 |
 
 ## V1.11 Business Logic Architecture
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.11.1** | Verify the definition and documentation of all application components in terms of the business or security functions they provide. | | ✓ | ✓ | 1059 |
 | **1.11.2** | Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state. | | ✓ | ✓ | 362 |
@@ -110,7 +110,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 ## V1.12 Secure File Upload Architecture
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
 | **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable Content Security Policy (CSP) to reduce the risk from XSS vectors or other attacks from the uploaded file. | | ✓ | ✓ | 646 |
@@ -121,7 +121,7 @@ This is a placeholder for future architectural requirements.
 
 ## V1.14 Configuration Architecture
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.14.1** | Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | 923 |
 | **1.14.2** | Verify that binary signatures, trusted connections, and verified endpoints are used to deploy binaries to remote devices. | | ✓ | ✓ | 494 |
