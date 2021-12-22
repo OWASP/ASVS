@@ -87,52 +87,52 @@
 | **1.8.1** | 验证所有敏感数据都已识别并归入保护级别。 | | ✓ | ✓ | |
 | **1.8.2** | 验证所有保护级别都具有一套相关的保护要求，如加密要求、完整性要求、保留、隐私和其他机密性要求，并在架构中应用这些要求。 | | ✓ | ✓ | |
 
-## V1.9 Communications Architecture
+## V1.9 通信架构
 
 | # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.9.1** | Verify the application encrypts communications between components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 319 |
-| **1.9.2** | Verify that application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains. | | ✓ | ✓ | 295 |
+| **1.9.1** | 验证应用程序对组件之间的通信进行加密，特别是当这些组件处于不同的容器、系统、站点或云提供商时。 ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 319 |
+| **1.9.2** | 验证应用组件是否验证了通信链接中每一方的真实性，以防止中间人攻击。例如，应用程序组件应校验TLS证书链。 | | ✓ | ✓ | 295 |
 
-## V1.10 Malicious Software Architecture
-
-| # | 说明 | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.10.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | | ✓ | ✓ | 284 |
-
-## V1.11 Business Logic Architecture
+## V1.10 恶意软件架构
 
 | # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.11.1** | Verify the definition and documentation of all application components in terms of the business or security functions they provide. | | ✓ | ✓ | 1059 |
-| **1.11.2** | Verify that all high-value business logic flows, including authentication, session management and access control, do not share unsynchronized state. | | ✓ | ✓ | 362 |
-| **1.11.3** | Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions. | | | ✓ | 367 |
+| **1.10.1** | 验证是否使用了源代码控制系统，以及有程序确保签入时附带问题或变更单。源代码控制系统应该具有访问控制和可识别的用户，以追溯任何的更改。 | | ✓ | ✓ | 284 |
 
-## V1.12 Secure File Upload Architecture
+## V1.11 业务逻辑架构
 
 | # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
-| **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable Content Security Policy (CSP) to reduce the risk from XSS vectors or other attacks from the uploaded file. | | ✓ | ✓ | 646 |
+| **1.11.1** | 验证所有应用组件在其提供的业务或安全功能方面的定义和文档。 | | ✓ | ✓ | 1059 |
+| **1.11.2** | 验证所有高价值的业务逻辑流，包括认证、会话管理和访问控制，不共享不同步的状态。 | | ✓ | ✓ | 362 |
+| **1.11.3** | 验证所有高价值的业务逻辑流，包括身份验证、会话管理和访问控制都是线程安全的，并能抵抗检查时间和使用时间不同步时的条件竞争。 | | | ✓ | 367 |
 
-## V1.13 API Architecture
-
-This is a placeholder for future architectural requirements.
-
-## V1.14 Configuration Architecture
+## V1.12 安全上传架构
 
 | # | 说明 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.14.1** | Verify the segregation of components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | 923 |
-| **1.14.2** | Verify that binary signatures, trusted connections, and verified endpoints are used to deploy binaries to remote devices. | | ✓ | ✓ | 494 |
-| **1.14.3** | Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions. | | ✓ | ✓ | 1104 |
-| **1.14.4** | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | | ✓ | ✓ | |
-| **1.14.5** | Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
-| **1.14.6** | Verify the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
+| **1.12.1** | [删除，与12.4.1重复] | | | | |
+| **1.12.2** | 验证用户上传的文件——如果需要显示或从应用中下载，是通过二进制流下载，或从无关的域（如云文件存储桶）提供。实施合适的内容安全策略（CSP），以减少来自上传文件的XSS向量或其他攻击的风险。 | | ✓ | ✓ | 646 |
 
-## References
+## V1.13 API架构
 
-For more information, see also:
+这是未来架构需求的占位符。
+
+## V1.14 配置架构
+
+| # | 说明 | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **1.14.1** | 通过明确的安全控制、防火墙规则、API 网关、反向代理、基于云的安全组或类似机制，验证不同信任级别的组件的隔离情况。 | | ✓ | ✓ | 923 |
+| **1.14.2** | 验证二进制签名、可信连接和经过验证的接口，以将二进制文件部署到远程设备。 | | ✓ | ✓ | 494 |
+| **1.14.3** | 验证构建管道是否对过期或不安全的组件发出警告并采取适当的行动。 | | ✓ | ✓ | 1104 |
+| **1.14.4** | 验证构建管道是否包含自动构建和验证应用安全部署的构建步骤，特别是当应用基础设施是软件定义时，例如云环境构建脚本。 | | ✓ | ✓ | |
+| **1.14.5** | 验证应用程序部署是否在网络级别进行了充分的沙盒化、容器化或隔离，以延迟和阻止攻击者攻击其他应用程序，尤其是当攻击者执行敏感或危险操作时（如反序列化）。 ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
+| **1.14.6** | 验证应用程序未使用不受支持、不安全或不推荐的客户端技术，如NSAPI插件、Flash、Shockwave、ActiveX、Silverlight、NACL或客户端Java applets。 | | ✓ | ✓ | 477 |
+
+## 参考文献
+
+欲了解更多信息，请参见：
 
 * [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
 * [OWASP Attack Surface Analysis Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.html)
