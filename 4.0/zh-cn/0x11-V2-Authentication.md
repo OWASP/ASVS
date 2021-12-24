@@ -40,38 +40,38 @@ ASVS V2 身份验证、V3 会话管理以及在较小程度上的V4 访问控制
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.1.1** | Verify that user set passwords are at least 12 characters in length (after multiple spaces are combined). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.2** | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.3** | Verify that password truncation is not performed. However, consecutive multiple spaces may be replaced by a single space. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.4** | Verify that any printable Unicode character, including language neutral characters such as spaces and Emojis are permitted in passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
-| **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
-| **2.1.7** | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system's password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.8** | Verify that a password strength meter is provided to help users set a stronger password. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.10** | Verify that there are no periodic credential rotation or password history requirements. | ✓ | ✓ | ✓ | 263 | 5.1.1.2 |
-| **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.12** | Verify that the user can choose to either temporarily view the entire masked password, or temporarily view the last typed character of the password on platforms that do not have this as built-in functionality. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.1** | 验证用户设置的密码长度至少为 12 个字符（多个空格合并后）。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.2** | 验证是否允许64个字符以上的密码，并拒绝超过128个字符的密码。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.3** | 验证不进行密码截断。然而，连续的多个空格可以被单个空格代替。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.4** | 验证密码中是否允许使用任何可打印的Unicode字符，包括语言中立字符，例如空格和表情符号。 | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.5** | 验证用户可以更改其密码。 | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
+| **2.1.6** | 验证密码更改功能是否需要用户的当前密码和新密码。 | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
+| **2.1.7** | 验证在账户注册、登录和密码更改过程中提交的密码，是否出现在被泄露过的密码中，这些密码可以是本地的（如符合系统密码策略的前1000个或10000个最常见的密码），也可以使用外部API。 如果使用API，应使用零知识证明或其他机制，以确保纯文本密码不被发送或用于验证密码的违反状态。 如果密码被泄露，应用程序必须要求用户设置一个新的未被泄露的密码。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.8** | 验证是否提供了密码强度表，以帮助用户设置更强的密码。 | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.9** | 验证是否有限制允许的字符类型的密码组成规则。对大写或小写、数字或特殊字符不应有任何要求。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.10** | 验证没有定期更换凭证或密码历史的要求。 | ✓ | ✓ | ✓ | 263 | 5.1.1.2 |
+| **2.1.11** | 验证是否允许 “粘贴” 功能、浏览器密码辅助工具和外部密码管理器。 | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.12** | 验证用户可以选择临时查看整个屏蔽的密码，或者在没有内置功能的平台上临时查看密码的最后输入的字符。 | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 
-Note: The goal of allowing the user to view their password or see the last character temporarily is to improve the usability of credential entry, particularly around the use of longer passwords, passphrases, and password managers. Another reason for including the requirement is to deter or prevent test reports unnecessarily requiring organizations to override built-in platform password field behavior to remove this modern user-friendly security experience.
+注意：允许用户查看密码或临时查看最后一个字符的目的，是为了提高凭证输入的可用性，尤其是在使用更长的密码、口令和密码管理器时。 包含该要求的另一个原因，是为了防止测试报告不必要地要求组织重写内置平台密码字段的行为，从而保持这种现代用户友好的安全体验。
 
-## V2.2 General Authenticator Security
+## V2.2 通用身份验证器的安全性
 
-Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.
+身份验证器的敏捷性，对于面向未来的应用程序至关重要。 重构应用程序验证器以允许用户根据偏好添加额外的验证器，并允许以有序的方式停用已弃用或不安全的验证器。
 
-NIST considers email and SMS as ["restricted" authenticator types](https://pages.nist.gov/800-63-FAQ/#q-b1), and they are likely to be removed from NIST 800-63 and thus the ASVS at some point the future. Applications should plan a roadmap that does not require the use of email or SMS.
+NIST 将电子邮件和 SMS 视为 [“受限”的身份验证器类型](https://pages.nist.gov/800-63-FAQ/#q-b1)，它们很可能在未来的某个时候从NIST 800-63以及ASVS中删除。 应用程序应计划一个不需要使用电子邮件或短信的路线图。
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.2.1** | Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
-| **2.2.2** | Verify that the use of weak authenticators (such as SMS and email) is limited to secondary verification and transaction approval and not as a replacement for more secure authentication methods. Verify that stronger methods are offered before weak methods, users are aware of the risks, or that proper measures are in place to limit the risks of account compromise. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
-| **2.2.3** | Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification. | ✓ | ✓ | ✓ | 620 | |
-| **2.2.4** | Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or at higher AAL levels, client-side certificates. | | | ✓ | 308 | 5.2.5 |
-| **2.2.5** | Verify that where a Credential Service Provider (CSP) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. | | | ✓ | 319 | 5.2.6 |
-| **2.2.6** | Verify replay resistance through the mandated use of One-time Passwords (OTP) devices, cryptographic authenticators, or lookup codes. | | | ✓ | 308 | 5.2.8 |
-| **2.2.7** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. | | | ✓ | 308 | 5.2.9 |
+| **2.2.1** | 验证反自动化控制的措施能够有效地缓解被泄露的凭证测试、暴力破解和账户锁定攻击。 这些控制措施包括阻止最常见的泄露密码、软锁定、速率限制、验证码、每次尝试后逐渐增加的间隔时间、IP地址限制，或基于风险的限制，例如位置、设备上的首次登录、最近解锁账户的尝试等类似情况。 验证单个帐户每小时的失败尝试次数不超过 100 次。 | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
+| **2.2.2** | 验证弱身份验证器（例如 SMS 和电子邮件）的使用，仅限于二次验证和批准交易，而不是作为更安全的认证方法的替代。 验证是否在弱方法之前提供了更强的方法，用户是否意识到风险，或者是否采取了适当的措施来限制帐户泄露的风险。 | ✓ | ✓ | ✓ | 304 | 5.2.10 |
+| **2.2.3** | 验证在更新认证信息（如凭证重置、电子邮件或地址变更、从未知或风险地点登录）后向用户发送安全通知。 最好使用推送通知——而不是短信或电子邮件，但在没有推送通知的情况下，只要通知中没有披露敏感信息，短信或电子邮件也是可以接受的。 | ✓ | ✓ | ✓ | 620 | |
+| **2.2.4** | 验证对网络钓鱼的抗冒充性，如使用多因素认证、有意图的加密设备（如有推送认证的连接密钥），或在更高的AAL级别，客户端证书。 | | | ✓ | 308 | 5.2.5 |
+| **2.2.5** | 验证当凭证服务提供者（CSP）和验证认证的应用程序分开时，两个端点之间有相互认证的TLS（mTLS）。 | | | ✓ | 319 | 5.2.6 |
+| **2.2.6** | 验证抗重放性，是否通过强制使用一次性密码（OTP）设备、加密认证器或查询代码。 | | | ✓ | 308 | 5.2.8 |
+| **2.2.7** | 通过要求输入OTP令牌或用户发起的动作（如按下FIDO硬件钥匙的按钮）来验证认证意图。 | | | ✓ | 308 | 5.2.9 |
 
-## V2.3 Authenticator Lifecycle
+## V2.3 身份验证器生命周期
 
 Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
 
