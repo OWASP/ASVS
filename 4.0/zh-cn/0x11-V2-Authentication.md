@@ -73,132 +73,136 @@ NIST 将电子邮件和 SMS 视为 [“受限”的身份验证器类型](https:
 
 ## V2.3 身份验证器生命周期
 
-Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
+认证器是密码、软令牌、硬件令牌和生物识别设备。认证器的生命周期对应用程序的安全至关重要——如果任何人都可以在没有身份证明的情况下自行注册一个账户，那么对身份断言的信任就会很低。 对于像Reddit这样的社交媒体网站，这是完全可以的。 对于银行系统来说，更加注重凭证和设备的注册和发放（对应用程序的安全至关重要）。
 
-Note: Passwords are not to have a maximum lifetime or be subject to password rotation. Passwords should be checked for being breached, not regularly replaced.
-
-| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.3.1** | Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers, and expire after a short period of time. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
-| **2.3.2** | Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens. | | ✓ | ✓ | 308 | 6.1.3 |
-| **2.3.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | | ✓ | ✓ | 287 | 6.1.4 |
-
-## V2.4 Credential Storage
-
-Architects and developers should adhere to this section when building or refactoring code. This section can only be fully verified using source code review or through secure unit or integration tests. Penetration testing cannot identify any of these issues.
-
-The list of approved one-way key derivation functions is detailed in NIST 800-63 B section 5.1.1.2, and in [BSI Kryptographische Verfahren: Empfehlungen und Schlussell&auml;ngen (2018)](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile). The latest national or regional algorithm and key length standards can be chosen in place of these choices.
-
-This section cannot be penetration tested, so controls are not marked as L1. However, this section is of vital importance to the security of credentials if they are stolen, so if forking the ASVS for an architecture or coding guideline or source code review checklist, please place these controls back to L1 in your private version.
+注意：密码不要有最长的使用寿命，也不要进行密码轮换。 应检查密码是否已泄露，而不是定期更换。
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.4.1** | Verify that passwords are stored in a form that is resistant to offline attacks. Passwords SHALL be salted and hashed using an approved one-way key derivation or password hashing function. Key derivation and password hashing functions take a password, a salt, and a cost factor as inputs when generating a password hash. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.2** | Verify that the salt is at least 32 bits in length and be chosen arbitrarily to minimize salt value collisions among stored hashes. For each credential, a unique salt value and the resulting hash SHALL be stored. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.3** | Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, typically at least 100,000 iterations. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.4** | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, with a minimum of 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.5** | Verify that an additional iteration of a key derivation function is performed, using a salt value that is secret and known only to the verifier. Generate the salt value using an approved random bit generator [SP 800-90Ar1] and provide at least the minimum security strength specified in the latest revision of SP 800-131A. The secret salt value SHALL be stored separately from the hashed passwords (e.g., in a specialized device like a hardware security module). | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.3.1** | 验证系统生成的初始密码或激活码应该是安全随机生成的，应该至少有6个字符的长度，可以包含字母和数字，并在短时间内过期。这些初始秘密不得被允许成为长期密码。 | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
+| **2.3.2** | 验证是否支持注册和使用用户提供的认证设备，如U2F或FIDO令牌。 | | ✓ | ✓ | 308 | 6.1.3 |
+| **2.3.3** | 验证更新指令的发送时间是否足够，以更新有时间限制的认证器。 | | ✓ | ✓ | 287 | 6.1.4 |
 
-Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
+## V2.4 凭证存储
 
-## V2.5 Credential Recovery
+架构师和开发人员在构建或重构代码时，应遵守本节。本节内容只能使用源代码审查或通过安全单元或集成测试来完全验证。渗透测试不能识别这里面的任何问题。
 
-| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.5.1** | Verify that a system generated initial activation or recovery secret is not sent in clear text to the user. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.2** | Verify password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.3** | Verify password credential recovery does not reveal the current password in any way. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.4** | Verify shared or default accounts are not present (e.g. "root", "admin", or "sa"). | ✓ | ✓ | ✓ | 16 | 5.1.1.2 / A.3 |
-| **2.5.5** | Verify that if an authentication factor is changed or replaced, that the user is notified of this event. | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
-| **2.5.6** | Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.7** | Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | | ✓ | ✓ | 308 | 6.1.2.3 |
+经批准的单向密钥推导功能列表详见NIST 800-63 B第5.1.1.2节，以及 [BSI Kryptographische Verfahren: Empfehlungen und Schlussell&auml;ngen (2018)](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile)。除了上面这些选择，还可以根据最新的国家或地区选择算法和密钥长度标准。
 
-## V2.6 Look-up Secret Verifier
-
-Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
+此部分无法进行渗透测试，因此控制措施未标记为 L1。但是，如果证书被盗，这部分对证书的安全至关重要，因此如果为架构或编码指南或源代码审查清单Fork ASVS，请在您的私有版本中将这些控制措施放回 L1。
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.6.1** | Verify that lookup secrets can be used only once. | | ✓ | ✓ | 308 | 5.1.2.2 |
-| **2.6.2** | Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, salted with a unique and random 32-bit salt and hashed with an approved one-way hash. | | ✓ | ✓ | 330 | 5.1.2.2 |
-| **2.6.3** | Verify that lookup secrets are resistant to offline attacks, such as predictable values. | | ✓ | ✓ | 310 | 5.1.2.2 |
+| **2.4.1** | 验证密码是以一种可以抵抗离线攻击的形式存储的。密码应使用认可的单向密钥推导或密码散列函数进行加盐和散列。密钥推导和密码散列函数，在生成密码散列时，将密码、盐和计算成本作为输入。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.2** | 验证盐的长度至少为32位，并且是任意选择的，以减少存储的哈希值之间的碰撞。对于每个凭证，应存储唯一的盐值和由此产生的哈希值。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.3** | 验证如果使用 PBKDF2，迭代次数应在验证服务器性能允许的范围内，一般至少为100,000次迭代。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.4** | 验证如果使用 bcrypt，工作系数应在验证服务器性能允许的范围内尽量大，最小为10。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.5** | 验证是否执行了密钥派生函数的额外迭代，使用的是只有验证者知道的秘密盐值。使用经批准的随机位生成器 [SP 800-90Ar1] 生成盐值，并至少提供 SP 800-131A 最新修订版中规定的最低安全强度。秘密盐值应与散列密码分开存储（例如，在像硬件安全模块这样的专用设备中）。 | | ✓ | ✓ | 916 | 5.1.1.2 |
 
-## V2.7 Out of Band Verifier
+在提到美国标准时，可以根据需要使用地区或当地标准来代替或补充美国标准。
 
-In the past, a common out of band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out of band verification.
-
-Secure out of band authenticators are physical devices that can communicate with the verifier over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered "something you have". When a user wishes to authenticate, the verifying application sends a message to the out of band authenticator via a connection to the authenticator directly or indirectly through a third party service. The message contains an authentication code (typically a random six digit number or a modal approval dialog). The verifying application waits to receive the authentication code through the primary channel and compares the hash of the received value to the hash of the original authentication code. If they match, the out of band verifier can assume that the user has authenticated.
-
-The ASVS assumes that only a few developers will be developing new out of band authenticators, such as push notifications, and thus the following ASVS controls apply to verifiers, such as authentication API, applications, and single sign-on implementations. If developing a new out of band authenticator, please refer to NIST 800-63B &sect; 5.1.3.1.
-
-Unsafe out of band authenticators such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out of band authentication, please see &sect; 5.1.3.3.
+## V2.5 凭证恢复
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.7.1** | Verify that clear text out of band (NIST "restricted") authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.2** | Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.3** | Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.4** | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
-| **2.7.5** | Verify that the out of band verifier retains only a hashed version of the authentication code. | | ✓ | ✓ | 256 | 5.1.3.2 |
-| **2.7.6** | Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
+| **2.5.1** | 验证系统生成的初始激活或恢复密码，不会以明文形式发送给用户。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.2** | 验证密码提示或基于知识的身份验证（所谓的“密码保护问题”）不存在。 | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.3** | 验证密码凭据恢复不会以任何方式泄露当前密码。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.4** | 验证共享或默认帐户不存在（例如“root”、“admin”或“sa”）. | ✓ | ✓ | ✓ | 16 | 5.1.1.2 / A.3 |
+| **2.5.5** | 验证如果更改或替换了身份验证因素，则用户会收到此事件的通知。 | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
+| **2.5.6** | 验证忘记密码以及其他恢复路径，使用了安全的恢复机制，例如基于时间的OTP（TOTP）或其他软令牌、移动推送或其他离线恢复机制。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.7** | 验证如果OTP或多因素身份验证因素丢失，身份证明的执行水平与注册时相同。 | | ✓ | ✓ | 308 | 6.1.2.3 |
 
-## V2.8 One Time Verifier
+## V2.6 查找密码认证
 
-Single-factor One-time Passwords (OTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. These devices make phishing (impersonation) difficult, but not impossible. This type of authenticator is considered "something you have". Multi-factor tokens are similar to single-factor OTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
-
-| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.8.1** | Verify that time-based OTPs have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.2** | Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
-| **2.8.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of OTPs. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.4** | Verify that time-based OTP can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.5** | Verify that if a time-based multi-factor OTP token is re-used during the validity period, it is logged and rejected with secure notifications being sent to the holder of the device. | | ✓ | ✓ | 287 | 5.1.5.2 |
-| **2.8.6** | Verify physical single-factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | ✓ | ✓ | 613 | 5.2.1 |
-| **2.8.7** | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know. | | o | ✓ | 308 | 5.2.3 |
-
-## V2.9 Cryptographic Verifier
-
-Cryptographic security keys are smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. Verifiers send a challenge nonce to the cryptographic devices or software, and the device or software calculates a response based upon a securely stored cryptographic key.
-
-The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic authenticator proves possession of the authentication factor.
+查找密码（译者注：Look-up secrets，类似于密码保护卡），是预先生成的秘密代码列表，类似于交易授权号码（TAN）、社交媒体恢复代码，或包含一组随机值的网格。 这些被安全地分配给用户。这些 查询代码只使用一次，一旦全部使用，查询的秘密列表就会被丢弃。这种类型的认证器被认为是 “你拥有的东西”。
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.9.1** | Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage. | | ✓ | ✓ | 320 | 5.1.7.2 |
-| **2.9.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | | ✓ | ✓ | 330 | 5.1.7.2 |
-| **2.9.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | | ✓ | ✓ | 327 | 5.1.7.2 |
+| **2.6.1** | 验证查找密文只能使用一次。 | | ✓ | ✓ | 308 | 5.1.2.2 |
+| **2.6.2** | 验证查询秘密有足够的随机性（112位熵），如果少于112位熵，则用唯一的随机32位盐进行加盐，并用认可的单向散列进行散列。 | | ✓ | ✓ | 330 | 5.1.2.2 |
+| **2.6.3** | 验证查找秘密能够抵抗离线攻击，例如可预测的值。 | | ✓ | ✓ | 310 | 5.1.2.2 |
 
-## V2.10 Service Authentication
+## V2.7 带外验证器
 
-This section is not penetration testable, so does not have any L1 requirements. However, if used in an architecture, coding or secure code review, please assume that software (just as Java Key Store) is the minimum requirement at L1. Clear text storage of secrets is not acceptable under any circumstances.
+在过去，常见的带外验证器是包含密码重置链接的电子邮件或短信。攻击者利用这种薄弱的机制来重置他们尚未控制的账户，例如接管一个人的电子邮件账户并重新使用任何发现的重置链接。 处理带外验证有更好的方法。
+
+安全的带外验证器是可以通过安全的二级信道与验证器进行通信的物理设备。 例子包括向移动设备推送通知。这种类型的验证器被认为是 “你拥有的东西”。 当用户希望进行认证时，验证应用程序通过与认证器的连接，直接或间接地通过第三方服务向带外认证器发送一个消息。 该消息包含一个认证代码（通常是一个随机的六位数或一个模式化的批准对话框）。 验证应用程序等待通过主通道接收验证码，并将接收到的值的哈希值与原始验证码的哈希值进行比较。如果它们匹配，则带外验证器可以认为用户已通过身份验证。
+
+ASVS假定只有少数开发者会开发新的带外认证器，如推送通知，因此以下ASVS控制措施适用于验证器，如认证API、应用程序和单点登录实现。 如果开发一个新的带外认证器，请参考 NIST 800-63B &sect; 5.1.3.1。
+
+不安全的带外认证器，如电子邮件和VOIP是不允许的。 PSTN和SMS认证目前受到NIST的 “限制”，应该被弃用，以支持推送通知或类似的方式。 如果你需要使用电话或短信的带外认证，请参见 NIST 800-63B &sect; 5.1.3.3。
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.10.1** | Verify that intra-service secrets do not rely on unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | OS assisted | HSM | 287 | 5.1.1.1 |
-| **2.10.2** | Verify that if passwords are required for service authentication, the service account used is not a default credential. (e.g. root/root or admin/admin are default in some services during installation). | | OS assisted | HSM | 255 | 5.1.1.1 |
-| **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. | | OS assisted | HSM | 522 | 5.1.1.1 |
-| **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | OS assisted | HSM | 798 | |
+| **2.7.1** | 验证默认情况下不提供短信或PSTN等带外的明文认证器，并首先提供推送通知等更强的替代方案。 | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.2** | 验证带外验证器在10分钟后将带外验证请求、代码或令牌过期。 | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.3** | 验证带外验证器身份验证请求、代码或令牌仅可使用一次，并且仅可用于原始身份验证请求。 | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.4** | 验证带外验证器和验证器是否通过安全的独立信道进行通信。 | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
+| **2.7.5** | 验证带外验证器只保留认证代码的散列版本。 | | ✓ | ✓ | 256 | 5.1.3.2 |
+| **2.7.6** | 验证初始验证码是否由安全随机数生成器生成，包含至少 20 位熵（通常为 6 位数字随机数即可）。 | | ✓ | ✓ | 310 | 5.1.3.2 |
 
-## Additional US Agency Requirements
+## V2.8 一次性验证器
 
-US Agencies have mandatory requirements concerning NIST 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications.
+单因素一次性密码（OTP），是显示持续变化的伪随机一次性挑战的物理或软令牌。 这些设备使网络钓鱼（冒充）变得困难，但并非不可能。 这种类型的身份验证器被认为是“你拥有的东西”。 多因素令牌，类似于单因素 OTP，但需要输入有效的 PIN 码、生物识别解锁、USB 插入、NFC 配对或一些附加值（例如交易签名计算器）才能创建最终 OTP。
 
-We strongly urge US government agencies to review and implement NIST 800-63 in its entirety.
+| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **2.8.1** | 验证基于时间的OTP在过期前有确定的使用寿命 | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.2** | 验证用于验证提交的OTP的对称密钥是否被高度保护，例如使用硬件安全模块或基于安全操作系统的密钥存储。 | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
+| **2.8.3** | 验证otp的生成、播种和验证是否使用了经过批准的加密算法。 | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.4** | 验证基于时间的OTP在有效期内只能使用一次。 | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.5** | 验证如果基于时间的多因素OTP令牌在有效期内被重复使用，将被记录并拒绝，同时向设备持有者发送安全通知。 | | ✓ | ✓ | 287 | 5.1.5.2 |
+| **2.8.6** | 验证物理单因素OTP生成器在被盗或其他损失的情况下可以被撤销。确保撤销在登录会话中立即生效，无论在何处。 | | ✓ | ✓ | 613 | 5.2.1 |
+| **2.8.7** | 验证生物特征身份验证器仅限于用作次要因素，与“你拥有的东西”和“你知道的东西”一起使用。 | | o | ✓ | 308 | 5.2.3 |
 
-## Glossary of terms
+## V2.9 密码验证器
 
-| Term | Meaning |
+加密安全密钥是智能卡或FIDO密钥，用户必须将加密设备插入或配对到计算机上才能完成身份验证。验证者立即向加密设备或软件发送挑战随机数，设备或软件根据安全存储的加密密钥计算出响应。
+
+对单因素密码设备和软件的要求，和多因素密码设备和软件的要求是一样的，都是证明密码认证者拥有认证因素。
+
+| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **2.9.1** | 验证用于验证的加密密钥是否安全存储并防止泄露，例如使用可信平台模块（TPM）或硬件安全模块（HSM），或可以使用这种安全存储的操作系统服务。 | | ✓ | ✓ | 320 | 5.1.7.2 |
+| **2.9.2** | 验证质询随机数的长度至少为 64 位，并且在统计学上是唯一的，或在加密设备的生命周期内是唯一的。 | | ✓ | ✓ | 330 | 5.1.7.2 |
+| **2.9.3** | 验证在生成、播种和验证中使用经批准的加密算法。 | | ✓ | ✓ | 327 | 5.1.7.2 |
+
+## V2.10 服务认证
+
+此部分不可渗透测试，因此没有任何 L1 要求。但是，如果用于架构、编码或安全代码审查，请假设软件（就像 Java 密钥库一样）是 L1 的最低要求。 在任何情况下都不允许明文存储秘密。
+
+注：
+- HSM，硬件安全模块（Hardware Security Module）
+- OS assisted，操作系统协助
+
+| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **2.10.1** | 验证服务内机密不依赖于不变的凭据，例如密码、API 密钥或具有特权访问权限的共享帐户。 | | OS assisted | HSM | 287 | 5.1.1.1 |
+| **2.10.2** | 验证如果服务身份验证需要密码，则使用的服务帐户不是默认凭据（例如，root/root 或 admin/admin 是安装过程中某些服务的默认设置）。 | | OS assisted | HSM | 255 | 5.1.1.1 |
+| **2.10.3** | 验证存储的密码是否有足够的保护，以防止离线恢复攻击，包括本地系统访问。 | | OS assisted | HSM | 522 | 5.1.1.1 |
+| **2.10.4** | 验证密码、与数据库和第三方系统的集成、种子和内部机密以及 API 密钥都得到安全管理，不包含在源代码中或存储在源代码存储库中。 这种存储应能抵御离线攻击。建议使用安全的软件密钥存储 (L1)、硬件 TPM 或 HSM (L3) 来存储密码。 | | OS assisted | HSM | 798 | |
+
+## 美国机构的其他要求
+
+美国机构对 NIST 800-63 有强制性要求。 一直以来，应用安全验证标准都是对几乎100%的应用采取80%的控制措施，而不是最后20%的高级控制或那些有限的适用性。 因此，ASVS 是 NIST 800-63 的一个严格的子集，特别是对于 IAL1/2 和 AAL1/2 分类，但不够全面，特别是关于 IAL3/AAL3 分类。
+
+我们强烈敦促美国政府机构全面审查和实施 NIST 800-63。
+
+## 术语表
+
+| 术语 | 含义 |
 | -- | -- |
-| CSP | Credential Service Provider also called an Identity Provider |
-| Authenticator | Code that authenticates a password, token, MFA, federated assertion, and so on. |
-| Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status" |
-| OTP | One-time password |
-| SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card), |
-| MFA | Multi-factor authentication, which includes two or more single factors |
+| CSP | 凭证服务提供者也称为身份提供者 |
+| Authenticator | 验证密码、令牌、MFA、联合断言等的代码。 |
+| Verifier | “通过使用认证协议，验证申请人对一个或两个认证器的拥有和控制，来验证申请人的身份的实体。 为此，验证者可能还需要验证将认证器与用户的标识符联系起来的凭证，并检查其状态” |
+| OTP | 一次性密码 |
+| SFA | 单因素身份验证，例如“您知道的东西”(记忆的秘密、密码、密码短语、pin)，“您的特征“(生物特征识别、指纹、面部扫描)，或“您拥有的东西“(OTP令牌、智能卡等加密设备)， |
+| MFA | 多因素认证，包括两个或多个单因素 |
 
-## References
+## 参考文献
 
-For more information, see also:
+欲了解更多信息，请参见：
 
 * [NIST 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST 800-63 A - Enrollment and Identity Proofing](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63a.pdf)
