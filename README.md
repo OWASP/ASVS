@@ -23,6 +23,10 @@ For information on changes between 4.0.2 and 4.0.3 of the standard, see [this wi
 
 ### Translations
 
+The OWASP Community effort with regards to translations is a best effort. Whilst we do our utmost to ensure the content is valid, from a structural perspective, there is only so much we can do to ensure the translations are correct. We rely on you, the community, to help make the ASVS as usable as possible to all around the globe, and translating the main branch into your language is important to the project.
+
+If you think you can help with translations, or indeed ensuring the current list of translations below are correct, we'd love for you to join the community and make the ASVS amazing for all. 
+
 * v4.0.3
     * [OWASP Application Security Verification Standard 4.0.3 Spanish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-es.pdf) and [other formats](4.0/docs_es). (Thanks to [Carlos Allendes](https://github.com/CarlosAllendes) and [Hans Herrera](https://github.com/hansphp))
 * v4.0.2
