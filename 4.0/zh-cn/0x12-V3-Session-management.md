@@ -25,7 +25,7 @@
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.2.1** | 验证应用程序在用户身份验证时，生成新的会话令牌。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
 | **3.2.2** | 验证会话令牌具有至少 64 位的熵。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
-| **3.2.3** | 验证应用程序仅使用安全方法在浏览器中存储会话令牌，例如适当的 cookie保护（参见第 3.4 节）或 HTML 5 会话存储。 | ✓ | ✓ | ✓ | 539 | 7.1 |
+| **3.2.3** | 验证应用程序仅使用安全方法在浏览器中存储会话令牌，例如适当的 cookie保护(参见第 3.4 节) 或 HTML 5 会话存储。 | ✓ | ✓ | ✓ | 539 | 7.1 |
 | **3.2.4** | 验证会话令牌是使用批准的加密算法生成的。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
 
 会话管理必须使用 TLS 或其他安全传输通道。这在“通信安全”一章中有介绍。
@@ -38,57 +38,57 @@
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.3.1** | Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
-| **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
-| **3.3.3** | Verify that the application gives the option to terminate all other active sessions after a successful password change (including change via password reset/recovery), and that this is effective across the application, federated login (if present), and any relying parties. | | ✓ | ✓ | 613 | |
-| **3.3.4** | Verify that users are able to view and (having re-entered login credentials) log out of any or all currently active sessions and devices. | | ✓ | ✓ | 613 | 7.1 |
+| **3.3.1** | 验证注销和到期是否会使会话令牌无效，以便后退按钮或下游依赖方不会恢复经身份验证过的会话。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.3.2** | 如果认证器允许用户保持登录状态，请验证在活跃使用或空闲一段时间过后，定期进行重新认证 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30天 | 12小时 或 30分钟不活动，可选2FA | 12小时 或 15 分钟不活动，使用2FA | 613 | 7.2 |
+| **3.3.3** | 验证应用程序是否提供了在成功更改密码(包括通过密码重置/恢复) 后终止所有其他活动会话的选项，并且这在应用程序、联合登录(如果存在) 和任何依赖方中都是有效的。 | | ✓ | ✓ | 613 | |
+| **3.3.4** | 验证用户能够查看并(在重新输入登录凭证后) 注销当前的所有活动会话和设备 | | ✓ | ✓ | 613 | 7.1 |
 
-## V3.4 Cookie-based Session Management
-
-| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
-| **3.4.2** | Verify that cookie-based session tokens have the 'HttpOnly' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
-| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.4** | Verify that cookie-based session tokens use the "__Host-" prefix so cookies are only sent to the host that initially set the cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.5** | Verify that if the application is published under a domain name with other applications that set or use session cookies that might disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-
-## V3.5 Token-based Session Management
-
-Token-based session management includes JWT, OAuth, SAML, and API keys. Of these, API keys are known to be weak and should not be used in new code.
+## V3.4 基于 Cookie 的会话管理
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.5.1** | Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
-| **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
-| **3.5.3** | Verify that stateless session tokens use digital signatures, encryption, and other countermeasures to protect against tampering, enveloping, replay, null cipher, and key substitution attacks. | | ✓ | ✓ | 345 | |
+| **3.4.1** | 验证基于 cookie 的会话令牌是否设置了“Secure”属性。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.2** | 验证基于 cookie 的会话令牌是否设置了“HttpOnly”属性。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
+| **3.4.3** | 验证基于cookie的会话令牌是否使用了'SameSite'属性，以限制跨站点请求伪造攻击(CSRF) 的风险。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.4** | 验证基于cookie的会话令牌是否使用“__Host-”前缀，这样cookie只会被发送到最初设置cookie的主机。 | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.5** | 验证如果应用程序在一个域名下发布，而其他应用程序设置或使用会话cookie(这可能会泄露会话cookie) ，则在基于cookie的会话令牌中设置路径属性(Path) ，尽可能使用最精确的路径。 ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 
-## V3.6 Federated Re-authentication
+## V3.5 基于令牌的会话管理
 
-This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
-
-| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.6.1** | Verify that Relying Parties (RPs) specify the maximum authentication time to Credential Service Providers (CSPs) and that CSPs re-authenticate the user if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
-| **3.6.2** | Verify that Credential Service Providers (CSPs) inform Relying Parties (RPs) of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613| 7.2.1 |
-
-## V3.7 Defenses Against Session Management Exploits
-
-There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
-
-### 说明 of the half-open Attack
-
-In early 2018, several financial institutions were compromised using what the attackers called "half-open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack is exploiting a design pattern flaw commonly found in many existing authentication, session management and access control systems.
-
-Attackers start a half-open attack by attempting to lock, reset, or recover a credential. A popular session management design pattern re-uses user profile session objects/models between unauthenticated, half-authenticated (password resets, forgot username), and fully authenticated code. This design pattern populates a valid session object or token containing the victim's profile, including password hashes and roles. If access control checks in controllers or routers does not correctly verify that the user is fully logged in, the attacker will be able to act as the user. Attacks could include changing the user's password to a known value, update the email address to perform a valid password reset, disable multi-factor authentication or enroll a new MFA device, reveal or change API keys, and so on.
+基于令牌的会话管理包括JWT、OAuth、SAML和API密钥。其中，API密钥公认较弱，不应该在新代码中使用。
 
 | # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.7.1** | Verify the application ensures a full, valid login session or requires re-authentication or secondary verification before allowing any sensitive transactions or account modifications. | ✓ | ✓ | ✓ | 306 | |
+| **3.5.1** | 验证该应用允许用户撤销与链接应用建立信任关系的OAuth令牌。 | | ✓ | ✓ | 290 | 7.1.2 |
+| **3.5.2** | 验证应用程序使用会话令牌，而不是静态API密码或密钥，旧的实现除外。 | | ✓ | ✓ | 798 | |
+| **3.5.3** | 验证无状态会话令牌是否使用数字签名、加密等对策，来防止篡改、封装、重放、空密码和密钥替换等攻击。 | | ✓ | ✓ | 345 | |
 
-## References
+## V3.6 联合重认证
 
-For more information, see also:
+本节与那些编写依赖方 (RP) 或凭证服务提供商 (CSP) 代码的人员有关。如果依赖于实现这些功能的代码，请确保正确处理这些问题。
+
+| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **3.6.1** | 验证依赖方 (RP) 是否指定了凭证服务提供商 (CSP) 的最长身份验证时间，并且如果用户在该期间内未使用会话，CSP是否会重新验证用户。 | | | ✓ | 613 | 7.2.1 |
+| **3.6.2** | 验证凭证服务提供商 (CSP) 通知依赖方 (RP)最后一次认证事件，以便 RP 确定他们是否需要重新认证用户。 | | | ✓ | 613| 7.2.1 |
+
+## V3.7 针对会话管理漏洞的防御措施
+
+已知的一些会话管理漏洞，与会话的用户体验 (UX) 相关。以前，根据 ISO 27002 要求，ASVS 需要阻止多个并发会话。 现在，阻止并发会话已不再合适，不仅因为现代用户有许多设备，或者应用程序是没有浏览器会话的 API，还因为在大多数这些实现中，最后一个身份验证者获胜，这通常是攻击者。本小节提供了使用代码阻止、延迟和检测会话管理攻击的主要指导。
+
+### 半开放攻击的描述
+
+在2018年初，一些金融机构遭到了攻击者所谓的“半开放攻击”（half-open attacks）。这个术语在行业中一直存在。攻击者以不同的专有代码库攻击了多家机构，实际上，在同一个机构中似乎也有不同的代码库。这种“半开放攻击”利用了许多现有认证、会话管理和访问控制系统中常见的设计模式缺陷。
+
+攻击者通过试图锁定、重置或恢复一个凭证来开始半开放攻击。流行的会话管理设计模式，在未认证、半认证（密码重置、忘记用户名）和完全认证的代码之间，重用用户配置文件会话对象/模型。 这种设计模式会填充一个有效的会话对象或令牌，其中包含受害者的个人资料，包括密码哈希值和角色。如果访问控制检查在控制器或路由器没有正确验证用户是完全登录，攻击者将能够冒充用户。攻击手段可能包括：将用户的密码更改为已知值、更新电子邮件地址以执行有效的密码重置、禁用多因素身份验证或注册新的MFA设备、暴露或更改API密钥等。
+
+| # | 说明 | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| **3.7.1** | 在允许任何敏感交易或帐户修改之前，验证应用程序确保完整、有效的登录会话，或要求重新验证（二次验证）。 | ✓ | ✓ | ✓ | 306 | |
+
+## 参考文献
+
+欲了解更多信息，请参见：
 
 * [OWASP Testing Guide 4.0: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/README.html)
 * [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
