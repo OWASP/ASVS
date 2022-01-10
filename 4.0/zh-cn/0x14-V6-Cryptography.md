@@ -54,7 +54,7 @@
 | **6.4.1** | 验证秘密管理解决方案，如钥匙库，用于安全地创建、存储、控制对秘密的访问和销毁。 ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 798 |
 | **6.4.2** | 验证密钥材料是否未暴露给应用程序，而是使用一个隔离的安全模块（如保险库）进行加密操作。 ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 320 |
 
-## 引用
+## 参考文献
 
 有关更多信息，请参阅：
 
