@@ -28,6 +28,6 @@
 有关更多信息，请参阅：
 
 * [OWASP Web Security Testing Guide 4.1: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README.html)
-* Anti-automation can be achieved in many ways, including the use of [OWASP AppSensor](https://github.com/jtmelton/appsensor) and [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
-* [OWASP AppSensor](https://github.com/jtmelton/appsensor) can also help with Attack Detection and Response.
+* 反自动化可以通过多种方式实现，包括使用 [OWASP AppSensor](https://github.com/jtmelton/appsensor) 和 [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
+* [OWASP AppSensor](https://github.com/jtmelton/appsensor) 也可以帮助进行攻击检测和响应。
 * [OWASP Cornucopia](https://owasp.org/www-project-cornucopia/)
