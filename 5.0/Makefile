@@ -6,9 +6,7 @@ TEMPLATEDIR=templates
 SOURCES = $(SOURCEDIR)/*.md
 TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
 TARGETNAME=OWASP Application Security Verification Standard 5.x
-#EXPORT_JSON_TOOL=$(TOOLSDIR)/generate-json.py
 EXPORT_TOOL=$(TOOLSDIR)/export.py
-#EXPORT_CSV_TOOL=$(TOOLSDIR)/generate-csv.py
 
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
