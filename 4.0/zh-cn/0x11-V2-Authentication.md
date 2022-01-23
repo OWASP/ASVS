@@ -202,7 +202,7 @@ ASVS假定只有少数开发者会开发新的带外认证器，如推送通知�
 
 ## 参考文献
 
-欲了解更多信息，请参见：
+有关更多信息，请参阅：
 
 * [NIST 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST 800-63 A - Enrollment and Identity Proofing](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63a.pdf)
