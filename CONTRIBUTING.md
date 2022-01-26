@@ -95,6 +95,7 @@ If you are interested in creating a translation, here are some pointers for how 
     * v4.0.3
         * Spanish
         * Arabic (in-progress)
+        * Simplified Chinese (in-progress)
     * v4.0.2
         * German
         * Russian (complete but v4.0.3 is in-progress)
