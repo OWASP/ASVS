@@ -46,6 +46,6 @@
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
 * [OWASP - Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
-* Notes on “Approved modes of TLS”:
-    * In the past, the ASVS referred to the US standard FIPS 140-2, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply.
-    * A better method of achieving compliance with section 9.1 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up to date TLS evaluation tools to obtain a desired level of security.
+* 关于 “TLS的批准模式“ 的说明:
+    * 在过去，ASVS提到了美国标准FIPS 140-2，但作为一个全球标准美国标准的应用可能充满困难、矛盾或混乱。
+    * 实现第9.1节的更好方法是审查指南，如 [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/)，并使用已知最新的TLS评估工具来获得所需的安全等级。
