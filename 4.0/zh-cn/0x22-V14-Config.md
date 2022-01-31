@@ -44,7 +44,7 @@
 
 ## V14.3 意外安全泄露
 
-应加强生产配置以防止常见攻击，例如调试控制台，提高跨站点脚本 (XSS) 和远程文件包含 (RFI) 攻击的门槛，并消除琐碎的信息发现“漏洞”，这是许多渗透测试报告中不受欢迎的标志。 其中许多问题很少被评为重大风险，但它们可跟其他漏洞联系在一起。如果这些问题在默认情况下不存在，那就提高了大多数攻击的门槛。
+应加强生产配置以防止常见攻击，例如调试控制台，提高跨站点脚本（XSS）和远程文件包含（RFI）攻击的门槛，并消除琐碎的信息发现“漏洞”，这是许多渗透测试报告中不受欢迎的标志。 其中许多问题很少被评为重大风险，但它们可跟其他漏洞联系在一起。如果这些问题在默认情况下不存在，那就提高了大多数攻击的门槛。
 
 | # | 描述 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -58,9 +58,9 @@
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.4.1** | 验证每个HTTP响应都包含一个 Content-Type 头。如果内容类型是 text/* 、 /+xml 和 application/xml ，还要指定一个安全的字符集（如UTF-8，ISO-8859-1）。内容必须与提供的Content-Type头相匹配。 | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | 验证所有 API 响应是否包含 Content-Disposition: attachment; filename="api.json" 标头（或内容类型的其他适当文件名）。 | ✓ | ✓ | ✓ | 116 |
-| **14.4.3** | 验证内容安全策略 (CSP) 响应标头是否到位，有助于减轻对 HTML、DOM、JSON 和 JavaScript 注入漏洞等 XSS 攻击的影响。 | ✓ | ✓ | ✓ | 1021 |
+| **14.4.3** | 验证内容安全策略（CSP）响应标头是否到位，有助于减轻对 HTML、DOM、JSON 和 JavaScript 注入漏洞等 XSS 攻击的影响。 | ✓ | ✓ | ✓ | 1021 |
 | **14.4.4** | 验证所有响应是否包含 X-Content-Type-Options: nosniff 标头。 | ✓ | ✓ | ✓ | 116 |
-| **14.4.5** | 验证所有响应和所有子域中是否包含 Strict-Transport-Security 标头，例如 Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
+| **14.4.5** | 验证所有响应和所有子域中是否包含 Strict-Transport-Security 标头，例如 Strict-Transport-Security: max-age=15724800; includeSubdomains。 | ✓ | ✓ | ✓ | 523 |
 | **14.4.6** | 验证是否包含合适的 Referrer-Policy 标头，以避免通过 Referer 标头将 URL 中的敏感信息暴露给不受信任的各方。 | ✓ | ✓ | ✓ | 116 |
 | **14.4.7** | 验证网络应用程序的内容在默认情况下不能被嵌入第三方网站，只有在必要时，才允许使用合适的Content-Security-Policy: frame-ancestors和X-Frame-Options响应头嵌入确切的资源。 | ✓ | ✓ | ✓ | 1021 |
 
@@ -70,14 +70,14 @@
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.5.1** | 验证应用服务器只接受应用/API使用的HTTP方法，包括预检请求的OPTIONS，并对使应用上下文无效的请求进行记录/警告。 | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | 验证提供的 Origin 标头是否不用于身份验证或访问控制决策，因为 Origin 标头很容易被攻击者更改。 | ✓ | ✓ | ✓ | 346 |
-| **14.5.3** | 验证跨域资源共享 (CORS) 的 Access-Control-Allow-Origin 标头是否使用受信任域和子域的严格白名单匹配。并且不支持“null”源。 | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | 验证跨域资源共享（CORS）的 Access-Control-Allow-Origin 标头是否使用受信任域和子域的严格白名单匹配。并且不支持'null'源。 | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | 验证由受信任的代理或 SSO 设备添加的 HTTP 标头（例如bearer令牌）是否已通过应用程序的身份验证。 | | ✓ | ✓ | 306 |
 
 ## 参考文献
 
 有关更多信息，请参阅：
 
-* [OWASP Web Security Testing Guide 4.1: Testing for HTTP Verb Tampering]( https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
+* [OWASP Web Security Testing Guide 4.1: Testing for HTTP Verb Tampering](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
 * 将 Content-Disposition 添加到 API 响应，有助于防止许多基于客户端和服务器之间的MIME类型误解的攻击，并且“filename”选项特别有助于防止 [Reflected File Download attacks.](https://www.blackhat.com/docs/eu-14/materials/eu-14-Hafif-Reflected-File-Download-A-New-Web-Attack-Vector.pdf)
 * [Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 * [Exploiting CORS misconfiguration for BitCoins and Bounties](https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)

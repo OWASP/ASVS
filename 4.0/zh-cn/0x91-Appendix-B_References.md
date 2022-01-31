@@ -37,6 +37,6 @@
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE 常见弱点列举: [https://cwe.mitre.org/](https://cwe.mitre.org/)
 3. PCI 安全标准委员会: [https://www.pcisecuritystandards.org](https://www.pcisecuritystandards.org)
-4. PCI 数据安全标准 (DSS) v3.2.1 要求和安全评估程序：[https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf)
+4. PCI 数据安全标准（DSS）v3.2.1 要求和安全评估程序：[https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf)
 5. PCI 软件安全框架 - 安全软件要求和评估程序： [https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf)
-6. PCI 安全软件生命周期 (Secure SLC) 要求和评估程序： [https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)
+6. PCI 安全软件生命周期（Secure SLC）要求和评估程序： [https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)
