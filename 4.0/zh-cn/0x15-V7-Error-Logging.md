@@ -51,7 +51,7 @@ V7.2 涵盖了 OWASP Top 10 2017:A10. 由于 2017:A10 和本节不可通过渗�
 | # | 描述 | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **7.3.1** | 验证所有日志组件是否对数据进行了适当的编码，以防止日志注入。 ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
-| **7.3.2** | [删除，与7.3.1重复] | | | | |
+| **7.3.2** | [已删除，与 7.3.1 重复] | | | | |
 | **7.3.3** | 验证安全日志是否受到保护，防止未授权的访问或修改。 ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 200 |
 | **7.3.4** | 验证时间源是否同步到正确的时间和时区。如果系统是全球性的，强烈考虑只用UTC来记录，以协助事件后的取证分析。 ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
