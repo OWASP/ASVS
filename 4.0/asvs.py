@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
 ''' ASVS document parser and converter class.
 
     Based upon code written for MASVS By Bernhard Mueller
@@ -33,7 +33,7 @@ import json
 from xml.sax.saxutils import escape
 import csv
 import dicttoxml
-
+import xml.etree.ElementTree as ET
 try:
     from StringIO import StringIO
 except ImportError:
@@ -49,15 +49,20 @@ class ASVS:
         "provides a basis for testing web application technical security controls and also " \
         "provides developers with a list of requirements for secure development."
 
-    asvs_flat = []
+    asvs_flat = {}
     asvs_flat2 = {}
+    asvs_flat['requirements'] = []
     asvs_flat2['requirements'] = []
+    language = ''
 
-    def __init__(self, language):    
+    def __init__(self, language_in):    
         
-        regex = re.compile('Version (([\d.]+){3})')
+        self.language = language_in
+        prefix_char1, prefix_char2, prefix_char1_b = self.get_prefix()
 
-        for line in open(os.path.join(language, "0x01-Frontispiece.md"), encoding="utf8"):
+        regex = re.compile('Version (([\d.]+){3})')
+        
+        for line in open(os.path.join(self.language, "0x01-Frontispiece.md"), encoding="utf8"):
             m = re.search(regex, line)
             if m:
                 self.asvs['Version'] = m.group(1)
@@ -65,7 +70,7 @@ class ASVS:
 
         regex = re.compile('## About the Standard\n\n(.*)')
 
-        with open(os.path.join(language, "0x01-Frontispiece.md"), encoding="utf8") as content:
+        with open(os.path.join(self.language, "0x01-Frontispiece.md"), encoding="utf8") as content:
             m = re.search(regex, content.read())
             if m:
                 self.asvs['Description'] = m.group(1)
@@ -73,10 +78,10 @@ class ASVS:
         self.asvs['Requirements'] = chapters = []
 
     
-        for file in os.listdir(language):
+        for file in os.listdir(self.language):
 
             if re.match("0x\d{2}-V", file):
-                chapter = {};
+                chapter = {}
                 chapter['Shortcode'] = ""
                 chapter['Ordinal'] = ""
                 chapter['ShortName'] = ""
@@ -92,41 +97,48 @@ class ASVS:
                 regex = re.compile('0x\d{2}-(V([0-9]{1,3}))-(\w[^-.]*)')
                 m = re.search(regex, file)
                 if m:
-                    chapter = {};
-                    chapter['Shortcode'] = m.group(1)
+                    chapter = {}
+                    chapter['Shortcode'] = m.group(1).replace('V', prefix_char1)
                     chapter['Ordinal'] = int(m.group(2))
                     chapter['ShortName'] = m.group(3)
                     chapter['Name'] = ""
                     chapter['Items'] = []
 
                     section = {}
-                    section['Shortcode'] = m.group(1)
+                    section['Shortcode'] = m.group(1).replace('V', prefix_char1)
                     section['Ordinal'] = int(m.group(2))
                     section['Name'] = m.group(3)
                     section['Items'] = []
 
                     chapters.append(chapter)
 
-                for line in open(os.path.join(language, file), encoding="utf8"):
-                    regex = re.compile('# (V([0-9]{1,2})): ([\w\s][^\n]*)')
+                for line in open(os.path.join(self.language, file), encoding="utf8"):
+                    regex = re.compile("^#\s(" + prefix_char1 + "([0-9]{1,2})" + prefix_char1_b + ")\s([\w\s][^\n]*)")
+                    
+                    #if line.startswith('# '):
+                    #    print(line)
                     m = re.search(regex, line)
                     if m:
                         chapter['Name'] = m.group(3)
 
 
-                    regex = re.compile('## (V[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)')
+                    regex = re.compile("## (" + prefix_char2 + "[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)")
                     m = re.search(regex, line)
                     if m:
                         section = {}
                         section['Shortcode'] = m.group(1)
                         section['Ordinal'] = int(m.group(2))
+                        
+                        if self.language == 'ar':
+                            section['Ordinal'] = int(m.group(1).split('.')[0].replace(prefix_char2, ''))
+                        
                         section['Name'] = m.group(3)
                         section['Items'] = []
 
                         chapter['Items'].append(section)
 
-                    regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|([\w\d,\. ✓]*)"\
-                        "\|([\w\d,\. ✓]*)\|([\w\d,\. ✓]*)\|([0-9,\s]*)\|([A-Z0-9/\s,.]*)\|{0,1}")
+                    regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|(.*?)\|"\
+                                        "(.*?)\|(.*?)\|([0-9,\s]*)\|([A-Z0-9/\s,.]*)\|{0,1}")
                     m = re.search(regex, line)
                     if m:
                     
@@ -138,8 +150,11 @@ class ASVS:
                         req_flat['section_name'] = section['Name']
                         
                         req = {}
-                        req_flat2['Item'] = req_flat['req_id'] = req['Shortcode'] = "V" + m.group(1)
-                        req['Ordinal'] = int(m.group(1).rsplit('.', 1)[1])
+                        req_flat2['Item'] = req_flat['req_id'] = req['Shortcode'] = prefix_char2 + m.group(1)
+                        req['Ordinal'] = int(m.group(1).split('.')[0])
+                        if self.language == 'ar':
+                            req['Ordinal'] = int(m.group(1).split('.')[0])
+
                         req_flat2['Description'] = req_flat['req_description'] = req['Description'] = m.group(2)
 
                         level1 = {}
@@ -157,9 +172,9 @@ class ASVS:
                         level3['Required'] = m.group(5).strip() != ''
                         req_flat2['L3'] = ('X' if level3['Required'] else '')
 
-                        level1['Requirement'] = ("Optional" if m.group(3).strip('✓ ') == "o" else m.group(3).strip('✓ '))
-                        level2['Requirement'] = ("Optional" if m.group(4).strip('✓ ') == "o" else m.group(4).strip('✓ '))
-                        level3['Requirement'] = ("Optional" if m.group(5).strip('✓ ') == "o" else m.group(5).strip('✓ '))
+                        level1['Requirement'] = ("Optional" if m.group(3).strip('✓ ') == "o" else m.group(3).strip(' '))
+                        level2['Requirement'] = ("Optional" if m.group(4).strip('✓ ') == "o" else m.group(4).strip(' '))
+                        level3['Requirement'] = ("Optional" if m.group(5).strip('✓ ') == "o" else m.group(5).strip(' '))
 
                         req['L1'] = level1
                         req['L2'] = level2
@@ -171,16 +186,28 @@ class ASVS:
                         req_flat2['NIST'] = req_flat['nist'] = m.group(7).strip()
                         
                         section['Items'].append(req)
-                        self.asvs_flat.append(req_flat)
+                        self.asvs_flat['requirements'].append(req_flat)
                         self.asvs_flat2['requirements'].append(req_flat2)
+
+    def get_prefix(self):
+        prefix_char1 = prefix_char2 = 'V'
+        prefix_char1_b = ''
+        if self.language == 'ar':
+            prefix_char1 = 'ت'
+            prefix_char1_b = ':'
+            prefix_char2 = 'ق'
+
+        
+
+        return prefix_char1, prefix_char2, prefix_char1_b
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
-        return json.dumps(self.asvs, indent = 2, sort_keys = False).strip()
+        return json.dumps(self.asvs, indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
     def to_json_flat(self):
         ''' Returns a JSON-formatted string which is flattened and simpler '''
-        return json.dumps(self.asvs_flat2, indent = 2, sort_keys = False).strip()
+        return json.dumps(self.asvs_flat, indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
     def to_xmlOLD(self):
         ''' Returns XML '''
@@ -200,6 +227,79 @@ class ASVS:
 
         writer = csv.DictWriter(si, ['chapter_id', 'chapter_name', 'section_id', 'section_name', 'req_id', 'req_description', 'level1', 'level2', 'level3', 'cwe', 'nist'])
         writer.writeheader()
-        writer.writerows(self.asvs_flat)
+        writer.writerows(self.asvs_flat['requirements'])
 
         return si.getvalue()
+
+    def dict_increment(self, dict_obj, dict_key):
+        if dict_key not in dict_obj:
+            dict_obj[dict_key] = 0
+        
+        dict_obj[dict_key] += 1
+
+        return dict_obj
+    
+    def summary_total(self, summary):
+        total = 0
+        for chapter in summary:
+            total += summary[chapter]
+        
+        return total
+
+    def summary_string(self, format, summary):
+        return f'Language: {self.language}. Format: {format}. Total: {self.summary_total(summary)}. Details: {summary}\n'
+
+
+    def verify_csv(self, csv):
+        
+        prefix_char1, null, null = self.get_prefix()
+
+        print(prefix_char1)
+
+        summary = {}
+        for line in csv.splitlines():
+            if 'chapter_id,chapter_name' not in line:
+                summary = self.dict_increment(summary, line.split(',')[0].replace(prefix_char1,''))
+
+        return self.summary_string('csv', summary)
+
+    def verify_json_flat(self, json_flat):
+        prefix_char1, null, null = self.get_prefix()
+        data = json.loads(json_flat)
+        summary = {}
+        for req in data['requirements']:
+            summary = self.dict_increment(summary, req['chapter_id'].replace(prefix_char1,''))
+
+        return self.summary_string('json_flat', summary)
+
+    def verify_json(self, json_reg):
+        prefix_char1, null, null = self.get_prefix()
+        data = json.loads(json_reg)
+        summary = {}
+        for req in data['Requirements']:
+            for ite1 in req['Items']:
+                for ite2 in ite1['Items']:
+                    summary = self.dict_increment(summary, req['Shortcode'].replace(prefix_char1,''))
+
+        return self.summary_string('json', summary)
+
+
+    def verify_xml(self, xml_string):
+        prefix_char1, null, null = self.get_prefix()
+        data = ET.fromstring(xml_string)
+        summary = {}
+        scode = ''
+        for req in data.iter():
+            if req.tag == 'Requirements':
+                for el_item in req:
+                    for el_item_sub in el_item:
+                        if el_item_sub.tag == 'Shortcode':
+                            scode = el_item_sub.text
+                        if el_item_sub.tag == 'Items':
+                            for el_Items in el_item_sub:
+                                for el_item2_sub in el_Items:
+                                    if el_item2_sub.tag == 'Items':
+                                        for el_Items2 in el_item2_sub:
+                                            summary = self.dict_increment(summary, scode.replace(prefix_char1,''))
+                    
+        return self.summary_string('xml', summary)
