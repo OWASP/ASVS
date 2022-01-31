@@ -58,10 +58,9 @@ class ASVS:
     def __init__(self, language_in):    
         
         self.language = language_in
+        prefix_char1, prefix_char2, prefix_char1_b = self.get_prefix()
 
         regex = re.compile('Version (([\d.]+){3})')
-        
-        prefix_char1, prefix_char2, prefix_char1_b = self.get_prefix()
         
         for line in open(os.path.join(self.language, "0x01-Frontispiece.md"), encoding="utf8"):
             m = re.search(regex, line)
@@ -129,6 +128,7 @@ class ASVS:
                         section = {}
                         section['Shortcode'] = m.group(1)
                         section['Ordinal'] = int(m.group(2))
+                        
                         if self.language == 'ar':
                             section['Ordinal'] = int(m.group(1).split('.')[0].replace(prefix_char2, ''))
                         
