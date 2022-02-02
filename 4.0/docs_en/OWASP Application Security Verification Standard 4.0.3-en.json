@@ -8,7 +8,7 @@
       "Shortcode": "V1",
       "Ordinal": 1,
       "ShortName": "Architecture",
-      "Name": "",
+      "Name": "Architecture, Design and Threat Modeling",
       "Items": [
         {
           "Shortcode": "V1.1",
@@ -978,7 +978,7 @@
       "Shortcode": "V2",
       "Ordinal": 2,
       "ShortName": "Authentication",
-      "Name": "",
+      "Name": "Authentication",
       "Items": [
         {
           "Shortcode": "V2.1",
@@ -2372,7 +2372,7 @@
       "Shortcode": "V3",
       "Ordinal": 3,
       "ShortName": "Session",
-      "Name": "",
+      "Name": "Session Management",
       "Items": [
         {
           "Shortcode": "V3.1",
@@ -2879,7 +2879,7 @@
       "Shortcode": "V4",
       "Ordinal": 4,
       "ShortName": "Access",
-      "Name": "",
+      "Name": "Access control",
       "Items": [
         {
           "Shortcode": "V4.1",
@@ -3116,7 +3116,7 @@
       "Shortcode": "V5",
       "Ordinal": 5,
       "ShortName": "Validation",
-      "Name": "",
+      "Name": "Validation, Sanitization and Encoding",
       "Items": [
         {
           "Shortcode": "V5.1",
@@ -3789,7 +3789,7 @@
       "Shortcode": "V6",
       "Ordinal": 6,
       "ShortName": "Cryptography",
-      "Name": "",
+      "Name": "Stored Cryptography",
       "Items": [
         {
           "Shortcode": "V6.1",
@@ -4161,7 +4161,7 @@
       "Shortcode": "V7",
       "Ordinal": 7,
       "ShortName": "Error",
-      "Name": "",
+      "Name": "Error Handling and Logging",
       "Items": [
         {
           "Shortcode": "V7.1",
@@ -4466,7 +4466,7 @@
       "Shortcode": "V8",
       "Ordinal": 8,
       "ShortName": "Data",
-      "Name": "",
+      "Name": "Data Protection",
       "Items": [
         {
           "Shortcode": "V8.1",
@@ -4852,7 +4852,7 @@
       "Shortcode": "V9",
       "Ordinal": 9,
       "ShortName": "Communications",
-      "Name": "",
+      "Name": "Communications",
       "Items": [
         {
           "Shortcode": "V9.1",
@@ -5042,7 +5042,7 @@
       "Shortcode": "V10",
       "Ordinal": 10,
       "ShortName": "Malicious",
-      "Name": "",
+      "Name": "Malicious Code",
       "Items": [
         {
           "Shortcode": "V10.1",
@@ -5281,7 +5281,7 @@
       "Shortcode": "V11",
       "Ordinal": 11,
       "ShortName": "BusLogic",
-      "Name": "",
+      "Name": "Business Logic",
       "Items": [
         {
           "Shortcode": "V11.1",
@@ -5464,7 +5464,7 @@
       "Shortcode": "V12",
       "Ordinal": 12,
       "ShortName": "Files",
-      "Name": "",
+      "Name": "Files and Resources",
       "Items": [
         {
           "Shortcode": "V12.1",
@@ -5829,7 +5829,7 @@
       "Shortcode": "V13",
       "Ordinal": 13,
       "ShortName": "API",
-      "Name": "",
+      "Name": "API and Web Service",
       "Items": [
         {
           "Shortcode": "V13.1",
@@ -6176,7 +6176,7 @@
       "Shortcode": "V14",
       "Ordinal": 14,
       "ShortName": "Config",
-      "Name": "",
+      "Name": "Configuration",
       "Items": [
         {
           "Shortcode": "V14.1",
