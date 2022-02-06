@@ -1,4 +1,4 @@
-# V5 ت5: التحقق من الصحة Validation والتعقيم Sanitization  والترميز Encoding
+# ت5: التحقق من الصحة Validation والتعقيم Sanitization  والترميز Encoding
 
 ## الهدف من ضوابط الأمان
 
