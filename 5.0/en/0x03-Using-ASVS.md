@@ -72,9 +72,9 @@ If identifiers are used without including the `v<version>` element then they sho
 
 ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
 
-## Other uses for the ASVS
+## Uses for the ASVS
 
-Aside from being used to assess the security of an application, we have identified a number of other potential uses for the ASVS.
+The ASVS can be used to assess the security of an application and this is explored in more depth in the next chapter. However, we have identified a number of other potential uses for the ASVS.
 
 ### As Detailed Security Architecture Guidance
 
