@@ -1,9 +1,10 @@
 # Using the ASVS
 
-ASVS has two main goals:
+ASVS should be useful to anyone trying to:
+* Develop and maintain secure applications.
+* Evaluate the security of applications.
 
-* to help organizations develop and maintain secure applications.
-* to allow security service vendors, security tools vendors, and consumers to align their requirements and offerings.
+
 
 ## Application Security Verification Levels
 
