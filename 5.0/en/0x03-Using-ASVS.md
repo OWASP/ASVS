@@ -4,8 +4,6 @@ ASVS should be useful to anyone trying to:
 * Develop and maintain secure applications.
 * Evaluate the security of applications.
 
-
-
 ## Application Security Verification Levels
 
 The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
