@@ -15,7 +15,8 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.1.1** | Verify the application never reveals session tokens in URL parameters. | ✓ | ✓ | ✓ | 598 | |
+| **3.1.1** | Verify that the application never reveals session tokens in URL parameters. | ✓ | ✓ | ✓ | 598 | |
+| **3.1.1** | Verify that the application performs all session tokens verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 | |
 
 ## V3.2 Session Binding
 
@@ -55,16 +56,16 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 
 ## V3.5 Token-based Session Management
 
-Token-based session management includes JWT, OAuth, SAML, and API keys. Of these, API keys are known to be weak and should not be used in new code.
+Token-based session management includes JWT, OAuth, SAML, and API keys. Of these, API keys are known to be weak and should not be used in new code. JWTs and SAML tokens are examples of stateless session tokens. All checks noted below should be enforced by a trusted, back-end service as noted above.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.5.1** | Verify the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
-| **3.5.2** | Verify the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
+| **3.5.1** | Verify that the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
+| **3.5.2** | Verify that the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
 | **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of digital signatures to protect against tampering. | ✓ | ✓ | ✓ | 345 | |
-| **3.5.4** | [ADDED] Verify expiration of JWTs is checked in the backend service. | ✓ | ✓ | ✓ | 613 | |
-| **3.5.5** | [ADDED] Verify that integrity algorithm validation is being done by the backend service for the JWTs and that only valid algorithm types are enforced by the backend service. | ✓ | ✓ | ✓ | 347 | |
-| **3.5.6** | [ADDED] Verify proper validation of the JWT payload claims are done by the backend service including the issuer, subject, and audience. | ✓ | ✓ | ✓ | 287 | |
+| **3.5.4** | [ADDED] Verify that stateless tokens are checked for expiration before processing them further. | ✓ | ✓ | ✓ | 613 | |
+| **3.5.5** | [ADDED] Verify that the signature of a stateless token is being checked before processing it further and the algorithms is checked against an allow-list. | ✓ | ✓ | ✓ | 347 | |
+| **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
 
 ## V3.6 Federated Re-authentication
 
