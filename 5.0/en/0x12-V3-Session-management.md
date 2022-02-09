@@ -64,8 +64,9 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.2** | Verify that the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
 | **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of digital signatures to protect against tampering. | ✓ | ✓ | ✓ | 345 | |
 | **3.5.4** | [ADDED] Verify that stateless tokens are checked for expiration before processing them further. | ✓ | ✓ | ✓ | 613 | |
-| **3.5.5** | [ADDED] Verify that the signature of a stateless token is being checked before processing it further and the algorithms is checked against an allow-list. | ✓ | ✓ | ✓ | 347 | |
-| **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
+| **3.5.5** | [ADDED] Verify that the signature of a stateless token is being checked before processing it further. | ✓ | ✓ | ✓ | 347 | |
+| **3.5.6** | [ADDED] Verify that only allow-listed signing algorithms are allowed for a stateless token. | ✓ | ✓ | ✓ | 757 | |
+| **3.5.7** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
 
 ## V3.6 Federated Re-authentication
 
