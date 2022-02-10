@@ -13,7 +13,7 @@ BEFORE YOU OPEN AN ISSUE:
 - Please search the issues in case your question has been discussed before.
 - Make sure you are looking at the latest edits at: https://github.com/OWASP/ASVS/tree/master/5.0
 - When you reference requirements, please include them as a link, similarly to this:
-[6.1.2](https://github.com/OWASP/ASVS/blob/master/6.0/en/0x14-V6-Cryptography.md#v61-data-classification)
+[6.1.2](https://github.com/OWASP/ASVS/blob/master/5.0/en/0x14-V6-Cryptography.md#v61-data-classification)
 
 OTHER NOTES:
 - Please do not open a pull request without first opening an associated issue.
