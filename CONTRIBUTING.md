@@ -94,8 +94,8 @@ If you are interested in creating a translation, here are some pointers for how 
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superceeded!):
     * v4.0.3
         * Spanish
-        * Arabic (in-progress)
-        * Simplified Chinese (in-progress)
+        * Simplified Chinese
+        * Arabic
     * v4.0.2
         * German
         * Russian (complete but v4.0.3 is in-progress)
