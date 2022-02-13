@@ -51,13 +51,14 @@ HTTP traffic between internal facing services should also be encrypted, idealy u
 
 ## V9.4 General TLS Security Guidance
 
-Use secure TLS configuration and use up to date tools to review the configuration on a regular basis.
+Use secure TLS configuration and use up to date tools to review the configuration on a regular basis. While usage of wildcard TLS certificates is not inherently secure, but a compromise of a certificate that is deployed across all owned environments (e.g. production, staging, development, test, etc.) may lead to compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible. 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **9.4.1** | [MOVED FROM 9.1.2] Verify using up to date TLS testing tools that only strong cipher suites are enabled, with the strongest cipher suites set as preferred. | ✓ | ✓ | ✓ | 326 |
 | **9.4.2** | [MOVED FROM 9.1.3] Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol should be the preferred option. | ✓ | ✓ | ✓ | 326 |
 | **9.4.3** | [MOVED FROM 9.2.4] Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | | ✓ | ✓ | 299 |
+| **9.4.4** | [ADDED] Verify that TLS wildcard certificates are not used across all deployed environments. If using TLS wildcard certificates cannot be prevented, ensure that unique certificates are deployed in the production environment and non-production environments. | ✓ | ✓ | ✓ | 1008 |
 
 ## References
 
