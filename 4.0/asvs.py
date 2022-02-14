@@ -196,7 +196,7 @@ class ASVS:
         prefix_char1_b = ''
         if self.language == 'ar':
             prefix_char1 = 'ت'
-            prefix_char1_b = ''
+            prefix_char1_b = ':'
             prefix_char2 = 'ق'
 
         
