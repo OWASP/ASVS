@@ -45,6 +45,9 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | **2.1.13** | [ADDED, SPLIT FROM 2.1.10, LEVEL L1 > L2] Verify that the application does not keep a password history. | | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached username/password pairs. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
 
+Possible sources of frequently used passwords for requirement 2.1.7 include:
+* https://github.com/danielmiessler/SecLists/tree/master/Passwords
+* https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere
 
 ## V2.2 General Authenticator Security
 
