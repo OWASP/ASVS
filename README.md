@@ -58,4 +58,4 @@ If identifiers are used without including the `v<version>` element then they sho
 
 ## License
 
-The entire project content is under the **[Creative Commons v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
+The entire project content is under the **[Creative Commons Attribution-Share Alike v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
