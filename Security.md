@@ -27,6 +27,3 @@ Acknowledgments: https://github.com/owasp/asvs/hall-of-fame.md
 
 ## Our keybase address
 Keybase user *jimmanico*
-
-## Hall of Fame
-For those who have discovered security bugs in our scripts!
