@@ -81,9 +81,11 @@ The ASVS can be used to assess the security of an application and this is explor
 
 One of the more common uses for the Application Security Verification Standard is as a resource for security architects. The Sherwood Applied Business Security Architecture (SABSA) is missing a great deal of information that is necessary to complete a thorough application security architecture review. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies.
 
-### As a Replacement for Off-the-shelf Secure Coding Checklists
+### As a Specialized Secure Coding Checklist
 
 Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain-specific way. We encourage this type of forking as long as traceability is maintained so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.
+
+Ideally, every organization should have its own forked ASVS and select tailor-fitted requirements. So if the organization is not using GraphQL, Websockets, or SOAP web service on their applications, they should drop those sections from their forked ASVS. The forking process must start with looking at ASVS level 1 requirements as a baseline for the organization and then gradually move into ASVS level 2 or 3 based on their application's risk level. Organizations must use their forked ASVS as a secure coding checklist for secure application development, preferably with guidance from security engineers or security architects alike. This way, organizations will have a unified and clear secure coding checklist applicable to all development teams.
 
 ### As a Guide for Automated Unit and Integration Tests
 
