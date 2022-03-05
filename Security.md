@@ -1,6 +1,8 @@
-# Security Policy
+# OWASP Application Security Verification Standard (ASVS) Security Policy
 
-Thank you for helping **ASVS** stay secure. If you've identified a security vulnerability, please follow the reporting guidelines below to submit your finding. We aim to reply within **3** days of receiving your finding. If a finding is accepted, we aim to publish a patch within **6** days. If it is declined, we will reply to let you know.
+The ASVS leaders and community take all security bugs seriously. We appreciate your efforts to disclose the issue responsibly, and will make every effort to acknowledge your contributions. To help us with the vulnerability(s) you have identified, it would be great if you could please follow the reporting guidelines below to submit your finding. 
+
+We aim to reply within **3** days of receiving your finding. If a finding is accepted, we aim to publish a patch within **6** days. If it is declined, we will reply to let you know.
 
 ## Reporting Guidelines
 
@@ -20,4 +22,8 @@ At this time, only the following versions of **ASVS** are supported:
 | 5.0.x   | :white_check_mark: |
 | 4.0.x   | :white_check_mark: |
 
+## Our security acknowledgments page
+Acknowledgments: https://github.com/owasp/asvs/hall-of-fame.md
 
+## Our PGP key
+Encryption: https://jimrocks.com/pgp-key.txt
