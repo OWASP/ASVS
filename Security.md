@@ -23,7 +23,7 @@ At this time, only the following versions of **ASVS** are supported:
 | 4.0.x   | :white_check_mark: |
 
 ## Our security acknowledgments page
-Acknowledgments: https://github.com/owasp/asvs/hall-of-fame.md
+Acknowledgments: https://github.com/OWASP/ASVS/blob/master/hall_of-fame.md
 
 ## Our keybase address
 Keybase user *jimmanico*
