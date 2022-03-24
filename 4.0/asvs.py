@@ -151,7 +151,7 @@ class ASVS:
                         
                         req = {}
                         req_flat2['Item'] = req_flat['req_id'] = req['Shortcode'] = prefix_char2 + m.group(1)
-                        req['Ordinal'] = int(m.group(1).split('.')[0])
+                        req['Ordinal'] = int(m.group(1).rsplit('.',1)[1])
                         if self.language == 'ar':
                             req['Ordinal'] = int(m.group(1).split('.')[0])
 
