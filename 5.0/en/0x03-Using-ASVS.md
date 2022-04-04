@@ -73,6 +73,12 @@ If identifiers are used without including the `v<version>` element then they sho
 
 ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
 
+## Forking the ASVS
+
+Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain-specific way. We highly encourage this type of forking as long as traceability is maintained so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.
+
+Ideally, every organization should have its own forked ASVS and select tailor-fitted requirements. So if the organization is not using GraphQL, Websockets, or SOAP web service on their applications, they should drop those sections from their forked ASVS. The forking process must start with looking at ASVS level 1 requirements as a baseline for the organization and then gradually move into ASVS level 2 or 3 based on their application's risk level. Forking the standard can be relevant to multiple use cases such as security testing, secure coding, security architecture, security design review, or any other uses the organization or auditor may see fit. Alternatively, some of the use cases that could be forked are mentioned in the succeeding section. 
+
 ## Uses for the ASVS
 
 The ASVS can be used to assess the security of an application and this is explored in more depth in the next chapter. However, we have identified a number of other potential uses for the ASVS.
@@ -83,9 +89,7 @@ One of the more common uses for the Application Security Verification Standard i
 
 ### As a Specialized Secure Coding Checklist
 
-Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain-specific way. We encourage this type of forking as long as traceability is maintained so that if an app has passed requirement 4.1, this means the same thing for forked copies as the standard as it evolves.
-
-Ideally, every organization should have its own forked ASVS and select tailor-fitted requirements. So if the organization is not using GraphQL, Websockets, or SOAP web service on their applications, they should drop those sections from their forked ASVS. The forking process must start with looking at ASVS level 1 requirements as a baseline for the organization and then gradually move into ASVS level 2 or 3 based on their application's risk level. Organizations must use their forked ASVS as a secure coding checklist for secure application development, preferably with guidance from security engineers or security architects alike. This way, organizations will have a unified and clear secure coding checklist applicable to all development teams.
+The ASVS can be used as a secure coding checklist for secure application development, having security in mind as developers build software. Through this use case, the standard can be applied as a unified and clear secure coding checklist applicable to all development teams as they would have rules and guidelines to prevent security vulnerabilities on a code-level approach. It would make developers to be self-aware of their coding standards and best practices, ensuring safer code in their applications. 
 
 ### As a Guide for Automated Unit and Integration Tests
 
