@@ -4,7 +4,9 @@
 
 Within the ASVS project, we gratefully recognise the following organizations who support the OWASP Application Security Verification Standard project through monetary donations or allowing contributors to spend significant time working on the standard as part of their work with the organization.
 
-We recognise various tiers of support and the amount of time the supporter is recognised depends on the supporter level.
+We recognise various tiers of support and the amount of time the supporter is recognised for depends on the supporter level.
+
+On this page and the project web page, we will display the supporter's logo and link to their website.
 
 ## Supporters through time provision
 
