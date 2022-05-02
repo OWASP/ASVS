@@ -89,7 +89,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing passwords: argon2id, scrypt, bcrypt or PBKDF2. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing the user's password for the application: argon2id, scrypt, bcrypt or PBKDF2. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | [DELETED] | | | | | |
 | **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, with a minimum of 720,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 310,000 iterations using PBKDF2-HMAC-SHA-256, or with a minimum of 120,000 iterations with PBKDF2-HMAC-SHA-512. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.4** | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, with a minimum of 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
