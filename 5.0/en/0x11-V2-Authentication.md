@@ -59,7 +59,7 @@ NIST considers SMS as ["restricted" authenticator types](https://pages.nist.gov/
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.2.1** | Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
 | **2.2.2** | [MODIFIED] Verify that weak authenticators (such as out-of-band authentication using VOIP or email) are not used as authentication methods. Verify that restricted authenticators (those using PSTN to deliver OTPs via phone or SMS) are offered only when alternate stronger methods are also offered and when the service provides information on their security risks to users. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
-| **2.2.3** | [MODIFIED] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 | 6.1.2 |
+| **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 | 6.1.2 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9] Verify that a hardware-based authenticator and an authenticator that provides verifier impersonation resistance against phishing attacks are used, such as a multi-factor cryptographic hardware, or a combination of a single-factor cryptographic hardware and an OTP device. | | | ✓ | 308 | 5.2.5 |
 | **2.2.5** | Verify that where a Credential Service Provider (CSP) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. | | | ✓ | 319 | 5.2.6 |
 | **2.2.6** | Verify replay resistance through the mandated use of One-time Passwords (OTP) devices, cryptographic authenticators, or lookup codes. | | | ✓ | 308 | 5.2.8 |
@@ -76,10 +76,10 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.3.1** | [MODIFIED, MERGED FROM 2.5.1] Verify system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password.  | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
+| **2.3.1** | [MODIFIED, MERGED FROM 2.5.1] Verify system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens. | | ✓ | ✓ | 308 | 6.1.3 |
 | **2.3.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | | ✓ | ✓ | 287 | 6.1.4 |
-| **2.3.4** | [ADDED] System administrators should not be able to change or choose any user's password, but rather only be able to initiate the password reset process for the user. | ✓ | ✓ | ✓ | 620 |  |
+| **2.3.4** | [ADDED] System administrators should not be able to change or choose any user's password, but rather only be able to initiate the password reset process for the user. | ✓ | ✓ | ✓ | 620 | |
 
 
 ## V2.4 Credential Storage
