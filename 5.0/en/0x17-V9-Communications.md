@@ -47,11 +47,11 @@ HTTP traffic between internal facing services should also be encrypted, idealy u
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **9.3.1** | [ADDED] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services, and does not fall back to insecure or unencrypted communications. | | ✓ | ✓ | 319 |
-| **9.3.2** | [MOVED FROM 9.2.1, MODIFIED] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
+| **9.3.2** | [MODIFIED, MOVED FROM 9.2.1] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
 
 ## V9.4 General TLS Security Guidance
 
-Use secure TLS configuration and use up to date tools to review the configuration on a regular basis. While usage of wildcard TLS certificates is not inherently insecure, but a compromise of a certificate that is deployed across all owned environments (e.g. production, staging, development, test, etc.) may lead to compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible. 
+Use secure TLS configuration and use up to date tools to review the configuration on a regular basis. While usage of wildcard TLS certificates is not inherently insecure, but a compromise of a certificate that is deployed across all owned environments (e.g. production, staging, development, test, etc.) may lead to compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
