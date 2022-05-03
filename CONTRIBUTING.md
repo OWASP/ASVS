@@ -1,6 +1,6 @@
 # Contributing
 
-**This document applies during 2021 and may change at a future date.**
+**This document applies during 2022 and may change at a future date.**
 
 <!--
 
@@ -30,9 +30,9 @@ expectation from PR
 
 The current status of the ASVS project is as follows:
 
-> The ASVS project is planning to release a 5.0 version during 2022 which will be a significant modification, similar to the scale of changes which happened during 4.0.
-> 
-> We will try, on a best efforts basis, to address issues and push changes to the "bleeding edge", master branch. For as long as possible, we will make changes to this branch **without altering current numbering** and wherever possible we will push minor, non-breaking changes to a 4.0.3 branch which may or may not be formally released.
+The ASVS project is planning to release a 5.0 version during 2022 which will be a significant modification, similar to the scale of changes which happened during 4.0.
+ 
+We will try, on a best efforts basis, to address issues and push changes to the "bleeding edge" master branch within the 5.0 folder **without altering current numbering** and using tagging ([see below](CONTRIBUTING.md#use-tags-to-describe-the-change)) to make changes clearer. This is in order to make it easier to use this branch on an ongoing basis. However, we will no longer be accepting changes to the 4.0 folder which is now fixed at the 4.0.3 release.
 
 ### How to make changes to the bleeding edge during this period
 
