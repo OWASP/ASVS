@@ -8,7 +8,7 @@ We recognise various tiers of support and the amount of time the supporter is re
 
 On this page and the project web page, we will display the supporter's logo and link to their website.
 
-## Supporters through time provision
+## Maintaining Supporters (through time provision)
 
 Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization. This will be evaluated at the sole discretion of the project leaders. Supporter will be listed 2 years from the end of the time provision.
 
@@ -24,6 +24,6 @@ Organizations who have donated $3,000 or more to the project via OWASP. Supporte
 
 Organizations who have donated $500 or more to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
 
-## Other supporters 
+## Associate supporters 
 
 Organizations who have donated another amount to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
