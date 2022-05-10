@@ -11,7 +11,7 @@ The standard provides a basis for designing, building, and testing technical app
 
 ## Roadmap to ASVS 5.0
 
-We have now published our roadmap for version 5.0 of the ASVS in [this wiki page](https://github.com/OWASP/ASVS/wiki/Roadmap-to-version-5.0).
+We have now published our roadmap and objectives for version 5.0 of the ASVS in [this wiki page](https://github.com/OWASP/ASVS/wiki/Roadmap-to-version-5.0).
 
 ## Latest Stable Version - 4.0.3
 
