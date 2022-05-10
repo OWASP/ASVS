@@ -9,6 +9,10 @@ The standard provides a basis for designing, building, and testing technical app
 
 **Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 4.n branch](CONTRIBUTING.md#translations).**
 
+## Roadmap to ASVS 5.0
+
+We have now published our roadmap for version 5.0 of the ASVS in [this wiki page](https://github.com/OWASP/ASVS/wiki/Roadmap-to-version-5.0).
+
 ## Latest Stable Version - 4.0.3
 
 The latest stable version is version 4.0.3 (dated October 2021), which can be found:
