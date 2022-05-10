@@ -6,7 +6,7 @@ Within the ASVS project, we gratefully recognise the following organizations who
 
 We recognise various tiers of support and the amount of time the supporter is recognised for depends on the supporter level.
 
-On this page and the project web page, we will display the supporter's logo and link to their website.
+On this page and the project web page, we will display the supporter's logo and link to their website and we will publicise via Social Media as well.
 
 ## Maintaining Supporters (through time provision)
 
