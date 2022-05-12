@@ -86,7 +86,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.8.1** | [MODIFIED, MERGED FROM 8.3.4, LEVEL 2 > 1] Verify that all sensitive data created and processed by the application has been identified and classified into protection levels, and ensure that a policy is in place on how to deal with sensitive data. | ✓ | ✓ | ✓ | 213 |
+| **1.8.1** | [MODIFIED, MERGED FROM 8.3.4, LEVEL L2 > L1] Verify that all sensitive data created and processed by the application has been identified and classified into protection levels, and ensure that a policy is in place on how to deal with sensitive data. | ✓ | ✓ | ✓ | 213 |
 | **1.8.2** | Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture. | | ✓ | ✓ | |
 
 ## V1.9 Communications Architecture
