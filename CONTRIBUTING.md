@@ -34,7 +34,15 @@ The ASVS project is planning to release a 5.0 version during 2022 which will be 
  
 We will try, on a best efforts basis, to address issues and push changes to the "bleeding edge" master branch within the 5.0 folder **without altering current numbering** and using tagging ([see below](CONTRIBUTING.md#use-tags-to-describe-the-change)) to make changes clearer. This is in order to make it easier to use this branch on an ongoing basis. However, we will no longer be accepting changes to the 4.0 folder which is now fixed at the 4.0.3 release.
 
+### Before you open a Pull Request
+
+Please do not open a pull request without first opening an associated issue. Please do not open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. For example, [this link](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt) searches for issues (open and closed) related to bcrypt.
+
+If you are comfortable that it has not been previously discussed, you can open an issue. Please try and include the ASVS text you are talking about in the issue to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
+
 ### How to make changes to the bleeding edge during this period
+
+Note that changes should always be made only in the raw .md files and not in the CSV, JSON, XLSX, PDF, DOCX files, etc.
 
 To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. The current bleeding edge working directory can be found here <https://github.com/OWASP/ASVS/tree/master/5.0/en>.
 
