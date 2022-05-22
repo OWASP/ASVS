@@ -7,6 +7,8 @@ The primary aim of the OWASP Application Security Verification Standard (ASVS) P
 
 The standard provides a basis for designing, building, and testing technical application security controls, including architectural concerns, secure development lifecycle, threat modelling, agile security including continuous integration / deployment, serverless, and configuration concerns.
 
+We gratefully recognise the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
+
 **Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 4.n branch](CONTRIBUTING.md#translations).**
 
 ## Latest Stable Version - 4.0.3
