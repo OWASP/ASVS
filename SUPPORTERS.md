@@ -8,6 +8,8 @@ We recognise various tiers of support and the amount of time the supporter is re
 
 On this page and the project web page, we will display the supporter's logo and link to their website and we will publicise via Social Media as well.
 
+If you would like to directly become a Primary, Secondary or Tertiary supporter, you can make a [donation to OWASP](https://owasp.org/donate/) of $1,000 or more and choose to "restrict your gift". Alternatively, when you pay your corporate membership you can choose to [allocate part of your membership fee to the ASVS](https://owasp.org/supporters/benefits#corporate-sponsorship-of-participating-projects-or-chapters) where the allocated amount will govern which level of supporter you become.
+
 ## Maintaining Supporters (through time provision)
 
 Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization. This will be evaluated at the sole discretion of the project leaders. Supporter will be listed 2 years from the end of the time provision.
