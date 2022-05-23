@@ -14,7 +14,7 @@ If you would like to directly become a Primary, Secondary or Tertiary supporter,
 
 Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization. This will be evaluated at the sole discretion of the project leaders. Supporter will be listed 2 years from the end of the time provision.
 
-[<img src="./images/clarifiedlogo.png" height=100>](https://www.https://www.clarifiedsecurity.com/)
+[<img src="./images/clarifiedlogo.png" height=100>](https://www.clarifiedsecurity.com/)
 
 [<img src="./images/bounce.svg" height=100>](https://www.bouncesecurity.com)
 
