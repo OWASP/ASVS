@@ -112,13 +112,11 @@ class ASVS:
 
                     chapters.append(chapter)
 
-
                 for line in open(os.path.join(self.language, file), encoding="utf8"):
                     regex = re.compile("^#\s(" + prefix_char1 + "([0-9]{1,2})" + prefix_char1_b + ")\s([\w\s][^\n]*)")
                     
                     #if line.startswith('# '):
                     #    print(line)
-
                     m = re.search(regex, line)
                     if m:
                         chapter['Name'] = m.group(3)
@@ -153,7 +151,7 @@ class ASVS:
                         
                         req = {}
                         req_flat2['Item'] = req_flat['req_id'] = req['Shortcode'] = prefix_char2 + m.group(1)
-                        req['Ordinal'] = int(m.group(1).split('.')[0])
+                        req['Ordinal'] = int(m.group(1).rsplit('.',1)[1])
                         if self.language == 'ar':
                             req['Ordinal'] = int(m.group(1).split('.')[0])
 
