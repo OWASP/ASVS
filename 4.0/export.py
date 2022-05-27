@@ -34,16 +34,27 @@ from asvs import ASVS
 parser = argparse.ArgumentParser(description='Export the ASVS requirements.')
 parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv'], default='json')
 parser.add_argument('--language', default='en')
+parser.add_argument('--verify-only', default=False)
 
 args = parser.parse_args()
 
 m = ASVS(args.language)
 
-if args.format == "csv":
-    print(m.to_csv())
-elif args.format == "xml":
-    print(m.to_xml())
-elif args.format == "json_flat":
-    print(m.to_json_flat())    
+if args.verify_only:
+    if args.format == "csv":
+        print(m.verify_csv(m.to_csv()))
+    elif args.format == "xml":
+        print(m.verify_xml(m.to_xml()))  
+    elif args.format == "json_flat":
+        print(m.verify_json_flat(m.to_json_flat()))    
+    else:
+        print(m.verify_json(m.to_json()))    
 else:
-    print(m.to_json())
+    if args.format == "csv":
+        print(m.to_csv())
+    elif args.format == "xml":
+        print(m.to_xml())
+    elif args.format == "json_flat":
+        print(m.to_json_flat())    
+    else:
+        print(m.to_json())   
