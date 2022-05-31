@@ -6,7 +6,6 @@ Assurez-vous qu'une application vérifiée satisfait :
 
 * Un environnement de construction sécurisé, reproductible et automatisable.
 * Une gestion des dépendances étroite et une configuration renforcée, de sorte que les composants obsolètes ou non sécurisés ne soient pas inclus dans l'application.
-* Une configuration sécurisée par défaut, de sorte que les administrateurs et les utilisateurs doivent affaiblir la sécurité par défaut.
 
 La configuration de l'application "out of the box" doit être sûre pour être sur Internet, ce qui signifie une configuration "out of the box".
 
@@ -49,7 +48,7 @@ Les configurations de production devraient être renforcées pour se protéger c
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **14.3.1** | Vérifiez que les messages d'erreur du serveur web ou d'application et du cadre sont configurés pour fournir des réponses personnalisées et exploitables par l'utilisateur afin d'éliminer toute divulgation involontaire de sécurité. | ✓ | ✓ | ✓ | 209 |
+| **14.3.1** | [SUPPRIMÉ, DOUBLON AVEC L'EXIGENCE 7.4.1] | | | | |
 | **14.3.2** | Vérifier que les modes de débogage du serveur web ou d'application et du cadre d'application sont désactivés en production afin d'éliminer les fonctionnalités de débogage, les consoles de développement et les divulgations de sécurité non intentionnelles. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Vérifiez que les en-têtes HTTP ou toute partie de la réponse HTTP n'exposent pas d'informations détaillées sur la version des composants du système. | ✓ | ✓ | ✓ | 200 |
 

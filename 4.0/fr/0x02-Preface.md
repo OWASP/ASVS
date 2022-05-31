@@ -2,7 +2,7 @@
 
 Bienvenue dans la version 4.0 du référentiel de vérification de la sécurité des applications (ASVS). L'ASVS est un effort communautaire visant à établir un cadre d'exigences et de contrôles de sécurité qui se concentre sur la définition des contrôles de sécurité fonctionnels et non fonctionnels requis lors de la conception, du développement et du test d'applications et de services web modernes.
 
-La version 4.0.2 est la deuxième mise à jour mineure de la v4.0 destinée à corriger les erreurs d'orthographe et à rendre les exigences plus claires sans modifier les exigences ou ajouter/supprimer des exigences.
+La version 4.0.3 est la troisième mise à jour mineure de la v4.0 destinée à corriger les erreurs d'orthographe et à rendre les exigences plus claires sans modifier les exigences ou ajouter/supprimer des exigences.
 
 L'ASVS v4.0 est l'aboutissement des efforts de la communauté et des réactions de l'industrie au cours de la dernière décennie. Nous avons tenté de faciliter l'adoption de l'ASVS pour une variété de cas d'utilisation différents tout au long du cycle de vie du développement de logiciels sécurisés.
 

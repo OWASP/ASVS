@@ -9,18 +9,22 @@ Assurez-vous qu'une demande vérifiée satisfait aux exigences de haut niveau su
 * Les algorithmes et les chiffres faibles ou bientôt obsolètes sont commandés en dernier recours
 * Les algorithmes et les chiffres non sécurisés, dépréciés ou connus, sont désactivés.
 
-Les principaux conseils de l'industrie sur la configuration sécurisée de TLS changent fréquemment, souvent en raison de ruptures catastrophiques dans les algorithmes et les chiffres existants. Utilisez toujours les versions les plus récentes des outils de révision de la configuration TLS (tels que SSLyze ou d'autres scanners TLS) pour configurer l'ordre et la sélection d'algorithme préférés. La configuration doit être vérifiée périodiquement pour s'assurer que la configuration des communications sécurisées est toujours présente et efficace.
+Dans ces exigences :
+
+* Les principaux conseils de l'industrie sur la configuration sécurisée de TLS changent fréquemment, souvent en raison de ruptures catastrophiques dans les algorithmes et les chiffres existants. Stay current with recommended industry advice on secure TLS configuration, as it changes frequently (often due to catastrophic breaks in existing algorithms and ciphers).Les principaux conseils de l'industrie sur la configuration sécurisée de TLS changent fréquemment, souvent en raison de ruptures catastrophiques dans les algorithmes et les chiffres existants. 
+* Utilisez toujours les versions les plus récentes des outils de révision de la configuration TLS (tels que SSLyze ou d'autres scanners TLS) pour configurer l'ordre et la sélection d'algorithme préférés.
+* La configuration doit être vérifiée périodiquement pour s'assurer que la configuration des communications sécurisées est toujours présente et efficace.
 
 ## V9.1 Exigences de sécurité des communications des clients
 
-Toutes les communications avec les clients ne doivent avoir lieu que sur des voies de communication cryptées. En particulier, l'utilisation de TLS 1.2 ou d'une version ultérieure est pratiquement obligatoire pour les navigateurs et les moteurs de recherche modernes. La configuration doit être régulièrement revue à l'aide d'outils en ligne afin de s'assurer que les dernières pratiques de pointe sont en place.
+Toutes les communications avec les clients ne doivent avoir lieu que sur des voies de communication cryptées. En particulier, l'utilisation de TLS 1.2 ou d'une version ultérieure est pratiquement obligatoire pour les navigateurs et les moteurs de recherche modernes. 
+La configuration doit être régulièrement revue à l'aide d'outils en ligne afin de s'assurer que les dernières pratiques de pointe sont en place.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **9.1.1** | Vérifiez que le TLS sécurisé est utilisé pour toutes les connexions des clients et ne revient pas à des protocoles non sécurisés ou non chiffrés. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 319 |
 | **9.1.2** | Vérifiez à l'aide d'outils de test TLS en ligne ou actualisés que seuls les algorithmes, les chiffrages et les protocoles puissants sont activés, les algorithmes et les chiffrages les plus puissants étant définis de préférence. | ✓ | ✓ | ✓ | 326 |
 | **9.1.3** | Vérifiez que les anciennes versions des protocoles SSL et TLS, des algorithmes, des chiffres et de la configuration sont désactivées, comme SSLv2, SSLv3, ou TLS 1.0 et TLS 1.1. La dernière version de TLS doit être la suite de chiffrement préférée. | ✓ | ✓ | ✓ | 326 |
-| **9.1.4** | Pour les applications de client lourd, vérifiez que l'application utilise son propre magasin de certificats, ou qu'elle épingle le certificat ou la clé publique du terminal, et qu'elle n'établira pas de connexion avec des terminaux qui offrent un certificat ou une clé différente, même si elle est signée par une AC de confiance. | | | ✓ | 295 |
 
 ## V9.2 Exigences de sécurité des communications du serveur
 
@@ -40,4 +44,6 @@ Pour plus d'informations, voir aussi :
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
 * [OWASP - Pinning Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Pinning_Cheat_Sheet.html)
-* Remarques sur les « modes approuvés de TLS ». Dans le passé, l'ASVS faisait référence à la norme américaine FIPS 140-2, mais en tant que norme mondiale, l'application des normes américaines peut être difficile, contradictoire ou déroutante à appliquer. Une meilleure méthode pour atteindre la conformité avec 9.1.3 consisterait à examiner des guides tels que [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) ou  [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), et utiliser des outils d'évaluation TLS connus, tels que sslyze, divers scanners de vulnérabilité ou des services d'évaluation TLS en ligne fiables pour obtenir le niveau de sécurité souhaité. En général, nous constatons que la non-conformité de cette section est l'utilisation de chiffrements et d'algorithmes obsolètes ou non sécurisés, le manque de secret de transmission parfait, les protocoles SSL obsolètes ou non sécurisés, les chiffrements préférés faibles, etc.
+* Remarques sur les « modes approuvés de TLS ». 
+    * Dans le passé, l'ASVS faisait référence à la norme américaine FIPS 140-2, mais en tant que norme mondiale, l'application des normes américaines peut être difficile, contradictoire ou déroutante à appliquer. 
+    * Une meilleure méthode pour atteindre la conformité avec 9.1.3 consisterait à examiner des guides tels que [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) ou  [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), et utiliser des outils d'évaluation TLS connus, tels que sslyze, divers scanners de vulnérabilité ou des services d'évaluation TLS en ligne fiables pour obtenir le niveau de sécurité souhaité. En général, nous constatons que la non-conformité de cette section est l'utilisation de chiffrements et d'algorithmes obsolètes ou non sécurisés, le manque de secret de transmission parfait, les protocoles SSL obsolètes ou non sécurisés, les chiffrements préférés faibles, etc.
