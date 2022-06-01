@@ -1,4 +1,4 @@
-# V3 : Exigences de vérification de la gestion des sessions
+# V3 Exigences de vérification de la gestion des sessions
 
 ## Objectif de contrôle
 

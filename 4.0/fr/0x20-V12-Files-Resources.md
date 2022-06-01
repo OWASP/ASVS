@@ -1,4 +1,4 @@
-# V12 : Exigences de vérification des dossiers et des ressources
+# V12 Exigences de vérification des dossiers et des ressources
 
 ## Objectif de contrôle
 

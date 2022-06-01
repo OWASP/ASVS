@@ -1,4 +1,4 @@
-# V5 : Exigences de validation, d'assainissement et de vérification de l'encodage
+# V5 Exigences de validation, d'assainissement et de vérification de l'encodage
 
 ## Objectif de contrôle
 
