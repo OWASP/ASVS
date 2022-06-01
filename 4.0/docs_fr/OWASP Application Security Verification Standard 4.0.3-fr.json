@@ -8,7 +8,7 @@
       "Shortcode": "V2",
       "Ordinal": 2,
       "ShortName": "Authentication",
-      "Name": "",
+      "Name": "Authentification",
       "Items": [
         {
           "Shortcode": "V2.1",
@@ -1402,7 +1402,7 @@
       "Shortcode": "V13",
       "Ordinal": 13,
       "ShortName": "API",
-      "Name": "",
+      "Name": "Exigences de vérification des API et des services Web",
       "Items": [
         {
           "Shortcode": "V13.1",
@@ -1749,7 +1749,7 @@
       "Shortcode": "V1",
       "Ordinal": 1,
       "ShortName": "Architecture",
-      "Name": "",
+      "Name": "Architecture, conception et exigences en matière de modélisation des menaces",
       "Items": [
         {
           "Shortcode": "V1.1",
@@ -2721,7 +2721,7 @@
       "Shortcode": "V9",
       "Ordinal": 9,
       "ShortName": "Communications",
-      "Name": "",
+      "Name": "Exigences de vérification des communications",
       "Items": [
         {
           "Shortcode": "V9.1",
@@ -2911,7 +2911,7 @@
       "Shortcode": "V6",
       "Ordinal": 6,
       "ShortName": "Cryptography",
-      "Name": "",
+      "Name": "Exigences de vérification de la cryptographie stockée",
       "Items": [
         {
           "Shortcode": "V6.1",
@@ -3283,7 +3283,7 @@
       "Shortcode": "V4",
       "Ordinal": 4,
       "ShortName": "Access",
-      "Name": "",
+      "Name": "Exigences de vérification du contrôle d'accès",
       "Items": [
         {
           "Shortcode": "V4.1",
@@ -3520,7 +3520,7 @@
       "Shortcode": "V5",
       "Ordinal": 5,
       "ShortName": "Validation",
-      "Name": "",
+      "Name": "Exigences de validation, d'assainissement et de vérification de l'encodage",
       "Items": [
         {
           "Shortcode": "V5.1",
@@ -4193,7 +4193,7 @@
       "Shortcode": "V14",
       "Ordinal": 14,
       "ShortName": "Config",
-      "Name": "",
+      "Name": "Exigences de vérification de la configuration",
       "Items": [
         {
           "Shortcode": "V14.1",
@@ -4751,7 +4751,7 @@
       "Shortcode": "V10",
       "Ordinal": 10,
       "ShortName": "Malicious",
-      "Name": "",
+      "Name": "Exigences de vérification des codes malveillants",
       "Items": [
         {
           "Shortcode": "V10.1",
@@ -4990,7 +4990,7 @@
       "Shortcode": "V12",
       "Ordinal": 12,
       "ShortName": "Files",
-      "Name": "",
+      "Name": "Exigences de vérification des dossiers et des ressources",
       "Items": [
         {
           "Shortcode": "V12.1",
@@ -5355,7 +5355,7 @@
       "Shortcode": "V7",
       "Ordinal": 7,
       "ShortName": "Error",
-      "Name": "",
+      "Name": "Traitement des erreurs et exigences de vérification de l'enregistrement",
       "Items": [
         {
           "Shortcode": "V7.1",
@@ -5662,7 +5662,7 @@
       "Shortcode": "V11",
       "Ordinal": 11,
       "ShortName": "BusLogic",
-      "Name": "",
+      "Name": "Exigences de vérification de la logique d'entreprise",
       "Items": [
         {
           "Shortcode": "V11.1",
@@ -5845,7 +5845,7 @@
       "Shortcode": "V8",
       "Ordinal": 8,
       "ShortName": "Data",
-      "Name": "",
+      "Name": "Exigences de vérification de la protection des données",
       "Items": [
         {
           "Shortcode": "V8.1",
@@ -6231,7 +6231,7 @@
       "Shortcode": "V3",
       "Ordinal": 3,
       "ShortName": "Session",
-      "Name": "",
+      "Name": "Exigences de vérification de la gestion des sessions",
       "Items": [
         {
           "Shortcode": "V3.1",
