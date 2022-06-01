@@ -27,7 +27,7 @@ Copyright © 2008-2022 La Fondation OWASP. Ce document est publié sous la [lice
 | Ralph Andalis 	| Ron Perris     	| Sjoerd Langkemper 	|
 | Tonimir Kisasondi |               	|                   	|
 
-## contributeurs et relecteurs
+## Contributeurs et relecteurs
 
 |                     |                    |                   |                  |                   |
 | ------------------- | ------------------ | ----------------- | ---------------- | ----------------- |
