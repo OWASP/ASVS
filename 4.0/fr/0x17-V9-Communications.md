@@ -1,4 +1,4 @@
-# V9 : Exigences de vérification des communications
+# V9 Exigences de vérification des communications
 
 ## Objectif de contrôle
 

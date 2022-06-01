@@ -1,4 +1,4 @@
-# V8 : Exigences de vérification de la protection des données
+# V8 Exigences de vérification de la protection des données
 
 ## Objectif de contrôle
 

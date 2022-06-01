@@ -1,4 +1,4 @@
-# V4 : Exigences de vérification du contrôle d'accès
+# V4 Exigences de vérification du contrôle d'accès
 
 ## Objectif de contrôle
 

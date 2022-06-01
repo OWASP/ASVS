@@ -1,4 +1,4 @@
-# V7 : Traitement des erreurs et exigences de vérification de l'enregistrement
+# V7 Traitement des erreurs et exigences de vérification de l'enregistrement
 
 ## Objectif de contrôle
 
