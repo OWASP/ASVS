@@ -1,4 +1,4 @@
-# V2 : Exigences de vérification de l'authentification
+# V2 Authentification
 
 ## Objectif de contrôle
 

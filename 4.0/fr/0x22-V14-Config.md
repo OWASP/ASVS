@@ -1,4 +1,4 @@
-# V14 : Exigences de vérification de la configuration
+# V14 Exigences de vérification de la configuration
 
 ## Objectif de contrôle
 

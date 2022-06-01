@@ -1,4 +1,4 @@
-# V6 : Exigences de vérification de la cryptographie stockée
+# V6 Exigences de vérification de la cryptographie stockée
 
 ## Objectif de contrôle
 

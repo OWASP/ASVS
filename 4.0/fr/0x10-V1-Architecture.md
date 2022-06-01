@@ -1,4 +1,4 @@
-# V1 : Architecture, conception et exigences en matière de modélisation des menaces
+# V1 Architecture, conception et exigences en matière de modélisation des menaces
 
 ## Objectif de contrôle
 

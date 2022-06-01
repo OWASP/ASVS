@@ -1,4 +1,4 @@
-# V11 : Exigences de vérification de la logique d'entreprise
+# V11 Exigences de vérification de la logique d'entreprise
 
 ## Objectif de contrôle
 
