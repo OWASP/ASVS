@@ -1,9 +1,14 @@
 # Using the ASVS
 
-ASVS has two main goals:
+As noted in the preface, the ASVS is a standard that defines the functional and non-functional security requirements to consider for modern web applications and web services.
 
-* to help organizations develop and maintain secure applications.
-* to allow security service vendors, security tools vendors, and consumers to align their requirements and offerings.
+It therefore focuses on the content of the application and not the secure processes by which the application should be developed. Secure Development processes are better covered in the [OWASP SAMM](https://owaspsamm.org/) project and are not the primary scope of the ASVS.
+
+In the contents of secure requirements, the ASVS should be useful to anyone trying to:
+* Develop and maintain secure applications.
+* Evaluate the security of applications.
+
+This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-baesd approach and different use cases for the standard.
 
 ## Application Security Verification Levels
 
@@ -14,10 +19,6 @@ The Application Security Verification Standard defines three security verificati
 * ASVS Level 3 is for the most critical applications - applications that perform high value transactions, contain sensitive medical data, or any application that requires the highest level of trust.
 
 Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
-
-![ASVS Levels](../images/asvs_40_levels.png "ASVS Levels")
-
-Figure 1 - OWASP Application Security Verification Standard 4.0 Levels
 
 Level 1 is the only level that is completely penetration testable using humans. All others require access to documentation, source code, configuration, and the people involved in the development process. However, even if L1 allows "black box" (no documentation and no source) testing to occur, it is not an effective assurance activity and should be actively discouraged. Malicious attackers have a great deal of time, most penetration tests are over within a couple of weeks. Defenders need to build in security controls, protect, find and resolve all weaknesses, and detect and respond to malicious actors in a reasonable time. Malicious actors have essentially infinite time and only require a single porous defense, a single weakness, or missing detection to succeed. Black box testing, often performed at the end of development, quickly, or not at all, is completely unable to cope with that asymmetry.
 
@@ -72,6 +73,40 @@ If identifiers are used without including the `v<version>` element then they sho
 
 ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
 
+## Forking the ASVS
+
+Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain-specific way. We encourage this type of forking as long as traceability is maintained so that if an app has passed requirement 4.1.1, this means the same thing for forked copies of the standard as it evolves.
+
+Ideally, every organization should have its own forked ASVS and select tailor-fitted requirements. So if the organization is not using GraphQL, Websockets, or SOAP web service on their applications, they should drop those sections from their forked ASVS. The forking process must start with looking at ASVS level 1 requirements as a baseline for the organization and then gradually move into ASVS level 2 or 3 based on their application's risk level.
+
+## Uses for the ASVS
+
+The ASVS can be used to assess the security of an application and this is explored in more depth in the next chapter. However, we have identified a number of other potential uses for the ASVS (or a forked version).
+
+### As Detailed Security Architecture Guidance
+
+One of the more common uses for the Application Security Verification Standard is as a resource for security architects. The Sherwood Applied Business Security Architecture (SABSA) is missing a great deal of information that is necessary to complete a thorough application security architecture review. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies.
+
+### As a Specialized Secure Coding Checklist
+
+The ASVS can be used as a secure coding checklist for secure application development, helping developers to make sure that they keep security in mind when they build software. The secure coding checklist should be unified, clear, and applicable to all development teams. It should ideally be prepared based on guidance from security engineers or security architects
+
+### As a Guide for Automated Unit and Integration Tests
+
+The ASVS is designed to be highly testable, with the sole exception of architectural and malicious code requirements. By building unit and integration tests that test for specific and relevant fuzz and abuse cases, the application becomes nearly self-verifying with each and every build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
+
+### For Secure Development Training
+
+ASVS can also be used to define characteristics of secure software. Many “secure coding” courses are simply ethical hacking courses with a light smear of coding tips. This may not necessarily help developers to write more secure code. Instead, secure development courses can use the ASVS with a strong focus on the proactive controls found in the ASVS, rather than the Top 10 negative things not to do.
+
+### As a Driver for Agile Application Security
+
+ASVS can be used in an agile development process as a framework to define specific tasks that need to be implemented by the team to have a secure product. One approach might be: Starting with Level 1, verify the specific application or system according to ASVS requirements for the specified level, find what controls are missing and raise specific tickets/tasks in the backlog. This helps with prioritization of specific tasks (or grooming), and makes security visible in the agile process. This can also be used to prioritize auditing and reviewing tasks in the organization, where a specific ASVS requirement can be a driver for review, refactor or auditing for a specific team member and visible as "debt" in the backlog that needs to be eventually done.
+
+### As a Framework for Guiding the Procurement of Secure Software
+
+ASVS is a great framework to help with secure software procurement or procurement of custom development services. The buyer can simply set a requirement that the software they wish to procure must be developed at ASVS level X, and request that the seller proves that the software satisfies ASVS level X. This works well when combined with the OWASP Secure Software Contract Annex
+
 ## Applying ASVS in Practice
 
 Different threats have different motivations. Some industries have unique information and technology assets and domain specific regulatory compliance requirements.
@@ -83,26 +118,33 @@ We have heard from various people in community on how they use the standard in p
 ### Personal Case Studies
 
 #### Matthew Hackling
+
 * Drive pen test scope and test cases
 * Drive security requirements for designs help
 * Populate an ISO27034 organisational normative framework aka requirements library.
 
 #### Dominique Righetto
+
 * Used for code review and as a checklist when performing web application vulnerability assessments.
 
 #### Giovanni Cruz
+
 * In the last OWASP Latam Tour Bogotá 2019 a training course was prepared totally based on ASVS. All the content was created with a vulnerable platform for training to assist developers. It got a great feedback because they showed them how to use it and what levels of security they might want to achieve based on some standard.
 
 #### Sebastien Gioria
+
 * For some customers, uses it as a basis for mandatory requirements to perform secure design and coding.
 
 #### Riotaro Okada
+
 * In recent years, observed some banks in Japan included ASVS into their RFP for security testing services, as their mandatory requirement. They wanted proposals which security vendors would fit appropriate ASVS levels.
 * A local software vendor in Japan sells SFA related packages received customer criteria to check whether their products would fit ASVS, and which levels the product aligned to. (It was a good start for the vendor to introduce secure development and verifications into their teams)
 
 #### John Patrick Lita
+
 * Uses this and integrates this in their CI/CD activity
 
 ### Use within other projects and tools
+
 * OWASP Defectdojo has built in ASVS support https://www.defectdojo.org/
 * A few weeks after the ASVS 4 release, RIPS added support for it: https://blog.ripstech.com/2019/rips-3.1-adds-teamcity-ldap-jsp-support/

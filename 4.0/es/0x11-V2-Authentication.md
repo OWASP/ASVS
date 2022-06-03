@@ -16,7 +16,7 @@ La terminología NIST 800-63 puede ser un poco confusa al principio, especialmen
 
 ASVS V2 Autenticación, V3 Administración de sesiones, y en menor medida, V4 Controles de acceso se han adaptado para que sean un subconjunto compatible de controles NIST 800-63b seleccionados, centrados en amenazas comunes y debilidades de autenticación comúnmente explotadas. Cuando se requiera el cumplimiento completo del NIST 800-63, consulte NIST 800-63.63.
 
-### Seleccionando un nivel adecuado de NIST AAL 
+### Seleccionando un nivel adecuado de NIST AAL
 
 ASVS ha intentado mapear ASVS L1 con los requisitos NIST AAL1, N2 a AAL2, y L3 a AAL3. Sin embargo, el enfoque de ASVS Level 1 como controles "esenciales" puede no ser necesariamente el nivel AAL correcto para verificar una aplicación o API. Por ejemplo, si la aplicación es una aplicación de nivel 3 o tiene requisitos reglamentarios para ser AAL3, el nivel 3 debe elegirse en los capítulos V2 y V3 Administración de sesiones. La elección del nivel de afirmación de autenticación (AAL; Por sus siglas en inglés) compatible con NIST se debe realizar según las pautas NIST 800-63b como se establece en *Seleccionando AAL* en [NIST 800-63b Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
 
@@ -87,14 +87,14 @@ Nota: Las contraseñas no deben tener una duración máxima ni estar sujetas a l
 
 Los arquitectos y desarrolladores deben adherirse a esta sección al crear o refactorizar código. Esta sección solo se puede verificar completamente mediante la revisión del código fuente o mediante pruebas de unidad o integración seguras. Las pruebas de penetración no pueden identificar ninguno de estos problemas.
 
-La lista de funciones de derivación aprobadas de one-way key se detalla en la sección 5.1.1.2 del NIST 800-63 B, y en [BSI Kryptographische Verfahren : Empfehlungen und Schlussell&auml;ngen (2018)](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile). El último algoritmo nacional o regional y los estándares de longitud de clave se pueden elegir en lugar de estas opciones.
+La lista de funciones de derivación aprobadas de one-way key se detalla en la sección 5.1.1.2 del NIST 800-63 B, y en [BSI Kryptographische Verfahren: Empfehlungen und Schlussell&auml;ngen (2018)](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile). El último algoritmo nacional o regional y los estándares de longitud de clave se pueden elegir en lugar de estas opciones.
 
 Esta sección no se puede probar en penetración, por lo que los controles no se marcan como L1. Sin embargo, esta sección es de vital importancia para la seguridad de las credenciales si son robadas, por lo que si bifurca el ASVS para una arquitectura o directriz de codificación o lista de comprobación de revisión de código fuente, coloque estos controles de nuevo en L1 en su versión privada.
 
 | # | Descripción | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.4.1** | Verifique que las contraseñas se almacenan en un forma tal que resisten ataques sin conexión. Las contraseñas *DEBERÁN* usar hash con `salto` mediante una derivación de llave de una sola vía aprobada o función de hash de contraseña. Las funciones derivación de llave y hash de contraseñas toman una contraseña, una salto y un factor de costo como entradas al generar un hash de contraseña. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.2** | Verifique que el salto tiene al menos 32 bits de longitud y que se elige arbitrariamente para minimizar las colisiones de valor de salto entre los hashes almacenados. Para cada credencial, se *DEBE* almacenar un único valor de salto y el hash resultante. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.1** | Verifique que las contraseñas se almacenan en un forma tal que resisten ataques sin conexión. Las contraseñas DEBERÁN usar hash con salto mediante una derivación de llave de una sola vía aprobada o función de hash de contraseña. Las funciones derivación de llave y hash de contraseñas toman una contraseña, una salto y un factor de costo como entradas al generar un hash de contraseña. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.2** | Verifique que el salto tiene al menos 32 bits de longitud y que se elige arbitrariamente para minimizar las colisiones de valor de salto entre los hashes almacenados. Para cada credencial, se DEBE almacenar un único valor de salto y el hash resultante. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.3** | Verifique que si se utiliza PBKDF2, el recuento de iteraciones DEBE ser tan grande como el rendimiento del servidor de verificación lo permita, normalmente de al menos 100,000 iteraciones. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.4** | Verifique que si se utiliza bcrypt, el factor de trabajo DEBE ser tan grande como lo permita el rendimiento del servidor de verificación, con un mínimo de 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | Verifique que se realiza una iteración adicional de una función de derivación de claves, utilizando un valor de salto que es secreto y que solo conoce el verificador. Genere el valor de salto utilizando un generador de bits aleatorios aprobado [SP 800-90Ar1] y proporcione al menos la fuerza de seguridad mínima especificada en la última revisión del SP 800-131A. El valor secreto del salto se almacenará por separado de las contraseñas hash (p. ej., en un dispositivo especializado como un módulo de seguridad de hardware). | | ✓ | ✓ | 916 | 5.1.1.2 |
@@ -117,7 +117,7 @@ Cuando se mencionan las normas estadounidenses, se puede utilizar una norma regi
 
 Secretos de Look up (secretos de búsqueda) son listas generadas previamente de códigos secretos, similares a los números de autorización de transacción (TAN), los códigos de recuperación de redes sociales o una cuadrícula que contiene un conjunto de valores aleatorios. Estos se distribuyen de forma segura a los usuarios. Estos códigos de búsqueda se utilizan una vez y, una vez que se utilizan todos, se descarta la lista secreta de búsqueda. Este tipo de autenticador se considera "algo que tienes".
 
-| # | Descripción | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descripción | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.6.1** | Verifique que los secretos de búsqueda solo se pueden usar una vez. | | ✓ | ✓ | 308 | 5.1.2.2 |
 | **2.6.2** | Verifique que los secretos de búsqueda tengan suficiente aleatoriedad (112 bits de entropía), o si menos de 112 bits de entropía, saltados con un única y aleatoria salto de 32 bits y hasheado con un hash aprobado de una sola vía. | | ✓ | ✓ | 330 | 5.1.2.2 |
@@ -131,7 +131,7 @@ Los autenticadores seguros fuera de banda son dispositivos físicos que pueden c
 
 ASVS asume que sólo unos pocos desarrolladores desarrollarán nuevos autenticadores fuera de banda, como notificaciones push, y por lo tanto los siguientes controles ASVS se aplican a los verificadores, como la API de autenticación, las aplicaciones y las implementaciones de inicio de sesión único. Si está desarrollando un nuevo autenticador fuera de banda, por favor refiérase a NIST 800-63B &sect; 5.1.3.1.
 
-No se permiten autenticadores inseguros fuera de banda, como el correo electrónico y VoIP. La autenticación RTC y SMS está actualmente "restringida" por NIST y debe estar en desuso en favor de las notificaciones push o similares. Si necesita utilizar la autenticación telefónica o sms fuera de banda, por favor consulte &sect; 5.1.3.3
+No se permiten autenticadores inseguros fuera de banda, como el correo electrónico y VoIP. La autenticación RTC y SMS está actualmente "restringida" por NIST y debe estar en desuso en favor de las notificaciones push o similares. Si necesita utilizar la autenticación telefónica o sms fuera de banda, por favor consulte &sect; 5.1.3.3.
 
 | # | Descripción | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -160,7 +160,7 @@ Las contraseñas de una sola vez de un solo factor (OTPs) son tokens físicos o 
 
 Las claves de seguridad criptográficas son tarjetas inteligentes o claves FIDO, donde el usuario tiene que conectar o emparejar el dispositivo criptográfico al equipo para completar la autenticación. Los verificadores envían un mensaje de desafío a los dispositivos o software criptográficos, y el dispositivo o software calcula una respuesta basada en una clave criptográfica almacenada de forma segura.
 
-Los requisitos para los dispositivos  y software criptográficos de un solo factor, y los dispositivos y software criptográficos multifactor son los mismos, ya que la verificación del autenticador criptográfico demuestra la posesión del factor de autenticación.
+Los requisitos para los dispositivos y software criptográficos de un solo factor, y los dispositivos y software criptográficos multifactor son los mismos, ya que la verificación del autenticador criptográfico demuestra la posesión del factor de autenticación.
 
 | # | Descripción | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -188,7 +188,7 @@ Instamos encarecidamente a las agencias de EEUU a que revisen e implementen NIST
 ## Glosario de términos
 
 | Termino | Significado |
-| --- | --- |
+| -- | -- |
 | CSP | Proveedor de servicios de credenciales también llamado proveedor de identidades |
 | Authenticator | Código que autentica una contraseña, un token, MFA, una aserción federada, etc. |
 | Verifier | "Una entidad que verifica la identidad del reclamante verificando la posesión y el control del reclamante de uno o dos autenticadores mediante un protocolo de autenticación. Para ello, es posible que el verificador también necesite validar las credenciales que vinculan el autenticador con el identificador del suscriptor y comprobar su estado" |

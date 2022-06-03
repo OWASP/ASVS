@@ -1,28 +1,23 @@
 ARG CERT_FILE
 #First stage, start from ubuntu focal
-FROM ubuntu:focal AS base
+FROM alpine:3 AS base
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update -q \
-    && apt-get install -qy --no-install-recommends \
-    build-essential \
-    libfontconfig1 \
-    fonts-noto-cjk \
-    libfreetype6 \
-    tar \
+RUN apk add --update \
+    alpine-sdk \
+    fontconfig \
+    freetype \
     lua5.3 \
     perl \
     bash \
-    fontconfig \
     python3  \
-    python3-pip \
-    sed \
-    gawk \
-    gnutls-bin \
+    libressl-dev \
+    py3-pip \
     curl \
     gnupg \
-    python3-certifi \
- && rm -rf /var/lib/apt/lists/*
+    unzip \
+    py3-certifi && \
+    rm -rf /var/cache/apk/*
 
 RUN if [[ -n $CERT_FILE ]]
     ENV SSL_CERT_DIR=/usr/local/share/ca-certificates
@@ -43,11 +38,6 @@ FROM base as font_base
 WORKDIR /fonts
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update -q \
-    && apt-get install -qy --no-install-recommends \
-    unzip \
- && rm -rf /var/lib/apt/lists/*
-
 #download fonts
 RUN for font in source-sans-pro source-serif-pro source-code-pro; do \
 	git_tarball_url="https://www.github.com/adobe-fonts/${font}"$(curl -L "https://github.com/adobe-fonts/${font}/tags" |  \
@@ -63,10 +53,11 @@ RUN rm -rf $PWD/source*
 FROM base_cert as pandoc_base
 
 #install python depencies
-RUN pip3 install --upgrade pip certifi dicttoxml
+RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pip setuptools
+RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade dicttoxml
 
 #install Pandoc
-RUN useradd -ms /bin/bash non-root
+RUN adduser -s /bin/bash -g "pandoc" -D pandoc
 
 RUN curl --output /tmp/pandoc.tar.gz -L https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-linux-amd64.tar.gz \
             && tar xvzf /tmp/pandoc.tar.gz --strip-components 1 -C /usr/local/ \
@@ -76,38 +67,40 @@ RUN curl --output /tmp/pandoc.tar.gz -L https://github.com/jgm/pandoc/releases/d
 # verify pandoc installed correctly
 RUN pandoc --version
 
-# install as non-root
-USER non-root
+# install as pandoc
+USER pandoc
 
 # setup workdir
-WORKDIR /home/non-root
+WORKDIR /home/pandoc
 
 # Install Lua Filters for pandoc
 RUN curl --output /tmp/lua-filters.tar.gz -L https://github.com/pandoc/lua-filters/releases/latest/download/lua-filters.tar.gz  \
-    && mkdir /home/non-root/.pandoc \
-    && tar xzf /tmp/lua-filters.tar.gz --strip-components=1 --one-top-level=/home/non-root/.pandoc/ \
+    && mkdir /home/pandoc/.pandoc \
+    && tar xzf /tmp/lua-filters.tar.gz --strip-components=1 --one-top-level=/home/pandoc/.pandoc/ \
     && rm /tmp/lua-filters.tar.gz
 
 FROM pandoc_base as tinytex_base
 #Install tinyTex
 
 # setup path
-ENV PATH=/home/non-root/.TinyTeX/bin/x86_64-linux/:$PATH
-
-RUN curl -L "https://raw.githubusercontent.com/yihui/tinytex/master/tools/install-unx.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" > "install-unx.sh" \
+ENV PATH=/home/pandoc/.TinyTeX/bin/x86_64-linuxmusl/:$PATH
+ENV TINY_TEX_VERSION=v0.34
+RUN curl -L "https://raw.githubusercontent.com/yihui/tinytex/${TINY_TEX_VERSION}/tools/install-bin-unix.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" > "install-unx.sh" \
 	&& chmod +x install-unx.sh
 RUN bash -c "./install-unx.sh" && rm install-unx.sh
 
 FROM tinytex_base as latex_base
+
 # add tlmgr to path
-RUN /home/non-root/.TinyTeX/bin/*/tlmgr path add
+RUN /home/pandoc/.TinyTeX/bin/*/tlmgr path add
 
 # verify latex version
 #RUN latex --version
 
 # verify tlmgr version and add packages needed to build the documents
-RUN tlmgr --version && tlmgr update -self && \
-    tlmgr install \
+RUN tlmgr --version 
+RUN tlmgr update -self
+RUN tlmgr install \
     xecjk \
     ctex \
     fancyhdr \
@@ -121,7 +114,6 @@ RUN tlmgr --version && tlmgr update -self && \
     csquotes \
     caption \
     mdframed \
-    zref \
     needspace \
     titling \
     bookmark \
@@ -132,8 +124,6 @@ RUN tlmgr --version && tlmgr update -self && \
     adjustbox \
     background \
     bidi \
-    collectbox \
-    csquotes \
     everypage \
     footmisc \
     fvextra \
@@ -152,7 +142,10 @@ FROM latex_base as work_layer
 USER root
 COPY --from=font_base /fonts/adobe-fonts /usr/share/fonts/opentype/adobe-fonts
 RUN fc-cache -f -v "/usr/share/fonts/opentype/adobe-fonts"
-USER non-root
+USER pandoc
+
+RUN tlmgr info --list
+RUN du -a / | sort -n -r | head -n 10
 
 #setup the working dir for running make and creating the files
 WORKDIR /data

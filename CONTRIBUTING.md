@@ -1,6 +1,6 @@
 # Contributing
 
-**This document applies during 2021 and may change at a future date.**
+**This document applies during 2022 and may change at a future date.**
 
 <!--
 
@@ -30,11 +30,19 @@ expectation from PR
 
 The current status of the ASVS project is as follows:
 
-> The ASVS project is planning to release a 5.0 version during 2022 which will be a significant modification, similar to the scale of changes which happened during 4.0.
-> 
-> We will try, on a best efforts basis, to address issues and push changes to the "bleeding edge", master branch. For as long as possible, we will make changes to this branch **without altering current numbering** and wherever possible we will push minor, non-breaking changes to a 4.0.3 branch which may or may not be formally released.
+The ASVS project is planning to release a 5.0 version during 2022 which will be a significant modification, similar to the scale of changes which happened during 4.0.
+ 
+We will try, on a best efforts basis, to address issues and push changes to the "bleeding edge" master branch within the 5.0 folder **without altering current numbering** and using tagging ([see below](CONTRIBUTING.md#use-tags-to-describe-the-change)) to make changes clearer. This is in order to make it easier to use this branch on an ongoing basis. However, we will no longer be accepting changes to the 4.0 folder which is now fixed at the 4.0.3 release.
+
+### Before you open a Pull Request
+
+Please do not open a pull request without first opening an associated issue. Please do not open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. For example, [this link](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt) searches for issues (open and closed) related to bcrypt.
+
+If you are comfortable that it has not been previously discussed, you can open an issue. Please try and include the ASVS text you are talking about in the issue to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
 
 ### How to make changes to the bleeding edge during this period
+
+Note that changes should always be made only in the raw .md files and not in the CSV, JSON, XLSX, PDF, DOCX files, etc.
 
 To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. The current bleeding edge working directory can be found here <https://github.com/OWASP/ASVS/tree/master/5.0/en>.
 
@@ -92,15 +100,27 @@ We are also actively looking for translations of the 4.n branch!
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superceeded!):
-    * German
-    * French
-    * Spanish
-    * Persian
-    * Turkish
-    * Japanese
-* If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them. Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
-* We would recommend basing your translation either on the v4.0.3 branch or on the bleeding edge branch. When you submit a pull request with your translation, please be clear about which version you have targeted.
-* Please duplicate the existing markdown files, create a new folder for your language underneath the 4.0 folder and create the translated markdown files there.
-* If you are targeting the bleeding edge, please try and monitor changes and update your translation accordingly.
+	* In-progress
+        * French
+	* v4.0.3
+        * Spanish
+        * Simplified Chinese
+        * Arabic
+    * v4.0.2
+        * German
+        * Russian (complete but v4.0.3 is in-progress)
+    * v4.0.1
+        * Persian
+        * Turkish
+        * Japanese
+* If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
+* Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
+* We would request that you base your translation on the 4.0/en folder in the master branch as this is now static at the 4.0.3 version.
+* In order to start a translation, please start by forking the ASVS repository.
+    * If you are updating an existing translation which has markdown (just French as at December 2021), you can make modifications to the files in the existing folder based on language code (just /fr as at December 2021).
+    * if you are starting a new markdown translation, take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation. 
+* When you have completed the translation, please open a Pull Request against the master ASVS branch and one of the leaders will look at integrating it.
+* The leader will also use the relevant scripts to create the documents from the raw markdown (or you can if you want to save us some trouble  )
+* Finally, the leader will back port the translation into the branch containing ASVS version which was targeted (at this point, presumably v4.0.3)
 
 Thanks!!
