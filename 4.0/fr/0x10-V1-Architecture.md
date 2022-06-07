@@ -123,12 +123,12 @@ Il s'agit d'un point de repère pour les futures exigences architecturales.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.14.1** | Vérifier l'utilisation d'un compte à faible privilège pour tous les composants d'application, services et serveurs. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 250 |
-| **1.14.2** | Vérifiez la séparation des composants de différents niveaux de confiance via des contrôles de sécurité bien définis, des règles de pare-feu, des passerelles API, des proxys inverses, des groupes de sécurité basés sur le cloud ou des mécanismes similaires. | | ✓ | ✓ | 923 |
-| **1.14.3** | Vérifier que les signatures binaires, les connexions de confiance et les nœuds vérifiés sont utilisés pour déployer des binaires sur des dispositifs distants. | | ✓ | ✓ | 494 |
-| **1.14.4** | Vérifier que le pipeline de construction signale les composants obsolètes ou peu sûrs et prend les mesures appropriées. | | ✓ | ✓ | 1104 |
-| **1.14.5** | Vérifier que les déploiements d'applications sont correctement sandboxés, conteneurisés et/ou isolés au niveau du réseau pour retarder et dissuader les attaquants d'attaquer d'autres applications, en particulier lorsqu'ils effectuent des actions sensibles ou dangereuses telles que la désérialisation. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
-| **1.14.6** | Vérifiez que l'application n'utilise pas de technologies côté client non prises en charge, peu sûres ou dépréciées telles que les plugins NSAPI, Flash, Shockwave, ActiveX, Silverlight, NACL ou les applets Java côté client. | | ✓ | ✓ | 477 |
+| **1.14.1** | Vérifiez la séparation des composants de différents niveaux de confiance via des contrôles de sécurité bien définis, des règles de pare-feu, des passerelles API, des proxys inverses, des groupes de sécurité basés sur le cloud ou des mécanismes similaires. | | ✓ | ✓ | 923 |
+| **1.14.2** | Vérifier que les signatures binaires, les connexions de confiance et les nœuds vérifiés sont utilisés pour déployer des binaires sur des dispositifs distants. | | ✓ | ✓ | 494 |
+| **1.14.3** | Vérifier que le pipeline de construction signale les composants obsolètes ou peu sûrs et prend les mesures appropriées. | | ✓ | ✓ | 1104 |
+| **1.14.4** | Vérifiez que le pipeline de génération contient une étape de génération pour générer automatiquement et vérifier le déploiement sécurisé de l'application, en particulier si l'infrastructure de l'application est définie par logiciel, comme les scripts de génération d'environnement cloud. | | ✓ | ✓ | |
+| **1.14.5** | Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
+| **1.14.6** | Verify the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
 
 ## Références
 
