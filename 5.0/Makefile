@@ -42,16 +42,16 @@ md: $(DISTDIR)
 	pandoc $(PANDOC_MD_FLAGS) -o $(DISTDIR)/source.md $(DISTDIR)/$(SOURCES) 
 	sed -Ei 's#../images/#./images/#' $(DISTDIR)/source.md
 
-pdf: 
+pdf: $(TARGETS) 
 	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(DISTDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
-tex:
+tex: $(TARGETS)
 	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/output.tex" --template $(TEMPLATEDIR)/eisvogel.tex $(DISTDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
-docx: 
+docx: $(TARGETS)
 	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(DISTDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
 
-odt: 
+odt: $(TARGETS)
 	pandoc $(PANDOC_ODT_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).odt" $(DISTDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
 
 json:
