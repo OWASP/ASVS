@@ -28,7 +28,7 @@ PANDOC_ODT_FLAGS= -s \
 				  --columns 10000 \
 				  --reference-doc=./templates/reference.odt
 
-.PHONY: md $(DISTDIR) pdf docx odt clean
+.PHONY: md $(DISTDIR) pdf docx odt clean tex
 
 all: $(TARGETS)	pdf docx json json_flat csv xml
 
