@@ -36,8 +36,8 @@ $(DISTDIR):
 	@mkdir -p $(DISTDIR)/en # make sure distribution dir exists
 
 $(DISTDIR)/en/%.md: $(DISTDIR)
-	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#' $(subst dist,.,$@) > $@
-	 
+	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(subst dist,.,$@) > $@
+
 md: $(DISTDIR)
 	pandoc $(PANDOC_MD_FLAGS) -o $(DISTDIR)/source.md $(DISTDIR)/$(SOURCES) 
 	sed -Ei 's#../images/#./images/#' $(DISTDIR)/source.md
