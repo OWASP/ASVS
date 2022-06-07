@@ -73,3 +73,8 @@ prod:
 clean:
 	rm -rf $(DISTDIR)/en
 	rm -f $(DISTDIR)/*.md
+	rm -f $(DISTDIR)/*.tex
+	rm -f $(DISTDIR)/*.pdf
+	rm -f $(DISTDIR)/*.json
+	rm -f $(DISTDIR)/*.csv
+	rm -f $(DISTDIR)/*.xml
