@@ -78,8 +78,10 @@ xml: $(DISTDIR)
 
 clean:
 	rm -rf $(BUILDDIR)/en
+	rm -rf $(DISTDIR)/en
 	rm -f $(DISTDIR)/*.md
 	rm -f $(DISTDIR)/*.tex
+	rm -f $(DISTDIR)/*.docx
 	rm -f $(DISTDIR)/*.pdf
 	rm -f $(DISTDIR)/*.json
 	rm -f $(DISTDIR)/*.csv
