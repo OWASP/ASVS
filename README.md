@@ -7,7 +7,13 @@ The primary aim of the OWASP Application Security Verification Standard (ASVS) P
 
 The standard provides a basis for designing, building, and testing technical application security controls, including architectural concerns, secure development lifecycle, threat modelling, agile security including continuous integration / deployment, serverless, and configuration concerns.
 
-**Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for translations of the 4.n branch.**
+We gratefully recognise the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
+
+**Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 4.n branch](CONTRIBUTING.md#translations).**
+
+## Roadmap to ASVS 5.0
+
+We have now published our roadmap and objectives for version 5.0 of the ASVS in [this wiki page](https://github.com/OWASP/ASVS/wiki/Roadmap-to-version-5.0).
 
 ## Latest Stable Version - 4.0.3
 
@@ -23,12 +29,23 @@ For information on changes between 4.0.2 and 4.0.3 of the standard, see [this wi
 
 ### Translations
 
-* [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
-* [OWASP Application Security Verification Standard 4.0.1 Japanese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
-* [OWASP Application Security Verification Standard 4.0.1 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim))
-* [OWASP Application Security Verification Standard 4.0.1 French (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fr.pdf) and [other formats](4.0/docs_fr). (Thanks to [Sebastien gioria](https://github.com/SPoint42) and [Marc Aubry](https://github.com/Marx314))
-* [OWASP Application Security Verification Standard 4.0.2 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.pdf) (Thanks to Jörg Brünner) 
-* [OWASP Application Security Verification Standard 4.0.3 Spanish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-es.pdf) and [other formats](4.0/docs_es). (Thanks to [Carlos Allendes](https://github.com/CarlosAllendes) and [Hans Herrera](https://github.com/hansphp))
+The OWASP Community effort with regards to translations is a best effort. Whilst we do our utmost to ensure the content is valid, from a structural perspective, there is only so much we can do to ensure the translations are correct. We rely on you, the community, to help make the ASVS as usable as possible to all around the globe, and translating the main branch into your language is important to the project.
+
+If you think you can help with translations, or indeed ensuring the current list of translations below are correct, we'd love for you to join the community and make the ASVS amazing for all. For more information on translating the ASVS see the translations section of [CONTRIBUTING.md](CONTRIBUTING.md#translations).
+
+* v4.0.3
+    * [OWASP Application Security Verification Standard 4.0.3 Spanish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-es.pdf) and [other formats](4.0/docs_es). (Thanks to [Carlos Allendes](https://github.com/CarlosAllendes) and [Hans Herrera](https://github.com/hansphp))
+    * [OWASP Application Security Verification Standard 4.0.3 Simplified Chinese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-zh-cn.pdf) and [other formats](4.0/docs_zh-cn).  (Thanks to [Unc1e](https://github.com/hi-unc1e))
+    * [OWASP Application Security Verification Standard 4.0.3 Arabic (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ar.pdf) and [other formats](4.0/docs_ar).  (Thanks to [Aref Shaheed](https://github.com/aref2008) and Mhd Ghassan Alhabash)
+* v4.0.2
+    * [OWASP Application Security Verification Standard 4.0.2 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.pdf) and [Microsoft Word format](4.0/docs_de/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.docx). (Thanks to Jörg Brünner) 
+    * [OWASP Application Security Verification Standard 4.0.2 Russian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.pdf) and [Microsoft Word format](4.0/docs_ru/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.docx). (Thanks to [Sergey Diakonov](https://github.com/sergeydiak1980))
+ * v4.0.1
+    * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fa.pdf) (Thanks to CERT of Ferdowsi University of Mashhad / [Ardalan Foroughipour](https://github.com/ardalanForoughipour))
+    * [OWASP Application Security Verification Standard 4.0.1 Japanese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
+    * [OWASP Application Security Verification Standard 4.0.1 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim))
+* In progress
+    * [French Translation](4.0/fr). (Thanks to [Sebastien gioria](https://github.com/SPoint42) and [Marc Aubry](https://github.com/Marx314))
 
 ## Standard Objectives
 
@@ -61,4 +78,4 @@ If identifiers are used without including the `v<version>` element then they sho
 
 ## License
 
-The entire project content is under the **[Creative Commons v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.
+The entire project content is under the **[Creative Commons Attribution-Share Alike v3.0](https://creativecommons.org/licenses/by-sa/3.0/)** license.

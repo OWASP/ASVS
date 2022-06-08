@@ -20,11 +20,11 @@
 - **Hyper Text Transfer Protocol** (HTTPS) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
 - **Hardcoded keys** – Cryptographic keys which are stored on the filesystem, be it in code, comments or files.
 - **Hardware Security Module** (HSM) - Hardware component which is able to store cryptographic keys and other secrets in a protected manner.
-- **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library. 
+- **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library.
 - **Input Validation** – The canonicalization and validation of untrusted user input.
 - **Malicious Code** – Code introduced into an application during its development unbeknownst to the application owner, which circumvents the application's intended security policy. Not the same as malware such as a virus or worm!
 - **Malware** – Executable code that is introduced into an application during runtime without the knowledge of the application user or administrator.
-- **Open Web Application Security Project** (OWASP) – The Open Web Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible," so that people and organizations can make informed decisions about application security risks. See: https://www.owasp.org/
+- **Open Web Application Security Project** (OWASP) – The Open Web Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible," so that people and organizations can make informed decisions about application security risks. See: [https://www.owasp.org/](https://www.owasp.org/)
 - **One-time Password** (OTP) - A password which is uniquely generated to be used on a single occasion.
 - **Object-relational Mapping** (ORM) - A system used to allow a relational/table-based database to be referenced and queried within an application program using an application-compatible object model.
 - **Password-Based Key Derivation Function 2** (PBKDF2) - A special one-way algorithm used to create a strong cryptographic key from an input text (such as a password) and an additional random salt value and can therefore be used make it harder to crack a password offline if the resulting value is stored instead of the original password.
@@ -41,10 +41,10 @@
 - **Server-side Request Forgery** (SSRF) - An attack which abuses functionality on the server to read or update internal resources by supplying or modifying a URL which the code running on the server will read or submit data to.
 - **Single Sign-on Authentication** (SSO) - This occurs when a user logs into one application and is then automatically logged in to other applications without having to re-authenticate. For example, when you login to Google, when accessing other Google services such as YouTube, Google Docs, and Gmail you will be automatically logged in.
 - **SQL Injection** (SQLi) – A code injection technique used to attack data driven applications, in which malicious SQL statements are inserted into an entry point.
-- **SVG** - Scalable Vector Graphics
+- **SVG** - Scalable Vector Graphics.
 - **Time-based OTP** - A method of generating an OTP where the current time acts as part of the algorithm to generate the password.
 - **Threat Modeling** - A technique consisting of developing increasingly refined security architectures to identify threat agents, security zones, security controls, and important technical and business assets.
-- **Transport Layer Security** (TLS) – Cryptographic protocols that provide communication security over a network connection
+- **Transport Layer Security** (TLS) – Cryptographic protocols that provide communication security over a network connection.
 - **Trusted Platform Module** (TPM) - A type of HSM which is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
 - **Two-factor authentication** (2FA) - This adds a second level of authentication to an account log-in.
 - **Universal 2nd Factor** (U2F) - One of the standards created by FIDO specifically for allowing a USB or NFC security key to be used as a 2nd authentication factor.

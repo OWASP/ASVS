@@ -4,8 +4,9 @@ TOOLSDIR=tools
 SOURCEDIR=en
 TEMPLATEDIR=templates
 SOURCES = $(SOURCEDIR)/*.md
+#TARGETS=$(addprefix $(DISTDIR)/,$(wildcard $(SOURCES)))
 TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
-TARGETNAME=OWASP Application Security Verification Standard 5.x
+TARGETNAME=OWASP_Application_Security_Verification_Standard-5_x
 EXPORT_TOOL=$(TOOLSDIR)/export.py
 
 # Change LaTeX engine
@@ -29,47 +30,57 @@ PANDOC_ODT_FLAGS= -s \
 				  --columns 10000 \
 				  --reference-doc=./templates/reference.odt
 
-.PHONY: md $(BUILDDIR) $(DISTDIR) pdf docx json json_flat csv xml odt clean
+.PHONY: md $(BUILDDIR) $(DISTDIR) pdf docx json json_flat csv xml odt tex clean
 
 all: $(TARGETS)	pdf docx json json_flat csv xml
 
-$(BUILDDIR): 
-	@mkdir -p $(BUILDDIR)/en # make sure build dir exists
-
+# make sure distribution dir exists
 $(DISTDIR): 
-	@mkdir -p $(DISTDIR)/en # make sure distribution dir exists
+	@mkdir -p $(DISTDIR)
 
+# make sure build dir exists
+$(BUILDDIR): 
+	@mkdir -p $(BUILDDIR)/en 
+
+# transform origin md files. needed by the next stages
 $(BUILDDIR)/en/%.md: $(BUILDDIR)
-	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#' $(subst build,.,$@) > $@
+	echo "from $(subst $(BUILDDIR),.,$@) to  $@"
+	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(subst $(BUILDDIR),.,$@) > $@
 	 
-md: $(BUILDDIR)
-	pandoc $(PANDOC_MD_FLAGS) -o $(BUILDDIR)/source.md $(BUILDDIR)/$(SOURCES) 
-	sed -Ei 's#../images/#./images/#' $(BUILDDIR)/source.md
+md: $(BUILDDIR) $(DISTDIR)
+	pandoc $(PANDOC_MD_FLAGS) -o $(DISTDIR)/source.md $(BUILDDIR)/$(SOURCES) 
+	sed -Ei 's#../images/#./images/#' $(DISTDIR)/source.md
 
-pdf: md $(DISTDIR)
+pdf: $(TARGETS) $(DISTDIR)
 	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
 
-tex: md $(DISTDIR)
+tex: $(TARGETS) $(DISTDIR)
 	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).tex" --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
 
-docx: md $(DISTDIR)
-	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+docx: $(TARGETS) $(DISTDIR)
+	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
 
-odt: md $(DISTDIR)
-	pandoc $(PANDOC_ODT_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
+odt: $(TARGETS) $(DISTDIR)
+	pandoc $(PANDOC_ODT_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x00-Header.yaml
 
 json: $(DISTDIR)
 	python3 $(EXPORT_TOOL) --format json --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).json"
 
-json_flat:
+json_flat: $(DISTDIR)
 	python3 $(EXPORT_TOOL) --format json_flat --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).flat.json"
 
-csv:
+csv: $(DISTDIR)
 	python3 $(EXPORT_TOOL) --format csv --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).csv"
 
-xml:
+xml: $(DISTDIR)
 	python3 $(EXPORT_TOOL) --format xml --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).xml"
+
 
 clean:
 	rm -rf $(BUILDDIR)/en
-	rm $(BUILDDIR)/*.md
+	rm -f $(DISTDIR)/*.md
+	rm -f $(DISTDIR)/*.tex
+	rm -f $(DISTDIR)/*.pdf
+	rm -f $(DISTDIR)/*.json
+	rm -f $(DISTDIR)/*.csv
+	rm -f $(DISTDIR)/*.xml

@@ -4,12 +4,12 @@
 
 Asegúrese de que una aplicación verificada cumpla con los siguientes requisitos de alto nivel:
 
- * Requiere TLS o cifrado fuerte, independientemente de la sensibilidad del contenido.
- * Siga la guía más reciente, que incluye:
+* Requiere TLS o cifrado fuerte, independientemente de la sensibilidad del contenido.
+* Siga la guía más reciente, que incluye:
   * Consejos de configuración
   * Algoritmos y cifrados preferidos
 * Evite los algoritmos y cifrados débiles o que pronto quedarán obsoletos, excepto como último recurso
- - Deshabilite los algoritmos en desuso, o que se sabe son de cifrado inseguro.
+* Deshabilite los algoritmos en desuso, o que se sabe son de cifrado inseguro.
 
 Dentro de estos requisitos:
 

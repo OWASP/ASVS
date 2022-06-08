@@ -8,7 +8,7 @@
       "Shortcode": "V1",
       "Ordinal": 1,
       "ShortName": "Architecture",
-      "Name": "",
+      "Name": "Arquitectura, Dise\u00f1o y Modelado de Amenazas",
       "Items": [
         {
           "Shortcode": "V1.1",
@@ -849,7 +849,7 @@
             {
               "Shortcode": "V1.14.1",
               "Ordinal": 1,
-              "Description": "Verifique la segregaci\u00f3n de componentes de diferentes niveles de confianza a trav\u00e9s de controles de seguridad bien definidos, reglas de corta fuego, pasarelas de API, proxies reversos, grupos de seguridad basados en nube, o mecanismos similares",
+              "Description": "Verifique la segregaci\u00f3n de componentes de diferentes niveles de confianza a trav\u00e9s de controles de seguridad bien definidos, reglas de corta fuego, pasarelas de API, proxies reversos, grupos de seguridad basados en nube, o mecanismos similares.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -863,7 +863,7 @@
                 "Requirement": ""
               },
               "CWE": [
-                293
+                923
               ],
               "NIST": []
             },
@@ -978,7 +978,7 @@
       "Shortcode": "V2",
       "Ordinal": 2,
       "ShortName": "Authentication",
-      "Name": "",
+      "Name": "Autenticaci\u00f3n",
       "Items": [
         {
           "Shortcode": "V2.1",
@@ -1517,7 +1517,7 @@
             {
               "Shortcode": "V2.4.1",
               "Ordinal": 1,
-              "Description": "Verifique que las contrase\u00f1as se almacenan en un forma tal que resisten ataques sin conexi\u00f3n. Las contrase\u00f1as *DEBER\u00c1N* usar hash con `salto` mediante una derivaci\u00f3n de llave de una sola v\u00eda aprobada o funci\u00f3n de hash de contrase\u00f1a. Las funciones derivaci\u00f3n de llave y hash de contrase\u00f1as toman una contrase\u00f1a, una salto y un factor de costo como entradas al generar un hash de contrase\u00f1a. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verifique que las contrase\u00f1as se almacenan en un forma tal que resisten ataques sin conexi\u00f3n. Las contrase\u00f1as DEBER\u00c1N usar hash con salto mediante una derivaci\u00f3n de llave de una sola v\u00eda aprobada o funci\u00f3n de hash de contrase\u00f1a. Las funciones derivaci\u00f3n de llave y hash de contrase\u00f1as toman una contrase\u00f1a, una salto y un factor de costo como entradas al generar un hash de contrase\u00f1a. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -1540,7 +1540,7 @@
             {
               "Shortcode": "V2.4.2",
               "Ordinal": 2,
-              "Description": "Verifique que el salto tiene al menos 32 bits de longitud y que se elige arbitrariamente para minimizar las colisiones de valor de salto entre los hashes almacenados. Para cada credencial, se *DEBE* almacenar un \u00fanico valor de salto y el hash resultante. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
+              "Description": "Verifique que el salto tiene al menos 32 bits de longitud y que se elige arbitrariamente para minimizar las colisiones de valor de salto entre los hashes almacenados. Para cada credencial, se DEBE almacenar un \u00fanico valor de salto y el hash resultante. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -2372,7 +2372,7 @@
       "Shortcode": "V3",
       "Ordinal": 3,
       "ShortName": "Session",
-      "Name": "",
+      "Name": "Gesti\u00f3n de sesiones",
       "Items": [
         {
           "Shortcode": "V3.1",
@@ -2543,7 +2543,7 @@
               },
               "L3": {
                 "Required": true,
-                "Requirement": "12 horas o 15 minutos de inactividad, con  2FA"
+                "Requirement": "12 horas o 15 minutos de inactividad, con 2FA"
               },
               "CWE": [
                 613
@@ -2879,7 +2879,7 @@
       "Shortcode": "V4",
       "Ordinal": 4,
       "ShortName": "Access",
-      "Name": "",
+      "Name": "Control de Acceso",
       "Items": [
         {
           "Shortcode": "V4.1",
@@ -3116,7 +3116,7 @@
       "Shortcode": "V5",
       "Ordinal": 5,
       "ShortName": "Validation",
-      "Name": "",
+      "Name": "Validaci\u00f3n, Desinfecci\u00f3n y Codificaci\u00f3n",
       "Items": [
         {
           "Shortcode": "V5.1",
@@ -3789,7 +3789,7 @@
       "Shortcode": "V6",
       "Ordinal": 6,
       "ShortName": "Cryptography",
-      "Name": "",
+      "Name": "Criptograf\u00eda almacenada",
       "Items": [
         {
           "Shortcode": "V6.1",
@@ -4161,7 +4161,7 @@
       "Shortcode": "V7",
       "Ordinal": 7,
       "ShortName": "Error",
-      "Name": "",
+      "Name": "Manejo y Registro de Errores",
       "Items": [
         {
           "Shortcode": "V7.1",
@@ -4466,7 +4466,7 @@
       "Shortcode": "V8",
       "Ordinal": 8,
       "ShortName": "Data",
-      "Name": "",
+      "Name": "Protecci\u00f3n de Datos",
       "Items": [
         {
           "Shortcode": "V8.1",
@@ -4852,7 +4852,7 @@
       "Shortcode": "V9",
       "Ordinal": 9,
       "ShortName": "Communications",
-      "Name": "",
+      "Name": "Comunicaci\u00f3n",
       "Items": [
         {
           "Shortcode": "V9.1",
@@ -5042,7 +5042,7 @@
       "Shortcode": "V10",
       "Ordinal": 10,
       "ShortName": "Malicious",
-      "Name": "",
+      "Name": "C\u00f3digo Malicioso",
       "Items": [
         {
           "Shortcode": "V10.1",
@@ -5080,7 +5080,7 @@
             {
               "Shortcode": "V10.2.1",
               "Ordinal": 1,
-              "Description": "Verifique que el c\u00f3digo fuente de la aplicaci\u00f3n y las bibliotecas de terceros no contienen capacidades no autorizadas de recopilaci\u00f3n de datos o de \u201cllamadas a casa\u201d. Cuando detecte dicha funcionalidad, obtenga el permiso explicito del usuario para que sea operado as\u00ed,  antes de recopilar cualquier dato.",
+              "Description": "Verifique que el c\u00f3digo fuente de la aplicaci\u00f3n y las bibliotecas de terceros no contienen capacidades no autorizadas de recopilaci\u00f3n de datos o de \"llamadas a casa\". Cuando detecte dicha funcionalidad, obtenga el permiso explicito del usuario para que sea operado as\u00ed, antes de recopilar cualquier dato.",
               "L1": {
                 "Required": false,
                 "Requirement": ""
@@ -5281,7 +5281,7 @@
       "Shortcode": "V11",
       "Ordinal": 11,
       "ShortName": "BusLogic",
-      "Name": "",
+      "Name": "L\u00f3gica de Negocio",
       "Items": [
         {
           "Shortcode": "V11.1",
@@ -5464,7 +5464,7 @@
       "Shortcode": "V12",
       "Ordinal": 12,
       "ShortName": "Files",
-      "Name": "",
+      "Name": "Archivos y Recursos",
       "Items": [
         {
           "Shortcode": "V12.1",
@@ -5719,7 +5719,7 @@
                 "Requirement": ""
               },
               "CWE": [
-                922
+                552
               ],
               "NIST": []
             },
@@ -5829,7 +5829,7 @@
       "Shortcode": "V13",
       "Ordinal": 13,
       "ShortName": "API",
-      "Name": "",
+      "Name": "API y Servicios Web",
       "Items": [
         {
           "Shortcode": "V13.1",
@@ -6176,7 +6176,7 @@
       "Shortcode": "V14",
       "Ordinal": 14,
       "ShortName": "Config",
-      "Name": "",
+      "Name": "Configuraci\u00f3n",
       "Items": [
         {
           "Shortcode": "V14.1",

@@ -51,7 +51,7 @@ Este es un marcador de posición para los requisitos arquitectónicos futuros.
 
 En 4.0, nos hemos alejado del término "server-side" como un término límite de confianza cargado. El límite de confianza sigue siendo relativo a - tomar decisiones sobre navegadores que no son de confianza o dispositivos cliente que son "bypassable". Sin embargo, en las implementaciones arquitectónicas convencionales de hoy en día, el punto de aplicación de la confianza ha cambiado drásticamente. Por lo tanto, cuando el término "trusted service layer" se utiliza en el ASVS, nos referimos a cualquier punto de aplicación de confianza, independientemente de la ubicación, como un microservicio, serverless API, server-side, una API de confianza en un dispositivo cliente que tiene secure boot, partner o API externas, etc.
 
-El término "untrusted client" aquí se refiere a las tecnologías del lado del cliente que representan la capa de presentación, comúnmente referida como tecnologías  'front-end'. El término "serialization" aquí no sólo se refiere a enviar datos a través de las comunicaciones, como una matriz de valores o tomar y leer una estructura JSON, sino también pasar objetos complejos que pueden contener lógica.
+El término "untrusted client" aquí se refiere a las tecnologías del lado del cliente que representan la capa de presentación, comúnmente referida como tecnologías 'front-end'. El término "serialization" aquí no sólo se refiere a enviar datos a través de las comunicaciones, como una matriz de valores o tomar y leer una estructura JSON, sino también pasar objetos complejos que pueden contener lógica.
 
 | # | Descripción | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -123,11 +123,11 @@ Este es un marcador de posición para los requisitos arquitectónicos futuros.
 
 | # | Descripción | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.14.1** | Verifique la segregación de componentes de diferentes niveles de confianza a través de controles de seguridad bien definidos, reglas de corta fuego, pasarelas de API, proxies reversos, grupos de seguridad basados en nube, o mecanismos similares | | ✓ | ✓ | 293 |
+| **1.14.1** | Verifique la segregación de componentes de diferentes niveles de confianza a través de controles de seguridad bien definidos, reglas de corta fuego, pasarelas de API, proxies reversos, grupos de seguridad basados en nube, o mecanismos similares. | | ✓ | ✓ | 923 |
 | **1.14.2** | Verifique que las firmas binarias, las conexiones de confianza y los puntos de conexión verificados se usan para el despliegue de archivos binarios a dispositivos remotos. | | ✓ | ✓ | 494 |
 | **1.14.3** | Verifique que el canal de compilación advierte de componentes obsoletos o inseguros y realiza las acciones adecuadas. | | ✓ | ✓ | 1104 |
-| **1.14.4** | Verifique que el canal de compilación contiene un paso para compilar y comprobar automáticamente el despliegue seguro de la aplicación, especialmente si la infraestructura de la aplicación está definida por software, como los scripts de compilación del entorno en la nube. | | ✓ | ✓ |  |
-| **1.14.5** | Verifique que los despliegues de aplicaciones sean en sandbox, contenedores y/o aislados a nivel de red para retrasar e impedir que los atacantes vulneren otras aplicaciones, especialmente cuando realizan acciones sensibles o peligrosas, como la deserialización. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering))| | ✓ | ✓ | 265 |
+| **1.14.4** | Verifique que el canal de compilación contiene un paso para compilar y comprobar automáticamente el despliegue seguro de la aplicación, especialmente si la infraestructura de la aplicación está definida por software, como los scripts de compilación del entorno en la nube. | | ✓ | ✓ | |
+| **1.14.5** | Verifique que los despliegues de aplicaciones sean en sandbox, contenedores y/o aislados a nivel de red para retrasar e impedir que los atacantes vulneren otras aplicaciones, especialmente cuando realizan acciones sensibles o peligrosas, como la deserialización. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
 | **1.14.6** | Verifique que la aplicación no utiliza tecnologías del lado cliente no compatibles, inseguras o en desuso, como NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL o client-side java applets. | | ✓ | ✓ | 477 |
 
 ## Referencias

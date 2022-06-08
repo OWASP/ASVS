@@ -1,6 +1,6 @@
 # Usando ASVS
 
-ASVS tiene dos objetivos principales: 
+ASVS tiene dos objetivos principales:
 
 * Ayudar a las organizaciones a desarrollar y mantener aplicaciones seguras.
 * Permitir que los proveedores de servicios de seguridad, los proveedores de herramientas de seguridad y los consumidores alineen sus requisitos y ofertas.
@@ -35,7 +35,7 @@ Una de las mejores maneras de utilizar el estándar de verificación de segurida
 
 Una aplicación alcanza ASVS Nivel 1 si logra defenderse contra vulnerabilidades de seguridad de aplicaciones que son fáciles de descubrir, e incluido el Top 10 de OWASP y otras listas de comprobación similares.
 
-El nivel 1 es el mínimo por el que todas las aplicaciones deben esforzarse. También es útil como primer paso en un esfuerzo multifáses o cuando las aplicaciones no almacenan ni manejan datos confidenciales y, por lo tanto, no necesitan los controles más rigurosos de Nivel 2 o 3. Los controles de nivel 1 se pueden comprobar automáticamente mediante herramientas o simplemente manualmente sin acceso al código fuente. Consideramos el Nivel 1 el mínimo requerido para todas las aplicaciones. 
+El nivel 1 es el mínimo por el que todas las aplicaciones deben esforzarse. También es útil como primer paso en un esfuerzo multifáses o cuando las aplicaciones no almacenan ni manejan datos confidenciales y, por lo tanto, no necesitan los controles más rigurosos de Nivel 2 o 3. Los controles de nivel 1 se pueden comprobar automáticamente mediante herramientas o simplemente manualmente sin acceso al código fuente. Consideramos el Nivel 1 el mínimo requerido para todas las aplicaciones.
 
 Las amenazas a la aplicación probablemente serán de atacantes que utilizan técnicas simples y de bajo esfuerzo para identificar vulnerabilidades fáciles de encontrar y fáciles de explotar. Esto contrasta con un atacante determinado que gastará energía enfocada para apuntar específicamente a la aplicación. Si los datos procesados por su aplicación tienen un alto valor, rara vez querrá detenerse en una revisión de Nivel 1.
 
@@ -63,10 +63,10 @@ Se recomienda encarecidamente a las organizaciones que examinen profundamente su
 
 ## Cómo Hacer Referencia a los Requisitos de ASVS
 
- - Cada requisito tiene un identificador en el formato `<chapter>.<section>.<requirement>` donde cada elemento es un número, por ejemplo: `1.11.3`.
- - El elemento `<chapter>` corresponde al capítulo del que proviene el requisito, por ejemplo: todos los requisitos de `1.#.#` son del capítulo de `Arquitectura`.
- - El elemento `<section>` corresponde a la sección dentro de ese capítulo donde aparece el requisito, por ejemplo: todos los requisitos de `1.11.#` están en la sección `Arquitectura de la Lógica del Negocio`, del capítulo de `Arquitectura`. 
- - El elemento `<requirement>` identifica el requisito específico dentro del capítulo y la sección, por ejemplo: `1.11.3` que a partir de la versión 4.0.3 del presente estándar es:
+Cada requisito tiene un identificador en el formato `<chapter>.<section>.<requirement>` donde cada elemento es un número, por ejemplo: `1.11.3`.
+- El elemento `<chapter>` corresponde al capítulo del que proviene el requisito, por ejemplo: todos los requisitos de `1.#.#` son del capítulo de `Arquitectura`.
+- El elemento `<section>` corresponde a la sección dentro de ese capítulo donde aparece el requisito, por ejemplo: todos los requisitos de `1.11.#` están en la sección `Arquitectura de la Lógica del Negocio`, del capítulo de `Arquitectura`.
+- El elemento `<requirement>` identifica el requisito específico dentro del capítulo y la sección, por ejemplo: `1.11.3` que a partir de la versión 4.0.3 del presente estándar es:
 
 > Compruebe que todos los flujos de lógica de negocio de alto valor, incluida la autenticación, la administración de sesiones y el control de acceso, sean seguros para subprocesos y resistentes a las condiciones de tiempo de comprobación y tiempo de uso.
 

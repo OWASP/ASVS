@@ -6,9 +6,9 @@ La debilidad más común de la seguridad de la aplicación web es la falta de va
 
 Asegúrese de que una aplicación verificada cumple los siguientes requisitos de alto nivel:
 
- * La validación de entrada y la arquitectura de codificación de salida tienen un canal acordado para evitar ataques de inyección.
- * Los datos de entrada están fuertemente tipados, validados, de rango o longitud comprobados, o en el peor de los casos, desinfectados o filtrados.
- * Los datos de salida se codifican o escapan según el contexto de los datos lo más cerca posible del intérprete.
+* La validación de entrada y la arquitectura de codificación de salida tienen un canal acordado para evitar ataques de inyección.
+* Los datos de entrada están fuertemente tipados, validados, de rango o longitud comprobados, o en el peor de los casos, desinfectados o filtrados.
+* Los datos de salida se codifican o escapan según el contexto de los datos lo más cerca posible del intérprete.
 
 Con la arquitectura moderna de aplicaciones web, la codificación de salida es más importante que nunca. Es difícil proporcionar una validación de entrada sólida en determinados escenarios, por lo que el uso de una API más segura, como consultas parametrizadas, frameworks de plantillas de auto-escaping automático o codificación de salida cuidadosamente elegida, es fundamental para la seguridad de la aplicación.
 
