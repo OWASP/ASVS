@@ -29,7 +29,7 @@ Lors de la conception de l'authentification, il importe peu que vous disposiez d
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.2.1** | Vérifier que les communications entre les composants de l'application, y compris les API, les intergiciels et les couches de données, sont authentifiées et utilisent des comptes utilisateurs individuels. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 250 |
-| **1.2.2** | Vérifiez que l'application utilise un mécanisme d'authentification unique et contrôlé qui est connu pour être sûr, qui peut être étendu pour inclure une authentification forte et qui dispose d'une journalisation et d'une surveillance suffisantes pour détecter les abus ou les violations de compte. | | ✓ | ✓ | 306 |
+| **1.2.2** | Vérifiez que les communications entre les composants de l'application, y compris les API, le middleware et les couches de données, sont authentifiées. Les composants doivent avoir les privilèges les moins nécessaires possibles. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 306 |
 | **1.2.3** | Vérifier que toutes les méthodes d'authentification et les API de gestion de l'identité mettent en œuvre un contrôle de sécurité de l'authentification cohérent, de sorte qu'il n'y ait pas d'alternatives plus faibles par rapport au risque de l'application. | | ✓ | ✓ | 306 |
 | **1.2.4** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
 
