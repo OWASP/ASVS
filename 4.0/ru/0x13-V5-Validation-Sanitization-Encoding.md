@@ -1,0 +1,107 @@
+# V5 Форматно-логический контроль, нейтрализация и кодировка
+
+Наиболее распространенным недостатком безопасности web-приложений является неспособность должным образом проконтролировать входные данные, поступающие от клиента или среды, перед их непосредственным использованием без какой-либо кодировки. Это приводит почти ко всем существенным уязвимостям в web-приложениях, таким как межсайтовый скриптинг (XSS), инъекции SQL и команд, атаки, связанные с кодировкой, атаки на файловую систему и переполнение буфера.
+
+Убедитесь, что исследуемое приложение удовлетворяет следующим концептуальным требованиям:
+
+* Архитектура контроля входных и кодирования выходных данных имеет согласованный конвейер для предотвращения атак с использованием инъекций.
+* Входные данные строго типизируются, контролируется их логическая непротиворечивость, проверяются допустимая размерность или диапазон значений, или, как минимум, они нейтрализуются или фильтруются.
+* Выходные данные кодируются или экранируются в соответствии с контекстом данных как можно ближе к интерпретатору.
+
+При современной архитектуре web-приложений кодирование выходных данных становится важным как никогда. В некоторых случаях сложно обеспечить надежный контроль входных данных, поэтому использование более безопасных API, таких как параметризованные запросы, автоматически экранирующие шаблоны или тщательно подобранная кодировка для выходных данных, имеют решающее значение для безопасности приложения.
+
+## V5.1 Контроль входных данных
+
+Правильно реализованные меры контроля входных данных, с использованием "белых" списков разрешений и строгой типизации данных, могут устранить более 90% атак с использованием инъекций. Контроль размера и диапазона значений могут еще сильнее снизить эти проблемы. Встраивание контроля входных данных необходимо на этапах проектирования архитектуры приложения, разработки, а также модульного и интеграционного тестирования. Хотя многих из этих требований и нет в тестах на проникновение, результаты их невыполнения обычно приводят к необходимости выполнения требований раздела V5.3 Кодирование выходной информации и предотвращение инъекций. Разработчикам и исследователям безопасности приложений рекомендуется относиться к этому разделу так, как если бы для всех пунктов требовался первый уровень (L1), чтобы предотвратить инъекции.
+
+| № | Описание | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **5.1.1** | Убедитесь, что в приложении применяются механизмы защиты от атак «загрязнения» параметров HTTP, особенно если платформа приложения не различает источник параметров запроса (GET, POST, файлы cookie, http-заголовки или переменные среды). | ✓ | ✓ | ✓ | [235](https://cwe.mitre.org/data/definitions/235.html) |
+| **5.1.2** | Убедитесь, что фреймворки защищают от атак с массовым присвоением параметров, или что приложение обеспечивает меры защиты от небезопасного назначения параметров, например, помечая поля как private и т.п. ([C5](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs.html)) | ✓ | ✓ | ✓ | [915](https://cwe.mitre.org/data/definitions/915.html) |
+| **5.1.3** | Убедитесь, что все входные данные проходят форматно-логический контроль по «белому» списку разрешенных типов данных, значений атрибутов, параметров, заголовков, запросов, методов и т.п., включая поля HTML-формы, REST-запросы, параметры URL, HTTP-заголовки, атрибуты cookie, пакетные файлы, RSS-каналы и т.д. ([C5](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs.html)) | ✓ | ✓ | ✓ | [20](https://cwe.mitre.org/data/definitions/20.html) |
+| **5.1.4** | Убедитесь, что структурированные данные строго типизированы и проверяются по заданной схеме, в которой указаны разрешенные символы, максимальная длина и шаблон данных (например, номера банковских карт, телефонов, адреса email. Проверяется, что связанные поля соответствуют друг другу, например, городу однозначно соответствует его почтовый индекс). ([C5](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs.html)) | ✓ | ✓ | ✓ | [20](https://cwe.mitre.org/data/definitions/20.html) |
+| **5.1.5** | Убедитесь, что перенаправление URL разрешено только по адресам из списка разрешенных. При перенаправлении на потенциально недоверенный адрес отображается предупреждение. | ✓ | ✓ | ✓ | [601](https://cwe.mitre.org/data/definitions/601.html) |
+
+## V5.2 Нейтрализация и изоляция
+
+| № | Описание | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **5.2.1** | Убедитесь, что весь недоверенный HTML-код, из визуальных редакторов (WYSIWYG), должным образом нейтрализуется с помощью библиотеки санитизации или функционала HTML-фреймворка. ([C5](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs.html)) | ✓ | ✓ | ✓ | [116](https://cwe.mitre.org/data/definitions/116.html) |
+| **5.2.2** | Убедитесь, что неструктурированные данные нейтрализуются с применением таких мер, как разрешенные символы и длина строки. | ✓ | ✓ | ✓ | [138](https://cwe.mitre.org/data/definitions/138.html) |
+| **5.2.3** | Убедитесь, что приложение нейтрализует пользовательский ввод перед передачей в почтовые системы для защиты от SMTP- или IMAP-инъекций. | ✓ | ✓ | ✓ | [147](https://cwe.mitre.org/data/definitions/147.html) |
+| **5.2.4** | Убедитесь, что приложение избегает использования     eval()     или других функций динамического исполнения кода. Там, где нет альтернатив, пользовательский ввод должен нейтрализовываться или помещаться в песочницу перед исполнением. | ✓ | ✓ | ✓ | [95](https://cwe.mitre.org/data/definitions/95.html) |
+| **5.2.5** | Убедитесь, что приложение защищено от атак с внедрением шаблонов, гарантируя, что весь пользовательский ввод нейтрализуется или исполняется в изолированной среде. | ✓ | ✓ | ✓ | [94](https://cwe.mitre.org/data/definitions/94.html) |
+| **5.2.6** | Убедитесь, что приложение защищено от SSRF-атак, проверяя или нейтрализуя недоверенные данные или метаданные HTTP-запросов, такие как имена файлов, поля для ввода URL-адресов, а также применяет списки разрешенных протоколов, доменов, путей и портов. | ✓ | ✓ | ✓ | [918](https://cwe.mitre.org/data/definitions/918.html) |
+| **5.2.7** | Убедитесь, что приложение нейтрализует, отключает или изолирует предоставляемый пользователем контент для сценариев масштабируемой векторной графики (SVG), особенно если они относятся к XSS, полученным из встроенных в код сценариев или foreignObject. | ✓ | ✓ | ✓ | [159](https://cwe.mitre.org/data/definitions/159.html) |
+| **5.2.8** | Убедитесь, что приложение нейтрализует, отключает или помещает в песочницу предоставляемый пользователем контент на языках сценариев или шаблонов разметки, таких как Markdown, таблицы стилей CSS или XSL, BBCode и т.п. | ✓ | ✓ | ✓ | [94](https://cwe.mitre.org/data/definitions/94.html) |
+
+## V5.3 Кодирование выходных данных и предотвращение инъекций
+
+Кодирование выходных данных непосредственно перед используемым интерпретатором имеет решающее значение для безопасности приложения. Как правило, сама кодировка не хранится, а применяется для корректного отображения выходных данных в соответствующем контексте. Неспособность применить кодировку может привести к инъекциям и небезопасному приложению.
+
+| № | Описание | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **5.3.1** | Убедитесь, что кодировка выходных данных подходит для интерпретатора и контекста. Т.е. для значений и атрибутов HTML, JavaScript, параметров в URL, HTTP-заголовков, SMTP и др. кодировка определяется в зависимости от контекста, особенно при недоверенных входных данных, например, имен на Unicode или с апострофами, таких как ねこ или О'Хара). ([C4](https://owasp.org/www-project-proactive-controls/v3/en/c4-encode-escape-data.html)) | ✓ | ✓ | ✓ | [116](https://cwe.mitre.org/data/definitions/116.html) |
+| **5.3.2** | Убедитесь, что кодировка выходных данных отображает выбранный пользователем набор символов и языковой стандарт, таким образом чтобы любой символ Unicode был допустимым и безопасно обрабатывался. ([C4](https://owasp.org/www-project-proactive-controls/v3/en/c4-encode-escape-data.html)) | ✓ | ✓ | ✓ | [176](https://cwe.mitre.org/data/definitions/176.html) |
+| **5.3.3** | Убедитесь, что контекстно-зависимое экранирование выходных данных защищает от XSS-атак (отраженных, сохраненных, основанных на DOM). Предпочтительно автоматизированное, или хотя бы ручное. ([C4](https://owasp.org/www-project-proactive-controls/v3/en/c4-encode-escape-data.html)) | ✓ | ✓ | ✓ | [79](https://cwe.mitre.org/data/definitions/79.html) |
+| **5.3.4** | Убедитесь, что запросы к базам данных (SQL, HQL, ORM, NoSQL и пр.) параметризованы посредством ORM, Entity Framework, или иным образом защищены от атак инъекции в базу данных. ([C3](https://owasp.org/www-project-proactive-controls/v3/en/c3-secure-database.html)) | ✓ | ✓ | ✓ | [89](https://cwe.mitre.org/data/definitions/89.html) |
+| **5.3.5** | Убедитесь, что для защиты от SQL-инъекций там, где параметризованные или более безопасные механизмы отсутствуют, при выводе данных используется контекстно-зависимое кодирование, например, экранирование SQL. ([C3, C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | [89](https://cwe.mitre.org/data/definitions/89.html) |
+| **5.3.6** | Убедитесь, что приложение защищено от JSON-инъекции, атак JSON eval и интерпретации кода на JavaScript. ([C4](https://owasp.org/www-project-proactive-controls/v3/en/c4-encode-escape-data.html)) | ✓ | ✓ | ✓ | [830](https://cwe.mitre.org/data/definitions/830.html) |
+| **5.3.7** | Убедитесь, что приложение защищено от LDAP-инъекций или что были реализованы меры безопасности для предотвращения LDAP-инъекций. ([C4](https://owasp.org/www-project-proactive-controls/v3/en/c4-encode-escape-data.html)) | ✓ | ✓ | ✓ | [90](https://cwe.mitre.org/data/definitions/90.html) |
+| **5.3.8** | Убедитесь, что приложение защищено от инъекций команд операционной системы, и что для вызова команд (и передачи в них аргументов) используются параметризованные запросы к ОС или контекстное кодирование при выводе командной строки. ([C4](https://owasp.org/www-project-proactive-controls/v3/en/c4-encode-escape-data.html)) | ✓ | ✓ | ✓ | [78](https://cwe.mitre.org/data/definitions/78.html) |
+| **5.3.9** | Убедитесь, что приложение защищено от атак с локальным включением файлов (LFI) или удаленным включением файлов (RFI). | ✓ | ✓ | ✓ | [829](https://cwe.mitre.org/data/definitions/829.html) |
+| **5.3.10** | Убедитесь, что приложение защищено от атак с использованием XPath- или XML-инъекций. ([C4](https://owasp.org/www-project-proactive-controls/v3/en/c4-encode-escape-data.html)) | ✓ | ✓ | ✓ | [643](https://cwe.mitre.org/data/definitions/643.html) |
+
+Примечание: Использования параметризованных запросов или экранирования SQL не всегда достаточно. Наименования таблиц и столбцов, ORDER BY и т.д. экранировать не получится. Включение экранированных пользовательских данных в эти поля приводит к неудачным запросам или SQL-инъекции.
+
+Примечание. Формат SVG явно разрешает ECMAScript почти во всех контекстах, поэтому полностью заблокировать все XSS-векторы в SVG может оказаться невозможным. Если требуется загрузка SVG, мы настоятельно рекомендуем загружать файлы либо как text/plain, либо со своего домена, чтобы предотвратить XSS-атаку на приложение.
+
+## V5.4 Память, строки и неуправляемый код
+
+Следующие требования будут актуальны только в случае, если приложение использует язык ассемблера или неуправляемый код.
+
+| № | Описание | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **5.4.1** | Убедитесь, что для обнаружения или предотвращения ситуаций переполнения стека, буфера или кучи приложение учитывает размер доступной области памяти при строковых операциях, копировании в память, в арифметике указателей и т.п.. | | ✓ | ✓ | [120](https://cwe.mitre.org/data/definitions/120.html) |
+| **5.4.2** | Убедитесь, что строка форматирования не содержит потенциально вредоносных входных данных и является неизменяемой. | | ✓ | ✓ | [134](https://cwe.mitre.org/data/definitions/134.html) |
+| **5.4.3** | Убедитесь, что для предотвращения целочисленного переполнения применяется контроль знака, диапазона и типа допустимых входных данных. | | ✓ | ✓ | [190](https://cwe.mitre.org/data/definitions/190.html) |
+
+## V5.5 Предотвращение десериализации
+
+| № | Описание | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **5.5.1** | Убедитесь, что для предотвращения создания вредоносных объектов или подмены данных используется контроль целостности и/или шифрование. ([C5](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs.html)) | ✓ | ✓ | ✓ | [502](https://cwe.mitre.org/data/definitions/502.html) |
+| **5.5.2** | Убедитесь, что приложение правильно ограничивает XML-парсер наиболее строгой конфигурацией, которая гарантирует, что небезопасные XML-функции, такие как разрешение внешних объектов, отключены для предотвращения атак XML eXternal Entity (XXE). | ✓ | ✓ | ✓ | [611](https://cwe.mitre.org/data/definitions/611.html) |
+| **5.5.3** | Убедитесь, что десериализация недоверенных данных исключена или изолирована как в пользовательском коде, так и в сторонних библиотеках (например, в парсерах JSON, XML, YAML и пр.). | ✓ | ✓ | ✓ | [502](https://cwe.mitre.org/data/definitions/502.html) |
+| **5.5.4** | Убедитесь, что при разборе JSON в браузерах или в серверной части на основе JavaScript для документа JSON используется    JSON.parse   . Не используйте    eval()    для разбора JSON. | ✓ | ✓ | ✓ | [95](https://cwe.mitre.org/data/definitions/95.html) |
+
+## Источники
+
+Для дополнительной информации см. также:
+
+* [OWASP Testing Guide 4.0: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
+* [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+* [OWASP Testing Guide 4.0: Testing for HTTP Parameter Pollution](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.html)
+* [OWASP LDAP Injection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
+* [OWASP Testing Guide 4.0: Client Side Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client_Side_Testing/)
+* [OWASP Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+* [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
+* [OWASP Java Encoding Project](https://owasp.org/owasp-java-encoder/)
+* [OWASP Mass Assignment Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
+* [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
+* [XML External Entity (XXE) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
+
+Для дополнительной информации по экранированию см. также:
+
+* [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
+* [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
+* [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
+* [Angular Sanitization](https://angular.io/guide/security#sanitization-and-security-contexts)
+* [Angular Security](https://angular.io/guide/security)
+* [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
+* [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
+
+Для дополнительной информации по десериализации см. также:
+
+* [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+* [OWASP Deserialization of Untrusted Data Guide](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data)
