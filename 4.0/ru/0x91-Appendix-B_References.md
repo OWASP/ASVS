@@ -37,6 +37,6 @@ OWASP Serverless: [https://owasp.org/www-project-serverless-top-10/](https://owa
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
 3. PCI Security Standards Council: [https://www.pcisecuritystandards.org](https://www.pcisecuritystandards.org)
-4. PCI Data Security Standard (DSS) v4.0 Requirements and Security Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-DSS-v4_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-DSS-v4_0.pdf)
+4. PCI Data Security Standard (DSS) v3.2.1 Requirements and Security Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf](https://ru.pcisecuritystandards.org/_onelink_/pcisecurity/en2ru/minisite/en/docs/PCI_DSS_v3-2-1_RU.pdf)
 5. PCI Software Security Framework - Secure Software Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf)
 6. PCI Secure Software Lifecycle (Secure SLC) Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)
