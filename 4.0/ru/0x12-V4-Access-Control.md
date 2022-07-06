@@ -8,6 +8,8 @@
 * Пользователи имеют четко определенный набор ролей и привилегий.
 * Метаданные ролей и разрешений защищены от воспроизведения или подделки.
 
+## Верификация требований к безопасности
+
 ## V4.1 Базовые принципы
 
 | № | Описание | L1 | L2 | L3 | CWE |
@@ -37,7 +39,7 @@
 
 Для дополнительной информации см. также:
 
-* [OWASP Testing Guide 4.0: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing/README.html)
+* [OWASP Testing Guide 4.0: Authorization](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/05-Authorization_Testing/README.html)
 * [OWASP Cheat Sheet: Access Control](https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html)
 * [OWASP CSRF Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 * [OWASP REST Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
