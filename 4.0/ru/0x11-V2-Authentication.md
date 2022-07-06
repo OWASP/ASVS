@@ -81,7 +81,7 @@ NIST рассматривает email и SMS как [«ограниченные�
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.3.1** | Убедитесь, что создаваемые системой начальные пароли или коды активации формируются криптографически случайным образом. Они ДОЛЖНЫ иметь длину не менее 6 символов и МОГУТ содержать буквы и цифры, а срок их действия истекает через короткий период времени. Нельзя допускать, чтобы начальный пароль становился долгосрочным. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | Убедитесь, что поддерживается регистрация и использование предоставленных пользователем устройств аутентификации, таких как токены U2F или FIDO. | | ✓ | ✓ | 308 | 6.1.3 |
-| **2.3.3** | Убедитесь, что для обновления аутентификаторов с ограниченым сроком действия инструкции по их замене направляются заблаговременно. | | ✓ | ✓ | 287 | 6.1.4 |
+| **2.3.3** | Убедитесь, что для обновления аутентификаторов с ограниченным сроком действия инструкции по их замене направляются заблаговременно. | | ✓ | ✓ | 287 | 6.1.4 |
 
 ## V2.4 Хранение учётных данных
 
@@ -205,7 +205,7 @@ ASVS предполагает, что мало кто будет разраба�
 * [NIST 800-63 B - Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
 * [NIST 800-63 C - Federation and Assertions](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63c.pdf)
 * [NIST 800-63 FAQ](https://pages.nist.gov/800-63-FAQ/)
-* [OWASP Testing Guide 4.0: Testing for Authentication](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/04-Authentication_Testing/README.html)
+* [OWASP Testing Guide 4.0: Testing for Authentication](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/README.html)
 * [OWASP Cheat Sheet - Password storage](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 * [OWASP Cheat Sheet - Forgot password](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
 * [OWASP Cheat Sheet - Choosing and using security questions](https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html)
