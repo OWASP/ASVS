@@ -1,5 +1,7 @@
 # V6 Хранимая криптография
 
+## Задачи контроля
+
 Убедитесь, что исследуемое приложение удовлетворяет следующим концептуальным требованиям:
 
 * Криптографические модули выходят из строя безопасным образом, и ошибки корректно обрабатываются.
@@ -56,6 +58,6 @@
 
 Для дополнительной информации см. также:
 
-* [OWASP Testing Guide 4.0: Testing for weak Cryptography](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/README.html)
+* [OWASP Testing Guide 4.0: Testing for weak Cryptography](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/README.html)
 * [OWASP Cheat Sheet: Cryptographic Storage](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
 * [FIPS 140-2](https://csrc.nist.gov/publications/detail/fips/140/2/final)
