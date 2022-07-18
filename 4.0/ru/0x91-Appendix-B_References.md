@@ -12,9 +12,9 @@
 
 ## Проект OWASP Cheat Sheet Series
 
-[В этом проекте](https://owasp.org/www-project-cheat-sheets/) есть шпаргалки, которые будут актуальны для многих требований ASVS.
+[В этом проекте](https://owasp.org/www-project-cheat-sheets/) есть памятки, которые будут актуальны для многих требований ASVS.
 
-Сопоставление шпаргалок с ASVS можно найти здесь: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
+Сопоставление памяток с требованиями ASVS можно найти здесь: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
 
 ## Проекты Mobile Security
 
