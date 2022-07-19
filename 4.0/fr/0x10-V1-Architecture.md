@@ -31,7 +31,7 @@ Lors de la conception de l'authentification, il importe peu que vous disposiez d
 | **1.2.1** | Vérifier que les communications entre les composants de l'application, y compris les API, les intergiciels et les couches de données, sont authentifiées et utilisent des comptes utilisateurs individuels. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 250 |
 | **1.2.2** | Vérifiez que les communications entre les composants de l'application, y compris les API, le middleware et les couches de données, sont authentifiées. Les composants doivent avoir les privilèges les moins nécessaires possibles. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 306 |
 | **1.2.3** | Vérifier que toutes les méthodes d'authentification et les API de gestion de l'identité mettent en œuvre un contrôle de sécurité de l'authentification cohérent, de sorte qu'il n'y ait pas d'alternatives plus faibles par rapport au risque de l'application. | | ✓ | ✓ | 306 |
-| **1.2.4** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
+| **1.2.4** | Vérifiez que toutes les voies d'authentification et les API de gestion des identités implémentent une force de contrôle de sécurité d'authentification cohérente, de sorte qu'il n'y ait pas d'alternative plus faible en fonction du risque de l'application. | | ✓ | ✓ | 306 |
 
 ## V1.3 Exigences architecturales pour la gestion des sessions
 
@@ -44,7 +44,7 @@ Il s'agit d'un point de repère pour les futures exigences architecturales.
 | **1.4.1** | Vérifiez que des points d'application de confiance tels que les passerelles de contrôle d'accès, les serveurs et les fonctions sans serveur font respecter les contrôles d'accès. N'imposez jamais de contrôles d'accès au client. | | ✓ | ✓ | 602 |
 | **1.4.2** | [SUPPRIMÉ, NON FAISABLE] | | | | |
 | **1.4.3** | [SUPPRIMÉ, DOUBLON AVEC L'EXIGENCE 4.1.3] | | | | |
-| **1.4.4** | Vérifier que les communications entre les composants de l'application, y compris les API, les intergiciels et les couches de données, sont effectuées avec le moins de privilèges possibles. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 284 |
+| **1.4.4** | Vérifiez que l'application utilise un mécanisme de contrôle d'accès unique et bien contrôlé pour accéder aux données et ressources protégées. Toutes les requêtes doivent passer par ce mécanisme unique pour éviter les copier-coller ou les chemins alternatifs non sécurisés. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 284 |
 | **1.4.5** | Vérifiez que le contrôle d'accès basé sur les attributs ou les caractéristiques est utilisé, c'est-à-dire que le code vérifie l'autorisation de l'utilisateur pour une caractéristique ou une donnée plutôt que son seul rôle. Les autorisations doivent tout de même être attribuées à l'aide de rôles. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 275 |
 
 ## V1.5 Exigences architecturales d'entrée et de sortie
@@ -56,7 +56,7 @@ Le terme « client non approuvé » fait ici référence aux technologies côt
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.5.1** | Vérifier que les exigences en matière d'entrée et de sortie définissent clairement la manière de traiter et d'exploiter les données en fonction du type, du contenu et de la conformité aux lois, règlements et autres politiques applicables.  | | ✓ | ✓ | 1029 |
-| **1.5.2** | Vérifiez que la sérialisation n'est pas utilisée lorsque vous communiquez avec des clients non fiables. Si cela n'est pas possible, assurez-vous que des contrôles d'intégrité adéquats (et éventuellement un cryptage si des données sensibles sont envoyées) sont appliqués pour empêcher les attaques de désérialisation, y compris l'injection d'objets. | | ✓ | ✓ | 502 |
+| **1.5.2** | Vérifiez que la sérialisation n'est pas utilisée lorsque vous communiquez avec des clients non fiables. Si cela n'est pas possible, assurez-vous que des contrôles d'intégrité adéquats (et éventuellement un chiffrement si des données sensibles sont envoyées) sont appliqués pour empêcher les attaques de désérialisation, y compris l'injection d'objets. | | ✓ | ✓ | 502 |
 | **1.5.3** | Vérifiez que la validation des entrées est appliquée sur une couche de service de confiance. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 602 |
 | **1.5.4** | Vérifiez que l'encodage de sortie se fait à proximité ou par l'interprète auquel il est destiné. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 116 |
 
@@ -70,8 +70,8 @@ Les exigences architecturales sont intrinsèques au code, et donc difficiles à 
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.6.1** | Vérifier qu'il existe une politique explicite de gestion des clés cryptographiques et que le cycle de vie d'une clé cryptographique suit une norme de gestion des clés telle que NIST SP 800-57. | | ✓ | ✓ | 320 |
 | **1.6.2** | Vérifier que les consommateurs de services cryptographiques protègent les clés et autres secrets en utilisant des coffres-forts de clés ou des alternatives basées sur l'API. | | ✓ | ✓ | 320 |
-| **1.6.3** | Vérifiez que toutes les clés et tous les mots de passe sont remplaçables et font partie d'un processus bien défini de recryptage des données sensibles. | | ✓ | ✓ | 320 |
-| **1.6.4** | Vérifier que les clés symétriques, les mots de passe ou les secrets d'API générés par les clients ou partagés avec eux ne sont utilisés que pour protéger des secrets à faible risque, comme le chiffrement du stockage local, ou des utilisations éphémères temporaires comme l'obscurcissement des paramètres. Le partage de secrets avec les clients est équivalent à du texte en clair et, d'un point de vue architectural, il doit être traité comme tel. | | ✓ | ✓ | 320 |
+| **1.6.3** | Vérifiez que toutes les clés et tous les mots de passe sont remplaçables et font partie d'un processus bien défini de rechiffrement des données sensibles. | | ✓ | ✓ | 320 |
+| **1.6.4** | Vérifiez que l'architecture traite les secrets côté client, tels que les clés symétriques, les mots de passe ou les jetons d'API, comme non sécurisés et ne les utilise jamais pour protéger ou accéder à des données sensibles. | | ✓ | ✓ | 320 |
 
 ## V1.7 Erreurs, enregistrement et vérification des exigences architecturales
 
@@ -85,7 +85,7 @@ Les exigences architecturales sont intrinsèques au code, et donc difficiles à 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.8.1** | Vérifier que toutes les données sensibles sont identifiées et classées en niveaux de protection. | | ✓ | ✓ | |
-| **1.8.2** | Vérifier que tous les niveaux de protection sont associés à un ensemble d'exigences de protection, telles que des exigences de cryptage, d'intégrité, de conservation, de respect de la vie privée et d'autres exigences de confidentialité, et que celles-ci sont appliquées dans l'architecture. | | ✓ | ✓ | |
+| **1.8.2** | Vérifier que tous les niveaux de protection sont associés à un ensemble d'exigences de protection, telles que des exigences de chiffrement, d'intégrité, de conservation, de respect de la vie privée et d'autres exigences de confidentialité, et que celles-ci sont appliquées dans l'architecture. | | ✓ | ✓ | |
 
 ## V1.9 Exigences en matière d'architecture des communications
 
@@ -117,7 +117,7 @@ Les exigences architecturales sont intrinsèques au code, et donc difficiles à 
 
 ## V1.13 Exigences architecturales de l'API
 
-Il s'agit d'un point de repère pour les futures exigences architecturales.
+Il s'agit d'un espace réservé pour les futures exigences architecturales.
 
 ## V1.14 Configuration des exigences architecturales
 
@@ -127,8 +127,8 @@ Il s'agit d'un point de repère pour les futures exigences architecturales.
 | **1.14.2** | Vérifier que les signatures binaires, les connexions de confiance et les nœuds vérifiés sont utilisés pour déployer des binaires sur des dispositifs distants. | | ✓ | ✓ | 494 |
 | **1.14.3** | Vérifier que le pipeline de construction signale les composants obsolètes ou peu sûrs et prend les mesures appropriées. | | ✓ | ✓ | 1104 |
 | **1.14.4** | Vérifiez que le pipeline de construction contient une étape de génération pour générer automatiquement et vérifier le déploiement sécurisé de l'application, en particulier si l'infrastructure de l'application est définie par logiciel, comme les scripts de génération d'environnement cloud. | | ✓ | ✓ | |
-| **1.14.5** | Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
-| **1.14.6** | Verify the application does not use unsupported, insecure, or deprecated client-side technologies such as NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
+| **1.14.5** | Vérifiez que les déploiements d'applications sont correctement mis en bac à sable, conteneurisés et/ou isolés au niveau du réseau pour retarder et dissuader les attaquants d'attaquer d'autres applications, en particulier lorsqu'ils effectuent des actions sensibles ou dangereuses telles que la désérialisation. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
+| **1.14.6** | Vérifier que l'application n'utilise pas de technologies côté client non prises en charge, non sécurisées ou obsolètes telles que les plug-ins NSAPI, Flash, Shockwave, ActiveX, Silverlight, NACL ou des applets Java côté client. | | ✓ | ✓ | 477 |
 
 ## Références
 
