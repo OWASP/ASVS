@@ -106,9 +106,10 @@ If you are interested in creating a translation, here are some pointers for how 
         * Spanish
         * Simplified Chinese
         * Arabic
+        * Russian
     * v4.0.2
         * German
-        * Russian (complete but v4.0.3 is in-progress)
+        * Russian
     * v4.0.1
         * Persian
         * Turkish
