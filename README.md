@@ -26,6 +26,7 @@ For information on changes between 4.0.2 and 4.0.3 of the standard, see [this wi
 * [OWASP Application Security Verification Standard 4.0.3 Spanish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-es.pdf) and [other formats](4.0/docs_es).  (Thanks to [Carlos Allendes](https://github.com/CarlosAllendes) and [Hans Herrera](https://github.com/hansphp))
 * [OWASP Application Security Verification Standard 4.0.3 Simplified Chinese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-zh-cn.pdf) and [other formats](4.0/docs_zh-cn).  (Thanks to [Unc1e](https://github.com/hi-unc1e))
 * [OWASP Application Security Verification Standard 4.0.3 Arabic (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ar.pdf) and [other formats](4.0/docs_ar).  (Thanks to [Aref Shaheed](https://github.com/aref2008) and Mhd Ghassan Alhabash)
+* [OWASP Application Security Verification Standard 4.0.3 Russian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ru.pdf) and [other formats](4.0/docs_ru). (Thanks to [Andrei Titov](https://github.com/andrettv))
 
 ## Standard Objectives
 
