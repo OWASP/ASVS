@@ -5,13 +5,15 @@
 Assurez-vous qu'une demande vérifiée satisfait aux exigences de haut niveau suivantes :
 
 * Le TLS ou le cryptage fort est toujours utilisé, quelle que soit la sensibilité des données transmises
-* Les conseils de configuration les plus récents et les plus importants sont utilisés pour activer et ordonner les algorithmes et les chiffres préférés
+* Suivez les conseils les plus récents, incluant:
+  * les conseils de configuration
+  * les algorithmes et les cryptogrammes préférés
 * Les algorithmes et les chiffres faibles ou bientôt obsolètes sont commandés en dernier recours
 * Les algorithmes et les chiffres non sécurisés, dépréciés ou connus, sont désactivés.
 
 Dans ces exigences :
 
-* Les principaux conseils de l'industrie sur la configuration sécurisée de TLS changent fréquemment, souvent en raison de ruptures catastrophiques dans les algorithmes et les chiffres existants. Stay current with recommended industry advice on secure TLS configuration, as it changes frequently (often due to catastrophic breaks in existing algorithms and ciphers).Les principaux conseils de l'industrie sur la configuration sécurisée de TLS changent fréquemment, souvent en raison de ruptures catastrophiques dans les algorithmes et les chiffres existants. 
+* Les principaux conseils de l'industrie sur la configuration sécurisée de TLS changent fréquemment, souvent en raison de ruptures catastrophiques dans les algorithmes et les cryptogrammes existants.
 * Utilisez toujours les versions les plus récentes des outils de révision de la configuration TLS (tels que SSLyze ou d'autres scanners TLS) pour configurer l'ordre et la sélection d'algorithme préférés.
 * La configuration doit être vérifiée périodiquement pour s'assurer que la configuration des communications sécurisées est toujours présente et efficace.
 
@@ -46,4 +48,4 @@ Pour plus d'informations, voir aussi :
 * [OWASP - Pinning Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Pinning_Cheat_Sheet.html)
 * Remarques sur les « modes approuvés de TLS ». 
     * Dans le passé, l'ASVS faisait référence à la norme américaine FIPS 140-2, mais en tant que norme mondiale, l'application des normes américaines peut être difficile, contradictoire ou déroutante à appliquer. 
-    * Une meilleure méthode pour atteindre la conformité avec 9.1.3 consisterait à examiner des guides tels que [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) ou  [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), et utiliser des outils d'évaluation TLS connus, tels que sslyze, divers scanners de vulnérabilité ou des services d'évaluation TLS en ligne fiables pour obtenir le niveau de sécurité souhaité. En général, nous constatons que la non-conformité de cette section est l'utilisation de chiffrements et d'algorithmes obsolètes ou non sécurisés, le manque de secret de transmission parfait, les protocoles SSL obsolètes ou non sécurisés, les chiffrements préférés faibles, etc.
+    * Une meilleure méthode pour atteindre la conformité avec 9.1.3 consisterait à examiner des guides tels que [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) ou  [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), et utiliser des outils d'évaluation TLS connus, tels que sslyze, divers scanners de vulnérabilité ou des services d'évaluation TLS en ligne fiables pour obtenir le niveau de sécurité souhaité.
