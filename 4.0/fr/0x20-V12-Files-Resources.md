@@ -13,8 +13,8 @@ Bien que les bombes zip soient facilement testables à l'aide de techniques de t
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.1.1** | Vérifiez que la demande n'accepte pas de fichiers volumineux qui pourraient remplir l'espace de stockage ou provoquer un déni de service. | ✓ | ✓ | ✓ | 400 |
-| **12.1.2** | Vérifiez que les fichiers compressés sont contrôlés pour détecter les "bombes zip" - de petits fichiers d'entrée qui se décompresseront en fichiers énormes, épuisant ainsi les limites de stockage des fichiers. | | ✓ | ✓ | 409 |
+| **12.1.1** | Vérifiez que l'application n'accepte pas de fichiers volumineux qui pourraient remplir l'espace de stockage ou provoquer un déni de service. | ✓ | ✓ | ✓ | 400 |
+| **12.1.2** | Vérifiez que l'application contrôle les fichiers compressés (par exemple, zip, gz, docx, odt) par rapport à la taille maximale autorisée non compressée et au nombre maximal de fichiers avant de décompresser le fichier. | | ✓ | ✓ | 409 |
 | **12.1.3** | Vérifiez qu'un quota de taille de fichier et un nombre maximum de fichiers par utilisateur sont appliqués pour s'assurer qu'un seul utilisateur ne peut pas remplir le stockage avec trop de fichiers, ou des fichiers excessivement gros. | | ✓ | ✓ | 770 |
 
 ## V12.2 Exigences en matière d'intégrité des fichiers
@@ -38,7 +38,7 @@ Bien que les bombes zip soient facilement testables à l'aide de techniques de t
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.4.1** | Vérifiez que les fichiers obtenus de sources non fiables sont stockés en dehors de la racine web, avec des permissions limitées, de préférence avec une validation forte. | ✓ | ✓ | ✓ | 552 |
+| **12.4.1** | Vérifiez que les fichiers obtenus à partir de sources non fiables sont stockés en dehors de la racine Web, avec des autorisations limitées. | ✓ | ✓ | ✓ | 552 |
 | **12.4.2** | Vérifiez que les fichiers obtenus de sources non fiables sont analysés par des scanners antivirus pour empêcher le téléchargement de contenus malveillants connus. | ✓ | ✓ | ✓ | 509 |
 
 ## V12.5 Exigences de téléchargement des fichiers
