@@ -15,7 +15,7 @@ La sécurité de la logique commerciale est tellement individuelle à chaque dem
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **11.1.1** | Vérifier que l'application traitera seulement les flux de logique métier pour un utilisateur dans l'ordre séquentiel des étapes et sans sauter d'étapes.| ✓ | ✓ | ✓ | 841 |
-| **11.1.2** | Vérifier que l'application traitera seulement les flux de logiques métier, toutes les étapes étant traitées en temps humain réaliste, c'est-à-dire que les transactions ne sont pas soumises trop rapidement (effectuer par un robot).| ✓ | ✓ | ✓ | 799 |
+| **11.1.2** |Vérifiez que l'application ne traitera que des flux de logique métier dont toutes les étapes sont traitées dans un temps humain réaliste, c'est-à-dire que les transactions ne sont pas soumises trop rapidement. | ✓ | ✓ | ✓ | 799 |
 | **11.1.3** | Vérifiez que l'application comporte des limites appropriées pour des actions ou des transactions commerciales spécifiques qui sont correctement exécutées par utilisateur. | ✓ | ✓ | ✓ | 770 |
 | **11.1.4** | Vérifiez que l'application dispose de contrôles anti-automatisation suffisants pour détecter et protéger contre l'exfiltration de données, les demandes excessives de logique métiers, les téléchargements excessifs de fichiers ou les attaques par déni de service. | ✓ | ✓ | ✓ | 770 |
 | **11.1.5** | Vérifier que l'application a des limites ou une validation de la logique métier pour se protéger contre les risques ou les menaces commerciales probables, identifiés à l'aide de la modélisation des menaces ou de méthodologies similaires. | ✓ | ✓ | ✓ | 841 |
