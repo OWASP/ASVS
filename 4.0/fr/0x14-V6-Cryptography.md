@@ -14,8 +14,8 @@ L'actif le plus important est constitué par les données traitées, stockées o
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **6.1.1** | Vérifier que les données privées réglementées sont stockées sous forme cryptée pendant le repos, comme les informations d'identification personnelle (IIP), les informations personnelles sensibles ou les données considérées comme susceptibles d'être soumises à la GDPR de l'UE. | | ✓ | ✓ | 311 |
-| **6.1.2** | Vérifier que les données de santé réglementées sont stockées de manière cryptée pendant le repos, comme les dossiers médicaux, les détails des dispositifs médicaux ou les dossiers de recherche désanonymisés. | | ✓ | ✓ | 311 |
+| **6.1.1** | Vérifier que les données privées réglementées sont stockées sous forme chiffrée pendant le repos, comme les informations d'identification personnelle (IIP), les informations personnelles sensibles ou les données considérées comme susceptibles d'être soumises à la GDPR de l'UE. | | ✓ | ✓ | 311 |
+| **6.1.2** | Vérifier que les données de santé réglementées sont stockées de manière chiffrée pendant le repos, comme les dossiers médicaux, les détails des dispositifs médicaux ou les dossiers de recherche désanonymisés. | | ✓ | ✓ | 311 |
 | **6.1.3** | Vérifiez que les données financières réglementées sont stockées de manière cryptée lorsqu'elles sont au repos, telles que les comptes financiers, les défauts ou les antécédents de crédit, les dossiers fiscaux, l'historique des salaires, les bénéficiaires ou les dossiers de marché ou de recherche désanonymisés. | | ✓ | ✓ | 311 |
 
 ## V6.2 Algorithmes
@@ -31,8 +31,8 @@ Bien que cette section ne soit pas facilement testée lors des tests d'intrusion
 | **6.2.3** | Vérifiez que le vecteur d'initialisation du chiffrement, la configuration du chiffrement et les modes de blocage sont configurés de manière sécurisée en utilisant les derniers conseils. | | ✓ | ✓ | 326 |
 | **6.2.4** | Vérifiez que les algorithmes de chiffrement ou de hachage, les longueurs de clé, le nombre de rondes, les chiffrements ou les modes, peuvent être reconfigurés, mis à niveau ou échangés à tout moment, pour se protéger contre les failles cryptographiques. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 326 |
 | **6.2.5** | Vérifiez que les modes de blocs non sécurisés connus (c'est-à-dire ECB, etc.), les modes de remplissage (c'est-à-dire PKCS#1 v1.5, etc.), les chiffrements avec des blocs de petites tailles (c'est-à-dire Triple-DES, Blowfish, etc.) et les algorithmes de hachage faibles (c'est-à-dire MD5, SHA1, etc.) ne sont pas utilisés, sauf si cela est nécessaire pour la rétrocompatibilité. | | ✓ | ✓ | 326 |
-| **6.2.6** | Vérifiez que les nonces, vecteurs d'initialisation et autres numéros à usage unique ne doivent pas être utilisés plus d'une fois avec une clé de cryptage donnée. La méthode de génération doit être appropriée à l'algorithme utilisé. | | ✓ | ✓ | 326 |
-| **6.2.7** | Vérifier que les données cryptées sont authentifiées par des signatures, des modes de chiffrement authentifiés ou le [HMAC](https://en.wikipedia.org/wiki/HMAC) pour s'assurer que le texte chiffré n'est pas altéré par une partie non autorisée. | | | ✓ | 326 |
+| **6.2.6** | Vérifiez que les nonces, vecteurs d'initialisation et autres numéros à usage unique ne doivent pas être utilisés plus d'une fois avec une clé de chiffrement donnée. La méthode de génération doit être appropriée à l'algorithme utilisé. | | ✓ | ✓ | 326 |
+| **6.2.7** | Vérifier que les données chiffrées sont authentifiées par des signatures, des modes de chiffrement authentifiés ou le [HMAC](https://en.wikipedia.org/wiki/HMAC) pour s'assurer que le texte chiffré n'est pas altéré par une partie non autorisée. | | | ✓ | 326 |
 | **6.2.8** | Vérifiez que toutes les opérations cryptographiques sont à temps constant, sans opérations de "court-circuit" dans les comparaisons, les calculs ou les retours, afin d'éviter les fuites d'informations. | | | ✓ | 385 |
 
 ## V6.3 Valeurs aléatoires
