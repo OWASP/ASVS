@@ -24,7 +24,7 @@ Comme indiqué précédemment, ces exigences ont été adaptées pour constituer
 | # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.2.1** | Vérifiez que l'application génère un nouveau jeton de session sur l'authentification de l'utilisateur. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | Vérifiez que les jetons de session possèdent au moins 128 bits d'entropie. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.2** | Vérifiez que les jetons de session possèdent au moins 64 bits d'entropie. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | Vérifiez que l'application ne stocke que des jetons de session dans le navigateur en utilisant des méthodes sûres telles que les cookies correctement sécurisés (voir section 3.4) ou le stockage de session HTML 5. | ✓ | ✓ | ✓ | 539 | 7.1 |
 | **3.2.4** | Vérifiez que les jetons de session sont générés à l'aide d'algorithmes cryptographiques approuvés. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
 
@@ -38,7 +38,7 @@ Dans ce contexte, la valeur L1 est IAL1/AAL1, la valeur L2 est IAL2/AAL3, la val
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.3.1** | Vérifiez que la déconnexion et l'expiration invalident le jeton de session. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.3.1** | Vérifiez que la déconnexion et l'expiration invalident le jeton de session, de sorte que le bouton de retour ou une partie de confiance en aval ne reprenne pas une session authentifiée, y compris entre les parties de confiance. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
 | **3.3.2** | Si les authentificateurs permettent aux utilisateurs de rester connectés, vérifiez que la ré-authentification a lieu périodiquement, que ce soit en cas d'utilisation active ou après une période d'inactivité. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 jours | 12 heures ou 30 minutes d'inactivité, 2FA facultatif | 12 heures ou 15 minutes d'inactivité, avec 2FA | 613 | 7.2 |
 | **3.3.3** | Vérifiez que l'application offre la possibilité de mettre fin à toutes les autres sessions actives après un changement de mot de passe réussi (y compris le changement par réinitialisation/récupération du mot de passe), et que cette option est effective dans toute l'application, la connexion fédérée (si elle existe) et toute partie qui se fie à elle. | | ✓ | ✓ | 613 | |
 | **3.3.4** | Vérifiez que les utilisateurs sont en mesure de consulter et (après avoir saisi à nouveau leurs identifiants de connexion) de se déconnecter d'une ou de toutes les sessions et de tous les dispositifs actuellement actifs. | | ✓ | ✓ | 613 | 7.1 |
@@ -59,9 +59,9 @@ La gestion des sessions basée sur des jetons comprend les clés JWT, OAuth, SAM
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.5.1** | Vérifiez que l'application ne valide pas les jetons OAuth et refresh -- par eux-même -- comme la présence de l'abonné et permet aux utilisateurs de mettre fin aux relations de confiance avec les applications liées.  | | ✓ | ✓ | 290 | 7.1.2 |
-| **3.5.2** | Vérifiez que l'application utilise des jetons de session plutôt que des secrets et des clés d'API statiques, sauf dans le cas d'anciennes implémentations(legacy). | | ✓ | ✓ | 798 | |
-| **3.5.3** | Vérifiez que les jetons de session sans état utilisent les signatures numériques, le cryptage et d'autres contre-mesures pour se protéger contre les attaques par altération, mise sous enveloppe, rediffusion, chiffrement nul et substitution de clé. | | ✓ | ✓ | 345 | |
+| **3.5.1** | Vérifiez que l'application permet aux utilisateurs de révoquer les jetons OAuth qui forment des relations d'approbation avec les applications liées.  | | ✓ | ✓ | 290 | 7.1.2 |
+| **3.5.2** | Vérifiez que l'application utilise des jetons de session plutôt que des secrets et des clés d'API statiques, sauf dans le cas d'anciennes implémentations (legacy). | | ✓ | ✓ | 798 | |
+| **3.5.3** | Vérifiez que les jetons de session sans état utilisent les signatures numériques, le chiffrement et d'autres contre-mesures pour se protéger contre les attaques par altération, mise sous enveloppe, rediffusion, chiffrement nul et substitution de clé. | | ✓ | ✓ | 345 | |
 
 ## V3.6 Re-authentification d'une fédération ou d'une assertion
 
