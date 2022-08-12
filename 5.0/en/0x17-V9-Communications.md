@@ -8,7 +8,7 @@ Ensure that a verified application meets the following high level requirements:
 * Follow the latest guidance, including:
   * Configuration advice
   * Preferred algorithms and ciphers
-* Avoid weak or soon to be deprecated algorithms and ciphers, except as a last resort
+* Avoid weak or soon to be deprecated algorithms and ciphers, except as a last resort.
 * Disable deprecated or known insecure algorithms and ciphers.
 
 Within these requirements:
@@ -30,7 +30,7 @@ Ensure all HTTP traffic to external facing services to the appliation is sent en
 
 ## V9.2 General Service to Service Communication Security
 
-Server communications are more than just HTTP. Secure connections to and from other systems, such as monitoring systems, management tools, remote access and ssh, middleware, database, mainframes, partner or external source systems &mdash; must be in place. All of these must be encrypted to prevent "hard on the outside, trivially easy to intercept on the inside".
+Server communications are more than just HTTP. Secure connections to and from other systems, such as monitoring systems, management tools, remote access and SSH, middleware, database, mainframes, partner or external source systems &mdash; must be in place. All of these must be encrypted to prevent "hard on the outside, trivially easy to intercept on the inside".
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -65,7 +65,7 @@ Use secure TLS configuration and use up to date tools to review the configuratio
 For more information, see also:
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-* [OWASP - Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
+* [OWASP – Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
 * Notes on “Approved modes of TLS”:
     * In the past, the ASVS referred to the US standard FIPS 140-2, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply.
     * A better method of achieving compliance with section 9.1 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up to date TLS evaluation tools to obtain a desired level of security.
