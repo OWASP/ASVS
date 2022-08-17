@@ -179,7 +179,7 @@ Secrets can be securely stored by using services offered by the framework, the o
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.10.1** | Verify that intra-service secrets do not rely on unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 | |
-| **2.10.2** | Verify that if passwords are required for service authentication, the service account used is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
+| **2.10.2** | [GRAMMAR] Verify that if passwords are required for service authentication, the service account used is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
 | **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. | | ✓ | ✓ | 522 | |
 | **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | ✓ | ✓ | 798 | |
 
