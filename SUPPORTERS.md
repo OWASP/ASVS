@@ -14,28 +14,30 @@ If you would like to directly become a Primary, Secondary or Tertiary supporter,
 
 Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization. This will be evaluated at the sole discretion of the project leaders. Supporter will be listed 2 years from the end of the time provision.
 
-[<img src="./images/clarifiedlogo.png" height=100>](https://www.clarifiedsecurity.com/)
+[<img src="./images/clarifiedlogo.png" height=105>](https://www.clarifiedsecurity.com/)
 
-[<img src="./images/bounce.svg" height=100>](https://www.bouncesecurity.com)
+[<img src="./images/bounce.svg" height=105>](https://www.bouncesecurity.com)
 
-[<img src="./images/manicode.svg" height=100>](https://www.manicode.com)
+[<img src="./images/manicode.svg" height=105>](https://www.manicode.com)
 
 ## Primary supporters
 
 Organizations who have donated $7,000 or more to the project via OWASP. Supporter will be listed in this section for 3 years from the date of the donation.
-
+<!--95-->
 ## Secondary supporters
 
 Organizations who have donated $3,000 or more to the project via OWASP. Supporter will be listed in this section for 2 years from the date of the donation.
-
+<!--80-->
 ## Tertiary supporters
 
 Organizations who have donated $500 or more to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
 
-[<img src="./images/oneconsult.svg" height=60>](https://www.oneconsult.com)
+[<img src="./images/oneconsult.svg" height=65>](https://www.oneconsult.com)
 
 ## Associate supporters 
 
 Organizations who have donated another amount to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
 
-[<img src="./images/apiiro.svg" height=40>](https://apiiro.com/)
+[<img src="./images/apiiro.svg" height=50>](https://apiiro.com/)
+
+[<img src="./images/crestlogo.png" height=50>](https://www.crest-approved.org/)

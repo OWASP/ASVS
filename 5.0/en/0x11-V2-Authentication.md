@@ -57,7 +57,7 @@ NIST considers SMS as ["restricted" authenticator types](https://pages.nist.gov/
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.2.1** | Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. More than 5 failed authentication attempts per hour for a single account should trigger some sort of reaction or alert. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
+| **2.2.1** | [MODIFIED] Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. More than 5 failed authentication attempts per hour for a single account should trigger some sort of reaction or alert. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
 | **2.2.2** | [MODIFIED] Verify that weak authenticators (such as out-of-band authentication using VOIP or email) are not used as authentication methods. Verify that restricted authenticators (those using PSTN to deliver OTPs via phone or SMS) are offered only when alternate stronger methods are also offered and when the service provides information on their security risks to users. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 | 6.1.2 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9] Verify that a hardware-based authenticator and an authenticator that provides verifier impersonation resistance against phishing attacks are used, such as a multi-factor cryptographic hardware, or a combination of a single-factor cryptographic hardware and an OTP device. | | | ✓ | 308 | 5.2.5 |
@@ -114,9 +114,9 @@ Where US standards are mentioned, a regional or local standard can be used in pl
 | **2.5.6** | Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.7** | [LEVEL L2 > L1] Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | ✓ | ✓ | ✓ | 308 | 6.1.2.3 |
 
-## V2.6 Look-up Secret Verifier
+## V2.6 Lookup Secret Verifier
 
-Look up secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
+Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are used once, and once all used, the lookup secret list is discarded. This type of authenticator is considered "something you have".
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -179,7 +179,7 @@ Secrets can be securely stored by using services offered by the framework, the o
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.10.1** | Verify that intra-service secrets do not rely on unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 | |
-| **2.10.2** | Verify that if passwords are required for service authentication, the service account used is not a default credential. (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
+| **2.10.2** | [GRAMMAR] Verify that if passwords are required for service authentication, the service account used is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
 | **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. | | ✓ | ✓ | 522 | |
 | **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | ✓ | ✓ | 798 | |
 
@@ -193,12 +193,12 @@ We strongly urge US government agencies to review and implement NIST 800-63 in i
 
 | Term | Meaning |
 | -- | -- |
-| CSP | Credential Service Provider also called an Identity Provider |
+| CSP | Credential Service Provider also called an Identity Provider. |
 | Authenticator | Code that authenticates a password, token, MFA, federated assertion, and so on. |
-| Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status" |
-| OTP | One-time password |
-| SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card), |
-| MFA | Multi-factor authentication, which includes two or more single factors |
+| Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status". |
+| OTP | One-time password. |
+| SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card). |
+| MFA | Multi-factor authentication, which includes two or more single factors. |
 
 ## References
 

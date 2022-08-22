@@ -20,8 +20,8 @@ Logging sensitive information is dangerous - the logs become classified themselv
 
 V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetration testable, it's important for:
 
-* Developers to ensure full compliance with this section, as if all items were marked as L1
-* Penetration testers to validate full compliance of all items in V7.1 via interview, screenshots, or assertion
+* Developers to ensure full compliance with this section, as if all items were marked as L1.
+* Penetration testers to validate full compliance of all items in V7.1 via interview, screenshots, or assertion.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -37,8 +37,8 @@ Timely logging is critical for audit events, triage, and escalation. Ensure that
 
 V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetration testable, it's important for:
 
-* Developers to ensure full compliance with this section, as if all items were marked as L1
-* Penetration testers to validate full compliance of all items in V7.2 via interview, screenshots, or assertion
+* Developers to ensure full compliance with this section, as if all items were marked as L1.
+* Penetration testers to validate full compliance of all items in V7.2 via interview, screenshots, or assertion.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
