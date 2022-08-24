@@ -1,4 +1,4 @@
-# V9 Communication
+# V9 Communication Encryption
 
 ## Control Objective
 
