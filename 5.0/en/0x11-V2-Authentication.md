@@ -137,7 +137,7 @@ Unsafe out of band authenticators such as e-mail and VOIP are not permitted. PST
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.7.1** | Verify that clear text out of band (NIST "restricted") authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.2** | [MODIFIED] Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after at most 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.2** | Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.3** | Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.4** | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
 | **2.7.5** | Verify that the out of band verifier retains only a hashed version of the authentication code. | | ✓ | ✓ | 256 | 5.1.3.2 |
