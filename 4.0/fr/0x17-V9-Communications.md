@@ -45,7 +45,7 @@ Les communications entre serveurs ne se limitent pas à HTTP. Des connexions sé
 Pour plus d'informations, voir aussi :
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-* [OWASP - Pinning Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Pinning_Cheat_Sheet.html)
+* [OWASP - Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
 * Remarques sur les « modes approuvés de TLS ». 
     * Dans le passé, l'ASVS faisait référence à la norme américaine FIPS 140-2, mais en tant que norme mondiale, l'application des normes américaines peut être difficile, contradictoire ou déroutante à appliquer. 
     * Une meilleure méthode pour atteindre la conformité avec 9.1.3 consisterait à examiner des guides tels que [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) ou  [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), et utiliser des outils d'évaluation TLS connus, tels que sslyze, divers scanners de vulnérabilité ou des services d'évaluation TLS en ligne fiables pour obtenir le niveau de sécurité souhaité.
