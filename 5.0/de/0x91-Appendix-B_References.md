@@ -1,8 +1,8 @@
-# Anhang B: Referenzen
+# Appendix B: References
 
-Die folgenden OWASP-Projekte könnten für die Anwender des ASVS nützlich sein:
+The following OWASP projects are most likely to be useful to users/adopters of this standard:
 
-## OWASP Kernprojekte
+## OWASP Core Projects
 
 1. OWASP Top 10 Project: [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
 2. OWASP Web Security Testing Guide: [https://owasp.org/www-project-web-security-testing-guide/](https://owasp.org/www-project-web-security-testing-guide/)
@@ -12,27 +12,27 @@ Die folgenden OWASP-Projekte könnten für die Anwender des ASVS nützlich sein:
 
 ##  OWASP Cheat Sheet Series project
 
-[Das Cheat Sheet Projekt](https://owasp.org/www-project-cheat-sheets/) stellt für viele Bereiche eine Vielzahl von Hilfsmitteln bereit:
+[This project](https://owasp.org/www-project-cheat-sheets/) has a number of cheat sheets which will be relevant for different topics in the ASVS.
 
-Die Übersicht befindet sich unter: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
+There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
 
-## Mobile Security Projekte
+## Mobile Security Related Projects
 
 1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
 2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
 3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
 
-## OWASP Internet of Things Projekte
+## OWASP Internet of Things related projects
 
 1. OWASP Internet of Things Project: [https://owasp.org/www-project-internet-of-things/](https://owasp.org/www-project-internet-of-things/)
 
-## OWASP Serverless Projekte
+## OWASP Serverless projects
 
-1. OWASP Serverless Projekte: [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
+1. OWASP Serverless Project: [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
 
-## Andere
+## Others
 
-Die folgenden Webseiten außerhalb der OWASP könnten für die Nutzer des ASVS interessant sein:
+Similarly, the following web sites are most likely to be useful to users/adopters of this standard
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)

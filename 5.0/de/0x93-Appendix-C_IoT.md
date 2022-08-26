@@ -20,8 +20,8 @@ Eingebettete/IoT-Geräte sollten:
 | **C.4** | Prüfen Sie, dass On-Chip-Debugging-Schnittstellen wie JTAG oder SWD deaktiviert sind, oder dass der verfügbare Schutzmechanismus aktiviert und entsprechend konfiguriert ist. | ✓ | ✓ | ✓ | 4.0 |
 | **C.5** | Prüfen Sie, dass Trusted Execution implementiert und aktiviert ist, falls auf dem SoC oder der CPU des Geräts verfügbar. | ✓ | ✓ | ✓ | 4.0 |
 | **C.6** | Prüfen Sie, dass sensible Daten, private Schlüssel und Zertifikate sicher in einem Secure Element, TPM, TEE (Trusted Execution Environment) gespeichert oder durch starke Kryptographie geschützt sind. | ✓ | ✓ | ✓ | 4.0 |
-| **C.7** | Prüfen Sie, dass die Firmwareanwendungen Daten während der Übertragung auf der Transportschicht schützen. | ✓ | ✓ | ✓ | 4.0 |
-| **C.8** | Prüfen Sie, dass die Firmwareanwendungen die digitale Signatur der Serververbindungen validieren. | ✓ | ✓ | ✓ | 4.0 |
+| **C.7** | Prüfen Sie, dass die Firmware-Anwendungen Daten während der Übertragung auf der Transportschicht schützen. | ✓ | ✓ | ✓ | 4.0 |
+| **C.8** | Prüfen Sie, dass die Firmware- Anwendungen die digitale Signatur der Serververbindungen validieren. | ✓ | ✓ | ✓ | 4.0 |
 | **C.9** | Prüfen Sie, dass drahtlose Kommunikationen gegenseitig authentifiziert sind. | ✓ | ✓ | ✓ | 4.0 |
 | **C.10** | Prüfen Sie, dass die drahtlose Kommunikation über einen verschlüsselten Kanal gesendet wird. | ✓ | ✓ | ✓ | 4.0 |
 | **C.11** | Prüfen Sie, dass alle verbotenen C-Funktionen durch die entsprechenden sicheren gleichwertigen Funktionen ersetzt wird. | ✓ | ✓ | ✓ | 4.0 |
@@ -31,7 +31,7 @@ Eingebettete/IoT-Geräte sollten:
 | **C.15** | Prüfen Sie, dass die Firmware-Anwendungen die digitale Signatur an einen oder mehrere vertrauenswürdige Server pinnt. |  | ✓ | ✓ | 4.0 |
 | **C.16** | Prüfen Sie das Vorhandensein von Merkmalen zur Verhinderung oder Erkennung von Manipulationen am Gerät. |  | ✓ | ✓ | 4.0 |
 | **C.17** | Prüfen Sie, dass alle verfügbaren Technologien zum Schutz des geistigen Eigentums, die vom Chiphersteller zur Verfügung gestellt werden, aktiviert sind. |  | ✓ | ✓ | 4.0 |
-| **C.18** | Prüfen Sie, dass Sicherheitsmaßnahmen vorhanden sind, um ein Reverse Engineering der Firmware (z.B. Entfernen von ausführlichen Debugginginformationen) zu verhindern. |  | ✓ | ✓ | 4.0 |
+| **C.18** | Prüfen Sie, dass Sicherheitsmaßnahmen vorhanden sind, um ein Reverse Engineering der Firmware (z.B. Entfernen von ausführlichen Debugging-Symbolen) zu verhindern. |  | ✓ | ✓ | 4.0 |
 | **C.19** | Prüfen Sie, dass das Gerät die Signatur des Bootimages vor dem Laden validiert. |  | ✓ | ✓ | 4.0 |
 | **C.20** | Prüfen Sie, dass der Firmware-Aktualisierungsprozess nicht anfällig für TOCTOU Race Conditions ist. |  | ✓ | ✓ | 4.0 |
 | **C.21** | Prüfen Sie, dass das Gerät Code Signing verwendet und Firmware-Upgrade-Dateien vor der Installation validiert. |  | ✓ | ✓ | 4.0 |
@@ -46,7 +46,7 @@ Eingebettete/IoT-Geräte sollten:
 | **C.30** | Prüfen Sie, dass das Gerät Code Signing verwendet und den Code vor der Ausführung validiert. |  |  | ✓ | 4.0 |
 | **C.31** | Prüfen Sie, dass sensible Informationen, die im Speicher gehalten werden, mit Nullen überschrieben werden, sobald sie nicht mehr benötigt werden. |  |  | ✓ | 4.0 |
 | **C.32** | Prüfen Sie, dass die Firmware-Anwendungen Kernel-Container als Isolierung zwischen den Anwendungen verwenden. |  |  | ✓ | 4.0 |
-| **C.33** | Prüfen Sie, dass sichere Compilerflags wie -fPIE, -fstack-protector-all, -Wl,- z,noexecstack, -Wl,-z,noexecheap für Firmware-Builds konfiguriert sind. |  |  | ✓ | 4.0 |
+| **C.33** | Prüfen Sie, dass sichere Compiler-Flags wie -fPIE, -fstack-protector-all, -Wl,- z,noexecstack, -Wl,-z,noexecheap für Firmware-Builds konfiguriert sind. |  |  | ✓ | 4.0 |
 | **C.34** | Prüfen Sie, dass die Mikrocontroller mit Codeschutz konfiguriert sind (falls zutreffend). |  |  | ✓ | 4.0 |
 
 ## Referenzen

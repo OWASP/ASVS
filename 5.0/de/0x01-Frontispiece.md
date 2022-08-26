@@ -2,7 +2,9 @@
 
 ## Über diesen Standard
 
-Der Application Security Verification Standard ist eine Sammlung von Anforderungen und Tests an die Sicherheit von Anwendungen, die Architekten, Entwickler, Sicherheitsexperten, Toolhersteller und Verbraucher verwenden können, um sichere Anwendungen zu definieren, zu erstellen, zu testen und zu verifizieren.
+Der Application Security Verification Standard ist eine Sammlung von Anforderungen und Tests an die Sicherheit von
+Anwendungen, die Architekten, Entwickler, Sicherheitsexperten, Tool-Hersteller und Verbraucher
+verwenden können, um sichere Anwendungen zu definieren, zu erstellen, zu testen und zu verifizieren.
 
 ## Copyright and License
 
@@ -10,7 +12,7 @@ Version 4.0.3, März 2022
 
 ![license](../images/license.png)
 
-Copyright © 2008-2021 The OWASP Foundation. Dieses Dokument wird lizensiert unter [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). Für jedwede Wiederverwendung oder Verbreitung müssen die Lizenzbedingungen dieses Dokumentes an die jeweiligen Dritten kommuniziert werden.
+Copyright © 2008-2021 The OWASP Foundation. Dieses Dokument wird lizensiert unter [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). Für jedwede Wiederverwendung oder Verbreitung müssen die Lizenzbedingungen dieses Werkes an die jeweiligen Dritten kommuniziert werden.
 
 ## Projektleitung
 
@@ -43,6 +45,12 @@ Copyright © 2008-2021 The OWASP Foundation. Dieses Dokument wird lizensiert unt
 | Rogan Dawes         | Ryan Goltry        | Sajjad Pourali    | Serg Belkommen   | Siim Puustusmaa   |
 | Ståle Pettersen     | Stuart Gunter      | Tal Argoni        | Tim Hemel        | Tomasz Wrobel     |
 | Vincent De Schutter | Mike Jang          |                   |                  |                   |
+
+## Übersetzung
+
+|                	|
+|----------------	|
+| Jörg Brünner  	|
 
 Sollte ein Dank fehlen, eröffne bitte ein Ticket bei GitHub, so dass er in künftigen Updates berücksichtigt werden kann. 
 

@@ -2,9 +2,9 @@
 
 ## Ziel
 
-Die häufigste Sicherheitsschwachstelle von Webanwendungen ist die mangelhafte Prüfung von Eingabedaten, die vom Client oder von der Umgebung kommen, bevor sie ohne Ausgabecodierung direkt weiterverwendet werden. Diese Schwachstelle führt zu fast allen signifikanten Schwachstellen in Webanwendungen, wie z.B. Cross Site Scripting (XSS), SQL-Injection, Interpreter-Injection, Angriffe auf Zeichensätze oder auf das Dateisystem und schließlich Pufferüberläufe.
+Die häufigste Sicherheitsschwachstelle von Webanwendungen ist die mangelhafte Prüfung von Eingabedaten, die vom Client oder von der Umgebung kommen, bevor sie ohne Ausgabecodierung direkt weiterverwendet werden. Diese Schwachstelle führt zu fast allen signifikanten Schwachstellen in Webanwendungen, wie z.B. Cross-Site-Scripting (XSS), SQL-Injection, Interpreter-Injection, Angriffe auf Zeichensätze oder auf das Dateisystem und schließlich Pufferüberläufe.
 
-Prüfen Sie, dass eine verifizierte Anwendung die folgenden High Level Anforderungen erfüllt:
+Prüfen Sie, dass eine verifizierte Anwendung die folgenden High-Level Anforderungen erfüllt:
 
 * Die Architektur der Inputvalidierung und der Ausgabebereinigung haben eine abgestimmte Pipeline, um Injektionsangriffe zu verhindern.
 * Die Eingabedaten werden stark typisiert, ihr Wertebereich bzw. ihre Länge wird überprüft, im Maximum werden sie bereinigt oder gefiltert.
@@ -14,11 +14,11 @@ In modernen Webanwendungen ist die Ausgabecodierung wichtiger denn je. In bestim
 
 ## V5.1 Eingabeprüfung
 
-Richtig implementierte Maßnahmen zur Eingabeprüfung, die eine positive Whitelist und eine starke Datentypisierung verwenden, können mehr als 90% aller Injektion-Angriffe eliminieren. Prüfungen der Länge und des Wertebereiches können weitere Angriffe verhindern. Während der Anwendungsarchitektur, der Designsprints, der Programmierung sowie der Unit- und Integrationstests muss eine sichere Eingabeprüfung eingebaut werden. Viele dieser Probleme können bei Penetrationstests nicht gefunden werden. Die Versäumnisse der Eingabeprüfung müssen dann in der Regel mit den Maßnahmen aus Abschnitt V5.3 Anforderungen an Ausgabecodierung und Injektionsverhinderung ausgebessert werden. Entwicklern und Code-Reviewern wird empfohlen, diesen Abschnitt so zu behandeln, als ob L1 für alle Elemente erforderlich wäre, um Injektions-Angriffe zu verhindern.
+Richtig implementierte Maßnahmen zur Eingabeprüfung, die eine positive Whitelist und eine starke Datentypisierung verwenden, können mehr als 90% aller Injektion-Angriffe eliminieren. Prüfungen der Länge- und des Wertebereiches können weitere Angriffe verhindern. Während der Anwendungsarchitektur, der Design-Sprints, der Programmierung sowie der Unit- und Integrationstests muss eine sichere Eingabeprüfung eingebaut werden. Obwohl viele dieser Punkte bei Penetrationstests nicht gefunden werden können, finden sich die Ergebnisse der Nicht-Implementierung in der Regel im Abschnitt V5.3 Anforderungen an Ausgabecodierung und Injektionsverhinderung. Entwicklern und Code-Reviewern wird empfohlen, diesen Abschnitt so zu behandeln, als ob L1 für alle Elemente erforderlich wäre, um Injektion-Angriffe zu verhindern.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.1.1** | Prüfen Sie, dass die Anwendung über Abwehrmechanismen gegen Angriffe auf HTTP-Parameter verfügt, insbesondere dann, wenn das Anwendungsframework die Quelle der Anforderungsparameter (GET, POST, Cookies, Header oder Umgebungsvariablen) nicht unterscheidet. | ✓ | ✓ | ✓ | 235 |
+| **5.1.1** | Prüfen Sie, dass die Anwendung über Abwehrmechanismen gegen Angriffe auf HTTP-Parameter verfügt, insbesondere dann, wenn das Anwendungs-Framework die Quelle der Anforderungsparameter (GET, POST, Cookies, Header oder Umgebungsvariablen) nicht unterscheidet. | ✓ | ✓ | ✓ | 235 |
 | **5.1.2** | Prüfen Sie, dass Frameworks vor Angriffen durch massenhafte Parameterzuweisung schützen, oder dass die Anwendung über Gegenmaßnahmen zum Schutz vor unsicherer Parameterzuweisung verfügt, wie z.B. das Markieren von Feldern als privat oder ähnliches. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
 | **5.1.3** | Prüfen Sie, dass alle Eingaben (HTML-Formularfelder, REST-Anforderungen, URL-Parameter, HTTP-Header, Cookies, Batch-Dateien, RSS-Feeds usw.) mittels positiver Validierung (Whitelisting) validiert werden. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
 | **5.1.4** | Prüfen Sie, dass strukturierte Daten stark typisiert sind und gemäß einem definierten Schema validiert werden. Dazu gehören die erlaubten Zeichen, Länge und Muster (z. B. Kreditkarten- oder Telefonnummern, oder die Prüfung, dass zwei zusammenhängende Felder stimmig sind, z.B. Ort und Postleitzahl). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
@@ -28,12 +28,12 @@ Richtig implementierte Maßnahmen zur Eingabeprüfung, die eine positive Whiteli
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.2.1** | Prüfen Sie, dass alle nicht vertrauenswürdigen HTML-Eingaben von WYSIWYG-Editoren o.ä. ordnungsgemäß mit einer HTML-Bereinigungsbibliothek oder einer Frameworkfunktion bereinigt werden. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
+| **5.2.1** | Prüfen Sie, dass alle nicht vertrauenswürdigen HTML-Eingaben von WYSIWYG-Editoren o.ä. ordnungsgemäß mit einer HTML-Bereinigungsbibliothek oder einer Framework-Funktion bereinigt werden. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
 | **5.2.2** | Prüfen Sie, dass unstrukturierte Daten bereinigt werden, um Sicherheitsmaßnahmen wie erlaubte Zeichen und Längenbegrenzung durchzusetzen. | ✓ | ✓ | ✓ | 138 |
 | **5.2.3** | Prüfen Sie, dass die Anwendung zum Schutz vor SMTP- oder IMAP-Injektion Benutzereingaben bereinigt, bevor sie an Mailsysteme weitergeleitet werden. | ✓ | ✓ | ✓ | 147 |
-| **5.2.4** | Prüfen Sie, dass die Anwendung kein eval() oder andere Funktionen zur dynamischen Ausführung von Code verwendet. Wenn es keine Alternative gibt, müssen alle Benutzereingaben, die einbezogen werden, vor der Ausführung des Programms gesäubert oder per Sandbox abgegrenzt werden. | ✓ | ✓ | ✓ | 95 |
+| **5.2.4** | Prüfen Sie, dass die Anwendung kein eval() oder andere Funktioen zur dynamischen Ausführung von Code verwendet. Wenn es keine Alternative gibt, müssen alle Benutzereingaben, die einbezogen werden, vor der Ausführung des Programms gesäubert oder per Sandbox abgegrenzt werden. | ✓ | ✓ | ✓ | 95 |
 | **5.2.5** | Prüfen Sie, dass die Anwendung vor Template-Injection-Angriffen schützt, indem Sie sicherstellen, dass alle Benutzereingaben, die aufgenommen werden, bereinigt oder per Sandbox abgegrenzt werden. | ✓ | ✓ | ✓ | 94 |
-| **5.2.6** | Prüfen Sie, dass die Anwendung vor SSRF-Angriffen schützt, indem sie nicht vertrauenswürdige Daten oder HTTP-Dateimetadaten, wie z. B. Dateinamen und URL-Eingabefelder, validiert oder bereinigt. Verwenden Sie eine Whitelist von Protokollen, Domänen, Pfaden und Ports. | ✓ | ✓ | ✓ | 918 |
+| **5.2.6** | Prüfen Sie, dass die Anwendung vor SSRF-Angriffen schützt, indem sie nicht vertrauenswürdige Daten oder HTTP-Datei-Metadaten, wie z. B. Dateinamen und URL-Eingabefelder, validiert oder bereinigt. Verwenden Sie eine Whitelist von Protokollen, Domänen, Pfaden und Ports. | ✓ | ✓ | ✓ | 918 |
 | **5.2.7** | Prüfen Sie, dass die Anwendung vom Benutzer bereitgestellte Scaleable Vector Graphics (SVG) von skriptfähigen Inhalten bereinigt, deaktiviert oder in Sandboxen abgrenzt, insbesondere in Bezug auf XSS, das aus Inline-Skripten und aus foreignObject resultiert. | ✓ | ✓ | ✓ | 159 |
 | **5.2.8** | Prüfen Sie, dass die Anwendung vom Benutzer zur Verfügung gestellte skriptfähige Inhalte oder Inhalte von Expression Language Templates wie Markdown, CSS- oder XSL-Stylesheets, BBCode oder Ähnliches bereinigt, deaktiviert oder in Sandboxen abgrenzt. | ✓ | ✓ | ✓ | 94 |
 
@@ -64,8 +64,8 @@ Die folgenden Anforderungen gelten nur, wenn die Anwendung eine Systemprogrammie
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.4.1** | Prüfen Sie, dass die Anwendung speichersichere Zeichenfolgen, sicherere Speicherkopien und sichere Zeigerarithmetik verwendet, um Stapel-, Puffer- oder Heapüberläufe zu erkennen oder zu verhindern. | | ✓ | ✓ | 120 |
-| **5.4.2** | Prüfen Sie, dass Formatstrings keine potenziell feindliche Eingabe annehmen und konstant sind. | | ✓ | ✓ | 134 |
+| **5.4.1** | Prüfen Sie, dass die Anwendung speichersichere Zeichenfolgen, sicherere Speicherkopien und sichere Zeigerarithmetik verwendet, um Stapel-, Puffer- oder Heap-Überläufe zu erkennen oder zu verhindern. | | ✓ | ✓ | 120 |
+| **5.4.2** | Prüfen Sie, dass Format-Strings keine potenziell feindliche Eingabe annehmen und konstant sind. | | ✓ | ✓ | 134 |
 | **5.4.3** | Prüfen Sie, dass Zeichen-, Bereichs- und Eingabeprüfungstechniken verwendet werden, um Ganzzahlüberläufe zu verhindern. | | ✓ | ✓ | 190 |
 
 ## V5.5 Prävention von Deserialisierungsangriffen
