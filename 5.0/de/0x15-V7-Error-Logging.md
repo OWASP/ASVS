@@ -12,21 +12,21 @@ Wenn Protokolle personenbezogene oder sensible Daten enthalten, werden sie für 
 
 ## V7.1 Protokollinhalt
 
-Die Protokollierung sensibler Informationen ist gefährlich - die Protokolle werden selbst sensibel und müssen verschlüsselt werden. Sie unterliegen Aufbewahrungsrichtlinien und müssen bei Sicherheitsaudits offengelegt werden. Prüfen Sie, dass nur die notwendigen Informationen in den Protokollen aufbewahrt werden, jedoch auf keinen Fall Zahlungen, Anmeldedaten, einschließlich Sessiontoken, sensible oder personenbezogene Informationen. Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er nicht durch Penetrationstests verifizierbar ist, sollen:
+Die Protokollierung sensibler Informationen ist gefährlich - die Protokolle werden selbst sensibel und müssen verschlüsselt werden. Sie unterliegen Aufbewahrungsrichtlinien und müssen bei Sicherheitsaudits offengelegt werden. Prüfen Sie, dass nur die notwendigen Informationen in den Protokollen aufbewahrt werden, jedoch auf keinen Fall Zahlungen, Anmeldedaten, einschließlich Session-Token, sensible oder personenbezogene Informationen. Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er ist nicht durch Penetrationstests verifizierbar ist, sollen
 
 * Entwickler die vollständige Einhaltung dieses Abschnitts sicherstellen, als ob alle Punkte mit L1 gekennzeichnet wären.
 * Penetrationstester die vollständige Einhaltung aller Punkte durch Befragung, Screenshots oder Zusicherungen validieren.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.1.1** | Prüfen Sie, dass die Anwendung keine Anmeldeinformationen oder Zahlungsdetails protokolliert. Sessiontoken sollten nur in einer irreversiblen, gehashten Form in Protokollen gespeichert werden. ([C9, C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 532 |
+| **7.1.1** | Prüfen Sie, dass die Anwendung keine Anmeldeinformationen oder Zahlungsdetails protokolliert. Session-Token sollten nur in einer irreversiblen, gehashten Form in Protokollen gespeichert werden. ([C9, C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 532 |
 | **7.1.2** | Prüfen Sie, dass die Anwendung keine sonstigen sensiblen Daten protokolliert, die z. B. gemäß Datenschutzgesetzen oder den einschlägigen Sicherheitsrichtlinien als solche definiert werden. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 532 |
 | **7.1.3** | Prüfen Sie, dass die Anwendung sicherheitsrelevante Ereignisse, einschließlich erfolgreicher und fehlgeschlagener Authentifizierungsereignisse, Fehler bei der Zugriffskontrolle, Deserialisierungsfehler und Fehler bei der Eingabeprüfung protokolliert. ([C5, C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
 | **7.1.4** | Prüfen Sie, dass jedes Protokollereignis die notwendigen Informationen enthält, um bei einem Vorfall eine detaillierte Untersuchung der Timeline zu ermöglichen. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
 
 ## V7.2 Protokollbearbeitung
 
-Die rechtzeitige Protokollierung ist entscheidend für Auditereignisse, Triage und Eskalation. Prüfen Sie, dass die Anwendungsprotokolle klar sind und entweder lokal oder per Versand an ein Fernüberwachungssystem leicht überwacht und analysiert werden können. Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er nicht durch Penetrationstests verifizierbar ist, sollen:
+Die rechtzeitige Protokollierung ist entscheidend für Audit-Ereignisse, Triage und Eskalation. Prüfen Sie, dass die Anwendungsprotokolle klar sind und entweder lokal oder per Versand an ein Fernüberwachungssystem leicht überwacht und analysiert werden können. Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er ist nicht durch Penetrationstests verifizierbar ist, sollen
 
 * Entwickler die vollständige Einhaltung dieses Abschnitts sicherstellen, als ob alle Punkte mit L1 gekennzeichnet wären.
 * Penetrationstester die vollständige Einhaltung aller Punkte durch Befragung, Screenshots oder Zusicherungen validieren.
@@ -42,16 +42,16 @@ Protokolle, die einfach geändert oder gelöscht werden können, sind für Siche
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.3.1** | Prüfen Sie, dass alle Komponenten Daten angemessen codieren, um Log-Injektions-Angriffe zu verhindern. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
+| **7.3.1** | Prüfen Sie, dass alle Komponenten Daten angemessen codieren, um Log-Injektionen-Angriffe zu verhindern. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
 | **7.3.2** | [GELÖSCHT, DUPLIKAT VON 7.3.1] | | | | |
 | **7.3.3** | Prüfen Sie, dass die Protokolle vor unbefugtem Zugriff und Änderungen geschützt werden. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 200 |
 | **7.3.4** | Prüfen Sie, dass die Zeitquellen mit der richtigen Zeit und Zeitzone synchronisiert sind. Erwägen Sie ernsthaft die Protokollierung ausschließlich in UTC, wenn die Systeme global sind, damit die forensische Analyse nach dem Vorfall unterstützt wird. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
-Hinweis: Das korrekte Codieren von Logeinträgen (7.3.1) ist mit automatisierten Tools und Penetrationstests schwer zu testen, aber Architekten, Entwickler und Quellcodeprüfer sollten sie dennoch als L1-Anforderung betrachten.
+Hinweis: Das korrekte Codieren von Logeinträgen (7.3.1) ist mit automatisierten Tools und Penetrationstests schwer zu testen, aber Architekten, Entwickler und Quellcode-Prüfer sollten sie dennoch als L1-Anforderung betrachten.
 
 ## V7.4 Fehlerbehandlung
 
-Der Zweck der Fehlerbehandlung besteht darin, dass die Anwendung sicherheitsrelevante Ereignisse zur Überwachung, Triage und Eskalation bereitstellen kann. Ihr Zweck ist nicht die Erstellung von Protokollen. Bei der Protokollierung sicherheitsrelevanter Ereignisse ist sicherzustellen, dass das Protokoll zielgerichtet ist und dass es durch SIEM- oder Analysesoftware ausgewertet werden kann.
+Der Zweck der Fehlerbehandlung besteht darin, dass die Anwendung sicherheitsrelevante Ereignisse zur Überwachung, Triage und Eskalation bereitstellen kann. Ihr Zweck ist nicht die Erstellung von Protokollen. Bei der Protokollierung sicherheitsrelevanter Ereignisse ist sicherzustellen, dass das Protokoll zielgerichtet ist und dass es durch SIEM- oder Analyse-Software ausgewertet werden kann.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |

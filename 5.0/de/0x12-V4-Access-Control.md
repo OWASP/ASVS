@@ -2,7 +2,7 @@
 
 ## Ziel
 
-Autorisierung ist das Konzept, nur denjenigen den Zugriff auf Ressourcen zu gestatten, die diese auch nutzen dürfen. Prüfen Sie, dass eine verifizierte Anwendung die folgenden High Level Anforderungen erfüllt:
+Autorisierung ist das Konzept, nur denjenigen den Zugriff auf Ressourcen zu gestatten, die diese auch nutzen dürfen. Prüfen Sie, dass eine verifizierte Anwendung die folgenden High-Level Anforderungen erfüllt:
 
 * Personen, die auf Ressourcen zugreifen, müssen dafür über gültige Berechtigungen verfügen.
 * Die Benutzer sind mit einem genau definierten Satz von Rollen und Berechtigungen verbunden.
@@ -12,10 +12,10 @@ Autorisierung ist das Konzept, nur denjenigen den Zugriff auf Ressourcen zu gest
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **4.1.1** | Prüfen Sie, dass die Anwendung Regeln zur Steuerung der Zugriffe auf einer vertrauenswürdigen Serviceschicht durchsetzt, insbesondere wenn die clientseitige Zugriffssteuerung umgangen werden könnte. | ✓ | ✓ | ✓ | 602 |
+| **4.1.1** | Prüfen Sie, dass die Anwendung Regeln zu Steuerung der Zugriffe auf einer vertrauenswürdigen Serviceschicht durchsetzt, insbesondere wenn die clientseitige Zugriffssteuerung umgangen werden könnte. | ✓ | ✓ | ✓ | 602 |
 | **4.1.2** | Prüfen Sie, dass alle Benutzer- und Datenattribute sowie Richtlinieninformationen, die von der Zugriffssteuerung verwendet werden, von den Endnutzern nicht manipuliert werden können, es sei denn, dies wird ausdrücklich genehmigt. | ✓ | ✓ | ✓ | 639 |
 | **4.1.3** | Prüfen Sie, dass das Prinzip der minimalen Berechtigung gilt: Benutzer sollten nur auf die unbedingt notwendigen Funktionen, Dateien, URLs, Controller, Dienste und andere Ressourcen zugreifen können. Dies bedeutet Schutz vor Spoofing und Ausweitung der Berechtigungen. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
-| **4.1.4** | [GELÖSCHT, DUPLIKAT VON 4.1.3] | | | | |
+| **4.1.4** | [Gelöscht, Duplikat von 4.1.3] | | | | |
 | **4.1.5** | Prüfen Sie, dass die Zugriffssteuerungsroutinen im Fehlerfall in einen sicheren Zustand fallen. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
 
 ## V4.2 Operative Zugriffssteuerung
