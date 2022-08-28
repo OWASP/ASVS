@@ -15,13 +15,13 @@ Comme indiqué précédemment, ces exigences ont été adaptées pour constituer
 
 ## V3.1 Exigences fondamentales en matière de gestion des sessions
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.1.1** | Vérifiez que l'application ne révèle jamais les jetons de session dans les paramètres d'URL ou les messages d'erreur.  | ✓ | ✓ | ✓ | 598 | |
 
 ## V3.2 Exigences contraignantes de la session
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.2.1** | Vérifiez que l'application génère un nouveau jeton de session sur l'authentification de l'utilisateur. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
 | **3.2.2** | Vérifiez que les jetons de session possèdent au moins 64 bits d'entropie. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
@@ -36,7 +36,7 @@ Les durées de session ont été alignées sur la norme NIST 800-63, qui autoris
 
 Dans ce contexte, la valeur L1 est IAL1/AAL1, la valeur L2 est IAL2/AAL3, la valeur L3 est IAL3/AAL3. Pour IAL2/AAL2 et IAL3/AAL3, le délai d'inactivité le plus court est la limite inférieure des délais d'inactivité pour être déconnecté ou ré-authentifié pour reprendre la session.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.3.1** | Vérifiez que la déconnexion et l'expiration invalident le jeton de session, de sorte que le bouton de retour ou une partie de confiance en aval ne reprenne pas une session authentifiée, y compris entre les parties de confiance. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
 | **3.3.2** | Si les authentificateurs permettent aux utilisateurs de rester connectés, vérifiez que la ré-authentification a lieu périodiquement, que ce soit en cas d'utilisation active ou après une période d'inactivité. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 jours | 12 heures ou 30 minutes d'inactivité, 2FA facultatif | 12 heures ou 15 minutes d'inactivité, avec 2FA | 613 | 7.2 |
@@ -45,7 +45,7 @@ Dans ce contexte, la valeur L1 est IAL1/AAL1, la valeur L2 est IAL2/AAL3, la val
 
 ## V3.4 Gestion de session basée sur les cookies
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.4.1** | Vérifiez que les jetons de session basés sur des cookies ont l'attribut "Secure". ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
 | **3.4.2** | Vérifiez que les jetons de session basés sur des cookies ont l'attribut "HttpOnly". ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
@@ -57,7 +57,7 @@ Dans ce contexte, la valeur L1 est IAL1/AAL1, la valeur L2 est IAL2/AAL3, la val
 
 La gestion des sessions basée sur des jetons comprend les clés JWT, OAuth, SAML et API. Parmi celles-ci, les clés API sont connues pour être faibles et ne doivent pas être utilisées dans un nouveau code.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.5.1** | Vérifiez que l'application permet aux utilisateurs de révoquer les jetons OAuth qui forment des relations d'approbation avec les applications liées.  | | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | Vérifiez que l'application utilise des jetons de session plutôt que des secrets et des clés d'API statiques, sauf dans le cas d'anciennes implémentations (legacy). | | ✓ | ✓ | 798 | |
@@ -67,7 +67,7 @@ La gestion des sessions basée sur des jetons comprend les clés JWT, OAuth, SAM
 
 Cette section concerne les personnes qui écrivent le code de la partie de relais (RP) ou du fournisseur de services d'accréditation (CSP). Si vous comptez sur un code mettant en œuvre ces caractéristiques, assurez-vous que ces questions sont traitées correctement.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.6.1** | Vérifier que les parties qui se fient à la procédure précisent le délai maximal d'authentification aux fournisseurs de services d'authentification (CSP) et que ces derniers ré-authentifient l'abonné s'ils n'ont pas utilisé de session pendant cette période. | | | ✓ | 613 | 7.2.1 |
 | **3.6.2** | Vérifier que les fournisseurs de services d'accréditation (CSP) informent les parties ayant fait confiance au dernier événement d'authentification, afin de permettre aux RP de déterminer s'ils doivent ré-authentifier l'utilisateur. | | | ✓ | 613 | 7.2.1 |
@@ -82,7 +82,7 @@ Au début de 2018, plusieurs institutions financières ont été compromises par
 
 Les attaquants lancent une attaque à demi-ouverte en essayant de verrouiller, de réinitialiser ou de récupérer un justificatif d'identité. Un modèle de gestion de session très répandu réutilise les objets/modèles de session de profil utilisateur entre le code non authentifié, semi-authentifié (réinitialisation du mot de passe, nom d'utilisateur oublié) et entièrement authentifié. Ce modèle remplit un objet de session ou un jeton valide contenant le profil de la victime, y compris les hachages de mots de passe et les rôles. Si les contrôles d'accès dans les contrôleurs ou les routeurs ne vérifient pas correctement que l'utilisateur est bien connecté, l'attaquant pourra agir en tant qu'utilisateur. Les attaques peuvent inclure la modification du mot de passe de l'utilisateur à une valeur connue, la mise à jour de l'adresse électronique pour effectuer une réinitialisation de mot de passe valide, la désactivation de l'authentification multifactorielle ou l'inscription d'un nouveau dispositif d'AMF, la révélation ou la modification des clés API, etc.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.7.1** | Vérifier que l'application garantit une session de connexion complète et valide ou exige une nouvelle authentification ou une vérification secondaire avant d'autoriser toute transaction sensible ou modification de compte. | ✓ | ✓ | ✓ | 306 | |
 
