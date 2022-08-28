@@ -38,7 +38,7 @@ Les applications devraient fortement encourager les utilisateurs à s'inscrire �
 
 Les fournisseurs de services d'accréditation (CSP) fournissent une identité fédérée aux utilisateurs. Les utilisateurs auront souvent plus d'une identité avec plusieurs CSP, comme une identité d'entreprise utilisant Azure AD, Okta, Ping Identity ou Google, ou une identité de consommateur utilisant Facebook, Twitter, Google ou WeChat, pour ne citer que quelques alternatives courantes. Cette liste n'est pas une approbation de ces entreprises ou services, mais simplement un encouragement pour les développeurs à prendre en compte la réalité que de nombreux utilisateurs ont plusieurs identités établies. Les organisations devraient envisager de s'intégrer aux identités des utilisateurs existants, conformément au profil de risque de la force du CSP en matière de vérification d'identité. Par exemple, il est peu probable qu'une organisation gouvernementale accepte une identité de média social comme identifiant pour des systèmes sensibles, car il est facile de créer de fausses identités ou de jeter des identités, alors qu'une société de jeux pour mobiles pourrait bien avoir besoin de s'intégrer aux principales plateformes de médias sociaux pour accroître sa base de joueurs actifs.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.1.1** | Vérifiez que les mots de passe définis par l'utilisateur comportent au moins 12 caractères (après avoir combiné plusieurs espaces). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | Vérifiez que les mots de passe de 64 caractères ou plus sont autorisés, mais pas au delà de 128 caractères. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
@@ -61,7 +61,7 @@ L'agilité des authentificateurs est essentielle pour que les applications soien
 
 Le NIST considère le courrier électronique et les SMS comme des [types d'authentificateurs "restreints"](https://pages.nist.gov/800-63-FAQ/#q-b1), et il est probable qu'ils soient retirés du NIST 800-63 et donc de l'ASVS à un moment donné dans le futur. Les applications devraient prévoir une feuille de route qui ne nécessite pas l'utilisation du courrier électronique ou des SMS.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.2.1** | Vérifiez que les contrôles anti-automatisation sont efficaces pour atténuer les attaques par violation des tests d'accréditation, par énumération exhaustive (brute-force) et par verrouillage de compte. Ces contrôles comprennent le blocage des mots de passe les plus courants, les verrouillages progressifs, la limitation de débit, les CAPTCHA, les délais toujours plus longs entre les tentatives, les restrictions d'adresse IP ou les restrictions basées sur le risque telles que l'emplacement, la première connexion sur un appareil, les tentatives récentes de déverrouillage du compte, ou autres. Vérifiez qu'il n'y a pas plus de 100 tentatives infructueuses par heure sur un seul compte. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
 | **2.2.2** | Vérifier que l'utilisation d'authentificateurs faibles (tels que les SMS et les e-mails) se limite à la vérification secondaire et à l'approbation des transactions et ne remplace pas les méthodes d'authentification plus sûres. Vérifiez que les méthodes plus fortes sont proposées avant les méthodes faibles, que les utilisateurs sont conscients des risques, ou que des mesures appropriées sont en place pour limiter les risques de compromission du compte. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
@@ -77,7 +77,7 @@ Les authentificateurs sont les mots de passe, les jetons logiciels, les jetons m
 
 Remarque : les mots de passe ne doivent pas avoir une durée de vie maximale ni être soumis à une rotation. Les mots de passe doivent être vérifiés et non remplacés régulièrement.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.3.1** | Vérifier que les mots de passe ou codes d'activation initiaux générés par le système DOIVENT être générés de manière aléatoire et sécurisée, DOIVENT comporter au moins 6 caractères, PEUVENT contenir des lettres et des chiffres, et expirent après une courte période de temps. Ces secrets initiaux ne doivent pas être autorisés à devenir le mot de passe à long terme. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | Vérifiez que l'inscription et l'utilisation de dispositifs d'authentification fournis par l'abonné sont prises en charge, comme les jetons U2F ou FIDO. | | ✓ | ✓ | 308 | 6.1.3 |
@@ -91,7 +91,7 @@ La liste des fonctions de dérivation de clés à sens unique approuvées est d�
 
 Cette section ne peut pas être soumise à un test de pénétration, les contrôles ne sont donc pas marqués comme L1. Cependant, cette section est d'une importance vitale pour la sécurité des données d'identifications en cas de vol. Si vous bifurquez l'ASVS pour une directive sur l'architecture ou le codage ou une liste de contrôle pour l'examen du code source, veuillez replacer ces contrôles en L1 dans votre version privée.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.4.1** | Vérifiez que les mots de passe sont stockés sous une forme qui résiste aux attaques hors ligne. Les mots de passe DOIVENT être salés et hachés à l'aide d'une fonction approuvée de dérivation de clé ou de hachage de mot de passe à sens unique. Les fonctions de dérivation de clé et de hachage de mot de passe prennent un mot de passe, un sel et un facteur de coût en entrée pour générer un hachage de mot de passe. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | Vérifiez que le sel a une longueur d'au moins 32 bits et qu'il est choisi arbitrairement pour minimiser les collisions de la valeur du sel parmi les hashs stockés. Pour chaque authentifiant, une valeur de sel unique et le hachage qui en résulte DOIVENT être stockés. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
@@ -103,7 +103,7 @@ Lorsque des normes américaines sont mentionnées, une norme régionale ou local
 
 ## V2.5 Exigences en matière de récupération des identifiants
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.5.1** | Vérifiez qu'un secret d'activation initiale ou de récupération généré par le système n'est pas envoyé en clair à l'utilisateur.  ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.2** | Vérifier que les indices de mot de passe ou l'authentification basée sur la connaissance (dites "questions secrètes") ne sont pas présents. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
@@ -117,7 +117,7 @@ Lorsque des normes américaines sont mentionnées, une norme régionale ou local
 
 Les tables d’authentifications secrètes sont des listes pré-générées de codes secrets, similaires aux numéros d'autorisation de transaction (TAN), aux codes de récupération des médias sociaux ou à une grille contenant un ensemble de valeurs aléatoires. Ils sont distribués aux utilisateurs en toute sécurité. Ces codes de recherche sont utilisés une fois, et une fois qu'ils sont tous utilisés, la liste secrète de recherche est jetée. Ce type d'authentificateur est considéré comme "quelque chose que vous avez".
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.6.1** | Vérifiez que les secrets de la table d’authentification ne peuvent être utilisés qu'une seule fois. | | ✓ | ✓ | 308 | 5.1.2.2 |
 | **2.6.2** | Vérifiez que les secrets de la table d’authentification ont un caractère aléatoire suffisant (112 bits d'entropie) ou, s'ils ont moins de 112 bits d'entropie, qu'ils sont salés avec un sel unique et aléatoire de 32 bits et hachés avec un hachage unidirectionnel approuvé. | | ✓ | ✓ | 330 | 5.1.2.2 |
@@ -133,7 +133,7 @@ L'ASVS suppose que seuls quelques développeurs développeront de nouveaux authe
 
 Les authentificateurs hors bande dangereux tels que le courrier électronique et la voix sur IP ne sont pas autorisés. Les authentifications PSTN et SMS sont actuellement "restreintes" par le NIST et devraient être interdites au profit des notifications "push" ou similaires. Si vous devez utiliser l'authentification hors bande par téléphone ou SMS, veuillez consulter  5.1.3.3.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.7.1** | Vérifiez que les authentificateurs de texte en clair hors bande (NIST "restreint"), tels que les SMS ou le PSTN, ne sont pas proposés par défaut, et que des alternatives plus fortes, telles que les notifications "push", sont proposées en premier lieu. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.2** | Vérifiez que le vérificateur hors bande expire les demandes d'authentification, les codes ou les jetons hors bande après 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
@@ -146,7 +146,7 @@ Les authentificateurs hors bande dangereux tels que le courrier électronique et
 
 Les mots de passe à usage unique (OTP) sont des jetons physiques ou logiciels qui affichent un défi pseudo-aléatoire à usage unique en constante évolution. Ces dispositifs rendent le phishing (usurpation d'identité) difficile, mais pas impossible. Ce type d'authentifiant est considéré comme "quelque chose que vous avez". Les jetons multi-facteurs sont similaires aux OTP à facteur unique, mais nécessitent un code PIN valide, un déverrouillage biométrique, une insertion USB ou un appariement NFC ou une valeur supplémentaire (comme les calculatrices de signature de transaction) à saisir pour créer l'OTP final.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.8.1** | Vérifier que les OTP basées sur le temps ont une durée de vie définie avant d'expirer. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.2** | Vérifier que les clés symétriques utilisées pour vérifier les OTP soumises sont hautement protégées, par exemple en utilisant un module de sécurité matériel ou un stockage de clés basé sur un système d'exploitation sécurisé. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
@@ -162,7 +162,7 @@ Les clés de sécurité cryptographiques sont des cartes à puce ou des clés FI
 
 Les exigences relatives aux dispositifs et logiciels cryptographiques à facteur unique et aux dispositifs et logiciels cryptographiques à facteurs multiples sont les mêmes, car la vérification de l'authentificateur cryptographique prouve la possession du facteur d'authentification.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.9.1** | Vérifier que les clés cryptographiques utilisées dans la vérification sont stockées de manière sûre et protégées contre la divulgation, par exemple en utilisant un TPM ou un HSM, ou un service OS qui peut utiliser ce stockage sécurisé. | | ✓ | ✓ | 320 | 5.1.7.2 |
 | **2.9.2** | Vérifiez que le nonce de défi est d'une longueur d'au moins 64 bits, et statistiquement unique ou non pendant la durée de vie du dispositif cryptographique. | | ✓ | ✓ | 330 | 5.1.7.2 |
@@ -172,7 +172,7 @@ Les exigences relatives aux dispositifs et logiciels cryptographiques à facteur
 
 Cette section n'est pas testable par tests d'intrusions, et n'a donc aucune exigence de L1. Toutefois, si elle est utilisée dans une architecture, un codage ou une révision de code sécurisé, veuillez supposer que le logiciel (tout comme le Java Key Store) est l'exigence minimale de la L1. Le stockage de secrets en texte clair n'est en aucun cas acceptable.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.10.1** | Vérifiez que les secrets d'intégration ne reposent pas sur des mots de passe immuables, tels que les clés API ou les comptes privilégiés partagés. | | OS assisté | HSM | 287 | 5.1.1.1 |
 | **2.10.2** | Vérifiez que si des mots de passe sont requis pour l'authentification des services, le compte de service utilisé n'est pas un identifiant par défaut. (par exemple, root/root ou admin/admin sont utilisés par défaut dans certains services lors de l'installation). | | OS assisté | HSM | 255 | 5.1.1.1 |
