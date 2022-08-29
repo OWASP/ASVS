@@ -115,13 +115,13 @@ Lorsque des normes américaines sont mentionnées, une norme régionale ou local
 
 ## V2.6 Exigences relatives aux vérificateurs des secrets
 
-Les tables d’authentifications secrètes sont des listes pré-générées de codes secrets, similaires aux numéros d'autorisation de transaction (TAN), aux codes de récupération des médias sociaux ou à une grille contenant un ensemble de valeurs aléatoires. Ils sont distribués aux utilisateurs en toute sécurité. Ces codes de recherche sont utilisés une fois, et une fois qu'ils sont tous utilisés, la liste secrète de recherche est jetée. Ce type d'authentificateur est considéré comme "quelque chose que vous avez".
+Les tables d'authentifications secrètes sont des listes pré-générées de codes secrets, similaires aux numéros d'autorisation de transaction (TAN), aux codes de récupération des médias sociaux ou à une grille contenant un ensemble de valeurs aléatoires. Ils sont distribués aux utilisateurs en toute sécurité. Ces codes de recherche sont utilisés une fois, et une fois qu'ils sont tous utilisés, la liste secrète de recherche est jetée. Ce type d'authentificateur est considéré comme "quelque chose que vous avez".
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.6.1** | Vérifiez que les secrets de la table d’authentification ne peuvent être utilisés qu'une seule fois. | | ✓ | ✓ | 308 | 5.1.2.2 |
-| **2.6.2** | Vérifiez que les secrets de la table d’authentification ont un caractère aléatoire suffisant (112 bits d'entropie) ou, s'ils ont moins de 112 bits d'entropie, qu'ils sont salés avec un sel unique et aléatoire de 32 bits et hachés avec un hachage unidirectionnel approuvé. | | ✓ | ✓ | 330 | 5.1.2.2 |
-| **2.6.3** | Vérifiez que les secrets de la table d’authentification résistent aux attaques hors ligne, comme les valeurs prévisibles. | | ✓ | ✓ | 310 | 5.1.2.2 |
+| **2.6.1** | Vérifiez que les secrets de la table d'authentification ne peuvent être utilisés qu'une seule fois. | | ✓ | ✓ | 308 | 5.1.2.2 |
+| **2.6.2** | Vérifiez que les secrets de la table d'authentification ont un caractère aléatoire suffisant (112 bits d'entropie) ou, s'ils ont moins de 112 bits d'entropie, qu'ils sont salés avec un sel unique et aléatoire de 32 bits et hachés avec un hachage unidirectionnel approuvé. | | ✓ | ✓ | 330 | 5.1.2.2 |
+| **2.6.3** | Vérifiez que les secrets de la table d'authentification résistent aux attaques hors ligne, comme les valeurs prévisibles. | | ✓ | ✓ | 310 | 5.1.2.2 |
 
 ## V2.7 Exigences relatives aux vérificateurs hors bande
 
