@@ -6,7 +6,7 @@ Der Application Security Verification Standard ist eine Sammlung von Anforderung
 
 ## Copyright and License
 
-Version 4.0.3, März 2022
+Version 4.0.3, Oktober 2021
 
 ![license](../images/license.png)
 
