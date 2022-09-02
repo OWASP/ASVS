@@ -1,6 +1,6 @@
 # Anhang B: Referenzen
 
-Die folgenden OWASP-Projekte könnten für die Anwender des ASVS nützlich sein:
+Die folgenden OWASP-Projekte kÃ¶nnten fÃ¼r die Anwender des ASVS nÃ¼tzlich sein:
 
 ## OWASP Kernprojekte
 
@@ -12,9 +12,9 @@ Die folgenden OWASP-Projekte könnten für die Anwender des ASVS nützlich sein:
 
 ##  OWASP Cheat Sheet Series project
 
-[Das Cheat Sheet Projekt](https://owasp.org/www-project-cheat-sheets/) stellt für viele Bereiche eine Vielzahl von Hilfsmitteln bereit:
+[Das Cheat Sheet Projekt](https://owasp.org/www-project-cheat-sheets/) stellt fÃ¼r viele Bereiche eine Vielzahl von Hilfsmitteln bereit:
 
-Die Übersicht befindet sich unter: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
+Die Ãœbersicht befindet sich unter: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
 
 ## Mobile Security Projekte
 
@@ -32,7 +32,7 @@ Die Übersicht befindet sich unter: [https://cheatsheetseries.owasp.org/cheatshee
 
 ## Andere
 
-Die folgenden Webseiten außerhalb der OWASP könnten für die Nutzer des ASVS interessant sein:
+Die folgenden Webseiten auÃŸerhalb der OWASP kÃ¶nnten fÃ¼r die Nutzer des ASVS interessant sein:
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
