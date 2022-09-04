@@ -109,6 +109,7 @@ If you are interested in creating a translation, here are some pointers for how 
         * Arabic
         * Russian
         * French
+        * German
     * v4.0.2
         * German
         * Russian
