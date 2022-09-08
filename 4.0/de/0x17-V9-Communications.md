@@ -7,7 +7,7 @@ Eine verifizierte Anwendung erfüllt die folgenden High Level Anforderungen:
 * Unabhängig von der Brisanz der Daten wird bei der Übertragung stets TLS oder eine starke Verschlüsselung verwendet.
 * Es werden die aktuellsten Empfehlungen werden verwendet, ins Besondere:
   * Konfigurationen der Algorithmen
-  * bevorzugt zu verwendende Algorithmen. 
+  * bevorzugt zu verwendende Algorithmen.
 * schwache oder bald veraltende Algorithmen werden am besten gar nicht, höchstens aber mit geringster Priorität genutzt
 * Veraltete oder unsichere Algorithmen werden deaktiviert.
 
@@ -46,7 +46,7 @@ Weitere Informationen finden Sie unter:
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
 * [OWASP - Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
-* Hinweise zu „Anerkannten TLS-Modi”: 
-    * In der Vergangenheit bezog sich der ASVS auf den US-Standard FIPS 140. Als globaler Standard kann die Anwendung von US-Standards allerdings schwierig, widersprüchlich oder verwirrend sein.  
-    * Eine bessere Methode, um die Einhaltung des Abschnittes 9.1 zu erreichen, wäre die Überprüfung von Leitfäden wie [Mozillas serverseitigem TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) oder die [Erstellung  anerkannt sicherer Konfigurationen](https://mozilla.github.io/server-side-tls/ssl-config-generator/) und die Verwendung bekannter TLS-Evaluierungs-Tools wie Sslyze, verschiedener Schwachstellenscanner oder vertrauenswürdiger TLS-Online-Assessment Services, um ein gewünschtes Sicherheitsniveau zu erreichen. In Sicherheitstests sehen wir die fehlende Konformität zu diesem Abschnitt durch die Verwendung veralteter oder unsicherer Algorithmen, dem Fehlen einer perfekten Forward Secrecy, veralteten oder unsicheren SSL-Protokollen, schwachen bevorzugten Algorithmen usw.
+* Hinweise zu „Anerkannten TLS-Modi”:
+    * In der Vergangenheit bezog sich der ASVS auf den US-Standard FIPS 140. Als globaler Standard kann die Anwendung von US-Standards allerdings schwierig, widersprüchlich oder verwirrend sein.
+    * Eine bessere Methode, um die Einhaltung des Abschnittes 9.1 zu erreichen, wäre die Überprüfung von Leitfäden wie [Mozillas serverseitigem TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) oder die [Erstellung anerkannt sicherer Konfigurationen](https://mozilla.github.io/server-side-tls/ssl-config-generator/) und die Verwendung bekannter TLS-Evaluierungs-Tools wie Sslyze, verschiedener Schwachstellenscanner oder vertrauenswürdiger TLS-Online-Assessment Services, um ein gewünschtes Sicherheitsniveau zu erreichen. In Sicherheitstests sehen wir die fehlende Konformität zu diesem Abschnitt durch die Verwendung veralteter oder unsicherer Algorithmen, dem Fehlen einer perfekten Forward Secrecy, veralteten oder unsicheren SSL-Protokollen, schwachen bevorzugten Algorithmen usw.
     * Für Deutschland veröffentlicht das BSI die [Technische Richtlinie TR-02102 Kryptographische Verfahren: Empfehlungen und Schlüssellängen](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Technische-Richtlinien/TR-nach-Thema-sortiert/tr02102/tr02102_node.html) als Richtlinie für die Verwendung von TLS sowie zur Nutzung sicherer Algorithmen und Schlüssellängen.
