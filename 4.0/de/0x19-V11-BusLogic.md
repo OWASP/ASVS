@@ -3,19 +3,19 @@
 ## Ziel
 
 Stellen Sie sicher, dass eine verifizierte Anwendung die folgenden High Level Anforderungen erfüllt:
- 
+
 * Der Fluss der Geschäftslogik ist sequentiell: Er wird der Reihe nach verarbeitet und kann nicht umgangen werden.
 * Die Geschäftslogik enthält Grenzen zur Erkennung und Verhinderung automatisierter Angriffe, wie z. B. kontinuierliche kleine Geldtransfers oder das Hinzufügen von einer Million Freunden, einer nach dem anderen, etc.
 * Hochwertige Modelle der Geschäftslogik haben Missbrauchsfälle und böswillige Akteure in Betracht gezogen und sind gegen Spoofing, Manipulation, Abstreiten, Informationspreisgabe und die Erweiterung von Rechten immun.
-           
+
 ## V11.1 Sicherheit der fachlichen Funktionen
 
 Die Sicherheit der Geschäftslogik ist für jede Anwendung zu individuell, als dass dafür jemals eine einzige Checkliste erstellt werden könnte. Die Sicherheit der Geschäftslogik muss so konzipiert sein, dass sie vor voraussichtlichen externen Bedrohungen Schutz bietet - sie kann nicht durch Webanwendungsfirewalls oder sichere Kommunikation hinzugefügt werden. Wir empfehlen die Verwendung von Threat Modeling während der Designsprints, z.B. mit dem OWASP Cornucopia oder ähnlichen Tools.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **11.1.1** | Prüfen Sie, dass die Anwendung nur Geschäftslogikflüsse für denselben Benutzer in sequentieller Schrittfolge und ohne das Überspringen von Schritten verarbeitet.| ✓ | ✓ | ✓ | 841 |
-| **11.1.2** | Prüfen Sie, dass die Anwendung nur Abläufe der Geschäftslogik verarbeitet, wenn alle Schritte in realistischer menschlicher Zeit bearbeitet werden, d.h. die Transaktionen werden nicht zu schnell durch automatisierte Angreifer eingereicht.| ✓ | ✓ | ✓ | 799 |
+| **11.1.1** | Prüfen Sie, dass die Anwendung nur Geschäftslogikflüsse für denselben Benutzer in sequentieller Schrittfolge und ohne das Überspringen von Schritten verarbeitet. | ✓ | ✓ | ✓ | 841 |
+| **11.1.2** | Prüfen Sie, dass die Anwendung nur Abläufe der Geschäftslogik verarbeitet, wenn alle Schritte in realistischer menschlicher Zeit bearbeitet werden, d.h. die Transaktionen werden nicht zu schnell durch automatisierte Angreifer eingereicht. | ✓ | ✓ | ✓ | 799 |
 | **11.1.3** | Prüfen Sie, dass die Anwendung über angemessene Grenzen für bestimmte Geschäftsaktionen oder Transaktionen verfügt, die für jeden Benutzer korrekt durchgesetzt werden. | ✓ | ✓ | ✓ | 770 |
 | **11.1.4** | Prüfen Sie, dass die Anwendung über ausreichende Maßnahmen gegen automatische Nutzung verfügt, um Datenausleitung, übermäßige Anforderungen an die Geschäftslogik, übermäßige Dateiuploads oder DoS-Angriffe zu erkennen und sich dagegen zu schützen. | ✓ | ✓ | ✓ | 770 |
 | **11.1.5** | Prüfen Sie, ob die Anwendung Grenzen der Geschäftslogik oder eine Validierung zum Schutz vor wahrscheinlichen Geschäftsrisiken oder Bedrohungen aufweist, die mit Hilfe von Threat Modeling oder ähnlichen Methoden ermittelt wurden. | ✓ | ✓ | ✓ | 841 |

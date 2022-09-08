@@ -7,7 +7,7 @@ Stellen Sie sicher, dass eine geprüfte Anwendung mit den folgenden Merkmalen au
 * Eine sichere und automatisierbare Buildumgebung.
 * Ein sicheres Management von Drittanbieterbibliotheken, Abhängigkeiten und Konfigurationen, so dass veraltete oder unsichere Komponenten nicht in die Anwendung integriert werden.
 
-Die Konfiguration der Anwendung sollte „out of the box“ sicher für den jeweils geplanten Einsatzzweck sein. 
+Die Konfiguration der Anwendung sollte „out of the box“ sicher für den jeweils geplanten Einsatzzweck sein.
 
 ## V14.1 Build- und Deployprozess
 
@@ -55,7 +55,7 @@ Konfigurationen für die Produktion sollten gehärtet werden. So schützen sie g
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.4.1** | Prüfen Sie, dass jede HTTP-Antwort einen Content Type Header enthält. Für die Content types text/*, /+xml oder application/xml sollten ein sicherer Zeichensatz (z. B. UTF-8, ISO 8859-1) angeben sein. Der Inhalt muss zum angegebenen Content Type Header passen. | ✓ | ✓ | ✓ | 173 |
-| **14.4.2** | Prüfen Sie, dass alle API-Antworten die Content-Disposition: attachment; filename=„api.json“ Header oder einen anderen geeigneten Dateinamen für den Inhaltstyp enthalten. | ✓ | ✓ | ✓ | 116 |
+| **14.4.2** | Prüfen Sie, dass alle API-Antworten die Content-Disposition: attachment; filename="api.json" Header oder einen anderen geeigneten Dateinamen für den Inhaltstyp enthalten. | ✓ | ✓ | ✓ | 116 |
 | **14.4.3** | Prüfen Sie, dass ein Content Security Policy (CSP) Response Header vorhanden ist, die dazu beiträgt, die Auswirkungen von XSS-Angriffen wie HTML-, DOM-, JSON- und JavaScript-Injektionsschwachstellen abzuschwächen. | ✓ | ✓ | ✓ | 1021 |
 | **14.4.4** | Prüfen Sie, dass alle Antworten X-Content-Type-Optionen: nosniff Header enthalten. | ✓ | ✓ | ✓ | 116 |
 | **14.4.5** | Prüfen Sie, dass ein HTTP Strict-Transport-Security Header in allen Antworten und für alle Unterdomänen enthalten ist, z. B. Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
@@ -68,14 +68,14 @@ Konfigurationen für die Produktion sollten gehärtet werden. So schützen sie g
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | Prüfen Sie, dass der Anwendungsserver nur die von der Anwendung oder der API verwendeten HTTP-Methoden akzeptiert, einschließlich der Pre-Flight-OPTIONS. Alle ungültigen Request sollten ins Log geschrieben werden oder einen Alarm auslösen. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | Prüfen Sie, dass der bereitgestellte Origin Header nicht für Authentifizierungs- oder Zugriffskontrollentscheidungen verwendet wird, da der Origin Header von einem Angreifer leicht geändert werden kann. | ✓ | ✓ | ✓ | 346 |
-| **14.5.3** | Prüfen Sie, dass der CORS-Access-Control-Allow-Origin Header eine strikte Whitelist mit vertrauenswürdigen Domains verwendet und den „Null“-Ursprung nicht unterstützt. | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | Prüfen Sie, dass der CORS-Access-Control-Allow-Origin Header eine strikte Whitelist mit vertrauenswürdigen Domains verwendet und den "null"-Ursprung nicht unterstützt. | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | Prüfen Sie, dass HTTP-Header, die von einem vertrauenswürdigen Proxy oder SSO-Geräten, wie z. B. einem Bearer-Token, hinzugefügt wurden, von der Anwendung authentifiziert werden. | | ✓ | ✓ | 306 |
 
 ## Referenzen
 
 Weitere Informationen finden Sie unter:
 
-* [OWASP Web Security Testing Guide 4.1: Testing for HTTP Verb Tampering]( https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
+* [OWASP Web Security Testing Guide 4.1: Testing for HTTP Verb Tampering](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
 * [Reflected File Download attacks](https://www.blackhat.com/docs/eu-14/materials/eu-14-Hafif-Reflected-File-Download-A-New-Web-Attack-Vector.pdf) zeigt, wie durch Hinzufügen der Content-Disposition und der "filename" Option in die API-Antwort viele Angriffe, die auf verschiedenen Interpretationen des MIME-Types durch Client und Server beruhen, unterbunden werden können.
 * [Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 * [Exploiting CORS misconfiguration for BitCoins and Bounties](https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)

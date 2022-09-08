@@ -8,7 +8,7 @@ Das Sessionmanagement ist die Kernkomponente jeder webbasierten Anwendung oder z
 * Sessions werden ungültig, wenn sie nicht mehr benötigt werden.
 * Sessions laufen ab, wenn sie eine bestimmte Zeit nicht aktiv sind.
 
-Wie bereits erwähnt, wurden diese Anforderungen so angepasst, dass sie eine konforme Teilmenge ausgewählter NIST 800-63b-Maßnahmen darstellen, die sich auf gemeinsame Bedrohungen und häufig genutzte Authentifizierungsschwachstellen konzentrieren. Frühere Verifizierungsanforderungen wurden entfernt oder in den meisten Fällen so angepasst, dass sie sich stark an der Absicht der verbindlichen Anforderungen des NIST 800-63b  orientieren.
+Wie bereits erwähnt, wurden diese Anforderungen so angepasst, dass sie eine konforme Teilmenge ausgewählter NIST 800-63b-Maßnahmen darstellen, die sich auf gemeinsame Bedrohungen und häufig genutzte Authentifizierungsschwachstellen konzentrieren. Frühere Verifizierungsanforderungen wurden entfernt oder in den meisten Fällen so angepasst, dass sie sich stark an der Absicht der verbindlichen Anforderungen des [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) orientieren.
 
 ## V3.1 Grundlegende Sicherheit des Sessionmanagements
 
@@ -44,10 +44,10 @@ L1 (Stufe 1) ist in diesem Zusammenhang IAL1/AAL1, L2 (Stufe 2) ist IAL2/AAL3, L
 
 | # | Beschreibung | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.4.1** | Prüfen Sie, dass bei Session-Cookies das Attribut „secure“ gesetzt ist. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
-| **3.4.2** | Prüfen Sie, dass bei Session-Cookies das Attribut „HttpOnly“ gesetzt ist. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
+| **3.4.1** | Prüfen Sie, dass bei Session-Cookies das Attribut 'secure' gesetzt ist. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.2** | Prüfen Sie, dass bei Session-Cookies das Attribut 'HttpOnly' gesetzt ist. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
 | **3.4.3** | Prüfen Sie, dass Session-Cookies das 'SameSite'-Attribut verwenden, um die Anfälligkeit für Cross Site Request Forgery zu begrenzen. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1275 | 7.1.1 |
-| **3.4.4** | Prüfen Sie, dass Session-Cookies das Präfix „__Host-“ verwenden (siehe Referenzen), um die Vertraulichkeit von Session-Cookies zu gewährleisten. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.4** | Prüfen Sie, dass Session-Cookies das Präfix '__Host-' verwenden (siehe Referenzen), um die Vertraulichkeit von Session-Cookies zu gewährleisten. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.5** | Falls die Anwendung unter einem Domänennamen zusammen mit anderen Anwendungen veröffentlicht wird, die Session-Cookies nutzen, welche die Sitzungscookies der geprüften Anwendung außer Kraft setzen oder offenlegen könnten, prüfen Sie, dass das Pfadattribut in den Cookies einen möglichst exakten Pfad erhält. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 
 ## V3.5 Tokenbasiertes Sessionmanagement
