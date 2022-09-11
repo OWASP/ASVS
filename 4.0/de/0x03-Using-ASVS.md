@@ -5,8 +5,6 @@ Der ASVS hat die zwei Hauptziele:
 * Organisationen bei der Entwicklung und Pflege sicherer Anwendungen zu unterstützen.
 * Anbietern von Sicherheitsdienstleistungen oder -werkzeugen und deren Kunden die Möglichkeit zu geben, ihre Anforderungen und Angebote aufeinander abzustimmen.
 
-
-
 ## Stufen zur Verifizierung der Anwendungssicherheit
 
 Der Application Security Verification Standard definiert drei Stufen der Sicherheitsverifikation, wobei jede Stufe an Tiefe zunimmt.
@@ -19,14 +17,14 @@ Jede Stufe des ASVS enthält eine Liste von Sicherheitsanforderungen. Jede diese
 
 ![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "ASVS Stufen")
 
-Figure 1 - Stufen des OWASP Application Security Verification Standard 4.0 
+Figure 1 - Stufen des OWASP Application Security Verification Standard 4.0
 
 Stufe 1 ist die einzige Stufe, die sich komplett mittels Pentests prüfen lässt. Alle anderen Stufen benötigen Zugang zu Dokumentation, Quellcode, Konfiguration und den am Entwicklungsprozess beteiligten Personen. Jedoch stellen Black Box Tests ohne Dokumentation und ohne Quellen keine wirksame Absicherung dar. Sie müssen langfristig ergänzt werden. Böswillige Angreifer haben sehr viel Zeit. Die meisten Penetrationstests hingegen sind innerhalb von wenigen Wochen abgeschlossen. Die Verteidiger müssen alle Sicherheitsmaßnahmen umsetzen, alle Schwachstellen finden und beheben sowie böswillige Akteure innerhalb einer angemessenen Zeit aufspüren und Gegenmaßnahmen ergreifen. Böswillige Akteure haben im Wesentlichen unendlich viel Zeit und benötigen nur eine einzige Lücke in der Verteidigung, eine einzige Schwachstelle, um erfolgreich zu sein. Black Box Tests, die oft am Ende der Entwicklung schnell oder gar nicht durchgeführt werden, sind völlig ungeeignet, dieser Asymmetrie gerecht zu werden.
 
 Die letzten 30 Jahre haben gezeigt, dass Black Box Tests immer wieder kritische Sicherheitsprobleme übersehen, welche direkt zu weiteren, massiveren Problemen geführt haben. Wir befürworten ausdrücklich den Einsatz einer breiten Palette von Maßnahmen zur Gewährleistung und Verifizierung der Sicherheit, einschließlich des Ersatzes der Penetrationstests durch quellcodegeführte (hybride) Penetrationstests auf Stufe 1, mit vollem Zugang zu den Entwicklern und der Dokumentation während des gesamten Entwicklungsprozesses. Die Finanzaufsichtsbehörden dulden keine externen Finanzprüfungen ohne Zugang zu den Büchern, zu Stichproben von Geschäftsvorgängen oder zu den Personen, welche die Prüfungen durchführen. Derselbe Standard an Transparenz muss von der Industrie und den Regierungen auch im Bereich der Softwareentwicklung gefordert werden.
 
 Wir befürworten ausdrücklich die Verwendung von Sicherheitstools innerhalb des Entwicklungsprozesses. DAST- und SAST-Tools können in die Buildpipeline eingebunden werden, um leicht zu findende Sicherheitsprobleme aufzuspüren, die niemals vorhanden sein dürfen. Automatisierte Tools und Onlinescans können höchsten nur noch die Hälfte des ASVS ohne menschliches Zutun erfassen. Ist eine umfassende Testautomatisierung für jeden Buildprozess erforderlich, wird eine Kombination aus benutzerdefinierten Unit- und Integrationstests zusammen mit den vom Buildprozess veranlassten Onlinescans verwendet. Mängel der Geschäftslogik und der Zugriffskontrolle lassen sich nur mit menschlicher Hilfe testen, am besten in Unit- und Integrationstests.
-           
+
 ## Verwendung dieses Standards
 
 Eine der besten Möglichkeiten, den Application Security Verification Standard zu nutzen, ist seine Verwendung als Vorlage für die Erstellung einer Checkliste für Anforderungen zur sicheren Softwareentwicklung, die speziell auf Ihre Anwendung, Plattform oder Organisation zugeschnitten ist. In dem Sie die Anforderungen des ASVS auf Ihre Anwendungsfälle passend zuschneiden, setzen Sie den Schwerpunkt auf die Sicherheitsanforderungen, die für Ihre Projekte und Umgebungen am wichtigsten sind.

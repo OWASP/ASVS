@@ -20,6 +20,7 @@ Die beste Verteidigung gegen bösartigen Code ist der Wahlspruch „Vertrauen is
 | **10.1.1** | Prüfen Sie, dass ein Codeanalyse-Tool verwendet wird, das potenziell bösartigen Code, wie Zeitfunktionen, unsichere Dateioperationen und Netzwerkverbindungen erkennen kann. | | | ✓ | 749 |
 
 ## V10.2 Suche nach bösartigem Code
+
 Bösartiger Code ist extrem selten und schwer zu erkennen. Eine manuelle, zeilenweise Überprüfung des Codes kann bei der Suche nach Logikbomben helfen, aber selbst die erfahrensten Codereviewer werden Schwierigkeiten haben, bösartigen Code zu finden, selbst wenn sie wissen, dass er existiert. Die Einhaltung dieses Abschnitts kann nicht ohne vollständigen Zugriff auf den Quellcode, einschließlich der Bibliotheken von Drittanbietern, geprüft werden.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |

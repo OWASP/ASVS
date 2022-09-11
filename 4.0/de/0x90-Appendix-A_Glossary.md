@@ -1,4 +1,5 @@
 # Anhang A: Glossar
+
 * **2FA: Zwei-Faktor-Authentifizierung** - fügt eine zweite Authentifizierungsebene zu einer Kontoanmeldung hinzu, z.B. neben einer PIN („Wissen“) auch eine Chipkarte („Besitz“).
 * **Anwendungssicherheit** - Sicherheit auf Anwendungsebene konzentriert sich auf die Analyse von Komponenten, welche die Anwendungsschicht des Open Systems Interconnection Reference Model (OSI-Modell) bilden.
 * **ASLR: Addressspace Layout Randomisation** - Eine Technik, welche das Ausnutzen von Fehlern der Speicherverwaltung erschwert.
@@ -7,17 +8,17 @@
 * **Automatisierte Verifizierung** - Die Verwendung von automatisierten Tools, die Schwachstellensignaturen verwenden, um Probleme zu finden.
 * **Bericht zur Verifizierung der Anwendungssicherheit** - Ein Bericht, der die Gesamtergebnisse und die unterstützende Analyse dokumentiert, die der Prüfer für eine bestimmte Anwendung erstellt hat.
 * **Black Box Test** - Es handelt sich um eine Softwaretestmethode, bei der die Funktion einer Anwendung untersucht wird, ohne in ihre internen Strukturen oder Abläufe zu blicken.
-* **Bösartiger Code** - Code, der während der Entwicklung einer Anwendung ohne Wissen des Anwendungseigentümers in diese eingeführt wird, und der die beabsichtigte Sicherheitsrichtlinie der Anwendung umgeht.  Dies ist nicht dasselbe wie Malware wie z. B. ein Virus oder Wurm!
+* **Bösartiger Code** - Code, der während der Entwicklung einer Anwendung ohne Wissen des Anwendungseigentümers in diese eingeführt wird, und der die beabsichtigte Sicherheitsrichtlinie der Anwendung umgeht. Dies ist nicht dasselbe wie Malware wie z. B. ein Virus oder Wurm!
 * **BSI: Bundesamt für Sicherheit in der Informationstechnik** - Regierungsorganisation zur Verbesserung der Informationssicherheit in Deutschland
 * **CI / CD: Continuous Integration / Continuous Deployment** - Techniken um von der Softwareentwicklung bis zur Produktionseinführung zu automatisieren
 * **CORS: Cross Origin Resource Sharing** - erlaubt Webbrowsern Zugriffe auf andere Dienste außerhalb seiner eigenen Domain.
-* **CSP:** 
+* **CSP:**
   * **Content Security Policy** - Sicherheitskonzept, das Einfügen von Daten in Webseiten verhindert.
   * **Credential Service Provider** - Ein Dienst zur Verwaltung von Identitäten.
 * **CWE: Common Weakness Enumeration** - ist eine von der Community entwickelte Liste von allgemeinen Sicherheitsschwächen in Software. Sie dient als gemeinsame Sprache, als Messlatte für Softwaresicherheitstools und als Grundlage für die Identifizierung von Schwachstellen, deren Milderung und Prävention.
 * **DAST: Dynamic Application Security Testing** - Dynamische Anwendungssicherheitstests sind so konzipiert, dass sie Bedingungen erkennen, die auf eine Sicherheitslücke in einer Anwendung im laufenden Betrieb hindeuten.
 * **Design-Verifikation** - Die technische Bewertung der Sicherheitsarchitektur einer Anwendung.
-* **DoS: Denial of Service** - Ein Überlastungsangriff mit dem Ziel, die Verfügbarkeit der Anwendung oder deren Komponenten einzuschränken. 
+* **DoS: Denial of Service** - Ein Überlastungsangriff mit dem Ziel, die Verfügbarkeit der Anwendung oder deren Komponenten einzuschränken.
 * **Dynamische Verifikation** - Die Verwendung von automatisierten Tools, die Schwachstellensignaturen verwenden, um Probleme bei der Ausführung einer Anwendung zu finden.
 * **Eingabeprüfung** - Die Kanonisierung und Validierung von nicht vertrauenswürdigen Benutzereingaben.
 * **FIDO: Fast Identity Online** - Eine Gruppe von Standards zur Authentifikation, die verschiedene Authentifikationsverfahren, wie z.B. biometrische Verfahren, TPMs, USB-Token etc., definieren.
