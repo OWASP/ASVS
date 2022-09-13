@@ -14,7 +14,7 @@ If you would like to directly become a Primary, Secondary or Tertiary supporter,
 
 Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization. This will be evaluated at the sole discretion of the project leaders. Supporter will be listed 2 years from the end of the time provision.
 
-[<img src="./images/clarifiedlogo.png" height=105>](https://www.google.com/)
+[<img src="./images/clarifiedlogo.png" height=105>](https://www.clarifiedsecurity.com/)
 
 [<img src="./images/bounce.svg" height=105>](https://www.bouncesecurity.com)
 
@@ -25,7 +25,7 @@ Organizations who have allowed contributors to spend significant time working on
 Organizations who have donated $7,000 or more to the project via OWASP. Supporter will be listed in this section for 3 years from the date of the donation.
 <!--95-->
 
-[<img src="./images/googlelogo.png" height=95>](https://www.clarifiedsecurity.com/)
+[<img src="./images/googlelogo.png" height=95>](https://www.google.com/)
 
 ## Secondary supporters
 
