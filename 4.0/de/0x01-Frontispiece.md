@@ -44,6 +44,6 @@ Copyright © 2008-2021 The OWASP Foundation. Dieses Dokument wird lizensiert unt
 | Ståle Pettersen     | Stuart Gunter      | Tal Argoni        | Tim Hemel        | Tomasz Wrobel     |
 | Vincent De Schutter | Mike Jang          |                   |                  |                   |
 
-Sollte ein Dank fehlen, eröffne bitte ein Ticket bei GitHub, so dass er in künftigen Updates berücksichtigt werden kann. 
+Sollte ein Dank fehlen, eröffne bitte ein Ticket bei GitHub, so dass er in künftigen Updates berücksichtigt werden kann.
 
 Der Application Security Verification Standard 4.0 wurde von denjenigen aufgebaut, die bei ASVS 1.0 im Jahre 2008 bis 3.0 im Jahre 2016 mitgewirkt haben. Viele der Struktur- und Prüfungselemente, die im heutigen ASVS immer noch vorhanden sind, wurden ursprünglich von Mike Boberski, Jeff Williams und Dave Wichers geschrieben Es gibt aber noch viele andere Mitwirkende. Dank all denen, die sich bisher eingebracht haben. Für die umfassende Liste aller, die Beiträge zu früheren Versionen geleistet haben, verweisen wir auf die jeweilige Vorversion.

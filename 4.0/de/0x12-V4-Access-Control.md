@@ -1,4 +1,4 @@
-# V4 Maßnahmen zur Zugriffssteuerung 
+# V4 Maßnahmen zur Zugriffssteuerung
 
 ## Ziel
 

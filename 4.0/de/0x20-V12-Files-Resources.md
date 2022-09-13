@@ -6,7 +6,7 @@ Stellen Sie sicher, dass eine verifizierte Anwendung die folgenden High Level An
 
 * nicht vertrauenswürdige Datendateien müssen angepasst und auf sichere Weise behandelt werden.
 * nicht vertrauenswürdige Datendateien, die aus nicht vertrauenswürdigen Quellen stammen, werden außerhalb des Webroots und mit eingeschränkten Berechtigungen gespeichert.
-           
+
 ## V12.1 Dateiupload
 
 Obwohl Zip-Bomben hervorragend mit Penetrationstests getestet werden können, werden sie als L2 und höher eingestuft, um die Berücksichtigung von Design und Entwicklung durch sorgfältige manuelle Tests zu fördern und einen ungewollten DoS-Angriff durch automatische oder unqualifizierte manuelle Penetrationstests zu vermeiden.
