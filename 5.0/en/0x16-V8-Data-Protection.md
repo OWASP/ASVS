@@ -62,6 +62,7 @@ For more information, see also:
 * [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
 * [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
 * [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
+* [Australian Privacy Principle 11 - Security of personal information](https://www.oaic.gov.au/privacy/australian-privacy-principles-guidelines/chapter-11-app-11-security-of-personal-information)
 * [European Union General Data Protection Regulation (GDPR) overview](https://edps.europa.eu/data-protection_en)
 * [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
 * [Information on the "Clear-Site-Data" header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data)
