@@ -30,7 +30,7 @@ Authorization is the concept of allowing access to resources only to those permi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **4.3.1** | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use. | ✓ | ✓ | ✓ | 419 |
+| **4.3.1** | [MODIFIED] Verify administrative interfaces are isolated from the main application and only accept connections from trusted endpoints. Examples include using a bastion or jump host, limiting access to only admin workstations, providing admin functionality on a separate domain from other users, or only allowing admin access via an intranet. | ✓ | ✓ | ✓ | 419 |
 | **4.3.2** | [SPLIT TO 14.3.4, 14.3.5] | | | | |
 | **4.3.3** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. | | ✓ | ✓ | 732 |
 
