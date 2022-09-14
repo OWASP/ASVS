@@ -42,7 +42,7 @@ This is a placeholder for future architectural requirements.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.4.1** | Verify that trusted enforcement points, such as access control gateways, servers, and serverless functions, enforce access controls. Never enforce access controls on the client. | | ✓ | ✓ | 602 |
+| **1.4.1** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
 | **1.4.2** | [DELETED] | | | | |
 | **1.4.3** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **1.4.4** | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 284 |
