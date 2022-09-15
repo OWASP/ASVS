@@ -62,7 +62,7 @@ FROM base_${WITH_CERT} as pandoc_base
 
 #install python depencies
 RUN pip install --upgrade pip
-RUN pip install setuptools dicttoxml
+RUN pip install setuptools dicttoxml2
 
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
