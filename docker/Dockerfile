@@ -1,6 +1,6 @@
 ARG CERT_FILE=none
 ARG WITH_CERT=no
-#First stage, start from ubuntu focal
+#First stage, start from alpine
 FROM alpine:3 AS base
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -61,8 +61,8 @@ RUN rm -rf $PWD/source*
 FROM base_${WITH_CERT} as pandoc_base
 
 #install python depencies
-RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pip setuptools
-RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade dicttoxml
+RUN pip install --upgrade pip
+RUN pip install setuptools dicttoxml
 
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
