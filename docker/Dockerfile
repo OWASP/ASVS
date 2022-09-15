@@ -150,7 +150,6 @@ RUN fc-cache -f -v "/usr/share/fonts/opentype/adobe-fonts"
 USER pandoc
 
 RUN tlmgr info --list
-RUN du -a / | sort -n -r | head -n 10
 
 #setup the working dir for running make and creating the files
 WORKDIR /data
