@@ -67,9 +67,8 @@ RUN pip install setuptools dicttoxml2
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
 
-RUN curl --output /tmp/pandoc.tar.gz -L https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-linux-amd64.tar.gz \
+RUN curl --output /tmp/pandoc.tar.gz -L https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz \
             && tar xvzf /tmp/pandoc.tar.gz --strip-components 1 -C /usr/local/ \
-            && update-ca-certificates \
             && rm /tmp/pandoc.tar.gz
 
 # verify pandoc installed correctly
