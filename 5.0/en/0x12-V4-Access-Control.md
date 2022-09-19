@@ -5,8 +5,9 @@
 Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high level requirements:
 
 * Persons accessing resources hold valid credentials to do so.
-* Users are associated with a well-defined set of roles and privileges.
-* Role and permission metadata is protected from replay or tampering.
+* Users are associated with a well-defined set of entitlements.
+* Access control policy metadata is protected from replay or tampering.
+
 
 ## V4.1 General Access Control Design
 
