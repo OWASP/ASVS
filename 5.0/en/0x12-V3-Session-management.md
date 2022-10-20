@@ -15,8 +15,8 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.1.1** | [GRAMMAR] Verify that the application never reveals session tokens in URL parameters. | ✓ | ✓ | ✓ | 598 | |
-| **3.1.2** | [ADDED] Verify that the application performs all session tokens verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 | |
+| **3.1.1** | [DELETED, MERGED TO 8.3.1] | | | | | |
+| **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 | |
 
 ## V3.2 Session Binding
 

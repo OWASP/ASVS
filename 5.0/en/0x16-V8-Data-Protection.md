@@ -41,7 +41,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **8.3.1** | Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data. | ✓ | ✓ | ✓ | 319 |
+| **8.3.1** | [MODIFIED, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or headers and that the URL/query string do not contain sensitive information, such as an API key, session token, etc. | ✓ | ✓ | ✓ | 319 |
 | **8.3.2** | [MODIFIED, SPLIT TO 8.3.9] Verify that users have a method to remove their data on demand. | ✓ | ✓ | ✓ | 212 |
 | **8.3.3** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | 285 |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
