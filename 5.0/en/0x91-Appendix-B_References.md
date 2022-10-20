@@ -36,7 +36,7 @@ Similarly, the following web sites are most likely to be useful to users/adopter
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
-3. PCI Security Standards Council: [https://www.pcisecuritystandards.org](https://www.pcisecuritystandards.org)
+3. PCI Security Standards Council: [https://www.pcisecuritystandards.org/](https://www.pcisecuritystandards.org/)
 4. PCI Data Security Standard (DSS) v3.2.1 Requirements and Security Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf)
 5. PCI Software Security Framework - Secure Software Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf)
 6. PCI Secure Software Lifecycle (Secure SLC) Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)

@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level data prote
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.1.1** | Verify the application protects sensitive data from being cached in server components such as load balancers and application caches. | | ✓ | ✓ | 524 |
 | **8.1.2** | Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. | | ✓ | ✓ | 524 |
-| **8.1.3** | Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values. | | ✓ | ✓ | 233 |
+| **8.1.3** | [DELETED] | | | | |
 | **8.1.4** | Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
 | **8.1.5** | Verify that regular backups of important data are performed and that test restoration of data is performed. | | | ✓ | 19 |
 | **8.1.6** | Verify that backups are stored securely to prevent data from being stolen or corrupted. | | | ✓ | 19 |
@@ -62,6 +62,7 @@ For more information, see also:
 * [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
 * [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
 * [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
+* [Australian Privacy Principle 11 - Security of personal information](https://www.oaic.gov.au/privacy/australian-privacy-principles-guidelines/chapter-11-app-11-security-of-personal-information)
 * [European Union General Data Protection Regulation (GDPR) overview](https://edps.europa.eu/data-protection_en)
 * [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
 * [Information on the "Clear-Site-Data" header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data)

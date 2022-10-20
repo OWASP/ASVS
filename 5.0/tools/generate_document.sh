@@ -16,6 +16,8 @@ generate_docx() {
     pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 --toc -t docx -o "../docs_$1/OWASP Application Security Verification Standard $2-$1.docx" *.md
 	echo " done."
 	echo -e ""
+	echo -e "Note: If you got an error 'Invalid UTF-8 stream', make sure you are on the newest version of pandoc from the project website (not just the OS package repo)"
+	echo -e ""
 	echo -e "DOCX GENERATION MANUAL STEPS"
 	echo -e "----------------------------"
 	echo -e "After the docx file has been generated, do the following:"

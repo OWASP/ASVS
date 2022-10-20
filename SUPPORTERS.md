@@ -24,6 +24,9 @@ Organizations who have allowed contributors to spend significant time working on
 
 Organizations who have donated $7,000 or more to the project via OWASP. Supporter will be listed in this section for 3 years from the date of the donation.
 <!--95-->
+
+[<img src="./images/googlelogo.png" height=95>](https://about.google/)
+
 ## Secondary supporters
 
 Organizations who have donated $3,000 or more to the project via OWASP. Supporter will be listed in this section for 2 years from the date of the donation.

@@ -72,6 +72,7 @@ The following tags should be added to any modified requirement as appropriate.
 
 * `[ADDED]` - New requirement (should only be added at the end of a sub-section.)
 * `[MODIFIED]` - Requirement description has been modified
+* `[GRAMMAR]` - Requirement description has been corrected from a language or grammar perspective, but the wording or meaning of the description is not modified
 * `[MOVED TO x.y.z]` - Placeholder to keep number, requirement has been moved to another category
 * `[MOVED FROM a.b.c]` - Requirement has been moved to a different sub-section but **not** modified. (should only be added at the end of a sub-section.)
 * `[MODIFIED, MOVED FROM a.b.c]` - Requirement description has been modified **and** requirement has been moved to a different sub-section.
@@ -101,12 +102,14 @@ We are also actively looking for translations of the 4.n branch!
 If you are interested in creating a translation, here are some pointers for how you can help us:
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superceeded!):
 	* In-progress
-        * French
+        * None
 	* v4.0.3
         * Spanish
         * Simplified Chinese
         * Arabic
         * Russian
+        * French
+        * German
     * v4.0.2
         * German
         * Russian

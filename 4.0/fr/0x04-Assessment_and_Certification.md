@@ -42,6 +42,14 @@ Dans la mesure du possible, l'accès aux développeurs, à la documentation, au 
 
 En plus de servir à l'évaluation de la sécurité d'une application, nous avons identifié plusieurs autres potentielles utilisations de l'ASVS.
 
+### En tant que conseils détaillés sur l'architecture de sécurité
+
+L'une des utilisations les plus courantes de la norme de vérification de la sécurité des applications est en tant que ressource pour les architectes de sécurité. Il manque au modèle Sherwood Applied Business Security Architecture (SABSA) une grande quantité d'informations nécessaires pour effectuer un examen approfondi de l'architecture de sécurité des applications. ASVS peut être utilisé pour combler ces lacunes en permettant aux architectes de sécurité de choisir de meilleurs contrôles pour les problèmes courants, tels que les modèles de protection des données et les stratégies de validation des entrées.
+
+### En remplacement des listes de contrôle de codage sécurisé prêtes à l'emploi
+
+De nombreuses organisations peuvent bénéficier de l'adoption de l'ASVS, en choisissant l'un des trois niveaux, ou en forkant ASVS et en modifiant ce qui est requis pour chaque niveau de risque d'application d'une manière spécifique au domaine. Nous encourageons ce type de forking tant que la traçabilité est maintenue, de sorte que si une application a satisfait à l'exigence 4.1, cela signifie la même chose pour les copies forkées que la norme au fur et à mesure de son évolution.
+
 ### Guide pour les tests unitaires et d'intégration automatisés
 
 L'ASVS est conçu pour être hautement testable, à la seule exception des exigences en matière d'architecture et de code malveillant. Grâce à des tests unitaires et d'intégration qui permettent de détecter des variantes et des cas d'abus spécifiques et pertinents, l'application se vérifie pratiquement d'elle-même à chaque nouvelle itération. Par exemple, des tests supplémentaires peuvent être élaborés pour la suite de tests d'un contrôleur de connexion, en testant le paramètre de nom d'utilisateur pour les noms d'utilisateur communs par défaut, l'énumération des comptes, l'énumération exhaustive (brute-force), l'injection LDAP et SQL, et XSS. De plus, un test sur le paramètre du mot de passe devrait inclure les mots de passe communs, la longueur du mot de passe, l'injection d'octets nuls, la suppression du paramètre, XSS, et plus encore.
