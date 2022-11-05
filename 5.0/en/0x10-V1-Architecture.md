@@ -115,7 +115,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
-| **1.12.2** | Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. Implement a suitable Content Security Policy (CSP) to reduce the risk from XSS vectors or other attacks from the uploaded file. | | ✓ | ✓ | 646 |
+| **1.12.2** | [MODIFIED] Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. | | ✓ | ✓ | 646 |
 
 ## V1.13 API Architecture
 
