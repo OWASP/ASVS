@@ -8,7 +8,7 @@ In the contents of secure requirements, the ASVS should be useful to anyone tryi
 * Develop and maintain secure applications.
 * Evaluate the security of applications.
 
-This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-baesd approach and different use cases for the standard.
+This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-based approach and different use cases for the standard.
 
 ## Application Security Verification Levels
 
