@@ -27,7 +27,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 | **3.2.3** | [DELETED] | | | | | |
 | **3.2.4** | Verify that session tokens are generated using approved cryptographic algorithms. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
 
-TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
+TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
 
 ## V3.3 Session Termination
 
@@ -66,7 +66,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.4** | [ADDED] Verify that stateless tokens are checked for expiration before processing them further. | ✓ | ✓ | ✓ | 613 | |
 | **3.5.5** | [ADDED] Verify that the signature of a stateless token is being checked before processing it further. | ✓ | ✓ | ✓ | 347 | |
 | **3.5.6** | [ADDED] Verify that only allow-listed signing algorithms are allowed for a stateless token. | ✓ | ✓ | ✓ | 757 | |
-| **3.5.7** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
+| **3.5.7** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be the issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
 
 ## V3.6 Federated Re-authentication
 
