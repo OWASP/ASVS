@@ -32,7 +32,7 @@ When designing authentication, it doesn't matter if you have strong hardware ena
 | **1.2.1** | [MOVED TO 1.14.7] | | | | |
 | **1.2.2** | [MODIFIED] Verify that communications between application components, including APIs, middleware and data layers, are authenticated and use individual user accounts. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 306 |
 | **1.2.3** | Verify that the application uses a single vetted authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
-| **1.2.4** | Verify that all authentication pathways and identity management APIs implement consistent authentication security control strength, such that there are no weaker alternatives per the risk of the application. | | ✓ | ✓ | 306 |
+| **1.2.4** | [MODIFIED] Verify that, if the application includes multiple authentication pathways, security controls and authentication strength are enforced consistently across all pathways and that this is explicitly documented. | | ✓ | ✓ | 306 |
 
 ## V1.3 Session Management Architecture
 
