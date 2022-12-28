@@ -143,4 +143,4 @@ For more information, see also:
 * [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/sdl/)
 * [NIST SP 800-57](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
-* [More information on the security.txt proposed standard](https://securitytxt.org/)
+* [More information on security.txt including a link to the RFC](https://securitytxt.org/)
