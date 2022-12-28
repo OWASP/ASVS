@@ -115,7 +115,7 @@ For more information, see also:
 * [OWASP Mass Assignment Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
 * [XML External Entity (XXE) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
-* [CSV_Injection] (https://owasp.org/www-community/attacks/CSV_Injection)
+* [CSV Injection] (https://owasp.org/www-community/attacks/CSV_Injection)
 
 For more information on auto-escaping, please see:
 
