@@ -16,7 +16,7 @@ L'actif le plus important est constitué par les données traitées, stockées o
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **6.1.1** | Vérifier que les données privées réglementées sont stockées sous forme chiffrée pendant le repos, comme les informations d'identification personnelle (IIP), les informations personnelles sensibles ou les données considérées comme susceptibles d'être soumises à la GDPR de l'UE. | | ✓ | ✓ | 311 |
 | **6.1.2** | Vérifier que les données de santé réglementées sont stockées de manière chiffrée pendant le repos, comme les dossiers médicaux, les détails des dispositifs médicaux ou les dossiers de recherche désanonymisés. | | ✓ | ✓ | 311 |
-| **6.1.3** | Vérifiez que les données financières réglementées sont stockées de manière cryptée lorsqu'elles sont au repos, telles que les comptes financiers, les défauts ou les antécédents de crédit, les dossiers fiscaux, l'historique des salaires, les bénéficiaires ou les dossiers de marché ou de recherche désanonymisés. | | ✓ | ✓ | 311 |
+| **6.1.3** | Vérifiez que les données financières réglementées sont stockées de manière chiffrée lorsqu'elles sont au repos, telles que les comptes financiers, les défauts ou les antécédents de crédit, les dossiers fiscaux, l'historique des salaires, les bénéficiaires ou les dossiers de marché ou de recherche désanonymisés. | | ✓ | ✓ | 311 |
 
 ## V6.2 Algorithmes
 
