@@ -121,7 +121,7 @@ Lookup secrets are pre-generated lists of secret codes, similar to Transaction A
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.6.1** | Verify that lookup secrets can be used only once. | | ✓ | ✓ | 308 | 5.1.2.2 |
-| **2.6.2** | [MODIFIED] Verify that lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm which incorporates a 32bit random salt. If the secret has 112 bits of entropy or more, a standard hash function can be used. | | ✓ | ✓ | 330 | 5.1.2.2 |
+| **2.6.2** | [MODIFIED] Verify that lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm which incorporates a 32 bit random salt. If the secret has 112 bits of entropy or more, a standard hash function can be used. | | ✓ | ✓ | 330 | 5.1.2.2 |
 | **2.6.3** | Verify that lookup secrets are resistant to offline attacks, such as predictable values. | | ✓ | ✓ | 310 | 5.1.2.2 |
 | **2.6.4** | [ADDED] Verify that lookup secrets have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 330 | 5.1.2.2 |
 
