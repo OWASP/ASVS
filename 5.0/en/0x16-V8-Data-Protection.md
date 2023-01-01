@@ -20,8 +20,8 @@ Ensure that a verified application satisfies the following high level data prote
 | **8.1.2** | [DELETED, MERGED TO 8.1.1] | | | | |
 | **8.1.3** | [DELETED] | | | | |
 | **8.1.4** | Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
-| **8.1.5** | Verify that regular backups of important data are performed and that test restoration of data is performed. | | | ✓ | 19 |
-| **8.1.6** | Verify that backups are stored securely to prevent data from being stolen or corrupted. | | | ✓ | 19 |
+| **8.1.5** | [DELETED] | | | | |
+| **8.1.6** | [DELETED] | | | | |
 
 ## V8.2 Client-side Data Protection
 
