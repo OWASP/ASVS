@@ -156,7 +156,7 @@ Single-factor One-time Passwords (OTPs) are physical or soft tokens that display
 | **2.8.4** | Verify that time-based OTP can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.5** | Verify that if a time-based multi-factor OTP token is re-used during the validity period, it is logged and rejected with secure notifications being sent to the holder of the device. | | ✓ | ✓ | 287 | 5.1.5.2 |
 | **2.8.6** | Verify physical single-factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | ✓ | ✓ | 613 | 5.2.1 |
-| **2.8.7** | [LEVEL L2 > L3] Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know. | | | ✓ | 308 | 5.2.3 |
+| **2.8.7** | [GRAMMAR, LEVEL L2 > L3] Verify that biometric authenticators are only used as secondary factors together with either something you have and something you know. | | | ✓ | 308 | 5.2.3 |
 | **2.8.8** | [ADDED] Ensure that generation of the time-based multi-factor OTP token is based on the server's system time and not the client's machine. | | | ✓ | 367 | 5.1.4.2 / 5.1.5.2 |
 
 ## V2.9 Cryptographic Verifier
