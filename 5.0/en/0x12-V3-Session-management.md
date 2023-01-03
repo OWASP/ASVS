@@ -91,6 +91,87 @@ Attackers start a half-open attack by attempting to lock, reset, or recover a cr
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.7.1** | [MODIFIED] Verify the application requires re-authentication or secondary factor verification before allowing any sensitive transactions or account modifications. | ✓ | ✓ | ✓ | 306 | |
 
+## V3.8 OAuth-specific Token-based Session Management
+
+[TO_ADD_IN_A_BIT] Some explanation here... or maybe compress all the explanation paragraphs up here instead?...
+
+OAUTH & OPENID CONNECT
+
+[TO_ADD_IN_A_BIT] Some explanation here... 
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.1** | [ADDED] Verify that Clients and Authorization Server must not expose URLs that forward the user's browser to arbitrary URIs obtained from a query parameter ("open redirector"). Open redirectors can enable exfiltration of authorization codes and access tokens.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.2** | [ADDED] Verify Clients that have ensured that the Authorization Server supports PKCE may rely on the CRSF protection provided by PKCE. In OpenID Connect flows, the "nonce" parameter provides CSRF protection. Otherwise, one-time user CSRF tokens carried in the "state" parameter that are securely bound to the user agent must be used for CSRF protection.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.3** | [ADDED] Verify that when an OAuth Client can interact with more than one Authorization Server, Clients should use the "iss" parameter as a countermeasure, or alternatively based on an "iss" value in the authorization response (such as the "iss" Claim in the ID Token in OpenID) | ✓ | ✓ | ✓ | - | - |
+| **3.8.4** | [ADDED] Verify that when the other countermeasure options for OAuth clients interacting with more than one Authorization Servers are absent, Clients may instead use distinct redirect URIs to identify authorization endpoints and token endpoints.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.5** | [ADDED] Verify that an Authorization Server avoids forwarding or redirecting a request potentially containing user credentials accidentally.  | ✓ | ✓ | ✓ | - | - |
+
+PKCE
+
+[TO_ADD_IN_A_BIT] Some intro paragraph here... .
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.6** | [ADDED] Verify that Clients are preventing injection (replay) of authorization codes into the authorization response by using PKCE flow. Additionally, clients may use the OpenID Connect "nonce" parameter and the respective Claim in the ID Token instead. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started. 
+ | ✓ | ✓ | ✓ | - | - |
+| **3.8.7** | [ADDED] Verify that when using PKCE, Clients should use PKCE code challenge methods that do not expose the PKCE verifier in the authorization request. Otherwise, attackers that can read the authorization request can break the security provided by the PKCE. Authorization servers must support PKCE.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.8** | [ADDED] Verify that Authorization Servers are mitigating PKCE Downgrade Attacks by ensuring a token request containing a "code_verifier" parameter is accepted only if a "code_challenge" parameter was present in the authorization request. | ✓ | ✓ | ✓ | - | - |
+
+IMPLICIT GRANT
+
+[TO_ADD_IN_A_BIT] Explain implicit grant... 
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.9** | [ADDED] Verify that Clients are using the response type "code" (aka authorization code grant type) or any other response type that causes the authorization server to issue access tokens in the token response, such as the "code id_token" response type. This allows the Authorization Server to detect replay attempts by attackers and generally reduces the attack surface since access tokens are not exposed in the URLs. It also allows the Authorization Server to sender-contrain the issued tokens. 
+ | ✓ | ✓ | ✓ | - | - |
+
+TOKEN REPLAY PREVENTION
+
+[TO_ADD_IN_A_BIT] Explain sender-constrained access tokens here... 
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.10** | [ADDED] Verify that Authorization and Resource Servers are using mechanisms for sender-constraining access tokens to prevent token replay, such as Mutual TLS for OAuth 2.0.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.11** | [ADDED]  Verify that refresh tokens are sender-constrained or use refresh token rotation. | ✓ | ✓ | ✓ | - | - |
+
+ACCESS TOKEN PRIVILEGE RESTRICTION
+
+[TO_ADD_IN_A_BIT] 
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.12** | [ADDED] Verify that the privileges associated with an access token should be restricted to the minimum required for the particular application or use case. This prevents clients from exceeding the priviliges authorized by the Resource Owner. It also prevents users from exceeding their privileges authorized by the respective security policy. Privilege restrictions also help to reduce the impact of access token leakage.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.13** | [ADDED] Verify that access tokens are restricted to certain Resource Servers (audience restriction), preferably to a single Resource Server. The Authorization Server should associate the access token with certain Resource Servers and every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular Resource Server. If not, the Resource Server must refuse to serve the respective request. Clients and Authorization Servers may utilize the parameters "scope" and "resource", respectively to determine the Resource Server they want to access.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.14** | [ADDED] Verify that access tokens are restricted to certain resources and actions on Resource Servers or resources. The Authorization Server should associate the access token with the respective resource and actions and every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the Resource Server must refuse to serve the respective request. Clients and Authorization Servers may utilized the parameters "scope" and "authorization_details" to determine those resources and/or actions. | ✓ | ✓ | ✓ | - | - |
+
+RESOURCE OWNER PASSWORD CREDENTIALS GRANT
+
+[TO_ADD_IN_A_BIT]
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.15** | [ADDED] Verify that the Resource Owner password credentials grant is not used. This grant type insecurely exposes the credentials of the Resource Owner to the client, increasing the attack surface of the application. 
+ | ✓ | ✓ | ✓ | - | - |
+
+CLIENT AUTHENTICATION 
+
+[TO_ADD_IN_A_BIT]
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.16** | [ADDED] Verify that Authorization Servers are using client authentication if possible. It is recommended to use asymmetric (public-key based) methods for client authentication such as mTLS or "private_key_jwt" (OpenID Connect). When asymmetric methods for client authentication are used, Authorization Servers do not need to store sensitive symmetric keys, making these methods more robust against a number of attacks.  | ✓ | ✓ | ✓ | - | - |
+
+OTHER RECOMMENDATIONS 
+
+[TO_ADD_IN_A_BIT]
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.8.17** | [ADDED] Verify that Authorization Servers do not allow clients to influence their "client_id" or "sub" value or any other Claim that can cause confusion with a genuine Resource Owner. It is recommended to use end-to-end TLS.  | ✓ | ✓ | ✓ | - | - |
+| **3.8.18** | [ADDED] Verify that Authorization responses are not transmitted over unencrypted network connections. Authorization Servers must not allow redirect URIs that use the "http" scheme except for native clients that use Loopback Interface Redirection.  | ✓ | ✓ | ✓ | - | - |
+
 ## References
 
 For more information, see also:
