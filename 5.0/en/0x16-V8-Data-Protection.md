@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level data prote
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.1.1** | [MODIFIED, MERGED FROM 8.1.2] Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | | ✓ | ✓ | 524 |
 | **8.1.2** | [DELETED, MERGED TO 8.1.1] | | | | |
-| **8.1.3** | [DELETED] | | | | |
+| **8.1.3** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **8.1.4** | Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
 | **8.1.5** | [DELETED, NOT IN SCOPE] | | | | |
 | **8.1.6** | [DELETED, NOT IN SCOPE] | | | | |
