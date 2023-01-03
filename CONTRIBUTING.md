@@ -85,11 +85,8 @@ The following tags should be added to any modified requirement as appropriate.
 * `[DELETED, INCORRECT]` - Placeholder to keep number, requirement was invalid or provided inadvisable advice
 * `[DELETED, NOT PRACTICAL]` - Placeholder to keep number, requirement was not practical (enough) to implement in reality
 * `[DELETED, INSUFFICIENT IMPACT]` - Placeholder to keep number, requirement was valid and in scope but provided insuffiecent benefit to be worthwhile
- or did not have (enough) impact on practical application security
-* `[DELETED, INCORRECT]` - Placeholder to keep number, requirement was incorrect and has been deleted
 * `[SPLIT TO x.y.z, i.j.f]` - Placeholder to keep number, requirement has been splitted to 2 or more requirements to another categories
 * `[LEVEL L1 > L2]` - Requirement's level has changed. Level change label may exist also for `[MODIFIED]`, `[MOVED FROM]` and `[SPLIT FROM]`
-
 
 `SPLIT TO`, `MOVED TO`, `MERGED TO` labels must have matching labels with `SPLIT FROM`, `MOVED FROM`, `MERGED FROM`.
 
