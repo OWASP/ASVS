@@ -28,6 +28,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.5** | Verify that authorized administrators can verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
 | **14.1.6** | [MOVED FROM 14.2.2] Verify that all unneeded features, documentation, sample applications and configurations are removed. | ✓ | ✓ | ✓ | 1002 |
 | **14.1.7** | [ADDED] Verify that production environment does not include test code. | | ✓ | ✓ | 489 |
+| **14.1.8** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | | | ✓ | |
 
 ## V14.2 Dependency
 

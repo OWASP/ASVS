@@ -67,6 +67,7 @@ NIST considers SMS as ["restricted" authenticator types](https://pages.nist.gov/
 | **2.2.8** | [ADDED] Verify that all failed authentication challenges respond in the same average response time. | | ✓ | ✓ | | |
 | **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that multi-factor authentication is required, that is, the application uses either a multi-factor authenticator or a combination of single-factor authenticators. | | ✓ | ✓ | 308 | 4.2.1 |
 | **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. Suspicious authentication attempts may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | | ✓ | ✓ | 778 | |
+| **2.2.11** | [ADDED, SPLIT FROM 1.2.4] Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | | ✓ | ✓ | 306 | |
 
 ## V2.3 Authenticator Lifecycle
 
@@ -78,7 +79,7 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.3.1** | [MODIFIED, MERGED FROM 2.5.1] Verify system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens. | | ✓ | ✓ | 308 | 6.1.3 |
-| **2.3.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. | | ✓ | ✓ | 287 | 6.1.4 |
+| **2.3.3** | [MODIFIED] Verify that automated reminders are configured and acted on to ensure that renewal instructions for time-bound authenticators are sent with enough time to be carried out before the old authenticator expires. | | ✓ | ✓ | 287 | 6.1.4 |
 | **2.3.4** | [ADDED] System administrators should not be able to change or choose any user's password, but rather only be able to initiate the password reset process for the user. | ✓ | ✓ | ✓ | 620 | |
 
 
@@ -94,7 +95,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing the user's password for the application: argon2id, scrypt, bcrypt or PBKDF2. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | [DELETED] | | | | | |
-| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, with a minimum of 720,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 310,000 iterations using PBKDF2-HMAC-SHA-256, or with a minimum of 120,000 iterations with PBKDF2-HMAC-SHA-512. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count SHOULD be as large as verification server performance will allow, with a minimum of 720,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 310,000 iterations using PBKDF2-HMAC-SHA256, or with a minimum of 120,000 iterations with PBKDF2-HMAC-SHA512. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.4** | Verify that if bcrypt is used, the work factor SHOULD be as large as verification server performance will allow, with a minimum of 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | [DELETED] | | | | | |
 | **2.4.6** | [ADDED] Verify that if argon2id is used, the configuration SHOULD be as strong as verification server performance will allow, with a minimum configuration of 15 MiB of memory, an iteration count of 2, and 1 degree of parallelism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
@@ -121,8 +122,9 @@ Lookup secrets are pre-generated lists of secret codes, similar to Transaction A
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.6.1** | Verify that lookup secrets can be used only once. | | ✓ | ✓ | 308 | 5.1.2.2 |
-| **2.6.2** | [MODIFIED] Verify that lookup secrets have sufficient randomness (112 bits of entropy), or if less than 112 bits of entropy, are hashed with an approved password storage hashing algorithm. | | ✓ | ✓ | 330 | 5.1.2.2 |
+| **2.6.2** | [MODIFIED] Verify that lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm which incorporates a 32 bit random salt. If the secret has 112 bits of entropy or more, a standard hash function can be used. | | ✓ | ✓ | 330 | 5.1.2.2 |
 | **2.6.3** | Verify that lookup secrets are resistant to offline attacks, such as predictable values. | | ✓ | ✓ | 310 | 5.1.2.2 |
+| **2.6.4** | [ADDED] Verify that lookup secrets have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 330 | 5.1.2.2 |
 
 ## V2.7 Out of Band Verifier
 
@@ -141,7 +143,7 @@ Unsafe out of band authenticators such as e-mail and VOIP are not permitted. PST
 | **2.7.3** | Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.4** | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
 | **2.7.5** | Verify that the out of band verifier retains only a hashed version of the authentication code. | | ✓ | ✓ | 256 | 5.1.3.2 |
-| **2.7.6** | Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
+| **2.7.6** | [MODIFIED] Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
 | **2.7.7** | [ADDED] Verify that the initial authentication code is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | | ✓ | ✓ | 307 | 5.1.3.2 |
 
 ## V2.8 One Time Verifier

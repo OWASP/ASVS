@@ -20,15 +20,15 @@ Ensure that a verified application satisfies the following high level data prote
 | **8.1.2** | [DELETED, MERGED TO 8.1.1] | | | | |
 | **8.1.3** | [DELETED] | | | | |
 | **8.1.4** | Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
-| **8.1.5** | Verify that regular backups of important data are performed and that test restoration of data is performed. | | | ✓ | 19 |
-| **8.1.6** | Verify that backups are stored securely to prevent data from being stolen or corrupted. | | | ✓ | 19 |
+| **8.1.5** | [DELETED, NOT IN SCOPE] | | | | |
+| **8.1.6** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V8.2 Client-side Data Protection
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.2.1** | Verify the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers. | ✓ | ✓ | ✓ | 525 |
-| **8.2.2** | [MODIFIED] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens which should be stored in either cookies or sessionStorage. | ✓ | ✓ | ✓ | 922 |
+| **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens which should be stored in either cookies or sessionStorage. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | ✓ | ✓ | ✓ | 922 |
 
 ## V8.3 Sensitive Private Data

@@ -47,7 +47,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.5.1** | [MOVED TO 14.3.6] | | | | |
 | **12.5.2** | Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content. | ✓ | ✓ | ✓ | 434 |
-| **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignoring user-submitted filenames, including in a JSON, JSONP, or URL parameter. The response Content-Type header and Content-Disposition header should be fixed to the file and securely handled by the application instead of the user. | ✓ | ✓ | ✓ | 641 |
+| **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header in the response. | ✓ | ✓ | ✓ | 641 |
 
 ## V12.6 SSRF Protection
 
@@ -60,5 +60,4 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 For more information, see also:
 
 * [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
-* [Reflective file download by Oren Hafif](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)
 * [OWASP Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)
