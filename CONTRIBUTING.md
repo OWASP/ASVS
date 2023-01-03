@@ -66,7 +66,7 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 Projects leads will check and validate labels for changes. Please ask for a recommendation regarding the proper label in the issue tracker if you have any questions.
 
-These tags should all be relative to how the requirement appeared in the latest release (v4.0.3).
+These tags should all be relative to how the requirement appeared in the latest release (v4.0.3) and will be used in mapping file between releases.
 
 The following tags should be added to any modified requirement as appropriate.
 
@@ -81,6 +81,12 @@ The following tags should be added to any modified requirement as appropriate.
 * `[DELETED]` - Placeholder to keep number, requirement has been deleted
 * `[DELETED, MERGED TO x.y.z]` - Placeholder to keep number, requirement has been merged into another requirement
 * `[DELETED, DUPLICATE OF x.y.z]` - Placeholder to keep number, requirement has been deleted because of clear duplicate to referenced requirement (referenced requirement do not have changes because of that)
+* `[DELETED, NOT IN SCOPE]` - Placeholder to keep number, requirement has been decided to be out of ASVS scope
+* `[DELETED, INCORRECT]` - Placeholder to keep number, requirement was invalid or provided inadvisable advice
+* `[DELETED, NOT PRACTICAL]` - Placeholder to keep number, requirement was not practical (enough) to implement in reality
+* `[DELETED, INSUFFICIENT IMPACT]` - Placeholder to keep number, requirement was valid and in scope but provided insuffiecent benefit to be worthwhile
+ or did not have (enough) impact on practical application security
+* `[DELETED, INCORRECT]` - Placeholder to keep number, requirement was incorrect and has been deleted
 * `[SPLIT TO x.y.z, i.j.f]` - Placeholder to keep number, requirement has been splitted to 2 or more requirements to another categories
 * `[LEVEL L1 > L2]` - Requirement's level has changed. Level change label may exist also for `[MODIFIED]`, `[MOVED FROM]` and `[SPLIT FROM]`
 
