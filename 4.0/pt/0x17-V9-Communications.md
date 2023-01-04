@@ -35,7 +35,7 @@ As comunicações do servidor são mais que apenas HTTP. Conexões seguras de e 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **9.2.1** | Verifique se as conexões de e para o servidor usam certificados TLS confiáveis. Onde certificados gerados internamente ou autoassinados são usados, o servidor deve ser configurado para confiar apenas em CAs internas específicas e certificados autoassinados específicos. Todos os outros devem ser rejeitados. | | ✓ | ✓ | 295 |
-| **9.2.2** | Verifique se as comunicações criptografadas, como TLS, são usadas para todas as conexões de input e output, incluindo portas de gestão, monitoramento, autenticação, API ou chamadas de Web Service, banco de dados, nuvem, sem servidor, mainframe, externas e conexões de parceiros. O servidor não deve recorrer a protocolos inseguros ou não criptografados. | | ✓ | ✓ | 319 |
+| **9.2.2** | Verifique se as comunicações criptografadas, como TLS, são usadas para todas as conexões de input e output, incluindo portas de gestão, monitoramento, autenticação, API ou chamadas de Web Service, banco de dados, nuvem, serverless, mainframe, externas e conexões de parceiros. O servidor não deve recorrer a protocolos inseguros ou não criptografados. | | ✓ | ✓ | 319 |
 | **9.2.3** | Verifique se todas as conexões criptografadas com sistemas externos que envolvem informações ou funções confidenciais são autenticadas. | | ✓ | ✓ | 287 |
 | **9.2.4** | Verifique se a revogação de certificação adequada, como o grampeamento do protocolo de status de certificado on-line (OCSP), está habilitada e configurada. | | ✓ | ✓ | 299 |
 | **9.2.5** | Verifique se as falhas de conexão TLS de back-end são registradas. | | | ✓ | 544 |

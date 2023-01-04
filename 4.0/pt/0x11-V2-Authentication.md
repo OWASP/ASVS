@@ -18,7 +18,7 @@ Autenticação ASVS V2, gestão de sessão V3 e, em menor grau, controles de ace
 
 ### Selecionando um nível NIST AAL apropriado
 
-O Application Security Verification Standard tentou mapear os requisitos ASVS L1 para NIST AAL1, L2 para AAL2 e L3 para AAL3. No entanto, a abordagem do ASVS Nível 1 como controles "essenciais" pode não ser necessariamente o nível AAL correto para verificar uma aplicação ou API. Por exemplo, se a aplicação for uma aplicação de Nível 3 ou tiver requisitos regulatórios para ser AAL3, o Nível 3 deve ser escolhido nos capítulos V2 e V3 Gestão de Sessões. A escolha do Nível de Asserção de Autenticação (AAL) compatível com NIST deve ser realizada conforme as diretrizes NIST 800-63b, conforme estabelecido em *Selecionar AAL* na [Seção 6.2 do NIST 800-63b](https://pages.nist.gov/800 -63-3/sp800-63-3.html#AAL_CYOA).
+O Application Security Verification Standard tentou mapear os requisitos ASVS L1 para NIST AAL1, L2 para AAL2 e L3 para AAL3. No entanto, a abordagem do ASVS Nível 1 como controles "essenciais" pode não ser necessariamente o nível AAL correto para verificar uma aplicação ou API. Por exemplo, se a aplicação for uma aplicação de Nível 3 ou tiver requisitos regulatórios para ser AAL3, o Nível 3 deve ser escolhido nos capítulos V2 e V3 Gestão de Sessões. A escolha do Nível de Asserção de Autenticação (AAL) compatível com NIST deve ser realizada conforme as diretrizes NIST 800-63b, conforme estabelecido em *Selecionar AAL* na [Seção 6.2 do NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
 
 ## Legenda
 
@@ -87,7 +87,7 @@ Observação: as senhas não devem ter um tempo de vida máximo ou estar sujeita
 
 Arquitetos e desenvolvedores devem aderir a esta seção ao criar ou refatorar o código. Esta seção só pode ser totalmente verificada usando a revisão do código-fonte ou por meio de testes seguros de unidade, ou integração. O teste de penetração não consegue identificar nenhum desses problemas.
 
-A lista de funções de derivação de chave unidirecional aprovadas é detalhada na seção 5.1.1.2 do NIST 800-63 B e em [BSI Kryptographische Verfahren: Empfehlungen und Schlussellängen (2018)](https://www.bsi.bund.de/ SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile). O algoritmo nacional ou regional mais recente e os padrões de comprimento de chave podem ser escolhidos no lugar dessas opções.
+A lista de funções de derivação de chave unidirecional aprovadas é detalhada na seção 5.1.1.2 do NIST 800-63 B e em [BSI Kryptographische Verfahren: Empfehlungen und Schlussellängen (2018)](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile). O algoritmo nacional ou regional mais recente e os padrões de comprimento de chave podem ser escolhidos no lugar dessas opções.
 
 Esta seção não pode ser testada quanto à penetração, então os controles não são marcados como L1. No entanto, esta seção é de vital importância para a segurança das credenciais se forem roubadas, portanto, se for bifurcar o ASVS para uma arquitetura ou diretriz de codificação, ou lista de verificação de revisão de código-fonte, coloque esses controles de volta em L1 na sua versão privada.
 
@@ -189,7 +189,7 @@ Nós instamos fortemente as agências governamentais dos EUA a revisar e impleme
 
 | Termo | Significado |
 | -- | -- |
-| PSC | Provedor de Serviços de Credencial também chamado de Provedor de Identidade |
+| PSC | Provedor de Serviços de Credencial também chamado Provedor de Identidade |
 | Autenticador | Código que autentica uma senha, token, MFA, declaração federada e assim por diante. |
 | Verificador | "Uma entidade que verifica a identidade do reclamante verificando a posse e o controle do reclamante de um ou dois autenticadores usando um protocolo de autenticação. Para fazer isso, o verificador também pode precisar validar as credenciais que vinculam o(s) autenticador(es) ao identificador do assinante e verificar o seu estado" |
 | OTP | Senha de uso único |

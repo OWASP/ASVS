@@ -16,7 +16,7 @@ Os seguintes projetos OWASP provavelmente serão úteis para usuários/adotantes
 
 Existe um mapeamento para o ASVS que pode ser encontrado aqui: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
 
-## Projetos Relacionados à Segurança Móvel
+## Projetos Relacionados à Segurança Mobile
 
 1. Projeto de Segurança Móvel OWASP: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
 2. Os 10 principais riscos do OWASP Mobile: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
@@ -26,7 +26,7 @@ Existe um mapeamento para o ASVS que pode ser encontrado aqui: [https://cheatshe
 
 1. Projeto OWASP Internet of Things: [https://owasp.org/www-project-internet-of-things/](https://owasp.org/www-project-internet-of-things/)
 
-## Projetos sem servidor OWASP
+## Projetos OWASP Serverless
 
 1. Projeto sem servidor OWASP: [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
 

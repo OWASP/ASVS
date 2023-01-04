@@ -41,7 +41,7 @@ Este é um espaço reservado para futuros requisitos de arquitetura.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.4.1** | Verifique se os pontos de imposição confiáveis, como gateways de controle de acesso, servidores e funções sem servidor, reforçam os controles de acesso. Nunca imponha controles de acesso no cliente. | | ✓ | ✓ | 602 |
+| **1.4.1** | Verifique se os pontos de imposição confiáveis, como gateways de controle de acesso, servidores e funções serverless, reforçam os controles de acesso. Nunca imponha controles de acesso no cliente. | | ✓ | ✓ | 602 |
 | **1.4.2** | [EXCLUÍDO, NÃO ACIONÁVEL] | | | | |
 | **1.4.3** | [EXCLUÍDO, DUPLICADO DE 4.1.3] | | | | |
 | **1.4.4** | Verifique se a aplicação usa um mecanismo de controle de acesso único e bem testado para acessar dados e recursos protegidos. Todas as solicitações devem passar por esse mecanismo único para evitar copiar e colar ou caminhos alternativos inseguros. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 284 |
@@ -49,7 +49,7 @@ Este é um espaço reservado para futuros requisitos de arquitetura.
 
 ## V1.5 Arquitetura de input e output
 
-Na versão 4.0, deixamos de usar o termo "lado do servidor" como um termo de limite de confiança carregado. O limite de confiança ainda é preocupante — é possível ignorar a tomada de decisões em navegadores ou dispositivos clientes não confiáveis. No entanto, nas implantações arquitetônicas convencionais de hoje, o ponto de imposição de confiança mudou drasticamente. Portanto, onde o termo "camada de serviço confiável" é usado no ASVS, queremos dizer qualquer ponto de aplicação confiável, independentemente da localização, como um microsserviço, API sem servidor, lado do servidor, uma API confiável num dispositivo cliente com inicialização segura, parceiro ou APIs externas e assim por diante.
+Na versão 4.0, deixamos de usar o termo "lado do servidor" como um termo de limite de confiança carregado. O limite de confiança ainda é preocupante — é possível ignorar a tomada de decisões em navegadores ou dispositivos clientes não confiáveis. No entanto, nas implantações arquitetônicas convencionais de hoje, o ponto de imposição de confiança mudou drasticamente. Portanto, onde o termo "camada de serviço confiável" é usado no ASVS, queremos dizer qualquer ponto de aplicação confiável, independentemente da localização, como um microsserviço, API serverless, lado do servidor, uma API confiável num dispositivo cliente com inicialização segura, parceiro ou APIs externas e assim por diante.
 
 O termo "cliente não confiável" aqui refere-se a tecnologias do lado do cliente que renderizam a camada de apresentação, geralmente chamadas tecnologias de 'front-end'. O termo "serialização" aqui não se refere apenas ao envio de dados pela rede como uma matriz de valores ou à obtenção e leitura de uma estrutura JSON, mas também à passagem de objetos complexos que podem conter lógica.
 

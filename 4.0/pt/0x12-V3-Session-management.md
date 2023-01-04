@@ -76,7 +76,7 @@ Esta seção se refere àqueles que escrevem códigos de Parte Confiável (RP) o
 
 Há um pequeno número de ataques de gestão de sessão, alguns relacionados à experiência do usuário (UX) das sessões. Anteriormente, com base nos requisitos da ISO 27002, o ASVS exigia o bloqueio de várias sessões simultâneas. Bloquear sessões simultâneas não é mais apropriado, não apenas porque os usuários modernos têm muitos dispositivos ou a aplicação é uma API sem uma sessão do navegador, mas na maioria dessas implementações, o último autenticador vence, que geralmente é o invasor. Esta seção fornece orientações importantes sobre dissuasão, atraso e detecção de ataques de gestão de sessão usando código.
 
-### Descrição do Ataque semi-aberto
+### Descrição do ataque semi-aberto
 
 No início de 2018, várias instituições financeiras foram comprometidas usando o que os invasores chamaram "ataques semiabertos". Este termo ficou preso na indústria. Os invasores atingiram várias instituições com diferentes bases de código proprietárias e, de fato, parecem diferentes bases de código dentro das mesmas instituições. O ataque semiaberto está explorando uma falha de padrão de design comumente encontrada em muitos sistemas existentes de autenticação, gestão de sessão e controle de acesso.
 
