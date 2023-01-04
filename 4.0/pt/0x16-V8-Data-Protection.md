@@ -39,8 +39,8 @@ A conformidade com esta seção implica conformidade com o Controle de acesso V4
 
 Observação: os regulamentos e as leis de privacidade, como os princípios de privacidade australianos APP-11 ou GDPR, afetam diretamente como as aplicações devem abordar a implementação de armazenamento, uso e transmissão de informações pessoais confidenciais. Isso varia de penalidades severas a conselhos simples. Consulte as leis e regulamentos locais e consulte um especialista em privacidade ou advogado qualificado, conforme necessário.
 
-| # | Descrição  L1 | L2 | L3 | CWE |
-| :---: |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |
+| # | Descrição | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **8.3.1** | Verifique se os dados confidenciais são enviados ao servidor no corpo ou nos cabeçalhos da mensagem HTTP e se os parâmetros da string de consulta de qualquer verbo HTTP não contêm dados confidenciais. | ✓ | ✓ | ✓ | 319 |
 | **8.3.2** | Verifique se os usuários têm um método para remover ou exportar os seus dados sob demanda. | ✓ | ✓ | ✓ | 212 |
 | **8.3.3** | Verifique se os usuários recebem uma linguagem clara sobre a coleta e o uso das informações pessoais fornecidas e se os usuários forneceram consentimento para o uso desses dados antes de serem usados de qualquer forma. | ✓ | ✓ | ✓ | 285 |

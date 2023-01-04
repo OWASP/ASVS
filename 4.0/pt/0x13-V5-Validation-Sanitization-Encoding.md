@@ -26,8 +26,8 @@ Controles de validação de input implementados adequadamente, usando listas de 
 
 ## V5.2 Sanitização e Sandbox
 
-| # | Descrição  L1 | L2 | L3 | CWE |
-| :---: |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |
+| # | Descrição | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.2.1** | Verifique se todos os inputs de HTML não confiáveis de editores WYSIWYG ou similares foram devidamente sanitizadas com uma biblioteca, ou recurso de estrutura do higienizador de HTML. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
 | **5.2.2** | Verifique se os dados não estruturados são limpos para impor medidas de segurança, como caracteres e comprimento permitidos.                                                                                                                                     | ✓ | ✓ | ✓ | 138 |
 | **5.2.3** | Verifique se a aplicação limpa a input do usuário antes de passar para os sistemas de e-mail para proteger contra injeção de SMTP ou IMAP.                                                                                                                       | ✓ | ✓ | ✓ | 147 |
@@ -70,8 +70,8 @@ Os requisitos a seguir serão aplicados apenas quando a aplicação usar uma lin
 
 ## V5.5 Prevenção de desserialização
 
-| # | Descrição  L1 | L2 | L3 | CWE |
-| :---: |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |
+| # | Descrição | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.5.1** | Verifique se os objetos serializados usam verificações de integridade ou são criptografados para impedir a criação de objetos hostis ou adulteração de dados. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                   | ✓ | ✓ | ✓ | 502 |
 | **5.5.2** | Verifique se a aplicação restringe corretamente os analisadores de XML para usar apenas a configuração mais restritiva possível e para garantir que recursos não seguros, como a resolução de entidades externas, sejam desabilitados para evitar ataques de XML eXternal Entity (XXE). | ✓ | ✓ | ✓ | 611 |
 | **5.5.3** | Verifique se a desserialização de dados não confiáveis é evitada ou protegida em código personalizado e bibliotecas de terceiros (como analisadores JSON, XML e YAML).                                                                                                                  | ✓ | ✓ | ✓ | 502 |

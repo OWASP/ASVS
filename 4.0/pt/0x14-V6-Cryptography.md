@@ -24,8 +24,8 @@ Avanços recentes em criptografia significam que algoritmos e comprimentos de ch
 
 Embora esta seção não seja facilmente testada quanto à penetração, os desenvolvedores devem considerá-la como obrigatória, mesmo que L1 esteja faltando na maioria dos itens.
 
-| # | Descrição  L1 | L2 | L3 | CWE |
-| :---: |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |
+| # | Descrição | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
 | **6.2.1** | Verifique se todos os módulos criptográficos falham com segurança e se os erros são tratados de forma a não permitir ataques de Padding Oracle.  ✓ | ✓ | ✓ | 310 |
 | **6.2.2** | Verifique se são usados algoritmos, modos e bibliotecas criptográficos comprovados pelo setor ou aprovados pelo governo, em vez de criptografia codificada personalizada. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | 327 |
 | **6.2.3** | Verifique se o vetor de inicialização de criptografia, a configuração de cifra e os modos de bloqueio estão configurados com segurança usando as recomendações mais recentes. | ✓ | ✓ | 326 |
