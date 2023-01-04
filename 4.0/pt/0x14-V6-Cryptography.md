@@ -35,7 +35,7 @@ Embora esta seção não seja facilmente testada quanto à penetração, os dese
 | **6.2.7** | Verifique se os dados criptografados são autenticados por meio de assinaturas, modos de cifra autenticados ou HMAC para garantir que o texto cifrado não seja alterado por uma parte não autorizada. | | | ✓ | 326 |
 | **6.2.8** | Verifique se todas as operações criptográficas são de tempo constante, sem operações de 'curto-circuito' em comparações, cálculos ou retornos, para evitar vazamento de informações. | | | ✓ | 385 |
 
-## V6.3 Valores Aleatórios
+## V6.3 Valores aleatórios
 
 A verdadeira geração de números pseudoaleatórios (PRNG) é incrivelmente difícil de acertar. Geralmente, boas fontes de entropia dentro de um sistema serão rapidamente esgotadas se usadas em excesso, mas fontes com menos aleatoriedade podem levar a chaves e segredos previsíveis.
 

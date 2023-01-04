@@ -188,7 +188,7 @@ Nós instamos fortemente as agências governamentais dos EUA a revisar e impleme
 ## Glossário de termos
 
 | Termo | Significado |
-| -- | -- |
+| --- | --- |
 | PSC | Provedor de Serviços de Credencial também chamado Provedor de Identidade |
 | Autenticador | Código que autentica uma senha, token, MFA, declaração federada e assim por diante. |
 | Verificador | "Uma entidade que verifica a identidade do reclamante verificando a posse e o controle do reclamante de um ou dois autenticadores usando um protocolo de autenticação. Para fazer isso, o verificador também pode precisar validar as credenciais que vinculam o(s) autenticador(es) ao identificador do assinante e verificar o seu estado" |

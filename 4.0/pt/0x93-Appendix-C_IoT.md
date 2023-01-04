@@ -1,6 +1,6 @@
 # Apêndice C: Requisitos de verificação da Internet of Things
 
-Este capítulo estava originalmente no ramo principal, mas com o trabalho que a equipe OWASP IoT tem feito, não faz sentido manter dois tópicos diferentes sobre o assunto. Para a versão 4.0, estamos movendo isso para o Apêndice e instamos todos que precisam disso a usar o [projeto OWASP IoT](https://owasp.org/www-project-internet-of-things/) principal.
+Este capítulo estava originalmente no ramo principal, mas com o trabalho que a equipe OWASP IoT tem feito, não faz sentido manter dois tópicos diferentes sobre o assunto. Para a versão 4.0, estamos movendo isso para o Apêndice e instamos todos que precisam disso a usar o [OWASP IoT Project](https://owasp.org/www-project-internet-of-things/) principal.
 
 ## Objetivo de controle
 
@@ -13,7 +13,7 @@ Os dispositivos integrados/IoT devem:
 ## Requisitos de verificação de segurança
 
 | # | Descrição | L1 | L2 | L3 | Desde |
-| --- | --- | --- | --- | -- | -- |
+| --- | --- | --- | --- | --- | --- |
 | **C.1** | Verifique se as interfaces de depuração da camada de aplicação, como USB, UART e outras variantes seriais, estão desativadas ou protegidas por uma senha complexa. | ✓ | ✓ | ✓ | 4.0 |
 | **C.2** | Verifique se as chaves e certificados criptográficos são exclusivos para cada dispositivo individual. | ✓ | ✓ | ✓ | 4.0 |
 | **C.3** | Verifique se os controles de proteção de memória, como ASLR e DEP, estão ativados pelo sistema operacional integrado/IoT, se aplicável. | ✓ | ✓ | ✓ | 4.0 |

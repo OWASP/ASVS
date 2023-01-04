@@ -10,7 +10,7 @@ Versão 4.0.3, outubro de 2021
 
 ![licença](../images/license.png)
 
-Copyright © 2008–2021 OWASP Foundation. Este documento é lançado sob a [licença Creative Commons Attribution ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Para qualquer reutilização ou distribuição, deixe claro para outras pessoas os termos da licença deste trabalho.
+Copyright © 2008–2021 The OWASP Foundation. Este documento é lançado sob a [licença Creative Commons Attribution ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Para qualquer reutilização ou distribuição, deixe claro para outras pessoas os termos da licença deste trabalho.
 
 ## Líderes de projeto
 
