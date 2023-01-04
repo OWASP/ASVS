@@ -32,7 +32,7 @@ V7.1 abrange OWASP Top 10 2017:A10. Como 2017:A10 e esta seção não são pass�
 
 ## V7.2 Processamento de Log
 
-O registro oportuno é crítico para eventos de auditoria, triagem e escalonamento. Certifique-se de que os logs da aplicação estejam claros e possam ser facilmente monitorados e analisados ​​localmente ou enviados para um sistema de monitoramento remoto.
+O registro oportuno é crítico para eventos de auditoria, triagem e escalonamento. Certifique-se de que os logs da aplicação estejam claros e possam ser facilmente monitorados e analisados localmente ou enviados para um sistema de monitoramento remoto.
 
 V7.2 abrange OWASP Top 10 2017:A10. Como 2017:A10 e esta seção não são passíveis de teste de penetração, é importante para:
 
