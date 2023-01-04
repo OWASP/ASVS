@@ -100,7 +100,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.10.1** | Verify that a source code control system is in use, with procedures to ensure that check-ins are accompanied by issues or change tickets. The source code control system should have access control and identifiable users to allow traceability of any changes. | | ✓ | ✓ | 284 |
+| **1.10.1** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V1.11 Business Logic Architecture
 
