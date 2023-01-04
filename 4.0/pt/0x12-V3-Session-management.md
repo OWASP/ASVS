@@ -70,7 +70,7 @@ Esta seção se refere àqueles que escrevem códigos de Parte Confiável (RP) o
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.6.1** | Verifique se as Partes Confiáveis (RPs) especificam o tempo máximo de autenticação para Provedores de Serviços de Credenciais (CSPs) e se os CSPs autenticam novamente o usuário se eles não tiverem usado uma sessão dentro desse período. | | | ✓ | 613 | 7.2.1 |
-| **3.6.2** | Verifique se os provedores de serviços de credenciais (CSPs) informam as partes confiáveis (RPs) sobre o último evento de autenticação, para permitir que os RPs determinem se precisam autenticar novamente o usuário.                     | | | ✓ | 613 | 7.2.1 |
+| **3.6.2** | Verifique se os provedores de serviços de credenciais (CSPs) informam as partes confiáveis (RPs) sobre o último evento de autenticação, para permitir que os RPs determinem se precisam autenticar novamente o usuário. | | | ✓ | 613 | 7.2.1 |
 
 ## V3.7 Defesas contra exploits de gestão de sessão
 

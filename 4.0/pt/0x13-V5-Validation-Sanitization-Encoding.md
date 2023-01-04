@@ -29,13 +29,13 @@ Controles de validação de input implementados adequadamente, usando listas de 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.2.1** | Verifique se todos os inputs de HTML não confiáveis de editores WYSIWYG ou similares foram devidamente sanitizadas com uma biblioteca, ou recurso de estrutura do higienizador de HTML. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
-| **5.2.2** | Verifique se os dados não estruturados são limpos para impor medidas de segurança, como caracteres e comprimento permitidos.                                                                                                                                     | ✓ | ✓ | ✓ | 138 |
-| **5.2.3** | Verifique se a aplicação limpa a input do usuário antes de passar para os sistemas de e-mail para proteger contra injeção de SMTP ou IMAP.                                                                                                                       | ✓ | ✓ | ✓ | 147 |
-| **5.2.4** | Verifique se a aplicação evita o uso de eval() ou outros recursos dinâmicos de execução de código. Onde não houver alternativa, qualquer input do usuário incluída deve ser limpa ou protegida antes de ser executada.                                           | ✓ | ✓ | ✓ | 95 |
-| **5.2.5** | Verifique se a aplicação protege contra-ataques de injeção de modelo, garantindo que qualquer input do usuário incluída seja limpa ou protegida.                                                                                                                 | ✓ | ✓ | ✓ | 94 |
-| **5.2.6** | Verifique se a aplicação protege contra-ataques SSRF, validando ou limpando dados não confiáveis, ou metadados de arquivos HTTP, como nomes de arquivos e campos de input de URL, e usa listas de permissão de protocolos, domínios, caminhos e portas.           | ✓ | ✓ | ✓ | 918 |
-| **5.2.7** | Verifique se a aplicação sanitiza, desativa ou coloca em área restrita o conteúdo de scripts Scalable Vector Graphics (SVG) fornecido pelo usuário, especialmente no que se refere a XSS resultante de scripts embutidos e ao ForeignObject.                     | ✓ | ✓ | ✓ | 159 |
-| **5.2.8** | Verifique se a aplicação sanitiza, desativa ou coloca em sandbox o conteúdo de linguagem de modelo de expressão ou script fornecido pelo usuário, como folhas de estilo Markdown, CSS ou XSL, BBCode ou similares.                                               | ✓ | ✓ | ✓ | 94 |
+| **5.2.2** | Verifique se os dados não estruturados são limpos para impor medidas de segurança, como caracteres e comprimento permitidos. | ✓ | ✓ | ✓ | 138 |
+| **5.2.3** | Verifique se a aplicação limpa a input do usuário antes de passar para os sistemas de e-mail para proteger contra injeção de SMTP ou IMAP. | ✓ | ✓ | ✓ | 147 |
+| **5.2.4** | Verifique se a aplicação evita o uso de eval() ou outros recursos dinâmicos de execução de código. Onde não houver alternativa, qualquer input do usuário incluída deve ser limpa ou protegida antes de ser executada. | ✓ | ✓ | ✓ | 95 |
+| **5.2.5** | Verifique se a aplicação protege contra-ataques de injeção de modelo, garantindo que qualquer input do usuário incluída seja limpa ou protegida. | ✓ | ✓ | ✓ | 94 |
+| **5.2.6** | Verifique se a aplicação protege contra-ataques SSRF, validando ou limpando dados não confiáveis, ou metadados de arquivos HTTP, como nomes de arquivos e campos de input de URL, e usa listas de permissão de protocolos, domínios, caminhos e portas. | ✓ | ✓ | ✓ | 918 |
+| **5.2.7** | Verifique se a aplicação sanitiza, desativa ou coloca em área restrita o conteúdo de scripts Scalable Vector Graphics (SVG) fornecido pelo usuário, especialmente no que se refere a XSS resultante de scripts embutidos e ao ForeignObject. | ✓ | ✓ | ✓ | 159 |
+| **5.2.8** | Verifique se a aplicação sanitiza, desativa ou coloca em sandbox o conteúdo de linguagem de modelo de expressão ou script fornecido pelo usuário, como folhas de estilo Markdown, CSS ou XSL, BBCode ou similares. | ✓ | ✓ | ✓ | 94 |
 
 ## V5.3 Codificação de Output e Prevenção de Injeção
 
@@ -72,10 +72,10 @@ Os requisitos a seguir serão aplicados apenas quando a aplicação usar uma lin
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.5.1** | Verifique se os objetos serializados usam verificações de integridade ou são criptografados para impedir a criação de objetos hostis ou adulteração de dados. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                   | ✓ | ✓ | ✓ | 502 |
+| **5.5.1** | Verifique se os objetos serializados usam verificações de integridade ou são criptografados para impedir a criação de objetos hostis ou adulteração de dados. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 502 |
 | **5.5.2** | Verifique se a aplicação restringe corretamente os analisadores de XML para usar apenas a configuração mais restritiva possível e para garantir que recursos não seguros, como a resolução de entidades externas, sejam desabilitados para evitar ataques de XML eXternal Entity (XXE). | ✓ | ✓ | ✓ | 611 |
-| **5.5.3** | Verifique se a desserialização de dados não confiáveis é evitada ou protegida em código personalizado e bibliotecas de terceiros (como analisadores JSON, XML e YAML).                                                                                                                  | ✓ | ✓ | ✓ | 502 |
-| **5.5.4** | Verifique se, ao analisar JSON em navegadores ou back-ends baseados em JavaScript, JSON.parse é usado para analisar o documento JSON. Não use eval() para analisar JSON.                                                                                                                | ✓ | ✓ | ✓ | 95 |
+| **5.5.3** | Verifique se a desserialização de dados não confiáveis é evitada ou protegida em código personalizado e bibliotecas de terceiros (como analisadores JSON, XML e YAML). | ✓ | ✓ | ✓ | 502 |
+| **5.5.4** | Verifique se, ao analisar JSON em navegadores ou back-ends baseados em JavaScript, JSON.parse é usado para analisar o documento JSON. Não use eval() para analisar JSON. | ✓ | ✓ | ✓ | 95 |
 
 ## Referências
 

@@ -38,7 +38,7 @@ Embora as bombas zip sejam eminentemente testáveis usando técnicas de teste de
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.4.1** | Verifique se os arquivos obtidos de fontes não confiáveis são armazenados fora da raiz da web, com permissões limitadas.                                               | ✓ | ✓ | ✓ | 552 |
+| **12.4.1** | Verifique se os arquivos obtidos de fontes não confiáveis são armazenados fora da raiz da web, com permissões limitadas. | ✓ | ✓ | ✓ | 552 |
 | **12.4.2** | Verifique se os arquivos obtidos de fontes não confiáveis são verificados por scanners antivírus para impedir o upload e a exibição de conteúdo malicioso conhecido. | ✓ | ✓ | ✓ | 509 |
 
 ## Download do arquivo V12.5
