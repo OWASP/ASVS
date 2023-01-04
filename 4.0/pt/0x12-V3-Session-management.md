@@ -13,7 +13,7 @@ Conforme observado anteriormente, esses requisitos foram adaptados para serem um
 
 ## Requisitos de verificação de segurança
 
-## V3.1 Segurança de Gestão de Sessão Fundamental
+## V3.1 Fundamentos de Segurança de Gestão de Sessão
 
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
