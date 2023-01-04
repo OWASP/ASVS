@@ -18,7 +18,7 @@ Controles de validação de input implementados adequadamente, usando listas de 
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.1.1** | Verifique se a aplicação possui defesas contra ataques de poluição de parâmetro HTTP, principalmente se a estrutura da aplicação não fizer distinção sobre a origem dos parâmetros de solicitação (GET, POST, cookies, cabeçalhos ou variáveis ​​de ambiente). | ✓ | ✓ | ✓ | 235 |
+| **5.1.1** | Verifique se a aplicação possui defesas contra ataques de poluição de parâmetro HTTP, principalmente se a estrutura da aplicação não fizer distinção sobre a origem dos parâmetros de solicitação (GET, POST, cookies, cabeçalhos ou variáveis de ambiente). | ✓ | ✓ | ✓ | 235 |
 | **5.1.2** | Verifique se as estruturas protegem contra ataques de atribuição de parâmetros em massa ou se a aplicação possui contramedidas para proteger contra atribuição de parâmetros não segura, como marcar campos como privados ou similares. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
 | **5.1.3** | Verifique se todas as inputs (campos de formulário HTML, solicitações REST, parâmetros de URL, cabeçalhos HTTP, cookies, arquivos em lote, feeds RSS, etc.) são validadas usando validação positiva (listas de permissão). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
 | **5.1.4** | Verifique se os dados estruturados são fortemente digitados e validados em relação a um esquema definido, incluindo caracteres permitidos, comprimento e padrão (por exemplo, números de cartão de crédito, endereços de e-mail, números de telefone ou validação de que dois campos relacionados são razoáveis, como verificar o subúrbio e o CEP /correspondência de código postal). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
@@ -26,9 +26,9 @@ Controles de validação de input implementados adequadamente, usando listas de 
 
 ## V5.2 Sanitização e Sandbox
 
-| # | Descrição                                                                                                                                                                                                                                                        | L1 | L2 | L3 | CWE |
+| # | Descrição  L1 | L2 | L3 | CWE |
 | :---: |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |
-| **5.2.1** | Verifique se todas as inputs de HTML não confiáveis ​​de editores WYSIWYG ou similares foram devidamente sanitizadas com uma biblioteca ou recurso de estrutura do higienizador de HTML. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
+| **5.2.1** | Verifique se todas as inputs de HTML não confiáveis de editores WYSIWYG ou similares foram devidamente sanitizadas com uma biblioteca ou recurso de estrutura do higienizador de HTML. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
 | **5.2.2** | Verifique se os dados não estruturados são limpos para impor medidas de segurança, como caracteres e comprimento permitidos.                                                                                                                                     | ✓ | ✓ | ✓ | 138 |
 | **5.2.3** | Verifique se a aplicação limpa a input do usuário antes de passar para os sistemas de e-mail para proteger contra injeção de SMTP ou IMAP.                                                                                                                       | ✓ | ✓ | ✓ | 147 |
 | **5.2.4** | Verifique se a aplicação evita o uso de eval() ou outros recursos dinâmicos de execução de código. Onde não houver alternativa, qualquer input do usuário incluída deve ser limpa ou protegida antes de ser executada.                                           | ✓ | ✓ | ✓ | 95 |
@@ -43,7 +43,7 @@ A codificação de output próxima ou adjacente ao interpretador em uso é crít
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.3.1** | Verifique se a codificação de output é relevante para o interpretador e o contexto necessários. Por exemplo, use codificadores especificamente para valores HTML, atributos HTML, JavaScript, parâmetros de URL, cabeçalhos HTTP, SMTP e outros conforme o contexto exigir, especialmente de inputs não confiáveis ​​(por exemplo, nomes com Unicode ou apóstrofes, como ねこ ou O'Hara) . ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
+| **5.3.1** | Verifique se a codificação de output é relevante para o interpretador e o contexto necessários. Por exemplo, use codificadores especificamente para valores HTML, atributos HTML, JavaScript, parâmetros de URL, cabeçalhos HTTP, SMTP e outros conforme o contexto exigir, especialmente de inputs não confiáveis (por exemplo, nomes com Unicode ou apóstrofes, como ねこ ou O'Hara) . ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
 | **5.3.2** | Verifique se a codificação de output preserva o conjunto de caracteres e localidade escolhidos pelo usuário, de forma que qualquer ponto de caractere Unicode seja válido e manipulado com segurança. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 176 |
 | **5.3.3** | Verifique se o escape de output sensível ao contexto, de preferência automatizado - ou, na pior das hipóteses, manual - protege contra XSS refletido, armazenado e baseado em DOM. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 79 |
 | **5.3.4** | Verifique se a seleção de dados ou consultas de banco de dados (por exemplo, SQL, HQL, ORM, NoSQL) usam consultas parametrizadas, ORMs, estruturas de entidade ou estão protegidas contra ataques de injeção de banco de dados. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
@@ -70,7 +70,7 @@ Os requisitos a seguir serão aplicados apenas quando a aplicação usar uma lin
 
 ## V5.5 Prevenção de desserialização
 
-| # | Descrição                                                                                                                                                                                                                                                                               | L1 | L2 | L3 | CWE |
+| # | Descrição  L1 | L2 | L3 | CWE |
 | :---: |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |
 | **5.5.1** | Verifique se os objetos serializados usam verificações de integridade ou são criptografados para impedir a criação de objetos hostis ou adulteração de dados. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                   | ✓ | ✓ | ✓ | 502 |
 | **5.5.2** | Verifique se a aplicação restringe corretamente os analisadores de XML para usar apenas a configuração mais restritiva possível e para garantir que recursos não seguros, como a resolução de entidades externas, sejam desabilitados para evitar ataques de XML eXternal Entity (XXE). | ✓ | ✓ | ✓ | 611 |

@@ -19,7 +19,7 @@ Neste capítulo, o ASVS cobre os aspectos primários de qualquer arquitetura de 
 | **1.1.3** | Verifique se todas as histórias e recursos do usuário contêm restrições de segurança funcionais, como "Como usuário, devo poder visualizar e editar meu perfil. Não devo visualizar ou editar o perfil de outra pessoa" | | ✓ | ✓ | 1110 |
 | **1.1.4** | Verifique a documentação e justificativa de todos os limites de confiança, componentes e fluxos de dados significativos da aplicação. | | ✓ | ✓ | 1059 |
 | **1.1.5** | Verifique a definição e a análise de segurança da arquitetura de alto nível da aplicação e de todos os serviços remotos conectados. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1059 |
-| **1.1.6** | Verifique a implementação de controles de segurança centralizados, simples (economia de design), verificados, seguros e reutilizáveis ​​para evitar controles duplicados, ausentes, ineficazes ou inseguros. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 637 |
+| **1.1.6** | Verifique a implementação de controles de segurança centralizados, simples (economia de design), verificados, seguros e reutilizáveis para evitar controles duplicados, ausentes, ineficazes ou inseguros. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 637 |
 | **1.1.7** | Verifique a disponibilidade de uma lista de verificação de codificação segura, requisitos de segurança, diretriz ou política para todos os desenvolvedores e testadores. | | ✓ | ✓ | 637 |
 
 ## V1.2 Arquitetura de autenticação
@@ -77,7 +77,7 @@ Os requisitos de arquitetura são intrínsecos a toda a base de código e, porta
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.7.1** | Verifique se um formato e uma abordagem de log comuns são usados ​​em todo o sistema. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
+| **1.7.1** | Verifique se um formato e uma abordagem de log comuns são usados em todo o sistema. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
 | **1.7.2** | Verifique se os logs são transmitidos com segurança para um sistema preferencialmente remoto para análise, detecção, alerta e escalonamento. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
 ## V1.8 Proteção de Dados e Arquitetura de Privacidade
@@ -98,7 +98,7 @@ Os requisitos de arquitetura são intrínsecos a toda a base de código e, porta
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.10.1** | Verifique se um sistema de controle de código-fonte está em uso, com procedimentos para garantir que os check-ins sejam acompanhados de problemas ou tickets de alteração. O sistema de controle de código-fonte deve ter controle de acesso e usuários identificáveis ​​para permitir a rastreabilidade de quaisquer alterações. | | ✓ | ✓ | 284 |
+| **1.10.1** | Verifique se um sistema de controle de código-fonte está em uso, com procedimentos para garantir que os check-ins sejam acompanhados de problemas ou tickets de alteração. O sistema de controle de código-fonte deve ter controle de acesso e usuários identificáveis para permitir a rastreabilidade de quaisquer alterações. | | ✓ | ✓ | 284 |
 
 ## V1.11 Arquitetura de lógica de negócios
 
@@ -124,7 +124,7 @@ Este é um espaço reservado para futuros requisitos de arquitetura.
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.14.1** | Verifique a segregação de componentes de diferentes níveis de confiança por meio de controles de segurança bem definidos, regras de firewall, gateways de API, proxies reversos, grupos de segurança baseados em nuvem ou mecanismos semelhantes. | | ✓ | ✓ | 923 |
-| **1.14.2** | Verifique se as assinaturas binárias, conexões confiáveis ​​e endpoints verificados são usados ​​para implantar binários em dispositivos remotos. | | ✓ | ✓ | 494 |
+| **1.14.2** | Verifique se as assinaturas binárias, conexões confiáveis e endpoints verificados são usados para implantar binários em dispositivos remotos. | | ✓ | ✓ | 494 |
 | **1.14.3** | Verifique se o pipeline de construção avisa sobre componentes desatualizados ou inseguros e toma as ações apropriadas. | | ✓ | ✓ | 1104 |
 | **1.14.4** | Verifique se o pipeline de construção contém uma etapa de construção para construir e verificar automaticamente a implantação segura da aplicação, especialmente se a infraestrutura da aplicação for definida por software, como scripts de construção do ambiente de nuvem. | | ✓ | ✓ | |
 | **1.14.5** | Verifique se as implantações de aplicações são adequadamente protegidas, conteinerizadas e/ou isoladas no nível da rede para atrasar e impedir que invasores ataquem outras aplicações, especialmente quando estiverem executando ações confidenciais ou perigosas, como desserialização. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |

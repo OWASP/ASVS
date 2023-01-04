@@ -26,7 +26,7 @@ Os dispositivos integrados/IoT devem:
 | **C.10** | Verifique se as comunicações sem fio são enviadas por um canal criptografado. | ✓ | ✓ | ✓ | 4.0 |
 | **C.11** | Verifique se qualquer uso de funções C proibidas é substituído pelas funções equivalentes seguras apropriadas. | ✓ | ✓ | ✓ | 4.0 |
 | **C.12** | Verifique se cada firmware mantém uma lista de materiais de software catalogando componentes de terceiros, versões e vulnerabilidades publicadas. | ✓ | ✓ | ✓ | 4.0 |
-| **C.13** | Verifique se todos os códigos, incluindo binários, bibliotecas e estruturas de terceiros, são revisados ​​quanto a credenciais codificadas (backdoors). | ✓ | ✓ | ✓ | 4.0 |
+| **C.13** | Verifique se todos os códigos, incluindo binários, bibliotecas e estruturas de terceiros, são revisados quanto a credenciais codificadas (backdoors). | ✓ | ✓ | ✓ | 4.0 |
 | **C.14** | Verifique se os componentes da aplicação e do firmware não são suscetíveis à injeção de comando do sistema operacional, invocando wrappers de comando shell, scripts ou se os controles de segurança impedem a injeção de comando do sistema operacional. | ✓ | ✓ | ✓ | 4.0 |
 | **C.15** | Verifique se as aplicações de firmware fixam a assinatura digital em servidores confiáveis. | | ✓ | ✓ | 4.0 |
 | **C.16** | Verifique a presença de recursos de resistência e/ou detecção de violação. | | ✓ | ✓ | 4.0 |

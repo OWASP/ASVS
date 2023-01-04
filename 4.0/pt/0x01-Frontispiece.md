@@ -14,35 +14,35 @@ Copyright © 2008-2021 Fundação OWASP. Este documento é lançado sob a [licen
 
 ## Líderes de projeto
 
-| | | |
-|---------------------- |----------------- |-------- ---- |
-| Andrew van der Estoque | Daniel Cuthbert | Jim Manico |
-| Josh C. Grossman | Elar Lang | |
+|                      	|                 	|            	|
+|----------------------	|-----------------	|------------	|
+| Andrew van der Stock 	| Daniel Cuthbert 	| Jim Manico 	|
+| Josh C Grossman      	| Elar Lang     	|            	|
 
 ## Principais colaboradores
 
-| | | |
-|---------------- |---------------- |--------------- ---- |
-| Abhay Bhargav | Benedito Bauer | Osama Elnaggar |
-| Ralph Andalis | Ron Perris | Sjörd Langkemper |
-| Tonimir Kisasondi | | |
+|                	|                	|                   	|
+|----------------	|----------------	|-------------------	|
+| Abhay Bhargav  	| Benedikt Bauer 	| Osama Elnaggar    	|
+| Ralph Andalis 	| Ron Perris     	| Sjoerd Langkemper 	|
+| Tonimir Kisasondi |               	|                   	|
 
 ## Outros colaboradores e revisores
 
-| | | | | |
+|                     |                    |                   |                  |                   |
 | ------------------- | ------------------ | ----------------- | ---------------- | ----------------- |
-| Aaron Guzmán | Alina Vasiljeva | André Kurtz | Anthony Weems | Bárbara Schachner |
-| Cristiano Henrique | Christopher Loessl | Clément Notin | Dan Cornell | Daniel Geerts |
-| David Clark | David Johansson | David Quisenberry | Elie Saad | Erlend Oftedal |
-| Fatih Ersinadim | Filip van Laenen | Geoff Baskwill | Glenn ten Cate | Grant Ongers |
-| alô7s | Isaac Lewis | Jacob Salassi | James Sulinski | Jason Axley |
-| Jason Morrow | Javier Dominguez | Jato Anderson | jürgen | Jim Newman |
-| Jonathan Schnittger | Joseph Kerby | Kelby Ludwig | Lars Haulin | Lewis Ardern |
-| Liam Smit | código-lyz | Marc Aubry | Marco Schnüriger | Mark Burnett |
-| Philippe De Ryck | Ravi Balla | Rick Mitchell | Riotaro Okada | Robin Madeira |
-| Rogan Dawes | Ryan Goltry | Sajjad Pourali | Serg Belkommen | Siim Puustusmaa |
-| Ståle Pettersen | Stuart Günter | Tal Argoni | Tim Hemel | Tomasz Wrobel |
-| Vincent De Schutter | Mike Jang | | | |
+| Aaron Guzman        | Alina Vasiljeva    | Andreas Kurtz     | Anthony Weems    | Barbara Schachner |
+| Christian Heinrich  | Christopher Loessl | Clément Notin     | Dan Cornell      | Daniël Geerts     |
+| David Clarke        | David Johansson    | David Quisenberry | Elie Saad        | Erlend Oftedal    |
+| Fatih Ersinadim     | Filip van Laenen   | Geoff Baskwill    | Glenn ten Cate   | Grant Ongers      |
+| hello7s             | Isaac Lewis        | Jacob Salassi     | James Sulinski   | Jason Axley       |
+| Jason Morrow        | Javier Dominguez   | Jet Anderson      | jeurgen          | Jim Newman        |
+| Jonathan Schnittger | Joseph Kerby       | Kelby Ludwig      | Lars Haulin      | Lewis Ardern      |
+| Liam Smit           | lyz-code           | Marc Aubry        | Marco Schnüriger | Mark Burnett      |
+| Philippe De Ryck    | Ravi Balla         | Rick Mitchell     | Riotaro Okada    | Robin Wood        |
+| Rogan Dawes         | Ryan Goltry        | Sajjad Pourali    | Serg Belkommen   | Siim Puustusmaa   |
+| Ståle Pettersen     | Stuart Gunter      | Tal Argoni        | Tim Hemel        | Tomasz Wrobel     |
+| Vincent De Schutter | Mike Jang          |                   |                  |                   |
 
 
 

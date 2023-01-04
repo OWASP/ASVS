@@ -36,7 +36,7 @@ Os session timeouts foram alinhados com o NIST 800-63, que permite session timeo
 
 L1 neste contexto é IAL1/AAL1, L2 é IAL2/AAL3, L3 é IAL3/AAL3. Para IAL2/AAL2 e IAL3/AAL3, o tempo limite de inatividade mais curto é o limite inferior de tempos de inatividade para ser desconectado ou autenticado novamente para retomar a sessão.
 
-| # | Descrição                                                                                                                                                                                                                                                                                | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição  L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html)
 | :---: |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: | :---: |
 | **3.3.1** | Verifique se o logoff e a expiração invalidam o token de sessão, de modo que o botão Voltar ou uma parte confiável downstream não retome uma sessão autenticada, inclusive entre partes confiáveis. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))              | ✓ | ✓ | ✓ | 613 | 7.1 |
 | **3.3.2** | Se os autenticadores permitirem que os usuários permaneçam conectados, verifique se a reautenticação ocorre periodicamente quando usados ativamente ou após um período ocioso. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                   | 30 dias | 12 horas ou 30 minutos de inatividade, 2FA opcional | 12 horas ou 15 minutos de inatividade, com 2FA | 613 | 7.2 |
@@ -67,7 +67,7 @@ O gerenciamento de sessão baseado em token inclui chaves JWT, OAuth, SAML e API
 
 Esta seção se refere àqueles que escrevem códigos de Parte Confiável (RP) ou Provedor de Serviços de Credenciais (CSP). Se depender do código que implementa esses recursos, certifique-se de que esses problemas sejam tratados corretamente.
 
-| # | Descrição                                                                                                                                                                                                                                   | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição  L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: | :---: |
 | **3.6.1** | Verifique se as Partes Confiáveis (RPs) especificam o tempo máximo de autenticação para Provedores de Serviços de Credenciais (CSPs) e se os CSPs autenticam novamente o usuário se eles não tiverem usado uma sessão dentro desse período. | | | ✓ | 613 | 7.2.1 |
 | **3.6.2** | Verifique se os provedores de serviços de credenciais (CSPs) informam as partes confiáveis (RPs) sobre o último evento de autenticação, para permitir que os RPs determinem se precisam autenticar novamente o usuário.                     | | | ✓ | 613 | 7.2.1 |

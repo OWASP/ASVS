@@ -38,7 +38,7 @@ Nota: No Nível 1, a conformidade com 14.2.1 refere-se a observações ou detec�
 | **14.2.1** | Verifique se todos os componentes estão atualizados, de preferência usando um verificador de dependência durante o tempo de construção ou compilação. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
 | **14.2.2** | Verifique se todos os recursos, documentação, aplicações de amostra e configurações desnecessários foram removidos. | ✓ | ✓ | ✓ | 1002 |
 | **14.2.3** | Verifique se os ativos da aplicação, como bibliotecas JavaScript, CSS ou fontes da Web, são hospedados externamente em uma rede de entrega de conteúdo (CDN) ou provedor externo, a integridade do subrecurso (SRI) é usada para validar a integridade do ativo. | ✓ | ✓ | ✓ | 829 |
-| **14.2.4** | Verifique se os componentes de terceiros vêm de repositórios predefinidos, confiáveis ​​e mantidos continuamente. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
+| **14.2.4** | Verifique se os componentes de terceiros vêm de repositórios predefinidos, confiáveis e mantidos continuamente. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
 | **14.2.5** | Verifique se uma lista de materiais de software (SBOM) é mantida para todas as bibliotecas de terceiros em uso. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verifique se a superfície de ataque é reduzida por sandbox ou encapsulamento de bibliotecas de terceiros para expor apenas o comportamento necessário na aplicação. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
 
@@ -70,7 +70,7 @@ As configurações para produção devem ser fortalecidas para proteger contra a
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.5.1** | Verifique se o servidor de aplicações aceita apenas os métodos HTTP em uso pela aplicação/API, incluindo OPÇÕES pré-voo e logs/alertas em quaisquer solicitações que não sejam válidas para o contexto da aplicação. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | Verifique se o cabeçalho Origin fornecido não é usado para autenticação ou decisões de controle de acesso, pois o cabeçalho Origin pode ser facilmente alterado por um invasor. | ✓ | ✓ | ✓ | 346 |
-| **14.5.3** | Verifique se o cabeçalho Access-Control-Allow-Origin de compartilhamento de recursos de origem cruzada (CORS) usa uma lista de permissão estrita de domínios e subdomínios confiáveis ​​para correspondência e não oferece suporte à origem "nula". | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | Verifique se o cabeçalho Access-Control-Allow-Origin de compartilhamento de recursos de origem cruzada (CORS) usa uma lista de permissão estrita de domínios e subdomínios confiáveis para correspondência e não oferece suporte à origem "nula". | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | Verifique se os cabeçalhos HTTP adicionados por um proxy confiável ou dispositivos SSO, como um token de portador, são autenticados pela aplicação. | | ✓ | ✓ | 306 |
 
 ## Referências

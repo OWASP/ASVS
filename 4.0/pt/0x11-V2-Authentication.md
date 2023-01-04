@@ -68,7 +68,7 @@ O NIST considera e-mail e SMS como [tipos de autenticador "restritos"](https://p
 | **2.2.3** | Verifique se as notificações seguras são enviadas aos usuários após atualizações nos detalhes de autenticação, como redefinições de credenciais, alterações de e-mail ou endereço, login de locais desconhecidos ou arriscados. O uso de notificações push - em vez de SMS ou e-mail - é preferível, mas na ausência de notificações push, SMS ou e-mail é aceitável, desde que nenhuma informação confidencial seja divulgada na notificação. | ✓ | ✓ | ✓ | 620 | |
 | **2.2.4** | Verifique a resistência à representação contra phishing, como o uso de autenticação multifator, dispositivos criptográficos com intenção (como chaves conectadas com um push para autenticar) ou em níveis AAL mais altos, certificados do lado do cliente. | | | ✓ | 308 | 5.2.5 |
 | **2.2.5** | Verifique se onde um Provedor de Serviços de Credenciais (CSP) e a aplicação que verifica a autenticação estão separados, o TLS mutuamente autenticado está em vigor entre os dois pontos de extremidade. | | | ✓ | 319 | 5.2.6 |
-| **2.2.6** | Verifique a resistência à reprodução por meio do uso obrigatório de dispositivos de senhas descartáveis ​​(OTP), autenticadores criptográficos ou códigos de pesquisa. | | | ✓ | 308 | 5.2.8 |
+| **2.2.6** | Verifique a resistência à reprodução por meio do uso obrigatório de dispositivos de senhas descartáveis (OTP), autenticadores criptográficos ou códigos de pesquisa. | | | ✓ | 308 | 5.2.8 |
 | **2.2.7** | Verifique a intenção de autenticação exigindo a input de um token OTP ou ação iniciada pelo usuário, como pressionar um botão em uma chave de hardware FIDO. | | | ✓ | 308 | 5.2.9 |
 
 ## V2.3 Ciclo de vida do autenticador
@@ -119,7 +119,7 @@ Os segredos de pesquisa são listas pré-geradas de códigos secretos, semelhant
 
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.6.1** | Verifique se os segredos de pesquisa podem ser usados ​​apenas uma vez. | | ✓ | ✓ | 308 | 5.1.2.2 |
+| **2.6.1** | Verifique se os segredos de pesquisa podem ser usados apenas uma vez. | | ✓ | ✓ | 308 | 5.1.2.2 |
 | **2.6.2** | Verifique se os segredos de pesquisa têm aleatoriedade suficiente (112 bits de entropia) ou, se tiverem menos de 112 bits de entropia, salteados com um sal exclusivo e aleatório de 32 bits e hash com um hash unidirecional aprovado. | | ✓ | ✓ | 330 | 5.1.2.2 |
 | **2.6.3** | Verifique se os segredos de pesquisa são resistentes a ataques offline, como valores previsíveis. | | ✓ | ✓ | 310 | 5.1.2.2 |
 
@@ -137,7 +137,7 @@ Autenticadores inseguros fora de banda, como e-mail e VOIP, não são permitidos
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.7.1** | Verifique se os autenticadores de texto não criptografado fora da banda (NIST "restrito"), como SMS ou PSTN, não são oferecidos por padrão e alternativas mais fortes, como notificações por push, são oferecidas primeiro. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.2** | Verifique se o verificador fora de banda expira solicitações, códigos ou tokens de autenticação fora de banda após 10 minutos. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.3** | Verifique se as solicitações, códigos ou tokens de autenticação do verificador fora de banda podem ser usados ​​apenas uma vez e apenas para a solicitação de autenticação original. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.3** | Verifique se as solicitações, códigos ou tokens de autenticação do verificador fora de banda podem ser usados apenas uma vez e apenas para a solicitação de autenticação original. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.4** | Verifique se o autenticador e o verificador fora da banda se comunicam por um canal independente seguro. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
 | **2.7.5** | Verifique se o verificador fora da banda retém apenas uma versão com hash do código de autenticação. | | ✓ | ✓ | 256 | 5.1.3.2 |
 | **2.7.6** | Verifique se o código de autenticação inicial é gerado por um gerador de número aleatório seguro, contendo pelo menos 20 bits de entropia (normalmente, um número aleatório de seis dígitos é suficiente). | | ✓ | ✓ | 310 | 5.1.3.2 |
@@ -150,7 +150,7 @@ Senhas únicas de fator único (OTPs) são tokens físicos ou flexíveis que exi
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.8.1** | Verifique se os OTPs baseados em tempo têm um tempo de vida definido antes de expirar. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.2** | Verifique se as chaves simétricas usadas para verificar os OTPs enviados são altamente protegidas, por exemplo, usando um módulo de segurança de hardware ou armazenamento de chave baseado em sistema operacional seguro. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
-| **2.8.3** | Verifique se algoritmos criptográficos aprovados são usados ​​na geração, propagação e verificação de OTPs. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.3** | Verifique se algoritmos criptográficos aprovados são usados na geração, propagação e verificação de OTPs. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.4** | Verifique se o OTP baseado em tempo pode ser usado apenas uma vez dentro do período de validade. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.5** | Verifique se um token OTP multifator baseado em tempo é reutilizado durante o período de validade, ele é registrado e rejeitado com notificações seguras sendo enviadas ao proprietário do dispositivo. | | ✓ | ✓ | 287 | 5.1.5.2 |
 | **2.8.6** | Verifique se o gerador OTP físico de fator único pode ser revogado em caso de roubo ou outra perda. Assegure-se de que a revogação entre em vigor imediatamente nas sessões de login, independentemente do local. | | ✓ | ✓ | 613 | 5.2.1 |
@@ -166,7 +166,7 @@ Os requisitos para dispositivos e software criptográficos de fator único e dis
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.9.1** | Verifique se as chaves criptográficas usadas na verificação são armazenadas com segurança e protegidas contra divulgação, como o uso de um Módulo de plataforma confiável (TPM) ou Módulo de segurança de hardware (HSM) ou um serviço de sistema operacional que pode usar esse armazenamento seguro. | | ✓ | ✓ | 320 | 5.1.7.2 |
 | **2.9.2** | Verifique se o nonce de desafio tem pelo menos 64 bits de comprimento e é estatisticamente exclusivo ou exclusivo durante a vida útil do dispositivo criptográfico. | | ✓ | ✓ | 330 | 5.1.7.2 |
-| **2.9.3** | Verifique se os algoritmos criptográficos aprovados são usados ​​na geração, propagação e verificação. | | ✓ | ✓ | 327 | 5.1.7.2 |
+| **2.9.3** | Verifique se os algoritmos criptográficos aprovados são usados na geração, propagação e verificação. | | ✓ | ✓ | 327 | 5.1.7.2 |
 
 ## V2.10 Autenticação de Serviço
 
