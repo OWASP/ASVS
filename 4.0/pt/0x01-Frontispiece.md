@@ -10,7 +10,7 @@ Versão 4.0.3, outubro de 2021
 
 ![licença](../images/license.png)
 
-Copyright © 2008-2021 Fundação OWASP. Este documento é lançado sob a [licença Creative Commons Attribution ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Para qualquer reutilização ou distribuição, você deve deixar claro para outras pessoas os termos da licença deste trabalho.
+Copyright © 2008–2021 OWASP Foundation. Este documento é lançado sob a [licença Creative Commons Attribution ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Para qualquer reutilização ou distribuição, deixe claro para outras pessoas os termos da licença deste trabalho.
 
 ## Líderes de projeto
 
@@ -46,6 +46,6 @@ Copyright © 2008-2021 Fundação OWASP. Este documento é lançado sob a [licen
 
 
 
-Se um crédito estiver faltando na lista de créditos 4.0.3 acima, registre um ticket no GitHub para ser reconhecido em futuras atualizações.
+Se um crédito faltar na lista de créditos 4.0.3 acima, registre um ticket no GitHub para ser reconhecido em futuras atualizações.
 
 O Application Security Verification Standard é construído com base no trabalho dos envolvidos desde o ASVS 1.0 em 2008 até o 3.0 em 2016. Grande parte da estrutura e itens de verificação que ainda estão no ASVS hoje foram originalmente escritos por Mike Boberski, Jeff Williams e Dave Wichers, mas há muitos mais contribuidores. Obrigado a todos os envolvidos anteriormente. Para obter uma lista abrangente de todos aqueles que contribuíram para versões anteriores, consulte cada versão anterior.

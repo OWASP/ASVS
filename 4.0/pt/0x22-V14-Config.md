@@ -5,13 +5,13 @@
 Certifique-se de que uma aplicação verificado tenha:
 
 * Um ambiente de construção seguro, repetível e automatizável.
-* Biblioteca reforçada de terceiros, dependência e gerenciamento de configuração de forma que componentes desatualizados ou inseguros não sejam incluídos pela aplicação.
+* Biblioteca reforçada de terceiros, dependência e gestão de configuração de forma que componentes desatualizados ou inseguros não sejam incluídos pela aplicação.
 
-A configuração da aplicação pronta para uso deve ser segura para estar na Internet, o que significa uma configuração segura pronta para uso.
+A configuração da aplicação pronta para uso deve ser segura para estar na Internet, significando uma configuração segura pronta para uso.
 
 ## V14.1 Construir e Implantar
 
-Os pipelines de compilação são a base para a segurança repetível - toda vez que algo inseguro é descoberto, ele pode ser resolvido no código-fonte, scripts de compilação ou implantação e testado automaticamente. Estamos incentivando fortemente o uso de pipelines de compilação com segurança automática e verificações de dependência que avisam ou interrompem a compilação para evitar que problemas de segurança conhecidos sejam implantados na produção. Etapas manuais executadas de forma irregular levam diretamente a erros de segurança evitáveis.
+Os pipelines de compilação são a base para a segurança repetível — toda vez que algo inseguro é descoberto, ele pode ser resolvido no código-fonte, scripts de compilação ou implantação e testado automaticamente. Incentivamos fortemente o uso de pipelines de compilação com segurança automática e verificações de dependência que avisam ou interrompem a compilação para evitar que problemas de segurança conhecidos sejam implantados na produção. Etapas manuais executadas de forma irregular levam diretamente a erros de segurança evitáveis.
 
 À medida que o setor se move para um modelo DevSecOps, é importante garantir a disponibilidade e a integridade contínuas da implantação e da configuração para atingir um estado "conhecido como bom". No passado, se um sistema fosse hackeado, levaria de dias a meses para provar que nenhuma outra intrusão havia ocorrido. Hoje, com o advento da infraestrutura definida por software, implantações rápidas de A/B com tempo de inatividade zero e compilações automatizadas em contêineres, é possível criar, fortalecer e implantar de forma automática e contínua uma substituição "boa" para qualquer sistema comprometido.
 
@@ -21,30 +21,30 @@ A conformidade com esta seção requer um sistema de compilação automatizado e
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **14.1.1** | Verifique se os processos de criação e implantação da aplicação são executados de maneira segura e repetível, como automação de CI/CD, gerenciamento de configuração automatizada e scripts de implantação automatizada. | | ✓ | ✓ | |
+| **14.1.1** | Verifique se os processos de criação e implantação da aplicação são executados de maneira segura e repetível, como automação de CI/CD, gestão de configuração automatizada e scripts de implantação automatizada. | | ✓ | ✓ | |
 | **14.1.2** | Verifique se os sinalizadores do compilador estão configurados para habilitar todas as proteções e avisos de buffer overflow disponíveis, incluindo randomização de pilha, prevenção de execução de dados e para interromper a compilação se um ponteiro inseguro, memória, string de formato, número inteiro ou operações de string forem encontrados. | | ✓ | ✓ | 120 |
 | **14.1.3** | Verifique se a configuração do servidor está protegida de acordo com as recomendações do servidor de aplicações e estruturas em uso. | | ✓ | ✓ | 16 |
-| **14.1.4** | Verifique se a aplicação, a configuração e todas as dependências podem ser reimplantados usando scripts de implantação automatizados, criados a partir de um runbook documentado e testado em um tempo razoável ou restaurados de backups em tempo hábil. | | ✓ | ✓ | |
+| **14.1.4** | Verifique se a aplicação, a configuração e todas as dependências podem ser reimplantados usando scripts de implantação automatizados, criados a partir de um runbook documentado e testado num tempo razoável ou restaurados de backups em tempo hábil. | | ✓ | ✓ | |
 | **14.1.5** | Verifique se os administradores autorizados podem verificar a integridade de todas as configurações relevantes para a segurança para detectar adulterações. | | | ✓ | |
 
 ## V14.2 Dependência
 
-O gerenciamento de dependência é crítico para a operação segura de qualquer aplicação de qualquer tipo. A falha em manter-se atualizado com dependências desatualizadas ou inseguras é a causa raiz dos maiores e mais caros ataques até hoje.
+O gestão de dependência é crítico para a operação segura de qualquer aplicação de qualquer tipo. A falha em manter-se atualizado com dependências desatualizadas ou inseguras é a causa raiz dos maiores e mais caros ataques até hoje.
 
-Nota: No Nível 1, a conformidade com 14.2.1 refere-se a observações ou detecções do lado do cliente e outras bibliotecas e componentes, em vez da análise de código estático ou análise de dependência mais precisa em tempo de compilação. Essas técnicas mais precisas podem ser descobertas por meio de entrevistas, conforme necessário.
+Nota: No Nível 1, a conformidade com 14.2.1 refere-se a observações ou detecções do lado do cliente e outras bibliotecas e componentes, em vez da análise de código estático ou análise de dependência mais precisa em tempo de compilação. Essas técnicas mais precisas podem ser descobertas por entrevistas, conforme necessário.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.2.1** | Verifique se todos os componentes estão atualizados, de preferência usando um verificador de dependência durante o tempo de construção ou compilação. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
 | **14.2.2** | Verifique se todos os recursos, documentação, aplicações de amostra e configurações desnecessários foram removidos. | ✓ | ✓ | ✓ | 1002 |
-| **14.2.3** | Verifique se os ativos da aplicação, como bibliotecas JavaScript, CSS ou fontes da Web, são hospedados externamente em uma rede de entrega de conteúdo (CDN) ou provedor externo, a integridade do subrecurso (SRI) é usada para validar a integridade do ativo. | ✓ | ✓ | ✓ | 829 |
+| **14.2.3** | Verifique se os ativos da aplicação, como bibliotecas JavaScript, CSS ou fontes da Web, são hospedados externamente numa rede de entrega de conteúdo (CDN) ou provedor externo, a integridade do subrecurso (SRI) é usada para validar a integridade do ativo. | ✓ | ✓ | ✓ | 829 |
 | **14.2.4** | Verifique se os componentes de terceiros vêm de repositórios predefinidos, confiáveis e mantidos continuamente. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
 | **14.2.5** | Verifique se uma lista de materiais de software (SBOM) é mantida para todas as bibliotecas de terceiros em uso. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verifique se a superfície de ataque é reduzida por sandbox ou encapsulamento de bibliotecas de terceiros para expor apenas o comportamento necessário na aplicação. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
 
 ## V14.3 Divulgação de segurança não intencional
 
-As configurações para produção devem ser fortalecidas para proteger contra ataques comuns, como consoles de depuração, aumentar o nível de ataques Cross-site Scripting (XSS) e Remote File Inclusion (RFI) e eliminar "vulnerabilidades" triviais de descoberta de informações que são as indesejadas marca registrada de muitos relatórios de teste de penetração. Muitos desses problemas raramente são classificados como um risco significativo, mas estão encadeados com outras vulnerabilidades. Se esses problemas não estiverem presentes por padrão, ele eleva a fasquia antes que a maioria dos ataques seja bem-sucedida.
+As configurações para produção devem ser fortalecidas para proteger contra-ataques comuns, como consoles de depuração, aumentar o nível de ataques Cross-site Scripting (XSS) e Remote File Inclusion (RFI) e eliminar "vulnerabilidades" triviais de descoberta de informações que são as indesejadas marcas registradas de muitos relatórios de teste de penetração. Muitos desses problemas são raramente classificados como um risco significativo, mas estão encadeados com outras vulnerabilidades. Se esses problemas não estiverem presentes por padrão, ele eleva a fasquia antes que a maioria dos ataques seja bem-sucedida.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -62,7 +62,7 @@ As configurações para produção devem ser fortalecidas para proteger contra a
 | **14.4.4** | Verifique se todas as respostas contêm um cabeçalho X-Content-Type-Options: nosniff. | ✓ | ✓ | ✓ | 116 |
 | **14.4.5** | Verifique se um cabeçalho Strict-Transport-Security está incluído em todas as respostas e para todos os subdomínios, como Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
 | **14.4.6** | Verifique se um cabeçalho Referrer-Policy adequado está incluído para evitar a exposição de informações confidenciais na URL por meio do cabeçalho Referer para partes não confiáveis. | ✓ | ✓ | ✓ | 116 |
-| **14.4.7** | Verifique se o conteúdo de uma aplicação da Web não pode ser incorporado em um site de terceiros por padrão e se a incorporação dos recursos exatos só é permitida quando necessária usando a política de segurança de conteúdo adequada: resposta de ancestrais de quadro e opções de X-Frame cabeçalhos. | ✓ | ✓ | ✓ | 1021 |
+| **14.4.7** | Verifique se o conteúdo de uma aplicação da Web não pode ser incorporado num site de terceiros por padrão e se a incorporação dos recursos exatos só é permitida quando necessária usando a política de segurança de conteúdo adequada: resposta de ancestrais de quadro e opções de X-Frame cabeçalhos. | ✓ | ✓ | ✓ | 1021 |
 
 ## V14.5 Validação de cabeçalho de solicitação HTTP
 

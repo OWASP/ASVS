@@ -6,11 +6,11 @@ Certifique-se de que uma aplicação verificado atenda aos seguintes requisitos 
 
 * O fluxo da lógica de negócios é sequencial, processado em ordem e não pode ser ignorado.
 * A lógica de negócios inclui limites para detectar e prevenir ataques automatizados, como pequenas transferências contínuas de fundos ou adição de um milhão de amigos, um por vez, e assim por diante.
-* Os fluxos de lógica de negócios de alto valor consideraram casos de abuso e atores mal-intencionados e têm proteções contra falsificação, adulteração, divulgação de informações e ataques de elevação de privilégio.
+* Os fluxos de lógica de negócios de alto valor consideraram casos de abuso e atores mal-intencionados com proteções contra falsificação, adulteração, divulgação de informações e ataques de elevação de privilégio.
 
 ## V11.1 Segurança da Lógica de Negócios
 
-A segurança da lógica de negócios é tão individual para cada aplicação que nenhuma lista de verificação será aplicada. A segurança da lógica de negócios deve ser projetada para proteger contra prováveis ameaças externas - ela não pode ser adicionada usando firewalls de aplicações da Web ou comunicações seguras. Recomendamos o uso de modelagem de ameaças durante os sprints de design, por exemplo, usando o OWASP Cornucopia ou ferramentas semelhantes.
+A segurança da lógica de negócios é tão individual para cada aplicação que nenhuma lista de verificação será aplicada. A segurança da lógica de negócios deve ser projetada para proteger contra prováveis ameaças externas — ela não pode ser adicionada usando firewalls de aplicações da Web ou comunicações seguras. Recomendamos o uso de modelagem de ameaças durante os sprints de design, por exemplo, usando o OWASP Cornucopia ou ferramentas semelhantes.
 
 | # | Descrição  L1 | L2 | L3 | CWE |
 | :---: |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |

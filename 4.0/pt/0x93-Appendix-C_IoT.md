@@ -1,12 +1,12 @@
 # Apêndice C: Requisitos de verificação da Internet of Things
 
-Este capítulo estava originalmente no ramo principal, mas com o trabalho que a equipe OWASP IoT tem feito, não faz sentido manter dois tópicos diferentes sobre o assunto. Para a versão 4.0, estamos movendo isso para o Apêndice e instamos todos que precisam disso a usar o [projeto OWASP IoT] principal (https://owasp.org/www-project-internet-of-things/)
+Este capítulo estava originalmente no ramo principal, mas com o trabalho que a equipe OWASP IoT tem feito, não faz sentido manter dois tópicos diferentes sobre o assunto. Para a versão 4.0, estamos movendo isso para o Apêndice e instamos todos que precisam disso a usar o [projeto OWASP IoT](https://owasp.org/www-project-internet-of-things/) principal.
 
 ## Objetivo de controle
 
 Os dispositivos integrados/IoT devem:
 
-* Tenha o mesmo nível de controles de segurança no dispositivo encontrado no servidor, aplicando controles de segurança em um ambiente confiável.
+* Tenha o mesmo nível de controles de segurança no dispositivo encontrado no servidor, aplicando controles de segurança num ambiente confiável.
 * Os dados confidenciais armazenados no dispositivo devem ser feitos de maneira segura, usando armazenamento com suporte de hardware, como elementos seguros.
 * Todos os dados confidenciais transmitidos do dispositivo devem utilizar a segurança da camada de transporte.
 
@@ -19,7 +19,7 @@ Os dispositivos integrados/IoT devem:
 | **C.3** | Verifique se os controles de proteção de memória, como ASLR e DEP, estão ativados pelo sistema operacional integrado/IoT, se aplicável. | ✓ | ✓ | ✓ | 4.0 |
 | **C.4** | Verifique se as interfaces de depuração no chip, como JTAG ou SWD, estão desabilitadas ou se o mecanismo de proteção disponível está habilitado e configurado adequadamente. | ✓ | ✓ | ✓ | 4.0 |
 | **C.5** | Verifique se a execução confiável está implementada e habilitada, se disponível no dispositivo SoC ou CPU. | ✓ | ✓ | ✓ | 4.0 |
-| **C.6** | Verifique se dados confidenciais, chaves privadas e certificados estão armazenados com segurança em um Elemento Seguro, TPM, TEE (Ambiente de Execução Confiável) ou protegidos por criptografia forte. | ✓ | ✓ | ✓ | 4.0 |
+| **C.6** | Verifique se dados confidenciais, chaves privadas e certificados estão armazenados com segurança num Elemento Seguro, TPM, TEE (Ambiente de Execução Confiável) ou protegidos por criptografia forte. | ✓ | ✓ | ✓ | 4.0 |
 | **C.7** | Verifique se as aplicações de firmware protegem os dados em trânsito usando a segurança da camada de transporte. | ✓ | ✓ | ✓ | 4.0 |
 | **C.8** | Verifique se as aplicações de firmware validam a assinatura digital das conexões do servidor. | ✓ | ✓ | ✓ | 4.0 |
 | **C.9** | Verifique se as comunicações sem fio são mutuamente autenticadas. | ✓ | ✓ | ✓ | 4.0 |
@@ -37,10 +37,10 @@ Os dispositivos integrados/IoT devem:
 | **C.21** | Verifique se o dispositivo usa assinatura de código e valida os arquivos de atualização do firmware antes da instalação. | | ✓ | ✓ | 4.0 |
 | **C.22** | Verifique se o dispositivo não pode ser rebaixado para versões antigas (anti-reversão) de firmware válido. | | ✓ | ✓ | 4.0 |
 | **C.23** | Verifique o uso do gerador de números pseudoaleatórios criptograficamente seguro no dispositivo incorporado (por exemplo, usando geradores de números aleatórios fornecidos por chip). | | ✓ | ✓ | 4.0 |
-| **C.24** | Verifique se o firmware pode executar atualizações automáticas de firmware em um cronograma predefinido. | | ✓ | ✓ | 4.0 |
+| **C.24** | Verifique se o firmware pode executar atualizações automáticas de firmware num cronograma predefinido. | | ✓ | ✓ | 4.0 |
 | **C.25** | Verifique se o dispositivo limpa o firmware e os dados confidenciais após a detecção de adulteração ou recebimento de mensagem inválida. | | | ✓ | 4.0 |
 | **C.26** | Verifique se apenas os microcontroladores que suportam a desativação de interfaces de depuração (por exemplo, JTAG, SWD) são usados. | | | ✓ | 4.0 |
-| **C.27** | Verifique se apenas os microcontroladores que fornecem proteção substancial contra ataques de decapagem e de canal lateral são usados. | | | ✓ | 4.0 |
+| **C.27** | Verifique se apenas os microcontroladores que fornecem proteção substancial contra-ataques de decapagem e de canal lateral são usados. | | | ✓ | 4.0 |
 | **C.28** | Verifique se os traços sensíveis não estão expostos às camadas externas da placa de circuito impresso. | | | ✓ | 4.0 |
 | **C.29** | Verifique se a comunicação entre chips está criptografada (por exemplo, comunicação da placa principal para a placa filha). | | | ✓ | 4.0 |
 | **C.30** | Verifique se o dispositivo usa assinatura de código e valida o código antes da execução. | | | ✓ | 4.0 |

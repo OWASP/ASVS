@@ -14,9 +14,9 @@ Autorização é o conceito de permitir acesso a recursos apenas para aqueles au
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.1.1** | Verifique se a aplicação impõe regras de controle de acesso em uma camada de serviço confiável, especialmente se o controle de acesso do lado do cliente estiver presente e puder ser ignorado. | ✓ | ✓ | ✓ | 602 |
+| **4.1.1** | Verifique se a aplicação impõe regras de controle de acesso numa camada de serviço confiável, especialmente se o controle de acesso do lado do cliente estiver presente e puder ser ignorado. | ✓ | ✓ | ✓ | 602 |
 | **4.1.2** | Verifique se todos os atributos de usuário e dados e as informações de política usadas pelos controles de acesso não podem ser manipulados pelos usuários finais, a menos que especificamente autorizados. | ✓ | ✓ | ✓ | 639 |
-| **4.1.3** | Verifique se existe o princípio do menor privilégio - os usuários só devem poder acessar funções, arquivos de dados, URLs, controladores, serviços e outros recursos, para os quais possuam autorização específica. Isso implica proteção contra falsificação e elevação de privilégio. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
+| **4.1.3** | Verifique se existe o princípio do menor privilégio — os usuários só devem poder acessar funções, arquivos de dados, URLs, controladores, serviços e outros recursos, para os quais possuam autorização específica. Isso implica proteção contra falsificação e elevação de privilégio. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
 | **4.1.4** | [EXCLUÍDO, DUPLICADO DE 4.1.3] | | | | |
 | **4.1.5** | Verifique se os controles de acesso falham com segurança, inclusive quando ocorre uma exceção. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
 

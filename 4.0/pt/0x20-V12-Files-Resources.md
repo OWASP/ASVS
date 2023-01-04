@@ -29,10 +29,10 @@ Embora as bombas zip sejam eminentemente testáveis usando técnicas de teste de
 | :---: |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---:| :---: | :---: |
 | **12.3.1** | Verifique se os metadados de nome de arquivo enviados pelo usuário não são usados diretamente pelo sistema ou sistemas de arquivos de estrutura e se uma API de URL é usada para proteção contra travessia de caminho. | ✓ | ✓ | ✓ | 22 |
 | **12.3.2** | Verifique se os metadados de nome de arquivo enviados pelo usuário são validados ou ignorados para impedir a divulgação, criação, atualização ou remoção de arquivos locais (LFI). | ✓ | ✓ | ✓ | 73 |
-| **12.3.3** | Verifique se os metadados de nome de arquivo enviados pelo usuário são validados ou ignorados para evitar a divulgação ou execução de arquivos remotos por meio de ataques de inclusão de arquivo remoto (RFI) ou falsificação de solicitação do lado do servidor (SSRF). | ✓ | ✓ | ✓ | 98 |
-| **12.3.4** | Verifique se a aplicação protege contra download de arquivo reflexivo (RFD) validando ou ignorando nomes de arquivo enviados pelo usuário em um parâmetro JSON, JSONP ou URL, o cabeçalho Content-Type de resposta deve ser definido como text/plain e o cabeçalho Content-Disposition deve ter um nome de arquivo fixo. | ✓ | ✓ | ✓ | 641 |
+| **12.3.3** | Verifique se os metadados de nome de arquivo enviados pelo usuário são validados ou ignorados para evitar a divulgação ou execução de arquivos remotos por ataques de inclusão de arquivo remoto (RFI) ou falsificação de solicitação do lado do servidor (SSRF). | ✓ | ✓ | ✓ | 98 |
+| **12.3.4** | Verifique se a aplicação protege contra download de arquivo reflexivo (RFD) validando ou ignorando nomes de arquivo enviados pelo usuário num parâmetro JSON, JSONP ou URL, o cabeçalho Content-Type de resposta deve ser definido como text/plain e o cabeçalho Content-Disposition deve ter um nome de arquivo fixo. | ✓ | ✓ | ✓ | 641 |
 | **12.3.5** | Verifique se os metadados de arquivos não confiáveis não são usados diretamente com API ou bibliotecas do sistema, para proteger contra a injeção de comandos do sistema operacional. | ✓ | ✓ | ✓ | 78 |
-| **12.3.6** | Verifique se a aplicação não inclui e executa funcionalidades de fontes não confiáveis, como redes de distribuição de conteúdo não verificadas, bibliotecas JavaScript, bibliotecas de nó npm ou DLLs do lado do servidor. | | ✓ | ✓ | 829 |
+| **12.3.6** | Verifique se a aplicação não inclui e executa funcionalidades de fontes não confiáveis, como redes de distribuição de conteúdos não verificados, bibliotecas JavaScript, bibliotecas de nó npm ou DLLs do lado do servidor. | | ✓ | ✓ | 829 |
 
 ## V12.4 Armazenamento de Arquivos
 
@@ -60,4 +60,4 @@ Para mais informações, consulte também:
 
 * [Manipulação de extensão de arquivo para informações confidenciais](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
 * [Download do arquivo reflexivo por Oren Hafif](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)
-* [Cheat Sheet de gerenciamento de JavaScript de terceiros da OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)
+* [Cheat Sheet de gestão de JavaScript de terceiros da OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)

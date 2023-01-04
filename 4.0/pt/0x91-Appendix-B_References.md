@@ -38,5 +38,5 @@ Da mesma forma, os seguintes sites provavelmente serão úteis para usuários/ad
 2. Enumeração de pontos fracos comuns do MITRE: [https://cwe.mitre.org/](https://cwe.mitre.org/)
 3. Conselho de padrões de segurança PCI: [https://www.pcisecuritystandards.org](https://www.pcisecuritystandards.org)
 4. Requisitos do padrão de segurança de dados (DSS) v3.2.1 do PCI e procedimentos de avaliação de segurança: [https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf](https://www.pcisecuritystandards.org/ documentos/PCI_DSS_v3-2-1.pdf)
-5. Estrutura de segurança de software PCI - Requisitos de software seguro e procedimentos de avaliação: [https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/ documentos/PCI-Secure-Software-Standard-v1_0.pdf)
+5. Estrutura de segurança de software PCI — Requisitos de software seguro e procedimentos de avaliação: [https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/ documentos/PCI-Secure-Software-Standard-v1_0.pdf)
 6. Requisitos e procedimentos de avaliação do ciclo de vida de software seguro PCI (Secure SLC): [https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf](https://www.pcisecuritystandards.org /documents/PCI-Secure-SLC-Standard-v1_0.pdf)

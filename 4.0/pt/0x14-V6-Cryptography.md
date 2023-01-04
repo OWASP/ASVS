@@ -37,7 +37,7 @@ Embora esta seção não seja facilmente testada quanto à penetração, os dese
 
 ## V6.3 Valores Aleatórios
 
-A verdadeira geração de números pseudo-aleatórios (PRNG) é incrivelmente difícil de acertar. Geralmente, boas fontes de entropia dentro de um sistema serão rapidamente esgotadas se usadas em excesso, mas fontes com menos aleatoriedade podem levar a chaves e segredos previsíveis.
+A verdadeira geração de números pseudoaleatórios (PRNG) é incrivelmente difícil de acertar. Geralmente, boas fontes de entropia dentro de um sistema serão rapidamente esgotadas se usadas em excesso, mas fontes com menos aleatoriedade podem levar a chaves e segredos previsíveis.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -45,13 +45,13 @@ A verdadeira geração de números pseudo-aleatórios (PRNG) é incrivelmente di
 | **6.3.2** | Verifique se os GUIDs aleatórios são criados usando o algoritmo GUID v4 e um gerador de números pseudo-aleatórios criptograficamente seguro (CSPRNG). GUIDs criados usando outros geradores de números pseudo-aleatórios podem ser previsíveis. | | ✓ | ✓ | 338 |
 | **6.3.3** | Verifique se os números aleatórios são criados com a entropia adequada mesmo quando a aplicação está sob carga pesada ou se a aplicação se degrada normalmente nessas circunstâncias. | | | ✓ | 338 |
 
-## V6.4 Gerenciamento de segredo
+## V6.4 Gestão de segredo
 
 Embora esta seção não seja facilmente testada quanto à penetração, os desenvolvedores devem considerá-la como obrigatória, mesmo que L1 esteja faltando na maioria dos itens.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **6.4.1** | Verifique se uma solução de gerenciamento de segredos, como um cofre de chaves, é usada para criar, armazenar, controlar o acesso e destruir segredos com segurança. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 798 |
+| **6.4.1** | Verifique se uma solução de gestão de segredos, como um cofre de chaves, é usada para criar, armazenar, controlar o acesso e destruir segredos com segurança. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 798 |
 | **6.4.2** | Verifique se o material da chave não está exposto à aplicação, mas usa um módulo de segurança isolado como um cofre para operações criptográficas. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 320 |
 
 ## Referências

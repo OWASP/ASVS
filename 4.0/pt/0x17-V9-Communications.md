@@ -15,7 +15,7 @@ Dentro desses requisitos:
 
 * Mantenha-se atualizado com os conselhos recomendados do setor sobre a configuração segura do TLS, pois ele muda com frequência (geralmente devido a quebras catastróficas nos algoritmos e cifras existentes).
 * Use as versões mais recentes das ferramentas de revisão de configuração TLS para configurar a ordem preferida e a seleção do algoritmo.
-* Verifique sua configuração periodicamente para garantir que a comunicação segura esteja sempre presente e eficaz.
+* Verifique a sua configuração periodicamente para garantir que a comunicação segura esteja sempre presente e eficaz.
 
 ## V9.1 Segurança de comunicação do cliente
 
@@ -30,12 +30,12 @@ Use ferramentas atualizadas para revisar a configuração do cliente regularment
 
 ## V9.2 Segurança de comunicação do servidor
 
-As comunicações do servidor são mais do que apenas HTTP. Conexões seguras de e para outros sistemas, como sistemas de monitoramento, ferramentas de gerenciamento, acesso remoto e ssh, middleware, banco de dados, mainframes, parceiros ou sistemas de origem externa — devem estar em vigor. Tudo isso deve ser criptografado para evitar "difícil por fora, trivialmente fácil de interceptar por dentro".
+As comunicações do servidor são mais que apenas HTTP. Conexões seguras de e para outros sistemas, como sistemas de monitoramento, ferramentas de gestão, acesso remoto e ssh, middleware, banco de dados, mainframes, parceiros ou sistemas de origem externa — devem estar em vigor. Tudo isso deve ser criptografado para evitar "difícil por fora, trivialmente fácil de interceptar por dentro".
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **9.2.1** | Verifique se as conexões de e para o servidor usam certificados TLS confiáveis. Onde certificados gerados internamente ou autoassinados são usados, o servidor deve ser configurado para confiar apenas em CAs internas específicas e certificados autoassinados específicos. Todos os outros devem ser rejeitados. | | ✓ | ✓ | 295 |
-| **9.2.2** | Verifique se as comunicações criptografadas, como TLS, são usadas para todas as conexões de input e output, incluindo portas de gerenciamento, monitoramento, autenticação, API ou chamadas de Web Service, banco de dados, nuvem, sem servidor, mainframe, externas e conexões de parceiros. O servidor não deve recorrer a protocolos inseguros ou não criptografados. | | ✓ | ✓ | 319 |
+| **9.2.2** | Verifique se as comunicações criptografadas, como TLS, são usadas para todas as conexões de input e output, incluindo portas de gestão, monitoramento, autenticação, API ou chamadas de Web Service, banco de dados, nuvem, sem servidor, mainframe, externas e conexões de parceiros. O servidor não deve recorrer a protocolos inseguros ou não criptografados. | | ✓ | ✓ | 319 |
 | **9.2.3** | Verifique se todas as conexões criptografadas com sistemas externos que envolvem informações ou funções confidenciais são autenticadas. | | ✓ | ✓ | 287 |
 | **9.2.4** | Verifique se a revogação de certificação adequada, como o grampeamento do protocolo de status de certificado on-line (OCSP), está habilitada e configurada. | | ✓ | ✓ | 299 |
 | **9.2.5** | Verifique se as falhas de conexão TLS de back-end são registradas. | | | ✓ | 544 |
@@ -45,7 +45,7 @@ As comunicações do servidor são mais do que apenas HTTP. Conexões seguras de
 Para mais informações, consulte também:
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-* [OWASP - Guia de Fixação](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
+* [OWASP — Guia de Fixação](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
 * Notas sobre “Modos aprovados de TLS”:
   * No passado, a ASVS referia-se ao padrão americano FIPS 140-2, mas como um padrão global, a aplicação dos padrões americanos pode ser difícil, contraditória ou confusa.
   * Um método melhor para obter conformidade com a seção 9.1 seria revisar guias como [TLS do lado do servidor da Mozilla](https://wiki.mozilla.org/Security/Server_Side_TLS) ou [gerar configurações boas conhecidas](https:// mozilla.github.io/server-side-tls/ssl-config-generator/) e use ferramentas de avaliação TLS conhecidas e atualizadas para obter o nível de segurança desejado.
