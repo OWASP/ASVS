@@ -58,6 +58,6 @@ Embora as bombas zip sejam eminentemente testáveis usando técnicas de teste de
 
 Para mais informações, consulte também:
 
-* [Manipulação de extensão de arquivo para informações confidenciais](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
-* [Download do arquivo reflexivo por Oren Hafif](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)
-* [Cheat Sheet de gestão de JavaScript de terceiros da OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)
+* [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
+* [Reflective file download by Oren Hafif](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)
+* [OWASP Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)

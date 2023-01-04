@@ -73,6 +73,6 @@ Nota: Certas linguagens, como Swift e Go — e através da prática de design co
 
 Para mais informações, consulte também:
 
-* [Conteúdo do Guia de Teste OWASP 4.0: Testando para Tratamento de Erros](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README.html)
-* [Seção da Cheat Sheet de autenticação OWASP sobre mensagens de erro](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages)
+* [OWASP Testing Guide 4.0 content: Testing for Error Handling](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README.html)
+* [OWASP Authentication Cheat Sheet section about error messages](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages)
 

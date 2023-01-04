@@ -134,9 +134,9 @@ Este é um espaço reservado para futuros requisitos de arquitetura.
 
 Para mais informações, consulte também:
 
-* [Cheat Sheet de modelagem de ameaças OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
-* [Cheat Sheet de análise de superfície de ataque OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.html)
-* [Modelagem de ameaças OWASP](https://owasp.org/www-community/Application_Threat_Modeling)
-* [Projeto de modelo de maturidade de garantia de software OWASP](https://owasp.org/www-project-samm/)
+* [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
+* [OWASP Attack Surface Analysis Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.html)
+* [OWASP Threat modeling](https://owasp.org/www-community/Application_Threat_Modeling)
+* [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/sdl/)
 * [NIST SP 800-57](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)

@@ -81,30 +81,30 @@ Os requisitos a seguir serão aplicados apenas quando a aplicação usar uma lin
 
 Para mais informações, consulte também:
 
-* [Guia de teste OWASP 4.0: teste de validação de input](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
-* [Cheat Sheet OWASP: Validação de input](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+* [OWASP Testing Guide 4.0: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
+* [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [OWASP Testing Guide 4.0: Testing for HTTP Parameter Pollution](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.html)
-* [Cheat Sheet de injeção LDAP OWASP](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
+* [OWASP LDAP Injection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
 * [OWASP Testing Guide 4.0: Client Side Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client_Side_Testing/)
-* [Cheat Sheet de prevenção de script entre sites OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
-* [OWASP DOM Based Cross Site Scripting Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
-* [Projeto de codificação Java OWASP](https://owasp.org/owasp-java-encoder/)
-* [Cheat Sheet de prevenção de atribuições em massa OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
-* [DOMPurify — Biblioteca de Sanitização HTML do lado do cliente](https://github.com/cure53/DOMPurify)
-* [Cheat Sheet de prevenção de entidades externas XML (XXE)](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
+* [OWASP Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+* [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
+* [OWASP Java Encoding Project](https://owasp.org/owasp-java-encoder/)
+* [OWASP Mass Assignment Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
+* [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
+* [XML External Entity (XXE) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
 
 Para obter mais informações sobre escape automático, consulte:
 
-* [Reduzindo XSS por meio de escape automático com reconhecimento de contexto em sistemas de modelo](https://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
-* [AngularJS Strict Contextual Escape](https://docs.angularjs.org/api/ng/service/$sce)
+* [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
+* [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
 * [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
-* [Sanitização Angular](https://angular.io/guide/security#sanitization-and-security-contexts)
-* [Segurança Angular](https://angular.io/guide/security)
+* [Angular Sanitization](https://angular.io/guide/security#sanitization-and-security-contexts)
+* [Angular Security](https://angular.io/guide/security)
 * [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
-* [Modificação indevidamente controlada de atributos de objetos determinados dinamicamente](https://cwe.mitre.org/data/definitions/915.html)
+* [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
 
 Para obter mais informações sobre desserialização, consulte:
 
-* [Cheat Sheet de desserialização OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
-* [Guia de desserialização de dados não confiáveis OWASP](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data)
+* [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+* [OWASP Deserialization of Untrusted Data Guide](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data)
 

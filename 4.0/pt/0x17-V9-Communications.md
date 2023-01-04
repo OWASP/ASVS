@@ -45,7 +45,7 @@ As comunicações do servidor são mais que apenas HTTP. Conexões seguras de e 
 Para mais informações, consulte também:
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-* [OWASP — Guia de Fixação](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
+* [OWASP - Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
 * Notas sobre “Modos aprovados de TLS”:
   * No passado, a ASVS referia-se ao padrão americano FIPS 140-2, mas como um padrão global, a aplicação dos padrões americanos pode ser difícil, contraditória ou confusa.
-  * Um método melhor para obter conformidade com a seção 9.1 seria revisar guias como [TLS do lado do servidor da Mozilla](https://wiki.mozilla.org/Security/Server_Side_TLS) ou [gerar configurações boas conhecidas](https:// mozilla.github.io/server-side-tls/ssl-config-generator/) e use ferramentas de avaliação TLS conhecidas e atualizadas para obter o nível de segurança desejado.
+  * Um método melhor para obter conformidade com a seção 9.1 seria revisar guias como [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) ou [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/) e use ferramentas de avaliação TLS conhecidas e atualizadas para obter o nível de segurança desejado.

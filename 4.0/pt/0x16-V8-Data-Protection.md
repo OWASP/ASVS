@@ -56,10 +56,10 @@ Ao considerar a proteção de dados, uma consideração primária deve ser a ext
 
 Para mais informações, consulte também:
 
-* [Considere usar o site Security Headers para verificar os cabeçalhos de segurança e anti-caching](https://securityheaders.io)
-* [projeto OWASP Secure Headers](https://owasp.org/www-project-secure-headers/)
-* [Projeto de riscos de privacidade OWASP](https://owasp.org/www-project-top-10-privacy-risks/)
-* [Cheat Sheet de proteção de privacidade do usuário OWASP](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
-* [Visão geral do Regulamento Geral de Proteção de Dados da União Europeia (GDPR)](https://edps.europa.eu/data-protection_en)
-* [Supervisor de Proteção de Dados da União Europeia — Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
+* [Consider using Security Headers website to check security and anti-caching headers](https://securityheaders.io)
+* [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
+* [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
+* [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
+* [European Union General Data Protection Regulation (GDPR) overview](https://edps.europa.eu/data-protection_en)
+* [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
 
