@@ -45,13 +45,13 @@ L1 neste contexto é IAL1/AAL1, L2 é IAL2/AAL3, L3 é IAL3/AAL3. Para IAL2/AAL2
 
 ## V3.4 Gestão de sessão baseado em cookies
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.4.1** | Verifique se os tokens de sessão baseados em cookie têm o atributo 'Seguro' definido. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| # | Descrição | L1 | L2 | L3 | CWE  | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---:| :---: |:----:| :---: |
+| **3.4.1** | Verifique se os tokens de sessão baseados em cookie têm o atributo 'Seguro' definido. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614  | 7.1.1 |
 | **3.4.2** | Verifique se os tokens de sessão baseados em cookie têm o atributo 'HttpOnly' definido. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
-| **3.4.3** | Verifique se os tokens de sessão baseados em cookies utilizam o atributo 'SameSite' para limitar a exposição a ataques de falsificação de solicitação entre sites. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1275 | 7.1.1 |
-| **3.4.4** | Verifique se os tokens de sessão baseados em cookie usam o prefixo "__Host-" para que os cookies sejam enviados apenas para o host que inicialmente definiu o cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.5** | Verifique se a aplicação é publicado sob um nome de domínio com outras aplicações que definem ou usam cookies de sessão que podem divulgar os cookies de sessão, defina o atributo path em tokens de sessão baseados em cookie usando o caminho mais preciso possível. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.3** | Verifique se os tokens de sessão baseados em cookies utilizam o atributo 'SameSite' para limitar a exposição a ataques de falsificação de solicitação entre sites. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  16  | 7.1.1 |
+| **3.4.4** | Verifique se os tokens de sessão baseados em cookie usam o prefixo "__Host-" para que os cookies sejam enviados apenas para o host que inicialmente definiu o cookie. | ✓ | ✓ | ✓ |  16  | 7.1.1 |
+| **3.4.5** | Verifique se a aplicação é publicado sob um nome de domínio com outras aplicações que definem ou usam cookies de sessão que podem divulgar os cookies de sessão, defina o atributo path em tokens de sessão baseados em cookie usando o caminho mais preciso possível. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  16  | 7.1.1 |
 
 ## V3.5 Gestão de sessão baseado em token
 
