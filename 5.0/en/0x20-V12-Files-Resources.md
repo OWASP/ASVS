@@ -13,7 +13,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.1.1** | Verify that the application will not accept large files that could cause a denial of service when they are processed. | ✓ | ✓ | ✓ | 400 |
+| **12.1.1** | [MODIFIED] Verify that the application will not accept large files that could cause a denial of service when they are processed. | ✓ | ✓ | ✓ | 400 |
 | **12.1.2** | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | | ✓ | ✓ | 409 |
 | **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
 
