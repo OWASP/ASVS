@@ -30,7 +30,7 @@ Use ferramentas atualizadas para revisar a configuração do cliente regularment
 
 ## V9.2 Segurança de comunicação do servidor
 
-As comunicações do servidor são mais que apenas HTTP. Conexões seguras de e para outros sistemas, como sistemas de monitoramento, ferramentas de gestão, acesso remoto e ssh, middleware, banco de dados, mainframes, parceiros ou sistemas de origem externa — devem estar em vigor. Tudo isso deve ser criptografado para evitar "difícil por fora, trivialmente fácil de interceptar por dentro".
+As comunicações do servidor são mais que apenas HTTP. Conexões seguras de e para outros sistemas, como sistemas de monitoramento, ferramentas de gestão, acesso remoto e ssh, middleware, banco de dados, mainframes, parceiros ou sistemas de origem externa - devem estar em vigor. Tudo isso deve ser criptografado para evitar "difícil por fora, trivialmente fácil de interceptar por dentro".
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |

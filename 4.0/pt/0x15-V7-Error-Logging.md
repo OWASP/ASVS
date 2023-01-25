@@ -16,7 +16,7 @@ Também é importante garantir que a aplicação falhe com segurança e que erro
 
 ## V7.1 Conteúdo do registro
 
-Registrar informações confidenciais é perigoso — os próprios logs se tornam classificados, o que significa que precisam ser criptografados, sujeitos a políticas de retenção e devem ser divulgados em auditorias de segurança. Certifique-se de que apenas as informações necessárias sejam mantidas em logs e, certamente, nenhum pagamento, credenciais (incluindo tokens de sessão), informações confidenciais ou de identificação pessoal.
+Registrar informações confidenciais é perigoso - os próprios logs se tornam classificados, o que significa que precisam ser criptografados, sujeitos a políticas de retenção e devem ser divulgados em auditorias de segurança. Certifique-se de que apenas as informações necessárias sejam mantidas em logs e, certamente, nenhum pagamento, credenciais (incluindo tokens de sessão), informações confidenciais ou de identificação pessoal.
 
 V7.1 abrange OWASP Top 10 2017:A10. Como 2017:A10 e esta seção não são passíveis de teste de penetração, é importante para:
 
@@ -67,7 +67,7 @@ O objetivo do tratamento de erros é permitir que a aplicação forneça eventos
 | **7.4.2** | Verifique se o tratamento de exceção (ou um equivalente funcional) é usado na base de código para contabilizar as condições de erro esperadas e inesperadas. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 544 |
 | **7.4.3** | Verifique se um manipulador de erro de "último recurso" está definido para capturar todas as exceções não tratadas. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 431 |
 
-Nota: Certas linguagens, como Swift e Go — e através da prática de design comum — muitas linguagens funcionais, não suportam exceções ou manipuladores de eventos de último recurso. Nesse caso, arquitetos e desenvolvedores devem usar um padrão, linguagem ou estrutura amigável para garantir que as aplicações possam manipular com segurança eventos excepcionais, inesperados ou relacionados à segurança.
+Nota: Certas linguagens, como Swift e Go - e através da prática de design comum - muitas linguagens funcionais, não suportam exceções ou manipuladores de eventos de último recurso. Nesse caso, arquitetos e desenvolvedores devem usar um padrão, linguagem ou estrutura amigável para garantir que as aplicações possam manipular com segurança eventos excepcionais, inesperados ou relacionados à segurança.
 
 ## Referências
 

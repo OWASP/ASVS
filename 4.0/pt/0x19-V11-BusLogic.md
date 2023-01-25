@@ -10,7 +10,7 @@ Certifique-se de que uma aplicação verificado atenda aos seguintes requisitos 
 
 ## V11.1 Segurança da Lógica de Negócios
 
-A segurança da lógica de negócios é tão individual para cada aplicação que nenhuma lista de verificação será aplicada. A segurança da lógica de negócios deve ser projetada para proteger contra prováveis ameaças externas — ela não pode ser adicionada usando firewalls de aplicações da Web ou comunicações seguras. Recomendamos o uso de modelagem de ameaças durante os sprints de design, por exemplo, usando o OWASP Cornucopia ou ferramentas semelhantes.
+A segurança da lógica de negócios é tão individual para cada aplicação que nenhuma lista de verificação será aplicada. A segurança da lógica de negócios deve ser projetada para proteger contra prováveis ameaças externas - ela não pode ser adicionada usando firewalls de aplicações da Web ou comunicações seguras. Recomendamos o uso de modelagem de ameaças durante os sprints de design, por exemplo, usando o OWASP Cornucopia ou ferramentas semelhantes.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |

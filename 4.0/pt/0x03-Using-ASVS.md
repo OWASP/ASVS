@@ -11,13 +11,13 @@ O Application Security Verification Standard define três níveis de verificaç�
 
 * O nível 1 do ASVS é para níveis de garantia baixos e é completamente testável quanto à penetração
 * ASVS Nível 2 é para aplicações que contêm dados confidenciais, que requerem proteção e é o nível recomendado para a maioria das aplicações
-* O nível 3 do ASVS é para as aplicações mais críticos — aplicações que executam transações de alto valor, contêm dados médicos confidenciais ou qualquer aplicação que exija o mais alto nível de confiança.
+* O nível 3 do ASVS é para as aplicações mais críticos - aplicações que executam transações de alto valor, contêm dados médicos confidenciais ou qualquer aplicação que exija o mais alto nível de confiança.
 
 Cada nível ASVS contém uma lista de requisitos de segurança. Cada um desses requisitos também pode ser mapeado para recursos e capacidades específicos de segurança que devem ser incorporados ao software pelos desenvolvedores.
 
 ![Níveis ASVS](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "Níveis ASVS")
 
-Figura 1 — Níveis 4.0 do Padrão de Application Security Verification OWASP
+Figura 1 - Níveis 4.0 do Padrão de Application Security Verification OWASP
 
 O nível 1 é o único nível que é completamente testável por penetração usando humanos. Todos os outros requerem acesso à documentação, código-fonte, configuração e pessoas envolvidas no processo de desenvolvimento. No entanto, mesmo que L1 permita a ocorrência de testes de "black box" (sem documentação e sem fonte), não é uma atividade de garantia eficaz e deve ser ativamente desencorajada. Os atacantes mal-intencionados têm muito tempo, a maioria dos testes de penetração termina em algumas semanas. Os defensores precisam incorporar controles de segurança, proteger, encontrar e resolver todos os pontos fracos, detectar e responder a agentes mal-intencionados num tempo razoável. Atores mal-intencionados têm tempo essencialmente infinito e requerem apenas uma única defesa porosa, uma única fraqueza ou detecção ausente para serem bem-sucedidos. O teste black box, muitas vezes realizado no final do desenvolvimento, rapidamente, ou não, são completamente incapazes de lidar com essa assimetria.
 
@@ -31,7 +31,7 @@ Ferramentas automatizadas e varreduras online não conseguem concluir mais da me
 
 Uma das melhores maneiras de usar o Application Security Verification Standard é usá-lo como um modelo para criar uma Lista de Verificação de Codificação Segura específica para sua aplicação, plataforma ou organização. Adaptar o ASVS aos seus casos de uso aumentará o foco nos requisitos de segurança mais importantes para seus projetos e ambientes.
 
-### Nível 1 — Primeiras etapas, automatizada ou visão completa do portfólio
+### Nível 1 - Primeiras etapas, automatizada ou visão completa do portfólio
 
 Uma aplicação atinge o nível 1 do ASVS se se defender adequadamente contra vulnerabilidades de segurança de aplicações que são fáceis de descobrir e incluídas no OWASP Top 10 e outras listas de verificação semelhantes.
 
@@ -39,7 +39,7 @@ O nível 1 é o mínimo que todas as aplicações devem buscar. Também é útil
 
 Ameaças à aplicação provavelmente virão de invasores que usam técnicas simples e de baixo esforço para identificar vulnerabilidades fáceis de encontrar e explorar. Isso contrasta com um invasor determinado que gastará energia focada para atingir especificamente a aplicação. Se os dados processados pela sua aplicação tiverem alto valor, raramente irá parar numa revisão de nível 1.
 
-### Nível 2 — A maioria das aplicações
+### Nível 2 - A maioria das aplicações
 
 Uma aplicação atinge o nível 2 (ou padrão) do ASVS se se defender adequadamente contra a maioria dos riscos associados ao software atualmente.
 
@@ -47,7 +47,7 @@ O nível 2 garante que os controles de segurança estejam em vigor, sejam eficaz
 
 Ameaças aas aplicações de nível 2 normalmente são invasores habilidosos e motivados com foco em alvos específicos usando ferramentas e técnicas que são altamente praticadas e eficazes na descoberta e exploração de pontos fracos nas aplicações.
 
-### Nível 3 — Alto valor, alta garantia ou alta segurança
+### Nível 3 - Alto valor, alta garantia ou alta segurança
 
 ASVS Nível 3 é o mais alto nível de verificação no ASVS. Este nível é normalmente reservado para aplicações que requerem níveis significativos de verificação de segurança, como aqueles que podem ser encontrados em áreas militares, de saúde e segurança, infraestrutura crítica, etc.
 

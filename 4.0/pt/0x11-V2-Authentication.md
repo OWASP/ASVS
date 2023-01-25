@@ -8,7 +8,7 @@ Quando o ASVS foi lançado pela primeira vez, nome de usuário + senha era a for
 
 De todos os capítulos do ASVS, os capítulos de autenticação e gestão de sessão foram os que mais mudaram. A adoção de práticas de liderança eficazes e baseadas em evidências será um desafio para muitos, e isso é perfeitamente aceitável. Temos que começar a transição para um futuro pós-senha agora.
 
-## NIST 800-63 — Padrão de autenticação moderno e baseado em evidências
+## NIST 800-63 - Padrão de autenticação moderno e baseado em evidências
 
 [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) é um padrão moderno baseado em evidências e representa o melhor conselho disponível, independentemente da aplicabilidade. O padrão é útil para todas as organizações em todo o mundo, mas é particularmente relevante para as agências dos EUA e aquelas que lidam com agências dos EUA.
 
@@ -65,7 +65,7 @@ O NIST considera e-mail e SMS como [tipos de autenticador "restritos"](https://p
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.2.1** | Verifique se os controles antiautomação são eficazes na mitigação de testes de credenciais violadas, força bruta e ataques de bloqueio de conta. Esses controles incluem o bloqueio das senhas violadas mais comuns, bloqueios suaves, limitação de taxa, CAPTCHA, atrasos cada vez maiores entre tentativas, restrições de endereço IP ou restrições baseadas em risco, como localização, primeiro login num dispositivo, tentativas recentes de desbloquear a conta, ou similar. Verifique se não é possível mais de 100 tentativas com falha por hora numa única conta. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
 | **2.2.2** | Verifique se o uso de autenticadores fracos (como SMS e e-mail) é limitado a verificação secundária e aprovação de transações e não como substituto para métodos de autenticação mais seguros. Verifique se métodos mais fortes são oferecidos antes de métodos fracos, se os usuários estão cientes dos riscos ou se as medidas adequadas estão em vigor para limitar os riscos de comprometimento da conta. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
-| **2.2.3** | Verifique se as notificações seguras são enviadas aos usuários após atualizações nos detalhes de autenticação, como redefinições de credenciais, alterações de e-mail ou endereço, login de locais desconhecidos ou arriscados. O uso de notificações push — em vez de SMS ou e-mail — é preferível, mas na ausência de notificações push, SMS ou e-mail é aceitável, desde que nenhuma informação confidencial seja divulgada na notificação. | ✓ | ✓ | ✓ | 620 | |
+| **2.2.3** | Verifique se as notificações seguras são enviadas aos usuários após atualizações nos detalhes de autenticação, como redefinições de credenciais, alterações de e-mail ou endereço, login de locais desconhecidos ou arriscados. O uso de notificações push - em vez de SMS ou e-mail - é preferível, mas na ausência de notificações push, SMS ou e-mail é aceitável, desde que nenhuma informação confidencial seja divulgada na notificação. | ✓ | ✓ | ✓ | 620 | |
 | **2.2.4** | Verifique a resistência à representação contra phishing, como o uso de autenticação multifator, dispositivos criptográficos com intenção (como chaves conectadas com um push para autenticar) ou em níveis AAL mais altos, certificados do lado do cliente. | | | ✓ | 308 | 5.2.5 |
 | **2.2.5** | Verifique se onde um Provedor de Serviços de Credenciais (CSP) e a aplicação que verifica a autenticação estão separados, o TLS mutuamente autenticado está em vigor entre os dois pontos de extremidade. | | | ✓ | 319 | 5.2.6 |
 | **2.2.6** | Verifique a resistência à reprodução por meio do uso obrigatório de dispositivos de senhas descartáveis (OTP), autenticadores criptográficos ou códigos de pesquisa. | | | ✓ | 308 | 5.2.8 |
@@ -73,7 +73,7 @@ O NIST considera e-mail e SMS como [tipos de autenticador "restritos"](https://p
 
 ## V2.3 Ciclo de vida do autenticador
 
-Autenticadores são senhas, soft tokens, tokens de hardware e dispositivos biométricos. O ciclo de vida dos autenticadores é crítico para a segurança de uma aplicação — se qualquer pessoa pode registrar uma conta sem evidência de identidade, pode haver pouca confiança na declaração de identidade. Para sites de mídia social como o Reddit, tudo bem. Para sistemas bancários, um maior foco no registro e emissão de credenciais e dispositivos é fundamental para a segurança da aplicação.
+Autenticadores são senhas, soft tokens, tokens de hardware e dispositivos biométricos. O ciclo de vida dos autenticadores é crítico para a segurança de uma aplicação - se qualquer pessoa pode registrar uma conta sem evidência de identidade, pode haver pouca confiança na declaração de identidade. Para sites de mídia social como o Reddit, tudo bem. Para sistemas bancários, um maior foco no registro e emissão de credenciais e dispositivos é fundamental para a segurança da aplicação.
 
 Observação: as senhas não devem ter um tempo de vida máximo ou estar sujeitas à rotação de senha. As senhas devem ser verificadas quanto a violação, não substituídas regularmente.
 
