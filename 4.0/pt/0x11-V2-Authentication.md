@@ -38,7 +38,7 @@ As aplicações devem incentivar fortemente os usuários a se inscreverem na aut
 
 Provedores de serviços de credenciais (CSPs) fornecem identidade federada para usuários. Os usuários geralmente têm mais de uma identidade com vários CSPs, como uma identidade corporativa usando Azure AD, Okta, Ping Identity ou Google, ou identidade de consumidor usando Facebook, Twitter, Google ou WeChat, para citar apenas algumas alternativas comuns. Esta lista não é um endosso dessas empresas ou serviços, mas simplesmente um incentivo para que os desenvolvedores considerem a realidade de que muitos usuários têm muitas identidades estabelecidas. As organizações devem considerar a integração com identidades de usuário existentes, conforme o perfil de risco da força de comprovação de identidade do CSP. Por exemplo, é improvável que uma organização governamental aceite uma identidade de mídia social como um login para sistemas confidenciais, pois é fácil criar identidades falsas ou jogar fora,
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.1.1** | Verifique se as senhas definidas pelo usuário têm pelo menos 12 caracteres (após a combinação de vários espaços). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | Verifique se senhas com pelo menos 64 caracteres são permitidas e se senhas com mais de 128 caracteres são negadas. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
@@ -61,7 +61,7 @@ A agilidade do autenticador é essencial para aplicações preparados para o fut
 
 O NIST considera e-mail e SMS como [tipos de autenticador "restritos"](https://pages.nist.gov/800-63-FAQ/#q-b1) e provavelmente serão removidos do NIST 800-63 e, assim, o ASVS em algum momento no futuro. As candidaturas devem planear um roteiro que não implique a utilização de email ou SMS.
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.2.1** | Verifique se os controles antiautomação são eficazes na mitigação de testes de credenciais violadas, força bruta e ataques de bloqueio de conta. Esses controles incluem o bloqueio das senhas violadas mais comuns, bloqueios suaves, limitação de taxa, CAPTCHA, atrasos cada vez maiores entre tentativas, restrições de endereço IP ou restrições baseadas em risco, como localização, primeiro login num dispositivo, tentativas recentes de desbloquear a conta, ou similar. Verifique se não é possível mais de 100 tentativas com falha por hora numa única conta. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
 | **2.2.2** | Verifique se o uso de autenticadores fracos (como SMS e e-mail) é limitado a verificação secundária e aprovação de transações e não como substituto para métodos de autenticação mais seguros. Verifique se métodos mais fortes são oferecidos antes de métodos fracos, se os usuários estão cientes dos riscos ou se as medidas adequadas estão em vigor para limitar os riscos de comprometimento da conta. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
@@ -77,7 +77,7 @@ Autenticadores são senhas, soft tokens, tokens de hardware e dispositivos biom�
 
 Observação: as senhas não devem ter um tempo de vida máximo ou estar sujeitas à rotação de senha. As senhas devem ser verificadas quanto a violação, não substituídas regularmente.
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.3.1** | Verifique se as senhas iniciais ou os códigos de ativação gerados pelo sistema DEVEM ser gerados aleatoriamente de forma segura, DEVEM ter pelo menos 6 caracteres e PODEM conter letras e números e expiram após um curto período de tempo. Esses segredos iniciais não devem ser permitidos para se tornar a senha de longo prazo. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | Verifique se há suporte para inscrição e uso de dispositivos de autenticação fornecidos pelo usuário, como tokens U2F ou FIDO. | | ✓ | ✓ | 308 | 6.1.3 |
@@ -91,7 +91,7 @@ A lista de funções de derivação de chave unidirecional aprovadas é detalhad
 
 Esta seção não pode ser testada quanto à penetração, então os controles não são marcados como L1. No entanto, esta seção é de vital importância para a segurança das credenciais se forem roubadas, portanto, se for bifurcar o ASVS para uma arquitetura ou diretriz de codificação, ou lista de verificação de revisão de código-fonte, coloque esses controles de volta em L1 na sua versão privada.
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.4.1** | Verifique se as senhas são armazenadas de forma resistente a ataques off-line. As senhas DEVEM ser salted e hash usando uma derivação de chave unidirecional aprovada ou função de hashing de senha. As funções de derivação de chave e hash de senha usam uma senha, um sal e um fator de custo como inputs ao gerar um hash de senha. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | Verifique se o sal tem pelo menos 32 bits de comprimento e é escolhido arbitrariamente para minimizar as colisões de valor de sal entre os hashes armazenados. Para cada credencial, um valor salt único e o hash resultante DEVEM ser armazenados. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
@@ -103,7 +103,7 @@ Quando os padrões dos EUA são mencionados, um padrão regional ou local pode s
 
 ## V2.5 Recuperação de credenciais
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.5.1** | Verifique se um segredo inicial de ativação ou recuperação gerado pelo sistema não é enviado em texto não criptografado ao usuário. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.2** | Verifique se dicas de senha ou autenticação baseada em conhecimento (as chamadas "perguntas secretas") não estão presentes. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
@@ -117,7 +117,7 @@ Quando os padrões dos EUA são mencionados, um padrão regional ou local pode s
 
 Os segredos de pesquisa são listas pré-geradas de códigos secretos, como números de autorização de transação (TAN), códigos de recuperação de mídia social ou uma grade contendo um conjunto de valores aleatórios. Estes são distribuídos de forma segura para os usuários. Esses códigos de pesquisa são usados uma vez e, uma vez usados, a lista secreta de pesquisa é descartada. Esse tipo de autenticador é considerado "algo que você tem".
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.6.1** | Verifique se os segredos de pesquisa podem ser usados apenas uma vez. | | ✓ | ✓ | 308 | 5.1.2.2 |
 | **2.6.2** | Verifique se os segredos de pesquisa têm aleatoriedade suficiente (112 bits de entropia) ou, se tiverem menos de 112 bits de entropia, salteados com um sal exclusivo e aleatório de 32 bits e hash com um hash unidirecional aprovado. | | ✓ | ✓ | 330 | 5.1.2.2 |
@@ -129,11 +129,11 @@ No passado, um verificador comum fora de banda seria um e-mail ou SMS contendo u
 
 Autenticadores seguros fora da banda são dispositivos físicos que podem se comunicar com o verificador por um canal secundário seguro. Os exemplos incluem notificações push para dispositivos móveis. Esse tipo de autenticador é considerado "algo que você tem". Quando um usuário deseja autenticar, a aplicação de verificação envia uma mensagem para o autenticador fora de banda por meio de uma conexão com o autenticador direta ou indiretamente por um serviço terceirizado. A mensagem contém um código de autenticação (normalmente um número aleatório de seis dígitos ou uma caixa de diálogo de aprovação modal). A aplicação verificador espera receber o código de autenticação por meio do canal primário e compara o hash do valor recebido com o hash do código de autenticação original. Se forem iguais, o verificador fora da banda pode presumir que o usuário foi autenticado.
 
-O ASVS assume que apenas alguns desenvolvedores desenvolverão novos autenticadores fora de banda, como notificações push e, assim, os seguintes controles ASVS se aplicam a verificadores, como API de autenticação, aplicações e implementações de logon único. Se estiver desenvolvendo um novo autenticador fora de banda, consulte NIST 800-63B § 5.1.3.1.
+O ASVS assume que apenas alguns desenvolvedores desenvolverão novos autenticadores fora de banda, como notificações push e, assim, os seguintes controles ASVS se aplicam a verificadores, como API de autenticação, aplicações e implementações de logon único. Se estiver desenvolvendo um novo autenticador fora de banda, consulte NIST 800-63B &sect; 5.1.3.1.
 
-Autenticadores inseguros fora de banda, como e-mail e VOIP, não são permitidos. A autenticação PSTN e SMS são atualmente "restritas" pelo NIST e devem ser substituídas em favor de notificações por push ou similares. Se você precisar usar autenticação fora de banda por telefone ou SMS, consulte o § 5.1.3.3.
+Autenticadores inseguros fora de banda, como e-mail e VOIP, não são permitidos. A autenticação PSTN e SMS são atualmente "restritas" pelo NIST e devem ser substituídas em favor de notificações por push ou similares. Se você precisar usar autenticação fora de banda por telefone ou SMS, consulte o &sect; 5.1.3.3.
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.7.1** | Verifique se os autenticadores de texto não criptografado fora da banda (NIST "restrito"), como SMS ou PSTN, não são oferecidos por padrão e alternativas mais fortes, como notificações por push, são oferecidas primeiro. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.2** | Verifique se o verificador fora de banda expira solicitações, códigos ou tokens de autenticação fora de banda após 10 minutos. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
@@ -146,7 +146,7 @@ Autenticadores inseguros fora de banda, como e-mail e VOIP, não são permitidos
 
 Senhas únicas de fator único (OTPs) são tokens físicos ou flexíveis que exibem um desafio único pseudoaleatório em constante mudança. Esses dispositivos tornam o phishing (personificação) difícil, mas não impossível. Esse tipo de autenticador é considerado "algo que você tem". Os tokens multifatores são semelhantes aos OTPs de fator único, mas exigem a inserção de um código PIN válido, desbloqueio biométrico, inserção USB ou emparelhamento NFC, ou algum valor adicional (como calculadoras de assinatura de transação) para criar o OTP final.
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.8.1** | Verifique se os OTPs baseados em tempo têm um tempo de vida definido antes de expirar. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.2** | Verifique se as chaves simétricas usadas para verificar os OTPs enviados são altamente protegidas, por exemplo, usando um módulo de segurança de hardware ou armazenamento de chave baseado em sistema operacional seguro. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
@@ -162,7 +162,7 @@ As chaves de segurança criptográficas são cartões inteligentes ou chaves FID
 
 Os requisitos para dispositivos e software criptográficos de fator único e dispositivos e software criptográficos multifatores são os mesmos, pois a verificação do autenticador criptográfico prova a posse do fator de autenticação.
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.9.1** | Verifique se as chaves criptográficas usadas na verificação são armazenadas com segurança e protegidas contra divulgação, como o uso de um Módulo de plataforma confiável (TPM) ou Módulo de segurança de hardware (HSM) ou um serviço de sistema operacional que pode usar esse armazenamento seguro. | | ✓ | ✓ | 320 | 5.1.7.2 |
 | **2.9.2** | Verifique se o nonce de desafio tem pelo menos 64 bits de comprimento e é estatisticamente exclusivo ou exclusivo durante a vida útil do dispositivo criptográfico. | | ✓ | ✓ | 330 | 5.1.7.2 |
@@ -172,7 +172,7 @@ Os requisitos para dispositivos e software criptográficos de fator único e dis
 
 Esta seção não é passível de teste de penetração, portanto, não possui nenhum requisito L1. No entanto, se usado numa arquitetura, codificação ou revisão de código seguro, assuma que o software (assim como Java Key Store) é o requisito mínimo em L1. O armazenamento de segredos em texto não criptografado não é aceitável em nenhuma circunstância.
 
-| # | Descrição | L1 | L2 | L3 | CWE | [NIST §](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.10.1** | Verifique se os segredos intra-serviço não dependem de credenciais imutáveis, como senhas, chaves de API ou contas compartilhadas com acesso privilegiado. | | SO assistido | HSM | 287 | 5.1.1.1 |
 | **2.10.2** | Verifique se as senhas são necessárias para autenticação de serviço, a conta de serviço usada não é uma credencial padrão. (por exemplo, root/root ou admin/admin são padrão em alguns serviços durante a instalação). | | SO assistido | HSM | 255 | 5.1.1.1 |
