@@ -96,7 +96,7 @@ Esta seção não pode ser testada quanto à penetração, então os controles n
 | **2.4.1** | Verifique se as senhas são armazenadas de forma resistente a ataques off-line. As senhas DEVEM ser salted e hash usando uma derivação de chave unidirecional aprovada ou função de hashing de senha. As funções de derivação de chave e hash de senha usam uma senha, um sal e um fator de custo como inputs ao gerar um hash de senha. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | Verifique se o sal tem pelo menos 32 bits de comprimento e é escolhido arbitrariamente para minimizar as colisões de valor de sal entre os hashes armazenados. Para cada credencial, um valor salt único e o hash resultante DEVEM ser armazenados. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.3** | Verifique se PBKDF2 é usado, a contagem de iteração DEVE ser tão grande quanto o desempenho do servidor de verificação permitir, normalmente pelo menos 100.000 iterações. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.4** | Verifique se o bcrypt é usado, o fator de trabalho DEVE ser tão grande quanto o desempenho do servidor de verificação permitir, com um mínimo de 10. ([C6](https://owasp.org/www-project-proactive-controls/#div -numeração)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.4** | Verifique se o bcrypt é usado, o fator de trabalho DEVE ser tão grande quanto o desempenho do servidor de verificação permitir, com um mínimo de 10. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | Verifique se uma iteração adicional de uma função de derivação de chave é executada, usando um valor salt que é secreto e conhecido apenas pelo verificador. Gere o valor salt usando um gerador de bit aleatório aprovado [SP 800-90Ar1] e forneça pelo menos a segurança mínima especificada na última revisão do SP 800-131A. O valor salt secreto DEVERÁ ser armazenado separadamente das senhas com hash (por exemplo, num dispositivo especializado como um módulo de segurança de hardware). | | ✓ | ✓ | 916 | 5.1.1.2 |
 
 Quando os padrões dos EUA são mencionados, um padrão regional ou local pode ser usado no lugar, ou em adição ao padrão dos EUA, conforme necessário.
@@ -113,7 +113,7 @@ Quando os padrões dos EUA são mencionados, um padrão regional ou local pode s
 | **2.5.6** | Verifique a senha esquecida e outros caminhos de recuperação usam um mecanismo de recuperação seguro, como OTP baseado em tempo (TOTP) ou outro token flexível, push móvel ou outro mecanismo de recuperação offline. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.7** | Verifique se os fatores de autenticação OTP ou multifator são perdidos, se a prova de identidade é realizada no mesmo nível que durante o registro. | | ✓ | ✓ | 308 | 6.1.2.3 |
 
-## Verificador secreto de pesquisa V2.6
+## V2.6 Verificador secreto de pesquisa
 
 Os segredos de pesquisa são listas pré-geradas de códigos secretos, como números de autorização de transação (TAN), códigos de recuperação de mídia social ou uma grade contendo um conjunto de valores aleatórios. Estes são distribuídos de forma segura para os usuários. Esses códigos de pesquisa são usados uma vez e, uma vez usados, a lista secreta de pesquisa é descartada. Esse tipo de autenticador é considerado "algo que você tem".
 
