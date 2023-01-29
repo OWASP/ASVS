@@ -1,4 +1,4 @@
-ASVS | CRE
+<pre>ASVS | CRE
 ---- | ---
 [v4.0.3-1.1.1](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x10-V1-Architecture.md#v11-secure-software-development-lifecycle) | [616-305 Define security steps in every SDLC stage](https://www.opencre.org/cre/616-305)
 [v4.0.3-1.1.2](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x10-V1-Architecture.md#v11-secure-software-development-lifecycle) | [340-754 Threat model every design change or sprint](https://www.opencre.org/cre/340-754)
@@ -286,3 +286,4 @@ ASVS | CRE
 [v4.0.3-9.2.3](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x17-V9-Communications.md#v92-server-communication-security) | [605-735 Authenticate all external connections](https://www.opencre.org/cre/605-735)
 [v4.0.3-9.2.4](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x17-V9-Communications.md#v92-server-communication-security) | [537-367 Enable certification revocation](https://www.opencre.org/cre/537-367)
 [v4.0.3-9.2.5](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x17-V9-Communications.md#v92-server-communication-security) | [668-364 Log TLS connection failures](https://www.opencre.org/cre/668-364)
+</pre>
