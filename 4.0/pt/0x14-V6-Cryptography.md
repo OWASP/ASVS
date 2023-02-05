@@ -13,7 +13,7 @@ Certifique-se de que uma aplicação verificado atenda aos seguintes requisitos 
 O ativo mais importante são os dados processados, armazenados ou transmitidos por uma aplicação. Sempre realize uma avaliação de impacto na privacidade para classificar corretamente as necessidades de proteção de dados de quaisquer dados armazenados.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.1.1** | Verifique se os dados privados regulamentados são armazenados criptografados enquanto estão em repouso, como informações de identificação pessoal (PII), informações pessoais confidenciais ou dados avaliados que provavelmente estão sujeitos ao GDPR da UE. | | ✓ | ✓ | 311 |
 | **6.1.2** | Verifique se os dados de saúde regulamentados são armazenados criptografados enquanto estão em repouso, como registros médicos, detalhes de dispositivos médicos ou registros de pesquisa anonimizados. | | ✓ | ✓ | 311 |
 | **6.1.3** | Verifique se os dados financeiros regulamentados são armazenados criptografados enquanto estão inativos, como contas financeiras, inadimplência ou histórico de crédito, registros fiscais, histórico de pagamentos, beneficiários ou registros de pesquisa ou mercado anonimizados. | | ✓ | ✓ | 311 |
@@ -25,7 +25,7 @@ Avanços recentes em criptografia significam que algoritmos e comprimentos de ch
 Embora esta seção não seja facilmente testada quanto à penetração, os desenvolvedores devem considerá-la como obrigatória, mesmo que L1 esteja faltando na maioria dos itens.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.2.1** | Verifique se todos os módulos criptográficos falham com segurança e se os erros são tratados de forma a não permitir ataques de Padding Oracle. | ✓ | ✓ | ✓ | 310 |
 | **6.2.2** | Verifique se são usados algoritmos, modos e bibliotecas criptográficos comprovados pelo setor ou aprovados pelo governo, em vez de criptografia codificada personalizada. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 327 |
 | **6.2.3** | Verifique se o vetor de inicialização de criptografia, a configuração de cifra e os modos de bloqueio estão configurados com segurança usando as recomendações mais recentes. | | ✓ | ✓ | 326 |
@@ -40,7 +40,7 @@ Embora esta seção não seja facilmente testada quanto à penetração, os dese
 A verdadeira geração de números pseudoaleatórios (PRNG) é incrivelmente difícil de acertar. Geralmente, boas fontes de entropia dentro de um sistema serão rapidamente esgotadas se usadas em excesso, mas fontes com menos aleatoriedade podem levar a chaves e segredos previsíveis.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.3.1** | Verifique se todos os números aleatórios, nomes de arquivos aleatórios, GUIDs aleatórios e strings aleatórias são gerados usando o gerador de números aleatórios criptograficamente seguro aprovado do módulo criptográfico quando esses valores aleatórios não devem ser adivinhados por um invasor. | | ✓ | ✓ | 338 |
 | **6.3.2** | Verifique se os GUIDs aleatórios são criados usando o algoritmo GUID v4 e um gerador de números pseudo-aleatórios criptograficamente seguro (CSPRNG). GUIDs criados usando outros geradores de números pseudo-aleatórios podem ser previsíveis. | | ✓ | ✓ | 338 |
 | **6.3.3** | Verifique se os números aleatórios são criados com a entropia adequada mesmo quando a aplicação está sob carga pesada ou se a aplicação se degrada normalmente nessas circunstâncias. | | | ✓ | 338 |
@@ -50,7 +50,7 @@ A verdadeira geração de números pseudoaleatórios (PRNG) é incrivelmente dif
 Embora esta seção não seja facilmente testada quanto à penetração, os desenvolvedores devem considerá-la como obrigatória, mesmo que L1 esteja faltando na maioria dos itens.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.4.1** | Verifique se uma solução de gestão de segredos, como um cofre de chaves, é usada para criar, armazenar, controlar o acesso e destruir segredos com segurança. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 798 |
 | **6.4.2** | Verifique se o material da chave não está exposto à aplicação, mas usa um módulo de segurança isolado como um cofre para operações criptográficas. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 320 |
 
