@@ -24,7 +24,7 @@ V7.1 abrange OWASP Top 10 2017:A10. Como 2017:A10 e esta seção não são pass�
 * Penetration testers para validar a conformidade total de todos os itens na V7.1 por meio de entrevista, capturas de tela ou afirmação
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.1.1** | Verifique se a aplicação não registra credenciais ou detalhes de pagamento. Os tokens de sessão devem ser armazenados apenas em logs num formato de hash irreversível. ([C9, C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 532 |
 | **7.1.2** | Verifique se a aplicação não registra outros dados confidenciais conforme definido nas leis de privacidade locais ou na política de segurança relevante. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 532 |
 | **7.1.3** | Verifique se a aplicação registra eventos relevantes de segurança, incluindo eventos de autenticação bem-sucedidos e com falha, falhas de controle de acesso, falhas de desserialização e falhas de validação de input. ([C5, C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
@@ -40,7 +40,7 @@ V7.2 abrange OWASP Top 10 2017:A10. Como 2017:A10 e esta seção não são pass�
 * Penetration testers para validar a conformidade total de todos os itens na V7.2 por entrevista, capturas de tela ou afirmação
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.2.1** | Verifique se todas as decisões de autenticação são registradas, sem armazenar senhas ou tokens de sessão confidenciais. Isso deve incluir solicitações com metadados relevantes necessários para investigações de segurança. | | ✓ | ✓ | 778 |
 | **7.2.2** | Verifique se todas as decisões de controle de acesso podem ser registradas e todas as decisões com falha são registradas. Isso deve incluir solicitações com metadados relevantes necessários para investigações de segurança. | | ✓ | ✓ | 285 |
 
@@ -49,7 +49,7 @@ V7.2 abrange OWASP Top 10 2017:A10. Como 2017:A10 e esta seção não são pass�
 Logs que podem ser modificados ou excluídos trivialmente são inúteis para investigações e processos. A divulgação de logs pode expor detalhes internos sobre a aplicação ou os dados que ele contém. Deve-se tomar cuidado ao proteger os logs contra divulgação, modificação ou exclusão não autorizada.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.3.1** | Verifique se todos os componentes de log codificam os dados adequadamente para evitar a injeção de log. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
 | **7.3.2** | [EXCLUÍDO, DUPLICADO DE 7.3.1] | | | | |
 | **7.3.3** | Verifique se os logs de segurança estão protegidos contra acesso e modificação não autorizados. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 200 |
@@ -62,7 +62,7 @@ Observação: a codificação de log (7.3.1) é difícil de testar e revisar usa
 O objetivo do tratamento de erros é permitir que a aplicação forneça eventos relevantes de segurança para monitoramento, triagem e escalonamento. O objetivo não é criar logs. Ao registrar eventos relacionados à segurança, certifique-se de que haja uma finalidade para o registro e que ele possa ser distinguido pelo SIEM ou software de análise.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.4.1** | Verifique se uma mensagem genérica é exibida quando ocorre um erro inesperado ou sensível à segurança, possivelmente com uma ID exclusiva que a equipe de suporte pode usar para investigar. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 210 |
 | **7.4.2** | Verifique se o tratamento de exceção (ou um equivalente funcional) é usado na base de código para contabilizar as condições de erro esperadas e inesperadas. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 544 |
 | **7.4.3** | Verifique se um manipulador de erro de "último recurso" está definido para capturar todas as exceções não tratadas. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 431 |
@@ -75,4 +75,3 @@ Para mais informações, consulte também:
 
 * [OWASP Testing Guide 4.0 content: Testing for Error Handling](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README.html)
 * [OWASP Authentication Cheat Sheet section about error messages](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages)
-
