@@ -23,7 +23,7 @@ Certifique-se de que todas as mensagens do cliente sejam enviadas por redes crip
 Use ferramentas atualizadas para revisar a configuração do cliente regularmente.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **9.1.1** | Verifique se o TLS é usado para toda a conectividade do cliente e não retrocede para comunicações inseguras ou não criptografadas. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 319 |
 | **9.1.2** | Verifique, usando ferramentas de teste de TLS atualizadas, que somente conjuntos de cifras fortes estão ativados, com os conjuntos de cifras mais fortes definidos como preferenciais. | ✓ | ✓ | ✓ | 326 |
 | **9.1.3** | Verifique se apenas as versões recomendadas mais recentes do protocolo TLS estão habilitadas, como TLS 1.2 e TLS 1.3. A versão mais recente do protocolo TLS deve ser a opção preferida. | ✓ | ✓ | ✓ | 326 |
@@ -33,7 +33,7 @@ Use ferramentas atualizadas para revisar a configuração do cliente regularment
 As comunicações do servidor são mais que apenas HTTP. Conexões seguras de e para outros sistemas, como sistemas de monitoramento, ferramentas de gestão, acesso remoto e ssh, middleware, banco de dados, mainframes, parceiros ou sistemas de origem externa - devem estar em vigor. Tudo isso deve ser criptografado para evitar "difícil por fora, trivialmente fácil de interceptar por dentro".
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **9.2.1** | Verifique se as conexões de e para o servidor usam certificados TLS confiáveis. Onde certificados gerados internamente ou autoassinados são usados, o servidor deve ser configurado para confiar apenas em CAs internas específicas e certificados autoassinados específicos. Todos os outros devem ser rejeitados. | | ✓ | ✓ | 295 |
 | **9.2.2** | Verifique se as comunicações criptografadas, como TLS, são usadas para todas as conexões de input e output, incluindo portas de gestão, monitoramento, autenticação, API ou chamadas de Web Service, banco de dados, nuvem, serverless, mainframe, externas e conexões de parceiros. O servidor não deve recorrer a protocolos inseguros ou não criptografados. | | ✓ | ✓ | 319 |
 | **9.2.3** | Verifique se todas as conexões criptografadas com sistemas externos que envolvem informações ou funções confidenciais são autenticadas. | | ✓ | ✓ | 287 |
