@@ -16,13 +16,13 @@ Conforme observado anteriormente, esses requisitos foram adaptados para serem um
 ## V3.1 Fundamentos de Segurança de Gestão de Sessão
 
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.1.1** | Verifique se a aplicação nunca revela tokens de sessão em parâmetros de URL. | ✓ | ✓ | ✓ | 598 | |
 
 ## V3.2 Ligação de Sessão
 
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.2.1** | Verifique se a aplicação gera um novo token de sessão na autenticação do usuário. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
 | **3.2.2** | Verifique se os tokens de sessão possuem pelo menos 64 bits de entropia. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | Verifique se a aplicação armazena apenas tokens de sessão no navegador usando métodos seguros, como cookies devidamente protegidos (consulte a seção 3.4) ou armazenamento de sessão HTML 5. | ✓ | ✓ | ✓ | 539 | 7.1 |
@@ -45,9 +45,9 @@ L1 neste contexto é IAL1/AAL1, L2 é IAL2/AAL3, L3 é IAL3/AAL3. Para IAL2/AAL2
 
 ## V3.4 Gestão de sessão baseado em cookies
 
-| # | Descrição | L1 | L2 | L3 | CWE  | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: |:----:| :---: |
-| **3.4.1** | Verifique se os tokens de sessão baseados em cookie têm o atributo 'Seguro' definido. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614  | 7.1.1 |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **3.4.1** | Verifique se os tokens de sessão baseados em cookie têm o atributo 'Seguro' definido. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
 | **3.4.2** | Verifique se os tokens de sessão baseados em cookie têm o atributo 'HttpOnly' definido. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
 | **3.4.3** | Verifique se os tokens de sessão baseados em cookies utilizam o atributo 'SameSite' para limitar a exposição a ataques de falsificação de solicitação entre sites. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.4** | Verifique se os tokens de sessão baseados em cookie usam o prefixo "__Host-" para que os cookies sejam enviados apenas para o host que inicialmente definiu o cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
@@ -58,7 +58,7 @@ L1 neste contexto é IAL1/AAL1, L2 é IAL2/AAL3, L3 é IAL3/AAL3. Para IAL2/AAL2
 A gestão de sessão baseado em token inclui chaves JWT, OAuth, SAML e API. Destas, as chaves de API são conhecidas por serem fracas e não devem ser usadas em novos códigos.
 
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.5.1** | Verifique se a aplicação permite que os usuários revoguem tokens OAuth que formam relacionamentos de confiança coma aplicaçãos vinculados. | | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | Verifique se a aplicação usa tokens de sessão em vez de chaves e segredos de API estáticos, exceto com implementações herdadas. | | ✓ | ✓ | 798 | |
 | **3.5.3** | Verifique se os tokens de sessão sem estado usam assinaturas digitais, criptografia e outras contramedidas para proteger contra adulteração, envelopamento, repetição, cifra nula e ataques de substituição de chave. | | ✓ | ✓ | 345 | |
@@ -83,7 +83,7 @@ No início de 2018, várias instituições financeiras foram comprometidas usand
 Os invasores iniciam um ataque semiaberto tentando bloquear, redefinir ou recuperar uma credencial. Um padrão de design de gestão de sessão popular reutiliza objetos/modelos de sessão de perfil de usuário entre código não autenticado, parcialmente autenticado (redefinições de senha, nome de usuário esquecido) e totalmente autenticado. Esse padrão de design preenche um objeto ou token de sessão válido contendo o perfil da vítima, incluindo hashes de senha e funções. Se as verificações de controle de acesso em controladores ou roteadores não verificarem corretamente se o usuário está totalmente conectado, o invasor poderá agir como o usuário. Os ataques podem incluir alterar a senha do usuário para um valor conhecido, atualizar o endereço de e-mail para executar uma redefinição de senha válida, desabilitar a autenticação multifator ou registrar um novo dispositivo MFA, revelar ou alterar chaves de API e assim por diante.
 
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
-| :---: | :--- | :---: | :---:| :---: | :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.7.1** | Verifique se a aplicação garante uma sessão de login completa e válida ou requer reautenticação ou verificação secundária antes de permitir transações confidenciais ou modificações de conta. | ✓ | ✓ | ✓ | 306 | |
 
 ## Referências
