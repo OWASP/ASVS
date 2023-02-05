@@ -13,7 +13,7 @@ Certifique-se de que uma aplicação verificado atenda aos seguintes requisitos 
 A segurança da lógica de negócios é tão individual para cada aplicação que nenhuma lista de verificação será aplicada. A segurança da lógica de negócios deve ser projetada para proteger contra prováveis ameaças externas - ela não pode ser adicionada usando firewalls de aplicações da Web ou comunicações seguras. Recomendamos o uso de modelagem de ameaças durante os sprints de design, por exemplo, usando o OWASP Cornucopia ou ferramentas semelhantes.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **11.1.1** | Verifique se a aplicação processará apenas fluxos de lógica de negócios para o mesmo usuário em ordem sequencial de etapas e sem pular etapas. | ✓ | ✓ | ✓ | 841 |
 | **11.1.2** | Verifique se a aplicação processará apenas fluxos de lógica de negócios com todas as etapas sendo processadas em tempo humano realista, ou seja, as transações não são enviadas muito rapidamente. | ✓ | ✓ | ✓ | 799 |
 | **11.1.3** | Verifique se a aplicação tem limites apropriados para ações ou transações de negócios específicas que são aplicadas corretamente por usuário. | ✓ | ✓ | ✓ | 770 |
