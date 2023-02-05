@@ -15,7 +15,7 @@ Certifique-se de que uma aplicação verificado atenda aos seguintes requisitos 
 ## V8.1 Proteção Geral de Dados
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.1.1** | Verifique se a aplicação protege os dados confidenciais de serem armazenados em cache nos componentes do servidor, como balanceadores de carga e caches de aplicações. | | ✓ | ✓ | 524 |
 | **8.1.2** | Verifique se todas as cópias em cache ou temporárias de dados confidenciais armazenados no servidor estão protegidas contra acesso não autorizado ou eliminadas/invalidadas depois que o usuário autorizado acessa os dados confidenciais. | | ✓ | ✓ | 524 |
 | **8.1.3** | Verifique se a aplicação minimiza o número de parâmetros numa solicitação, como campos ocultos, variáveis Ajax, cookies e valores de cabeçalho. | | ✓ | ✓ | 233 |
@@ -26,7 +26,7 @@ Certifique-se de que uma aplicação verificado atenda aos seguintes requisitos 
 ## V8.2 Proteção de dados do lado do cliente
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.2.1** | Verifique se a aplicação define cabeçalhos anti-cache suficientes para que dados confidenciais não sejam armazenados em cache em navegadores modernos. | ✓ | ✓ | ✓ | 525 |
 | **8.2.2** | Verifique se os dados armazenados no armazenamento do navegador (como localStorage, sessionStorage, IndexedDB ou cookies) não contêm dados confidenciais. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | Verifique se os dados autenticados foram apagados do armazenamento do cliente, como o DOM do navegador, após o término do cliente ou da sessão. | ✓ | ✓ | ✓ | 922 |
@@ -40,7 +40,7 @@ A conformidade com esta seção implica conformidade com o Controle de acesso V4
 Observação: os regulamentos e as leis de privacidade, como os princípios de privacidade australianos APP-11 ou GDPR, afetam diretamente como as aplicações devem abordar a implementação de armazenamento, uso e transmissão de informações pessoais confidenciais. Isso varia de penalidades severas a conselhos simples. Consulte as leis e regulamentos locais e consulte um especialista em privacidade ou advogado qualificado, conforme necessário.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.3.1** | Verifique se os dados confidenciais são enviados ao servidor no corpo ou nos cabeçalhos da mensagem HTTP e se os parâmetros da string de consulta de qualquer verbo HTTP não contêm dados confidenciais. | ✓ | ✓ | ✓ | 319 |
 | **8.3.2** | Verifique se os usuários têm um método para remover ou exportar os seus dados sob demanda. | ✓ | ✓ | ✓ | 212 |
 | **8.3.3** | Verifique se os usuários recebem uma linguagem clara sobre a coleta e o uso das informações pessoais fornecidas e se os usuários forneceram consentimento para o uso desses dados antes de serem usados de qualquer forma. | ✓ | ✓ | ✓ | 285 |
@@ -62,4 +62,3 @@ Para mais informações, consulte também:
 * [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
 * [European Union General Data Protection Regulation (GDPR) overview](https://edps.europa.eu/data-protection_en)
 * [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
-
