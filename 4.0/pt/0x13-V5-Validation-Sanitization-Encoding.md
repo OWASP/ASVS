@@ -17,7 +17,7 @@ Com a arquitetura moderna de aplicações da Web, a codificação de output é m
 Controles de validação de input implementados adequadamente, usando listas de permissões positivas e digitação forte de dados, podem eliminar mais de 90% de todos os ataques de injeção. As verificações de comprimento e alcance podem reduzir isso ainda mais. Construir a validação de input segura é necessário durante a arquitetura da aplicação, sprints de design, codificação e testes de unidade e integração. Embora muitos desses itens não possam ser encontrados em testes de penetração, os resultados de não implementá-los são geralmente encontrados em V5.3 - Codificação de output e requisitos de prevenção de injeção. Desenvolvedores e revisores de código seguro são recomendados para tratar esta seção como se L1 fosse necessário para todos os itens para evitar injeções.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.1.1** | Verifique se a aplicação possui defesas contra ataques de poluição de parâmetro HTTP, principalmente se a estrutura da aplicação não fizer distinção sobre a origem dos parâmetros de solicitação (GET, POST, cookies, cabeçalhos ou variáveis de ambiente). | ✓ | ✓ | ✓ | 235 |
 | **5.1.2** | Verifique se as estruturas protegem contra ataques de atribuição de parâmetros em massa ou se a aplicação possui contramedidas para proteger contra atribuição de parâmetros não segura, como marcar campos como privados ou similares. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
 | **5.1.3** | Verifique se todas as inputs (campos de formulário HTML, solicitações REST, parâmetros de URL, cabeçalhos HTTP, cookies, arquivos em lote, feeds RSS, etc.) são validadas usando validação positiva (listas de permissão). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
@@ -42,7 +42,7 @@ Controles de validação de input implementados adequadamente, usando listas de 
 A codificação de output próxima ou adjacente ao interpretador em uso é crítica para a segurança de qualquer aplicação. Normalmente, a codificação de output não é mantida, mas usada para tornar a output segura no contexto de output apropriado para uso imediato. Deixar de codificar a output resultará numa aplicação injetável e insegura.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.3.1** | Verifique se a codificação de output é relevante para o interpretador e o contexto necessários. Por exemplo, use codificadores especificamente para valores HTML, atributos HTML, JavaScript, parâmetros de URL, cabeçalhos HTTP, SMTP e outros conforme o contexto exigir, especialmente de inputs não confiáveis (por exemplo, nomes com Unicode ou apóstrofes, como ねこ ou O'Hara) . ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
 | **5.3.2** | Verifique se a codificação de output preserva o conjunto de caracteres e localidade escolhidos pelo usuário, de forma que qualquer ponto de caractere Unicode seja válido e manipulado com segurança. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 176 |
 | **5.3.3** | Verifique se o escape de output sensível ao contexto, de preferência automatizado - ou, na pior das hipóteses, manual - protege contra XSS refletido, armazenado e baseado em DOM. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 79 |
@@ -63,7 +63,7 @@ Observação: o formato SVG permite explicitamente o script ECMA em quase todos 
 Os requisitos a seguir serão aplicados apenas quando a aplicação usar uma linguagem de sistema ou código não gerenciado.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.4.1** | Verifique se a aplicação usa cadeia de memória segura, cópia de memória mais segura e aritmética de ponteiro para detectar ou evitar estouros de pilha, buffer ou heap. | | ✓ | ✓ | 120 |
 | **5.4.2** | Verifique se as strings de formato não aceitam inputs potencialmente hostis e são constantes. | | ✓ | ✓ | 134 |
 | **5.4.3** | Verifique se as técnicas de validação de sinal, intervalo e input são usadas para evitar estouros de número inteiro. | | ✓ | ✓ | 190 |
@@ -107,4 +107,3 @@ Para obter mais informações sobre desserialização, consulte:
 
 * [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 * [OWASP Deserialization of Untrusted Data Guide](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data)
-
