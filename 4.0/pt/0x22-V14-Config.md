@@ -20,7 +20,7 @@ Se os modelos tradicionais ainda estiverem em vigor, devem ser tomadas medidas m
 A conformidade com esta seção requer um sistema de compilação automatizado e acesso a scripts de compilação e implantação.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.1.1** | Verifique se os processos de criação e implantação da aplicação são executados de maneira segura e repetível, como automação de CI/CD, gestão de configuração automatizada e scripts de implantação automatizada. | | ✓ | ✓ | |
 | **14.1.2** | Verifique se os sinalizadores do compilador estão configurados para habilitar todas as proteções e avisos de buffer overflow disponíveis, incluindo randomização de pilha, prevenção de execução de dados e para interromper a compilação se um ponteiro inseguro, memória, string de formato, número inteiro ou operações de string forem encontrados. | | ✓ | ✓ | 120 |
 | **14.1.3** | Verifique se a configuração do servidor está protegida de acordo com as recomendações do servidor de aplicações e estruturas em uso. | | ✓ | ✓ | 16 |
@@ -34,7 +34,7 @@ O gestão de dependência é crítico para a operação segura de qualquer aplic
 Nota: No Nível 1, a conformidade com 14.2.1 refere-se a observações ou detecções do lado do cliente e outras bibliotecas e componentes, em vez da análise de código estático ou análise de dependência mais precisa em tempo de compilação. Essas técnicas mais precisas podem ser descobertas por entrevistas, conforme necessário.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.2.1** | Verifique se todos os componentes estão atualizados, de preferência usando um verificador de dependência durante o tempo de construção ou compilação. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
 | **14.2.2** | Verifique se todos os recursos, documentação, aplicações de amostra e configurações desnecessários foram removidos. | ✓ | ✓ | ✓ | 1002 |
 | **14.2.3** | Verifique se os ativos da aplicação, como bibliotecas JavaScript, CSS ou fontes da Web, são hospedados externamente numa rede de entrega de conteúdo (CDN) ou provedor externo, a integridade do subrecurso (SRI) é usada para validar a integridade do ativo. | ✓ | ✓ | ✓ | 829 |
@@ -47,7 +47,7 @@ Nota: No Nível 1, a conformidade com 14.2.1 refere-se a observações ou detec�
 As configurações para produção devem ser fortalecidas para proteger contra-ataques comuns, como consoles de depuração, aumentar o nível de ataques Cross-site Scripting (XSS) e Remote File Inclusion (RFI) e eliminar "vulnerabilidades" triviais de descoberta de informações que são as indesejadas marcas registradas de muitos relatórios de teste de penetração. Muitos desses problemas são raramente classificados como um risco significativo, mas estão encadeados com outras vulnerabilidades. Se esses problemas não estiverem presentes por padrão, ele eleva a fasquia antes que a maioria dos ataques seja bem-sucedida.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.3.1** | [EXCLUÍDO, DUPLICADO DE 7.4.1] | | | | |
 | **14.3.2** | Verifique se os modos de depuração da estrutura da aplicação ou servidor da Web estão desativados na produção para eliminar recursos de depuração, consoles de desenvolvedor e divulgações de segurança não intencionais. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Verifique se os cabeçalhos HTTP ou qualquer parte da resposta HTTP não expõe informações detalhadas sobre a versão dos componentes do sistema. | ✓ | ✓ | ✓ | 200 |
@@ -55,7 +55,7 @@ As configurações para produção devem ser fortalecidas para proteger contra-a
 ## V14.4 Cabeçalhos de segurança HTTP
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.4.1** | Verifique se cada resposta HTTP contém um cabeçalho Content-Type. Especifique também um conjunto de caracteres seguro (por exemplo, UTF-8, ISO-8859-1) se os tipos de conteúdo forem text/*, /+xml e application/xml. O conteúdo deve corresponder ao cabeçalho Content-Type fornecido. | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | Verifique se todas as respostas da API contêm um anexo Content-Disposition:; cabeçalho filename="api.json" (ou outro nome de arquivo apropriado para o tipo de conteúdo). | ✓ | ✓ | ✓ | 116 |
 | **14.4.3** | Verifique se um cabeçalho de resposta da política de segurança de conteúdo (CSP) está em vigor para ajudar a atenuar o impacto de ataques XSS, como HTML, DOM, JSON e vulnerabilidades de injeção de JavaScript. | ✓ | ✓ | ✓ | 1021 |
@@ -67,7 +67,7 @@ As configurações para produção devem ser fortalecidas para proteger contra-a
 ## V14.5 Validação de cabeçalho de solicitação HTTP
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | Verifique se o servidor de aplicações aceita apenas os métodos HTTP em uso pela aplicação/API, incluindo OPÇÕES pré-voo e logs/alertas em quaisquer solicitações que não sejam válidas para o contexto da aplicação. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | Verifique se o cabeçalho Origin fornecido não é usado para autenticação ou decisões de controle de acesso, pois o cabeçalho Origin pode ser facilmente alterado por um invasor. | ✓ | ✓ | ✓ | 346 |
 | **14.5.3** | Verifique se o cabeçalho Access-Control-Allow-Origin de compartilhamento de recursos de origem cruzada (CORS) usa uma lista de permissão estrita de domínios e subdomínios confiáveis para correspondência e não oferece suporte à origem "nula". | ✓ | ✓ | ✓ | 346 |
