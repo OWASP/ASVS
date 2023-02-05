@@ -18,7 +18,7 @@ A melhor defesa contra códigos maliciosos é "confiar, mas verificar". A introd
 Os principais desenvolvedores devem revisar regularmente os check-ins de código, especialmente aqueles que podem acessar funções de tempo, E/S ou rede.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.1.1** | Verifique se uma ferramenta de análise de código está em uso e pode detectar códigos potencialmente maliciosos, como funções de tempo, operações de arquivo inseguras e conexões de rede. | | | ✓ | 749 |
 
 ## V10.2 Pesquisa de código malicioso
@@ -28,7 +28,7 @@ O código malicioso é extremamente raro e difícil de detectar. A revisão manu
 A conformidade com esta seção não é possível sem acesso completo ao código-fonte, incluindo bibliotecas de terceiros.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.2.1** | Verifique se o código-fonte da aplicação e as bibliotecas de terceiros não contêm recursos não autorizados de telefone residencial ou coleta de dados. Onde tal funcionalidade existir, obtenha a permissão do usuário para que ela opere antes de coletar quaisquer dados. | | ✓ | ✓ | 359 |
 | **10.2.2** | Verifique se a aplicação não solicita permissões desnecessárias ou excessivas para recursos ou sensores relacionados à privacidade, como contatos, câmeras, microfones ou localização. | | ✓ | ✓ | 272 |
 | **10.2.3** | Verifique se o código-fonte da aplicação e as bibliotecas de terceiros não contêm backdoors, como contas ou chaves codificadas ou adicionais não documentadas, ofuscação de código, blobs binários não documentados, rootkits ou antidepuração, recursos de depuração inseguros ou de outra forma fora de data, funcionalidade insegura ou oculta que pode ser usada maliciosamente se descoberta. | | | ✓ | 507 |
@@ -43,12 +43,14 @@ Depois que uma aplicação é implantado, o código malicioso ainda pode ser ins
 O cumprimento desta seção provavelmente será operacional e contínuo.
 
 | # | Descrição | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.3.1** | Verifique se a aplicação possui um recurso de atualização automática de cliente ou servidor, as atualizações devem ser obtidas por canais seguros e assinadas digitalmente. O código de atualização deve validar a assinatura digital da atualização antes de instalar ou executar a atualização. | ✓ | ✓ | ✓ | 16 |
 | **10.3.2** | Verifique se a aplicação emprega proteções de integridade, como assinatura de código ou integridade de sub-recurso. A aplicação não deve carregar ou executar código de fontes não confiáveis, como carregamento de inclusões, módulos, plug-ins, códigos ou bibliotecas de fontes não confiáveis ou da Internet. | ✓ | ✓ | ✓ | 353 |
 | **10.3.3** | Verifique se a aplicação tem proteção contra invasões de subdomínio se a aplicação depender de inputs DNS ou subdomínios DNS, como nomes de domínio expirados, ponteiros DNS ou CNAMEs desatualizados, projetos expirados em repositórios públicos de código-fonte ou APIs de nuvem temporárias, funções serverless, ou depósitos de armazenamento (*autogen-bucket-id*.cloud.example.com) ou similar. As proteções podem incluir a garantia de que os nomes DNS usados pelas aplicações sejam verificados regularmente quanto à expiração ou alteração. | ✓ | ✓ | ✓ | 350 |
 
 ## Referências
+
+Para mais informações, consulte também:
 
 * [Hostile Subdomain Takeover, Detectify Labs](https://labs.detectify.com/2014/10/21/hostile-subdomain-takeover-using-herokugithubdesk-more/)
 * [Hijacking of abandoned subdomains part 2, Detectify Labs](https://labs.detectify.com/2014/12/08/hijacking-of-abandoned-subdomains-part-2/)
