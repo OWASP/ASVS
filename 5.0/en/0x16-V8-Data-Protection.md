@@ -18,7 +18,7 @@ Ensure that a verified application satisfies the following high level data prote
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.1.1** | [MODIFIED, MERGED FROM 8.1.2] Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | | ✓ | ✓ | 524 |
 | **8.1.2** | [DELETED, MERGED TO 8.1.1] | | | | |
-| **8.1.3** | [DELETED] | | | | |
+| **8.1.3** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **8.1.4** | Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
 | **8.1.5** | [DELETED, NOT IN SCOPE] | | | | |
 | **8.1.6** | [DELETED, NOT IN SCOPE] | | | | |
@@ -46,7 +46,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.3** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
 | **8.3.5** | Verify accessing sensitive data is audited (without logging the sensitive data itself), if the data is collected under relevant data protection directives or where logging of access is required. | | ✓ | ✓ | 532 |
-| **8.3.6** | Verify that sensitive information contained in memory is overwritten as soon as it is no longer required to mitigate memory dumping attacks, using zeroes or random data. | | ✓ | ✓ | 226 |
+| **8.3.6** | [DELETED, NOT PRACTICAL] | | | | |
 | **8.3.7** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provide both confidentiality and integrity. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 327 |
 | **8.3.8** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | ✓ | ✓ | |
 | **8.3.9** | [ADDED, SPLIT FROM 8.3.2] Verify that users have a method to export their data on demand. | | ✓ | ✓ | |

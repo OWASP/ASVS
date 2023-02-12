@@ -53,8 +53,9 @@ Logs that can be trivially modified or deleted are useless for investigations an
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.3.1** | Verify that all logging components appropriately encode data to prevent log injection. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
 | **7.3.2** | [DELETED, DUPLICATE OF 7.3.1] | | | | |
-| **7.3.3** | Verify that security logs are protected from unauthorized access and modification. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 200 |
+| **7.3.3** | [MODIFIED] Verify that logs are protected from unauthorized access and cannot be modified. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 200 |
 | **7.3.4** | [MOVED TO 7.1.5] | | | | |
+| **7.3.5** | [MOVED FROM 1.7.2] Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
 Note: Log encoding (7.3.1) is difficult to test and review using automated dynamic tools and penetration tests, but architects, developers, and source code reviewers should consider it an L1 requirement.
 

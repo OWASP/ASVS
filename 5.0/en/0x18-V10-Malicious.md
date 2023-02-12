@@ -19,7 +19,7 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.1.1** | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections. | | | ✓ | 749 |
+| **10.1.1** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V10.2 Malicious Code Search
 
