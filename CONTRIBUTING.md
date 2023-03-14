@@ -75,4 +75,3 @@ Tags must be placed before verification description, example:
 | **12.4.2** | [MODIFIED] Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload and serving of known malicious content. | ✓ | ✓ | ✓ | 509 |
 ```
 
-
