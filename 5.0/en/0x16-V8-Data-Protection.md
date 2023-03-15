@@ -58,7 +58,8 @@ When considering data protection, a primary consideration should be around bulk 
 
 For more information, see also:
 
-* [Consider using Security Headers website to check security and anti-caching headers](https://securityheaders.io)
+* [Consider using Security Headers website to check security and anti-caching headers](https://securityheaders.com/)
+* [Documentation about anti-caching headers by Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
 * [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
 * [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
 * [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
