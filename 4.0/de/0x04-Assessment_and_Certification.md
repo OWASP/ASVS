@@ -4,7 +4,9 @@
 
 OWASP ist eine herstellerneutrale, gemeinnützige Organisation. Sie zertifiziert derzeit keine Hersteller, Prüfstellen oder Software.
 
-Alle derartigen Versicherungen, Gütesiegel oder Zertifizierungen werden von OWASP nicht offiziell überprüft, registriert oder zertifiziert. Jede Organisation sollte in Bezug auf Aussagen eines Dritten, der behauptet, ASVS-zertifiziert zu sein, vorsichtig sein. Dies ist jedoch kein Verbot, solche Assurancedienstleistungen anzubieten, solange sie keine offizielle OWASP-Zertifizierung geltend machen.
+Alle derartigen Versicherungen, Gütesiegel oder Zertifizierungen werden von OWASP nicht offiziell überprüft, registriert oder zertifiziert. Jede Organisation sollte in Bezug auf Aussagen eines Dritten, der behauptet, ASVS-zertifiziert zu sein, vorsichtig sein.
+
+Dies ist jedoch kein Verbot, solche Assurancedienstleistungen anzubieten, solange sie keine offizielle OWASP-Zertifizierung geltend machen.
 
 ## Leitfaden für zertifizierende Organisationen
 
