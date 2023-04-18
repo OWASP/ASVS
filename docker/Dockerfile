@@ -155,5 +155,4 @@ WORKDIR /data
 VOLUME /data
 
 #setup default action
-ENTRYPOINT ["make"]
-CMD ["all"]
+ENTRYPOINT ["/scripts/run.sh"]

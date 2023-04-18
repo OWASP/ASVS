@@ -12,7 +12,7 @@ TOOLSDIR=$(PROJDIR)/tools
 TEMPLATEDIR=$(PROJDIR)/templates
 SOURCES = $(SOURCEDIR)/*.md
 TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
-TARGETNAME=OWASP_Application_Security_Verification_Standard-5_x
+TARGETNAME=OWASP_Application_Security_Verification_Standard-4_x
 EXPORT_TOOL=$(TOOLSDIR)/export.py
 
 # Change LaTeX engine
