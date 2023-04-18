@@ -8,14 +8,14 @@ In the contents of secure requirements, the ASVS should be useful to anyone tryi
 * Develop and maintain secure applications.
 * Evaluate the security of applications.
 
-This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-baesd approach and different use cases for the standard.
+This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-based approach and different use cases for the standard.
 
 ## Application Security Verification Levels
 
 The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
 
-* ASVS Level 1 is for low assurance levels, and is completely penetration testable
-* ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps
+* ASVS Level 1 is for low assurance levels, and is completely penetration testable.
+* ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps.
 * ASVS Level 3 is for the most critical applications - applications that perform high value transactions, contain sensitive medical data, or any application that requires the highest level of trust.
 
 Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.

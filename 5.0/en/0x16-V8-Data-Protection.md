@@ -16,19 +16,19 @@ Ensure that a verified application satisfies the following high level data prote
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **8.1.1** | Verify the application protects sensitive data from being cached in server components such as load balancers and application caches. | | ✓ | ✓ | 524 |
-| **8.1.2** | Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data. | | ✓ | ✓ | 524 |
-| **8.1.3** | Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values. | | ✓ | ✓ | 233 |
+| **8.1.1** | [MODIFIED, MERGED FROM 8.1.2] Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | | ✓ | ✓ | 524 |
+| **8.1.2** | [DELETED, MERGED TO 8.1.1] | | | | |
+| **8.1.3** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **8.1.4** | Verify the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | | ✓ | ✓ | 770 |
-| **8.1.5** | Verify that regular backups of important data are performed and that test restoration of data is performed. | | | ✓ | 19 |
-| **8.1.6** | Verify that backups are stored securely to prevent data from being stolen or corrupted. | | | ✓ | 19 |
+| **8.1.5** | [DELETED, NOT IN SCOPE] | | | | |
+| **8.1.6** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V8.2 Client-side Data Protection
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.2.1** | Verify the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers. | ✓ | ✓ | ✓ | 525 |
-| **8.2.2** | [MODIFIED] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of cookie-based session tokens in cookies and token-based session tokens in sessionStorage. | ✓ | ✓ | ✓ | 922 |
+| **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens which should be stored in either cookies or sessionStorage. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | ✓ | ✓ | ✓ | 922 |
 
 ## V8.3 Sensitive Private Data
@@ -41,14 +41,14 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **8.3.1** | Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data. | ✓ | ✓ | ✓ | 319 |
+| **8.3.1** | [MODIFIED, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or headers and that the URL and query string do not contain sensitive information, such as an API key or session token. | ✓ | ✓ | ✓ | 319 |
 | **8.3.2** | [MODIFIED, SPLIT TO 8.3.9] Verify that users have a method to remove their data on demand. | ✓ | ✓ | ✓ | 212 |
-| **8.3.3** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | 285 |
+| **8.3.3** | Verify that users are provided clear language regarding collection and use of supplied personal information and that users have provided opt-in consent for the use of that data before it is used in any way. | ✓ | ✓ | ✓ | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
 | **8.3.5** | Verify accessing sensitive data is audited (without logging the sensitive data itself), if the data is collected under relevant data protection directives or where logging of access is required. | | ✓ | ✓ | 532 |
-| **8.3.6** | Verify that sensitive information contained in memory is overwritten as soon as it is no longer required to mitigate memory dumping attacks, using zeroes or random data. | | ✓ | ✓ | 226 |
+| **8.3.6** | [DELETED, NOT PRACTICAL] | | | | |
 | **8.3.7** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provide both confidentiality and integrity. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 327 |
-| **8.3.8** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | ✓ | ✓ | 285 |
+| **8.3.8** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | ✓ | ✓ | |
 | **8.3.9** | [ADDED, SPLIT FROM 8.3.2] Verify that users have a method to export their data on demand. | | ✓ | ✓ | |
 | **8.3.10** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | ✓ | ✓ | ✓ | 212 |
 
@@ -58,10 +58,12 @@ When considering data protection, a primary consideration should be around bulk 
 
 For more information, see also:
 
-* [Consider using Security Headers website to check security and anti-caching headers](https://securityheaders.io)
+* [Consider using Security Headers website to check security and anti-caching headers](https://securityheaders.com/)
+* [Documentation about anti-caching headers by Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
 * [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
 * [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
 * [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
+* [Australian Privacy Principle 11 - Security of personal information](https://www.oaic.gov.au/privacy/australian-privacy-principles-guidelines/chapter-11-app-11-security-of-personal-information)
 * [European Union General Data Protection Regulation (GDPR) overview](https://edps.europa.eu/data-protection_en)
 * [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
 * [Information on the "Clear-Site-Data" header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data)

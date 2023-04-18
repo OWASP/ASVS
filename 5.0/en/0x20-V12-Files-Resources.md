@@ -13,7 +13,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.1.1** | Verify that the application will not accept large files that could fill up storage or cause a denial of service. | ✓ | ✓ | ✓ | 400 |
+| **12.1.1** | [MODIFIED] Verify that the application will only accept files of a size which it can process without causing a loss of performance or denial of service attack. | ✓ | ✓ | ✓ | 400 |
 | **12.1.2** | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | | ✓ | ✓ | 409 |
 | **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
 
@@ -47,7 +47,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.5.1** | [MOVED TO 14.3.6] | | | | |
 | **12.5.2** | Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content. | ✓ | ✓ | ✓ | 434 |
-| **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignoring user-submitted filenames, including in a JSON, JSONP, or URL parameter. The response Content-Type header and Content-Disposition header should be fixed to the file and securely handled by the application instead of the user. | ✓ | ✓ | ✓ | 641 |
+| **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header in the response. | ✓ | ✓ | ✓ | 641 |
 
 ## V12.6 SSRF Protection
 
@@ -60,5 +60,4 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 For more information, see also:
 
 * [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
-* [Reflective file download by Oren Hafif](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)
 * [OWASP Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)

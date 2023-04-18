@@ -1,0 +1,55 @@
+# Apêndice A: Glossário
+
+- **Address Space Layout Randomization** (ASLR) - Uma técnica para dificultar a exploração de bugs de corrupção de memória.
+- **Lista de permissões** - Uma lista de dados ou operações permitidas, por exemplo, uma lista de caracteres com permissão para executar a validação de input.
+- **Segurança de aplicações** - a segurança em nível de aplicação se concentra na análise de componentes que compõem a camada de aplicação do Modelo de referência de interconexão de sistemas abertos (modelo OSI), em vez de se concentrar, por exemplo, no sistema operacional subjacente ou nas redes conectadas.
+- **Application Security Verification** - A avaliação técnica de uma aplicação contra o OWASP ASVS.
+- **Relatório de verificação de segurança da aplicação** - Um relatório que documenta os resultados gerais e a análise de suporte produzida pelo verificador para uma aplicação específico.
+- **Autenticação** - A verificação da identidade reivindicada de um usuário da aplicação.
+- **Verificação automatizada** - O uso de ferramentas automatizadas (ferramentas de análise dinâmica, ferramentas de análise estática ou ambas) que usam assinaturas de vulnerabilidade para encontrar problemas.
+- **teste black box** - É um método de teste de software que examina a funcionalidade de uma aplicação sem examinar as suas estruturas ou funcionamento interno.
+- **Componente** - uma unidade de código independente, com disco associado e interfaces de rede que se comunica com outros componentes.
+- **Cross-Site Scripting** (XSS) - Uma vulnerabilidade de segurança normalmente encontrada ema aplicaçãos da Web que permite a injeção de scripts do lado do cliente no conteúdo.
+- **Módulo criptográfico** - Hardware, software e/ou firmware que implementa algoritmos criptográficos e/ou gera chaves criptográficas.
+- **Common Weakness Enumeration** (CWE) - Uma lista desenvolvida pela comunidade de vulnerabilidades comuns de segurança de software. Ele serve como uma linguagem comum, uma medida para ferramentas de segurança de software e como uma linha de base para esforços de identificação, mitigação e prevenção de fraquezas.
+- **Verificação de projeto** - A avaliação técnica da arquitetura de segurança de uma aplicação.
+- **Dynamic Application Security Testing** (DAST) - As tecnologias são projetadas para detectar condições indicativas de uma vulnerabilidade de segurança numa aplicação em seu estado de execução.
+- **Verificação Dinâmica** - O uso de ferramentas automatizadas que usam assinaturas de vulnerabilidade para encontrar problemas durante a execução de uma aplicação.
+- **Fast IDentity Online** (FIDO) - Um conjunto de padrões de autenticação que permite o uso de vários métodos de autenticação diferentes, incluindo biometria, Trusted Platform Modules (TPMs), tokens de segurança USB, etc.
+- **Globally Unique Identifier** (GUID) - um número de referência exclusivo usado como um identificador no software.
+- **Hyper Text Transfer Protocol** (HTTPS) - Um protocolo de aplicação para sistemas de informação de hipermídia distribuídos e colaborativos. É a base da comunicação de dados para a World Wide Web.
+- **Chaves codificadas** - Chaves criptográficas armazenadas no sistema de arquivos, seja em código, comentários ou arquivos.
+- **Módulo de Segurança de Hardware** (HSM) - Componente de hardware capaz de armazenar chaves criptográficas e outros segredos de forma protegida.
+- **Hibernate Query Language** (HQL) - Uma linguagem de consulta semelhante em aparência ao SQL usado pela biblioteca Hibernate ORM.
+- **Validação de input** - A canonização e validação de input de usuário não confiável.
+- **Código malicioso** - Código introduzido numa aplicação durante o seu desenvolvimento sem o conhecimento do proprietário da aplicação, que contorna a política de segurança pretendida da aplicação. Não é o mesmo que malware, como um vírus ou worm!
+- **Malware** - Código executável introduzido numa aplicação durante o tempo de execução sem o conhecimento do usuário ou administrador da aplicação.
+- **Open Web Application Security Project** (OWASP) - O Open Web Application Security Project (OWASP) é uma comunidade mundial gratuita e aberta focada em melhorar a segurança do software de aplicações. A nossa missão é tornar a segurança de aplicações "visível", para que pessoas e organizações possam tomar decisões informadas sobre os riscos de segurança de aplicações. Veja: https://www.owasp.org/
+- **One-time Password** (OTP) - Uma senha gerada exclusivamente para ser usada numa única ocasião.
+- **Mapeamento relacional de objeto** (ORM) - Um sistema usado para permitir que um banco de dados relacional/baseado em tabela seja referenciado e consultado dentro de um programa aplicação usando um modelo de objeto compatível com a aplicação.
+- **Função de derivação de chave baseada em senha 2** (PBKDF2) - Um algoritmo unidirecional especial usado para criar uma chave criptográfica forte a partir de um texto de input (como uma senha) e um valor de sal aleatório adicional e, assim, pode ser usado dificulte quebrar uma senha offline se o valor resultante for armazenado em vez da senha original.
+- **Informações de identificação pessoal** (PII) - são informações que podem ser usadas sozinhas ou com outras informações para identificar, contatar ou localizar uma única pessoa ou para identificar um indivíduo no contexto.
+- **Executável independente de posição** (PIE) - Um corpo de código de máquina que, sendo colocado em algum lugar na memória primária, é executado adequadamente independentemente do seu endereço absoluto.
+- **Public Key Infrastructure** (PKI) - Um arranjo que vincula as chaves públicas às respectivas identidades das entidades. A vinculação é estabelecida por meio de um processo de registro e emissão de certificados em e por uma autoridade de certificação (CA).
+- **Rede telefônica pública comutada** (PSTN) - A rede telefônica tradicional, incluindo telefones fixos e celulares.
+- **Relying Party** (RP) - Geralmente, uma aplicação que depende de um usuário autenticado num provedor de autenticação separado. a aplicação conta com algum tipo de token ou conjunto de asserções assinadas fornecidas por esse provedor de autenticação para confiar que o usuário é quem diz ser.
+- **Teste de segurança de aplicações estáticos** (SAST) - Um conjunto de tecnologias projetadas para analisar o código-fonte da aplicação, código de bytes e binários para condições de codificação e design que são indicativas de vulnerabilidades de segurança. As soluções SAST analisam uma aplicação de “dentro para fora” num estado sem execução.
+- **Ciclo de vida de desenvolvimento de software** (SDLC) - O processo passo a passo pelo qual o software é desenvolvido desde os requisitos iniciais até a implantação e manutenção.
+- **Arquitetura de segurança** - Uma abstração do design de uma aplicação que identifica e descreve onde e como os controles de segurança são usados e também identifica e descreve a localização e a confidencialidade dos dados do usuário e da aplicação.
+- **Configuração de segurança** - A configuração de tempo de execução de uma aplicação que afeta como os controles de segurança são usados.
+- **Controle de segurança** - Uma função ou componente que executa uma verificação de segurança (por exemplo, uma verificação de controle de acesso) ou quando chamado resulta num efeito de segurança (por exemplo, gerando um registro de auditoria).
+- **Server-side Request Forgery** (SSRF) - Um ataque que abusa da funcionalidade do servidor para ler ou atualizar recursos internos, fornecendo ou modificando uma URL que o código em execução no servidor irá ler ou enviar dados.
+- **Single Sign-on Authentication** (SSO) - Isso ocorre quando um usuário faz login numa aplicação e é automaticamente conectado a outras aplicações sem precisar se autenticar novamente. Por exemplo, ao fazer login no Google, ao acessar outros serviços do Google, como YouTube, Google Docs e Gmail, você será automaticamente conectado.
+- **SQL Injection** (SQLi) - Uma técnica de injeção de código usada para atacar aplicações baseados em dados, nos quais instruções SQL maliciosas são inseridas num ponto de input.
+- **SVG** - Gráficos vetoriais escaláveis
+- **OTP baseado em tempo** - Um método de geração de um OTP onde a hora atual atua como parte do algoritmo para gerar a senha.
+- **Modelagem de ameaças** - Uma técnica que consiste no desenvolvimento de arquiteturas de segurança cada vez mais refinadas para identificar agentes de ameaças, zonas de segurança, controles de segurança e importantes ativos técnicos e de negócios.
+- **Transport Layer Security** (TLS) - protocolos criptográficos que fornecem segurança de comunicação numa conexão de rede
+- **Módulo de plataforma confiável** (TPM) - Um tipo de HSM que é geralmente conectado a um componente de hardware maior, como uma placa-mãe, e atua como a "raiz de confiança" desse sistema.
+- **Autenticação de dois fatores** (2FA) - Adiciona um segundo nível de autenticação a um login de conta.
+- **Universal 2nd Factor** (U2F) - Um dos padrões criados pela FIDO especificamente para permitir que uma chave de segurança USB ou NFC seja usada como um 2.º fator de autenticação.
+- **Fragmentos de URL/URL/URL** - Um identificador de recurso uniforme é uma cadeia de caracteres usada para identificar um nome ou um recurso da web. Um localizador uniforme de recursos é geralmente usado como referência a um recurso.
+- **Verificador** - A pessoa ou equipe que está revisando uma aplicação em relação aos requisitos OWASP ASVS.
+- **O que você vê é o que obtém** (WYSIWYG) - Um tipo de editor de conteúdo avançado que mostra como o conteúdo realmente ficará quando renderizado, em vez de mostrar a codificação usada para controlar a renderização.
+- **Certificado X.509** - Um certificado X.509 é um certificado digital que usa o padrão internacional amplamente aceito de infraestrutura de chave pública (PKI) X.509 para verificar se uma chave pública pertence à identidade do usuário, computador ou serviço contida no certificado.
+- **XML eXternal Entity** (XXE) - Um tipo de entidade XML que pode acessar conteúdo local ou remoto por meio de um identificador de sistema declarado. Isso pode carregar vários ataques de injeção.

@@ -1,4 +1,4 @@
-# V10 : Exigences de vérification des codes malveillants
+# V10 Exigences de vérification des codes malveillants
 
 ## Objectif de contrôle
 

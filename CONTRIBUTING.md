@@ -66,12 +66,13 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 Projects leads will check and validate labels for changes. Please ask for a recommendation regarding the proper label in the issue tracker if you have any questions.
 
-These tags should all be relative to how the requirement appeared in the latest release (v4.0.3).
+These tags should all be relative to how the requirement appeared in the latest release (v4.0.3) and will be used in mapping file between releases.
 
 The following tags should be added to any modified requirement as appropriate.
 
 * `[ADDED]` - New requirement (should only be added at the end of a sub-section.)
 * `[MODIFIED]` - Requirement description has been modified
+* `[GRAMMAR]` - Requirement description has been corrected from a language or grammar perspective, but the wording or meaning of the description is not modified
 * `[MOVED TO x.y.z]` - Placeholder to keep number, requirement has been moved to another category
 * `[MOVED FROM a.b.c]` - Requirement has been moved to a different sub-section but **not** modified. (should only be added at the end of a sub-section.)
 * `[MODIFIED, MOVED FROM a.b.c]` - Requirement description has been modified **and** requirement has been moved to a different sub-section.
@@ -80,9 +81,12 @@ The following tags should be added to any modified requirement as appropriate.
 * `[DELETED]` - Placeholder to keep number, requirement has been deleted
 * `[DELETED, MERGED TO x.y.z]` - Placeholder to keep number, requirement has been merged into another requirement
 * `[DELETED, DUPLICATE OF x.y.z]` - Placeholder to keep number, requirement has been deleted because of clear duplicate to referenced requirement (referenced requirement do not have changes because of that)
+* `[DELETED, NOT IN SCOPE]` - Placeholder to keep number, requirement has been decided to be out of ASVS scope
+* `[DELETED, INCORRECT]` - Placeholder to keep number, requirement was invalid or provided inadvisable advice
+* `[DELETED, NOT PRACTICAL]` - Placeholder to keep number, requirement was not practical (enough) to implement in reality
+* `[DELETED, INSUFFICIENT IMPACT]` - Placeholder to keep number, requirement was valid and in scope but provided insuffiecent benefit to be worthwhile
 * `[SPLIT TO x.y.z, i.j.f]` - Placeholder to keep number, requirement has been splitted to 2 or more requirements to another categories
 * `[LEVEL L1 > L2]` - Requirement's level has changed. Level change label may exist also for `[MODIFIED]`, `[MOVED FROM]` and `[SPLIT FROM]`
-
 
 `SPLIT TO`, `MOVED TO`, `MERGED TO` labels must have matching labels with `SPLIT FROM`, `MOVED FROM`, `MERGED FROM`.
 
@@ -101,14 +105,18 @@ We are also actively looking for translations of the 4.n branch!
 If you are interested in creating a translation, here are some pointers for how you can help us:
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superceeded!):
 	* In-progress
-        * French
+        * None
 	* v4.0.3
         * Spanish
         * Simplified Chinese
         * Arabic
+        * Russian
+        * French
+        * German
+        * Portuguese
     * v4.0.2
         * German
-        * Russian (complete but v4.0.3 is in-progress)
+        * Russian
     * v4.0.1
         * Persian
         * Turkish

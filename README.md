@@ -37,15 +37,18 @@ If you think you can help with translations, or indeed ensuring the current list
     * [OWASP Application Security Verification Standard 4.0.3 Spanish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-es.pdf) and [other formats](4.0/docs_es). (Thanks to [Carlos Allendes](https://github.com/CarlosAllendes) and [Hans Herrera](https://github.com/hansphp))
     * [OWASP Application Security Verification Standard 4.0.3 Simplified Chinese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-zh-cn.pdf) and [other formats](4.0/docs_zh-cn).  (Thanks to [Unc1e](https://github.com/hi-unc1e))
     * [OWASP Application Security Verification Standard 4.0.3 Arabic (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ar.pdf) and [other formats](4.0/docs_ar).  (Thanks to [Aref Shaheed](https://github.com/aref2008) and Mhd Ghassan Alhabash)
+    * [OWASP Application Security Verification Standard 4.0.3 Russian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ru.pdf) and [other formats](4.0/docs_ru). (Thanks to [Andrei Titov](https://github.com/andrettv))
+    * [OWASP Application Security Verification Standard 4.0.3 French (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-fr.pdf) and [other formats](4.0/docs_fr). (Thanks to [Cédric Lallier](https://github.com/clallier94), [Alexandre Joly](https://github.com/inaz0), [Sebastien Gioria](https://github.com/SPoint42), and [Marc Aubry](https://github.com/Marx314))
+    * [OWASP Application Security Verification Standard 4.0.3 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-de.pdf) and [other formats](4.0/docs_de). (Thanks to [Jörg Brünner](https://github.com/JoergBruenner))
+    * [OWASP Application Security Verification Standard 4.0.3 Portuguese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-pt.pdf) and [other formats](4.0/docs_pt). (Thanks to [Cesar Kohl](https://github.com/cesarkohl))
+    
 * v4.0.2
-    * [OWASP Application Security Verification Standard 4.0.2 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.pdf) and [Microsoft Word format](4.0/docs_de/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.docx). (Thanks to Jörg Brünner) 
+    * [OWASP Application Security Verification Standard 4.0.2 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.pdf) and [Microsoft Word format](4.0/docs_de/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.docx). (Thanks to [Jörg Brünner](https://github.com/JoergBruenner)) 
     * [OWASP Application Security Verification Standard 4.0.2 Russian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.pdf) and [Microsoft Word format](4.0/docs_ru/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.docx). (Thanks to [Sergey Diakonov](https://github.com/sergeydiak1980))
  * v4.0.1
     * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fa.pdf) (Thanks to CERT of Ferdowsi University of Mashhad / [Ardalan Foroughipour](https://github.com/ardalanForoughipour))
     * [OWASP Application Security Verification Standard 4.0.1 Japanese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
     * [OWASP Application Security Verification Standard 4.0.1 Turkish (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim))
-* In progress
-    * [French Translation](4.0/fr). (Thanks to [Sebastien gioria](https://github.com/SPoint42) and [Marc Aubry](https://github.com/Marx314))
 
 ## Standard Objectives
 

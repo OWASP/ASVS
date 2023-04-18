@@ -15,7 +15,7 @@ La norme de vérification de la sécurité des applications définit trois nivea
 
 Chaque niveau ASVS contient une liste d'exigences de sécurité. Chacune de ces exigences peut également être mise en correspondance avec des caractéristiques et des capacités de sécurité spécifiques qui doivent être intégrées dans les logiciels par les développeurs.
 
-![Niveaux ASVS](../images/asvs_40_levels.png "ASVS Levels")
+![Niveaux ASVS](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "Niveau ASVS")
 
 Figure 1 - Niveaux de vérification de la sécurité des applications OWASP 4.0
 
@@ -60,3 +60,20 @@ Une application au niveau 3 ASVS nécessite une analyse plus approfondie de l'ar
 Les différentes menaces ont des motivations différentes. Certains secteurs d'activité disposent d'atouts uniques en matière d'information et de technologie et ont des exigences de conformité réglementaire spécifiques à leur domaine.
 
 Les organisations sont fortement encouragées à examiner en profondeur leurs caractéristiques de risque uniques en fonction de la nature de leur activité, et à déterminer le niveau ASVS approprié en fonction de ce risque et des exigences commerciales.
+
+## Comment se référencer aux exigences ASVS
+
+Chaque exigence a un identifiant au format `<chapitre>.<section>.<exigence>` où chaque élément est un nombre, par exemple : `1.11.3`.
+- La valeur `<chapitre>` correspond au chapitre d'où provient l'exigence, par exemple : toutes les exigences `1.#.#` sont issues du chapitre `Architecture`.
+- La valeur `<section>` correspond à la section de ce chapitre où l'exigence apparaît, par exemple : toutes les exigences `1.11.#` se trouvent dans la section `Business Logic Architecture` du chapitre `Architecture`.
+- La valeur `<requirement>` identifie l'exigence spécifique dans le chapitre et la section, par exemple : `1.11.3` qui, à partir de la version 4.0.3 de cette norme, est :
+
+> Vérifier que tous les flux de logique métier de grande valeur, y compris l'authentification, la gestion de session et le contrôle d'accès, sont sécurisés et résistants aux conditions de concurrence ("race condition") au temps de contrôle et au temps d'utilisation.
+
+Les identifiants peuvent changer entre les versions de la norme, il est donc préférable que d'autres documents, rapports ou outils utilisent le format : `v<version>-<chapter>.<section>.<requirement>`, où : 'version' est la balise de version ASVS. Par exemple : `v4.0.3-1.11.3` serait compris comme signifiant spécifiquement la 3ème exigence dans la section 'Business Logic Architecture' du chapitre 'Architecture' de la version 4.0.3. (Cela pourrait être résumé comme `v<version>-<requirement_identifier>`.)
+
+Remarque : Le `v` précédant la partie version doit être en minuscule.
+
+Si les identifiants sont utilisés sans inclure l'élément `v<version>`, ils doivent être supposés faire référence au dernier contenu de la norme de vérification de la sécurité des applications. De toute évidence, à mesure que la norme se développe et change, cela devient problématique, c'est pourquoi les rédacteurs ou les développeurs doivent inclure l'élément de version.
+
+Les listes d'exigences ASVS sont mises à disposition au format CSV, JSON et d'autres formats qui peuvent être utiles pour une utilisation de référence ou de programmation.
