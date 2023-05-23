@@ -73,7 +73,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 320 |
 | **1.6.2** | Verify that consumers of cryptographic services protect key material and other secrets by using key vaults or API based alternatives. | | ✓ | ✓ | 320 |
 | **1.6.3** | Verify that all keys and passwords are replaceable and are part of a well-defined process to re-encrypt sensitive data. | | ✓ | ✓ | 320 |
-| **1.6.4** | [GRAMMAR] Verify that the architecture treats client-side secrets - such as symmetric keys, passwords, or API tokens - as insecure and never uses them to protect or access sensitive data. | | ✓ | ✓ | 320 |
+| **1.6.4** | [GRAMMAR] Verify that the architecture treats client-side secrets, (such as symmetric keys, passwords, or API tokens,) as insecure and never uses them to protect or access sensitive data. | | ✓ | ✓ | 320 |
 
 ## V1.7 Errors, Logging and Auditing Architecture
 
