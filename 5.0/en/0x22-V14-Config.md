@@ -25,7 +25,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.2** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | | ✓ | ✓ | 120 |
 | **14.1.3** | [MODIFIED] Verify that configuration hardening is performed on all 3rd party products, libraries, frameworks and services as per their individual recommendations. | | ✓ | ✓ | 16 |
 | **14.1.4** | Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion. | | ✓ | ✓ | |
-| **14.1.5** | Verify that authorized administrators can verify the integrity of all security-relevant configurations to detect tampering. | | | ✓ | |
+| **14.1.5** | [MODIFIED] Verify that deployed environments are short lived and frequently redeployed to a "known good" but updated state. Alternatively, long lived environments should use some form of "drift prevention" to ensure that deployed configurations are not changed to an insecure state. | | | ✓ | |
 | **14.1.6** | [MOVED FROM 14.2.2] Verify that all unneeded features, documentation, sample applications and configurations are removed. | ✓ | ✓ | ✓ | 1002 |
 | **14.1.7** | [ADDED] Verify that production environment does not include test code. | | ✓ | ✓ | 489 |
 | **14.1.8** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | | | ✓ | |
