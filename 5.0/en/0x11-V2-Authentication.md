@@ -95,11 +95,11 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing the user's password for the application: argon2id, scrypt, bcrypt or PBKDF2. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | [DELETED] | | | | | |
-| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count should be as large as verification server performance will allow, with a minimum of 720,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 310,000 iterations using PBKDF2-HMAC-SHA256, or with a minimum of 120,000 iterations with PBKDF2-HMAC-SHA512. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count should be a minimum of 1,300,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 600,000 iterations using PBKDF2-HMAC-SHA256, or with a minimum of 210,000 iterations with PBKDF2-HMAC-SHA512. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.4** | [MODIFIED] Verify that if bcrypt is used, the work factor is a minimum of 10 and password size is limited to 72-bytes due to bcrypt's input limit. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | [DELETED] | | | | | |
-| **2.4.6** | [ADDED] Verify that if argon2id is used, the configuration should be as strong as verification server performance will allow, with a minimum configuration of 15 MiB of memory, an iteration count of 2, and 1 degree of parallelism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration should be as strong as verification server performance will allow, with a minimum CPU/memory cost parameter of (2^16), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.6** | [ADDED] Verify that if argon2id is used, there should be a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration should be a minimum CPU/memory cost parameter of (2^17), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 
 Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
 
@@ -183,7 +183,7 @@ Secrets can be securely stored by using services offered by the framework, the o
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.10.1** | Verify that intra-service secrets do not rely on unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 | |
 | **2.10.2** | [GRAMMAR] Verify that if passwords are required for service authentication, the service account used is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
-| **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. | | ✓ | ✓ | 522 | |
+| **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | | |
 | **2.10.4** | [GRAMMAR] Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage should resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | ✓ | ✓ | 798 | |
 
 ## Additional US Agency Requirements

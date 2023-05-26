@@ -44,9 +44,9 @@ L1 (Stufe 1) ist in diesem Zusammenhang IAL1/AAL1, L2 (Stufe 2) ist IAL2/AAL3, L
 
 | # | Beschreibung | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.4.1** | Prüfen Sie, dass bei Session-Cookies das Attribut 'secure' gesetzt ist. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.1** | Prüfen Sie, dass bei Session-Cookies das Attribut 'Secure' gesetzt ist. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
 | **3.4.2** | Prüfen Sie, dass bei Session-Cookies das Attribut 'HttpOnly' gesetzt ist. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
-| **3.4.3** | Prüfen Sie, dass Session-Cookies das 'SameSite'-Attribut verwenden, um die Anfälligkeit für Cross Site Request Forgery zu begrenzen. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1275 | 7.1.1 |
+| **3.4.3** | Prüfen Sie, dass Session-Cookies das 'SameSite'-Attribut verwenden, um die Anfälligkeit für Cross Site Request Forgery zu begrenzen. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.4** | Prüfen Sie, dass Session-Cookies das Präfix '__Host-' verwenden (siehe Referenzen), um die Vertraulichkeit von Session-Cookies zu gewährleisten. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.5** | Falls die Anwendung unter einem Domänennamen zusammen mit anderen Anwendungen veröffentlicht wird, die Session-Cookies nutzen, welche die Sitzungscookies der geprüften Anwendung außer Kraft setzen oder offenlegen könnten, prüfen Sie, dass das Pfadattribut in den Cookies einen möglichst exakten Pfad erhält. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 
