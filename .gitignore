@@ -1,3 +1,4 @@
+docker/cert
 */build/*
 *.db
 .DS_Store

@@ -1,11 +1,22 @@
+PROJDIR=$(realpath $(CURDIR))
 BUILDDIR=build
 DISTDIR=dist
 TOOLSDIR=tools
-SOURCEDIR=en
 TEMPLATEDIR=templates
-SOURCES = $(SOURCEDIR)/*.md
+
+LANGDIRS=en
+# Add the language directories to the project directory
+# Create build and dist directories and language subdirectories
+BUILDDIR=$(PROJDIR)/build
+DISTDIR=$(PROJDIR)/dist
+SOURCEDIR=$(PROJDIR)/src
+
+SOURCE_FILES := $(shell find $(SOURCEDIR) -type f -name "*.md")
+BUILD_FILES := $(patsubst $(SOURCEDIR)/%, $(BUILDDIR)/%, $(SOURCE_FILES))
+DIST_FILES=dist/$(LANGDIRS)/source.md
+
 #TARGETS=$(addprefix $(DISTDIR)/,$(wildcard $(SOURCES)))
-TARGETS=$(addprefix $(BUILDDIR)/,$(wildcard $(SOURCES)))
+TARGETS=$(addprefix $(BUILDDIRS)/,$(wildcard $(SOURCES)))
 TARGETNAME=OWASP_Application_Security_Verification_Standard-5_x
 EXPORT_TOOL=$(TOOLSDIR)/export.py
 
@@ -30,38 +41,31 @@ PANDOC_ODT_FLAGS= -s \
 				  --columns 10000 \
 				  --reference-doc=./templates/reference.odt
 
-.PHONY: md $(BUILDDIR) $(DISTDIR) pdf docx json json_flat csv xml odt tex clean
+#.PHONY: md $(BUILDDIR) $(DISTDIR) pdf docx json json_flat csv xml odt tex clean
 
 all: $(TARGETS)	pdf docx json json_flat csv xml
 
-# make sure distribution dir exists
-$(DISTDIR): 
-	@mkdir -p $(DISTDIR)
-
-# make sure build dir exists
-$(BUILDDIR): 
-	@mkdir -p $(BUILDDIR)/en 
-
 # transform origin md files. needed by the next stages
-$(BUILDDIR)/en/%.md: $(BUILDDIR)
-	echo "from $(subst $(BUILDDIR),.,$@) to  $@"
-	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(subst $(BUILDDIR),.,$@) > $@
+$(BUILDDIR)/%.md: $(SOURCE_FILES)
+	mkdir -p $(@D)
+	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $< > $@
 	 
-md: $(BUILDDIR) $(DISTDIR)
-	pandoc $(PANDOC_MD_FLAGS) -o $(DISTDIR)/source.md $(BUILDDIR)/$(SOURCES) 
-	sed -Ei 's#../images/#./images/#' $(DISTDIR)/source.md
+$(DISTDIR)/%.md: $(BUILD_FILES)
+	mkdir -p $(@D)
+	pandoc $(PANDOC_MD_FLAGS) -o $(@D)/source.md $<
+	sed -Ei 's#../images/#./images/#' $(@D)/source.md
 
 pdf: $(TARGETS) $(DISTDIR)
-	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/%.md $(SOURCEDIR)/0x00-Header.yaml
 
 tex: $(TARGETS) $(DISTDIR)
-	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).tex" --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).tex" --template $(TEMPLATEDIR)/eisvogel.tex $(BUILDDIR)/%.md $(SOURCEDIR)/0x00-Header.yaml
 
 docx: $(TARGETS) $(DISTDIR)
-	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(BUILDDIR)/en/*.md $(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(BUILDDIR)/%.md $(SOURCEDIR)/0x00-Header.yaml
 
 odt: $(TARGETS) $(DISTDIR)
-	pandoc $(PANDOC_ODT_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).odt" $(BUILDDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x00-Header.yaml
+	pandoc $(PANDOC_ODT_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).odt" $(BUILDDIR)/%.md --metadata-file=$(SOURCEDIR)/0x00-Header.yaml
 
 json: $(DISTDIR)
 	python3 $(EXPORT_TOOL) --format json --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).json"
@@ -86,3 +90,9 @@ clean:
 	rm -f $(DISTDIR)/*.json
 	rm -f $(DISTDIR)/*.csv
 	rm -f $(DISTDIR)/*.xml
+
+.PHONY: transform-md
+transform-md: $(BUILD_FILES)
+
+.PHONY: md
+md: $(DIST_FILES)
