@@ -596,13 +596,13 @@ $endif$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   $if(fontfamily)$
   $else$
-  \usepackage[default]{sourcesanspro}
+  \usepackage[default]{sourcesans}
   \usepackage{sourcecodepro}
   $endif$
 \else % if not pdftex
   $if(mainfont)$
   $else$
-  \usepackage[default]{sourcesanspro}
+  \usepackage[default]{sourcesans}
   \usepackage{sourcecodepro}
 
   % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887

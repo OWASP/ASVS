@@ -47,7 +47,7 @@ WORKDIR /fonts
 ENV DEBIAN_FRONTEND noninteractive
 
 #download fonts
-RUN for font in source-sans-pro source-serif-pro source-code-pro; do \
+RUN for font in source-sans source-serif source-code-pro; do \
 	git_tarball_url="https://www.github.com/adobe-fonts/${font}"$(curl -L "https://github.com/adobe-fonts/${font}/tags" |  \
 		     grep -o "/archive/refs/tags/.*\.zip" | grep -v 'variable' | sort -r | head -1 |tr -d '\n'); \
      echo "DOWNLOADING FROM: ${git_tarball_url}"; \
@@ -91,8 +91,8 @@ FROM pandoc_base as tinytex_base
 
 # setup path
 ENV PATH=/home/pandoc/.TinyTeX/bin/x86_64-linuxmusl/:$PATH
-ENV TINY_TEX_VERSION=v0.34
-RUN curl -L "https://raw.githubusercontent.com/yihui/tinytex/${TINY_TEX_VERSION}/tools/install-bin-unix.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" > "install-unx.sh" \
+ENV TINY_TEX_VERSION=v0.45
+RUN curl -L "https://raw.githubusercontent.com/rstudio/tinytex/${TINY_TEX_VERSION}/tools/install-bin-unix.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" -e 's/retry-connrefused/tries 20/' > "install-unx.sh" \
 	&& chmod +x install-unx.sh
 RUN bash -c "./install-unx.sh" && rm install-unx.sh
 
