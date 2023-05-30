@@ -27,9 +27,9 @@ RUN apk add --update \
 
 FROM base AS base_yes
 # use the CERT_FILE parameter passed as a build-arg
-ARG CERT_FILE
-ENV SSL_CERT_DIR=/usr/local/share/ca-certificates 
-COPY ${CERT_FILE} $SSL_CERT_DIR/
+#ARG CERT_FILE
+#ENV SSL_CERT_DIR=/usr/local/share/ca-certificates 
+#COPY ${CERT_FILE} $SSL_CERT_DIR/
 RUN update-ca-certificates
 # define environment variables
 ENV HTTPS_CA_DIR=$SSL_CERT_DIR

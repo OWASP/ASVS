@@ -15,5 +15,5 @@ all: 5.0 4.0
 .PHONY: docker
 docker:
 	if ! docker image inspect asvs/documentbuilder:latest --format="checking docker image" &> /dev/null; then \
-		docker image build --tag asvs/documentbuilder -f docker/Dockerfile docker; \
+		docker build --build-arg CERT_FILE=docker/cert --tag asvs/documentbuilder:latest --network host docker; \
 	fi;
