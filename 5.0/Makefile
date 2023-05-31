@@ -60,6 +60,9 @@ all: $(TARGETS)	pdf docx json json_flat csv xml rm-build
 $(BUILDDIR):
 	mkdir -p $@
 
+$(DISTDIR):
+	mkdir -p $@
+
 # transform origin md files. needed by the next stages
 $(BUILDDIR)/%.md: $(SOURCE_FILES) $(BUILD_FOLDERS) $(BUILDDIR)
 	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(patsubst $(BUILDDIR)/%, $(SOURCEDIR)/%, $@) > $@
