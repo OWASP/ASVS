@@ -79,7 +79,7 @@ Configurations for production should be hardened to protect against common attac
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | [MODIFIED] Verify that the application server only accepts HTTP methods (including OPTIONS during preflight requests) in use by the application or by the API. | ✓ | ✓ | ✓ | 749 |
-| **14.5.2** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | 346 |
+| **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
 | **14.5.3** | [MODIFIED, SPLIT TO 14.4.8] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
 | **14.5.5** | [MODIFIED, MOVED FROM 13.2.1] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
