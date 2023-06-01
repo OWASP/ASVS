@@ -67,7 +67,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.4** | [ADDED] Verify that stateless tokens are checked for expiration before processing them further. | ✓ | ✓ | ✓ | 613 | |
 | **3.5.5** | [ADDED] Verify that only allow-listed signing algorithms are allowed for a stateless token. | ✓ | ✓ | ✓ | 757 | |
 | **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be the issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
-| **3.5.7** | [ADDED] Verify that all active stateless tokens, which are being relied upon for access control decisions, are revoked when admins change the entitlements/roles of the user. | ✓ | ✓ | ✓ | 613 | |
+| **3.5.7** | [ADDED] Verify that all active stateless tokens, which are being relied upon for access control decisions, are revoked when admins change the entitlements or roles of the user. | ✓ | ✓ | ✓ | 613 | |
 
 ## V3.6 Federated Re-authentication
 
