@@ -100,7 +100,7 @@ odt: $(ODT_FILES)
 
 $(JSON_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
 	python3 $(EXPORT_TOOL) --format json --language "$(subst dist,src,$(@D))" > $@
-json_files: $(JSON_FILES)
+json: $(JSON_FILES)
 
 $(JSON_FLAT_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
 	python3 $(EXPORT_TOOL) --format json_flat --language "$(subst dist,src,$(@D))" > $@
