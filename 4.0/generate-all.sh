@@ -2,10 +2,12 @@
 
 ALLOWED_LANGS='ar de en es fr pt ru zh-cn'
 
+echo $@
+
 if [[ -n $@ ]]; then
   LANGS=$@
 else
-  LANGS='en'
+  LANGS=${ALLOWED_LANGS}
 fi
 
 for lang in ${LANGS}; do
