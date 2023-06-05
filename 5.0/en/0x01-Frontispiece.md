@@ -10,7 +10,7 @@ Version 4.x (Bleeding Edge version), 2021
 
 ![license](../images/license.png)
 
-Copyright © 2008-2021 The OWASP Foundation. This document is released under the [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
+Copyright © 2008-2021 The OWASP Foundation. This document is released under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
 
 ## Project Leads
 
