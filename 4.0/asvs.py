@@ -5,7 +5,7 @@
     Based upon code written for MASVS By Bernhard Mueller
     Significant improvement by Jonny Schnittger @JonnySchnittger
     Additional modifications by Josh Grossman @tghosth
-    Copyright (c) 2020 OWASP Foundation
+    Copyright (c) 2023 OWASP Foundation
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -78,7 +78,7 @@ class ASVS:
         self.asvs['Requirements'] = chapters = []
 
     
-        for file in os.listdir(self.language):
+        for file in sorted(os.listdir(self.language)):
 
             if re.match("0x\d{2}-V", file):
                 chapter = {}
