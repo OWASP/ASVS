@@ -8,7 +8,6 @@ Authorization is the concept of allowing access to resources only to those permi
 * Users are associated with a well-defined set of entitlements.
 * Access control policy metadata is protected from replay or tampering.
 
-
 ## V4.1 General Access Control Design
 
 | # | Description | L1 | L2 | L3 | CWE |
