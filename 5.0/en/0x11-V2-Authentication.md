@@ -46,6 +46,7 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached username/password pairs. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
 
 Possible sources of frequently used passwords for requirement 2.1.7 include:
+
 * https://github.com/danielmiessler/SecLists/tree/master/Passwords
 * https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere
 
@@ -81,7 +82,6 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 | **2.3.2** | Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens. | | ✓ | ✓ | 308 | 6.1.3 |
 | **2.3.3** | [MODIFIED] Verify that automated reminders are configured and acted on to ensure that renewal instructions for time-bound authenticators are sent with enough time to be carried out before the old authenticator expires. | | ✓ | ✓ | 287 | 6.1.4 |
 | **2.3.4** | [ADDED] System administrators should not be able to change or choose any user's password, but rather only be able to initiate the password reset process for the user. | ✓ | ✓ | ✓ | 620 | |
-
 
 ## V2.4 Credential Storage
 
