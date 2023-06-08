@@ -1,10 +1,7 @@
-name: URL Checker
+name: URL Checker (PR)
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
+  pull_request:
 
 jobs:
   markdown-link-check:
@@ -18,6 +15,7 @@ jobs:
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           use-quiet-mode: 'yes'
-          use-verbose-mode: 'no'
+          use-verbose-mode: 'yes'
           config-file: '.github/workflows/config/url-checker-config.json'
           folder-path: './5.0/'
+          check-modified-files-only: 'yes'
