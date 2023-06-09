@@ -10,12 +10,12 @@ LANGDIRS=en #fr
 # Create build and dist directories and language subdirectories
 BUILDDIR=$(PROJDIR)/build
 DISTDIR=$(PROJDIR)/dist
-SOURCEDIR=$(PROJDIR)/src
+SOURCEDIR=$(PROJDIR)
 
 SOURCE_FOLDERS := $(foreach lang, $(LANGDIRS), $(SOURCEDIR)/$(lang))
 BUILD_FOLDERS := $(foreach lang, $(LANGDIRS), $(BUILDDIR)/$(lang))
 DIST_FOLDERS := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang))
-SOURCE_FILES := $(shell find $(SOURCEDIR) -type f -name "*.md")
+SOURCE_FILES := $(foreach lang, $(LANGDIRS), $(shell find $(SOURCEDIR)/$(lang) -type f -name "*.md"))
 BUILD_FILES := $(patsubst $(SOURCEDIR)/%, $(BUILDDIR)/%, $(SOURCE_FILES))
 
 MD_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/source_$(lang).md)
@@ -83,15 +83,15 @@ md: $(MD_FILES)
 	echo $(MD_FILES)
 
 $(PDF_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS) transform-md
-	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,src,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
 pdf: $(PDF_FILES)
 
 $(TEX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
-	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,src,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
 tex: $(TEX_FILES)
 
 $(DOCX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
-	pandoc $(PANDOC_DOCX_FLAGS) -o $@ $(subst dist,build,$(@D)/*.md) $(subst dist,src,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_DOCX_FLAGS) -o $@ $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
 docx: $(DOCX_FILES)
 
 $(ODT_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
@@ -99,19 +99,19 @@ $(ODT_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
 odt: $(ODT_FILES)
 
 $(JSON_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format json --language "$(subst dist,src,$(@D))" > $@
+	python3 $(EXPORT_TOOL) --format json --language "$(subst dist,,$(@D))" > $@
 json: $(JSON_FILES)
 
 $(JSON_FLAT_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format json_flat --language "$(subst dist,src,$(@D))" > $@
+	python3 $(EXPORT_TOOL) --format json_flat --language "$(subst dist,,$(@D))" > $@
 json_flat: $(JSON_FLAT_FILES)
 
 $(CSV_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format csv --language "$(subst dist,src,$(@D))" > $@
+	python3 $(EXPORT_TOOL) --format csv --language "$(subst dist,,$(@D))" > $@
 csv: $(CSV_FILES)
 
 $(XML_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format xml --language "$(subst dist,src,$(@D))" > $@
+	python3 $(EXPORT_TOOL) --format xml --language "$(subst dist,,$(@D))" > $@
 xml: $(XML_FILES)
 
 rm-build: $(BUILDDIR)
