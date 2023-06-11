@@ -32,7 +32,7 @@ import re
 import json
 from xml.sax.saxutils import escape
 import csv
-import dicttoxml
+from dicttoxml2 import dicttoxml
 import xml.etree.ElementTree as ET
 try:
     from StringIO import StringIO
@@ -219,7 +219,7 @@ class ASVS:
 
         return xml
     def to_xml(self):
-        return dicttoxml.dicttoxml(self.asvs, attr_type=False).decode('utf-8')
+        return dicttoxml(self.asvs, attr_type=False).decode('utf-8')
         
     def to_csv(self):
         ''' Returns CSV '''
