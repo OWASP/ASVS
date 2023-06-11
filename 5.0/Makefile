@@ -1,13 +1,36 @@
+PROJDIR=$(realpath $(CURDIR))
+BUILDDIR=build
 DISTDIR=dist
 TOOLSDIR=tools
-SOURCEDIR=en
 TEMPLATEDIR=templates
-SOURCES = $(SOURCEDIR)/*.md
-TARGETS=$(addprefix $(DISTDIR)/,$(wildcard $(SOURCES)))
-TARGETNAME=OWASP Application Security Verification Standard 4.x
-#EXPORT_JSON_TOOL=$(TOOLSDIR)/generate-json.py
+TARGETNAME=OWASP_Application_Security_Verification_Standard-5_
+
+LANGDIRS=en #fr
+# Add the language directories to the project directory
+# Create build and dist directories and language subdirectories
+BUILDDIR=$(PROJDIR)/build
+DISTDIR=$(PROJDIR)/dist
+SOURCEDIR=$(PROJDIR)
+
+SOURCE_FOLDERS := $(foreach lang, $(LANGDIRS), $(SOURCEDIR)/$(lang))
+BUILD_FOLDERS := $(foreach lang, $(LANGDIRS), $(BUILDDIR)/$(lang))
+DIST_FOLDERS := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang))
+SOURCE_FILES := $(foreach lang, $(LANGDIRS), $(shell find $(SOURCEDIR)/$(lang) -type f -name "*.md"))
+BUILD_FILES := $(patsubst $(SOURCEDIR)/%, $(BUILDDIR)/%, $(SOURCE_FILES))
+
+MD_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/source_$(lang).md)
+PDF_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).pdf)
+TEX_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).tex)
+DOCX_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).docx)
+ODT_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).odt)
+JSON_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).json)
+JSON_FLAT_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).flat.json)
+CSV_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).csv)
+XML_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).xml)
+
+#TARGETS=$(addprefix $(DISTDIR)/,$(wildcard $(SOURCES)))
+TARGETS=$(addprefix $(BUILDDIRS)/,$(wildcard $(SOURCE_FILES)))
 EXPORT_TOOL=$(TOOLSDIR)/export.py
-#EXPORT_CSV_TOOL=$(TOOLSDIR)/generate-csv.py
 
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
@@ -30,48 +53,73 @@ PANDOC_ODT_FLAGS= -s \
 				  --columns 10000 \
 				  --reference-doc=./templates/reference.odt
 
-.PHONY: md $(DISTDIR) pdf docx odt clean
+.PHONY: md pdf docx json json_flat csv xml odt tex clean rm-build rm-dist
 
-all: $(TARGETS)	pdf docx json json_flat csv xml
+all: $(TARGETS)	pdf docx json json_flat csv xml rm-build
 
-$(DISTDIR): 
-	@mkdir -p $(DISTDIR)/en # make sure distribution dir exists
+$(BUILDDIR):
+	mkdir -p $@
 
-$(DISTDIR)/en/%.md: $(DISTDIR)
-	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#' $(subst dist,.,$@) > $@
+$(DISTDIR):
+	mkdir -p $@
+
+# transform origin md files. needed by the next stages
+$(BUILDDIR)/%.md: $(SOURCE_FILES) $(BUILD_FOLDERS) $(BUILDDIR)
+	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(patsubst $(BUILDDIR)/%, $(SOURCEDIR)/%, $@) > $@
+
+$(DIST_FOLDERS): $(DISTDIR)
+	echo $@
+	mkdir -p $@
+
+$(BUILD_FOLDERS): $(BUILDDIR)
+	echo $@
+	mkdir -p $@
 	 
-md: $(DISTDIR)
-	pandoc $(PANDOC_MD_FLAGS) -o $(DISTDIR)/source.md $(DISTDIR)/$(SOURCES) 
-	sed -Ei 's#../images/#./images/#' $(DISTDIR)/source.md
+$(MD_FILES): $(BUILD_FILES) $(DIST_FOLDERS) $(BUILD_FOLDERS)
+	mkdir -p $(@D)
+	pandoc $(PANDOC_MD_FLAGS) -o $@ $(patsubst $(DISTDIR)/%, $(BUILDDIR)/%, $@)
+	sed -Ei 's#../images/#./images/#' $@
+md: $(MD_FILES)
+	echo $(MD_FILES)
 
-pdf: 
-	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/$(TARGETNAME).pdf"  --template $(TEMPLATEDIR)/eisvogel.tex $(DISTDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+$(PDF_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS) transform-md
+	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+pdf: $(PDF_FILES)
 
-tex:
-	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o "$(DISTDIR)/output.tex" --template $(TEMPLATEDIR)/eisvogel.tex $(DISTDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+$(TEX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
+	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+tex: $(TEX_FILES)
 
-docx: 
-	pandoc $(PANDOC_DOCX_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).docx" $(DISTDIR)/en/*.md $(SOURCEDIR)/0x01-Header.yaml
+$(DOCX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
+	pandoc $(PANDOC_DOCX_FLAGS) -o $@ $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+docx: $(DOCX_FILES)
 
-odt: 
-	pandoc $(PANDOC_ODT_FLAGS) -o "$(DISTDIR)/$(TARGETNAME).odt" $(DISTDIR)/en/*.md --metadata-file=$(SOURCEDIR)/0x01-Header.yaml
+$(ODT_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
+	pandoc $(PANDOC_ODT_FLAGS) -o $@ $(subst dist,build,$(@D)/*.md) --metadata-file=$(SOURCEDIR)/0x00-Header.yaml
+odt: $(ODT_FILES)
 
-json:
-	python3 $(EXPORT_TOOL) --format json --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).json"
+$(JSON_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format json --language "$(subst dist,,$(@D))" > $@
+json: $(JSON_FILES)
 
-json_flat:
-	python3 $(EXPORT_TOOL) --format json_flat --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).flat.json"
+$(JSON_FLAT_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format json_flat --language "$(subst dist,,$(@D))" > $@
+json_flat: $(JSON_FLAT_FILES)
 
-csv:
-	python3 $(EXPORT_TOOL) --format csv --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).csv"
+$(CSV_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format csv --language "$(subst dist,,$(@D))" > $@
+csv: $(CSV_FILES)
 
-xml:
-	python3 $(EXPORT_TOOL) --format xml --language "$(SOURCEDIR)" > "$(DISTDIR)/$(TARGETNAME).xml"
+$(XML_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format xml --language "$(subst dist,,$(@D))" > $@
+xml: $(XML_FILES)
 
-.PHONY: prod
-prod:
-	cp -R dist/* .
+rm-build: $(BUILDDIR)
+	rm -rf $(BUILDDIR)
 
-clean:
-	rm -rf $(DISTDIR)/en
-	rm -f $(DISTDIR)/*.md
+rm-dist: $(DIST_FOLDERS)
+	rm -rf $(DIST_FOLDERS)
+
+clean: rm-build rm-dist
+
+transform-md: $(BUILD_FILES)
