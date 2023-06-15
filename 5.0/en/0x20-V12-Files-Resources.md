@@ -63,4 +63,4 @@ For more information, see also:
 
 * [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
 * [OWASP Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)
-* [Using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)
+* [Example of using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)
