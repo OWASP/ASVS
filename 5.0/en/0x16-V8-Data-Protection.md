@@ -51,6 +51,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.8** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | ✓ | ✓ | |
 | **8.3.9** | [ADDED, SPLIT FROM 8.3.2] Verify that users have a method to export their data on demand. | | ✓ | ✓ | |
 | **8.3.10** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | ✓ | ✓ | ✓ | 212 |
+| **8.3.11** | [MODIFIED, MOVED FROM 10.2.2, LEVEL L2 > L1] Verify that the application does not ask for unnecessary or excessive permissions to privacy related features or sensors, such as cameras, microphones, or location. | ✓ | ✓ | ✓ | 272 |
 
 When considering data protection, a primary consideration should be around bulk extraction or modification or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euro of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. Important criteria are the ability to detect, deter, or preferably block such abnormal bulk actions.
 
