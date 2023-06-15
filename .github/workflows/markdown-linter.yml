@@ -1,6 +1,11 @@
 name: Markdown Linter
 
-on: [push, pull_request]
+on:
+  # Scan changed files in PRs (diff-aware scanning):
+  pull_request: {}
+  # Scan mainline branches and report all findings: 
+  push:
+    branches: ["master", "main"]
 
 jobs:
   markdown-lint-check:
