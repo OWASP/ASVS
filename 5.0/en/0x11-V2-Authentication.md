@@ -170,7 +170,7 @@ The requirements for single-factor cryptographic devices and software, and multi
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.9.1** | Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage. | | ✓ | ✓ | 320 | 5.1.7.2 |
-| **2.9.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | ✓ | | ✓ | 330 | 5.1.7.2 |
+| **2.9.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | | ✓ | ✓ | 330 | 5.1.7.2 |
 | **2.9.3** | [MODIFIED] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | | ✓ | ✓ | 327 | 5.1.7.2 |
 
 ## V2.10 Service Authentication
