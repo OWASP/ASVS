@@ -81,7 +81,7 @@ This section relates to those writing Relying Party (RP) or Credential Service P
 
 ## V3.7 Defenses Against Session Management Exploits
 
-There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
+There are a small number of session management attacks, some related to the user experience (UX) of sessions. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
 
 ### Description of the half-open Attack
 
