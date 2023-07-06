@@ -26,13 +26,13 @@ jobs:
     needs: prepare_container
     name: Create outputs
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
       - name: Download container
         uses: actions/download-artifact@v2
       - name: Load docker image
         run: |
           docker load --input asvs_documentbuilder/asvs_documentbuilder.tar 
-      - name: Checkout repo
-        uses: actions/checkout@v3
       - name: Make outputs
         run: make all
 
