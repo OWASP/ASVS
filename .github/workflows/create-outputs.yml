@@ -1,0 +1,21 @@
+# Name of this GitHub Actions workflow.
+name: Generate 5.0 Outputs
+
+on:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  # Scan when pushing to master
+  push:
+    branches: ["master", "main"]
+
+jobs:
+  prepare_outputs:
+    runs-on: ubuntu-latest
+    name: Generate 5.0 outputs
+    steps:
+      - uses: actions/checkout@v3
+      - run: make
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ASVS 5.0 Bleeding Edge
+          path: 5.0/dist/en/
