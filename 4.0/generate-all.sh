@@ -17,6 +17,7 @@ for lang in ${LANGS}; do
     verslong="./docs_$lang/OWASP Application Security Verification Standard $vers-$lang"
 
     python3 tools/export.py --format json --language $lang > "$verslong.json"
+    python3 tools/export.py --format cdx_json --language $lang > "$verslong.cdx.json"
     python3 tools/export.py --format json --language $lang --verify-only true
 
     python3 tools/export.py --format json_flat --language $lang > "$verslong.flat.json"
