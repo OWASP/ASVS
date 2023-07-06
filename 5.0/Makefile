@@ -24,6 +24,7 @@ TEX_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang
 DOCX_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).docx)
 ODT_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).odt)
 JSON_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).json)
+JSON_CDX_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).cdx.json)
 JSON_FLAT_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).flat.json)
 CSV_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).csv)
 XML_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).xml)
@@ -53,9 +54,9 @@ PANDOC_ODT_FLAGS= -s \
 				  --columns 10000 \
 				  --reference-doc=./templates/reference.odt
 
-.PHONY: md pdf docx json json_flat csv xml odt tex clean rm-build rm-dist
+.PHONY: md pdf docx json json_flat cdx_json csv xml odt tex clean rm-build rm-dist
 
-all: $(TARGETS)	pdf docx json json_flat csv xml rm-build
+all: $(TARGETS)	pdf docx json json_flat cdx_json csv xml rm-build
 
 $(BUILDDIR):
 	mkdir -p $@
@@ -105,6 +106,10 @@ json: $(JSON_FILES)
 $(JSON_FLAT_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
 	python3 $(EXPORT_TOOL) --format json_flat --language "$(subst dist,,$(@D))" > $@
 json_flat: $(JSON_FLAT_FILES)
+
+$(JSON_CDX_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format cdx_json --language "$(subst dist,,$(@D))" > $@
+cdx_json: $(JSON_CDX_FILES)
 
 $(CSV_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
 	python3 $(EXPORT_TOOL) --format csv --language "$(subst dist,,$(@D))" > $@
