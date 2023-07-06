@@ -17,7 +17,7 @@ jobs:
     name: Generate container
     steps:
       - uses: actions/checkout@v3
-      - run: make all
+      - run: make
       - uses: actions/upload-artifact@v3
         with:
           name: ASVS 5.0 Bleeding Edge
