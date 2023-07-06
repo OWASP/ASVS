@@ -1,5 +1,5 @@
 # Name of this GitHub Actions workflow.
-name: Generate Outputs
+name: Generate Outputs Split
 
 on:
   # Scan on-demand through GitHub Actions interface:
