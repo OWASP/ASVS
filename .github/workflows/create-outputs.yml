@@ -1,0 +1,15 @@
+# Name of this GitHub Actions workflow.
+name: Generate Outputs
+
+on:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+
+jobs:
+  generate-outputs:
+    runs-on: ubuntu-latest
+    name: generate-outputs
+    steps:
+      - uses: actions/checkout@v3
+      - run: make all
+
