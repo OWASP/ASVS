@@ -6,10 +6,33 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  generate-outputs:
+  prepare_container:
     runs-on: ubuntu-latest
-    name: generate-outputs
+    name: Generate container
     steps:
-      - uses: actions/checkout@v3
-      - run: make all
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Make image
+        run: make docker
+      - name: Save docker image
+        run: docker save asvs/documentbuilder > asvs_documentbuilder.tar
+      - name: Upload container image
+        uses: actions/upload-artifact@v2
+        with:
+          name: asvs_documentbuilder
+          path: asvs_documentbuilder.tar
+  create_output:
+    runs-on: ubuntu-latest
+    needs: prepare_container
+    name: Create outputs
+    steps:
+      - name: Download container
+        uses: actions/download-artifact@v2
+      - name: Load docker image
+        run: |
+          docker load --input asvs_documentbuilder/asvs_documentbuilder.tar 
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Make outputs
+        run: make all
 
