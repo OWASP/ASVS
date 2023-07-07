@@ -4,6 +4,10 @@ name: Generate Outputs Split
 on:
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
+  push:
+    branches: ["master", "main"]
+    paths:
+      - docker/**
 
 jobs:
   prepare_container:
@@ -15,7 +19,7 @@ jobs:
       - name: Make image
         run: make docker
       - name: Save docker image
-        run: docker save asvs/documentbuilder > asvs_documentbuilder.tar
+        run: docker save ghcr.io/ike/documentbuilder > asvs_documentbuilder.tar
       - name: Upload container image
         uses: actions/upload-artifact@v2
         with:
