@@ -16,6 +16,4 @@ all: 5.0 4.0
 
 .PHONY: 5.0 5.0-clean 4.0 4.0-clean docker
 docker:
-	if ! docker image inspect ghcr.io/ike/documentbuilder:latest --format="checking docker image" &> /dev/null; then \
-		docker build --build-arg CERT_FILE=docker/cert --tag ghcr.io/ike/documentbuilder:latest --network host docker; \
-	fi;
+	docker build --build-arg CERT_FILE=docker/cert --tag ghcr.io/ike/documentbuilder:latest --network host docker
