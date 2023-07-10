@@ -22,7 +22,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.2.1** | Verify that files obtained from untrusted sources are validated to be of expected type based on the file's content. | | ✓ | ✓ | 434 |
+| **12.2.1** | [MODIFIED] Verify that when the application is accepting a file, it checks that the file extension of the file matches an expected type and it validates that the contents of the file match that type, including but not limited to checking the initial "magic bytes". | | ✓ | ✓ | 434 |
 
 ## V12.3 File Execution
 
@@ -64,3 +64,4 @@ For more information, see also:
 * [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
 * [OWASP Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)
 * [Example of using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)
+* [Explanation of "Magic Bytes" from Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
