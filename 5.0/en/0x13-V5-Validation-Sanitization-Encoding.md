@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The most common web application security weakness is the failure to properly validate input coming from the client or the environment before directly using it without any output encoding. This weakness leads to almost all of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, interpreter injection, locale/Unicode attacks, file system attacks, and buffer overflows.
+The most common web application security weakness is using untrusted content in an unsafe context without any output encoding, query parameterization, or other output handling defense. This weakness leads to almost all of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, OS command injection, template injection, log injection, LDAP injection, and more.
 
 Ensure that a verified application satisfies the following high-level requirements:
 
