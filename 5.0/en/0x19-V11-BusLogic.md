@@ -23,14 +23,12 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.7** | Verify that the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 754 |
 | **11.1.8** | Verify that the application has configurable alerting when automated attacks or unusual activity is detected. | | ✓ | ✓ | 390 |
 
-
 ## V11.2 Anti-automation
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **11.2.1** | [MOVED FROM 11.1.2] Verify that the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly. | ✓ | ✓ | ✓ | 799 |
 | **11.2.2** | [MOVED FROM 11.1.4] Verify that the application has anti-automation controls to protect against excessive calls such as mass data exfiltration, business logic requests, file uploads or denial of service attacks. | ✓ | ✓ | ✓ | 770 |
-
 
 ## References
 

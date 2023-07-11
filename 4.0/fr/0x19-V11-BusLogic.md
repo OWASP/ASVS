@@ -1,4 +1,4 @@
-# V11 : Exigences de vérification de la logique d'entreprise
+# V11 Exigences de vérification de la logique d'entreprise
 
 ## Objectif de contrôle
 
@@ -15,7 +15,7 @@ La sécurité de la logique commerciale est tellement individuelle à chaque dem
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **11.1.1** | Vérifier que l'application traitera seulement les flux de logique métier pour un utilisateur dans l'ordre séquentiel des étapes et sans sauter d'étapes.| ✓ | ✓ | ✓ | 841 |
-| **11.1.2** | Vérifier que l'application traitera seulement les flux de logiques métier, toutes les étapes étant traitées en temps humain réaliste, c'est-à-dire que les transactions ne sont pas soumises trop rapidement (effectuer par un robot).| ✓ | ✓ | ✓ | 799 |
+| **11.1.2** |Vérifiez que l'application ne traitera que des flux de logique métier dont toutes les étapes sont traitées dans un temps humain réaliste, c'est-à-dire que les transactions ne sont pas soumises trop rapidement. | ✓ | ✓ | ✓ | 799 |
 | **11.1.3** | Vérifiez que l'application comporte des limites appropriées pour des actions ou des transactions commerciales spécifiques qui sont correctement exécutées par utilisateur. | ✓ | ✓ | ✓ | 770 |
 | **11.1.4** | Vérifiez que l'application dispose de contrôles anti-automatisation suffisants pour détecter et protéger contre l'exfiltration de données, les demandes excessives de logique métiers, les téléchargements excessifs de fichiers ou les attaques par déni de service. | ✓ | ✓ | ✓ | 770 |
 | **11.1.5** | Vérifier que l'application a des limites ou une validation de la logique métier pour se protéger contre les risques ou les menaces commerciales probables, identifiés à l'aide de la modélisation des menaces ou de méthodologies similaires. | ✓ | ✓ | ✓ | 841 |
@@ -27,7 +27,7 @@ La sécurité de la logique commerciale est tellement individuelle à chaque dem
 
 Pour plus d'informations, voir aussi :
 
-* [OWASP Testing Guide 4.0: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README.html)
+* [OWASP Web Security Testing Guide 4.1: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README.html)
 * Anti-automation can be achieved in many ways, including the use of [OWASP AppSensor](https://github.com/jtmelton/appsensor) and [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
 * [OWASP AppSensor](https://github.com/jtmelton/appsensor) can also help with Attack Detection and Response.
 * [OWASP Cornucopia](https://owasp.org/www-project-cornucopia/)

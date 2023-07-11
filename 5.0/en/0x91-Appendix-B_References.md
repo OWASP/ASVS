@@ -9,12 +9,13 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 3. OWASP Proactive Controls: [https://owasp.org/www-project-proactive-controls/](https://owasp.org/www-project-proactive-controls/)
 4. OWASP Security Knowledge Framework: [https://owasp.org/www-project-security-knowledge-framework/](https://owasp.org/www-project-security-knowledge-framework/)
 5. OWASP Software Assurance Maturity Model (SAMM): [https://owasp.org/www-project-samm/](https://owasp.org/www-project-samm/)
+6. OWASP Secure Headers Project: [https://owasp.org/www-project-secure-headers/](https://owasp.org/www-project-secure-headers/)
 
 ## OWASP Cheat Sheet Series project
 
 [This project](https://owasp.org/www-project-cheat-sheets/) has a number of cheat sheets which will be relevant for different topics in the ASVS.
 
-There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
+There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
 
 ## Mobile Security Related Projects
 

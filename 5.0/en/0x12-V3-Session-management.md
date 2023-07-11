@@ -9,39 +9,41 @@ Ensure that a verified application satisfies the following high-level session ma
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and timed out during periods of inactivity.
 
-As previously noted, these requirements have been adapted to be a compliant subset of selected NIST 800-63b controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) requirements.
+As previously noted, these requirements have been adapted to be a compliant subset of selected NIST SP 800-63B controls, focused around common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) requirements.
 
 ## V3.1 Fundamental Session Management Security
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.1.1** | [GRAMMAR] Verify that the application never reveals session tokens in URL parameters. | ✓ | ✓ | ✓ | 598 | |
-| **3.1.2** | [ADDED] Verify that the application performs all session tokens verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 | |
+| **3.1.1** | [DELETED, MERGED TO 8.3.1] | | | | | |
+| **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 | |
 
 ## V3.2 Session Binding
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.2.1** | Verify the application generates a new session token on user authentication. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | [MODIFIED] Verify that session tokens possess at least 128 bits of entropy. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
-| **3.2.3** | [DELETED] | | | | | |
-| **3.2.4** | Verify that session tokens are generated using approved cryptographic algorithms. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
+| **3.2.1** | [MODIFIED] Verify the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
+| **3.2.2** | [MODIFIED] Verify that opaque session tokens possess at least 128 bits of entropy. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | | |
+| **3.2.4** | [MODIFIED] Verify that opaque session tokens are generated using a secure random function. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 330 | 7.1 |
 
-TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
+TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
 
 ## V3.3 Session Termination
 
-Session timeouts have been aligned with NIST 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations should review the table below, and if a longer time out is desirable based on the application's risk, the NIST value should be the upper bounds of session idle timeouts.
+Session timeouts have been aligned with NIST SP 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations should review the table below, and if a longer time out is desirable based on the application's risk, the NIST value should be the upper bounds of session idle timeouts.
 
 L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2 and IAL3/AAL3, the shorter idle timeout is, the lower bound of idle times for being logged out or re-authenticated to resume the session.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.3.1** | Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
-| **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
+| **3.3.1** | [MODIFIED] Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party cannot resume an authenticated session. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.3.2** | [MODIFIED, SPLIT TO 3.3.7] Verify that there is an absolute maximum session lifetime such that re-authentication is required at least every 30 days for L1 applications or every 12 hours for L2 and L3 applications. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))| ✓ | ✓ | ✓ | 613 | 7.2 |
 | **3.3.3** | [LEVEL L2 > L1] Verify that the application gives the option to terminate all other active sessions after a successful password change (including change via password reset/recovery), and that this is effective across the application, federated login (if present), and any relying parties. | ✓ | ✓ | ✓ | 613 | |
 | **3.3.4** | Verify that users are able to view and (having re-entered login credentials) log out of any or all currently active sessions and devices. | | ✓ | ✓ | 613 | 7.1 |
 | **3.3.5** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | ✓ | ✓ | ✓ | | |
+| **3.3.6** | [ADDED] Verify that all active sessions are revoked when a user account is disabled or deleted (such as an employee leaving the company). | ✓ | ✓ | ✓ | 613 | |
+| **3.3.7** | [ADDED, SPLIT FROM 3.3.2] Verify that re-authentication is required after 30 minutes of inactivity for L2 applications or after 15 minutes of inactivity for L3 applications. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))| | ✓ | ✓ | 613 | 7.2 |
 
 ## V3.4 Cookie-based Session Management
 
@@ -51,7 +53,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 | **3.4.2** | Verify that cookie-based session tokens have the 'HttpOnly' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
 | **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1275 | 7.1.1 |
 | **3.4.4** | Verify that cookie-based session tokens use the "__Host-" prefix so cookies are only sent to the host that initially set the cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.5** | Verify that if the application is published under a domain name with other applications that set or use session cookies that might disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.5** | [GRAMMAR] Verify that if the application is published under a domain name with other applications that set or use session cookies that might disclose the session cookies, it sets the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.6** | [ADDED] Verify that cookie-based session tokens are only transferred in Set-Cookie and Cookie headers. | ✓ | ✓ | ✓ | 200 | |
 
 ## V3.5 Token-based Session Management
@@ -62,11 +64,11 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.5.1** | [GRAMMAR] Verify that the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | [GRAMMAR] Verify that the application uses session tokens rather than static API secrets and keys, except with legacy implementations. | | ✓ | ✓ | 798 | |
-| **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of digital signatures to protect against tampering. | ✓ | ✓ | ✓ | 345 | |
+| **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of a digital signature to protect against tampering and this is checked before processing it further. | ✓ | ✓ | ✓ | 345 | |
 | **3.5.4** | [ADDED] Verify that stateless tokens are checked for expiration before processing them further. | ✓ | ✓ | ✓ | 613 | |
-| **3.5.5** | [ADDED] Verify that the signature of a stateless token is being checked before processing it further. | ✓ | ✓ | ✓ | 347 | |
-| **3.5.6** | [ADDED] Verify that only allow-listed signing algorithms are allowed for a stateless token. | ✓ | ✓ | ✓ | 757 | |
-| **3.5.7** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
+| **3.5.5** | [ADDED] Verify that only allow-listed signing algorithms are allowed for a stateless token. | ✓ | ✓ | ✓ | 757 | |
+| **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may be the issuer, subject, and/or audience. | ✓ | ✓ | ✓ | 287 | |
+| **3.5.7** | [ADDED] Verify that all active stateless tokens, which are being relied upon for access control decisions, are revoked when admins change the entitlements or roles of the user. | ✓ | ✓ | ✓ | 613 | |
 
 ## V3.6 Federated Re-authentication
 
@@ -89,7 +91,7 @@ Attackers start a half-open attack by attempting to lock, reset, or recover a cr
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.7.1** | [MODIFIED] Verify the application requires re-authentication or secondary factor verification before allowing any sensitive transactions or account modifications. | ✓ | ✓ | ✓ | 306 | |
+| **3.7.1** | [MODIFIED] Verify that the application requires re-authentication or secondary verification before allowing highly sensitive transactions or modifications to account profile or authentication settings. | ✓ | ✓ | ✓ | 306 | |
 
 ## References
 

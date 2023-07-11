@@ -5,10 +5,11 @@ As noted in the preface, the ASVS is a standard that defines the functional and 
 It therefore focuses on the content of the application and not the secure processes by which the application should be developed. Secure Development processes are better covered in the [OWASP SAMM](https://owaspsamm.org/) project and are not the primary scope of the ASVS.
 
 In the contents of secure requirements, the ASVS should be useful to anyone trying to:
+
 * Develop and maintain secure applications.
 * Evaluate the security of applications.
 
-This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-baesd approach and different use cases for the standard.
+This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-based approach and different use cases for the standard.
 
 ## Application Security Verification Levels
 
@@ -59,9 +60,10 @@ An application at ASVS Level 3 requires more in depth analysis of architecture, 
 ## How to Reference ASVS Requirements
 
 Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`.
-- The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
-- The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architectural Requirements` section of the `Architecture` chapter.
-- The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.2 of this standard is:
+
+* The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
+* The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architectural Requirements` section of the `Architecture` chapter.
+* The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.2 of this standard is:
 
 > Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
 

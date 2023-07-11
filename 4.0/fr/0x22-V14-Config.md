@@ -1,4 +1,4 @@
-# V14 : Exigences de vérification de la configuration
+# V14 Exigences de vérification de la configuration
 
 ## Objectif de contrôle
 
@@ -6,7 +6,6 @@ Assurez-vous qu'une application vérifiée satisfait :
 
 * Un environnement de construction sécurisé, reproductible et automatisable.
 * Une gestion des dépendances étroite et une configuration renforcée, de sorte que les composants obsolètes ou non sécurisés ne soient pas inclus dans l'application.
-* Une configuration sécurisée par défaut, de sorte que les administrateurs et les utilisateurs doivent affaiblir la sécurité par défaut.
 
 La configuration de l'application "out of the box" doit être sûre pour être sur Internet, ce qui signifie une configuration "out of the box".
 
@@ -24,7 +23,7 @@ La conformité à cette section nécessite un système de construction automatis
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.1.1** | Vérifier que les processus de construction et de déploiement des applications sont effectués de manière sûre et répétable, comme l'automatisation des CI / CD, la gestion automatisée de la configuration et les scripts de déploiement automatisés. | | ✓ | ✓ | |
 | **14.1.2** | Vérifiez que les drapeaux du compilateur sont configurés pour activer toutes les protections et les avertissements disponibles contre les débordements de mémoire tampon, y compris la randomisation de la pile, la prévention de l'exécution des données, et pour casser la compilation si un pointeur, une mémoire, une chaîne de format, un entier ou une chaîne de caractères dangereux sont trouvés. | | ✓ | ✓ | 120 |
-| **14.1.3** | Vérifiez que la configuration du serveur est durcie conformément aux recommandations du serveur d'application et des cadres utilisés. | | ✓ | ✓ | 16 |
+| **14.1.3** | Vérifiez que la configuration du serveur est durcie conformément aux recommandations du serveur d'application et des frameworks utilisés. | | ✓ | ✓ | 16 |
 | **14.1.4** | Vérifier que l'application, la configuration et toutes les dépendances peuvent être redéployées à l'aide de scripts de déploiement automatisés, construites à partir d'un runbook documenté et testé dans un délai raisonnable, ou restaurées à partir de sauvegardes en temps utile. | | ✓ | ✓ | |
 | **14.1.5** | Vérifier que les administrateurs autorisés peuvent vérifier l'intégrité de toutes les configurations pertinentes pour la sécurité afin de détecter les altérations. | | | ✓ | |
 
@@ -37,7 +36,7 @@ Remarque : au niveau 1, la conformité à la norme 14.2.1 concerne les observati
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **14.2.1** | Vérifiez que tous les composants sont à jour, de préférence en utilisant un vérificateur de dépendances pendant le temps de construction ou de compilation. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
-| **14.2.2** | Vérifiez que toutes les fonctionnalités, la documentation, les échantillons et les configurations inutiles sont supprimés, tels que les exemples d'applications, la documentation de la plate-forme et les utilisateurs par défaut ou les exemples. | ✓ | ✓ | ✓ | 1002 |
+| **14.2.2** | Vérifiez que toutes les fonctionnalités, la documentation, les applications d'exemple et les configurations inutiles sont supprimées. | ✓ | ✓ | ✓ | 1002 |
 | **14.2.3** | Vérifier que si les actifs d'application, tels que les bibliothèques JavaScript, les feuilles de style CSS ou les polices web, sont hébergés en externe sur un réseau de diffusion de contenu (CDN) ou un fournisseur externe, l'intégrité des sous-ressources (SRI) est utilisée pour valider l'intégrité de l'actif. | ✓ | ✓ | ✓ | 829 |
 | **14.2.4** | Vérifier que les composants tiers proviennent de dépôts prédéfinis, fiables et continuellement entretenus. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
 | **14.2.5** | Vérifier qu'un catalogue d'inventaire de toutes les bibliothèques tierces en service est tenu à jour. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
@@ -49,7 +48,7 @@ Les configurations de production devraient être renforcées pour se protéger c
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **14.3.1** | Vérifiez que les messages d'erreur du serveur web ou d'application et du cadre sont configurés pour fournir des réponses personnalisées et exploitables par l'utilisateur afin d'éliminer toute divulgation involontaire de sécurité. | ✓ | ✓ | ✓ | 209 |
+| **14.3.1** | [SUPPRIMÉ, DOUBLON AVEC L'EXIGENCE 7.4.1] | | | | |
 | **14.3.2** | Vérifier que les modes de débogage du serveur web ou d'application et du cadre d'application sont désactivés en production afin d'éliminer les fonctionnalités de débogage, les consoles de développement et les divulgations de sécurité non intentionnelles. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | Vérifiez que les en-têtes HTTP ou toute partie de la réponse HTTP n'exposent pas d'informations détaillées sur la version des composants du système. | ✓ | ✓ | ✓ | 200 |
 
@@ -63,7 +62,7 @@ Les configurations de production devraient être renforcées pour se protéger c
 | **14.4.4** | Vérifiez que toutes les réponses contiennent X-Content-Type-Options: nosniff. | ✓ | ✓ | ✓ | 116 |
 | **14.4.5** | Vérifiez que l'en-tête Strict-Transport-Security est inclus dans toutes les réponses et pour tous les sous-domaines, comme Strict-Transport-Security : max-age=15724800 ; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
 | **14.4.6** | Vérifiez qu'un en-tête "Referrer-Policy" approprié est inclus, tel que "no-referrer" ou "same-origin". | ✓ | ✓ | ✓ | 116 |
-| **14.4.7** | Vérifier que le contenu d'une application web ne peut pas être intégré par défaut dans un site tiers et que l'intégration des ressources exactes n'est autorisée que si nécessaire en utilisant un en-tête approprié tel "Content-Security-Policy: frame-ancestors" ou "X-Frame-Options". | ✓ | ✓ | ✓ | 346 |
+| **14.4.7** | Vérifier que le contenu d'une application web ne peut pas être intégré par défaut dans un site tiers et que l'intégration des ressources exactes n'est autorisée que si nécessaire en utilisant un en-tête approprié tel "Content-Security-Policy: frame-ancestors" ou "X-Frame-Options". | ✓ | ✓ | ✓ | 1021 |
 
 ## V14.5 Exigences sur la validation des en-têtes de requête HTTP
 
@@ -78,9 +77,9 @@ Les configurations de production devraient être renforcées pour se protéger c
 
 Pour plus d'informations, voir aussi :
 
-* [OWASP Testing Guide 4.0: Testing for HTTP Verb Tampering]( https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
+* [OWASP Web Security Testing Guide 4.1: Testing for HTTP Verb Tampering]( https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
 * Adding Content-Disposition to API responses helps prevent many attacks based on misunderstanding on the MIME type between client and server, and the "filename" option specifically helps prevent [Reflected File Download attacks.](https://www.blackhat.com/docs/eu-14/materials/eu-14-Hafif-Reflected-File-Download-A-New-Web-Attack-Vector.pdf)
 * [Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 * [Exploiting CORS misconfiguration for BitCoins and Bounties](https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)
-* [OWASP Testing Guide 4.0: Configuration and Deployment Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/README.html)
+* [OWASP Web Security Testing Guide 4.1: Configuration and Deployment Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/README.html)
 * [Sandboxing third party components](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html#sandboxing-content)
