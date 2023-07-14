@@ -38,7 +38,7 @@ jobs:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
 
   build-v4:
-    if: needs.filters.outputs.v4 == 'true'
+    if: ${{ always() && needs.filters.outputs.v4 == 'true' }}
     needs: 
       - build-image
       - filters
@@ -48,7 +48,7 @@ jobs:
       GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
 
   build-v5:
-    if: needs.filters.outputs.v5 == 'true'
+    if: ${{ always() && needs.filters.outputs.v5 == 'true' }}
     needs: 
       - build-image
       - filters

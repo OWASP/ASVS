@@ -12,10 +12,6 @@ on:
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   prepare_outputs:
     runs-on: ubuntu-latest
