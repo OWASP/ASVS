@@ -3,7 +3,12 @@ name: Generate 5.0 Outputs
 
 on:
   # Scan on workflow call
-  workflow_call: {}
+  workflow_call:
+    secrets:
+      GHCR_USERNAME:
+        required: true
+      GHCR_TOKEN:
+        required: true
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
   # Scan when pushing to master
