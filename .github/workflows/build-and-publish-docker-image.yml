@@ -1,5 +1,5 @@
 # Name of this GitHub Actions workflow.
-name: Build and publish docker image
+name: Build & Publish Image
 
 on:
   # Scan on-demand through GitHub Actions interface:
