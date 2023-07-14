@@ -13,9 +13,13 @@ on:
 
 jobs:
   prepare_container:
-    uses: ike/asvs/.github/workflows/create-outputs.yml@master
+    uses: ike/asvs/.github/workflows/create-outputs.yml@github-action-image
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+      GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
 
   debug:
+    needs: prepare_container
     runs-on: ubuntu-latest
     steps:
       - name: Setup tmate session
