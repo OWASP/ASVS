@@ -1,0 +1,27 @@
+# Name of this GitHub Actions workflow.
+name: Build and publish docker image
+
+on:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+  push:
+    #branches: ["master", "main"]
+    paths:
+      - docker/**
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    name: Build and publish
+    steps:
+      - uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/push-to-ghcr
+      - name: Build and publish a Docker image for ike/documentbuilder #${{ github.repository }}
+        uses: macbre/push-to-ghcr@master
+        with:
+          image_name: ike/documentbuilder #${{ github.repository }}  # it will be lowercased internally
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          dockerfile: docker/Dockerfile
+          context: docker
+
