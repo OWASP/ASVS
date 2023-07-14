@@ -2,6 +2,8 @@
 name: Generate 5.0 Outputs
 
 on:
+  # Scan on workflow call
+  workflow_call: {}
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
   # Scan when pushing to master
