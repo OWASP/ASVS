@@ -2,9 +2,9 @@ name: Build Documents
 
 on:
   push:
-    #branches:
-      #- 'master'
-      #- 'main'
+    branches:
+      - 'master'
+      - 'main'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
