@@ -16,12 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate container
     steps:
-      - uses: actions/checkout@v3
-      - run: make
-      - uses: actions/upload-artifact@v3
-        with:
-          name: ASVS 5.0 Bleeding Edge
-          path: 5.0/dist/en/
+      - uses: ike/asvs/.github/workflows/create-outputs.yml@main
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
