@@ -14,7 +14,7 @@ jobs:
   filters:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: tony84727/changed-file-filter@v0.2.2
       id: filter
       with:
