@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and publish
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # https://github.com/marketplace/actions/push-to-ghcr
       - name: Build and publish a Docker image for ike/documentbuilder #${{ github.repository }}
