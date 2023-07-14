@@ -31,22 +31,27 @@ jobs:
       v5: ${{ steps.filter.outputs.v5 }}
 
   build-image:
-    if: steps.filter.outputs.docker == 'true'
+    if: needs.filters.outputs.docker == 'true'
+    needs: filters
     uses: ike/asvs/.github/workflows/build-and-publish-docker-image.yml@github-action-image
     secrets:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
 
   build-v4:
-    if: steps.filter.outputs.v4 == "true"
-    needs: build-image
+    if: needs.filters.outputs.v4 == 'true'
+    needs: 
+      - build-image
+      - filters
     uses: ike/asvs/.github/workflows/create-4.0-outputs.yml@github-action-image
     secrets:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
       GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
 
   build-v5:
-    if: steps.filter.outputs.v5 == "true"
-    needs: build-image
+    if: needs.filters.outputs.v5 == 'true'
+    needs: 
+      - build-image
+      - filters
     uses: ike/asvs/.github/workflows/create-5.0-outputs.yml@github-action-image
     secrets:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
