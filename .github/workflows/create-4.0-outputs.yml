@@ -11,12 +11,10 @@ on:
         required: true
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
-  # Scan when pushing to master
-  push:
-    paths:
-      - "4.0/**"
-        #branches: ["master", "main"]
-        #
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   prepare_outputs:

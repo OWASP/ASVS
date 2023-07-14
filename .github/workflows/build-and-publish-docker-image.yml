@@ -2,12 +2,17 @@
 name: Build & Publish Image
 
 on:
+  # Scan on workflow call
+  workflow_call:
+    secrets:
+      GHCR_TOKEN:
+        required: true
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
-  push:
-    #branches: ["master", "main"]
-    paths:
-      - docker/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build_and_push:
