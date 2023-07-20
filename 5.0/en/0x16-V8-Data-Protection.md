@@ -27,7 +27,7 @@ Ensure that a verified application satisfies the following high level data prote
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **8.2.1** | Verify the application sets sufficient anti-caching headers so that sensitive data is not cached in modern browsers. | ✓ | ✓ | ✓ | 525 |
+| **8.2.1** | [MODIFIED] Verify the application sets sufficient anti-caching headers (i.e. Cache-Control: no-store) so that sensitive data is not cached in modern browsers. | ✓ | ✓ | ✓ | 525 |
 | **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens which should be stored in either cookies or sessionStorage. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | ✓ | ✓ | ✓ | 922 |
 
