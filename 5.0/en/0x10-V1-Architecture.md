@@ -36,7 +36,11 @@ When designing authentication, it doesn't matter if you have strong hardware ena
 
 ## V1.3 Session Management Architecture
 
-This is a placeholder for future architectural requirements.
+This section ensures that the application is planned in a way that allows an easilly securable session management mechanism to be implemented.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.3.1** | [MODIFIED, MOVED FROM 3.4.5] Verify that separate applications are hosted on different hostnames so as to benefit from the protections provided by the "same origin policy" and the hostname restrictions on cookies. | ✓ | ✓ | ✓ | 16 |
 
 ## V1.4 Access Control Architecture
 
