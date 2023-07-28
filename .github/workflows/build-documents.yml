@@ -33,7 +33,7 @@ jobs:
   build-image:
     if: needs.filters.outputs.docker == 'true'
     needs: filters
-    uses: ike/asvs/.github/workflows/build-and-publish-docker-image.yml@github-action-image
+    uses: owasp/asvs/.github/workflows/build-and-publish-docker-image.yml@master
     secrets:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
 
@@ -42,7 +42,7 @@ jobs:
     needs: 
       - build-image
       - filters
-    uses: ike/asvs/.github/workflows/create-4.0-outputs.yml@github-action-image
+    uses: owasp/asvs/.github/workflows/create-4.0-outputs.yml@master
     secrets:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
       GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
@@ -52,7 +52,7 @@ jobs:
     needs: 
       - build-image
       - filters
-    uses: ike/asvs/.github/workflows/create-5.0-outputs.yml@github-action-image
+    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
     secrets:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
       GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}

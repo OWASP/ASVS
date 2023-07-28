@@ -13,7 +13,7 @@ on:
 
 jobs:
   prepare_container:
-    uses: ike/asvs/.github/workflows/create-5.0-outputs.yml@github-action-image
+    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
     secrets:
       GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
       GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}

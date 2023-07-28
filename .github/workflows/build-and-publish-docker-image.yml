@@ -18,10 +18,10 @@ jobs:
       - uses: actions/checkout@v3
 
       # https://github.com/marketplace/actions/push-to-ghcr
-      - name: Build and publish a Docker image for ike/documentbuilder #${{ github.repository }}
+      - name: Build and publish a Docker image for asvs/documentbuilder #${{ github.repository }}
         uses: macbre/push-to-ghcr@master
         with:
-          image_name: ike/documentbuilder #${{ github.repository }}  # it will be lowercased internally
+          image_name: asvs/documentbuilder #${{ github.repository }}  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }} 
           dockerfile: docker/Dockerfile
           context: docker
