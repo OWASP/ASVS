@@ -7,13 +7,13 @@
 To build the docker image manually, use this command:
 
 ```
-docker image build --tag ghcr.io/ike/documentbuilder -f docker/Dockerfile .
+docker image build --tag ghcr.io/asvs/documentbuilder -f docker/Dockerfile .
 ```
 
 To run the document builder manually, use the following. The Volume you are mounting (`-v `) needs to be shared in the docker settings console for this to work:
 
 ```
-docker run --rm -v "/Path/to/the/repo/4.0:/data" ghcr.io/ike/documentbuilder
+docker run --rm -v "/Path/to/the/repo/4.0:/data" ghcr.io/asvs/documentbuilder
 ```
 
 ## Future Changes
