@@ -10,6 +10,8 @@ on:
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     name: Build and publish
     steps:
       - uses: actions/checkout@v3
