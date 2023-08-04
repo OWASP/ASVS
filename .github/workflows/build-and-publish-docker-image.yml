@@ -4,9 +4,6 @@ name: Build & Publish Image
 on:
   # Scan on workflow call
   workflow_call:
-    secrets:
-      GHCR_TOKEN:
-        required: true
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
 
@@ -17,12 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # https://github.com/marketplace/actions/push-to-ghcr
-      - name: Build and publish a Docker image for asvs/documentbuilder #${{ github.repository }}
-        uses: macbre/push-to-ghcr@master
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
         with:
-          image_name: asvs/documentbuilder #${{ github.repository }}  # it will be lowercased internally
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
-          dockerfile: docker/Dockerfile
-          context: docker
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: 'Build and publish Docker image'
+        run: |
+          docker build ./docker/ --tag ghcr.io/owasp/asvs/documentbuilder:latest
+          docker push ghcr.io/owasp/asvs/documentbuilder:latest
 
