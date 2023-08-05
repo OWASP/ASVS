@@ -22,7 +22,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.2.1** | [MODIFIED] Verify that when the application is accepting a file, it checks that the file extension of the file matches an expected type and it validates that the contents of the file match that type, including but not limited to checking the initial "magic bytes". | | ✓ | ✓ | 434 |
+| **12.2.1** | [MODIFIED] Verify that when the application is accepting a file, it checks that the file extension of the file matches an expected file extension and that it validates that the contents of the file match the type represented by that extension, including but not limited to checking the initial "magic bytes". | | ✓ | ✓ | 434 |
 
 ## V12.3 File Execution
 
