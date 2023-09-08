@@ -13,7 +13,7 @@ Authorization is the concept of allowing access to resources only to those permi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **4.1.1** | [MODIFIED] Verify that the application enforces access control rules at a trusted service layer and doesn't rely on controls which an untrusted user could manipulate such as client-side JavaScript. | ✓ | ✓ | ✓ | 602 |
-| **4.1.2** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | 639 |
+| **4.1.2** | [MODIFIED] Verify that specific controls exist to prevent end users from making changes to access control policy information, such as user roles, permissions, and feature access levels, unless they are explicitly authorized to do so. | ✓ | ✓ | ✓ | 639 |
 | **4.1.3** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
 | **4.1.4** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **4.1.5** | [GRAMMAR] Verify that access controls fail securely by denying access, including when an exception occurs. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 285 |
