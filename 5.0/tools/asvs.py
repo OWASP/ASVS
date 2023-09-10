@@ -255,8 +255,6 @@ class ASVS:
         
         prefix_char1, null, null = self.get_prefix()
 
-        print(prefix_char1)
-
         summary = {}
         for line in csv.splitlines():
             if 'chapter_id,chapter_name' not in line:
