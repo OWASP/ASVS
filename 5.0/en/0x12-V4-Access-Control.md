@@ -32,7 +32,7 @@ Authorization is the concept of allowing access to resources only to those permi
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **4.3.1** | [MODIFIED] Verify administrative interfaces can only be logically accessed from trusted endpoints or locations. For example, restricting access to bastion or jump hosts, trusted admin workstations or endpoints (e.g., device authentication), administrative LANs, etc. | ✓ | ✓ | ✓ | 419 |
 | **4.3.2** | [SPLIT TO 14.3.4, 14.3.5] | | | | |
-| **4.3.3** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. | | ✓ | ✓ | 732 |
+| **4.3.3** | [GRAMMAR] Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, or alternatively segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. | | ✓ | ✓ | 732 |
 
 ## References
 
