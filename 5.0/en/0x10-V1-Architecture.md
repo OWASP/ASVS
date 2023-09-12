@@ -46,7 +46,7 @@ This is a placeholder for future architectural requirements.
 | **1.4.2** | [DELETED] | | | | |
 | **1.4.3** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **1.4.4** | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 284 |
-| **1.4.5** | Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature/data item rather than just their role. Permissions should still be allocated using roles. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 275 |
+| **1.4.5** | [GRAMMAR] Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature or data item rather than just their role. Permissions should still be allocated using roles. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 275 |
 | **1.4.6** | [ADDED] Verify that communications between application components, including APIs, middleware and data layers, are performed with the least necessary privileges. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 272 |
 
 ## V1.5 Input and Output Architecture
@@ -129,7 +129,7 @@ This is a placeholder for future architectural requirements.
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.3** | Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions. | | ✓ | ✓ | 1104 |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.14.5** | Verify that application deployments adequately sandbox, containerize and/or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
+| **1.14.5** | [MODIFIED] Verify that application deployments adequately sandbox or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
 | **1.14.6** | [MODIFIED] Verify the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
 | **1.14.7** | [MOVED FROM 1.2.1] Verify the use of unique or special low-privilege operating system accounts for all application components, services, and servers. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 250 |
 

@@ -43,7 +43,7 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.12** | [MODIFIED] Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | ✓ | ✓ | ✓ | 549 | 5.1.1.2 |
 | **2.1.13** | [ADDED, SPLIT FROM 2.1.10, LEVEL L1 > L2] Verify that the application does not keep a password history. | | ✓ | ✓ | | 5.1.1.2 |
-| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached username/password pairs. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
+| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached username and password pairs. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
 
 Possible sources of frequently used passwords for requirement 2.1.7 include:
 
@@ -99,7 +99,7 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 | **2.4.4** | [MODIFIED] Verify that if bcrypt is used, the work factor is a minimum of 10 and password size is limited to 72-bytes due to bcrypt's input limit. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | [DELETED] | | | | | |
 | **2.4.6** | [ADDED] Verify that if argon2id is used, there should be a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration should be a minimum CPU/memory cost parameter of (2^17), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration should be a minimum work factor of (2^17), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
 
 Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
 
