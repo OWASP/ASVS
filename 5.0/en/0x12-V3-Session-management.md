@@ -121,7 +121,7 @@ This section describes the best current security practices for OAuth 2.0 as deri
 
 OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. Proof Key for Code Exchange (PCKE, pronounced "pixy") is the technique used to mitigate against the threat of authorization code interception attack. 
 
-Originally, PKCE is intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier. 
+Originally, PKCE was intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier. 
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -152,7 +152,7 @@ The implicit grant is a simplified authorization code flow optimized for clients
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **3.8.12** | [ADDED] Verify that the privileges associated with an access token should be restricted to the minimum required for the particular application or use case. This prevents clients from exceeding the priviliges authorized by the Resource Owner. It also prevents users from exceeding their privileges authorized by the respective security policy. Privilege restrictions also help to reduce the impact of access token leakage.  | ✓ | ✓ | ✓ |
+| **3.8.12** | [ADDED] Verify that the privileges associated with an access token are restricted to the minimum required for the particular application or use case. This prevents clients from exceeding the priviliges authorized by the Resource Owner. It also prevents users from exceeding their privileges authorized by the respective security policy. Privilege restrictions also help to reduce the impact of access token leakage.  | ✓ | ✓ | ✓ |
 | **3.8.13** | [ADDED] Verify that access tokens are restricted to certain Resource Servers (audience restriction), preferably to a single Resource Server. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular Resource Server. If not, the Resource Server must refuse to serve the respective request. Clients may utilize the parameters "scope" and "resource", respectively to determine the Resource Server they want to access.  | ✓ | ✓ | ✓ |
 | **3.8.14** | [ADDED] Verify that access tokens are restricted to certain resources and actions on Resource Servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the Resource Server must refuse to serve the respective request. Clients may utilize the parameters "scope" and "authorization_details" to determine those resources and/or actions. | ✓ | ✓ | ✓ |
 
