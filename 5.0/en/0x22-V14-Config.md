@@ -85,7 +85,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.5.5** | [MODIFIED, MOVED FROM 13.2.1] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
 | **14.5.6** | [ADDED] Verify that the infrastructure follows RFC 2616 and ignores the Content-Length header field if a Transfer-Encoding header field is also present. | | ✓ | ✓ | 444 |
 | **14.5.7** | [ADDED] Verify that the web application warns users who are using an old browser which does not support HTTP security features on which the application relies. The list of old browsers must be periodically reviewed and updated. | | | ✓ | 1104 |
-| **14.5.8** | [ADDED] Verify that any HTTP headers used by the application and defined by intermediary devices like load balancers or proxies, such as X-Real-IP and X-Forwarded-*, cannot be overridden by the end-user. | | ✓ | ✓ | 345 |
+| **14.5.8** | [ADDED] Verify that any HTTP headers used by the application and defined by intermediary devices like load balancers or proxies, such as X-Real-IP and X-Forwarded-*, cannot be overridden by the end-user. | | ✓ | ✓ | 346 |
 
 ## V14.6 HTTP/2
 
