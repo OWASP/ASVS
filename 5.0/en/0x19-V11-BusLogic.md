@@ -22,6 +22,7 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.6** | Verify that the application does not suffer from "Time Of Check to Time Of Use" (TOCTOU) issues or other race conditions for sensitive operations. | | ✓ | ✓ | 367 |
 | **11.1.7** | Verify that the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 754 |
 | **11.1.8** | Verify that the application has configurable alerting when automated attacks or unusual activity is detected. | | ✓ | ✓ | 390 |
+| **11.1.9** | [ADDED] Verify that "atomic transactions" are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | | ✓ | ✓ | |
 
 ## V11.2 Anti-automation
 
