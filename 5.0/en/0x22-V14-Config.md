@@ -65,7 +65,7 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.4.1** | [MODIFIED, SPLIT TO 14.4.9] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response.. | ✓ | ✓ | ✓ | 173 |
+| **14.4.1** | [MODIFIED, SPLIT TO 14.4.9] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | [DELETED] | | | | |
 | **14.4.3** | [MODIFIED] Verify that a Content Security Policy (CSP) response header is in place that helps mitigate impact for XSS attacks like HTML, DOM, CSS, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 1021 |
 | **14.4.4** | Verify that all responses contain a X-Content-Type-Options: nosniff header. | ✓ | ✓ | ✓ | 116 |
