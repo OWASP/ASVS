@@ -46,7 +46,7 @@ HTTP traffic between internal facing services should also be encrypted, idealy u
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **9.3.1** | [ADDED] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services, and does not fall back to insecure or unencrypted communications. | | ✓ | ✓ | 319 |
+| **9.3.1** | [ADDED] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services, and does not fall back to insecure or unencrypted communications. | ✓ | ✓ | ✓ | 319 |
 | **9.3.2** | [MODIFIED, MOVED FROM 9.2.1] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
 | **9.3.3** | [ADDED] Verify that mutual TLS (mTLS) is used by services communicating internally within a system or "intra-service communications" to ensure all the involved parties at each end of a network connection are who they claim to be. | | | ✓ | 295 |
 
