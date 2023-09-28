@@ -96,11 +96,11 @@ Configurations for production should be hardened to protect against common attac
 | **14.6.2** | [ADDED] Verify that all Transfer-Encoding headers are stripped from the message or that the request is blocked entirely. | ✓ | ✓ | ✓ | |
 | **14.6.3** | [ADDED] Verify that a full CRLF (\r\n) sequence is neutralized inside a HTTP/2 header. | ✓ | ✓ | ✓ | 113 |
 
-## V14.7 Web/Application Server Configuration
+## V14.7 Web or Application Server Configuration
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.7.1** | [MOVED FROM 12.6.1, GRAMMAR] Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data or files from.. | ✓ | ✓ | ✓ | 918 |
+| **14.7.1** | [MOVED FROM 12.6.1, GRAMMAR] Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data or files from. | ✓ | ✓ | ✓ | 918 |
 
 ## References
 
