@@ -100,7 +100,7 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.7.1** | [MOVED FROM 12.6.1] Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data/files from. | ✓ | ✓ | ✓ | 923 |
+| **14.7.1** | [MOVED FROM 12.6.1, GRAMMAR] Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data or files from.. | ✓ | ✓ | ✓ | 918 |
 
 ## References
 
