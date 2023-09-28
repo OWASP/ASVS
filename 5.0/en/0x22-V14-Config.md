@@ -55,7 +55,7 @@ Configurations for production should be hardened to protect against common attac
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.3.1** | [DELETED, DUPLICATE OF 7.4.1] | | | | |
-| **14.3.2** | Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures. | ✓ | ✓ | ✓ | 497 |
+| **14.3.2** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | [MODIFIED] Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of server-side components. | ✓ | ✓ | ✓ | 200 |
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | ✓ | ✓ | ✓ | 548 |
 | **14.3.5** | [ADDED, SPLIT FROM 4.3.2] Verify that applications do not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | ✓ | ✓ | ✓ | |
@@ -65,7 +65,7 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.4.1** | Verify that every HTTP response contains a Content-Type header. Also specify a safe character set (e.g., UTF-8, ISO-8859-1) if the content types are text/*, /+xml and application/xml. Content must match with the provided Content-Type header. | ✓ | ✓ | ✓ | 173 |
+| **14.4.1** | [MODIFIED, SPLIT TO 14.4.9] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | [DELETED] | | | | |
 | **14.4.3** | [MODIFIED] Verify that a Content Security Policy (CSP) response header is in place that helps mitigate impact for XSS attacks like HTML, DOM, CSS, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 1021 |
 | **14.4.4** | Verify that all responses contain a X-Content-Type-Options: nosniff header. | ✓ | ✓ | ✓ | 116 |
@@ -73,6 +73,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.4.6** | Verify that a suitable Referrer-Policy header is included to avoid exposing sensitive information in the URL through the Referer header to untrusted parties. | ✓ | ✓ | ✓ | 116 |
 | **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 1021 |
 | **14.4.8** | [ADDED, SPLIT FROM 14.5.3] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted origins. When "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
+| **14.4.9** | [ADDED, SPLIT FROM 14.4.1] Verify that if a response specifies a Content-Type of "text/\*", "\*/\*+xml" and "\*/xml", it also specifies a safe character set (e.g., UTF-8, ISO-8859-1) with the charset parameter. | ✓ | ✓ | ✓ | 173 |
 
 ## V14.5 HTTP Request Header Validation
 
@@ -85,6 +86,7 @@ Configurations for production should be hardened to protect against common attac
 | **14.5.5** | [MODIFIED, MOVED FROM 13.2.1] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
 | **14.5.6** | [ADDED] Verify that the infrastructure follows RFC 2616 and ignores the Content-Length header field if a Transfer-Encoding header field is also present. | | ✓ | ✓ | 444 |
 | **14.5.7** | [ADDED] Verify that the web application warns users who are using an old browser which does not support HTTP security features on which the application relies. The list of old browsers must be periodically reviewed and updated. | | | ✓ | 1104 |
+| **14.5.8** | [ADDED] Verify that any HTTP headers used by the application and defined by intermediary devices like load balancers or proxies, such as X-Real-IP and X-Forwarded-*, cannot be overridden by the end-user. | | ✓ | ✓ | 346 |
 
 ## V14.6 HTTP/2
 

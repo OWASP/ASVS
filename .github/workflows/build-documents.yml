@@ -1,0 +1,58 @@
+name: Build Documents
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  filters:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: tony84727/changed-file-filter@v0.2.2
+      id: filter
+      with:
+        filters: |
+          docker:
+            - 'docker/**/*'
+          v5:
+            - '5.0/**/*'
+          v4:
+            - '4.0/**/*'
+    outputs:
+      docker: ${{ steps.filter.outputs.docker }}
+      v4: ${{ steps.filter.outputs.v4 }}
+      v5: ${{ steps.filter.outputs.v5 }}
+
+  build-image:
+    if: needs.filters.outputs.docker == 'true'
+    needs: filters
+    uses: owasp/asvs/.github/workflows/build-and-publish-docker-image.yml@master
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+
+  build-v4:
+    if: ${{ always() && needs.filters.outputs.v4 == 'true' }}
+    needs: 
+      - build-image
+      - filters
+    uses: owasp/asvs/.github/workflows/create-4.0-outputs.yml@master
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+      GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
+
+  build-v5:
+    if: ${{ always() && needs.filters.outputs.v5 == 'true' }}
+    needs: 
+      - build-image
+      - filters
+    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+      GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
