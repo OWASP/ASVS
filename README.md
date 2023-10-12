@@ -20,6 +20,12 @@ We gratefully recognise the organizations who have supported the project either 
 
 **Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 4.n branch](CONTRIBUTING.md#translations).**
 
+## Project Leaders and Working Group
+
+The project is led by the five project leaders [Andrew van der Stock](https://github.com/vanderaj), [Daniel Cuthbert](https://github.com/danielcuthbert), [Jim Manico](https://github.com/jmanico), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
+
+The are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), and [Iman Sharafaldin](https://github.com/ImanSharaf).
+
 ## Roadmap to ASVS 5.0
 
 We have now published our roadmap and objectives for version 5.0 of the ASVS in [this wiki page](https://github.com/OWASP/ASVS/wiki/Roadmap-to-version-5.0).
