@@ -1,10 +1,7 @@
 name: Build Documents
 
 on:
-  push:
-    branches:
-      - 'master'
-      - 'main'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
