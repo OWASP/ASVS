@@ -51,7 +51,7 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 #### Keep all current numbers
 
-* New requirements must be placed at the end of sub-category
+* New requirements must be placed at the end of the relevant section
 * Deleted requirements must keep "placeholder" to avoid some other requirements to be added/moved to that number, examples:
 
 ```
