@@ -1,4 +1,4 @@
-# V10 Malicious Code
+# V10 Malicious and Insecure Code
 
 ## Control Objective
 
@@ -47,6 +47,12 @@ Complying with this section is likely to be operational and continuous.
 | **10.3.1** | Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update. | ✓ | ✓ | ✓ | 16 |
 | **10.3.2** | [MODIFIED] Verify that the application only loads or executes code, modules, content or plugins from sources not under the application's direct control or protection if it employs integrity protections, such as code signing. | ✓ | ✓ | ✓ | 829 |
 | **10.3.3** | Verify that the application has protection from subdomain takeovers if the application relies upon DNS entries or DNS subdomains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (*autogen-bucket-id*.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change. | ✓ | ✓ | ✓ | 350 |
+
+## V10.4 Defensive Coding
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **10.4.1** | Verify that the application explicitly ensures that variables are of the correct type and performs strict equality and comparator operations to avoid type juggling or confusion vulnerabilities caused by the application code making an assumption about a variable type. | ✓ | ✓ | ✓ | 843 |
 
 ## References
 
