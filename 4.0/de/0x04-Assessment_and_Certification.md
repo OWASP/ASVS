@@ -2,7 +2,11 @@
 
 ## ASVS-Zertifizierungen und Gütesiegel
 
-OWASP ist eine herstellerneutrale, gemeinnützige Organisation. Sie zertifiziert derzeit keine Hersteller, Prüfstellen oder Software. Alle derartigen Versicherungen, Gütesiegel oder Zertifizierungen werden von OWASP nicht offiziell überprüft, registriert oder zertifiziert. Jede Organisation sollte in Bezug auf Aussagen eines Dritten, der behauptet, ASVS-zertifiziert zu sein, vorsichtig sein. Dies ist jedoch kein Verbot, solche Assurancedienstleistungen anzubieten, solange sie keine offizielle OWASP-Zertifizierung geltend machen.
+OWASP ist eine herstellerneutrale, gemeinnützige Organisation. Sie zertifiziert derzeit keine Hersteller, Prüfstellen oder Software.
+
+Alle derartigen Versicherungen, Gütesiegel oder Zertifizierungen werden von OWASP nicht offiziell überprüft, registriert oder zertifiziert. Jede Organisation sollte in Bezug auf Aussagen eines Dritten, der behauptet, ASVS-zertifiziert zu sein, vorsichtig sein.
+
+Dies ist jedoch kein Verbot, solche Assurancedienstleistungen anzubieten, solange sie keine offizielle OWASP-Zertifizierung geltend machen.
 
 ## Leitfaden für zertifizierende Organisationen
 
@@ -16,15 +20,23 @@ Das Aufbewahren von detaillierten Arbeitspapieren, Screenshots, Filmen, Skripten
 
 ### Prüfmethode
 
-Zertifizierende Organisationen können die geeigneten Prüfmethoden frei wählen, sollten diese aber in einem Bericht angeben. Je nach der zu testenden Anwendung und der Anforderung können unterschiedliche Testmethoden verwendet werden: Die Wirksamkeit der Eingabevalidierung einer Anwendung kann beispielsweise sowohl mit einem manuellen Penetrationstest als auch mit Hilfe von Quellcodeanalysen geprüft werden.
+Zertifizierende Organisationen können die geeigneten Prüfmethoden frei wählen, sollten diese aber in einem Bericht angeben.
+
+Je nach der zu testenden Anwendung und der Anforderung können unterschiedliche Testmethoden verwendet werden: Die Wirksamkeit der Eingabevalidierung einer Anwendung kann beispielsweise sowohl mit einem manuellen Penetrationstest als auch mit Hilfe von Quellcodeanalysen geprüft werden.
 
 #### Die Rolle automatisierter Sicherheitstesttools
 
-Der Einsatz von automatisierten Penetrationstests wird empfohlen, um eine möglichst hohe Abdeckung zu erreichen. Die ASVS-Verifizierung kann jedoch nicht ausschließlich mit automatisierten Penetrationstesttools durchgeführt werden. Während die meisten Anforderungen in L1 mit automatisierten Tests durchgeführt werden kann, ist die Mehrheit der Anforderungen der Stufen 2 und 3 nicht für automatisierte Penetrationstests geeignet. Die Grenzen zwischen automatisierten und manuellen Tests verschwimmen mit zunehmender Reife der Anwendungssicherheitsindustrie immer mehr. Automatisierte Tools werden häufig von Experten angepasst, und manuelle Tester nutzen oft eine Vielzahl von automatisierten Werkzeugen.
+Der Einsatz von automatisierten Penetrationstests wird empfohlen, um eine möglichst hohe Abdeckung zu erreichen.
+
+Die ASVS-Verifizierung kann jedoch nicht ausschließlich mit automatisierten Penetrationstesttools durchgeführt werden. Während die meisten Anforderungen in L1 mit automatisierten Tests durchgeführt werden kann, ist die Mehrheit der Anforderungen der Stufen 2 und 3 nicht für automatisierte Penetrationstests geeignet.
+
+Die Grenzen zwischen automatisierten und manuellen Tests verschwimmen mit zunehmender Reife der Anwendungssicherheitsindustrie immer mehr. Automatisierte Tools werden häufig von Experten angepasst, und manuelle Tester nutzen oft eine Vielzahl von automatisierten Werkzeugen.
 
 #### Die Rolle automatisierter Sicherheitstests
 
-In Version 4.0 haben wir uns entschieden, L1 komplett penetrationstestfähig zu machen, ohne Zugriff auf Quellcode, Dokumentation oder Entwickler. Zwei Protokollierungselemente, die zur Einhaltung der OWASP Top 10 2017 A10 erforderlich sind, erfordern Interviews, Screenshots oder eine andere Sammlung von Nachweisen, wie sie auch in der OWASP Top 10 2017 erforderlich sind. Das Testen ohne Zugang zu den notwendigen Informationen ist jedoch keine ideale Methode der Sicherheitsüberprüfung, da die Quelle nicht überprüft wird, Bedrohungen und fehlende Maßnahmen nicht identifiziert werden und ein weitaus gründlicherer Test in kürzerer Zeit nicht durchgeführt wird. Zur Durchführung einer Prüfung auf den Stufen 2- oder 3 ist der Zugang zu Entwicklern, der Dokumentation, dem Code sowie der Zugang zu einer Testanwendung mit Testdaten erforderlich. Penetrationstests, die auf diesen Ebenen durchgeführt werden, erfordern diese Zugriffsebene, die wir „hybride Überprüfungen“ oder „hybride Penetrationstests“ nennen.
+In Version 4.0 haben wir uns entschieden, L1 komplett penetrationstestfähig zu machen, ohne Zugriff auf Quellcode, Dokumentation oder Entwickler. Zwei Protokollierungselemente, die zur Einhaltung der OWASP Top 10 2017 A10 erforderlich sind, erfordern Interviews, Screenshots oder eine andere Sammlung von Nachweisen, wie sie auch in der OWASP Top 10 2017 erforderlich sind. Das Testen ohne Zugang zu den notwendigen Informationen ist jedoch keine ideale Methode der Sicherheitsüberprüfung, da die Quelle nicht überprüft wird, Bedrohungen und fehlende Maßnahmen nicht identifiziert werden und ein weitaus gründlicherer Test in kürzerer Zeit nicht durchgeführt wird.
+
+Zur Durchführung einer Prüfung auf den Stufen 2- oder 3 ist der Zugang zu Entwicklern, der Dokumentation, dem Code sowie der Zugang zu einer Testanwendung mit Testdaten erforderlich. Penetrationstests, die auf diesen Ebenen durchgeführt werden, erfordern diese Zugriffsebene, die wir „hybride Überprüfungen“ oder „hybride Penetrationstests“ nennen.
 
 ## Andere Verwendungszwecke für den ASVS
 

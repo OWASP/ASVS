@@ -2,17 +2,23 @@
 
 ## Ziel
 
-Das primäre Ziel der Fehlerbehandlung und Protokollierung ist es, nützliche Informationen für den Benutzer, die Administratoren und die Incident Response Teams bereitzustellen. Das Ziel besteht nicht darin, große Mengen von Protokollen zu erstellen, sondern hochwertige Protokolle, die mehr Informationen als nutzloses Rauschen enthalten. Hochwertige Protokolle enthalten oft sensible Daten und müssen gemäß den lokalen Datenschutzgesetzen oder -richtlinien geschützt werden. Dies sollte beinhalten:
+Das primäre Ziel der Fehlerbehandlung und Protokollierung ist es, nützliche Informationen für den Benutzer, die Administratoren und die Incident Response Teams bereitzustellen. Das Ziel besteht nicht darin, große Mengen von Protokollen zu erstellen, sondern hochwertige Protokolle, die mehr Informationen als nutzloses Rauschen enthalten.
+
+Hochwertige Protokolle enthalten oft sensible Daten und müssen gemäß den lokalen Datenschutzgesetzen oder -richtlinien geschützt werden. Dies sollte beinhalten:
 
 * Keine sensiblen Informationen zu protokollieren, es sei denn, dies ist ausdrücklich erforderlich.
 * Sicherzustellen, dass alle protokollierten Informationen sicher gehandhabt und gemäß ihrer Datenklassifizierung geschützt werden.
 * Sicherzustellen, dass die Protokolle nicht für immer gespeichert werden, sondern eine möglichst kurze Lebensdauer haben.
 
-Wenn Protokolle personenbezogene oder sensible Daten enthalten, werden sie für Angreifer sehr attraktiv. Es ist ferner wichtig zu gewährleisten, dass die Anwendung in sichere Fehlerzustände fällt und dass Fehler keine unnötigen Informationen offenbaren.
+Wenn Protokolle personenbezogene oder sensible Daten enthalten, werden sie für Angreifer sehr attraktiv.
+
+Es ist ferner wichtig zu gewährleisten, dass die Anwendung in sichere Fehlerzustände fällt und dass Fehler keine unnötigen Informationen offenbaren.
 
 ## V7.1 Protokollinhalt
 
-Die Protokollierung sensibler Informationen ist gefährlich - die Protokolle werden selbst sensibel und müssen verschlüsselt werden. Sie unterliegen Aufbewahrungsrichtlinien und müssen bei Sicherheitsaudits offengelegt werden. Prüfen Sie, dass nur die notwendigen Informationen in den Protokollen aufbewahrt werden, jedoch auf keinen Fall Zahlungen, Anmeldedaten, einschließlich Sessiontoken, sensible oder personenbezogene Informationen. Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er nicht durch Penetrationstests verifizierbar ist, sollen:
+Die Protokollierung sensibler Informationen ist gefährlich - die Protokolle werden selbst sensibel und müssen verschlüsselt werden. Sie unterliegen Aufbewahrungsrichtlinien und müssen bei Sicherheitsaudits offengelegt werden. Prüfen Sie, dass nur die notwendigen Informationen in den Protokollen aufbewahrt werden, jedoch auf keinen Fall Zahlungen, Anmeldedaten, einschließlich Sessiontoken, sensible oder personenbezogene Informationen.
+
+Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er nicht durch Penetrationstests verifizierbar ist, sollen:
 
 * Entwickler die vollständige Einhaltung dieses Abschnitts sicherstellen, als ob alle Punkte mit L1 gekennzeichnet wären.
 * Penetrationstester die vollständige Einhaltung aller Punkte durch Befragung, Screenshots oder Zusicherungen validieren.
@@ -26,7 +32,9 @@ Die Protokollierung sensibler Informationen ist gefährlich - die Protokolle wer
 
 ## V7.2 Protokollbearbeitung
 
-Die rechtzeitige Protokollierung ist entscheidend für Auditereignisse, Triage und Eskalation. Prüfen Sie, dass die Anwendungsprotokolle klar sind und entweder lokal oder per Versand an ein Fernüberwachungssystem leicht überwacht und analysiert werden können. Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er nicht durch Penetrationstests verifizierbar ist, sollen:
+Die rechtzeitige Protokollierung ist entscheidend für Auditereignisse, Triage und Eskalation. Prüfen Sie, dass die Anwendungsprotokolle klar sind und entweder lokal oder per Versand an ein Fernüberwachungssystem leicht überwacht und analysiert werden können.
+
+Dieser Abschnitt deckt OWASP Top 10 2017:A10 ab. Weil er nicht durch Penetrationstests verifizierbar ist, sollen:
 
 * Entwickler die vollständige Einhaltung dieses Abschnitts sicherstellen, als ob alle Punkte mit L1 gekennzeichnet wären.
 * Penetrationstester die vollständige Einhaltung aller Punkte durch Befragung, Screenshots oder Zusicherungen validieren.

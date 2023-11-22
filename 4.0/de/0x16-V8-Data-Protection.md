@@ -33,7 +33,9 @@ Prüfen Sie, dass eine verifizierte Anwendung die folgenden High Level Anforderu
 
 ## V8.3 Personenbezogene Daten
 
-Dieser Abschnitt trägt dazu bei, sensible Daten vor unbefugtem Erstellen, Lesen, Ändern oder Löschen zu schützen. Voraussetzung ist die Einhaltung von V4-Zugriffskontrollmaßnahmen, insbesondere V4.2. So erfordert zum Beispiel der Schutz von personenbezogenen Daten vor unbefugten Veränderungen oder Offenlegung die Einhaltung von V4.2.1. Bitte halten Sie sich an diesen Abschnitt und an V4, um eine vollständige Abdeckung zu erreichen.
+Dieser Abschnitt trägt dazu bei, sensible Daten vor unbefugtem Erstellen, Lesen, Ändern oder Löschen zu schützen.
+
+Voraussetzung für die Umsetzung dieses Abschnittes ist die Einhaltung von V4-Zugriffskontrollmaßnahmen, insbesondere V4.2. So erfordert zum Beispiel der Schutz von personenbezogenen Daten vor unbefugten Veränderungen oder Offenlegung die Einhaltung von V4.2.1. Bitte halten Sie sich an diesen Abschnitt und an V4, um eine vollständige Abdeckung zu erreichen.
 
 Hinweis: Datenschutzbestimmungen und -gesetze wie die EU-Datenschutzgrundverordnung oder die Australian Privacy Principles APP-11 wirken sich direkt darauf aus, wie die Speicherung, Nutzung und Übertragung von personenbezogenen Daten in der Anwendung umgesetzt werden muss. Dies reicht von einfachen Ratschlägen bis hin zu schweren Strafen. Bitte prüfen Sie Ihre lokalen Gesetze und Vorschriften und wenden Sie sich bei Bedarf an einen Datenschutzspezialisten.
 

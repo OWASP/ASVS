@@ -13,7 +13,9 @@ Das Feststellen der Abwesenheit bösartigen Codes ist der Negativbeweis, der unm
 
 ## V10.1 Kontrollen der Code-Integrität
 
-Die beste Verteidigung gegen bösartigen Code ist der Wahlspruch „Vertrauen ist gut, Kontrolle ist besser“. Das Einbringen eines nicht autorisierten oder bösartigen Codes in eine Software ist in vielen Rechtsordnungen ein kriminelles Vergehen. Die Richtlinien zur Softwareentwicklung sollten auf die Sanktionen für das Einbringen bösartigen Codes deutlich hinweisen. Leitende Entwickler sollten regelmäßig die Eincheckvorgänge für den Code überprüfen, insbesondere diejenigen, die auf Zeit-, Eingabe-, Ausgabe- oder Netzwerkfunktionen zugreifen können.
+Die beste Verteidigung gegen bösartigen Code ist der Wahlspruch „Vertrauen ist gut, Kontrolle ist besser“. Das Einbringen eines nicht autorisierten oder bösartigen Codes in eine Software ist in vielen Rechtsordnungen ein kriminelles Vergehen. Die Richtlinien zur Softwareentwicklung sollten auf die Sanktionen für das Einbringen bösartigen Codes deutlich hinweisen.
+
+Leitende Entwickler sollten regelmäßig die Eincheckvorgänge für den Code überprüfen, insbesondere diejenigen, die auf Zeit-, Eingabe-, Ausgabe- oder Netzwerkfunktionen zugreifen können.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -21,7 +23,9 @@ Die beste Verteidigung gegen bösartigen Code ist der Wahlspruch „Vertrauen is
 
 ## V10.2 Suche nach bösartigem Code
 
-Bösartiger Code ist extrem selten und schwer zu erkennen. Eine manuelle, zeilenweise Überprüfung des Codes kann bei der Suche nach Logikbomben helfen, aber selbst die erfahrensten Codereviewer werden Schwierigkeiten haben, bösartigen Code zu finden, selbst wenn sie wissen, dass er existiert. Die Einhaltung dieses Abschnitts kann nicht ohne vollständigen Zugriff auf den Quellcode, einschließlich der Bibliotheken von Drittanbietern, geprüft werden.
+Bösartiger Code ist extrem selten und schwer zu erkennen. Eine manuelle, zeilenweise Überprüfung des Codes kann bei der Suche nach Logikbomben helfen, aber selbst die erfahrensten Codereviewer werden Schwierigkeiten haben, bösartigen Code zu finden, selbst wenn sie wissen, dass er existiert.
+
+Die Einhaltung dieses Abschnitts kann nicht ohne vollständigen Zugriff auf den Quellcode, einschließlich der Bibliotheken von Drittanbietern, geprüft werden.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -34,7 +38,9 @@ Bösartiger Code ist extrem selten und schwer zu erkennen. Eine manuelle, zeilen
 
 ## V10.3 Integrität der Anwendung
 
-Nach Bereitstellung einer Anwendung kann immer noch bösartiger Code eingefügt werden. Anwendungen müssen sich vor gängigen Angriffen wie die Ausführung unsignierten Codes aus nicht vertrauenswürdigen Quellen und die Übernahme von Subdomänen schützen. Die Einhaltung der Anforderungen dieses Abschnitts sind operativ und fortlaufend zu prüfen.
+Nach Bereitstellung einer Anwendung kann immer noch bösartiger Code eingefügt werden. Anwendungen müssen sich vor gängigen Angriffen wie die Ausführung unsignierten Codes aus nicht vertrauenswürdigen Quellen und die Übernahme von Subdomänen schützen.
+
+Die Einhaltung der Anforderungen dieses Abschnitts sind operativ und fortlaufend zu prüfen.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |

@@ -1,3 +1,5 @@
+# Note - this method is still in testing
+
 # How to create the document
 1. Install Docker on your computer (see instructions for different architectures [in the Docker docs](https://docs.docker.com/engine/install/))
 2. If running WSL or WSL2 make sure that you can talk to the Docker Daemon from the console
@@ -7,13 +9,13 @@
 To build the docker image manually, use this command:
 
 ```
-docker image build --tag asvs/documentbuilder -f docker/Dockerfile .
+docker image build --tag ghcr.io/owasp/asvs/documentbuilder -f docker/Dockerfile .
 ```
 
 To run the document builder manually, use the following. The Volume you are mounting (`-v `) needs to be shared in the docker settings console for this to work:
 
 ```
-docker run --rm -v "/Path/to/the/repo/4.0:/data" asvs/documentbuilder
+docker run --rm -v "/Path/to/the/repo/4.0:/data" ghcr.io/owasp/asvs/documentbuilder
 ```
 
 ## Future Changes

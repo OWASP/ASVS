@@ -51,7 +51,7 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 #### Keep all current numbers
 
-* New requirements must be placed at the end of sub-category
+* New requirements must be placed at the end of the relevant section
 * Deleted requirements must keep "placeholder" to avoid some other requirements to be added/moved to that number, examples:
 
 ```
@@ -113,6 +113,7 @@ If you are interested in creating a translation, here are some pointers for how 
         * Russian
         * French
         * German
+        * Portuguese
     * v4.0.2
         * German
         * Russian

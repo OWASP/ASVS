@@ -7,13 +7,15 @@ Stellen Sie sicher, dass eine geprüfte Anwendung mit den folgenden Merkmalen au
 * Eine sichere und automatisierbare Buildumgebung.
 * Ein sicheres Management von Drittanbieterbibliotheken, Abhängigkeiten und Konfigurationen, so dass veraltete oder unsichere Komponenten nicht in die Anwendung integriert werden.
 
-Die Konfiguration der Anwendung sollte „out of the box“ sicher für den jeweils geplanten Einsatzzweck sein.
+Die Konfiguration der Anwendung sollte „out of the box“ für den jeweils geplanten Einsatzzweck sicher sein.
 
 ## V14.1 Build- und Deployprozess
 
 Build Pipelines sind die Grundlage für wiederholbare Sicherheit. Jedes Mal, wenn etwas Unsicheres entdeckt wird, kann es im Quellcode, den Build- oder Deploymentskripten behoben und automatisch getestet werden. Wir befürworten nachdrücklich die Verwendung von Buildpipelines mit automatischen Sicherheits- und Abhängigkeitsprüfungen, die den Build ggf. unterbrechen, um zu verhindern, dass bekannte Sicherheitsprobleme in der Produktion angewendet werden. Unregelmäßig durchgeführte manuelle Schritte führen direkt zu vermeidbaren Sicherheitsfehlern.
 
-Da die Branche zu einem DevSecOps-Modell übergeht, ist es wichtig, die kontinuierliche Verfügbarkeit und Integrität der Bereitstellung und Konfiguration zu gewährleisten, um einen bekannten funktionierenden (known good) Zustand zu erreichen. In der Vergangenheit dauerte es Tage bis Monate, wenn ein System gehackt wurde, um nachzuweisen, dass kein weiteres Eindringen stattgefunden hatte. Heute, mit dem Aufkommen der softwaredefinierten Infrastruktur, schnellen A/B-Deployment ohne Ausfallzeiten und automatisierten, containerisierten Builds, ist es möglich, automatisch und kontinuierlich einen „known good“-Ersatz für jedes kompromittierte System zu erstellen, zu härten und einzusetzen. Sind noch traditionelle Modelle vorhanden, müssen manuelle Schritte zur Härtung und Sicherung dieser Konfiguration erfolgen, damit die kompromittierten Systeme schnell durch hochintegrierte, sichere Systeme ersetzt werden können.
+Da die Branche zu einem DevSecOps-Modell übergeht, ist es wichtig, die kontinuierliche Verfügbarkeit und Integrität der Bereitstellung und Konfiguration zu gewährleisten, um einen bekannten funktionierenden (known good) Zustand zu erreichen. In der Vergangenheit dauerte es Tage bis Monate, wenn ein System gehackt wurde, um nachzuweisen, dass kein weiteres Eindringen stattgefunden hatte. Heute, mit dem Aufkommen der softwaredefinierten Infrastruktur, schnellen A/B-Deployment ohne Ausfallzeiten und automatisierten, containerisierten Builds, ist es möglich, automatisch und kontinuierlich einen „known good“-Ersatz für jedes kompromittierte System zu erstellen, zu härten und einzusetzen.
+
+Wenn noch traditionelle Modelle im Einsatz sind, müssen manuelle Schritte zur Härtung und Sicherung dieser Konfiguration erfolgen, damit die kompromittierten Systeme schnell durch hochintegrierte, sichere Systeme ersetzt werden können.
 
 Um die Anforderungen dieses Abschnitts einzuhalten, ist ein automatisiertes Buildsystem und der Zugriff auf Build- und Deploymentskripte erforderlich.
 

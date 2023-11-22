@@ -46,10 +46,9 @@ HTTP traffic between internal facing services should also be encrypted, idealy u
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **9.3.1** | [ADDED] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services, and does not fall back to insecure or unencrypted communications. | | ✓ | ✓ | 319 |
+| **9.3.1** | [ADDED] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services, and does not fall back to insecure or unencrypted communications. | ✓ | ✓ | ✓ | 319 |
 | **9.3.2** | [MODIFIED, MOVED FROM 9.2.1] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
 | **9.3.3** | [ADDED] Verify that mutual TLS (mTLS) is used by services communicating internally within a system or "intra-service communications" to ensure all the involved parties at each end of a network connection are who they claim to be. | | | ✓ | 295 |
-
 
 ## V9.4 General TLS Security Guidance
 
@@ -57,7 +56,7 @@ Use secure TLS configuration and use up to date tools to review the configuratio
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **9.4.1** | [MOVED FROM 9.1.2] Verify using up to date TLS testing tools that only strong cipher suites are enabled, with the strongest cipher suites set as preferred. | ✓ | ✓ | ✓ | 326 |
+| **9.4.1** | [MODIFIED, MOVED FROM 9.1.2] Verify that only the latest recommended cipher suites are enabled, with the strongest cipher suites set as preferred. | ✓ | ✓ | ✓ | 326 |
 | **9.4.2** | [MOVED FROM 9.1.3] Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol should be the preferred option. | ✓ | ✓ | ✓ | 326 |
 | **9.4.3** | [MOVED FROM 9.2.4] Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | | ✓ | ✓ | 299 |
 | **9.4.4** | [ADDED] Verify that if TLS wildcard certificates are used, wildcard certificates from a non-production environment are not valid for a production environment. | ✓ | ✓ | ✓ | 1008 |
@@ -69,5 +68,5 @@ For more information, see also:
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
 * [OWASP – Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
 * Notes on “Approved modes of TLS”:
-    * In the past, the ASVS referred to the US FIPS 140 standard, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply.
-    * A better method of achieving compliance with section 9.1 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up to date TLS evaluation tools to obtain a desired level of security.
+  * In the past, the ASVS referred to the US FIPS 140 standard, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply.
+  * A better method of achieving compliance with section 9.1 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up to date TLS evaluation tools to obtain a desired level of security.

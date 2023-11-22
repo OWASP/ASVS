@@ -1,6 +1,15 @@
-# OWASP Application Security Verification Standard
-![LicenseBadge](https://img.shields.io/badge/license-C_C-blue.svg)
- </br>[![LICENSE](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-sa/3.0/) 
+ # OWASP Application Security Verification Standard
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg
+ 
 ## Introduction
 
 The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types.
@@ -10,6 +19,12 @@ The standard provides a basis for designing, building, and testing technical app
 We gratefully recognise the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
 
 **Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 4.n branch](CONTRIBUTING.md#translations).**
+
+## Project Leaders and Working Group
+
+The project is led by the five project leaders [Andrew van der Stock](https://github.com/vanderaj), [Daniel Cuthbert](https://github.com/danielcuthbert), [Jim Manico](https://github.com/jmanico), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
+
+The are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), and [Iman Sharafaldin](https://github.com/ImanSharaf).
 
 ## Roadmap to ASVS 5.0
 
@@ -40,6 +55,8 @@ If you think you can help with translations, or indeed ensuring the current list
     * [OWASP Application Security Verification Standard 4.0.3 Russian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ru.pdf) and [other formats](4.0/docs_ru). (Thanks to [Andrei Titov](https://github.com/andrettv))
     * [OWASP Application Security Verification Standard 4.0.3 French (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-fr.pdf) and [other formats](4.0/docs_fr). (Thanks to [Cédric Lallier](https://github.com/clallier94), [Alexandre Joly](https://github.com/inaz0), [Sebastien Gioria](https://github.com/SPoint42), and [Marc Aubry](https://github.com/Marx314))
     * [OWASP Application Security Verification Standard 4.0.3 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-de.pdf) and [other formats](4.0/docs_de). (Thanks to [Jörg Brünner](https://github.com/JoergBruenner))
+    * [OWASP Application Security Verification Standard 4.0.3 Portuguese (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-pt.pdf) and [other formats](4.0/docs_pt). (Thanks to [Cesar Kohl](https://github.com/cesarkohl))
+    
 * v4.0.2
     * [OWASP Application Security Verification Standard 4.0.2 German (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.pdf) and [Microsoft Word format](4.0/docs_de/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.docx). (Thanks to [Jörg Brünner](https://github.com/JoergBruenner)) 
     * [OWASP Application Security Verification Standard 4.0.2 Russian (PDF)](4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.pdf) and [Microsoft Word format](4.0/docs_ru/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.docx). (Thanks to [Sergey Diakonov](https://github.com/sergeydiak1980))
