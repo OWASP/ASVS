@@ -42,7 +42,7 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.2.1** | [MODIFIED] Verify that all authentication decisions are logged, without storing sensitive session tokens or passwords. | | ✓ | ✓ | 778 |
+| **7.2.1** | [MODIFIED] Verify that all authentication decisions are logged. | | ✓ | ✓ | 778 |
 | **7.2.2** | [MODIFIED] Verify that all access control decisions can be logged and all failed decisions are logged. | | ✓ | ✓ | 285 |
 | **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs security relevant events including deserialization failures, input validation failures and incorrect HTTP requests (including requests with an unexpected HTTP verb). ([C5, C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
 
