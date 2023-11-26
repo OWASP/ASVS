@@ -14,7 +14,7 @@ If logs contain private or sensitive data, the definition of which varies from c
 
 It is also important to ensure that the application fails securely and that errors do not disclose unnecessary information.
 
-## V7.1 Log Content
+## V7.1 General Logging
 
 Logging sensitive information is dangerous - the logs become classified themselves, which means they need to be encrypted, become subject to retention policies, and must be disclosed in security audits. Ensure only necessary information is kept in logs, and certainly no payment, credentials (including session tokens), sensitive or personally identifiable information.
 
@@ -31,7 +31,7 @@ V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 | **7.1.4** | Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
 | **7.1.5** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
-## V7.2 Log Processing
+## V7.2 Security Events
 
 Timely logging is critical for audit events, triage, and escalation. Ensure that the application's logs are clear and can be easily monitored and analyzed either locally or log shipped to a remote monitoring system.
 
