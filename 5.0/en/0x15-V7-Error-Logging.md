@@ -16,12 +16,14 @@ It is also important to ensure that the application fails securely and that erro
 
 ## V7.1 General Logging
 
+<!--
 Logging sensitive information is dangerous - the logs become classified themselves, which means they need to be encrypted, become subject to retention policies, and must be disclosed in security audits. Ensure only necessary information is kept in logs, and certainly no payment, credentials (including session tokens), sensitive or personally identifiable information.
 
 V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetration testable, it's important for:
 
 * Developers to ensure full compliance with this section, as if all items were marked as L1.
 * Penetration testers to validate full compliance of all items in V7.1 via interview, screenshots, or assertion.
+-->
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -33,12 +35,14 @@ V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 ## V7.2 Security Events
 
+<!--
 Timely logging is critical for audit events, triage, and escalation. Ensure that the application's logs are clear and can be easily monitored and analyzed either locally or log shipped to a remote monitoring system.
 
 V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetration testable, it's important for:
 
 * Developers to ensure full compliance with this section, as if all items were marked as L1.
 * Penetration testers to validate full compliance of all items in V7.2 via interview, screenshots, or assertion.
+-->
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
