@@ -35,7 +35,7 @@ Restricting token privileges ensures a Client is granted the proper access to a 
 
 Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn) and authentication processes that require multiple steps can be hard or impossible.
 
-### V51.1 Authorization Server
+## V51.1 Authorization Server
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -45,7 +45,7 @@ Aside from this grant type can leak credentials in more places than just the Aut
 | **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation. | ✓ | ✓ | ✓ |
 | **51.1.5** | [ADDED] Verify that the Authorization Server publishes the element "code_challenge_methods_supported" in their Authorization Server metadata containing the supported PKCE challenge methods. | ✓ | ✓ | ✓ |
 
-### V51.2 OAuth Client
+## V51.2 OAuth Client
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -55,7 +55,7 @@ Aside from this grant type can leak credentials in more places than just the Aut
 | **51.2.4** | [ADDED] Verify that Clients are utilizing the parameters "scope" and "resource", respectively to determine the Resource Server they want to access. | ✓ | ✓ | ✓ |
 | **51.2.5** | [ADDED] Verify that Clients are utilizing the parameters "scope" and "authorization_details" to determine the requested/related resources and/or actions the access token are restricted to. | ✓ | ✓ | ✓ |
 
-### V51.3 Resource Server
+## V51.3 Resource Server
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -63,13 +63,13 @@ Aside from this grant type can leak credentials in more places than just the Aut
 | **51.3.2** | [ADDED] Verify that access tokens are restricted to certain Resource Servers (audience restriction), preferably to a single Resource Server. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular Resource Server. If not, the Resource Server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 | **51.3.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on Resource Servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the Resource Server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 
-### V51.4 Resource Owner
+## V51.4 Resource Owner
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.4.1** | [ADDED] Verify that the Resource Owner password credentials grant is not used. This grant type insecurely exposes the credentials of the Resource Owner to the client, increasing the attack surface of the application.  | ✓ | ✓ | ✓ |
 
-# ## Mapping
+## Mapping
 
 This mapping shows which OAuth 2.0 requirements belongs to which OAuth-specific subsection from the original requirements structure that was proposed here: https://github.com/OWASP/ASVS/blob/5375e96bc99c47fe7b3430407cd469d0f9896180/5.0/en/0x12-V3-Session-management.md#v38-oauth-20-protocol
 
