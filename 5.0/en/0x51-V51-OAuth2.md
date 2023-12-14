@@ -4,36 +4,36 @@ This section describes and summarizes the [best current security practices](http
 
 There are various different personas in the OAuth process, described in more detail in the terminology section below. The requirements in this chapter are structured based on those personas as requirements for one persona may not be relevant for a different persona.
 
-## Terminology: 
+## Terminology
 
-* Access tokens - provides an abstraction, replacing different authorization constructs (e.g., username and password, assertion) for a single token understood by the resource server. This abstraction enables issuing access tokens valid for a short time period, as well as removing the resource server's need to understand a wide range of authentication schemes. 
-* Refresh tokens - are credentials used to obtain access tokens. These are issued to the client by the authorization server and are used to obtain a new access token when the current access token becomes invalid or expires, or to obtain additional access tokens with identical or narrower scope (access tokens may have a shorter lifetime and fewer permissions than authorized by the resource owner). 
-* Client - generally refers to an application making protected resource requests on behalf of the resource owner and with its authorization. The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices). 
+* Access tokens - provides an abstraction, replacing different authorization constructs (e.g., username and password, assertion) for a single token understood by the resource server. This abstraction enables issuing access tokens valid for a short time period, as well as removing the resource server's need to understand a wide range of authentication schemes.
+* Refresh tokens - are credentials used to obtain access tokens. These are issued to the client by the authorization server and are used to obtain a new access token when the current access token becomes invalid or expires, or to obtain additional access tokens with identical or narrower scope (access tokens may have a shorter lifetime and fewer permissions than authorized by the resource owner).
+* Client - generally refers to an application making protected resource requests on behalf of the resource owner and with its authorization. The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).
 * Authorization Server (AS) - refers to the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
-* Resource Owner (RO) - refers to an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user. 
-* Resource Server (RS) - refers to the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens. 
+* Resource Owner (RO) - refers to an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
+* Resource Server (RS) - refers to the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
 
 ## OAuth 2.0 Basics
 
-In OpenID Connect flows, the "nonce" parameter provides CSRF protection. Otherwise, one-time user CSRF tokens carried in the "state" parameter that are securely bound to the user agent must be used for CSRF protection. 
+In OpenID Connect flows, the "nonce" parameter provides CSRF protection. Otherwise, one-time user CSRF tokens carried in the "state" parameter that are securely bound to the user agent must be used for CSRF protection.
 
 ### PKCE - Proof Key for Code Exchange Mechanism / Authorization Code Grant
 
-OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. Proof Key for Code Exchange (PKCE, pronounced "pixy") is the technique used to mitigate against the threat of authorization code interception attack. 
+OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. Proof Key for Code Exchange (PKCE, pronounced "pixy") is the technique used to mitigate against the threat of authorization code interception attack.
 
-Originally, PKCE is intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier. 
+Originally, PKCE is intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier.
 
 ### Token Replay Prevention 
 
-Preventing token replay attacks is of essential importance in using and implementing OAuth 2.0. 
+Preventing token replay attacks is of essential importance in using and implementing OAuth 2.0.
 
 ### Access Token Privilege Restriction
 
-Restricting token privileges ensures a Client is granted the proper access to a specific resource. 
+Restricting token privileges ensures a Client is granted the proper access to a specific resource.
 
 ### Resource Owner Password Credentials Grant
 
-Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn) and authentication processes that require multiple steps can be hard or impossible. 
+Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn) and authentication processes that require multiple steps can be hard or impossible.
 
 ### V51.1 Authorization Server
 
@@ -81,7 +81,7 @@ This mapping shows which OAuth 2.0 requirements belongs to which OAuth-specific 
 | Access Restriction | 51.2.3, 51.2.4 |
 | Resource Owner | 51.2.5 |
 
-## OAuth 2.0 References: 
+## OAuth 2.0 References
 
 * Original RFC: https://www.rfc-editor.org/info/rfc6750 & : https://www.rfc-editor.org/info/rfc6749
 * OAuth 2.0 Best Practices: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices
