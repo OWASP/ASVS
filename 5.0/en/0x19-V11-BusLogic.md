@@ -16,9 +16,9 @@ Business logic security is so individual to every application that no one checkl
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **11.1.1** | Verify that the application will only process business logic flows for the same user in sequential step order and without skipping steps. | ✓ | ✓ | ✓ | 841 |
 | **11.1.2** | [MOVED TO 11.2.1] | | | | |
-| **11.1.3** | Verify the application has appropriate limits for specific business actions or transactions which are correctly enforced on a per user basis. | ✓ | ✓ | ✓ | 770 |
+| **11.1.3** | [MODIFIED] Verify that the application has appropriate limits defined on a per user basis for specific business actions or transactions. | ✓ | ✓ | ✓ | |
 | **11.1.4** | [MOVED TO 11.2.2] | | | | |
-| **11.1.5** | Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modeling or similar methodologies. | ✓ | ✓ | ✓ | 841 |
+| **11.1.5** | [MODIFIED] Verify that the application has globally defined business logic limits or validation to protect against likely business risks or threats, identified using threat modeling or similar methodologies. | ✓ | ✓ | ✓ | |
 | **11.1.6** | Verify that the application does not suffer from "Time Of Check to Time Of Use" (TOCTOU) issues or other race conditions for sensitive operations. | | ✓ | ✓ | 367 |
 | **11.1.7** | Verify that the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 754 |
 | **11.1.8** | Verify that the application has configurable alerting when automated attacks or unusual activity is detected. | | ✓ | ✓ | 390 |
