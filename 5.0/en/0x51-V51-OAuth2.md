@@ -23,7 +23,7 @@ OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible 
 
 Originally, PKCE is intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier.
 
-### Token Replay Prevention 
+### Token Replay Prevention
 
 Preventing token replay attacks is of essential importance in using and implementing OAuth 2.0.
 
