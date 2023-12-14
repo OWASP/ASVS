@@ -45,7 +45,6 @@ Aside from this grant type can leak credentials in more places than just the Aut
 | **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation. | ✓ | ✓ | ✓ |
 | **51.1.5** | [ADDED] Verify that the Authorization Server publishes the element "code_challenge_methods_supported" in their Authorization Server metadata containing the supported PKCE challenge methods. | ✓ | ✓ | ✓ |
 
-
 ### V51.2 OAuth Client
 
 | # | Description | L1 | L2 | L3 |
@@ -74,7 +73,6 @@ Aside from this grant type can leak credentials in more places than just the Aut
 
 This mapping shows which OAuth 2.0 requirements belongs to which OAuth-specific subsection from the original requirements structure that was proposed here: https://github.com/OWASP/ASVS/blob/5375e96bc99c47fe7b3430407cd469d0f9896180/5.0/en/0x12-V3-Session-management.md#v38-oauth-20-protocol
 
-
 | Section | Requirements |
 | :--- | :--- |
 | OAuth 2.0 Essential Basics | 51.1.1, 51.1.2 |
@@ -82,9 +80,6 @@ This mapping shows which OAuth 2.0 requirements belongs to which OAuth-specific 
 | Token Replay | 51.2.1, 51.2.2 |
 | Access Restriction | 51.2.3, 51.2.4 |
 | Resource Owner | 51.2.5 |
-
-
-
 
 ## OAuth 2.0 References: 
 
