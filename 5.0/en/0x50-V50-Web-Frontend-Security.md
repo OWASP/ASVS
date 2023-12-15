@@ -6,7 +6,7 @@ The category focuses on requirements which protect against attacks that are exec
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **50.1.1** | [ADDED] Verify that separate applications are hosted on different hostnames to benefit from the restrictions provided by the "same-origin policy" including how documents or scripts loaded by one origin can interact with resources from another origin and hostname restrictions on cookies. | ✓ | ✓ | ✓ | 668 |
+| **50.1.1** | [ADDED, DEPRECATES 3.4.5] Verify that separate applications are hosted on different hostnames to benefit from the restrictions provided by the "same-origin policy" including how documents or scripts loaded by one origin can interact with resources from another origin and hostname restrictions on cookies. | ✓ | ✓ | ✓ | 668 |
 
 ## V50.2 Browser Security Mechanism Headers
 
@@ -49,13 +49,13 @@ The category should contain requirements with ideas:
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.5.1** | [GRAMMAR, MOVED FROM 12.5.2] Verify that direct requests to uploaded files will never be executed as HTML and JavaScript content. | ✓ | ✓ | ✓ | 434 |
 | **50.5.2** | [MODIFIED, MOVED FROM 1.12.2] Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. | | ✓ | ✓ | 646 |
-| **50.5.3** | [ADDED] Verify that to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context, security controls are in place (e.g. not serving the content unless headers indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc). For example when an API or other resource is loaded directly. | ✓ | ✓ | ✓ | |
+| **50.5.3** | [ADDED, DEPRECATES 14.4.2] Verify that to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context, security controls are in place (e.g. not serving the content unless headers indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc). For example when an API or other resource is loaded directly. | ✓ | ✓ | ✓ | |
 
 ## V50.6 External Resource Integrity
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **50.6.1** | [MODIFIED, MOVED FROM ] Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
+| **50.6.1** | [MODIFIED, MOVED FROM 14.2.3] Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
 
 ## V50.7 Other Browser Security Considerations
 
