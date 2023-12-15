@@ -25,7 +25,6 @@ Authorization is the concept of allowing access to resources only to those permi
 | **4.2.1** | Verify that sensitive data and APIs are protected against Insecure Direct Object Reference (IDOR) attacks targeting creation, reading, updating and deletion of records, such as creating or updating someone else's record, viewing everyone's records, or deleting all records. | ✓ | ✓ | ✓ | 639 |
 | **4.2.2** | [MOVED TO 50.3.1] | | | | |
 
-
 ## V4.3 Other Access Control Considerations
 
 | # | Description | L1 | L2 | L3 | CWE |
