@@ -68,7 +68,7 @@ Configurations for production should be hardened to protect against common attac
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.4.1** | [MODIFIED, SPLIT TO 14.4.8] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
-| **14.4.2** | [DELETED] | | | | |
+| **14.4.2** | [DELETED, DEPRECATED BY 50.5.3] | | | | |
 | **14.4.3** | [MOVED TO 50.2.1] | | | | |
 | **14.4.4** | [MOVED TO 50.2.2] | | | | |
 | **14.4.5** | [MOVED TO 50.2.3] | | | | |
