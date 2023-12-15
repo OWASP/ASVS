@@ -49,7 +49,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.5.1** | [MOVED TO 14.3.6] | | | | |
-| **12.5.2** | [GRAMMAR] Verify that direct requests to uploaded files will never be executed as HTML and JavaScript content. | ✓ | ✓ | ✓ | 434 |
+| **12.5.2** | [MOVED TO 50.5.1] | | | | |
 | **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header in the response. | ✓ | ✓ | ✓ | 641 |
 
 ## V12.6 SSRF Protection
