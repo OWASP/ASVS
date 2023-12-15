@@ -50,7 +50,10 @@ The category should contain requirements with ideas:
 
 ## V50.5 Unintended Content Interpretation
 
-TBD
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **50.5.1** | [GRAMMAR, MOVED FROM 12.5.2] Verify that direct requests to uploaded files will never be executed as HTML and JavaScript content. | ✓ | ✓ | ✓ | 434 |
+| **50.5.2** | [MODIFIED, MOVED FROM 1.12.2] Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. | | ✓ | ✓ | 646 |
 
 
 ## V50.6 External Resource Integrity
