@@ -57,7 +57,6 @@ The category should contain requirements with ideas:
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.6.1** | [MODIFIED, MOVED FROM ] Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
 
-
 ## V50.7 Other Browser Security Considerations
 
 TBD
