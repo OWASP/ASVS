@@ -24,7 +24,20 @@ The category focuses on requirements which protect against attacks that are exec
 
 ## V50.3 Browser Origin Separation
 
-TBD
+When accepting a request on the server side, we need to be sure it is initiated by the application itself or by a trusted party.
+
+The keywords here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies.
+
+The category should contain requirements with ideas:
+
+* Verify that the request was initiated by a trusted party (CSRF, CORS misconfiguration)
+* Verify that the response is readable only for trusted parties (CORS misconfiguration)
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **50.3.1** | [MODIFIED, MOVED FROM 4.2.2, MERGED FROM 13.2.3] Verify that the application defends against Cross-Site Request Forgery (CSRF) attacks to protect authenticated or sensitive public functionality using the development framework's built-in anti-CSRF functionality or CSRF tokens plus additional defense in depth measures. | ✓ | ✓ | ✓ | 352 |
+| **50.3.2** | [ADDED] Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | | ✓ | ✓ | 346 |
+| **50.3.3** | [ADDED, SPLIT FROM 14.5.3] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
 
 
 ## V50.4 Cross-Site Script Inclusion
@@ -44,3 +57,10 @@ TBD
 ## V50.7 Other Browser Security Considerations
 
 TBD
+
+
+## References
+
+For more information, see also:
+
+* [OWASP Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
