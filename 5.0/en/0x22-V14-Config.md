@@ -67,15 +67,14 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.4.1** | [MODIFIED, SPLIT TO 14.4.9] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
+| **14.4.1** | [MODIFIED, SPLIT TO 14.4.8] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
 | **14.4.2** | [DELETED] | | | | |
-| **14.4.3** | [MODIFIED] Verify that a Content Security Policy (CSP) response header is in place that helps mitigate impact for XSS attacks like HTML, DOM, CSS, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 1021 |
-| **14.4.4** | Verify that all responses contain a X-Content-Type-Options: nosniff header. | ✓ | ✓ | ✓ | 116 |
-| **14.4.5** | [MODIFIED] Verify that a Strict-Transport-Security header is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=31536000; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
-| **14.4.6** | Verify that a suitable Referrer-Policy header is included to avoid exposing sensitive information in the URL through the Referer header to untrusted parties. | ✓ | ✓ | ✓ | 116 |
-| **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 1021 |
-| **14.4.8** | [ADDED, SPLIT FROM 14.5.3] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted origins. When "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
-| **14.4.9** | [ADDED, SPLIT FROM 14.4.1] Verify that if a response specifies a Content-Type of "text/\*", "\*/\*+xml" and "\*/xml", it also specifies a safe character set (e.g., UTF-8, ISO-8859-1) with the charset parameter. | ✓ | ✓ | ✓ | 173 |
+| **14.4.3** | [MOVED TO 50.2.1] | | | | |
+| **14.4.4** | [MOVED TO 50.2.2] | | | | |
+| **14.4.5** | [MOVED TO 50.2.3] | | | | |
+| **14.4.6** | [MOVED TO 50.2.4] | | | | |
+| **14.4.7** | [MOVED TO 50.2.5] | | | | |
+| **14.4.8** | [ADDED, SPLIT FROM 14.4.1] Verify that if a response specifies a Content-Type of "text/\*", "\*/\*+xml" and "\*/xml", it also specifies a safe character set (e.g., UTF-8, ISO-8859-1) with the charset parameter. | ✓ | ✓ | ✓ | 173 |
 
 ## V14.5 HTTP Request Header Validation
 
@@ -83,7 +82,7 @@ Configurations for production should be hardened to protect against common attac
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | [MODIFIED] Verify that the application only responds to HTTP methods in use by the application or by the API (including OPTIONS during preflight requests) and unused methods (e.g. TRACE) are blocked. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
-| **14.5.3** | [MODIFIED, SPLIT TO 14.4.8] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | [MODIFIED, SPLIT TO 50.2.6] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
 | **14.5.5** | [MODIFIED, MOVED FROM 13.2.1] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
 | **14.5.6** | [ADDED] Verify that the infrastructure follows RFC 2616 and ignores the Content-Length header field if a Transfer-Encoding header field is also present. | | ✓ | ✓ | 444 |
