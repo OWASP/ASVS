@@ -56,9 +56,13 @@ The category should contain requirements with ideas:
 | **50.5.2** | [MODIFIED, MOVED FROM 1.12.2] Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. | | ✓ | ✓ | 646 |
 | **50.5.3** | [ADDED] Verify that to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context, security controls are in place (e.g. not serving the content unless headers indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc). For example when an API or other resource is loaded directly. | ✓ | ✓ | ✓ | |
 
+
 ## V50.6 External Resource Integrity
 
-TBD
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **50.6.1** | [MODIFIED, MOVED FROM ] Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
+
 
 ## V50.7 Other Browser Security Considerations
 
