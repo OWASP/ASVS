@@ -82,7 +82,7 @@ Configurations for production should be hardened to protect against common attac
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | [MODIFIED] Verify that the application only responds to HTTP methods in use by the application or by the API (including OPTIONS during preflight requests) and unused methods (e.g. TRACE) are blocked. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
-| **14.5.3** | [MODIFIED, SPLIT TO 50.2.6] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | [SPLIT TO 50.2.6, 50.3.3] | | | | |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
 | **14.5.5** | [MODIFIED, MOVED FROM 13.2.1] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
 | **14.5.6** | [ADDED] Verify that the infrastructure follows RFC 2616 and ignores the Content-Length header field if a Transfer-Encoding header field is also present. | | ✓ | ✓ | 444 |
