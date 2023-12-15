@@ -42,7 +42,10 @@ The category should contain requirements with ideas:
 
 ## V50.4 Cross-Site Script Inclusion
 
-TBD
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **50.4.1** | [ADDED] Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
+| **50.4.2** | [ADDED] Verify that sensitive information is not present in JavaScript files to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
 
 
 ## V50.5 Unintended Content Interpretation
