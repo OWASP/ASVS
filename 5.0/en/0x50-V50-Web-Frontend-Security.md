@@ -2,13 +2,11 @@
 
 The category focuses on requirements which protect against attacks that are executed via a web frontend for an application. These requirements will not be relevant for machine-to-machine solutions.
 
-
 ## V50.1 Site Isolation Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.1.1** | [ADDED] Verify that separate applications are hosted on different hostnames to benefit from the restrictions provided by the "same-origin policy" including how documents or scripts loaded by one origin can interact with resources from another origin and hostname restrictions on cookies. | ✓ | ✓ | ✓ | 668 |
-
 
 ## V50.2 Browser Security Mechanism Headers
 
@@ -20,7 +18,6 @@ The category focuses on requirements which protect against attacks that are exec
 | **50.2.4** | [MOVED FROM 14.4.6] Verify that a suitable Referrer-Policy header is included to avoid exposing sensitive information in the URL through the Referer header to untrusted parties. | ✓ | ✓ | ✓ | 116 |
 | **50.2.5** | [MOVED FROM 14.4.7] Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 1021 |
 | **50.2.6** | [ADDED, SPLIT FROM 14.5.3] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted origins. When "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
-
 
 ## V50.3 Browser Origin Separation
 
@@ -39,14 +36,12 @@ The category should contain requirements with ideas:
 | **50.3.2** | [ADDED] Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | | ✓ | ✓ | 346 |
 | **50.3.3** | [ADDED, SPLIT FROM 14.5.3] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
 
-
 ## V50.4 Cross-Site Script Inclusion
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.4.1** | [ADDED] Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
 | **50.4.2** | [ADDED] Verify that sensitive information is not present in JavaScript files to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
-
 
 ## V50.5 Unintended Content Interpretation
 
@@ -55,7 +50,6 @@ The category should contain requirements with ideas:
 | **50.5.1** | [GRAMMAR, MOVED FROM 12.5.2] Verify that direct requests to uploaded files will never be executed as HTML and JavaScript content. | ✓ | ✓ | ✓ | 434 |
 | **50.5.2** | [MODIFIED, MOVED FROM 1.12.2] Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. | | ✓ | ✓ | 646 |
 | **50.5.3** | [ADDED] Verify that to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context, security controls are in place (e.g. not serving the content unless headers indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc). For example when an API or other resource is loaded directly. | ✓ | ✓ | ✓ | |
-
 
 ## V50.6 External Resource Integrity
 
@@ -67,7 +61,6 @@ The category should contain requirements with ideas:
 ## V50.7 Other Browser Security Considerations
 
 TBD
-
 
 ## References
 
