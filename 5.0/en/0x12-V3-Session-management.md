@@ -104,6 +104,7 @@ Session termination should result in requiring re-authentication and be effectiv
 | **3.8.3** | [MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions and devices. | | ✓ | ✓ | 613 | 7.1 |
 | **3.8.4** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | ✓ | ✓ | ✓ | | |
 | **3.8.5** | [ADDED] Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | ✓ | ✓ | ✓ | 613 | |
+| **3.8.6** | [ADDED] Verify that application administrators are able to terminate any or all currently active sessions and devices for a user or for all users. | ✓ | ✓ | ✓ | 613 | 7.1 |
 
 ## References
 
