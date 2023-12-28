@@ -41,7 +41,7 @@ The category should contain requirements with ideas:
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.4.1** | [ADDED] Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
-| **50.4.2** | [ADDED] Verify that data which should require authorization to access is not returned in script resource responses to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
+| **50.4.2** | [ADDED] Verify that data that should require authorization to access is not returned in script resource responses, such as JavaScript files, to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
 
 ## V50.5 Unintended Content Interpretation
 
