@@ -32,6 +32,7 @@ V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 | **7.1.3** | [MOVED TO 7.2.3] | | | | |
 | **7.1.4** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
 | **7.1.5** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
+| **7.1.6** | [ADDED] Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | | ✓ | ✓ | |
 
 ## V7.2 Security Events
 
