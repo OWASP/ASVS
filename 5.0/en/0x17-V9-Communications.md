@@ -66,7 +66,6 @@ Use secure TLS configuration and use up to date tools to review the configuratio
 For more information, see also:
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-* [OWASP – Pinning Guide](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
 * Notes on “Approved modes of TLS”:
   * In the past, the ASVS referred to the US FIPS 140 standard, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply.
   * A better method of achieving compliance with section 9.1 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up to date TLS evaluation tools to obtain a desired level of security.
