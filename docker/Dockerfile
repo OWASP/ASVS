@@ -18,7 +18,9 @@ RUN apk add --update \
     curl \
     gnupg \
     unzip \
-    py3-certifi && \
+    py3-certifi \
+    py3-setuptools \
+    py3-dicttoxml2 && \
     rm -rf /var/cache/apk/*
 
 # Dockerfiles have no "if", then we need to create intermediate stages to match a variable
@@ -59,10 +61,6 @@ RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
 RUN rm -rf $PWD/source*
 
 FROM base_${WITH_CERT} as pandoc_base
-
-#install python depencies
-RUN pip install --upgrade pip
-RUN pip install setuptools dicttoxml2
 
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
