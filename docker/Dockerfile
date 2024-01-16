@@ -59,7 +59,7 @@ RUN mkdir adobe-fonts
 RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
 RUN rm -rf $PWD/source*
 
-RUN pip install dicttoxml2
+RUN pip install dicttoxml2 --break-system-packages
 
 FROM base_${WITH_CERT} as pandoc_base
 
