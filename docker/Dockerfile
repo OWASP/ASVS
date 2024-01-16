@@ -19,8 +19,7 @@ RUN apk add --update \
     gnupg \
     unzip \
     py3-certifi \
-    py3-setuptools \
-    py3-dicttoxml2 && \
+    py3-setuptools && \
     rm -rf /var/cache/apk/*
 
 # Dockerfiles have no "if", then we need to create intermediate stages to match a variable
@@ -60,6 +59,8 @@ RUN mkdir adobe-fonts
 RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
 RUN rm -rf $PWD/source*
 
+RUN pip install dicttoxml2
+
 FROM base_${WITH_CERT} as pandoc_base
 
 #install Pandoc
@@ -85,8 +86,8 @@ RUN curl --output /tmp/lua-filters.tar.gz -L https://github.com/pandoc/lua-filte
     && rm /tmp/lua-filters.tar.gz
 
 FROM pandoc_base as tinytex_base
-#Install tinyTex
 
+#Install tinyTex
 # setup path
 ENV PATH=/home/pandoc/.TinyTeX/bin/x86_64-linuxmusl/:$PATH
 ENV TINY_TEX_VERSION=v0.45
