@@ -14,7 +14,7 @@ RUN apk add --update \
     bash \
     python3  \
     libressl-dev \
-    py3-pip \
+    pipx \
     curl \
     gnupg \
     unzip \
@@ -59,9 +59,11 @@ RUN mkdir adobe-fonts
 RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
 RUN rm -rf $PWD/source*
 
-RUN pip install dicttoxml2 --break-system-packages
-
 FROM base_${WITH_CERT} as pandoc_base
+
+ENV PATH /root/.py-env:$PATH
+RUN python3 -m venv /root/.py-env --system-site-packages
+RUN /root/.py-env/bin/pip install dicttoxml2
 
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
