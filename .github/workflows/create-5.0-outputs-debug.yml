@@ -13,7 +13,7 @@ on:
 
 jobs:
   prepare_container:
-    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@ike-docs-automation
+    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
 
   debug:
     needs: prepare_container
