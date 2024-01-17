@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: tony84727/changed-file-filter@v0.2.2
+    - uses: dorny/paths-filter@v2
       id: filter
       with:
         filters: |
