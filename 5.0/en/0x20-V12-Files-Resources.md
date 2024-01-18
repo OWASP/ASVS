@@ -2,14 +2,14 @@
 
 ## Control Objective
 
-Ensure that a verified application satisfies the following high level requirements:
+Ensure that a verified application satisfies the following high-level requirements:
 
 * Untrusted file data should be handled accordingly and in a secure manner.
 * Untrusted file data obtained from untrusted sources are stored outside the web root and with limited permissions.
 
 ## V12.1 File Upload
 
-Although zip bombs are eminently testable using penetration testing techniques, they are considered L2 and above to encourage design and development consideration with careful manual testing, and to avoid automated or unskilled manual penetration testing of a denial of service condition.
+Although zip bombs can be effectively tested using penetration testing techniques, they are classified as L2 and above to encourage consideration during design and development, as well as careful manual testing. This classification also aims to prevent automated or unskilled manual penetration testing from triggering a denial of service condition.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
