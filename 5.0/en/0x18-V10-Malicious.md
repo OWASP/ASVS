@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Ensure that code satisfies the following high level requirements:
+Ensure that the code satisfies the following high-level requirements:
 
 * Malicious activity is handled securely and properly to not affect the rest of the application.
 * Does not have time bombs or other time-based attacks.
@@ -13,7 +13,7 @@ Finding malicious code is proof of the negative, which is impossible to complete
 
 ## V10.1 Code Integrity
 
-The best defense against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offence in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
+The best defense against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offense in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
 
 Lead developers should regularly review code check-ins, particularly those that might access time, I/O, or network functions.
 
@@ -23,7 +23,7 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 ## V10.2 Malicious Code Search
 
-Malicious code is extremely rare and is difficult to detect. Manual line by line code review can assist looking for logic bombs, but even the most experienced code reviewer will struggle to find malicious code even if they know it exists.
+Malicious code is extremely rare and is difficult to detect. Manual line-by-line code review can assist with detecting logic bombs, but even the most experienced code reviewers will struggle to find malicious code even if they know it exists.
 
 Complying with this section is not possible without complete access to source code, including third-party libraries.
 

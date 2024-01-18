@@ -2,15 +2,15 @@
 
 ## Control Objective
 
-Ensure that a verified application satisfies the following high level requirements:
+Ensure that a verified application satisfies the following high-level requirements:
 
 * The business logic flow is sequential, processed in order, and cannot be bypassed.
-* Business logic includes limits to detect and prevent automated attacks, such as continuous small funds transfers, or adding a million friends one at a time, and so on.
-* High value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
+* Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers and adding a million friends one at a time.
+* High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
 
 ## V11.1 Business Logic Security
 
-Business logic security is so individual to every application that no one checklist will ever apply. Business logic security must be designed in to protect against likely external threats - it cannot be added using web application firewalls or secure communications. We recommend the use of threat modeling during design sprints, for example using the OWASP Cornucopia or similar tools.
+Business logic security is so individual to every application that no one checklist will ever apply. Business logic security must be designed into the system to protect against likely external threats - it cannot be added using web application firewalls or secure communications. We recommend the use of threat modeling during design sprints, for example using the OWASP Cornucopia or similar tools.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |

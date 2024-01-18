@@ -5,17 +5,17 @@
 Ensure that a verified application has:
 
 * A secure, repeatable, automatable build environment.
-* Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application.
+* Hardened third-party libraries, dependencies, and configuration management to ensure that out-of-date or insecure components are not included in the application.
 
-Configuration of the application out of the box should be safe to be on the Internet, which means a safe out of the box configuration.
+Configuration of the application out of the box should be safe to be on the Internet, which means a safe out-of-the-box configuration.
 
 ## V14.1 Build and Deploy
 
-Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We are strongly encouraging the use of build pipelines with automatic security and dependency checks that warn or break the build to prevent known security issues being deployed into production. Manual steps performed irregularly directly leads to avoidable security mistakes.
+Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We strongly encourage the use of build pipelines with automatic security and dependency checks that warn about or break the build to prevent known security issues from being deployed into production. Manual steps performed irregularly can directly lead to avoidable security mistakes.
 
-As the industry moves to a DevSecOps model, it is important to ensure the continued availability and integrity of deployment and configuration to achieve a "known good" state. In the past, if a system was hacked, it would take days to months to prove that no further intrusions had taken place. Today, with the advent of software defined infrastructure, rapid A/B deployments with zero downtime, and automated containerized builds, it is possible to automatically and continuously build, harden, and deploy a "known good" replacement for any compromised system.
+As the industry moves to a DevSecOps model, it is important to ensure the continued availability and integrity of deployment and configuration to achieve a "known good" state. In the past, if a system was hacked, it would take days to months to prove that no further intrusions had taken place. Today, with the advent of software-defined infrastructure, rapid A/B deployments with zero downtime, and automated containerized builds, it is possible to automatically and continuously build, harden, and deploy a "known good" replacement for any compromised system.
 
-If traditional models are still in place, then manual steps must be taken to harden and back up that configuration to allow the compromised systems to be quickly replaced with high integrity, uncompromised systems in a timely fashion.
+If traditional models are still in place, then manual steps must be taken to harden and back up that configuration to allow the compromised systems to be quickly replaced with high-integrity, uncompromised systems in a timely fashion.
 
 Compliance with this section requires an automated build system, and access to build and deployment scripts.
 
@@ -48,11 +48,11 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications. | ✓ | ✓ | ✓ | 441 |
 | **14.2.8** | [ADDED, SPLIT FROM 14.2.6] Verify that risky third party libraries or those with a history of vulnerabilities are sandboxed away from the most sensitive system modules/services so that even if a vulnerability in the library was successfully exploited, the sensitive system modules/services would not be compromised. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | 1061 |
 
-Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate search order.
+Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g. groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate the search order.
 
 ## V14.3 Unintended Information Leakage
 
-Configurations for production should be hardened to protect against common attacks, such as debug consoles, raise the bar for Cross-site Scripting (XSS) and Remote File Inclusion (RFI) attacks, and to eliminate trivial information discovery "vulnerabilities" that are the unwelcome hallmark of many penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
+Configurations for production should be hardened to protect against common attacks. Measures should include disabling debug consoles, raising the bar against Cross-site Scripting (XSS) and Remote File Inclusion (RFI) attacks, and eliminating trivial information discovery "vulnerabilities" that often litter penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -109,6 +109,6 @@ For more information, see also:
 
 * [OWASP Web Security Testing Guide 4.1: Testing for HTTP Verb Tampering]( https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
 * [OWASP Web Security Testing Guide 4.1: Configuration and Deployment Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/README.html)
-* [Defining multiple repositories in maven](https://maven.apache.org/guides/mini/guide-multiple-repositories.html)
+* [Defining multiple repositories in Maven](https://maven.apache.org/guides/mini/guide-multiple-repositories.html)
 * [Software Component Verification Standard V2 L1-3 requirements](https://github.com/OWASP/Software-Component-Verification-Standard/blob/master/en/0x11-V2-Software_Bill_of_Materials.md)
 * [Tips to Reduce the Attack Surface When Using Third-Party Libraries](https://www.slideshare.net/KatyAnton1/tips-to-reduce-the-attack-surface-when-using-thirdparty-libraries)
