@@ -18,8 +18,7 @@ RUN apk add --update \
     curl \
     gnupg \
     unzip \
-    py3-certifi \
-    py3-setuptools && \
+    py3-certifi && \
     rm -rf /var/cache/apk/*
 
 # Dockerfiles have no "if", then we need to create intermediate stages to match a variable
@@ -63,7 +62,8 @@ FROM base_${WITH_CERT} as pandoc_base
 
 ENV PATH /root/.py-env:$PATH
 RUN python3 -m venv /root/.py-env --system-site-packages
-RUN /root/.py-env/bin/pip install dicttoxml2
+RUN /root/.py-env/bin/pip install --upgrade pip 
+RUN /root/.py-env/bin/pip install dicttoxml2 setuptools==69.0.3 
 
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
