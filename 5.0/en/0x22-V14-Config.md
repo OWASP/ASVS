@@ -5,7 +5,7 @@
 Ensure that a verified application has:
 
 * A secure, repeatable, automatable build environment.
-* Hardened third-party libraries, dependencies, and configuration management to ensure that out-of-date or insecure components are not included in the application.
+* Hardened third-party library, dependency, and configuration management to ensure that out-of-date or insecure components are not included in the application.
 
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out-of-the-box configuration.
 

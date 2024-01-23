@@ -14,7 +14,7 @@ Of all the chapters in the ASVS, the authentication and session management chapt
 
 NIST SP 800-63 terminology can be a little confusing at first, especially if you're only used to username + password authentication. Advancements in modern authentication are necessary, so we have to introduce terminology that will become commonplace in the future, but we do understand the difficulty in understanding until the industry settles on these new terms. We have provided a glossary at the end of this chapter to assist. We have rephrased many requirements to satisfy the intent of the requirement, rather than the letter of the requirement. For example, the ASVS uses the term "password" while NIST uses "memorized secret" throughout this standard.
 
-Sections V2 Authentication and V3 Session Management in the ASVS, and to a lesser extent V4 Access Controls, have been adapted to align as a compliant subset of selected NIST SP 800-63B controls. This adaptation focuses on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
+The V2 Authentication and V3 Session Management chapters in the ASVS, and to a lesser extent the V4 Access Control chapter, have been adapted to align as a compliant subset of selected NIST SP 800-63B controls. This adaptation focuses on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
 
 ### Selecting an appropriate NIST AAL Level
 
@@ -142,7 +142,7 @@ Unsafe out-of-band authenticators such as e-mail and VOIP are not permitted. PST
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.7.1** | [GRAMMAR] Verify that clear-text out-of-band (NIST "restricted") authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.1** | [GRAMMAR] Verify that cleartext out-of-band (NIST "restricted") authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.2** | [MODIFIED] Verify that the out-of-band verifier expires out-of-band authentication requests, codes, or tokens within 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.3** | [GRAMMAR] Verify that the out-of-band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.4** | [GRAMMAR] Verify that the out-of-band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |

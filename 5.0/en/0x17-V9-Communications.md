@@ -28,7 +28,7 @@ Ensure all HTTP traffic to external-facing services to the application is sent e
 | **9.1.3** | [MOVED TO 9.4.2] | | | | |
 | **9.1.4** | [ADDED] Verify that external facing services use publically trusted TLS certificates. | ✓ | ✓ | ✓ | 295 |
 
-## V9.2 General Service-to-Service Communication Security
+## V9.2 General Service to Service Communication Security
 
 Server communications involve more than just HTTP. Secure connections to and from other systems, such as monitoring systems, management tools, remote access and SSH, middleware, database, mainframes, partner systems, or external source systems &mdash; must be in place. All of these must be encrypted to prevent "hard on the outside, trivially easy to intercept on the inside".
 
