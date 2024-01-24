@@ -58,7 +58,7 @@ The "untrusted client" term here refers to client-side technologies that render 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.5.1** | Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance. | | ✓ | ✓ | 1029 |
+| **1.5.1** | [MODIFIED, LEVEL L2 > L1] Verify that input and output requirements clearly define how to handle and process data based on type and content. | ✓ | ✓ | ✓ | 20 |
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
 | **1.5.3** | [MOVED TO 5.1.6] | | | | |
 | **1.5.4** | [MOVED TO 5.3.11] | | | | |
