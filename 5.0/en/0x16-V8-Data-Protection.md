@@ -23,6 +23,7 @@ Ensure that a verified application satisfies the following high level data prote
 | **8.1.5** | [DELETED, NOT IN SCOPE] | | | | |
 | **8.1.6** | [DELETED, NOT IN SCOPE] | | | | |
 | **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | | ✓ | ✓ | 444 |
+| **8.1.8** | [ADDED] Verify that defined sensitive data is not sent to untrusted parties (e.g. user trackers) to prevent unwanted collection of data outside of the application's control. | | ✓ | ✓ | 200 |
 
 ## V8.2 Client-side Data Protection
 
