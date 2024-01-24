@@ -30,7 +30,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
 
-## V3.3 Session Timeouts
+## V3.3 Session Timeout
 
 Session timeouts have been aligned with NIST SP 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations should review the table below, and if a longer time out is desirable based on the application's risk, the NIST value should be the upper bounds of session idle timeouts.
 
