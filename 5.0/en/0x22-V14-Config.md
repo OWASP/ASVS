@@ -41,11 +41,11 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.2.1** | Verify that all components are up to date, preferably using a dependency checker during build or compile time. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
 | **14.2.2** | [MOVED TO 14.1.6] | | | | |
-| **14.2.3** | [MODIFIED] Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
+| **14.2.3** | [MOVED TO 50.6.1] | | | | |
 | **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
 | **14.2.5** | Verify that a Software Bill of Materials (SBOM) is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | [MODIFIED, SPLIT TO 14.2.8, LEVEL L2 > L3] Verify that risky third party libraries or those with a history of vulnerabilities are encapsulated such that only required behaviour is available to the application, to reduce attack surface. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | 1061 |
-| **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications. | ✓ | ✓ | ✓ | 441 |
+| **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications to prevent dependency confusion attacks. | ✓ | ✓ | ✓ | 427 |
 | **14.2.8** | [ADDED, SPLIT FROM 14.2.6] Verify that risky third party libraries or those with a history of vulnerabilities are sandboxed away from the most sensitive system modules/services so that even if a vulnerability in the library was successfully exploited, the sensitive system modules/services would not be compromised. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | 1061 |
 
 Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate search order.
@@ -67,15 +67,14 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.4.1** | [MODIFIED, SPLIT TO 14.4.9] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
-| **14.4.2** | [DELETED] | | | | |
-| **14.4.3** | [MODIFIED] Verify that a Content Security Policy (CSP) response header is in place that helps mitigate impact for XSS attacks like HTML, DOM, CSS, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 1021 |
-| **14.4.4** | Verify that all responses contain a X-Content-Type-Options: nosniff header. | ✓ | ✓ | ✓ | 116 |
-| **14.4.5** | [MODIFIED] Verify that a Strict-Transport-Security header is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=31536000; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
-| **14.4.6** | Verify that a suitable Referrer-Policy header is included to avoid exposing sensitive information in the URL through the Referer header to untrusted parties. | ✓ | ✓ | ✓ | 116 |
-| **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 1021 |
-| **14.4.8** | [ADDED, SPLIT FROM 14.5.3] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted origins. When "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
-| **14.4.9** | [ADDED, SPLIT FROM 14.4.1] Verify that if a response specifies a Content-Type of "text/\*", "\*/\*+xml" and "\*/xml", it also specifies a safe character set (e.g., UTF-8, ISO-8859-1) with the charset parameter. | ✓ | ✓ | ✓ | 173 |
+| **14.4.1** | [MODIFIED, SPLIT TO 14.4.8] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
+| **14.4.2** | [DELETED, DEPRECATED BY 50.5.3] | | | | |
+| **14.4.3** | [MOVED TO 50.2.1] | | | | |
+| **14.4.4** | [MOVED TO 50.2.2] | | | | |
+| **14.4.5** | [MOVED TO 50.2.3] | | | | |
+| **14.4.6** | [MOVED TO 50.2.4] | | | | |
+| **14.4.7** | [MOVED TO 50.2.5] | | | | |
+| **14.4.8** | [ADDED, SPLIT FROM 14.4.1] Verify that if a response specifies a Content-Type of "text/\*", "\*/\*+xml" and "\*/xml", it also specifies a safe character set (e.g., UTF-8, ISO-8859-1) with the charset parameter. | ✓ | ✓ | ✓ | 173 |
 
 ## V14.5 HTTP Request Header Validation
 
@@ -83,10 +82,10 @@ Configurations for production should be hardened to protect against common attac
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | [MODIFIED] Verify that the application only responds to HTTP methods in use by the application or by the API (including OPTIONS during preflight requests) and unused methods (e.g. TRACE) are blocked. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
-| **14.5.3** | [MODIFIED, SPLIT TO 14.4.8] Verify that the Origin header is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | [SPLIT TO 50.2.6, 50.3.3] | | | | |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
 | **14.5.5** | [MODIFIED, MOVED FROM 13.2.1] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
-| **14.5.6** | [ADDED] Verify that the infrastructure follows RFC 2616 and ignores the Content-Length header field if a Transfer-Encoding header field is also present. | | ✓ | ✓ | 444 |
+| **14.5.6** | [ADDED] Verify that all application components, including load balancers, firewalls, and application servers, comply with RFC 2616 by ignoring the Content-Length header when a Transfer-Encoding header is present, to prevent HTTP Request Smuggling. | | ✓ | ✓ | 444 |
 | **14.5.7** | [ADDED] Verify that the web application warns users who are using an old browser which does not support HTTP security features on which the application relies. The list of old browsers must be periodically reviewed and updated. | | | ✓ | 1104 |
 | **14.5.8** | [ADDED] Verify that any HTTP headers used by the application and defined by intermediary devices like load balancers or proxies, such as X-Real-IP and X-Forwarded-*, cannot be overridden by the end-user. | | ✓ | ✓ | 346 |
 
@@ -109,11 +108,7 @@ Configurations for production should be hardened to protect against common attac
 For more information, see also:
 
 * [OWASP Web Security Testing Guide 4.1: Testing for HTTP Verb Tampering]( https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering.html)
-* [Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
-* [Exploiting CORS misconfiguration for BitCoins and Bounties](https://portswigger.net/blog/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)
 * [OWASP Web Security Testing Guide 4.1: Configuration and Deployment Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/README.html)
-* [Sandboxing third party components](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html#sandboxing-content)
 * [Defining multiple repositories in maven](https://maven.apache.org/guides/mini/guide-multiple-repositories.html)
 * [Software Component Verification Standard V2 L1-3 requirements](https://github.com/OWASP/Software-Component-Verification-Standard/blob/master/en/0x11-V2-Software_Bill_of_Materials.md)
-* [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
 * [Tips to Reduce the Attack Surface When Using Third-Party Libraries](https://www.slideshare.net/KatyAnton1/tips-to-reduce-the-attack-surface-when-using-thirdparty-libraries)

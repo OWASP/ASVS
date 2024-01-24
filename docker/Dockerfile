@@ -14,7 +14,7 @@ RUN apk add --update \
     bash \
     python3  \
     libressl-dev \
-    py3-pip \
+    pipx \
     curl \
     gnupg \
     unzip \
@@ -60,9 +60,10 @@ RUN rm -rf $PWD/source*
 
 FROM base_${WITH_CERT} as pandoc_base
 
-#install python depencies
-RUN pip install --upgrade pip
-RUN pip install setuptools dicttoxml2
+ENV PATH /root/.py-env:$PATH
+RUN python3 -m venv /root/.py-env --system-site-packages
+RUN /root/.py-env/bin/pip install --upgrade pip 
+RUN /root/.py-env/bin/pip install dicttoxml2 setuptools==69.0.3 
 
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
@@ -87,8 +88,8 @@ RUN curl --output /tmp/lua-filters.tar.gz -L https://github.com/pandoc/lua-filte
     && rm /tmp/lua-filters.tar.gz
 
 FROM pandoc_base as tinytex_base
-#Install tinyTex
 
+#Install tinyTex
 # setup path
 ENV PATH=/home/pandoc/.TinyTeX/bin/x86_64-linuxmusl/:$PATH
 ENV TINY_TEX_VERSION=v0.45

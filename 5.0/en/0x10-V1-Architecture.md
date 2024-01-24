@@ -15,7 +15,7 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.1.1** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.1.2** | Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing. | | ✓ | ✓ | 1053 |
+| **1.1.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.3** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.4** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | | ✓ | ✓ | 1059 |
 | **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1059 |
@@ -58,7 +58,7 @@ The "untrusted client" term here refers to client-side technologies that render 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.5.1** | Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance. | | ✓ | ✓ | 1029 |
+| **1.5.1** | [MODIFIED, LEVEL L2 > L1] Verify that input and output requirements clearly define how to handle and process data based on type and content. | ✓ | ✓ | ✓ | 20 |
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
 | **1.5.3** | [MOVED TO 5.1.6] | | | | |
 | **1.5.4** | [MOVED TO 5.3.11] | | | | |
@@ -89,13 +89,13 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.8.1** | [MODIFIED, MERGED FROM 8.3.4, LEVEL L2 > L1] Verify that all sensitive data created and processed by the application has been identified and classified into protection levels, and ensure that a policy is in place on how to deal with sensitive data. | ✓ | ✓ | ✓ | 213 |
-| **1.8.2** | Verify that all protection levels have an associated set of protection requirements, such as encryption requirements, integrity requirements, retention, privacy and other confidentiality requirements, and that these are applied in the architecture. | | ✓ | ✓ | |
+| **1.8.2** | [MODIFIED] Verify that all protection levels have an associated set of protection requirements and that these are applied in the architecture. This should include (but not be limited to) requirements related to encryption, integrity verification, retention, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | | ✓ | ✓ | |
 
 ## V1.9 Communications Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.9.1** | Verify the application encrypts communications between back-end components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 319 |
+| **1.9.1** | [MODIFIED] Verify the application encrypts communications between back-end components, particularly when these components are in different containers, systems, sites, or cloud providers. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 319 |
 | **1.9.2** | [MODIFIED] Verify that back-end application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains. | | ✓ | ✓ | 295 |
 
 ## V1.10 Malicious Software Architecture
@@ -117,7 +117,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
-| **1.12.2** | [MODIFIED] Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. | | ✓ | ✓ | 646 |
+| **1.12.2** | [MOVED TO 50.5.2] | | | | |
 
 ## V1.13 API Architecture
 
@@ -129,7 +129,7 @@ This is a placeholder for future architectural requirements.
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.14.1** | [MODIFIED] Verify the segregation of back-end components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | 923 |
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.14.3** | Verify that the build pipeline warns of out-of-date or insecure components and takes appropriate actions. | | ✓ | ✓ | 1104 |
+| **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [MODIFIED] Verify that application deployments adequately sandbox or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
 | **1.14.6** | [MODIFIED] Verify the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |

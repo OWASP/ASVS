@@ -23,6 +23,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.2.1** | [MODIFIED] Verify that when the application is accepting a file, it checks that the file extension of the file matches an expected file extension and that it validates that the contents of the file match the type represented by that extension, including but not limited to checking the initial "magic bytes". | | ✓ | ✓ | 434 |
+| **12.2.2** | [ADDED] Verify that the application blocks uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | ✓ | ✓ | ✓ | 400 |
 
 ## V12.3 File Execution
 
@@ -30,7 +31,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.3.1** | Verify that user-submitted filename metadata is not used directly by system or framework filesystems and that a URL API is used to protect against path traversal. | ✓ | ✓ | ✓ | 22 |
 | **12.3.2** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files (LFI). | ✓ | ✓ | ✓ | 73 |
-| **12.3.3** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files via Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | ✓ | ✓ | ✓ | 98 |
+| **12.3.3** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files via Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | ✓ | ✓ | ✓ | 73 |
 | **12.3.4** | [MOVED TO 12.5.3] | | | | |
 | **12.3.5** | [DELETED, DUPLICATE OF 5.3.8] | | | | |
 | **12.3.6** | Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs. | | ✓ | ✓ | 829 |
@@ -48,7 +49,7 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.5.1** | [MOVED TO 14.3.6] | | | | |
-| **12.5.2** | [GRAMMAR] Verify that direct requests to uploaded files will never be executed as HTML and JavaScript content. | ✓ | ✓ | ✓ | 434 |
+| **12.5.2** | [MOVED TO 50.5.1] | | | | |
 | **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header in the response. | ✓ | ✓ | ✓ | 641 |
 
 ## V12.6 SSRF Protection
@@ -56,6 +57,12 @@ Although zip bombs are eminently testable using penetration testing techniques, 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.6.1** | [MOVED TO 14.7.1] | | | | |
+
+## V12.7 Application Resources
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **12.7.1** | [ADDED] Verify that the application proactively releases system resources, such as database connections, open files, threads, etc, when it finishes using them to prevent resource exhaustion. | | ✓ | ✓ | 404 |
 
 ## References
 
