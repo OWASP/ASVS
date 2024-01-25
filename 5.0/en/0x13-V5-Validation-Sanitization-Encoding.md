@@ -14,11 +14,11 @@ With modern web application architecture, output encoding is more important than
 
 ## V5.1 Input Validation
 
-Properly implemented input validation controls, using positive allow lists and strong data typing, can sometimes eliminate injection attacks. However, sometimes input validation is not going to be effective in security, for example a valid e-mail address/URL can still be used to conduct successful attacks.
+Properly implemented input validation controls, using positive allow lists and strong data typing, can sometimes eliminate injection attacks. However, there are instances where input validation may not be effective for security purposes. For example, a valid email address or URL can still be used to conduct successful attacks.
 
-Input validation is still important security hygiene and should be applied to all inputs where possible.
+Input validation is still important for security hygiene and should be applied to all inputs where possible.
 
-Sometimes input validation is not going to be helpful for security, other times it will help it to a moderate degree, whilst other times it will be fundamental for security defense. It depends on the type of data and the use of that data to determine how effective input validation will be. Because input validation is not a complete security strategy, one should also make use of sandboxing, santisation, encoding and parameterisation.
+Sometimes input validation is not going to be helpful for security, other times it will help it to a moderate degree, whilst other times it will be fundamental for security defense. It depends on the type of data and the use of that data to determine how effective input validation will be. Because input validation is not a complete security strategy, one should also make use of sandboxing, sanitization, encoding and parameterization.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -37,11 +37,11 @@ Sometimes input validation is not going to be helpful for security, other times 
 
 For example:
 
-* Santization: When a user is authoring HTML, the standard defense is to standardise HTML to remove Performing JSON sanitizing before JSON parsers are used, and of course HTML sanitization for XSS defense
+* Sanitization: When a user is authoring HTML, the standard defense is to standardize HTML to remove Performing JSON sanitizing before JSON parsers are used, and of course HTML sanitization for XSS defense
 * Escaping: Done in the UI when you want to preserve displaying content as the user typed it in, also for some injection protection like LDAP injection protection
 * Parameterization: For SQL Injection, primarily
 * Sandboxing: When you can't sanitize HTML for some reason and need to dump potentially active content on your web page, iFrame sandboxing is critical. CSP has some sandboxing capabilities, too.
-* Really important for URL's in Web UI's to stop JavaScript and data URL's (XSS defense) - but often valid data is still dangerous
+* URLs in Web UIs should block JavaScript and data URLs as a defense against XSS attacks. However, it's important to note that often, even valid data can still pose a threat.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -59,7 +59,7 @@ For example:
 
 ## V5.3 Output Encoding and Injection Prevention
 
-Output encoding close or adjacent to the interpreter in use is critical to the security of any application. Typically, output encoding is not persisted, but used to render the output safe in the appropriate output context for immediate use. Failing to output encode will result in an insecure, injectable, and unsafe application.
+Output encoding close or adjacent to the interpreter in use is critical to the security of any application. Typically, output encoding is not persisted, but rather used to render output safely in the appropriate context for immediate use. Failing to output encode will result in an insecure, injectable, and unsafe application.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -79,7 +79,7 @@ Output encoding close or adjacent to the interpreter in use is critical to the s
 
 Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
-Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user supplied content domain to prevent successful XSS from taking over the application.
+Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user-supplied content domain to prevent successful XSS from taking over the application.
 
 ## V5.4 Memory, String, and Unmanaged Code
 
@@ -109,7 +109,7 @@ For more information, see also:
 * [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [OWASP Testing Guide 4.0: Testing for HTTP Parameter Pollution](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.html)
 * [OWASP LDAP Injection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
-* [OWASP Testing Guide 4.0: Client Side Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing/README)
+* [OWASP Testing Guide 4.0: Client-Side Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing/README)
 * [OWASP Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 * [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
 * [OWASP Java Encoding Project](https://owasp.org/owasp-java-encoder/)
@@ -132,4 +132,4 @@ For more information on deserialization or parsing issues, please see:
 * [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 * [OWASP Deserialization of Untrusted Data Guide](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data)
 * [An Exploration of JSON Interoperability Vulnerabilities](https://bishopfox.com/blog/json-interoperability-vulnerabilities)
-* [Orange Tsai - A new era of SSRF Exploiting URL Parser In Trending Programming Languages](https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf)
+* [Orange Tsai - A New Era of SSRF Exploiting URL Parser In Trending Programming Languages](https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf)

@@ -2,11 +2,11 @@
 
 ## Control Objective
 
-Ensure that a verified application satisfies the following high level requirements:
+Ensure that a verified application satisfies the following high-level requirements:
 
-* All cryptographic modules fail in a secure manner and that errors are handled correctly.
+* All cryptographic modules fail securely and errors are handled correctly.
 * A suitable random number generator is used.
-* Access to keys is securely managed.
+* Access to keys is managed securely.
 
 ## V6.1 Data Classification
 
@@ -37,7 +37,7 @@ Although this section is not easily penetration tested, developers should consid
 
 ## V6.3 Random Values
 
-Cryptographically-secure Pseudo-random Number Generation (CSPRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets.
+Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -58,6 +58,6 @@ Although this section is not easily penetration tested, developers should consid
 
 For more information, see also:
 
-* [OWASP Testing Guide 4.0: Testing for weak Cryptography](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/README.html)
+* [OWASP Testing Guide 4.0: Testing for Weak Cryptography](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/README.html)
 * [OWASP Cheat Sheet: Cryptographic Storage](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
 * [FIPS 140-3](https://csrc.nist.gov/publications/detail/fips/140/3/final)

@@ -2,9 +2,9 @@
 
 ## Control Objective
 
-The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high quality logs, with more signal than discarded noise.
+The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high-quality logs, with more signal than discarded noise.
 
-High quality logs will often contain sensitive data, and must be protected as per local data privacy laws or directives. This should include:
+High-quality logs, which often contain sensitive data, must be safeguarded in accordance with local data privacy laws or directives. This should include:
 
 * Not collecting or logging sensitive information unless specifically required.
 * Ensuring all logged information is handled securely and protected as per its data classification.
@@ -67,7 +67,7 @@ Note: Log encoding (7.3.1) is difficult to test and review using automated dynam
 
 ## V7.4 Error Handling
 
-The purpose of error handling is to allow the application to provide security relevant events for monitoring, triage and escalation. The purpose is not to create logs. When logging security related events, ensure that there is a purpose to the log, and that it can be distinguished by SIEM or analysis software.
+The purpose of error handling is to allow the application to provide security-relevant events for monitoring, triage and escalation. The purpose is not to create logs. When logging security-related events, ensure that there is a purpose to the log and that it can be distinguished by SIEM or analysis software.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -76,7 +76,7 @@ The purpose of error handling is to allow the application to provide security re
 | **7.4.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 431 |
 | **7.4.4** | [ADDED] Verify that the application is designed in a way that a failure to access external resources does not result in the entire application failing, for example using the circuit breaker pattern. | | ✓ | ✓ | |
 
-Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last resort event handlers. In this case, architects and developers should use a pattern, language, or framework friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
+Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last-resort event handlers. In this case, architects and developers should use a pattern, language, or framework-friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
 
 ## References
 

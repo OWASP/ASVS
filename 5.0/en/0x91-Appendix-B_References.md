@@ -12,7 +12,7 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 
 ## OWASP Cheat Sheet Series project
 
-[This project](https://owasp.org/www-project-cheat-sheets/) has a number of cheat sheets which will be relevant for different topics in the ASVS.
+[This project](https://owasp.org/www-project-cheat-sheets/) has several cheat sheets that will be relevant to different topics in the ASVS.
 
 There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
 
@@ -32,7 +32,7 @@ There is a mapping to the ASVS which can be found here: [https://cheatsheetserie
 
 ## Others
 
-Similarly, the following web sites are most likely to be useful to users/adopters of this standard
+Similarly, the following websites are most likely to be useful to users/adopters of this standard
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
