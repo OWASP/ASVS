@@ -56,7 +56,6 @@ Complying with this section is likely to be operational and continuous.
 | **10.4.2** | [ADDED] Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | | ✓ | ✓ | 79 |
 | **10.4.3** | [ADDED] Verify that JavaScript code is written in a way that prevents prototype pollution by using Set() or Map() instead of object literals or, if this is not possible, by using some other protection mechanism. | | ✓ | ✓ | |
 
-
 ## References
 
 For more information, see also:
