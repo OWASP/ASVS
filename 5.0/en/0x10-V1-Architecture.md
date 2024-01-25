@@ -21,7 +21,6 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1059 |
 | **1.1.6** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 637 |
 | **1.1.7** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.1.8** | [ADDED] Verify availability of a publicly available security.txt file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues. | | ✓ | ✓ | 1059 |
 
 ## V1.2 Authentication Architecture
 
@@ -58,7 +57,7 @@ The "untrusted client" term here refers to client-side technologies that render 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.5.1** | Verify that input and output requirements clearly define how to handle and process data based on type, content, and applicable laws, regulations, and other policy compliance. | | ✓ | ✓ | 1029 |
+| **1.5.1** | [MODIFIED, LEVEL L2 > L1] Verify that input and output requirements clearly define how to handle and process data based on type and content. | ✓ | ✓ | ✓ | 20 |
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
 | **1.5.3** | [MOVED TO 5.1.6] | | | | |
 | **1.5.4** | [MOVED TO 5.3.11] | | | | |
