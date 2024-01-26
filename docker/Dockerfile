@@ -104,8 +104,8 @@ RUN /home/pandoc/.TinyTeX/bin/*/tlmgr path add
 
 # verify tlmgr version and add packages needed to build the documents
 RUN tlmgr --version 
-RUN tlmgr update -self
-RUN tlmgr install \
+RUN for i in 1 2 3 4 5; do tlmgr update --self && break || sleep 15; done 
+RUN for i in 1 2 3 4 5; do tlmgr install \
     xecjk \
     ctex \
     fancyhdr \
@@ -140,7 +140,7 @@ RUN tlmgr install \
     ulem \
     upquote \
     xurl \
-    zref 
+    zref && break || sleep 15; done
 
 FROM latex_base as work_layer
 #copy fonts from font_base
