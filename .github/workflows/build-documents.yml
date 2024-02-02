@@ -33,18 +33,18 @@ jobs:
   build-image:
     if: needs.filters.outputs.docker == 'true'
     needs: filters
-    uses: owasp/asvs/.github/workflows/build-and-publish-docker-image.yml@build-warnings
+    uses: owasp/asvs/.github/workflows/build-and-publish-docker-image.yml@master
 
   build-v4:
     if: ${{ always() && needs.filters.outputs.v4 == 'true' }}
     needs: 
       - build-image
       - filters
-    uses: owasp/asvs/.github/workflows/create-4.0-outputs.yml@build-warnings
+    uses: owasp/asvs/.github/workflows/create-4.0-outputs.yml@master
     
   build-v5:
     if: ${{ always() && needs.filters.outputs.v5 == 'true' }}
     needs: 
       - build-image
       - filters
-    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@build-warnings
+    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
