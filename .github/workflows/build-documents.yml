@@ -14,7 +14,7 @@ jobs:
   filters:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4.1.1
     - uses: dorny/paths-filter@v3.0.0
       id: filter
       with:
