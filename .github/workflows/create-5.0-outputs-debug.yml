@@ -13,7 +13,7 @@ on:
 
 jobs:
   prepare_container:
-    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
+    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@build-warnings
 
   debug:
     needs: prepare_container
