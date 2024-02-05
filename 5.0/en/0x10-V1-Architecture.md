@@ -79,7 +79,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.7.1** | Verify that a common logging format and approach is used across the system. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
+| **1.7.1** | [MOVED TO 7.1.7] | | | | |
 | **1.7.2** | [MOVED TO 7.3.5] | | | | |
 | **1.7.3** | [ADDED] Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled and how long logs are kept for. | | ✓ | ✓ | 778 |
 
