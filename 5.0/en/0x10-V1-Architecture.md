@@ -17,8 +17,8 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | **1.1.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.3** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.1.4** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | | ✓ | ✓ | 1059 |
-| **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1059 |
+| **1.1.4** | [MODIFIED, MERGED FROM 1.1.5] Verify that an architecture document exists which demonstrates the application's components, trust boundary assumptions, significant data flows, and remote 3rd party services which it relies upon. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1059 |
+| **1.1.5** | [DELETED, MERGED TO 1.1.4]  | | | | |
 | **1.1.6** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 637 |
 | **1.1.7** | [DELETED, NOT IN SCOPE] | | | | |
 
