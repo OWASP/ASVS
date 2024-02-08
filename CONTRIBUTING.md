@@ -1,38 +1,16 @@
 # Contributing
 
-**This document applies during 2022 and may change at a future date.**
-
-<!--
-
-## General description
-
-open issue > discuss, if agreed > pull request
-
-
-## Versions
-
-for what versions what kind of changes are allowed
-
-definition of breaking change
-
-
-## Opening issue
-
-expectation from issue
-
-
-## Pull-request
-
-expectation from PR
--->
+**This document applies during 2024 and may change at a future date.**
 
 ### Introduction
 
 The current status of the ASVS project is as follows:
 
-The ASVS project is planning to release a 5.0 version during 2022 which will be a significant modification, similar to the scale of changes which happened during 4.0.
+The ASVS project is planning to release a 5.0 version during 2024 which will be a significant modification, similar to the scale of changes which happened during 4.0.
  
 We will try, on a best efforts basis, to address issues and push changes to the "bleeding edge" master branch within the 5.0 folder **without altering current numbering** and using tagging ([see below](CONTRIBUTING.md#use-tags-to-describe-the-change)) to make changes clearer. This is in order to make it easier to use this branch on an ongoing basis. However, we will no longer be accepting changes to the 4.0 folder which is now fixed at the 4.0.3 release.
+
+Please also focus attention on the requirements themselves and **not** on the surrounding text or on the introductory chapters (files 0x01-0x04). This because the text might have become outdated where requirements have changed and also because our goal is to significantly cut down this text anyway in 5.0.
 
 ### Before you open a Pull Request
 
