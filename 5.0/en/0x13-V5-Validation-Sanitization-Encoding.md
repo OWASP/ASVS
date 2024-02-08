@@ -30,7 +30,6 @@ Sometimes input validation is not going to be helpful for security, other times 
 | **5.1.6** | [MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that input validation is enforced on a trusted service layer. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 602 |
 | **5.1.7** | [ADDED] Verify that untrusted input is validated for length before being included in a cookie (including as part of a JWT) and that the cookie name and value length combined are not over 4096 bytes. | | ✓ | ✓ | |
 
-
 ## V5.2 Sanitization and Sandboxing
 
 Input validation is a complicated topic.
