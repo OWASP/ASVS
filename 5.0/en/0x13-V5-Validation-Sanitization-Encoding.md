@@ -120,6 +120,10 @@ The requirement does not belong here, if it is:
 reorg: move it to 1st chapter in the paragraph
 -->
 
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **5.6.1** | [ADDED] Verify that input is decoded or unescaped into a canonical form only once and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | ✓ | ✓ | ✓ | 174 |
+
 ## References
 
 For more information, see also:
