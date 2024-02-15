@@ -103,6 +103,23 @@ The following requirements will only apply when the application uses a systems l
 | **5.5.4** | Verify that when parsing JSON in browsers or JavaScript-based backends, JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. | ✓ | ✓ | ✓ | 95 |
 | **5.5.5** | [ADDED, MERGED FROM 13.1.1] Verify that different parsers used in the application for the same data type (e.g. JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | | ✓ | ✓ | 436 |
 
+## V5.6 Validation and Sanitization Architecture
+
+With syntax-specific requirements we say "do the correct thing" and here are the requirements to say "do it in correct order" and in "correct place".
+
+<!--
+The requirement belongs here if it is:
+
+  * input validation, sanitization or encoding architecture
+  * input validation, sanitization or encoding processing (order)
+
+The requirement does not belong here, if it is:
+
+  * syntax specific or clear input validation, sanitization or encoding requirement
+
+reorg: move it to 1st chapter in the paragraph
+-->
+
 ## References
 
 For more information, see also:
