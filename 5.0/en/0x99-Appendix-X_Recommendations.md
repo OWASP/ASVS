@@ -12,6 +12,8 @@ The following items are in-scope for ASVS. We don't think they should be made ma
 
 * A password strength meter should provided to help users set a stronger password.
 * Create a publicly available security.txt file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues.
+* Client-side input validation should be enforced in addition to validation at a trusted service layer as this provides a good opportunity to discover when someone has bypassed client-side controls in an attempt to attack the application.
+
 
 ## Software Security processes
 
