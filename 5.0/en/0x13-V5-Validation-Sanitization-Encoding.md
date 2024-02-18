@@ -103,7 +103,9 @@ The following requirements will only apply when the application uses a systems l
 
 ## V5.6 Validation and Sanitization Architecture
 
-With syntax-specific requirements we say "do the correct thing" and here are the requirements to say "do it in correct order" and in "correct place".
+With syntax-specific requirements we say "do the correct thing" and here are the requirements to say "do it in the correct order" and "do it in the correct place".
+
+Also, the requirements aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded state (e.g. HTML encoding) to prevent double encoding issues.
 
 <!--
 The requirement belongs here if it is:
