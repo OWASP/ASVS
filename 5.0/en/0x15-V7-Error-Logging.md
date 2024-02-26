@@ -27,13 +27,13 @@ V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.1.1** | Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form. ([C9, C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 532 |
-| **7.1.2** | Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 532 |
+| **7.1.1** | Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form. | ✓ | ✓ | ✓ | 532 |
+| **7.1.2** | Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. | ✓ | ✓ | ✓ | 532 |
 | **7.1.3** | [MOVED TO 7.2.3] | | | | |
-| **7.1.4** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
-| **7.1.5** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
+| **7.1.4** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. | | ✓ | ✓ | 778 |
+| **7.1.5** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. | | ✓ | ✓ | |
 | **7.1.6** | [ADDED] Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | | ✓ | ✓ | |
-| **7.1.7** | [MODIFIED, MOVED FROM 1.7.1] Verify that logs are readable and correlatable for the used log reader, preferably by using a common logging format. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
+| **7.1.7** | [MODIFIED, MOVED FROM 1.7.1] Verify that logs are readable and correlatable for the used log reader, preferably by using a common logging format. | | ✓ | ✓ | |
 
 ## V7.2 Security Events
 
@@ -50,7 +50,7 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.2.1** | [MODIFIED] Verify that all authentication decisions are logged. | | ✓ | ✓ | 778 |
 | **7.2.2** | [MODIFIED] Verify that all access control decisions can be logged and all failed decisions are logged. | | ✓ | ✓ | 285 |
-| **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs security relevant events including deserialization failures, input validation failures and incorrect HTTP requests (including requests with an unexpected HTTP verb). ([C5, C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 778 |
+| **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs security relevant events including deserialization failures, input validation failures and incorrect HTTP requests (including requests with an unexpected HTTP verb). | | ✓ | ✓ | 778 |
 
 ## V7.3 Log Protection
 
@@ -58,11 +58,11 @@ Logs that can be trivially modified or deleted are useless for investigations an
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.3.1** | Verify that all logging components appropriately encode data to prevent log injection. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 117 |
+| **7.3.1** | Verify that all logging components appropriately encode data to prevent log injection. | | ✓ | ✓ | 117 |
 | **7.3.2** | [DELETED, DUPLICATE OF 7.3.1] | | | | |
-| **7.3.3** | [MODIFIED] Verify that logs are protected from unauthorized access and cannot be modified. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 200 |
+| **7.3.3** | [MODIFIED] Verify that logs are protected from unauthorized access and cannot be modified. | | ✓ | ✓ | 200 |
 | **7.3.4** | [MOVED TO 7.1.5] | | | | |
-| **7.3.5** | [MOVED FROM 1.7.2] Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
+| **7.3.5** | [MOVED FROM 1.7.2] Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. | | ✓ | ✓ | |
 
 Note: Log encoding (7.3.1) is difficult to test and review using automated dynamic tools and penetration tests, but architects, developers, and source code reviewers should consider it an L1 requirement.
 
@@ -72,9 +72,9 @@ The purpose of error handling is to allow the application to provide security-re
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.4.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 210 |
-| **7.4.2** | [MODIFIED] Verify that a consistent and standardized exception handling mechanism (or a functional equivalent) is used across the codebase. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 544 |
-| **7.4.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 431 |
+| **7.4.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, potentially with a unique ID which support personnel can use to investigate. | ✓ | ✓ | ✓ | 210 |
+| **7.4.2** | [MODIFIED] Verify that a consistent and standardized exception handling mechanism (or a functional equivalent) is used across the codebase. | | ✓ | ✓ | 544 |
+| **7.4.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. | | ✓ | ✓ | 431 |
 | **7.4.4** | [ADDED] Verify that the application is designed in a way that a failure to access external resources does not result in the entire application failing, for example using the circuit breaker pattern. | | ✓ | ✓ | |
 
 Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last-resort event handlers. In this case, architects and developers should use a pattern, language, or framework-friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.

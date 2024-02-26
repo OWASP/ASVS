@@ -23,7 +23,7 @@ Ensure all HTTP traffic to external-facing services to the application is sent e
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **9.1.1** | [MODIFIED] Verify that TLS is used for all connectivity between the client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 319 |
+| **9.1.1** | [MODIFIED] Verify that TLS is used for all connectivity between the client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. | ✓ | ✓ | ✓ | 319 |
 | **9.1.2** | [MOVED TO 9.4.1] | | | | |
 | **9.1.3** | [MOVED TO 9.4.2] | | | | |
 | **9.1.4** | [ADDED] Verify that external facing services use publically trusted TLS certificates. | ✓ | ✓ | ✓ | 295 |
