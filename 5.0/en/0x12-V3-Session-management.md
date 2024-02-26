@@ -23,10 +23,10 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.2.1** | [MODIFIED] Verify the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | [MODIFIED] Verify that opaque session tokens possess at least 128 bits of entropy. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.1** | [MODIFIED] Verify the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | ✓ | ✓ | ✓ | 384 | 7.1 |
+| **3.2.2** | [MODIFIED] Verify that opaque session tokens possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | | |
-| **3.2.4** | [MODIFIED] Verify that opaque session tokens are generated using a secure random function. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 330 | 7.1 |
+| **3.2.4** | [MODIFIED] Verify that opaque session tokens are generated using a secure random function. | | ✓ | ✓ | 330 | 7.1 |
 
 TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
 
@@ -39,18 +39,18 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For both IAL2
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.3.1** | [MOVED TO 3.8.1] | | | | | |
-| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is required at least every 30 days for L1 applications or every 12 hours for L2 and L3 applications. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.2 |
+| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is required at least every 30 days for L1 applications or every 12 hours for L2 and L3 applications. | ✓ | ✓ | ✓ | 613 | 7.2 |
 | **3.3.3** | [MOVED TO 3.8.2] | | | | | |
 | **3.3.4** | [MOVED TO 3.8.3] | | | | | |
-| **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that re-authentication is required after 30 minutes of inactivity for L2 applications or after 15 minutes of inactivity for L3 applications. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 613 | 7.2 |
+| **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that re-authentication is required after 30 minutes of inactivity for L2 applications or after 15 minutes of inactivity for L3 applications. | | ✓ | ✓ | 613 | 7.2 |
 
 ## V3.4 Cookie-based Session Management
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
-| **3.4.2** | [MODIFIED] Verify that cookie-based session tokens are not readable by client-side scripts. The session token cookie should have the 'HttpOnly' attribute set and the session token value should only be transferred to the client via the Set-Cookie header. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
-| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1275 | 7.1.1 |
+| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.2** | [MODIFIED] Verify that cookie-based session tokens are not readable by client-side scripts. The session token cookie should have the 'HttpOnly' attribute set and the session token value should only be transferred to the client via the Set-Cookie header. | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
+| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. | ✓ | ✓ | ✓ | 1275 | 7.1.1 |
 | **3.4.4** | Verify that cookie-based session tokens use the "__Host-" prefix so cookies are only sent to the host that initially set the cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.5** | [DELETED, DEPRECATED BY 50.1.1] | | | | | |
 
@@ -101,7 +101,7 @@ For stateful session mechanisms, this should just require invalidating the sessi
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.8.1** | [MODIFIED, MOVED FROM 3.3.1] Verify that logout and expiration terminate the user's session, such that the back button or a downstream relying party cannot resume an authenticated session. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.8.1** | [MODIFIED, MOVED FROM 3.3.1] Verify that logout and expiration terminate the user's session, such that the back button or a downstream relying party cannot resume an authenticated session. | ✓ | ✓ | ✓ | 613 | 7.1 |
 | **3.8.2** | [MODIFIED, LEVEL L2 > L1, MOVED FROM 3.3.3] Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | ✓ | ✓ | ✓ | 613 | |
 | **3.8.3** | [MODIFIED, MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | | ✓ | ✓ | 613 | 7.1 |
 | **3.8.4** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | ✓ | ✓ | ✓ | | |

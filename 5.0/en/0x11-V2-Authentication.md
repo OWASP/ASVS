@@ -30,20 +30,20 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.2** | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | | 5.1.1.2 |
+| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.2** | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | ✓ | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.4** | Verify that any printable Unicode character, including language neutral characters such as spaces and Emojis are permitted in passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
-| **2.1.7** | [MODIFIED, SPLIT TO 2.1.14] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.7** | [MODIFIED, SPLIT TO 2.1.14] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
-| **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.10** | [MODIFIED, SPLIT TO 2.1.13, LEVEL L1 > L2] Verify that the application does not require periodic credential rotation. | | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.12** | [MODIFIED] Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | ✓ | ✓ | ✓ | 549 | 5.1.1.2 |
 | **2.1.13** | [ADDED, SPLIT FROM 2.1.10, LEVEL L1 > L2] Verify that the application does not keep a password history. | | ✓ | ✓ | | 5.1.1.2 |
-| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached username and password pairs. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | | ✓ | | 5.1.1.2 |
+| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached username and password pairs. | | | ✓ | | 5.1.1.2 |
 | **2.1.15** | [ADDED] Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | | ✓ | ✓ | 521 | 5.1.1.2 |
 
 Possible sources of frequently used passwords for requirement 2.1.7 include:
@@ -97,13 +97,13 @@ This section cannot be penetration tested, so controls are not marked as L1. How
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing the user's password for the application: argon2id, scrypt, bcrypt or PBKDF2. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing the user's password for the application: argon2id, scrypt, bcrypt or PBKDF2. | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.2** | [DELETED] | | | | | |
-| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count should be a minimum of 1,300,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 600,000 iterations using PBKDF2-HMAC-SHA256, or with a minimum of 210,000 iterations with PBKDF2-HMAC-SHA512. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.4** | [MODIFIED] Verify that if bcrypt is used, the work factor is a minimum of 10 and password size is limited to 72-bytes due to bcrypt's input limit. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count should be a minimum of 1,300,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 600,000 iterations using PBKDF2-HMAC-SHA256, or with a minimum of 210,000 iterations with PBKDF2-HMAC-SHA512. | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.4** | [MODIFIED] Verify that if bcrypt is used, the work factor is a minimum of 10 and password size is limited to 72-bytes due to bcrypt's input limit. | | ✓ | ✓ | 916 | 5.1.1.2 |
 | **2.4.5** | [DELETED] | | | | | |
-| **2.4.6** | [ADDED] Verify that if argon2id is used, there should be a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration should be a minimum work factor of (2^17), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.6** | [ADDED] Verify that if argon2id is used, there should be a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism. | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration should be a minimum work factor of (2^17), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. | | ✓ | ✓ | 916 | 5.1.1.2 |
 
 Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
 
@@ -116,7 +116,7 @@ Where US standards are mentioned, a regional or local standard can be used in pl
 | **2.5.3** | [DELETED, DUPLICATE OF 2.4.1] | | | | | |
 | **2.5.4** | [MODIFIED] Verify that default user accounts (e.g. "root", "admin", or "sa") are not present in the application or are disabled. | ✓ | ✓ | ✓ | 798 | |
 | **2.5.5** | [DELETED, DUPLICATE OF 2.2.3] | | | | | |
-| **2.5.6** | Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.6** | Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.7** | [LEVEL L2 > L1] Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | ✓ | ✓ | ✓ | 308 | 6.1.2.3 |
 
 ## V2.6 Lookup Secret Verifier
