@@ -1,6 +1,6 @@
 ## V51.0 OAuth 2.0 Protocol
 
-This section describes and summarizes the [best current security practices](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices) for OAuth 2.0 as derived from its [RFC 6750](https://www.rfc-editor.org/info/rfc6750) and [6749](https://www.rfc-editor.org/info/rfc6749) for every OAuth implementor. OAuth became the standard for API protection and the basis for federated login using OpenID Connect. OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner. 
+This section describes and summarizes the [best current security practices](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices) for OAuth 2.0 as derived from its [RFC 6750](https://www.rfc-editor.org/info/rfc6750) and [6749](https://www.rfc-editor.org/info/rfc6749) for every OAuth implementor. OAuth became the standard for API protection and the basis for federated login using OpenID Connect. OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner.
 
 There are various different personas in the OAuth process, described in more detail in the terminology section below. The requirements in this chapter are structured based on those personas as requirements for one persona may not be relevant for a different persona.
 
@@ -11,7 +11,7 @@ There are various different personas in the OAuth process, described in more det
 | **51.1.1** | [ADDED] Verify that the Authorization Server supports CSRF protection either using the mechanism provided by PKCE, the "nonce" parameter or the "state" parameter. | ✓ | ✓ | ✓ |
 | **51.1.2** | [ADDED] Verify that the replay of authorization codes into the authorization response is prevented either by using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started.  | ✓ | ✓ | ✓ |
 | **51.1.3** | [ADDED] Verify that Authorization Servers are mitigating PKCE Downgrade Attacks by ensuring a token request containing a "code_verifier" parameter is accepted only if a "code_challenge" parameter was present in the authorization request. | ✓ | ✓ | ✓ |
-| **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation to prevent token replay attacks. Refresh token rotation prevents usage in the event of a compromised refresh token. Sender-constrained refresh tokens cryptographically binds the refresh token to a certain Client instance. | ✓ | ✓ | ✓ | 
+| **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation to prevent token replay attacks. Refresh token rotation prevents usage in the event of a compromised refresh token. Sender-constrained refresh tokens cryptographically binds the refresh token to a certain Client instance. | ✓ | ✓ | ✓ |
 | **51.1.5** | [ADDED] Verify that the Authorization Server publishes the element "code_challenge_methods_supported" in their Authorization Server metadata containing the supported PKCE challenge methods. | ✓ | ✓ | ✓ |
 | **51.1.6** | [ADDED] Verify that if a Client sends a valid PKCE "code_challenge" parameter in the authorization request, the Authorization Server enforces the correct usage of "code_verifier" at the token endpoint. | ✓ | ✓ | ✓ |
 
@@ -38,24 +38,22 @@ There are various different personas in the OAuth process, described in more det
 | :---: | :--- | :---: | :---: | :---: |
 | **51.4.1** | [ADDED] Verify that the Resource Owner password credentials grant is not used. This grant type insecurely exposes the credentials of the Resource Owner to the client, increasing the attack surface of the application.  | ✓ | ✓ | ✓ |
 
-
 ## Terminology
 
-This chapter uses the terms "Access tokens", "Refresh tokens", "Client", "Authorization Server", "Resource Owner", and "Resource Server" as defined by OAuth 2.0 RFC 6749. As such this chapter defines the following terms: 
+This chapter uses the terms "Access tokens", "Refresh tokens", "Client", "Authorization Server", "Resource Owner", and "Resource Server" as defined by OAuth 2.0 RFC 6749. As such this chapter defines the following terms:
 
-Access tokens 
+Access tokens
 	Access tokens provide an abstraction, replacing different authorization constructs (e.g., username and password, assertion) for a single token understood by the resource server. This abstraction enables issuing access tokens valid for a short time period, as well as removing the resource server's need to understand a wide range of authentication schemes.
 Refresh tokens
 	Refresh tokens are credentials used to obtain access tokens. These are issued to the client by the authorization server and are used to obtain a new access token when the current access token becomes invalid or expires, or to obtain additional access tokens with identical or narrower scope (access tokens may have a shorter lifetime and fewer permissions than authorized by the resource owner).
 Client
 	A Client generally refers to an application making protected resource requests on behalf of the resource owner and with its authorization. The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).
-Authorization Server (AS) 
+Authorization Server (AS)
 	The Authorization Server refers to the server or entity issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
-Resource Owner (RO) 
+Resource Owner (RO)
 	The Resource Owner refers to an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
-Resource Server (RS) 
+Resource Server (RS)
 	The Resource Server refers to the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
-
 
 ## OAuth 2.0 Basics
 
@@ -81,7 +79,6 @@ Restricting token privileges ensures a Client is granted the proper access to a 
 
 Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn) and authentication processes that require multiple steps can be hard or impossible.
 
-
 ## Mapping
 
 This mapping shows which OAuth 2.0 requirements belongs to which OAuth-specific subsection from the original requirements structure that was proposed here: https://github.com/OWASP/ASVS/blob/5375e96bc99c47fe7b3430407cd469d0f9896180/5.0/en/0x12-V3-Session-management.md#v38-oauth-20-protocol
@@ -96,7 +93,7 @@ This mapping shows which OAuth 2.0 requirements belongs to which OAuth-specific 
 
 ## OAuth 2.0 References
 
-* Original RFC 6750: https://www.rfc-editor.org/info/rfc6750 
+* Original RFC 6750: https://www.rfc-editor.org/info/rfc6750
 * RFC 6749: https://www.rfc-editor.org/info/rfc6749
 * OAuth 2.0 Best Practices: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices
 * Mix-up attacks: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-18#mix_up
