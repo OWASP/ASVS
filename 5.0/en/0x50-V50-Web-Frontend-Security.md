@@ -49,7 +49,7 @@ The category should contain requirements with ideas:
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.5.1** | [GRAMMAR, MOVED FROM 12.5.2] Verify that direct requests to uploaded files will never be executed as HTML and JavaScript content. | ✓ | ✓ | ✓ | 434 |
 | **50.5.2** | [MODIFIED, MOVED FROM 1.12.2] Verify that user-uploaded files - if required to be displayed or downloaded from the application - are served by either octet stream downloads, or from an unrelated domain, such as a cloud file storage bucket. | | ✓ | ✓ | 646 |
-| **50.5.3** | [ADDED, DEPRECATES 14.4.2] Verify that appropriate security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API or other resource is loaded directly). Possible controls could include: not serving the content unless headers indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc. | ✓ | ✓ | ✓ | |
+| **50.5.3** | [ADDED, DEPRECATES 14.4.2] Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API or other resource is loaded directly). Possible controls could include: not serving the content unless headers indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc. | ✓ | ✓ | ✓ | |
 
 ## V50.6 External Resource Integrity
 
