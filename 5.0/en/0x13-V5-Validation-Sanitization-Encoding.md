@@ -22,7 +22,7 @@ Sometimes input validation is not going to be helpful for security, other times 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.1.1** | [MODIFIED] Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies or headers). | ✓ | ✓ | ✓ | 235 |
+| **5.1.1** | [MODIFIED] Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or headers). | ✓ | ✓ | ✓ | 235 |
 | **5.1.2** | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. | ✓ | ✓ | ✓ | 915 |
 | **5.1.3** | [MODIFIED] Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (allow lists). Where HTML markup must be accepted for input, refer to requirement 5.2.1. | ✓ | ✓ | ✓ | 20 |
 | **5.1.4** | [GRAMMAR] Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers, e-mail addresses, telephone numbers, or validating that two related fields are reasonable, such as checking that suburb and zipcode match). | ✓ | ✓ | ✓ | 20 |
