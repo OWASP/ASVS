@@ -14,11 +14,12 @@ With modern web application architecture, output encoding is more important than
 
 ## V5.1 Input Validation
 
-Properly implemented input validation controls, using positive allow lists and strong data typing, provides a useful defense in depth measure for security. However, except in specific cases it is generally not intended to prevent specific attacks.
+Input can come from a variety of sources including HTML form fields, REST requests, URL parameters, HTTP headers, cookies, files on disk, databases, external APIs, etc. 
 
-Input validation is still important for security hygiene and should be applied to all inputs where possible. Since input validation is not a complete security strategy, one should also make use of sandboxing, sanitization, encoding and parameterization.
+Properly implemented input validation controls, using positive allow lists and strong data typing, provide an important enforcement of business logic controls around the type of data that the app expects to receive. However, except in specific cases, it is generally not intended to prevent specific attacks.
 
-It also important to remember that potentially dangerous input can come from a variety of sources including HTML form fields, REST requests, URL parameters, HTTP headers, cookies, files on disk, databases, external APIs, etc. As such, it is important to take a broad view on where these controls need to be enforced.
+Input validation still provides valuable security hygiene and should be applied to all inputs where possible. However, since input validation is not a complete security strategy, one should also make use of sandboxing, sanitization, encoding and parameterization whenever the input is being used in a potentially dangerous context.
+
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
