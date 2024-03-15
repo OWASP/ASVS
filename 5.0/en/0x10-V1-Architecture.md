@@ -94,8 +94,8 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.9.1** | [MODIFIED] Verify the application encrypts communications between back-end components, particularly when these components are in different containers, systems, sites, or cloud providers. | | ✓ | ✓ | 319 |
-| **1.9.2** | [MODIFIED] Verify that back-end application components verify the authenticity of each side in a communication link to prevent person-in-the-middle attacks. For example, application components should validate TLS certificates and chains. | | ✓ | ✓ | 295 |
+| **1.9.1** | [DELETED, DUPLICATE OF 9.1.1, 9.2.2, 9.3.1] | | | | |
+| **1.9.2** | [DELETED, DUPLICATE OF 9.2.3, 9.3.2] | | | | |
 
 ## V1.10 Malicious Software Architecture
 
