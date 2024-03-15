@@ -38,7 +38,7 @@ Server communications involve more than just HTTP. Secure connections to and fro
 | **9.2.2** | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols. | | ✓ | ✓ | 319 |
 | **9.2.3** | Verify that all encrypted connections to external systems that involve sensitive information or functions are authenticated. | | ✓ | ✓ | 287 |
 | **9.2.4** | [MOVED TO 9.4.3] | | | | |
-| **9.2.5** | Verify that backend TLS connection failures are logged. | | | ✓ | 544 |
+| **9.2.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 
 ## V9.3 HTTPS Communication between Internal Services
 
