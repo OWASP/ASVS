@@ -48,8 +48,8 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 
 Possible sources of frequently used passwords for requirement 2.1.7 include:
 
-* https://github.com/danielmiessler/SecLists/tree/master/Passwords
-* https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere
+* <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
+* <https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere>
 
 ## V2.2 General Authenticator Security
 
