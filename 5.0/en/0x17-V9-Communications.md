@@ -4,18 +4,18 @@
 
 Ensure that a verified application meets the following high-level requirements:
 
-* Require TLS or strong encryption, independent of the sensitivity of the content.
-* Follow the latest guidance, including:
-  * Configuration advice
-  * Preferred algorithms and ciphers
-* Avoid weak or soon-to-be deprecated algorithms and ciphers, except as a last resort.
-* Disable deprecated or known insecure algorithms and ciphers.
+  * Require TLS or strong encryption, independent of the sensitivity of the content.
+  * Follow the latest guidance, including:
+    * Configuration advice
+    * Preferred algorithms and ciphers
+  * Avoid weak or soon-to-be deprecated algorithms and ciphers, except as a last resort.
+  * Disable deprecated or known insecure algorithms and ciphers.
 
 Within these requirements:
 
-* Stay current with recommended industry advice on secure TLS configuration, as it changes frequently (often due to catastrophic breaks in existing algorithms and ciphers).
-* Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
-* Check your configuration periodically to ensure that secure communication is always present and effective.
+  * Stay current with recommended industry advice on secure TLS configuration, as it changes frequently (often due to catastrophic breaks in existing algorithms and ciphers).
+  * Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
+  * Check your configuration periodically to ensure that secure communication is always present and effective.
 
 ## V9.1 HTTPS Communication with External Facing Services
 
@@ -65,7 +65,7 @@ Use secure TLS configuration and up-to-date tools to review the configuration on
 
 For more information, see also:
 
-* [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
-* Notes on “Approved modes of TLS”:
+  * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html)
+  * Notes on “Approved modes of TLS”:
     * In the past, the ASVS referred to the US FIPS 140 standard, but as a global standard, applying US standards can be difficult, contradictory, or confusing to apply.
     * A better method of achieving compliance with section 9.1 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up-to-date TLS evaluation tools to obtain a desired level of security.
