@@ -81,10 +81,11 @@ Tags must be placed before verification description, example:
 We are also actively looking for translations of the 4.n branch!
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
+
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superceeded!):
-	* In-progress
+    * In-progress
         * None
-	* v4.0.3
+    * v4.0.3
         * Spanish
         * Simplified Chinese
         * Arabic
