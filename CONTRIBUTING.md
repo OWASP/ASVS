@@ -12,6 +12,19 @@ We will try, on a best efforts basis, to address issues and push changes to the 
 
 Please also focus attention on the requirements themselves and **not** on the surrounding text or on the introductory chapters (files 0x01-0x04). This because the text might have become outdated where requirements have changed and also because our goal is to significantly cut down this text anyway in 5.0.
 
+### Where do I start?
+
+The most important thing you can do at the moment is give your feedback on open issues which we are currently discussing.
+
+There are two key types right now:
+
+* [![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3Aowasp%2Fasvs%20is%3Aopen%20is%3Aissue%20label%3A%22Community%20wanted%22&style=flat&label=Community%20Wanted&labelColor=%23BFD4F2&color=grey)](https://github.com/OWASP/ASVS/issues?q=is%3Aopen+is%3Aissue+label%3A%22Community+wanted%22) - These are issues where we would really benefit from more eyes on a particular issue.
+* [![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3Aowasp%2Fasvs%20is%3Aopen%20is%3Aissue%20label%3A%22Community%20needed%22&style=flat&label=Community%20Needed&labelColor=%23fbca04&color=grey)](https://github.com/OWASP/ASVS/issues?q=is%3Aopen+is%3Aissue+label%3A%22Community+needed%22) - These are issues where the relevant items will not get progressed without community input.
+
+
+
+
+
 ### Before you open a Pull Request
 
 Please do not open a pull request without first opening an associated issue. Please do not open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. For example, [this link](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt) searches for issues (open and closed) related to bcrypt.
