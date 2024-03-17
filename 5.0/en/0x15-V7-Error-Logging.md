@@ -53,7 +53,6 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 | **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs security relevant events including deserialization failures, input validation failures and incorrect HTTP requests (including requests with an unexpected HTTP verb). | | ✓ | ✓ | 778 |
 | **7.2.4** | [MODIFIED, MOVED FROM 9.2.5] Verify that backend TLS connection failures are logged. | | | ✓ | 778 |
 
-
 ## V7.3 Log Protection
 
 Logs that can be trivially modified or deleted are useless for investigations and prosecutions. Disclosure of logs can expose inner details about the application or the data it contains. Care must be taken when protecting logs from unauthorized disclosure, modification or deletion.
