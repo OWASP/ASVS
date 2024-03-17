@@ -38,7 +38,7 @@ Server communications involve more than just HTTP. Connections to and from other
 | **9.2.2** | [MODIFIED] Verify that an encrypted protocol such as TLS is used for all inbound and outbound connections to and from the application, including monitoring systems, management tools, remote access and SSH, middleware, databases, mainframes, partner systems, or external APIs. The server must not fall back to insecure or unencrypted protocols. | | ✓ | ✓ | 319 |
 | **9.2.3** | [MOVED TO 2.10.5] | | | | |
 | **9.2.4** | [MOVED TO 9.4.3] | | | | |
-| **9.2.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
+| **9.2.5** | [MOVED TO 7.2.4] | | | | |
 
 ## V9.3 HTTPS Communication between Internal Services
 
