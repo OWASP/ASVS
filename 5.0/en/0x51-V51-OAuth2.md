@@ -9,17 +9,17 @@ There are various different personas in the OAuth process, described in more det
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.1.1** | [ADDED] Verify that the Authorization Server supports CSRF protection either using the mechanism provided by PKCE, the "nonce" parameter or the "state" parameter. | ✓ | ✓ | ✓ |
-| **51.1.2** | [ADDED] Verify that the replay of authorization codes into the authorization response is prevented either by using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started.  | ✓ | ✓ | ✓ |
+| **51.1.2** | [ADDED] Verify that the replay of authorization codes into the authorization response is prevented either by using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started. | ✓ | ✓ | ✓ |
 | **51.1.3** | [ADDED] Verify that Authorization Servers are mitigating PKCE Downgrade Attacks by ensuring a token request containing a "code_verifier" parameter is accepted only if a "code_challenge" parameter was present in the authorization request. | ✓ | ✓ | ✓ |
 | **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation to prevent token replay attacks. Refresh token rotation prevents usage in the event of a compromised refresh token. Sender-constrained refresh tokens cryptographically binds the refresh token to a particular Client. | ✓ | ✓ | ✓ |
 | **51.1.5** | [ADDED] Verify that if a Client sends a valid PKCE "code_challenge" parameter in the authorization request, the Authorization Server enforces the correct usage of "code_verifier" at the token endpoint. | ✓ | ✓ | ✓ |
-| **51.1.6** | [ADDED] Verify that the Resource Owner password credentials grant is not used or configured by the Authorization Server. This grant type insecurely exposes the credentials of the Resource Owner to the client, increasing the attack surface of the application.  | ✓ | ✓ | ✓ |
+| **51.1.6** | [ADDED] Verify that the Resource Owner password credentials grant is not used or configured by the Authorization Server. This grant type insecurely exposes the credentials of the Resource Owner to the client, increasing the attack surface of the application. | ✓ | ✓ | ✓ |
 
 ## V51.2 OAuth Client
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.2.1** | [ADDED] Verify that when an OAuth Client can interact with more than one Authorization Server, Clients should verify that the issuer "iss" parameter value is what it expected from the authorization response to prevent against mix-up attacks. In the absence of "iss" parameter, Clients may instead use distinct redirect URIs to identify authorization endpoints and token endpoints.  | ✓ | ✓ | ✓ |
+| **51.2.1** | [ADDED] Verify that when an OAuth Client can interact with more than one Authorization Server, Clients should verify that the issuer "iss" parameter value is what it expected from the authorization response to prevent against mix-up attacks. In the absence of "iss" parameter, Clients may instead use distinct redirect URIs to identify authorization endpoints and token endpoints. | ✓ | ✓ | ✓ |
 | **51.2.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. | ✓ | ✓ | ✓ |
 | **51.2.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the Resource Server they want to access. | ✓ | ✓ | ✓ |
 | **51.2.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
@@ -88,9 +88,9 @@ Aside from this grant type can leak credentials in more places than just the Aut
 
 For more information, see also:
 
-* RFC 6749 - The OAuth 2.0 Authorization Framework: https://www.rfc-editor.org/info/rfc6749
-* RFC 6750 - The OAuth 2.0 Authorization Framework: Bearer Token Usage: https://www.rfc-editor.org/info/rfc6750
-* OAuth 2.0 Best Practices: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices
-* Mix-up attacks: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-18#mix_up
-* RFC9207 - OAuth 2.0 Authorization Server Issuer Identifier in Authorization Response: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-iss-auth-resp-00
-* Other Countermeasures for Mix-up attacks: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-18#section-2.1-6
+* RFC 6749 - The OAuth 2.0 Authorization Framework: <https://www.rfc-editor.org/info/rfc6749>
+* RFC 6750 - The OAuth 2.0 Authorization Framework: Bearer Token Usage: <https://www.rfc-editor.org/info/rfc6750>
+* OAuth 2.0 Best Practices: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices>
+* Mix-up attacks: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-18#mix_up>
+* RFC9207 - OAuth 2.0 Authorization Server Issuer Identifier in Authorization Response: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-iss-auth-resp-00>
+* Other Countermeasures for Mix-up attacks: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-18#section-2.1-6>
