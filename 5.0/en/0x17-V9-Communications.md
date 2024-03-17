@@ -6,8 +6,8 @@ Ensure that a verified application meets the following high-level requirements:
 
 * Require TLS or strong encryption, independent of the sensitivity of the content.
 * Follow the latest guidance, including:
-  * Configuration advice
-  * Preferred algorithms and ciphers
+    * Configuration advice
+    * Preferred algorithms and ciphers
 * Avoid weak or soon-to-be deprecated algorithms and ciphers, except as a last resort.
 * Disable deprecated or known insecure algorithms and ciphers.
 
@@ -66,4 +66,4 @@ Use secure TLS configuration and up-to-date tools to review the configuration on
 For more information, see also:
 
 * [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
-* The ideal method for achieving compliance with section 9.4 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up-to-date TLS evaluation tools to obtain a desired level of security.
+* The ideal way to achieve compliance with section 9.4 would be to review guides such as [Mozilla's Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS) or [generate known good configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/), and use known and up-to-date TLS evaluation tools to obtain a desired level of security.
