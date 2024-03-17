@@ -6,8 +6,8 @@ Ensure that a verified application meets the following high-level requirements:
 
 * Require TLS or strong encryption, independent of the sensitivity of the content.
 * Follow the latest guidance, including:
-  * Configuration advice
-  * Preferred algorithms and ciphers
+    * Configuration advice
+    * Preferred algorithms and ciphers
 * Avoid weak or soon-to-be deprecated algorithms and ciphers, except as a last resort.
 * Disable deprecated or known insecure algorithms and ciphers.
 
