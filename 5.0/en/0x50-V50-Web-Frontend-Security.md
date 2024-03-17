@@ -67,7 +67,6 @@ it may need other separate section for "end-user protection via UI"
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.7.1** | [ADDED, SPLIT FROM 5.1.5] Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | | | ✓ | |
 
-
 ## References
 
 For more information, see also:
