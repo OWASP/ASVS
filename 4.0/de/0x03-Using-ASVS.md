@@ -78,4 +78,8 @@ Hinweis: Das `v` vor der Versionsnummer ist ein Kleinbuchstabe.
 
 Falls AnforderungsIDs ohne die Angabe der Version genutzt werden, so ist anzunehmen, dass die aktuelle Version des ASVS gemeint ist. Da der Standard wächst, sollte die Version stets angegeben werden.
 
-Die ASVS Anforderungen werden in CSV, JSON und anderen Formaten zur Verfügung gestellt.
+So ist z.B.: `v4.0.3-1.11.3` die dritte Anforderung des Abschnittes 'Architektur der Geschäftslogik' im Kapitel 'Architektur, Design und Threat Modeling' des ASVS in Version 4.0.3: Prüfen Sie, dass alle geschäftskritischen Abläufe, einschließlich der Authentifizierung, des Sessionmanagements und der Zugriffssteuerung thread-sicher und sicher gegen TOCTOU Race Conditions sind.
+
+Werden die Versionsangaben weggelassen, bezieht sich die Referenz auf die aktuelle Version des ASVS. Da der Standard sich ändert und stetig wächst, ist dies problematisch. Die Versionsangabe sollte also stets angegeben werden.
+
+Die ASVS Anforderungen werden in CSV, JSON und anderen Formaten zur Verfügung gestellt. Dies unterstützt die maschinelle Verarbeitung.
