@@ -131,7 +131,7 @@ This is a placeholder for future architectural requirements.
 | **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [MODIFIED] Verify that application deployments adequately sandbox or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | | ✓ | ✓ | 265 |
-| **1.14.6** | [MODIFIED] Verify the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
+| **1.14.6** | [MOVED TO 50.7.2] | | | | |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.2.1] Verify the use of unique or special low-privilege operating system accounts for all back-end application components, services, and servers. | | ✓ | ✓ | 250 |
 | **1.14.8** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | | ✓ | ✓ | 348 |
 
