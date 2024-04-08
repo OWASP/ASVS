@@ -50,3 +50,4 @@ Organizations who have donated another amount to the project via OWASP. Supporte
 <!--[<img src="./images/supporters/apiiro.svg" height=50](https://apiiro.com/)-->
 
 
+<!--Don't forget to update https://github.com/OWASP/ASVS/issues/1888 -->
