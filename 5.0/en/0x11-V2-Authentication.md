@@ -31,7 +31,7 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.2** | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.2** | [MODIFIED, SPLIT TO 2.4.6] Verify that passwords of at least 64 characters are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | ✓ | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.4** | Verify that any printable Unicode character, including language neutral characters such as spaces and Emojis are permitted in passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
@@ -93,7 +93,7 @@ Architects and developers should adhere to this section when building or refacto
 
 The current list of approved password hashing algorithms is detailed in NIST SP 800-63B section 5.1.1.2, and in the [OWASP Password Storage Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms). Pay careful attention to the configuration guidance and potential challenges/limits with each algorithm.
 
-
+In particular, note that since these algorithms are intentionally compute-intensive, there have been cases in the past where providing a very long password leads to a denial of service condition. It is therefore very important to protect against this.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -102,6 +102,7 @@ The current list of approved password hashing algorithms is detailed in NIST SP 
 | **2.4.3** | [DELETED, MERGED TO 2.4.1] | | | | | |
 | **2.4.4** | [DELETED, MERGED TO 2.4.1] | | | | | |
 | **2.4.5** | [DELETED, INCORRECT] | | | | | |
+| **2.4.6** | [ADDED, SPLIT FROM 2.1.2] Verify that the application is protected against a denial of service attack caused by processing an overly long password. | | ✓ | ✓ | | |
 
 Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
 
