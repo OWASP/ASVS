@@ -89,21 +89,19 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 
 ## V2.4 Credential Storage
 
-Architects and developers should adhere to this section when building or refactoring code. This section can only be fully verified using source code review or through secure unit or integration tests. Penetration testing cannot identify any of these issues.
+Architects and developers should adhere to this section when building or refactoring code.
 
-The list of approved one-way key derivation functions is detailed in NIST SP 800-63B section 5.1.1.2, and in the [OWASP Password Storage Cheatsheet (2021)](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+The current list of approved password hashing algorithms is detailed in NIST SP 800-63B section 5.1.1.2, and in the [OWASP Password Storage Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms). Pay careful attention to the configuration guidance and potential challenges/limits with each algorithm.
 
-This section cannot be penetration tested, so controls are not marked as L1. However, this section is of vital importance to the security of credentials if they are stolen, so if forking the ASVS for an architecture or coding guideline or source code review checklist, please place these controls back to L1 in your private version.
+
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.4.1** | [MODIFIED] Verify that one of the following password hashing functions is used when storing the user's password for the application: argon2id, scrypt, bcrypt or PBKDF2. | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.2** | [DELETED] | | | | | |
-| **2.4.3** | [MODIFIED] Verify that if PBKDF2 is used, the iteration count should be a minimum of 1,300,000 iterations with PBKDF2-HMAC-SHA1, a minimum of 600,000 iterations using PBKDF2-HMAC-SHA256, or with a minimum of 210,000 iterations with PBKDF2-HMAC-SHA512. | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.4** | [MODIFIED] Verify that if bcrypt is used, the work factor is a minimum of 10 and password size is limited to 72-bytes due to bcrypt's input limit. | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.5** | [DELETED] | | | | | |
-| **2.4.6** | [ADDED] Verify that if argon2id is used, there should be a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism. | | ✓ | ✓ | 916 | 5.1.1.2 |
-| **2.4.7** | [ADDED] Verify that if scrypt is used, the configuration should be a minimum work factor of (2^17), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.1** | [MODIFIED, MERGED FROM 2.4.3, 2.4.4] Verify that user passwords are stored using an approved password hashing algorithm that is securely configured according to current guidance. | | ✓ | ✓ | 916 | 5.1.1.2 |
+| **2.4.2** | [DELETED, INCORRECT] | | | | | |
+| **2.4.3** | [DELETED, MERGED TO 2.4.1] | | | | | |
+| **2.4.4** | [DELETED, MERGED TO 2.4.1] | | | | | |
+| **2.4.5** | [DELETED, INCORRECT] | | | | | |
 
 Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
 
