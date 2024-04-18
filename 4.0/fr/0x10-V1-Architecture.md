@@ -77,7 +77,7 @@ Les exigences architecturales sont intrinsèques au code, et donc difficiles à 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.7.1** | Vérifier qu'un format de journalisation communs soit utilisés dans le système.  ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
+| **1.7.1** | Vérifier qu'un format de journalisation commun soit utilisé dans le système.  ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
 | **1.7.2** | Vérifiez que les journaux sont transmis de manière sécurisée à un système de préférence distant pour analyse, détection, alerte et escalade. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
 ## V1.8 Exigences architecturales en matière de protection des données et de la vie privée
