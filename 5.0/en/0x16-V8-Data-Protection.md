@@ -45,7 +45,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **8.3.1** | [MODIFIED, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or headers and that the URL and query string do not contain sensitive information, such as an API key or session token. | ✓ | ✓ | ✓ | 598 |
 | **8.3.2** | [MODIFIED, SPLIT TO 8.3.9, LEVEL L1 > L3] Verify that users have a method to remove their data on demand. | | | ✓ | |
-| **8.3.3** | Verify that the application provides guidance regarding how it collects and uses of personal data and that users have to provide opt-in consent for this use. | | | ✓ | |
+| **8.3.3** | [MODIFIED, LEVEL L1 > L3] Verify that the application provides guidance regarding how it collects and uses of personal data and that users have to provide opt-in consent for this use. | | | ✓ | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
 | **8.3.5** | Verify accessing sensitive data is audited (without logging the sensitive data itself), if the data is collected under relevant data protection directives or where logging of access is required. | | ✓ | ✓ | 532 |
 | **8.3.6** | [DELETED, NOT PRACTICAL] | | | | |
