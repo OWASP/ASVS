@@ -27,6 +27,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 | **3.2.2** | [MODIFIED] Verify that opaque session tokens possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | 331 | 7.1 |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | | |
 | **3.2.4** | [MODIFIED] Verify that opaque session tokens are generated using a secure random function. | | ✓ | ✓ | 330 | 7.1 |
+| **3.2.5** | [ADDED] Verify that creating a session for the application requires the user's consent and that the application is protected against a CSRF-style attack where a new application session for the user is created via SSO without user interaction. | | ✓ | ✓ | | |
 
 TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
 
@@ -89,7 +90,7 @@ Attackers start a half-open attack by attempting to lock, reset, or recover a cr
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.7.1** | [MODIFIED] Verify that the application requires re-authentication or secondary verification before allowing highly sensitive transactions or modifications to account profile or authentication settings. | ✓ | ✓ | ✓ | 306 | |
+| **3.7.1** | [MODIFIED] Verify that the application requires re-authentication or secondary verification before allowing highly sensitive transactions, modifications to account profile or authentication settings, or a large export of sensitive data. | ✓ | ✓ | ✓ | 306 | |
 
 ## V3.8 Session Termination
 
