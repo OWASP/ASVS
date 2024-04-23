@@ -1,0 +1,461 @@
+{
+  "documents": [
+    {
+      "id": "ASVS",
+      "name": "ASVS Security Requirements",
+      "createdOn": "2024-01-27T17:19:33.363Z",
+      "createdBy": {
+        "name": "ReqView",
+        "email": "support@reqview.com",
+        "company": "Eccam s.r.o."
+      },
+      "lastChangedOn": "2024-03-12T13:27:30.125Z",
+      "lastChangedBy": {
+        "name": "ReqView",
+        "email": "support@reqview.com",
+        "company": "Eccam s.r.o."
+      },
+      "data": [
+
+      ],
+      "attributes": {
+        "asvsId": {
+          "name": "ASVS ID",
+          "type": "string"
+        },
+        "applicable": {
+          "name": "Applicable",
+          "type": "bool"
+        },
+        "compliance": {
+          "name": "Compliance Status",
+          "type": "enum",
+          "values": [
+            {
+              "key": "NC",
+              "label": "Non-compliant"
+            },
+            {
+              "key": "PC",
+              "label": "Partially compliant"
+            },
+            {
+              "key": "FC",
+              "label": "Fully compliant"
+            }
+          ]
+        },
+        "cwe": {
+          "name": "CWE",
+          "type": "xhtml"
+        },
+        "evidence": {
+          "name": "Evidence",
+          "type": "xhtml"
+        },
+        "help": {
+          "help": true,
+          "type": "xhtml"
+        },
+        "l1": {
+          "name": "L1",
+          "type": "enum",
+          "values": [
+            {
+              "key": "NREQ",
+              "label": "Not required"
+            },
+            {
+              "key": "OPT",
+              "label": "Recommended, but not required"
+            },
+            {
+              "key": "REQ",
+              "label": "Required"
+            }
+          ]
+        },
+        "l1text": {
+          "name": "L1 Text",
+          "type": "string"
+        },
+        "l2": {
+          "name": "L2",
+          "type": "enum",
+          "values": [
+            {
+              "key": "NREQ",
+              "label": "Not required"
+            },
+            {
+              "key": "OPT",
+              "label": "Recommended, but not required"
+            },
+            {
+              "key": "REQ",
+              "label": "Required"
+            }
+          ]
+        },
+        "l2text": {
+          "name": "L2 Text",
+          "type": "string"
+        },
+        "l3": {
+          "name": "L3",
+          "type": "enum",
+          "values": [
+            {
+              "key": "NREQ",
+              "label": "Not required"
+            },
+            {
+              "key": "OPT",
+              "label": "Recommended, but not required"
+            },
+            {
+              "key": "REQ",
+              "label": "Required"
+            }
+          ]
+        },
+        "l3text": {
+          "name": "L3 Text",
+          "type": "string"
+        },
+        "nist": {
+          "name": "NIST §",
+          "type": "xhtml"
+        },
+        "ord": {
+          "name": "Ordinal",
+          "type": "int"
+        },
+        "owner": {
+          "name": "Owner",
+          "type": "string"
+        },
+        "type": {
+          "name": "Type",
+          "type": "enum",
+          "values": [
+            {
+              "key": "REQ",
+              "label": "Requirement"
+            },
+            {
+              "key": "SEC",
+              "label": "Section"
+            },
+            {
+              "key": "CHAP",
+              "label": "Chapter"
+            },
+            {
+              "key": "INFO",
+              "label": "Information"
+            }
+          ]
+        }
+      },
+      "templateColumns": {
+        "90625096-fec7-42ef-94a9-57d3e6fd5dcf": {
+          "label": "Chapter / Section",
+          "template": "{{#if (eval type \"==\" \"REQ\")}}\n  {{#withParent}}\n    {{#withParent}}\n      {{heading}}\n    {{/withParent}}\n    / {{heading}}\n  {{/withParent}}\n{{/if}}"
+        }
+      },
+      "views": {
+        "Level 1 Compliance": {
+          "columns": [
+            {
+              "columnId": "id",
+              "width": 90
+            },
+            {
+              "columnId": "asvsId",
+              "width": 80
+            },
+            {
+              "templateColumnId": "90625096-fec7-42ef-94a9-57d3e6fd5dcf",
+              "width": 180
+            },
+            {
+              "columnId": "description",
+              "width": 400
+            },
+            {
+              "columnId": "owner",
+              "width": 150
+            },
+            {
+              "columnId": "compliance",
+              "width": 150
+            },
+            {
+              "columnId": "evidence",
+              "width": 220
+            }
+          ],
+          "filter": [
+            [
+              {
+                "attributeId": "type",
+                "criterion": "attribute",
+                "value": "REQ"
+              },
+              {
+                "attributeId": "applicable",
+                "criterion": "attribute",
+                "value": "true"
+              },
+              {
+                "attributeId": "l1",
+                "criterion": "attribute",
+                "not": true,
+                "value": "NREQ"
+              }
+            ]
+          ]
+        },
+        "Level 2 Compliance": {
+          "columns": [
+            {
+              "columnId": "id",
+              "width": 90
+            },
+            {
+              "columnId": "asvsId",
+              "width": 80
+            },
+            {
+              "templateColumnId": "90625096-fec7-42ef-94a9-57d3e6fd5dcf",
+              "width": 180
+            },
+            {
+              "columnId": "description",
+              "width": 400
+            },
+            {
+              "columnId": "owner",
+              "width": 150
+            },
+            {
+              "columnId": "compliance",
+              "width": 150
+            },
+            {
+              "columnId": "evidence",
+              "width": 220
+            }
+          ],
+          "filter": [
+            [
+              {
+                "attributeId": "type",
+                "criterion": "attribute",
+                "value": "REQ"
+              },
+              {
+                "attributeId": "applicable",
+                "criterion": "attribute",
+                "value": "true"
+              },
+              {
+                "attributeId": "l2",
+                "criterion": "attribute",
+                "not": true,
+                "value": "NREQ"
+              }
+            ]
+          ]
+        },
+        "Level 3 Compliance": {
+          "columns": [
+            {
+              "columnId": "id",
+              "width": 90
+            },
+            {
+              "columnId": "asvsId",
+              "width": 80
+            },
+            {
+              "templateColumnId": "90625096-fec7-42ef-94a9-57d3e6fd5dcf",
+              "width": 180
+            },
+            {
+              "columnId": "description",
+              "width": 400
+            },
+            {
+              "columnId": "owner",
+              "width": 150
+            },
+            {
+              "columnId": "compliance",
+              "width": 150
+            },
+            {
+              "columnId": "evidence",
+              "width": 220
+            }
+          ],
+          "filter": [
+            [
+              {
+                "attributeId": "type",
+                "criterion": "attribute",
+                "value": "REQ"
+              },
+              {
+                "attributeId": "applicable",
+                "criterion": "attribute",
+                "value": "true"
+              },
+              {
+                "attributeId": "l3",
+                "criterion": "attribute",
+                "not": true,
+                "value": "NREQ"
+              }
+            ]
+          ]
+        },
+        "Manage": {
+          "columns": [
+            {
+              "columnId": "id",
+              "width": 90
+            },
+            {
+              "columnId": "asvsId",
+              "width": 80
+            },
+            {
+              "columnId": "description",
+              "width": 437
+            },
+            {
+              "columnId": "l1",
+              "width": 80
+            },
+            {
+              "columnId": "l2",
+              "width": 80
+            },
+            {
+              "columnId": "l3",
+              "width": 80
+            },
+            {
+              "columnId": "applicable",
+              "width": 90
+            },
+            {
+              "columnId": "owner",
+              "width": 150
+            },
+            {
+              "columnId": "compliance",
+              "width": 150
+            }
+          ],
+          "filter": [
+            [
+              {
+                "attributeId": "type",
+                "criterion": "attribute",
+                "not": true,
+                "value": "INFO"
+              }
+            ]
+          ]
+        },
+        "Primary": {
+          "columns": [
+            {
+              "columnId": "id",
+              "width": 90
+            },
+            {
+              "columnId": "type",
+              "width": 110
+            },
+            {
+              "columnId": "asvsId",
+              "width": 80
+            },
+            {
+              "columnId": "description",
+              "width": 550
+            },
+            {
+              "columnId": "l1text",
+              "width": 70
+            },
+            {
+              "columnId": "l2text",
+              "width": 70
+            },
+            {
+              "columnId": "l3text",
+              "width": 70
+            },
+            {
+              "columnId": "cwe",
+              "width": 70
+            },
+            {
+              "columnId": "nist",
+              "width": 120
+            }
+          ],
+          "default": true
+        },
+        "Traceability": {
+          "columns": [
+            {
+              "columnId": "id",
+              "width": 90
+            },
+            {
+              "columnId": "asvsId",
+              "width": 80
+            },
+            {
+              "templateColumnId": "90625096-fec7-42ef-94a9-57d3e6fd5dcf",
+              "width": 180
+            },
+            {
+              "columnId": "description",
+              "width": 450
+            },
+            {
+              "columnId": "links",
+              "width": 450
+            }
+          ],
+          "filter": [
+            [
+              {
+                "attributeId": "applicable",
+                "criterion": "attribute",
+                "value": "true"
+              }
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "attachments": {
+  },
+  "copyright": [
+    "Copyright © The OWASP Foundation"
+  ],
+  "url": "https://owasp.org/www-project-application-security-verification-standard/",
+  "metadata": {
+    "format": "2.17",
+    "template": "document"
+  }
+}

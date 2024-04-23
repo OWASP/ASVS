@@ -63,7 +63,7 @@ FROM base_${WITH_CERT} as pandoc_base
 ENV PATH /root/.py-env:$PATH
 RUN python3 -m venv /root/.py-env --system-site-packages
 RUN /root/.py-env/bin/pip install --upgrade pip 
-RUN /root/.py-env/bin/pip install dicttoxml2 setuptools==69.0.3 
+RUN /root/.py-env/bin/pip install dicttoxml2 marko setuptools==69.0.3
 
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc

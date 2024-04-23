@@ -15,7 +15,7 @@ Der Application Security Verification Standard definiert drei Stufen der Sicherh
 
 Jede Stufe des ASVS enthält eine Liste von Sicherheitsanforderungen. Jede dieser Anforderungen kann auch auf sicherheitsspezifische Merkmale und Fähigkeiten abgebildet werden, die von den Entwicklern in die Software eingebaut werden müssen.
 
-![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels_de.png "ASVS Stufen")
+![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "ASVS Stufen")
 
 Bild 1 - Stufen des OWASP Application Security Verification Standard 4.0
 
