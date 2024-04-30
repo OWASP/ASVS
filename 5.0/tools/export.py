@@ -30,9 +30,10 @@
 
 import argparse
 from asvs import ASVS
+from cyclonedx import CycloneDX
 
 parser = argparse.ArgumentParser(description='Export the ASVS requirements.')
-parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv'], default='json')
+parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv', 'cdx_json'], default='json')
 parser.add_argument('--language', default='en')
 parser.add_argument('--verify-only', default=False)
 
@@ -55,6 +56,9 @@ else:
     elif args.format == "xml":
         print(m.to_xml())
     elif args.format == "json_flat":
-        print(m.to_json_flat())    
+        print(m.to_json_flat())
+    elif args.format == "cdx_json":
+        cdx = CycloneDX(m.to_json())
+        print(cdx.to_json())
     else:
         print(m.to_json())   

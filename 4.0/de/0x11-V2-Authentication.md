@@ -154,7 +154,9 @@ Einmal-Passwörter (OTPs) sind physische oder Softtoken, die ein sich ständig v
 
 ## V2.9 Kryptografische Software und Geräte im Authentifizierungsprozess
 
-Kryptographische Geräte sind Chipkarten oder USB-Sticks, die der Benutzer an den Computer anschließen muss, um die Authentifizierung abzuschließen. Der Verifizierer sendet einen Zufallswert (Nonce) an das kryptographische Gerät oder die Software. Dort wird eine Antwort auf der Grundlage eines sicher gespeicherten kryptographischen Schlüssels berechnet. Die Anforderungen für kryptographische Geräte und Software sind für Ein- und Mehrfaktorauthentifizierung gleich, da die Verifizierung der berechneten Antwort den Besitz des Authentisierungsfaktors nachweist.
+Kryptographische Geräte sind Chipkarten oder USB-Sticks, die der Benutzer an den Computer anschließen muss, um die Authentifizierung abzuschließen. Der Verifizierer sendet einen Zufallswert (Nonce) an das kryptographische Gerät oder die Software. Dort wird eine Antwort auf der Grundlage eines sicher gespeicherten kryptographischen Schlüssels berechnet.
+
+Die Anforderungen für kryptographische Geräte und Software sind für Ein- und Mehrfaktorauthentifizierung gleich, da die Verifizierung der berechneten Antwort den Besitz des Authentisierungsfaktors nachweist.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -175,7 +177,20 @@ Dieser Abschnitt ist kann nicht mittels Penetrationstest getestet werden und hat
 
 ## Zusätzliche Anforderungen der US-Behörden
 
-US-Behörden müssen NIST 800-63 zwingend erfüllen. Der ASVS konzentriert sich auf die 80 % der Maßnahmen, die für fast alle Anwendungen gelten. In diesem Sinne ist der ASVS eine Teilmenge von NIST 800-63, besonders für die IAL1/2- und AAL1/2-Klassifikationen. Er ist jedoch nicht umfassend genug, insbesondere für die IAL3/AAL3-Klassifikationen. Wenn Sie Software für die US-Regierungsbehörden entwickeln, müssen Sie NIST 800‑63 in seiner Gesamtheit überprüfen und umzusetzen.
+US-Behörden müssen NIST 800-63 zwingend erfüllen. Der ASVS konzentriert sich auf die 80 % der Maßnahmen, die für fast alle Anwendungen gelten. In diesem Sinne ist der ASVS eine Teilmenge von NIST 800-63, besonders für die IAL1/2- und AAL1/2-Klassifikationen. Er ist jedoch nicht umfassend genug, insbesondere für die IAL3/AAL3-Klassifikationen.
+
+Wenn Sie Software für die US-Regierungsbehörden entwickeln, müssen Sie NIST 800‑63 in seiner Gesamtheit überprüfen und umzusetzen.
+
+## Glossary of terms
+
+| Term | Meaning |
+| --- | --- |
+| CSP | Credential Service Provider also called an Identity Provider |
+| Authenticator | Code that authenticates a password, token, MFA, federated assertion, and so on. |
+| Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status" |
+| OTP | One-time password |
+| SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card) |
+| MFA | Multi-factor authentication, which includes two or more single factors |
 
 ## Referenzen
 

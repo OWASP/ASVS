@@ -1,25 +1,36 @@
 #!/bin/bash 
 
-lang="en"
+ALLOWED_LANGS='en'
 
-if [ ! -z "$1" ]
-then
-	lang="$1"
+echo $@
+
+if [[ -n $@ ]]; then
+  LANGS=$@
+else
+  LANGS=${ALLOWED_LANGS}
 fi
 
-vers="4.0.edge"
-verslong="./docs_$lang/OWASP Application Security Verification Standard $vers-$lang"
+for lang in ${LANGS}; do
+  if [[ " $ALLOWED_LANGS " =~ " $lang " ]]; then
 
-python3 ./tools/export.py --format json --language $lang > "$verslong.json"
-python3 ./tools/export.py --format json --language $lang --verify-only true
+    vers="5.0"
+    verslong="./docs_$lang/OWASP Application Security Verification Standard $vers-$lang"
 
-python3 ./tools/export.py --format json_flat --language $lang > "$verslong.flat.json"
-python3 ./tools/export.py --format json_flat --language $lang --verify-only true
+    python3 tools/export.py --format json --language $lang > "$verslong.json"
+    python3 tools/export.py --format cdx_json --language $lang > "$verslong.cdx.json"
+    python3 tools/export.py --format json --language $lang --verify-only true
 
-python3 ./tools/export.py --format xml --language $lang > "$verslong.xml"
-python3 ./tools/export.py --format xml --language $lang --verify-only true
+    python3 tools/export.py --format json_flat --language $lang > "$verslong.flat.json"
+    python3 tools/export.py --format json_flat --language $lang --verify-only true
 
-python3 ./tools/export.py --format csv --language $lang > "$verslong.csv"
-python3 ./tools/export.py --format csv --language $lang --verify-only true
+    python3 tools/export.py --format xml --language $lang > "$verslong.xml"
+    python3 tools/export.py --format xml --language $lang --verify-only true
 
-./tools/generate_document.sh $lang $vers
+    python3 tools/export.py --format csv --language $lang > "$verslong.csv"
+    python3 tools/export.py --format csv --language $lang --verify-only true
+
+    tools/generate_document.sh $lang $vers
+
+  fi
+
+done

@@ -20,7 +20,9 @@ Das wichtigste Gut sind die Daten, die von einer Anwendung verarbeitet, gespeich
 
 ## V6.2 Algorithmen
 
-Fortschritte in der Kryptographie führen dazu, dass bisher sichere Algorithmen und Schlüssellängen nicht länger sicher genug sind, um Daten zu schützen. Daher muss es möglich sein, die Algorithmen zu ändern. Obwohl dieser Abschnitt nicht leicht mittels Pentests geprüft werden kann, sollten Entwickler diesen gesamten Abschnitt als obligatorisch betrachten, auch wenn L1 bei den meisten Punkten fehlt.
+Fortschritte in der Kryptographie führen dazu, dass bisher sichere Algorithmen und Schlüssellängen nicht länger sicher genug sind, um Daten zu schützen. Daher muss es möglich sein, die Algorithmen zu ändern.
+
+Obwohl dieser Abschnitt nicht leicht mittels Pentests geprüft werden kann, sollten Entwickler diesen gesamten Abschnitt als obligatorisch betrachten, auch wenn L1 bei den meisten Punkten fehlt.
 
 | # | Beschreibung | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -31,7 +33,7 @@ Fortschritte in der Kryptographie führen dazu, dass bisher sichere Algorithmen 
 | **6.2.5** | Prüfen Sie, dass unsichere Blockmodi, wie ECB u.a., Padding-Modi, wie PKCS#1 v1.5 u.a., Algorithmen mit kleinen Blockgrößen, wie Triple-DES, Blowfish u.a., sowie schwache Hashalgorithmen, wie MD5, SHA1 u.a., nicht verwendet werden, es sei denn, dies ist aus Gründen der Rückwärtskompatibilität erforderlich. | | ✓ | ✓ | 326 |
 | **6.2.6** | Prüfen Sie, dass Nonces, Initialisierungsvektoren u. ä. nicht mehr als einmal mit einem bestimmten Verschlüsselungsschlüssel verwendet werden dürfen. Die Methode der Generierung muss für den verwendeten Algorithmus geeignet sein. | | ✓ | ✓ | 326 |
 | **6.2.7** | Prüfen Sie, dass verschlüsselte Daten mittels Signaturen, authentifizierte Chiffriermodi oder HMAC authentifiziert werden, um sicherzustellen, dass der Chiffriertext nicht von Unbefugten verändert wird. | | | ✓ | 326 |
-| **6.2.8** | Prüfen Sie, dass alle kryptografischen Operationen zeitkonstant sind und keine "Kurzschluss"-Operationen bei Vergleichen, Berechnungen oder Rückgaben stattfinden, um Informationslecks zu vermeiden. | | | ✓ | 385 |
+| **6.2.8** | Prüfen Sie, dass alle kryptografischen Operationen zeitkonstant sind und keine „Kurzschluss“-Operationen bei Vergleichen, Berechnungen oder Rückgaben stattfinden, um Informationslecks zu vermeiden. | | | ✓ | 385 |
 
 ## V6.3 Zufallswerte
 

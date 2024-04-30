@@ -14,16 +14,19 @@ If you would like to directly become a Primary, Secondary or Tertiary supporter,
 
 Organizations who have allowed contributors to spend significant time working on the standard as part of their working day with the organization. This will be evaluated at the sole discretion of the project leaders. Supporter will be listed 2 years from the end of the time provision.
 
-[<img src="./images/clarifiedlogo.png" height=105>](https://www.clarifiedsecurity.com/)
+[<img src="./images/supporters/clarifiedlogo.png" height=105>](https://www.clarifiedsecurity.com/)
 
-[<img src="./images/bounce.svg" height=105>](https://www.bouncesecurity.com)
+[<img src="./images/supporters/bounce.svg" height=105>](https://www.bouncesecurity.com)
 
-[<img src="./images/manicode.svg" height=105>](https://www.manicode.com)
+[<img src="./images/supporters/manicode.svg" height=105>](https://www.manicode.com)
 
 ## Primary supporters
 
 Organizations who have donated $7,000 or more to the project via OWASP. Supporter will be listed in this section for 3 years from the date of the donation.
 <!--95-->
+
+[<img src="./images/supporters/googlelogo.png" height=95>](https://about.google/)
+
 ## Secondary supporters
 
 Organizations who have donated $3,000 or more to the project via OWASP. Supporter will be listed in this section for 2 years from the date of the donation.
@@ -31,13 +34,20 @@ Organizations who have donated $3,000 or more to the project via OWASP. Supporte
 ## Tertiary supporters
 
 Organizations who have donated $500 or more to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
+<!--65-->
 
-[<img src="./images/oneconsult.svg" height=65>](https://www.oneconsult.com)
+<!--[<img src="./images/supporters/oneconsult.svg" height=65](https://www.oneconsult.com)-->
+
+[<img src="./images/supporters/jitlogo.svg" height=65>](https://www.jit.io)
+
+[<img src="./images/supporters/crestlogo.png" height=65>](https://www.crest-approved.org/members/)
 
 ## Associate supporters 
 
 Organizations who have donated another amount to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
+<!--50-->
 
-[<img src="./images/apiiro.svg" height=50>](https://apiiro.com/)
+<!--[<img src="./images/supporters/apiiro.svg" height=50](https://apiiro.com/)-->
 
-[<img src="./images/crestlogo.png" height=50>](https://www.crest-approved.org/)
+
+<!--Don't forget to update https://github.com/OWASP/ASVS/issues/1888 -->

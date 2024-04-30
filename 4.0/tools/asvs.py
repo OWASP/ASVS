@@ -5,7 +5,7 @@
     Based upon code written for MASVS By Bernhard Mueller
     Significant improvement by Jonny Schnittger @JonnySchnittger
     Additional modifications by Josh Grossman @tghosth
-    Copyright (c) 2020 OWASP Foundation
+    Copyright (c) 2023 OWASP Foundation
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ import re
 import json
 from xml.sax.saxutils import escape
 import csv
-import dicttoxml
+from dicttoxml2 import dicttoxml
 import xml.etree.ElementTree as ET
 try:
     from StringIO import StringIO
@@ -78,7 +78,7 @@ class ASVS:
         self.asvs['Requirements'] = chapters = []
 
     
-        for file in os.listdir(self.language):
+        for file in sorted(os.listdir(self.language)):
 
             if re.match("0x\d{2}-V", file):
                 chapter = {}
@@ -219,7 +219,7 @@ class ASVS:
 
         return xml
     def to_xml(self):
-        return dicttoxml.dicttoxml(self.asvs, attr_type=False).decode('utf-8')
+        return dicttoxml(self.asvs, attr_type=False).decode('utf-8')
         
     def to_csv(self):
         ''' Returns CSV '''
@@ -253,8 +253,6 @@ class ASVS:
     def verify_csv(self, csv):
         
         prefix_char1, null, null = self.get_prefix()
-
-        print(prefix_char1)
 
         summary = {}
         for line in csv.splitlines():

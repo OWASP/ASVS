@@ -1,0 +1,25 @@
+# Name of this GitHub Actions workflow.
+name: Generate 5.0 Outputs
+
+on:
+  # Scan on workflow call
+  workflow_call:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+
+jobs:
+  prepare_outputs:
+    runs-on: ubuntu-latest
+    name: Generate 5.0 outputs
+    steps:
+      - uses: docker/login-action@v3.0.0
+        with: 
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/checkout@v4.1.1
+      - run: make 5.0
+      - uses: actions/upload-artifact@v4.3.0
+        with:
+          name: ASVS 5.0 Bleeding Edge
+          path: 5.0/dist/en/

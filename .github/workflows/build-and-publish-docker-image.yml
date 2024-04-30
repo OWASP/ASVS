@@ -1,0 +1,30 @@
+# Name of this GitHub Actions workflow.
+name: Build & Publish Image
+
+on:
+  # Scan on workflow call
+  workflow_call:
+  # Scan on-demand through GitHub Actions interface:
+  workflow_dispatch: {}
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    name: Build and publish
+    steps:
+      - uses: actions/checkout@v4.1.1
+
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: 'Build and publish Docker image'
+        run: |
+          docker build ./docker/ --tag ghcr.io/owasp/asvs/documentbuilder:latest
+          docker push ghcr.io/owasp/asvs/documentbuilder:latest
+
