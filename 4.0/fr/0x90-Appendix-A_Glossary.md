@@ -36,7 +36,7 @@
 - **Server-side Request Forgery** (SSRF) - Une attaque qui abuse des fonctionnalités du serveur pour lire ou mettre à jour les ressources internes en fournissant ou en modifiant une URL que le code exécuté sur le serveur lira ou soumettra des données.
 - **Single Sign-on Authentication** (SSO) - Le Single Sign On (SSO) se produit lorsqu'un utilisateur se connecte à une application et est ensuite automatiquement connecté à d'autres applications sans avoir à se ré-authentifier. Par exemple, lorsque vous vous connectez à Google, lorsque vous accédez à d'autres services Google tels que YouTube, Google Docs et Gmail, vous serez automatiquement connecté.
 - **Software development lifecycle** (SDLC) - Cycle de vie du développement logiciel.
-- **Static application security testing** (SAST) - Le test statique de sécurité des applications (SAST) est un ensemble de technologies conçues pour analyser le code source des applications, le code intermédiaire, les binaires  et les conditions de compilation.
+- **Static application security testing** (SAST) - Le test statique de sécurité des applications (SAST) est un ensemble de technologies conçues pour analyser le code source des applications, le code intermédiaire, les binaires et les conditions de compilation.
 - **SVG** - Graphiques vectoriels évolutifs
 - **Test de la boîte noire** - Méthode de test de logiciels qui consiste à examiner la fonctionnalité d'une application sans examiner ses structures ou son fonctionnement internes.
 - **Time-based OTP** - Une méthode de génération d'un OTP où l'heure actuelle fait partie de l'algorithme pour générer le mot de passe.
