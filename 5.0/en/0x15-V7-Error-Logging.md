@@ -30,7 +30,7 @@ For there specific information which should be included in a log entry, refer to
 | **7.1.4** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. | | ✓ | ✓ | 778 |
 | **7.1.5** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. | | ✓ | ✓ | |
 | **7.1.6** | [ADDED] Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | | ✓ | ✓ | |
-| **7.1.7** | [MODIFIED, MOVED FROM 1.7.1] Verify that logs are readable and correlatable for the used log reader, preferably by using a common logging format. | | ✓ | ✓ | |
+| **7.1.7** | [MODIFIED, MOVED FROM 1.7.1] Verify that logs can be read and correlated by the log processor which is in use, preferably by using a common logging format. | | ✓ | ✓ | |
 
 ## V7.2 Security Events
 
