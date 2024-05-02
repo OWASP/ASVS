@@ -10,7 +10,7 @@ Les journaux de haute qualité contiennent souvent des données sensibles et doi
 * Veiller à ce que toutes les informations enregistrées soient traitées de manière sûre et protégées conformément à leur classification.
 * Veiller à ce que les journaux ne soient pas conservés éternellement, mais qu'ils aient une durée de vie absolue aussi courte que possible.
 
-Si les journaux contiennent des données privées ou sensibles, dont la définition varie d'un pays à l'autre, les journaux deviennent parmis les informations les plus sensibles détenues par l'application et donc très attrayantes pour les attaquants en soi.
+Si les journaux contiennent des données privées ou sensibles, dont la définition varie d'un pays à l'autre, les journaux deviennent parmi les informations les plus sensibles détenues par l'application et donc très attrayantes pour les attaquants en soi.
 
 Il est également important de s'assurer que l'application échoue en toute sécurité et que les erreurs ne divulguent pas d'informations inutiles.
 
@@ -64,7 +64,7 @@ L'objectif du traitement des erreurs est de permettre à l'application de fourni
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **7.4.1** | Vérifiez qu'un message générique s'affiche lorsqu'une erreur inattendue ou sensible à la sécurité se produit, éventuellement avec un identifiant unique que le personnel de soutien peut utiliser pour enquêter.  ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 210 |
-| **7.4.2** | Vérifiez que le traitement des exceptions est utilisé dans toute le code source pour tenir compte des conditions d'erreur prévues et imprévues. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 544 |
+| **7.4.2** | Vérifiez que le traitement des exceptions est utilisé dans tout le code source pour tenir compte des conditions d'erreur prévues et imprévues. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 544 |
 | **7.4.3** | Vérifiez qu'un gestionnaire d'erreurs de "dernier recours" est défini, qui prendra en compte toutes les exceptions non traitées. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 431 |
 
 Note : Certains langages, tels que Swift et Go - et selon la pratique courante de conception - de nombreux langages fonctionnels, ne prennent pas en charge les exceptions ou les gestionnaires d'événements de dernier recours. Dans ce cas, les architectes et les développeurs doivent utiliser un modèle, un langage ou un cadre convivial pour s'assurer que les applications peuvent gérer en toute sécurité des événements exceptionnels, inattendus ou liés à la sécurité.
