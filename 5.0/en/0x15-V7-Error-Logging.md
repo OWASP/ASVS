@@ -52,6 +52,8 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 | **7.2.2** | [MODIFIED] Verify that all access control decisions can be logged and all failed decisions are logged. | | ✓ | ✓ | 285 |
 | **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs security relevant events including deserialization failures, input validation failures and incorrect HTTP requests (including requests with an unexpected HTTP verb). | | ✓ | ✓ | 778 |
 | **7.2.4** | [MOVED FROM 9.2.5] Verify that backend TLS connection failures are logged. | | | ✓ | 778 |
+| **7.2.4** | [MODIFIED, MOVED FROM 11.1.7] Verify that the application monitors for unusual events or activity from a business logic perspective. | | ✓ | ✓ | 754 |
+| **7.2.5** | [MODIFIED, MOVED FROM 11.1.8] Verify that the application has configurable alerting when unusual or malicious activity is detected. | | ✓ | ✓ | 390 |
 
 ## V7.3 Log Protection
 
