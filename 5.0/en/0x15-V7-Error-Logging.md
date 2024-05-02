@@ -60,7 +60,6 @@ This section will briefly discuss the types of events to log but deliberately do
 | **7.2.6** | [MOVED FROM 9.2.5] Verify that the application logs security control failures such as backend TLS failures. | | | ✓ | 778 |
 | **7.2.7** | [ADDED] Verify that Content Security Policy violations are reported and logged. | | | ✓ | |
 
-
 ## V7.3 Log Protection
 
 Logs that can be trivially modified or deleted are useless for investigations and prosecutions. Disclosure of logs can expose inner details about the application or the data it contains. Care must be taken when protecting logs from unauthorized disclosure, modification or deletion.
