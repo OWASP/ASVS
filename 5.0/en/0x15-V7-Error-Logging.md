@@ -46,11 +46,15 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 * Penetration testers to validate full compliance of all items in V7.2 via interview, screenshots, or assertion.
 -->
 
+Logging events which are security relevant is an important mechanism for being able to investigate suspicious activity within the application.
+
+This section will briefly discuss the types of events to log but deliberately does not go into too much detail. It will be necessary to refer to external detailed guidance such as the OWASP Logging Cheat Sheet for specific implementation details.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.2.1** | [MODIFIED] Verify that all authentication decisions are logged. | | ✓ | ✓ | 778 |
 | **7.2.2** | [MODIFIED] Verify that all access control decisions can be logged and all failed decisions are logged. | | ✓ | ✓ | 285 |
-| **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs security relevant events including deserialization failures, input validation failures and incorrect HTTP requests (including requests with an unexpected HTTP verb). | | ✓ | ✓ | 778 |
+| **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs attempts to bypass the security controls defined in the design documentation such as input validation. | | ✓ | ✓ | 778 |
 | **7.2.4** | [MOVED FROM 9.2.5] Verify that backend TLS connection failures are logged. | | | ✓ | 778 |
 | **7.2.4** | [MODIFIED, MOVED FROM 11.1.7] Verify that the application monitors for unusual events or activity from a business logic perspective. | | ✓ | ✓ | 754 |
 | **7.2.5** | [MODIFIED, MOVED FROM 11.1.8] Verify that the application has configurable alerting when unusual or malicious activity is detected. | | ✓ | ✓ | 390 |
@@ -88,3 +92,4 @@ For more information, see also:
 
 * [OWASP Testing Guide 4.0 content: Testing for Error Handling](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README.html)
 * [OWASP Authentication Cheat Sheet section about error messages](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages)
+* [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
