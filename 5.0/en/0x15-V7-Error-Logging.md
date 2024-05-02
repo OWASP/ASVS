@@ -1,24 +1,20 @@
-# V7 Error Handling and Logging
+# V7 Security Logging and Error Handling
 
 ## Control Objective
 
-The primary objective of error handling and logging is to provide useful information for the user, administrators, and incident response teams. The objective is not to create massive amounts of logs, but high-quality logs, with more signal than discarded noise.
+Security logs are a specific type of logging which is not focused on error handling or performance but rather specifically on recording when security sensitive events occur.
 
-High-quality logs, which often contain sensitive data, must be safeguarded in accordance with local data privacy laws or directives. This should include:
+The primary objective of security logging is to provide useful information for the user, administrators, and incident response teams, which contains more signal than discarded noise. When logging security-related events, ensure that there is a purpose to the log and that it can be distinguished by SIEM or analysis software.
 
-* Not collecting or logging sensitive information unless specifically required.
-* Ensuring all logged information is handled securely and protected as per its data classification.
-* Ensuring that logs are not stored forever, but have an absolute lifetime that is as short as possible.
+Security logs, which often contain sensitive data, must be safeguarded in accordance with local data privacy laws or directives. This sensitive data also makes them very attractive to attackers as a target in their own right so they should be carefully protected.
 
-If logs contain private or sensitive data, the definition of which varies from country to country, the logs become some of the most sensitive information held by the application and thus very attractive to attackers in their own right.
-
-It is also important to ensure that the application fails securely and that errors do not disclose unnecessary information.
+Aside from this, it is also important to ensure that the application fails securely and that errors do not disclose unnecessary information or cause the application to stop operating.
 
 ## V7.1 General Logging
 
 Logging sensitive information is dangerous - the logs become classified themselves, which means they may need to be encrypted, become subject to retention policies, and must be disclosed in security audits. Ensure only necessary information is kept in logs, and certainly no payment, credentials (including session tokens), sensitive or personally identifiable information.
 
-For there specific information which should be included in a log entry, refer to external detailed guidance such as the OWASP Logging Cheat Sheet.
+For the specific information which should be included in a log entry, refer to external detailed guidance such as the OWASP Logging Cheat Sheet.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -58,11 +54,9 @@ Logs that can be trivially modified or deleted are useless for investigations an
 | **7.3.4** | [MOVED TO 7.1.5] | | | | |
 | **7.3.5** | [MOVED FROM 1.7.2] Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. | | ✓ | ✓ | |
 
-Note: Log encoding (7.3.1) is difficult to test and review using automated dynamic tools and penetration tests, but architects, developers, and source code reviewers should consider it an L1 requirement.
-
 ## V7.4 Error Handling
 
-The purpose of error handling is to allow the application to provide security-relevant events for monitoring, triage and escalation. The purpose is not to create logs. When logging security-related events, ensure that there is a purpose to the log and that it can be distinguished by SIEM or analysis software.
+The purpose of error handling is to ensure the application fails gracefully and securely without disclosing sensitive information. The application should be written in a way that ensures this will always happen.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
