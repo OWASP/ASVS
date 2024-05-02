@@ -9,7 +9,7 @@ Assurez-vous qu'une application vérifiée satisfait aux exigences de haut nivea
 
 ## V12.1 Exigences pour le téléchargement de fichiers
 
-Bien que les bombes zip soient facilement testables à l'aide de techniques de test de pénétration, elles sont considérées comme L2 et au-dessus pour encourager la prise en compte de la conception et du développement avec des tests manuels minutieux, et pour éviter que les tests de pénétration manuels ou automatisés engendre une condition de déni de service.
+Bien que les bombes zip soient facilement testables à l'aide de techniques de test de pénétration, elles sont considérées comme L2 et au-dessus pour encourager la prise en compte de la conception et du développement avec des tests manuels minutieux, et pour éviter que les tests de pénétration manuels ou automatisés n'engendrent de déni de service.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -45,7 +45,7 @@ Bien que les bombes zip soient facilement testables à l'aide de techniques de t
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **12.5.1** | Vérifiez que l'application web est configuré pour ne servir que les fichiers ayant des extensions de fichier spécifiques afin d'éviter les informations involontaires et les fuites de code source. Par exemple, les fichiers de sauvegarde (par exemple .bak), les fichiers de travail temporaires (par exemple .swp), les fichiers compressés (.zip, .tar.gz, etc) et les autres extensions couramment utilisées par les éditeurs doivent être bloqués, sauf si cela est nécessaire. | ✓ | ✓ | ✓ | 552 |
+| **12.5.1** | Vérifiez que l'application web est configurée pour ne servir que les fichiers ayant des extensions de fichier spécifiques afin d'éviter les informations involontaires et les fuites de code source. Par exemple, les fichiers de sauvegarde (par exemple .bak), les fichiers de travail temporaires (par exemple .swp), les fichiers compressés (.zip, .tar.gz, etc) et les autres extensions couramment utilisées par les éditeurs doivent être bloqués, sauf si cela est nécessaire. | ✓ | ✓ | ✓ | 552 |
 | **12.5.2** | Vérifiez que les demandes directes aux fichiers téléchargés ne seront jamais exécutées en tant que contenu HTML/JavaScript. | ✓ | ✓ | ✓ | 434 |
 
 ## V12.6 Exigences de protection des SSRF

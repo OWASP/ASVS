@@ -7,10 +7,10 @@ La faiblesse la plus courante en matière de sécurité des applications web est
 Assurez-vous qu'une application vérifiée satisfait aux exigences de haut niveau suivantes :
 
 * La validation des entrées et l'architecture de codage des sorties ont un pipeline convenu pour prévenir les attaques par injection.
-* Les données d'entrée sont fortement typées, validées, vérifiées en plage ou en longueur ou, au pire, aseptisées ou filtrées.
+* Les données d'entrée sont fortement typées, validées, vérifiées en plage ou en longueur ou au pire, aseptisées ou filtrées.
 * Les données de sortie sont codées ou échappées selon le contexte des données, aussi près que possible de l'interpréteur.
 
-Avec l'architecture moderne des applications web, l'encodage des données de sortie est plus important que jamais. Il est difficile de fournir une validation robuste des entrées dans certains scénarios, de sorte que l'utilisation d'API plus sûres telles que les requêtes paramétrées, les cadres de modélisation à évasion automatique ou un encodage de sortie soigneusement choisi est essentiel pour la sécurité de l'application.
+Avec l'architecture moderne des applications web, l'encodage des données de sortie est plus important que jamais. Il est difficile de fournir une validation robuste des entrées dans certains scénarios, de sorte que l'utilisation d'API plus sûres telles que les requêtes paramétrées, les frameworks de modélisation d'échappement automatique ou un encodage de sortie soigneusement choisi sont essentiels pour la sécurité de l'application.
 
 ## V5.1 Exigences de validation des entrées
 
@@ -20,21 +20,21 @@ Des contrôles de validation des entrées correctement mis en œuvre, utilisant 
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **5.1.1** | Vérifiez que l'application dispose de défenses contre les attaques de pollution des paramètres HTTP, en particulier si le cadre de l'application ne fait aucune distinction quant à la source des paramètres de la requête (GET, POST, cookies, en-têtes ou variables d'environnement). | ✓ | ✓ | ✓ | 235 |
 | **5.1.2** | Vérifiez que les cadriciels protègent contre les attaques par assignation massive de paramètres, ou que l'application dispose de contre-mesures pour protéger contre l'assignation dangereuse de paramètres, comme le marquage des champs privés ou similaires. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
-| **5.1.3** | Vérifiez que toutes les entrées (champs de formulaire HTML, demandes REST, paramètres URL, en-têtes HTTP, cookies, fichiers batch, flux RSS, etc) sont validées par une validation positive (liste d'autorisation). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
+| **5.1.3** | Vérifiez que toutes les entrées (champs de formulaire HTML, requêtes REST, paramètres URL, en-têtes HTTP, cookies, fichiers batch, flux RSS, etc) sont validées par une validation positive (liste d'autorisation). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
 | **5.1.4** | Vérifier que les données structurées sont fortement typées et validées par rapport à un schéma défini comprenant les caractères, la longueur et le modèle autorisés (par exemple, numéros de carte de crédit ou de téléphone, ou valider que deux champs connexes sont raisonnables, comme vérifier la correspondance entre la banlieue et le code postal). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
-| **5.1.5** | Vérifiez que les redirections et les transferts d'URL n'autorisent que les destinations prévu, ou affichez un avertissement lors d'une redirection vers un contenu potentiellement non fiable. | ✓ | ✓ | ✓ | 601 |
+| **5.1.5** | Vérifiez que les redirections et les transferts d'URL n'autorisent que les destinations prévues, ou affichez un avertissement lors d'une redirection vers un contenu potentiellement non fiable. | ✓ | ✓ | ✓ | 601 |
 
 ## V5.2 Exigences en matière d'assainissement et de « bac à sable »
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.2.1** | Vérifiez que toutes les entrées HTML non fiables provenant d'éditeurs WYSIWYG ou similaires sont correctement assainit avec une bibliothèque ou une fonction de framework de nettoyage HTML. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
-| **5.2.2** | Vérifiez que les données non structurées sont assainit afin d'appliquer les mesures de sécurité telles que les caractères et la longueur autorisés. | ✓ | ✓ | ✓ | 138 |
+| **5.2.1** | Vérifiez que toutes les entrées HTML non fiables provenant d'éditeurs WYSIWYG ou similaires sont correctement assainies avec une bibliothèque ou une fonction de framework de nettoyage HTML. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
+| **5.2.2** | Vérifiez que les données non structurées sont assainies afin d'appliquer les mesures de sécurité telles que les caractères et la longueur autorisés. | ✓ | ✓ | ✓ | 138 |
 | **5.2.3** | Vérifiez que l'application assainit les entrées de l'utilisateur avant de passer aux systèmes de messagerie pour protéger contre l'injection SMTP ou IMAP. | ✓ | ✓ | ✓ | 147 |
-| **5.2.4** | Vérifiez que l'application évite l'utilisation de eval() ou d'autres fonctions d'exécution de code dynamique. Lorsqu'il n'y a pas d'alternative, toute entrée utilisateur incluse doit être assainit ou mise en sandbox avant d'être exécutée. | ✓ | ✓ | ✓ | 95 |
+| **5.2.4** | Vérifiez que l'application évite l'utilisation de eval() ou d'autres fonctions d'exécution de code dynamique. Lorsqu'il n'y a pas d'alternative, toute entrée utilisateur incluse doit être assainie ou mise en sandbox avant d'être exécutée. | ✓ | ✓ | ✓ | 95 |
 | **5.2.5** | Vérifiez que l'application protège contre les attaques par injection de modèles en veillant à ce que toute entrée de l'utilisateur incluse soit aseptisée ou mise en bac à sable. | ✓ | ✓ | ✓ | 94 |
 | **5.2.6** | Vérifier que l'application protège contre les attaques SSRF, en validant ou en assainissant les données non fiables ou les métadonnées de fichiers HTTP, comme les noms de fichiers et les champs de saisie d'URL, utiliser la liste d'autorisation des protocoles, domaines, chemins et ports. | ✓ | ✓ | ✓ | 918 |
-| **5.2.7** | Vérifiez que l'application assainit, désactive ou met en place une isolation (sandbox) pour le contenu scriptable fourni par l'utilisateur (Scalable Vector Graphics - SVG), en particulier en ce qui concerne les XSS résultant de scripts natif au code présent et foreignObject. | ✓ | ✓ | ✓ | 159 |
+| **5.2.7** | Vérifiez que l'application assainit, désactive ou met en place une isolation (sandbox) pour le contenu scriptable fourni par l'utilisateur (Scalable Vector Graphics - SVG), en particulier en ce qui concerne les XSS résultant de scripts natifs au code présent et foreignObject. | ✓ | ✓ | ✓ | 159 |
 | **5.2.8** | Vérifiez que l'application assainit, désactive ou met en sandbox le contenu des scripts ou des modèles d'expression fournis par l'utilisateur, tels que les feuilles de style Markdown, CSS ou XSL, le BBCode ou autres. | ✓ | ✓ | ✓ | 94 |
 
 ## V5.3 Exigences en matière d'encodage de sortie et de prévention des injections

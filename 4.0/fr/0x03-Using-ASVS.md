@@ -19,7 +19,7 @@ Chaque niveau ASVS contient une liste d'exigences de sécurité. Chacune de ces 
 
 Figure 1 - Niveaux de vérification de la sécurité des applications OWASP 4.0
 
-Le niveau 1 est le seul qui soit entièrement adéquat pour des tests d'intrusions fait par des humains. Tous les autres niveaux nécessitent l'accès à la documentation, au code source, à la configuration et aux personnes impliquées dans le processus de développement. Cependant, même si le niveau 1 permet de réaliser des tests de "boîte noire" (pas de documentation et pas de source), ce n'est pas une activité d'assurance efficace et doit être activement découragée. Les attaquants malveillants ont beaucoup de temps, la plupart des tests d'intrusions  sont terminés en quelques semaines. Les défenseurs doivent mettre en place des contrôles de sécurité, protéger, trouver et résoudre toutes les faiblesses, et détecter et répondre aux acteurs malveillants dans un délai raisonnable. Les acteurs malveillants disposent essentiellement d'un temps infini et n'ont besoin que d'une seule défense poreuse, d'une seule faiblesse ou d'une détection manquante pour réussir. Les tests de la boîte noire, souvent effectués en fin de développement, rapidement ou pas du tout, sont totalement incapables de faire face à cette asymétrie.
+Le niveau 1 est le seul qui soit entièrement adéquat pour des tests d'intrusions faits par des humains. Tous les autres niveaux nécessitent l'accès à la documentation, au code source, à la configuration et aux personnes impliquées dans le processus de développement. Cependant, même si le niveau 1 permet de réaliser des tests de "boîte noire" (pas de documentation et pas de source), ce n'est pas une activité d'assurance efficace et doit être activement découragé. Les attaquants malveillants ont beaucoup de temps, la plupart des tests d'intrusions  sont terminés en quelques semaines. Les défenseurs doivent mettre en place des contrôles de sécurité, protéger, trouver et résoudre toutes les faiblesses, et détecter et répondre aux acteurs malveillants dans un délai raisonnable. Les acteurs malveillants disposent essentiellement d'un temps infini et n'ont besoin que d'une seule défense poreuse, d'une seule faiblesse ou d'une détection manquante pour réussir. Les tests de la boîte noire, souvent effectués en fin de développement, rapidement ou pas du tout, sont totalement incapables de faire face à cette asymétrie.
 
 Au cours des 30 dernières années, les tests en boîte noire ont prouvé à maintes reprises qu'ils passaient à côté de problèmes de sécurité critiques qui ont directement conduit à des violations de plus en plus massives. Nous encourageons vivement l'utilisation d'un large éventail de mesures d'assurance et de vérification de la sécurité, notamment le remplacement des tests d'intrusions par des tests d'intrusions (hybrides) de niveau 1 basés sur le code source, avec un accès complet aux développeurs et à la documentation tout au long du processus de développement. Les régulateurs financiers ne tolèrent pas les audits financiers externes sans accès aux livres, aux échantillons de transactions ou aux personnes effectuant les contrôles. L'industrie et les gouvernements doivent exiger le même niveau de transparence dans le domaine du génie logiciel.
 
@@ -31,7 +31,7 @@ Les outils automatisés et les scanners en ligne ne permettent pas de réaliser 
 
 L'une des meilleures façons d'utiliser le référentiel de vérification de la sécurité des applications est de l'utiliser comme plan directeur pour créer une liste de contrôle de codage sécurisé spécifique à votre application, plate-forme ou organisation. En adaptant l'ASVS à vos cas d'utilisation, vous pourrez mieux vous concentrer sur les exigences de sécurité les plus importantes pour vos projets et vos environnements.
 
-### Niveau 1 - Premières étapes, automatisé, ou vue de l'ensemble du portefeuille
+### Niveau 1 - Premières étapes, automatisation, ou vue de l'ensemble du portefeuille
 
 Une application atteint le niveau 1 de l'ASVS si elle se défend de manière adéquate contre les vulnérabilités de sécurité des applications qui sont faciles à découvrir, et qui figurent dans le Top 10 de l'OWASP et d'autres listes de contrôle similaires.
 
@@ -39,7 +39,7 @@ Le niveau 1 est le strict minimum que toutes les applications devraient s'efforc
 
 Les menaces pour l'application proviendront très probablement d'attaquants qui utilisent des techniques simples et peu exigeantes pour identifier des vulnérabilités faciles à trouver et à exploiter. En revanche, un attaquant déterminé dépensera une énergie considérable pour cibler spécifiquement l'application. Si les données traitées par votre application ont une valeur élevée, vous voudrez rarement vous arrêter à un examen de niveau 1.
 
-### Niveau 2 - La plupart des demandes
+### Niveau 2 - La majorité des applications
 
 Une application atteint le niveau 2 (ou norme) de l'ASVS si elle se défend adéquatement contre la plupart des risques associés aux logiciels d'aujourd'hui.
 
