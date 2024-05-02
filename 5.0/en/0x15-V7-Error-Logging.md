@@ -48,7 +48,7 @@ V7.2 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 Logging events which are security relevant is an important mechanism for being able to investigate suspicious activity within the application.
 
-This section will briefly discuss the types of events to log but deliberately does not go into too much detail. It will be necessary to refer to external detailed guidance such as the OWASP Logging Cheat Sheet for specific implementation details.
+This section will briefly discuss the types of events to log but deliberately does not go into too much detail. It will be necessary to refer to external detailed guidance such as the OWASP Logging Cheat Sheet and the OWASP Application Logging Vocabulary Cheat Sheet for specific implementation details.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -93,3 +93,4 @@ For more information, see also:
 * [OWASP Testing Guide 4.0 content: Testing for Error Handling](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README.html)
 * [OWASP Authentication Cheat Sheet section about error messages](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages)
 * [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+* [OWASP Application Logging Vocabulary Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
