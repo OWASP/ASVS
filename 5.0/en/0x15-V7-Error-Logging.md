@@ -54,7 +54,7 @@ This section will briefly discuss the types of events to log but deliberately do
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.2.1** | [MODIFIED] Verify that all authentication decisions are logged. | | ✓ | ✓ | 778 |
 | **7.2.2** | [MODIFIED] Verify that all access control decisions can be logged and all failed decisions are logged. | | ✓ | ✓ | 285 |
-| **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs attempts to bypass security controls as defined in the relevant design documentation. | | ✓ | ✓ | 778 |
+| **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs attempts to bypass the security controls defined in the design documentation such as input validation. | | ✓ | ✓ | 778 |
 | **7.2.4** | [MOVED FROM 9.2.5] Verify that backend TLS connection failures are logged. | | | ✓ | 778 |
 
 ## V7.3 Log Protection
