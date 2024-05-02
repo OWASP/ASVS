@@ -27,8 +27,8 @@ V7.1 covers OWASP Top 10 2017:A10. As 2017:A10 and this section are not penetrat
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.1.1** | Verify that the application does not log credentials or payment details. Session tokens should only be stored in logs in an irreversible, hashed form. | ✓ | ✓ | ✓ | 532 |
-| **7.1.2** | Verify that the application does not log other sensitive data as defined under local privacy laws or relevant security policy. | ✓ | ✓ | ✓ | 532 |
+| **7.1.1** | [MERGED FROM 7.1.2] Verify that the application does not log credentials, payment details or any data defined as sensitive based on local privacy laws or relevant security policy. Session tokens should only be stored in logs in an irreversible, hashed form. | ✓ | ✓ | ✓ | 532 |
+| **7.1.2** | [DELETED, MERGED TO 7.1.1] | | | | |
 | **7.1.3** | [MOVED TO 7.2.3] | | | | |
 | **7.1.4** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. | | ✓ | ✓ | 778 |
 | **7.1.5** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. | | ✓ | ✓ | |
