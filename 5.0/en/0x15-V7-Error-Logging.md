@@ -40,7 +40,7 @@ This section will briefly discuss the types of events to log but deliberately do
 | **7.2.4** | [MODIFIED, MOVED FROM 11.1.7] Verify that the application monitors for unusual events or activity from a business logic perspective. | | ✓ | ✓ | 754 |
 | **7.2.5** | [MODIFIED, MOVED FROM 11.1.8] Verify that the application has configurable alerting when unusual or malicious activity is detected. | | ✓ | ✓ | 390 |
 | **7.2.6** | [MOVED FROM 9.2.5] Verify that the application logs security control failures such as backend TLS failures. | | | ✓ | 778 |
-| **7.2.7** | [ADDED] Verify that Content Security Policy violations are reported and logged. | | | ✓ | |
+| **7.2.7** | [ADDED] Verify that Content Security Policy violation reports are logged. | | | ✓ | |
 
 ## V7.3 Log Protection
 
