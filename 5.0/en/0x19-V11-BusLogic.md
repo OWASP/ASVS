@@ -32,12 +32,12 @@ Business logic security is so individual to every application that no one checkl
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **11.1.1** | Verify that the application will only process business logic flows for the same user in sequential step order and without skipping steps. | ✓ | ✓ | ✓ | 841 |
 | **11.1.2** | [MOVED TO 11.2.1] | | | | |
-| **11.1.3** | [MODIFIED] Verify that the application has appropriate limits defined on a per user basis for specific business actions or transactions. | ✓ | ✓ | ✓ | |
+| **11.1.3** | [MODIFIED, MERGED TO 11.1.5] Verify that business logic limits and validations implemented as per the application's documentation. | ✓ | ✓ | ✓ | |
 | **11.1.4** | [MOVED TO 11.2.2] | | | | |
-| **11.1.5** | [DELETED] | | | | |
+| **11.1.5** | [DELETED, MERGED TO 11.1.3]] | | | | |
 | **11.1.6** | [MODIFIED] Verify that the application uses synchronization and locking mechanisms for sensitive operations in order to keep internal data consistent, maintain user state, and prevent race conditions, such as 'time of check to time of use (TOCTOU)' vulnerabilities. | | ✓ | ✓ | 367 |
-| **11.1.7** | [MOVED TO 11.3.1] | | | | |
-| **11.1.8** | [MOVED TO 11.3.2] | | | | |
+| **11.1.7** | [MOVED TO 7.2.4] | | | | |
+| **11.1.8** | [MOVED TO 7.2.5] | | | | |
 | **11.1.9** | [ADDED] Verify that "atomic transactions" are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | | ✓ | ✓ | |
 
 ## V11.2 Anti-automation
@@ -46,13 +46,6 @@ Business logic security is so individual to every application that no one checkl
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **11.2.1** | [MOVED FROM 11.1.2] Verify that the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly. | ✓ | ✓ | ✓ | 799 |
 | **11.2.2** | [MODIFIED, MOVED FROM 11.1.4] Verify that the application has anti-automation controls to protect against excessive calls to application functionality which could result in mass data exfiltration, junk data creation, resource quota exhaustion, rate limit breaches, out-of-band communication flooding, denial of service, overuse of an expensive resource, etc. | ✓ | ✓ | ✓ | 770 |
-
-## V11.3 Monitoring
-
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **11.3.1** | [MOVED FROM 11.1.7] Verify that the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. | | ✓ | ✓ | 754 |
-| **11.3.2** | [MOVED FROM 11.1.8] Verify that the application has configurable alerting when automated attacks or unusual activity is detected. | | ✓ | ✓ | 390 
 
 ## References
 
