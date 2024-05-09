@@ -20,8 +20,8 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.4** | [MOVED TO 11.2.2] | | | | |
 | **11.1.5** | [MODIFIED] Verify that the application has globally defined business logic limits or validation to protect against likely business risks or threats, identified using threat modeling or similar methodologies. | ✓ | ✓ | ✓ | |
 | **11.1.6** | [MODIFIED] Verify that the application uses synchronization and locking mechanisms for sensitive operations in order to keep internal data consistent, maintain user state, and prevent race conditions, such as 'time of check to time of use (TOCTOU)' vulnerabilities. | | ✓ | ✓ | 367 |
-| **11.1.7** | [DELETED, MOVED TO 7.2.4] | | | | |
-| **11.1.8** | [DELETED, MOVED TO 7.2.5] | | | | |
+| **11.1.7** | [MOVED TO 7.2.4] | | | | |
+| **11.1.8** | [MOVED TO 7.2.5] | | | | |
 | **11.1.9** | [ADDED] Verify that "atomic transactions" are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | | ✓ | ✓ | |
 
 ## V11.2 Anti-automation
