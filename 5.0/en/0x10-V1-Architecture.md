@@ -110,6 +110,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | **1.11.1** | Verify the definition and documentation of all application components in terms of the business or security functions they provide. | | ✓ | ✓ | 1059 |
 | **1.11.2** | [MODIFIED] Verify that all application flows including authentication, session management and access control, maintain a consistent application and user state to prevent race conditions and business logic flaws. | | ✓ | ✓ | 362 |
 | **1.11.3** | Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions. | | | ✓ | 367 |
+| **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are clearly documented including both per-user and also globally across the application. | | ✓ | ✓ | |
 
 ## V1.12 Secure File Upload Architecture
 
