@@ -14,15 +14,17 @@ There are various different personas in the OAuth process, described in more det
 | **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation to prevent token replay attacks. Refresh token rotation prevents usage in the event of a compromised refresh token. Sender-constrained refresh tokens cryptographically binds the refresh token to a particular Client. | ✓ | ✓ | ✓ |
 | **51.1.5** | [ADDED] Verify that if a Client sends a valid PKCE "code_challenge" parameter in the authorization request, the Authorization Server enforces the correct usage of "code_verifier" at the token endpoint. | ✓ | ✓ | ✓ |
 | **51.1.6** | [ADDED] Verify that the Resource Owner password credentials grant is not used or configured by the Authorization Server. This grant type insecurely exposes the credentials of the Resource Owner to the client, increasing the attack surface of the application. | ✓ | ✓ | ✓ |
+| **51.1.7** | [ADDED] Verify that the Authorization Server does not expose URLs that forward the user's browser to arbitrary URIs obtained from a query parameter ("open redirectors") which can enable exfiltration of authorization codes and access tokens. Redirect URIs must be compared using exact string-matching. | ✓ | ✓ | ✓ |
 
 ## V51.2 OAuth Client
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.2.1** | [ADDED] Verify that when an OAuth Client can interact with more than one Authorization Server, Clients should verify that the issuer "iss" parameter value is what it expected from the authorization response to prevent against mix-up attacks. In the absence of "iss" parameter, Clients may instead use distinct redirect URIs to identify authorization endpoints and token endpoints. | ✓ | ✓ | ✓ |
-| **51.2.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. | ✓ | ✓ | ✓ |
+| **51.2.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. Originally, PKCE was advised for public clients but it has become a best practice for all OAuth clients, including confidential clients to prevent authorization code interception attacks. For OAuth 2.1, PKCE is required for all OAuth clients using the authorization code flow. | ✓ | ✓ | ✓ |
 | **51.2.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the Resource Server they want to access. | ✓ | ✓ | ✓ |
 | **51.2.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
+| **51.2.5** | [ADDED] Verify that Clients do not expose URLs that forward the user's browser to arbitrary URIs obtained from a query parameter ("open redirectors") and any URI redirects must be compared using exact string-matching. | ✓ | ✓ | ✓ |
 
 ## V51.3 Resource Server
 
@@ -68,7 +70,7 @@ In OpenID Connect flows, the "nonce" parameter provides CSRF protection. Otherwi
 
 OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. Proof Key for Code Exchange (PKCE, pronounced "pixy") is the technique used to mitigate against the threat of authorization code interception attack.
 
-Originally, PKCE is intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier.
+Originally, PKCE is intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier. 
 
 The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started.
 
@@ -82,7 +84,7 @@ Restricting token privileges ensures a Client is granted the proper access to a 
 
 ### Resource Owner Password Credentials Grant
 
-Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn) and authentication processes that require multiple steps can be hard or impossible.
+Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn) and authentication processes that require multiple steps can be hard or impossible. This grant type is not recommended in general due to security concerns. Instead, use the authorization code grant with PKCE. This grant type is omitted from OAuth 2.1 specification. 
 
 ## OAuth 2.0 References
 
