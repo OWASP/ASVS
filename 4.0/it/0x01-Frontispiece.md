@@ -1,6 +1,6 @@
 # Frontespizio
 
-## About the Standard
+## Riguardo allo standard
 
 La Application Security Verification Standard è una lista di requisiti o test per la sicurezza delle applicazioni che può essere utilizzata da architetti del software, sviluppatori, tester, security professionals, tool vendors, e utenti per definire, realizzare, testare e verificare la sicurezza delle applicazioni.
 
