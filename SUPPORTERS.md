@@ -1,5 +1,8 @@
 # ASVS Supporters
 
+<!--Don't forget to update https://github.com/OWASP/ASVS/issues/1888 -->
+<!--Don't forget to update https://docs.google.com/spreadsheets/d/1OrbrYy6R4ux_BuE2rJ17jQurBYbGz4bwAPJWFK4opew/edit#gid=0-->
+
 ## Introduction
 
 Within the ASVS project, we gratefully recognise the following organizations who support the OWASP Application Security Verification Standard project through monetary donations or allowing contributors to spend significant time working on the standard as part of their work with the organization.
@@ -51,3 +54,4 @@ Organizations who have donated another amount to the project via OWASP. Supporte
 
 
 <!--Don't forget to update https://github.com/OWASP/ASVS/issues/1888 -->
+<!--Don't forget to update https://docs.google.com/spreadsheets/d/1OrbrYy6R4ux_BuE2rJ17jQurBYbGz4bwAPJWFK4opew/edit#gid=0-->
