@@ -2,7 +2,7 @@
 
 ASVS ha due obiettivi principali:
 
-* aiutare le organizzazioni a sviluppare e mantenere applicazioni sicure..
+* aiutare le organizzazioni a sviluppare e mantenere applicazioni sicure.
 * consentire ai fornitori di servizi di sicurezza, ai fornitori di strumenti di sicurezza e ai consumatori di allineare i propri requisiti e le loro offerte.
 
 ## Livelli di verifica della sicurezza delle applicazioni
