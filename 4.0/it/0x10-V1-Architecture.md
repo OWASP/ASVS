@@ -16,11 +16,11 @@ In questo capitolo, l'ASVS tratta gli aspetti principali di qualsiasi architettu
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.1.1** | Verificare l'utilizzo di un ciclo di vita sicuro dello sviluppo software (S-SDLC) che tenga conto della sicurezza in tutte le fasi di sviluppo. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **1.1.2** | Verificare l'utilizzo della threat modeling per ogni modifica del design o pianificazione dello sprint per identificare le minacce, pianificare contromisure, facilitare risposte ai rischi appropriate e guidare i test di sicurezza. | | ✓ | ✓ | 1053 |
-| **1.1.3** | Verificare che tutte le user story e le funzionalità contengano vincoli di sicurezza funzionali, come "Come utente, dovrei poter visualizzare e modificare il mio profilo. Non dovrei poter visualizzare o modificare il profilo di nessun altro"	 | | ✓ | ✓ | 1110 |
+| **1.1.3** | Verificare che tutte le user story e le funzionalità contengano vincoli di sicurezza funzionali, come "Come utente, dovrei poter visualizzare e modificare il mio profilo. Non dovrei poter visualizzare o modificare il profilo di nessun altro" | | ✓ | ✓ | 1110 |
 | **1.1.4** | Verificare la documentazione e la giustificazione di tutti i perimetri di trust, componenti e flussi di dati significativi dell'applicazione. | | ✓ | ✓ | 1059 |
 | **1.1.5** | Verificare la definizione e l'analisi della sicurezza dell'architettura di alto livello dell'applicazione e di tutti i servizi remoti collegati. ([C1](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1059 |
 | **1.1.6** | Verificare l'implementazione di controlli di sicurezza centralizzati, semplici (economia di progettazione), verificati, sicuri e riutilizzabili per evitare controlli duplicati, mancanti, inefficaci o non sicuri. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 637 |
-| **1.1.7** | Verificare la disponibilità di una checklist di programmazione sicura, requisiti di sicurezza, linee guida o policy per tutti gli sviluppatori e tester.	. | | ✓ | ✓ | 637 |
+| **1.1.7** | Verificare la disponibilità di una checklist di programmazione sicura, requisiti di sicurezza, linee guida o policy per tutti gli sviluppatori e tester. | | ✓ | ✓ | 637 |
 
 ## V1.2 Architettura di autenticazione
 
@@ -32,7 +32,7 @@ Quando si progetta l'autenticazione, non importa se si dispone di un'autenticazi
 | **1.2.2** | Verificare che le comunicazioni tra i componenti dell'applicazione, incluse le API, il middleware e il data layer, siano autenticate. I componenti devono avere i privilegi minimi necessari. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 306 |
 | **1.2.3** | Verificare che l'applicazione utilizzi un singolo meccanismo di autenticazione verificato noto per essere sicuro, estendibile per includere l'autenticazione forte e disponga di registri e monitoraggio sufficienti per rilevare abusi o violazioni dell'account. | | ✓ | ✓ | 306 |
 | **1.2.4** | Verificare che tutti i flussi di autenticazione e le API di gestione delle identità implementino dei controlli di sicurezza di autenticazione coerenti in efficacia, in modo tale che non ci siano alternative più deboli, tenendo conto del livello di rischio dell'applicazione. | | ✓ | ✓ | 306 |
-	
+
 ## V1.3 Architettura della gestione sessioni
 
 Questo è un segnaposto per requisiti architetturali futuri. 
@@ -77,7 +77,7 @@ I requisiti architetturali sono intrinseci all'intero codice e quindi difficili 
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **1.7.1** | Verificare che venga utilizzato un formato e un approccio di logging comuni in tutto il sistema.  ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
+| **1.7.1** | Verificare che venga utilizzato un formato e un approccio di logging comuni in tutto il sistema. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
 | **1.7.2** | Verificare che i log vengano trasmessi in modo sicuro a un sistema, preferibilmente remoto, per analisi, rilevamento, allerta e escalation. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
 ## V1.8 Architettura Protezione Dati e Privacy

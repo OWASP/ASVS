@@ -13,14 +13,13 @@ Assicurarsi che l'applicazione rispetti i seguenti requisiti di alto livello:
 
 ## V10.1 Code Integrity
 
-La migliore difesa contro il codice malevolo è "fidarsi, ma verificare". L'introduzione di codice non autorizzato o malevolo nel sorgente è spesso considerata un reato in molte giurisdizioni. 
-Le politiche e le procedure dovrebbero chiarire le sanzioni relative al codice malevolo.
+La migliore difesa contro il codice malevolo è "fidarsi, ma verificare". L'introduzione di codice non autorizzato o malevolo nel sorgente è spesso considerata un reato in molte giurisdizioni. Le politiche e le procedure dovrebbero chiarire le sanzioni relative al codice malevolo.
 
 I lead developer dovrebbero revisionare regolarmente i commit del codice, in particolare quelli che potrebbero accedere alle funzioni di time, I/O o di rete.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.1.1** | Verificare che sia in uso uno strumento di analisi del codice in grado di rilevare codice potenzialmente malevolo, come funzioni temporali, operazioni insicure su file e connessioni di rete.	 | | | ✓ | 749 |
+| **10.1.1** | Verificare che sia in uso uno strumento di analisi del codice in grado di rilevare codice potenzialmente malevolo, come funzioni temporali, operazioni insicure su file e connessioni di rete. | | | ✓ | 749 |
 
 ## V10.2 Ricerca di codice malevolo
 
@@ -30,12 +29,12 @@ La conformità a questa sezione non è possibile senza un accesso completo al co
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.2.1** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano funzionalità non autorizzate di "chiamata a casa" o raccolta dati. Se tale funzionalità esiste, è necessario ottenere il permesso dell'utente prima di raccogliere qualsiasi dato.	 | | ✓ | ✓ | 359 |
-| **10.2.2** | Verificare che l'applicazione non richieda autorizzazioni non necessarie o eccessive per funzionalità o sensori legati alla privacy, come contatti, fotocamere, microfoni o posizione.	 | | ✓ | ✓ | 272 |
-| **10.2.3** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano backdoor, come account o chiavi aggiuntive non documentate e codificate, offuscamento del codice, blob binari non documentati, rootkit, funzionalità anti-debug, funzionalità di debug non sicure o funzionalità obsolete, non sicure o nascoste che potrebbero essere utilizzate in modo malevolo se scoperte.	 | | | ✓ | 507 |
-| **10.2.4** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano bombe a tempo cercando funzioni relative a data e ora.	 | | | ✓ | 511 |
-| **10.2.5** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano codice malevolo, come attacchi salami, bypass logici o bombe logiche.	 | | | ✓ | 511 |
-| **10.2.6** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano Easter egg o altre funzionalità potenzialmente indesiderate.	 | | | ✓ | 507 |
+| **10.2.1** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano funzionalità non autorizzate di "chiamata a casa" o raccolta dati. Se tale funzionalità esiste, è necessario ottenere il permesso dell'utente prima di raccogliere qualsiasi dato. | | ✓ | ✓ | 359 |
+| **10.2.2** | Verificare che l'applicazione non richieda autorizzazioni non necessarie o eccessive per funzionalità o sensori legati alla privacy, come contatti, fotocamere, microfoni o posizione. | | ✓ | ✓ | 272 |
+| **10.2.3** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano backdoor, come account o chiavi aggiuntive non documentate e codificate, offuscamento del codice, blob binari non documentati, rootkit, funzionalità anti-debug, funzionalità di debug non sicure o funzionalità obsolete, non sicure o nascoste che potrebbero essere utilizzate in modo malevolo se scoperte. | | | ✓ | 507 |
+| **10.2.4** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano bombe a tempo cercando funzioni relative a data e ora. | | | ✓ | 511 |
+| **10.2.5** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano codice malevolo, come attacchi salami, bypass logici o bombe logiche. | | | ✓ | 511 |
+| **10.2.6** | Verificare che il codice sorgente dell'applicazione e le librerie di terze parti non contengano Easter egg o altre funzionalità potenzialmente indesiderate. | | | ✓ | 507 |
 
 ## V10.3 Integrità dell'applicazione
 
@@ -45,9 +44,9 @@ La conformità a questa sezione richiede probabilmente controlli operativi e con
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.3.1** | Verificare che, se l'applicazione dispone di una funzione di aggiornamento automatico client o server, gli aggiornamenti vengano ottenuti su canali sicuri e firmati digitalmente. Il codice di aggiornamento deve convalidare la firma digitale dell'aggiornamento prima di installarlo o eseguirlo.	 | ✓ | ✓ | ✓ | 16 |
-| **10.3.2** | Verificare che l'applicazione impieghi protezioni dell'integrità, come la firma del codice o l'integrità delle sotto-risorse. L'applicazione non deve caricare o eseguire codice da fonti non fidate, come inclusioni, moduli, plugin, codice o librerie provenienti da fonti non fidate o da Internet.	 | ✓ | ✓ | ✓ | 353 |
-| **10.3.3** | Verificare che l'applicazione disponga di protezioni contro takeover di sottodomini se si affida a voci DNS o sottodomini DNS, come nomi di dominio scaduti, puntatori DNS o CNAME obsoleti, progetti scaduti in repository di codice sorgente pubblici, o API cloud temporanee, funzioni serverless o bucket di archiviazione (autogen-bucket-id.cloud.example.com) o simili. Le protezioni possono includere la verifica periodica della scadenza o della modifica dei nomi DNS utilizzati dalle applicazioni.	 | ✓ | ✓ | ✓ | 350 |
+| **10.3.1** | Verificare che, se l'applicazione dispone di una funzione di aggiornamento automatico client o server, gli aggiornamenti vengano ottenuti su canali sicuri e firmati digitalmente. Il codice di aggiornamento deve convalidare la firma digitale dell'aggiornamento prima di installarlo o eseguirlo. | ✓ | ✓ | ✓ | 16 |
+| **10.3.2** | Verificare che l'applicazione impieghi protezioni dell'integrità, come la firma del codice o l'integrità delle sotto-risorse. L'applicazione non deve caricare o eseguire codice da fonti non fidate, come inclusioni, moduli, plugin, codice o librerie provenienti da fonti non fidate o da Internet. | ✓ | ✓ | ✓ | 353 |
+| **10.3.3** | Verificare che l'applicazione disponga di protezioni contro takeover di sottodomini se si affida a voci DNS o sottodomini DNS, come nomi di dominio scaduti, puntatori DNS o CNAME obsoleti, progetti scaduti in repository di codice sorgente pubblici, o API cloud temporanee, funzioni serverless o bucket di archiviazione (autogen-bucket-id.cloud.example.com) o simili. Le protezioni possono includere la verifica periodica della scadenza o della modifica dei nomi DNS utilizzati dalle applicazioni. | ✓ | ✓ | ✓ | 350 |
 
 ## Riferimenti
 

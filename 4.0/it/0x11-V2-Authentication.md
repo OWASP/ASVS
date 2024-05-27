@@ -38,7 +38,6 @@ Le applicazioni dovrebbero incoraggiare fortemente gli utenti ad utilizzare l'au
 
 I Credential Service Providers (CSP) forniscono identità federate agli utenti. Gli utenti spesso hanno più identità con più CSP, come un'identità aziendale utilizzando Azure AD, Okta, Ping Identity o Google, o un'identità consumer utilizzando Facebook, Twitter, Google o WeChat, per citare solo alcune alternative comuni. Questo elenco non è un'approvazione di queste aziende o servizi, ma semplicemente un incoraggiamento per gli sviluppatori a considerare la realtà che molti utenti hanno molte identità consolidate. Le organizzazioni dovrebbero considerare l'integrazione con le identità utente esistenti, in base al profilo di rischio associato alla verifica dell'identità del provider di servizi di credenziali (CSP). Ad esempio, è improbabile che un'organizzazione governativa accetti un'identità social come login per sistemi sensibili, poiché è facile creare identità fasulle o usa e getta, mentre un'azienda di giochi per dispositivi mobili potrebbe dover integrarsi con le principali piattaforme di social media per aumentare la propria base di giocatori attivi.
 
-
 | # | Descrizione | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.1.1** | Verificare che le password impostate dagli utenti siano lunghe almeno 12 caratteri (dopo aver unito gli spazi multipli). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
@@ -80,7 +79,7 @@ Nota: alle password non deve essere assegnata una scadenza massima né devono es
 
 | # | Descrizione | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.3.1** | Verificare che le password iniziali o i codici di attivazione generate dal sistema SIANO casuali e sicuri, DEVONO essere lunghi almeno 6 caratteri e POSSONO contenere lettere e numeri, con scadenza dopo un breve periodo di tempo. Non è consentito l'utilizzo a lungo termine di questi segreti iniziali.	 | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
+| **2.3.1** | Verificare che le password iniziali o i codici di attivazione generate dal sistema SIANO casuali e sicuri, DEVONO essere lunghi almeno 6 caratteri e POSSONO contenere lettere e numeri, con scadenza dopo un breve periodo di tempo. Non è consentito l'utilizzo a lungo termine di questi segreti iniziali. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | Verificare che sia supportata la registrazione e l'utilizzo di dispositivi di autenticazione forniti dall'utente, come token U2F o FIDO. | | ✓ | ✓ | 308 | 6.1.3 |
 | **2.3.3** | Verificare che le istruzioni di rinnovo siano inviate con sufficiente anticipo per permettere il rinnovo degli autenticatori con scadenza. | | ✓ | ✓ | 287 | 6.1.4 |
 
@@ -108,9 +107,9 @@ Laddove sono menzionati gli standard US, possono essere utilizzati in alternativ
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.5.1** | Verificare che un segreto di attivazione iniziale o di recupero generato dal sistema non venga inviato all'utente in chiaro. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.2** | Verificare che i suggerimenti per la password o l'autenticazione basata sulla conoscenza (le cosiddette "domande segrete") non siano presenti. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.3** | Verificare che il recupero delle credenziali tramite password non riveli in alcun modo la password corrente.  ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.3** | Verificare che il recupero delle credenziali tramite password non riveli in alcun modo la password corrente. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.4** | Verificare che non siano presenti account condivisi o di default (ad esempio "root", "admin" o "sa"). | ✓ | ✓ | ✓ | 16 | 5.1.1.2 / A.3 |
-| **2.5.5** | Verificare che se un fattore di autenticazione viene modificato o sostituito, l'utente ne venga informato.	 | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
+| **2.5.5** | Verificare che se un fattore di autenticazione viene modificato o sostituito, l'utente ne venga informato. | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
 | **2.5.6** | Verificare che la password dimenticata e gli altri percorsi di recupero utilizzino un meccanismo di recupero sicuro, come OTP basato sul tempo (TOTP) o un altro soft token, push mobile o un altro meccanismo di recupero offline ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.7** | Verificare che in caso di perdita di OTP o di meccanismi di autenticazione a più fattori, venga effettuata una verifica dell'identità comparabile al livello di quella effettuata durante la registrazione. | | ✓ | ✓ | 308 | 6.1.2.3 |
 
@@ -145,8 +144,7 @@ Non sono consentiti verificatori out of band insicuri come e-mail e VOIP. L'aute
 
 ## V2.8 Verifica Monouso
 
-Le password monouso (OTP) monofattore sono token software o fisici che visualizzano un segreto monouso pseudo-casuale che cambia continuamente. Questi dispositivi rendono il phishing (impersonificazione) difficile, ma non impossibile. Questo tipo di autenticazione appartiene alla categoria "qualcosa che possiedi".
-I token multifattore, simili agli OTP monofattore, richiedono ulteriori procedure di sicurezza per generare l'OTP finale. Queste includono l'inserimento di un codice PIN valido, l'autenticazione biometrica, la connessione tramite USB o NFC, o l'aggiunta di un valore supplementare, come quello generato da una transaction signing calculator.
+Le password monouso (OTP) monofattore sono token software o fisici che visualizzano un segreto monouso pseudo-casuale che cambia continuamente. Questi dispositivi rendono il phishing (impersonificazione) difficile, ma non impossibile. Questo tipo di autenticazione appartiene alla categoria "qualcosa che possiedi". I token multifattore, simili agli OTP monofattore, richiedono ulteriori procedure di sicurezza per generare l'OTP finale. Queste includono l'inserimento di un codice PIN valido, l'autenticazione biometrica, la connessione tramite USB o NFC, o l'aggiunta di un valore supplementare, come quello generato da una transaction signing calculator.
 
 | # | Descrizione | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -190,7 +188,7 @@ Esortiamo vivamente le agenzie governative statunitensi a rivedere e implementar
 ## Glossario
 
 | Termine | Significato |
-| -- | -- |
+| --- | --- |
 | CSP | Credential Service Provider also called an Identity Provider, un servizio che gestisce le identità degli utenti e fornisce credenziali di autenticazione. |
 | Authenticator | Componente che verifica le credenziali presentate dall'utente. Può gestire diversi fattori come password, token, autenticazione a due fattori (MFA) o accessi federati. |
 | Verifier | Questa entità verifica la validità delle credenziali dell'utente in base alle informazioni ricevute dall'autenticatore. Potrebbe anche confermare se le credenziali sono associate a un utente valido e se sono attive/non revocate. |

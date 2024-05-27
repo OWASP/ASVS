@@ -65,12 +65,12 @@ Si incoraggiano vivamente le organizzazioni a esaminare attentamente le loro car
 
 Ciascun requisito dispone di un identificatore in formato `<capitolo>.<sezione>.<requisito>` dove ogni elemento è un numero, per esempio: `1.11.3`.
 - Il valore `<capitolo>` corrisponde al capitolo da cui proviene il requisito, per esempio: tutti i requisiti `1.#.#` appartengono al capitolo `Architettura`.
-- Il valore `<sezione>` corrisponde alla sezione all'interno di quel capitolo in cui compare il requisito, per esempio: tutti i requisiti,  `1.11.#` si trovano nella sezione `Architettura logica di business` del capitolo `Architettura`.
+- Il valore `<sezione>` corrisponde alla sezione all'interno di quel capitolo in cui compare il requisito, per esempio: tutti i requisiti, `1.11.#` si trovano nella sezione `Architettura logica di business` del capitolo `Architettura`.
 - Il valore `<requisito>` identifica il requisito specifico all'interno del capitolo e della sezione, per esempio: `1.11.3` che, nella versione 4.0.3 di questo standard è:
 
 > Verificare che tutti i flussi logici di business di alto valore, inclusi autenticazione, gestione delle sessioni e controllo degli accessi, siano thread-safe e resistenti alle race conditions quali time-of-check e time-of-use.
 
-Gli identificatori possono cambiare tra le versioni dello standard, pertanto è preferibile che altri documenti, rapporti o strumenti utilizzino il formato `v<version>-<chapter>.<section>.<requirement>`, dove 'versione'è l'etichetta della versione ASVS. Per esempio: `v4.0.3-1.11.3`  indicherebbe specificatamente il 3° requisito nella sezione 'Architettura logica di business' del capitolo 'Architettura' della versione 4.0.3. (Questo può essere riassunto come `v<version>-<requirement_identifier>`.)
+Gli identificatori possono cambiare tra le versioni dello standard, pertanto è preferibile che altri documenti, rapporti o strumenti utilizzino il formato `v<version>-<chapter>.<section>.<requirement>`, dove 'versione'è l'etichetta della versione ASVS. Per esempio: `v4.0.3-1.11.3` indicherebbe specificatamente il 3° requisito nella sezione 'Architettura logica di business' del capitolo 'Architettura' della versione 4.0.3. (Questo può essere riassunto come `v<version>-<requirement_identifier>`.)
 
 Nota: la `v` che precede la parte relativa alla versione deve essere minuscola.
 

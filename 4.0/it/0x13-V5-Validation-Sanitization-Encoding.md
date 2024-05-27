@@ -32,10 +32,10 @@ L'implementazione corretta dei controlli di convalida dell'input, utilizzando al
 | **5.2.2** | Verificare che i dati non strutturati vengano sanitizzati per applicare misure di sicurezza come caratteri consentiti e vincoli sulla lunghezza. | ✓ | ✓ | ✓ | 138 |
 | **5.2.3** | Verificare che l'applicazione sanitizzi l'input dell'utente prima di inviarlo ai sistemi di posta elettronica per proteggersi dall'injection di codice SMTP o IMAP. | ✓ | ✓ | ✓ | 147 |
 | **5.2.4** | Verificare che l'applicazione eviti l'utilizzo di eval() o altre funzionalità di esecuzione dinamica del codice. Se non ci sono alternative, qualsiasi input utente incluso deve essere sanitizzato o eseguito in sandbox prima dell'esecuzione. | ✓ | ✓ | ✓ | 95 |
-| **5.2.5** | Verificare che l'applicazione si protegga dagli attacchi di injection di template assicurando che qualsiasi input utente incluso venga sanitizzato o eseguito in sandbox.	 | ✓ | ✓ | ✓ | 94 |
-| **5.2.6** | Verificare che l'applicazione si protegga dagli attacchi SSRF convalidando o sanificando dati non fidati o metadati di file HTTP, come nomi di file e campi di input URL, e utilizzando liste consentite di protocolli, domini, percorsi e porte.	 | ✓ | ✓ | ✓ | 918 |
-| **5.2.7** | Verificare che l'applicazione sanitizzi, disabiliti o esegua in sandbox contenuti SVG (Scalable Vector Graphics) scriptabili forniti dall'utente, in particolare quelli relativi a XSS derivanti da script inline e foreignObject.	 | ✓ | ✓ | ✓ | 159 |
-| **5.2.8** | Verificare che l'applicazione sanitizzi, disabiliti o esegua in sandbox contenuti forniti dall'utente in linguaggi di scripting o di templating come Markdown, fogli di stile CSS o XSL, BBCode o simili.	 | ✓ | ✓ | ✓ | 94 |
+| **5.2.5** | Verificare che l'applicazione si protegga dagli attacchi di injection di template assicurando che qualsiasi input utente incluso venga sanitizzato o eseguito in sandbox. | ✓ | ✓ | ✓ | 94 |
+| **5.2.6** | Verificare che l'applicazione si protegga dagli attacchi SSRF convalidando o sanificando dati non fidati o metadati di file HTTP, come nomi di file e campi di input URL, e utilizzando liste consentite di protocolli, domini, percorsi e porte. | ✓ | ✓ | ✓ | 918 |
+| **5.2.7** | Verificare che l'applicazione sanitizzi, disabiliti o esegua in sandbox contenuti SVG (Scalable Vector Graphics) scriptabili forniti dall'utente, in particolare quelli relativi a XSS derivanti da script inline e foreignObject. | ✓ | ✓ | ✓ | 159 |
+| **5.2.8** | Verificare che l'applicazione sanitizzi, disabiliti o esegua in sandbox contenuti forniti dall'utente in linguaggi di scripting o di templating come Markdown, fogli di stile CSS o XSL, BBCode o simili. | ✓ | ✓ | ✓ | 94 |
 
 ## V5.3 V5.3 Codifica dell'output e prevenzione delle injection
 
@@ -56,7 +56,7 @@ L'applicazione della codifica dell'output vicino o in prossimità dell'interpret
 
 Nota: L'utilizzo di query SQL con parametri o escaping del codice SQL non è sempre sufficiente per prevenire le injection. Nome delle tabelle, colonne, clausole ORDER BY e così via non possono essere sottoposte a escaping. L'inclusione di dati forniti dall'utente sottoposti a escaping in questi campi può causare query fallite o injection SQL.
 
-Nota: Il formato SVG consente esplicitamente script ECMA in quasi tutti i contesti, pertanto potrebbe non essere possibile bloccare completamente tutti i vettori XSS SVG. Se è richiesto il caricamento di SVG, si consiglia vivamente di servire questi file  come testo/semplice o di utilizzare un dominio separato per il contenuto fornito dall'utente per impedire che un XSS di successo prenda il controllo dell'applicazione.
+Nota: Il formato SVG consente esplicitamente script ECMA in quasi tutti i contesti, pertanto potrebbe non essere possibile bloccare completamente tutti i vettori XSS SVG. Se è richiesto il caricamento di SVG, si consiglia vivamente di servire questi file come testo/semplice o di utilizzare un dominio separato per il contenuto fornito dall'utente per impedire che un XSS di successo prenda il controllo dell'applicazione.
 
 ## V5.4 Memoria, Stringhe e Codice Non Gestito
 
@@ -64,15 +64,15 @@ I seguenti requisiti si applicano solo quando l'applicazione utilizza un linguag
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.4.1** | Verificare che l'applicazione utilizzi stringhe di memoria sicure, copie di memoria più sicure e operazioni aritmetiche su puntatori per rilevare o prevenire overflow dello stack, del buffer o dell'heap.	 | | ✓ | ✓ | 120 |
-| **5.4.2** | Verificare che le format string non accettino input potenzialmente ostile e siano immutabili.	 | | ✓ | ✓ | 134 |
-| **5.4.3** | Verificare che vengano utilizzate tecniche di convalida del segno, dell'intervallo e dell'input per prevenire overflow di interi.	 | | ✓ | ✓ | 190 |
+| **5.4.1** | Verificare che l'applicazione utilizzi stringhe di memoria sicure, copie di memoria più sicure e operazioni aritmetiche su puntatori per rilevare o prevenire overflow dello stack, del buffer o dell'heap. | | ✓ | ✓ | 120 |
+| **5.4.2** | Verificare che le format string non accettino input potenzialmente ostile e siano immutabili. | | ✓ | ✓ | 134 |
+| **5.4.3** | Verificare che vengano utilizzate tecniche di convalida del segno, dell'intervallo e dell'input per prevenire overflow di interi. | | ✓ | ✓ | 190 |
 
 ## V5.5 Prevenzione dalla Deserializzazione
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.5.1** | Verificare che gli oggetti serializzati utilizzino controlli di integrità o siano crittografati per prevenire la creazione di oggetti malevoli o la manomissione dei dati.  ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 502 |
+| **5.5.1** | Verificare che gli oggetti serializzati utilizzino controlli di integrità o siano crittografati per prevenire la creazione di oggetti malevoli o la manomissione dei dati. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 502 |
 | **5.5.2** | Verificare che l'applicazione limiti correttamente i parser XML a utilizzare solo la configurazione più restrittiva possibile e che funzionalità non sicure come la risoluzione di entità esterne vengano disabilitate per prevenire attacchi di injection di Entità Esterne XML (XXE). | ✓ | ✓ | ✓ | 611 |
 | **5.5.3** | Verificare che la deserializzazione di dati non fidati venga evitata o protetta sia nel codice personalizzato che nelle librerie di terze parti (come parser JSON, XML e YAML). | ✓ | ✓ | ✓ | 502 |
 | **5.5.4** | Verificare che durante l'analisi del JSON nei browser o nei backend basati su JavaScript, venga utilizzato JSON.parse per analizzare il documento JSON. Evitare di utilizzare eval() per analizzare il JSON. | ✓ | ✓ | ✓ | 95 |

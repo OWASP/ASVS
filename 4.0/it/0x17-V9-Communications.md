@@ -26,7 +26,7 @@ Utilizzare strumenti aggiornati per esaminare regolarmente la configurazione cli
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **9.1.1** | Verificare che TLS venga utilizzato per tutte le connessioni client e che non si ripieghi su comunicazioni non sicure o non crittografate. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 319 |
 | **9.1.2** | Utilizzare strumenti l'ultima versione dei test TLS per verificare che siano abilitate solo suite crittografiche robuste, con le suite più sicure impostate come preferite. | ✓ | ✓ | ✓ | 326 |
-| **9.1.3** | Verificare che siano abilitate solo le versioni più recenti consigliate del protocollo TLS, come TLS 1.2 e TLS 1.3. La versione più recente del protocollo TLS dovrebbe essere l'opzione preferita.	 | ✓ | ✓ | ✓ | 326 |
+| **9.1.3** | Verificare che siano abilitate solo le versioni più recenti consigliate del protocollo TLS, come TLS 1.2 e TLS 1.3. La versione più recente del protocollo TLS dovrebbe essere l'opzione preferita. | ✓ | ✓ | ✓ | 326 |
 
 ## V9.2 Sicurezza della Comunicazione lato Server
 
@@ -34,11 +34,11 @@ La comunicazione server va oltre il semplice HTTP. Devono essere implementate co
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **9.2.1** | Verificare che le connessioni da e verso il server utilizzino certificati TLS affidabili. Se vengono utilizzati certificati auto-generati o self-signed, il server deve essere configurato per fidarsi solo di CA interne specifiche e di certificati self-signed specifici. Tutti gli altri devono essere rifiutati.	 | | ✓ | ✓ | 295 |
-| **9.2.2** | Verificare che la comunicazione crittografata, come TLS, venga utilizzata per tutte le connessioni in ingresso e in uscita, incluse quelle per porte di gestione, monitoraggio, autenticazione, chiamate API o di servizi web, database, cloud, serverless, mainframe, connessioni esterne e con partner. Il server non deve ripiegare su protocolli non sicuri o non crittografati.	 | | ✓ | ✓ | 319 |
-| **9.2.3** | Verificare che tutte le connessioni crittografate a sistemi esterni che coinvolgono informazioni o funzioni sensibili siano autenticate.	 | | ✓ | ✓ | 287 |
-| **9.2.4** | Verificare che la revoca corretta dei certificati, come lo "Online Certificate Status Protocol (OCSP) Stapling", sia abilitata e configurata.	 | | ✓ | ✓ | 299 |
-| **9.2.5** | Verificare che gli errori di connessione TLS con il backend vengano loggati.	 | | | ✓ | 544 |
+| **9.2.1** | Verificare che le connessioni da e verso il server utilizzino certificati TLS affidabili. Se vengono utilizzati certificati auto-generati o self-signed, il server deve essere configurato per fidarsi solo di CA interne specifiche e di certificati self-signed specifici. Tutti gli altri devono essere rifiutati. | | ✓ | ✓ | 295 |
+| **9.2.2** | Verificare che la comunicazione crittografata, come TLS, venga utilizzata per tutte le connessioni in ingresso e in uscita, incluse quelle per porte di gestione, monitoraggio, autenticazione, chiamate API o di servizi web, database, cloud, serverless, mainframe, connessioni esterne e con partner. Il server non deve ripiegare su protocolli non sicuri o non crittografati. | | ✓ | ✓ | 319 |
+| **9.2.3** | Verificare che tutte le connessioni crittografate a sistemi esterni che coinvolgono informazioni o funzioni sensibili siano autenticate. | | ✓ | ✓ | 287 |
+| **9.2.4** | Verificare che la revoca corretta dei certificati, come lo "Online Certificate Status Protocol (OCSP) Stapling", sia abilitata e configurata. | | ✓ | ✓ | 299 |
+| **9.2.5** | Verificare che gli errori di connessione TLS con il backend vengano loggati. | | | ✓ | 544 |
 
 ## Riferimenti
 
