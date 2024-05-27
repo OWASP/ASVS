@@ -27,7 +27,7 @@ Sebbene gli attacchi "Zip Bomb" siano facilmente testabili utilizzando tecniche 
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.3.1** | Verificare che il nome del file inviato dall'utente non venga utilizzato direttamente dai filesystem di sistema o del framework e che venga utilizzata una API URL per proteggere da path traversal.	 | ✓ | ✓ | ✓ | 22 |
+| **12.3.1** | Verificare che il nome del file inviato dall'utente non venga utilizzato direttamente dai filesystem di sistema o del framework e che venga utilizzata una API URL per proteggere da path traversal. | ✓ | ✓ | ✓ | 22 |
 | **12.3.2** | Verificare o ignorare il nome del file inviato dall'utente per impedire la divulgazione, la creazione, l'aggiornamento o l'eliminazione di file locali (LFI). | ✓ | ✓ | ✓ | 73 |
 | **12.3.3** | Verificare o ignorare il nome del file inviato dall'utente per impedire la divulgazione o l'esecuzione di file remoti tramite attacchi di Remote File Inclusion (RFI) o Server-Side Request Forgery (SSRF). | ✓ | ✓ | ✓ | 98 |
 | **12.3.4** | Verificare che l'applicazione protegga dal Reflective File Download (RFD) convalidando o ignorando i nomi dei file inviati dall'utente in un parametro JSON, JSONP o URL. L'header Content-Type della risposta deve essere impostato su "text/plain" e l'header Content-Disposition deve avere un nome file immutabile. | ✓ | ✓ | ✓ | 641 |
