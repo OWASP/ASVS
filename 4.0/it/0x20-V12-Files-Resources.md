@@ -17,22 +17,22 @@ Sebbene gli attacchi "Zip Bomb" siano facilmente testabili utilizzando tecniche 
 | **12.1.2** | Verificare che l'applicazione controlli i file compressi (es. zip, gz, docx, odt) confrontandoli con la dimensione massima consentita allo stato non compresso e con il numero massimo di file prima di procedere alla decompressione. | | ✓ | ✓ | 409 |
 | **12.1.3** | Verificare che venga applicata una quota per la dimensione dei file e un numero massimo di file per utente, per garantire che un singolo utente non possa saturare lo storage con troppi file o file eccessivamente grandi. | | ✓ | ✓ | 770 |
 
-## V12.2 File Integrity
+## V12.2 Integrità dei file
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.2.1** | Verify that files obtained from untrusted sources are validated to be of expected type based on the file's content. | | ✓ | ✓ | 434 |
+| **12.2.1** | Verificare che i file provenienti da fonti non affidabili siano effettivamente del tipo dichiarato, analizzandone il contenuto. | | ✓ | ✓ | 434 |
 
-## V12.3 File Execution
+## V12.3 Esecuzione dei file
 
-| # | Description | L1 | L2 | L3 | CWE |
+| # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.3.1** | Verify that user-submitted filename metadata is not used directly by system or framework filesystems and that a URL API is used to protect against path traversal. | ✓ | ✓ | ✓ | 22 |
-| **12.3.2** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files (LFI). | ✓ | ✓ | ✓ | 73 |
-| **12.3.3** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files via Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | ✓ | ✓ | ✓ | 98 |
-| **12.3.4** | Verify that the application protects against Reflective File Download (RFD) by validating or ignoring user-submitted filenames in a JSON, JSONP, or URL parameter, the response Content-Type header should be set to text/plain, and the Content-Disposition header should have a fixed filename. | ✓ | ✓ | ✓ | 641 |
-| **12.3.5** | Verify that untrusted file metadata is not used directly with system API or libraries, to protect against OS command injection. | ✓ | ✓ | ✓ | 78 |
-| **12.3.6** | Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs. | | ✓ | ✓ | 829 |
+| **12.3.1** | Verificare che il nome del file inviato dall'utente non venga utilizzato direttamente dai filesystem di sistema o del framework e che venga utilizzata una API URL per proteggere da path traversal.	 | ✓ | ✓ | ✓ | 22 |
+| **12.3.2** | Verificare o ignorare il nome del file inviato dall'utente per impedire la divulgazione, la creazione, l'aggiornamento o l'eliminazione di file locali (LFI). | ✓ | ✓ | ✓ | 73 |
+| **12.3.3** | Verificare o ignorare il nome del file inviato dall'utente per impedire la divulgazione o l'esecuzione di file remoti tramite attacchi di Remote File Inclusion (RFI) o Server-Side Request Forgery (SSRF). | ✓ | ✓ | ✓ | 98 |
+| **12.3.4** | Verificare che l'applicazione protegga dal Reflective File Download (RFD) convalidando o ignorando i nomi dei file inviati dall'utente in un parametro JSON, JSONP o URL. L'header Content-Type della risposta deve essere impostato su "text/plain" e l'header Content-Disposition deve avere un nome file immutabile. | ✓ | ✓ | ✓ | 641 |
+| **12.3.5** | Verificare che i metadati di file non affidabili non vengano utilizzati direttamente con le API o le librerie di sistema per proteggere da OS command injection. | ✓ | ✓ | ✓ | 78 |
+| **12.3.6** | Verificare che l'applicazione non includa ed esegua funzionalità da fonti non affidabili, come content delivery network non verificate, librerie JavaScript, librerie npm di Node.js o DLL lato server. | | ✓ | ✓ | 829 |
 
 ## V12.4 Archiviazione File
 
