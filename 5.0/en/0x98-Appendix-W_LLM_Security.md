@@ -6,6 +6,8 @@ The popularity of Large Language Models (LLM) like GPT variants from OpenAI has 
 
 While this topic is not the core competency of the ASVS, we wanted to include some basic guidelines as an appendix in the hope that a more comprehensive verification standard will be prepared for LLMs and AI in general in the future.
 
+These have not gone undergone the same rigourous review and discussion as the main ASVS requirements so should be used with caution.
+
 ## W.1 Input Validation and Sanitization
 
 Ensure that all inputs to the LLM are properly validated and sanitized to prevent injection attacks and other malicious inputs.
