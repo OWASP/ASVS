@@ -57,6 +57,7 @@ For example:
 | **5.2.10** | [ADDED] Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | ✓ | ✓ | ✓ | 1333 |
 | **5.2.11** | [ADDED] Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured as securely as possible to prevent JNDI injection attacks. | ✓ | ✓ | ✓ | 917 |
 | **5.2.12** | [ADDED] Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | | ✓ | ✓ | |
+| **5.2.13** | [MODIFIED MOVED FROM 5.4.2] Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | | ✓ | ✓ | 134 |
 
 ## V5.3 Output Encoding and Injection Prevention
 
@@ -88,7 +89,7 @@ The following requirements will only apply when the application uses a systems l
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | | ✓ | ✓ | 120 |
-| **5.4.2** | Verify that format strings do not take potentially hostile input, and are constant. | | ✓ | ✓ | 134 |
+| **5.4.2** | DELETED, MERGED TO 5.2.13 | | | | |
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | | ✓ | ✓ | 190 |
 
 ## V5.5 Deserialization Prevention
