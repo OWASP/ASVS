@@ -1,5 +1,7 @@
 # ASVS Supporters
 
+<img src="https://owasp.org/www-project-application-security-verification-standard/assets/images/OWASP_ASVS_Linkedin_Banner-01.jpg" width="700px">
+
 <!--Don't forget to update https://github.com/OWASP/ASVS/issues/1888 -->
 <!--Don't forget to update https://docs.google.com/spreadsheets/d/1OrbrYy6R4ux_BuE2rJ17jQurBYbGz4bwAPJWFK4opew/edit#gid=0-->
 
