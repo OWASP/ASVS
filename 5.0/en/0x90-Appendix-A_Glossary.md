@@ -40,7 +40,7 @@
 * **Security Control** – A function or component that performs a security check (e.g. an access control check) or when called results in a security effect (e.g. generating an audit record).
 * **Server-side Request Forgery** (SSRF) - An attack that abuses functionality on the server to read or update internal resources. The attacker supplies or modifies a URL, which the code running on the server will read or submit data to.
 * **Single Sign-on Authentication** (SSO) - This occurs when a user logs into one application and is then automatically logged into other applications without having to re-authenticate. For example, when you log into Google, you will be automatically logged into other Google services such as YouTube, Google Docs, and Gmail.
-* **Software Composition Analysis** (SCA) - A set of technologies designed to analyze application composition, dependencies, libraries and packages for security vulnerabilities of specific component versions in use. This is not to be confused with source-code analysis which is now commonly referred to as SAST. 
+* **Software Composition Analysis** (SCA) - A set of technologies designed to analyze application composition, dependencies, libraries and packages for security vulnerabilities of specific component versions in use. This is not to be confused with source-code analysis which is now commonly referred to as SAST.
 * **SQL Injection** (SQLi) – A code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry point.
 * **SVG** - Scalable Vector Graphics.
 * **Time-based OTP** - A method of generating an OTP where the current time acts as part of the algorithm to generate the password.
