@@ -95,7 +95,7 @@ ENV PATH=/home/pandoc/.TinyTeX/bin/x86_64-linuxmusl/:$PATH
 ENV TINY_TEX_VERSION=v0.45
 RUN curl -L "https://raw.githubusercontent.com/rstudio/tinytex/${TINY_TEX_VERSION}/tools/install-bin-unix.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" -e 's/retry-connrefused/tries 20/' > "install-unx.sh" \
 	&& chmod +x install-unx.sh
-RUN bash -c "./install-unx.sh" && rm install-unx.sh
+RUN for i in 1 2 3 4 5; do bash -c "./install-unx.sh" && break || sleep 15; done && rm install-unx.sh
 
 FROM tinytex_base as latex_base
 
