@@ -29,7 +29,7 @@ Bien que cette section ne soit pas facilement testée lors des tests d'intrusion
 | **6.2.1** | Vérifiez que tous les modules cryptographiques échouent en toute sécurité, et que les erreurs sont traitées de manière à ne pas permettre les attaques de type "Padding Oracle". | ✓ | ✓ | ✓ | 310 |
 | **6.2.2** | Vérifiez que des algorithmes, des bibliothèques cryptographiques et des modes éprouvés par l'industrie ou approuvés par le gouvernement sont utilisés, au lieu de la cryptographie codée sur mesure. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 327 |
 | **6.2.3** | Vérifiez que le vecteur d'initialisation du chiffrement, la configuration du chiffrement et les modes de blocage sont configurés de manière sécurisée en utilisant les derniers conseils. | | ✓ | ✓ | 326 |
-| **6.2.4** | Vérifiez que les algorithmes de chiffrement ou de hachage, les longueurs de clé, le nombre de rondes, les chiffrements ou les modes, peuvent être reconfigurés, mis à niveau ou échangés à tout moment, pour se protéger contre les failles cryptographiques. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 326 |
+| **6.2.4** | Vérifiez que les algorithmes de chiffrement ou de hachage, les longueurs de clé, le nombre de rondes, les chiffrements ou les modes peuvent être reconfigurés, mis à niveau ou échangés à tout moment, pour se protéger contre les failles cryptographiques. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 326 |
 | **6.2.5** | Vérifiez que les modes de blocs non sécurisés connus (c'est-à-dire ECB, etc.), les modes de remplissage (c'est-à-dire PKCS#1 v1.5, etc.), les chiffrements avec des blocs de petites tailles (c'est-à-dire Triple-DES, Blowfish, etc.) et les algorithmes de hachage faibles (c'est-à-dire MD5, SHA1, etc.) ne sont pas utilisés, sauf si cela est nécessaire pour la rétrocompatibilité. | | ✓ | ✓ | 326 |
 | **6.2.6** | Vérifiez que les nonces, vecteurs d'initialisation et autres numéros à usage unique ne doivent pas être utilisés plus d'une fois avec une clé de chiffrement donnée. La méthode de génération doit être appropriée à l'algorithme utilisé. | | ✓ | ✓ | 326 |
 | **6.2.7** | Vérifier que les données chiffrées sont authentifiées par des signatures, des modes de chiffrement authentifiés ou le [HMAC](https://en.wikipedia.org/wiki/HMAC) pour s'assurer que le texte chiffré n'est pas altéré par une partie non autorisée. | | | ✓ | 326 |
@@ -51,8 +51,8 @@ Bien que cette section ne soit pas facilement testée, les développeurs devraie
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **6.4.1** | Vérifiez qu'une solution de gestion des secrets, telle qu'un coffre fort de clés, est utilisé pour créer, stocker, contrôler l'accès aux secrets et les détruire en toute sécurité. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 798 |
-| **6.4.2** | Vérifiez que le matériel clé ne soit pas exposé à l'application mais utilise plutôt un module de sécurité isolé comme un coffre-fort pour les opérations cryptographiques. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 320 |
+| **6.4.1** | Vérifiez qu'une solution de gestion des secrets, telle qu'un coffre-fort de clés, est utilisée pour créer, stocker, contrôler l'accès aux secrets et les détruire en toute sécurité. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 798 |
+| **6.4.2** | Vérifiez que le matériel clé ne soit pas exposé à l'application, mais utilise plutôt un module de sécurité isolé comme un coffre-fort pour les opérations cryptographiques. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 320 |
 
 ## Références
 

@@ -57,6 +57,7 @@ For example:
 | **5.2.10** | [ADDED] Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | ✓ | ✓ | ✓ | 1333 |
 | **5.2.11** | [ADDED] Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured as securely as possible to prevent JNDI injection attacks. | ✓ | ✓ | ✓ | 917 |
 | **5.2.12** | [ADDED] Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | | ✓ | ✓ | |
+| **5.2.13** | [MODIFIED, MOVED FROM 5.4.2] Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | | ✓ | ✓ | 134 |
 
 ## V5.3 Output Encoding and Injection Prevention
 
@@ -76,8 +77,8 @@ Output encoding close or adjacent to the interpreter in use is critical to the s
 | **5.3.10** | Verify that the application protects against XPath injection or XML injection attacks. | ✓ | ✓ | ✓ | 643 |
 | **5.3.11** | [ADDED] Verify that the application is protected against CSV and Formula Injection. The application should follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV files. The application should escape special characters including '=', '+', '-', '@' '\t' (tab) and '\00' (null character) using a single quote, if they are the first character in a field, when exporting CSV files and other spreadsheet formats such as xls, xlsx, odf. | ✓ | ✓ | ✓ | 1236 |
 | **5.3.12** | [ADDED] Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and command allow-listing is used to prevent LaTeX injection attacks. | | ✓ | ✓ | |
-| **5.3.13** | [ADDED] Verify that output encoding is relevant for the interpreter and context required in any context where a potentially dangerous interpreter, not mentioned above, is being used. | | ✓ | ✓ | |
-
+| **5.3.13** | [ADDED, SPLIT FROM 5.3.1] Verify that when dynamically building URLs, untrusted data is encoded according to its context (e.g., URL encoding or base64url encoding for query or path parameters). Ensure that only safe URL protocols are permitted (e.g., disallow javascript: or data:). | ✓ | ✓ | ✓ | 116 |
+| **5.3.14** | [ADDED] Verify that output encoding is relevant for the interpreter and context required in any context where a potentially dangerous interpreter, not mentioned above, is being used. | | ✓ | ✓ | |
 
 Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
@@ -90,7 +91,7 @@ The following requirements will only apply when the application uses a systems l
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | | ✓ | ✓ | 120 |
-| **5.4.2** | Verify that format strings do not take potentially hostile input, and are constant. | | ✓ | ✓ | 134 |
+| **5.4.2** | [DELETED, MOVED TO 5.2.13] | | | | |
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | | ✓ | ✓ | 190 |
 
 ## V5.5 Deserialization Prevention
@@ -99,9 +100,9 @@ The following requirements will only apply when the application uses a systems l
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.5.1** | [DELETED, INCORRECT] | | | | |
 | **5.5.2** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | ✓ | ✓ | ✓ | 611 |
-| **5.5.3** | [MODIFIED, MERGED FROM 1.5.2] Verify that deserialization is not used when communicating with untrusted clients. If this is not possible, ensure that deserialization is performed safely, for example, by only allowing a allow-list of object types or not allowing the client to define the object type to deserialize to, in order to prevent deserialization attacks. | ✓ | ✓ | ✓ | 502 |
+| **5.5.3** | [MODIFIED, MERGED FROM 1.5.2] Verify that if deserialization is used when communicating with untrusted clients, the input is handled safely. For example, by only allowing a allow-list of object types or not allowing the client to define the object type to deserialize to, in order to prevent deserialization attacks. | ✓ | ✓ | ✓ | 502 |
 | **5.5.4** | Verify that when parsing JSON in browsers or JavaScript-based backends, JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. | ✓ | ✓ | ✓ | 95 |
-| **5.5.5** | [ADDED, MERGED FROM 13.1.1] Verify that different parsers used in the application for the same data type (e.g. JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | | ✓ | ✓ | 436 |
+| **5.5.5** | [MODIFIED, MOVED FROM 13.1.1, LEVEL L1 > L2] Verify that different parsers used in the application for the same data type (e.g. JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | | ✓ | ✓ | 436 |
 
 ## V5.6 Validation and Sanitization Architecture
 

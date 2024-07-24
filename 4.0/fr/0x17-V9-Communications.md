@@ -14,7 +14,7 @@ Assurez-vous qu'une demande vérifiée satisfait aux exigences de haut niveau su
 Dans ces exigences :
 
 * Les principaux conseils de l'industrie sur la configuration sécurisée de TLS changent fréquemment, souvent en raison de ruptures catastrophiques dans les algorithmes et les cryptogrammes existants.
-* Utilisez toujours les versions les plus récentes des outils de révision de la configuration TLS (tels que SSLyze ou d'autres scanners TLS) pour configurer l'ordre et la sélection d'algorithme préférés.
+* Utilisez toujours les versions les plus récentes des outils de révision de la configuration TLS (tels que SSLyze ou d'autres scanners TLS) pour configurer l'ordre et la sélection d'algorithmes préférés.
 * La configuration doit être vérifiée périodiquement pour s'assurer que la configuration des communications sécurisées est toujours présente et efficace.
 
 ## V9.1 Exigences de sécurité des communications des clients
@@ -37,7 +37,7 @@ Les communications entre serveurs ne se limitent pas à HTTP. Des connexions sé
 | **9.2.1** | Vérifiez que les connexions vers et depuis le serveur utilisent des certificats TLS de confiance. Lorsque des certificats générés en interne ou auto-signés sont utilisés, le serveur doit être configuré pour ne faire confiance qu'à des AC internes spécifiques et à des certificats auto-signés spécifiques. Tous les autres doivent être rejetés. | | ✓ | ✓ | 295 |
 | **9.2.2** | Vérifier que les communications chiffrées telles que TLS sont utilisées pour toutes les connexions entrantes et sortantes, y compris pour les ports de gestion, la surveillance, l'authentification, les appels d'API ou de service web, les connexions de base de données, de nuage, sans serveur, d'ordinateur central, externes et de partenaires. Le serveur ne doit pas se rabattre sur des protocoles non sécurisés ou non chiffrés. | | ✓ | ✓ | 319 |
 | **9.2.3** | Vérifiez que toutes les connexions chiffrées à des systèmes externes qui impliquent des informations ou des fonctions sensibles sont authentifiées. | | ✓ | ✓ | 287 |
-| **9.2.4** | Vérifiez que la révocation de certification appropriée, telle que le protocol OCSP (Online Certificate Status Protocol), est activée et configurée. | | ✓ | ✓ | 299 |
+| **9.2.4** | Vérifiez que la révocation de certification appropriée, telle que le protocole OCSP (Online Certificate Status Protocol), est activée et configurée. | | ✓ | ✓ | 299 |
 | **9.2.5** | Vérifiez que les échecs de connexion TLS en arrière-plan sont enregistrés. | | | ✓ | 544 |
 
 ## Références

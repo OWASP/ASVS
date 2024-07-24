@@ -1,5 +1,7 @@
 # OWASP Application Security Verification Standard
 
+<img src="https://owasp.org/www-project-application-security-verification-standard/assets/images/OWASP_ASVS_Linkedin_Banner-01.jpg" width="700px">
+
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 This work is licensed under a
@@ -23,9 +25,9 @@ We gratefully recognise the organizations who have supported the project either 
 
 ## Project Leaders and Working Group
 
-The project is led by the five project leaders [Andrew van der Stock](https://github.com/vanderaj), [Daniel Cuthbert](https://github.com/danielcuthbert), [Jim Manico](https://github.com/jmanico), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
+The project is led by the four project leaders [Daniel Cuthbert](https://github.com/danielcuthbert), [Jim Manico](https://github.com/jmanico), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
 
-The are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), and [Iman Sharafaldin](https://github.com/ImanSharaf).
+They are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), [Iman Sharafaldin](https://github.com/ImanSharaf), and [Ryan Armstrong](https://github.com/ryarmst).
 
 ## Roadmap to ASVS 5.0
 

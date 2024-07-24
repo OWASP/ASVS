@@ -47,7 +47,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.2** | [MODIFIED, SPLIT TO 8.3.9, LEVEL L1 > L3] Verify that users have a method to remove their data on demand. | | | ✓ | |
 | **8.3.3** | [MODIFIED, LEVEL L1 > L3] Verify that the application provides guidance regarding how it collects and uses of personal data and that users have to provide opt-in consent for this use. | | | ✓ | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
-| **8.3.5** | Verify accessing sensitive data is audited (without logging the sensitive data itself), if the data is collected under relevant data protection directives or where logging of access is required. | | ✓ | ✓ | 532 |
+| **8.3.5** | [MOVED TO 7.2.7] | | | | |
 | **8.3.6** | [DELETED, NOT PRACTICAL] | | | | |
 | **8.3.7** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provide both confidentiality and integrity. | | ✓ | ✓ | 327 |
 | **8.3.8** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | ✓ | ✓ | |
@@ -67,7 +67,7 @@ For more information, see also:
 * [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
 * [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
 * [Australian Privacy Principle 11 - Security of personal information](https://www.oaic.gov.au/privacy/australian-privacy-principles-guidelines/chapter-11-app-11-security-of-personal-information)
-* [European Union General Data Protection Regulation (GDPR) overview](https://edps.europa.eu/data-protection_en)
-* [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
+* [European Union General Data Protection Regulation (GDPR) overview](https://www.edps.europa.eu/data-protection_en)
+* [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://www.edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
 * [Information on the "Clear-Site-Data" header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data)
 * [White paper on Web Cache Deception](https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack-wp.pdf)

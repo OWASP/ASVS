@@ -14,10 +14,10 @@ Copyright © 2008-2024 The OWASP Foundation. This document is released under the
 
 ## Project Leads
 
-|                       |                  |             |
-|---------------------- |----------------- |------------ |
-| Andrew van der Stock  | Daniel Cuthbert  | Jim Manico  |
-| Josh C Grossman       | Elar Lang      |             |
+|                       |                  |
+|---------------------- |----------------- |
+| Jim Manico   | Daniel Cuthbert  |
+| Josh C Grossman       | Elar Lang      |
 
 ## Major Contributors
 
@@ -43,4 +43,4 @@ Copyright © 2008-2024 The OWASP Foundation. This document is released under the
 
 If a credit is missing from the 5.x credit list above, please log a ticket at GitHub to be recognized in future 5.x updates.
 
-The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
+The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 4.0 in 2019. Much of the structure and verification items that are still in the ASVS today were originally written by Andrew van der Stock, Mike Boberski, Jeff Williams and/or Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
