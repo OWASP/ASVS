@@ -19,6 +19,7 @@ The category focuses on requirements that protect against attacks that are execu
 | **50.2.5** | [MODIFIED, MOVED FROM 14.4.7] Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors. Note that the X-Frame-Options solution is obsoleted. | ✓ | ✓ | ✓ | 1021 |
 | **50.2.6** | [ADDED, SPLIT FROM 14.5.3] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted origins. When "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
 | **50.2.7** | [ADDED] Verify that the Content-Security-Policy header specifies a location to report violations. | | | ✓ | |
+| **50.2.7** | [ADDED] Verify that the application's top-level domain (e.g. site.tld) is added to the public HSTS preload list so that the use of TLS for the application will be built directly into the main browsers rather than only relying on the relevant HTTP response header | | | ✓ | |
 
 ## V50.3 Browser Origin Separation
 
@@ -78,3 +79,4 @@ For more information, see also:
 * [Sandboxing third-party components](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html#sandboxing-content)
 * [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
 * [OWASP Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
+* [HSTS Browser Preload List submission form](https://hstspreload.org/)
