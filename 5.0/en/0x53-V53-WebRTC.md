@@ -53,8 +53,10 @@ Signalling is a critical component of WebRTC applications, responsible for coord
 | **53.3.1** | [ADDED] Verify that the signalling server can handle signalling message flood attacks by implementing rate limiting at the signalling level. | ✓ | ✓ | ✓ |
 | **53.3.2** | [ADDED] Verify that the signalling server is able to handle malformed signalling messages by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques. | ✓ | ✓ | ✓ |
 
-## WebRTC References
+## References
 
 For more information, see also:
 
-* RFC ... - The ... Framework: <https://www.rfc-editor.org/info/...>
+* [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
+* [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
+* [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
