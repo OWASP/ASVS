@@ -41,7 +41,7 @@ These requirements only apply to systems that...
 | :---: | :--- | :---: | :---: | :---: |
 | **53.2.1** | [ADDED] Verify that the key for the DTLS certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | ✓ | ✓ | ✓ |
 | **53.2.2** | [ADDED] Configure the media server to use and support strong cipher suites for the DTLS exchange, ensuring that the selected cipher suites are considered strong and secure. | ✓ | ✓ | ✓ |
-| **53.2.3** | [ADDED] Verify that the media server is not susceptible to the _WebRTC DTLS ClientHello Race Condition_ vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. |  | ✓ | ✓ |
+| **53.2.3** | [ADDED] Verify that the media server is not susceptible to the "WebRTC DTLS ClientHello Race Condition" vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. |  | ✓ | ✓ |
 | **53.2.4** | [ADDED] Verify that SRTP authentication is checked at the media server to prevent RTP injection attacks from causing DoS or audio/video media insertion on new or existing media streams. | ✓ | ✓ | ✓ |
 | **53.2.5** | [ADDED] Verify that the media server can handle a flood of SRTP packets from legitimate users by implementing rate limiting, validating timestamps, using synchronized clocks to match real-time intervals, and managing buffers to prevent overflow and maintain proper timing. If packets for a particular media session arrive too quickly, excess packets should be dropped. |  | ✓ | ✓ |
 | **53.2.6** | [ADDED] Verify that any audio and/or video recording mechanisms associated with the media server are able to handle a flood of SRTP packets from legitimate users by implementing rate limiting, validating timestamps, using synchronized clocks to match real-time intervals, and managing buffers to prevent overflow and maintain proper timing. If packets for a particular media session arrive too quickly, excess packets should be dropped. |  | ✓ | ✓ |
@@ -50,6 +50,8 @@ These requirements only apply to systems that...
 ## V53.3 Signalling
 
 Signalling is a critical component of WebRTC applications, responsible for coordinating communication sessions between peers. The security of the signalling process is essential to prevent unauthorized access, eavesdropping, and service disruptions.
+
+These requirements only apply to systems that...
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
