@@ -35,6 +35,8 @@ These requirements only apply to systems that host TURN servers as part of their
 
 Media security is paramount in WebRTC applications, as it directly impacts the confidentiality, integrity and availability of audio and video communications. By addressing these security concerns, developers can safeguard the media streams in WebRTC applications, preventing eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
 
+These requirements only apply to systems that 
+
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **53.2.1** | [ADDED] Verify that the key for the DTLS certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | ✓ | ✓ | ✓ |
