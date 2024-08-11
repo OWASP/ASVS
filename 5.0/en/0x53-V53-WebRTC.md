@@ -35,7 +35,7 @@ These requirements only apply to systems that host TURN servers as part of their
 
 Media security is paramount in WebRTC applications, as it directly impacts the confidentiality, integrity and availability of audio and video communications. By addressing these security concerns, developers can safeguard the media streams in WebRTC applications, preventing eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
 
-These requirements only apply to systems that 
+These requirements only apply to systems that...
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
