@@ -22,11 +22,13 @@ It is important to note that these security requirements **do not apply to devel
 
 ## V53.1 TURN Server
 
-TURN (Traversal Using Relays around NAT) servers play a crucial role in WebRTC applications by facilitating peer-to-peer connections in challenging network environments. However, they can also introduce security risks if not properly configured and secured. These requirements only apply to systems that host TURN servers as part of their WebRTC infrastructure.
+TURN (Traversal Using Relays around NAT) servers play a crucial role in WebRTC applications by facilitating peer-to-peer connections in challenging network environments. However, they can also introduce security risks if not properly configured and secured.
+
+These requirements only apply to systems that host TURN servers as part of their WebRTC infrastructure.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **53.1.1** | [ADDED] Verify that the TURN service allows access only to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to IPv4 and IPv6 addresses. | ✓ | ✓ | ✓ |
+| **53.1.1** | [ADDED] Verify that the TURN service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | ✓ | ✓ | ✓ |
 | **53.1.2** | [ADDED] Verify that the TURN service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. |  | ✓ | ✓ |
 
 ## V53.2 Media
