@@ -53,7 +53,7 @@ Systems that rely solely on peer-to-peer media communication between web browser
 
 Signalling is a critical component of WebRTC applications, responsible for coordinating communication sessions between peers. The security of the signalling process is essential to prevent unauthorized access, eavesdropping, and service disruptions.
 
-These requirements only apply to systems that...
+These requirements only apply to systems that host signalling servers as part of their WebRTC infrastructure.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
