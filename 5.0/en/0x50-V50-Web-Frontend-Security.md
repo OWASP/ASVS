@@ -7,6 +7,7 @@ The category focuses on requirements that protect against attacks that are execu
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.1.1** | [ADDED, DEPRECATES 3.4.5] Verify that separate applications are hosted on different hostnames to benefit from the restrictions provided by the "same-origin policy" including how documents or scripts loaded by one origin can interact with resources from another origin and hostname restrictions on cookies. | ✓ | ✓ | ✓ | 668 |
+| **50.1.2** | [ADDED] Verify that redirect URIs in authorization requests are absolute, using the HTTPS scheme, and validated by the Authorization Server using exact string comparison based on a client-specific allow list of pre-registered URIs. | ✓ | ✓ | ✓ | 601 |
 
 ## V50.2 Browser Security Mechanism Headers
 
