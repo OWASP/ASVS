@@ -37,7 +37,7 @@ Media security is paramount in WebRTC applications, as it directly impacts the c
 
 These requirements only apply to systems that host their own WebRTC media servers, such as Selective Forwarding Units (SFUs), Multipoint Control Units (MCUs), recording servers, or gateway servers. These servers are responsible for handling, routing, processing, or storing media streams within the application. The security of these media servers is crucial because they manage and distribute media between peers, and improper security could lead to unauthorized access, interception, or manipulation of media streams.
 
-Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements. However, such systems should still adhere to general WebRTC security best practices to protect the communication between peers.
+Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements. However, such systems should still adhere to the other requirements outlined in this ASVS chapter on WebRTC to ensure the overall security of their communications.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
