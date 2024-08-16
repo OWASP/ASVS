@@ -57,7 +57,7 @@ These requirements only apply to systems that host signalling servers as part of
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **53.3.1** | [ADDED] Verify that the signalling server can handle signalling message flood attacks by implementing rate limiting at the signalling level. | | ✓ | ✓ |
+| **53.3.1** | [ADDED] Verify that the signalling server is able to continue processing incoming signalling messages during a flood attack. This should be achieved by implementing rate limiting at the signalling level. | | ✓ | ✓ |
 | **53.3.2** | [ADDED] Verify that the signalling server is able to handle malformed signalling messages by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques. | | ✓ | ✓ |
 
 ## References
