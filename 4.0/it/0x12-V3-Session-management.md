@@ -39,7 +39,7 @@ L1 in questo contesto è IAL1/AAL1, L2 è IAL2/AAL3, L3 è IAL3/AAL3. Per IAL2/A
 | # | Descrizione | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **3.3.1** | Verificare che la disconnessione e la scadenza invalidino il token di sessione, in modo che il pulsante Indietro o una relying party a valle non riprendano una sessione autenticata, anche tra relying party. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
-| **3.3.2** | Se gli autenticatori consentono agli utenti di rimanere collegati, verificare che la riautenticazione avvenga periodicamente sia quando viene utilizzata attivamente sia dopo un periodo di inattività. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
+| **3.3.2** | Se gli autenticatori consentono agli utenti di rimanere collegati, verificare che la riautenticazione avvenga periodicamente sia quando viene utilizzata attivamente sia dopo un periodo di inattività. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 giorni | 12 ore o 30 minuti di inattività, 2FA opzionale | 12 ore o 15 minuti di inattività, con 2FA | 613 | 7.2 |
 | **3.3.3** | Verificare che l'applicazione offra la possibilità di terminare tutte le altre sessioni attive dopo un cambio password riuscito (incluso il cambio tramite reset/recupero password) e che ciò sia efficace in tutta l'applicazione, l'accesso federato (se presente) e qualsiasi relying party. | | ✓ | ✓ | 613 | |
 | **3.3.4** | Verificare che gli utenti possano visualizzare e (dopo aver reinserito le credenziali di accesso) disconnettersi da una o tutte le sessioni e i dispositivi attualmente attivi. | | ✓ | ✓ | 613 | 7.1 |
 
@@ -47,7 +47,7 @@ L1 in questo contesto è IAL1/AAL1, L2 è IAL2/AAL3, L3 è IAL3/AAL3. Per IAL2/A
 
 | # | Descrizione | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.4.1** | Verificare che i token di sessione basati su cookie abbiano impostato l'attributo 'Sicure'. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.1** | Verificare che i token di sessione basati su cookie abbiano impostato l'attributo 'Secure'. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
 | **3.4.2** | Verificare che i token di sessione basati su cookie abbiano impostato l'attributo 'HttpOnly'. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
 | **3.4.3** | Verificare che i token di sessione basati su cookie utilizzino l'attributo 'SameSite' per limitare l'esposizione ad attacchi di Cross-Site Request Forgery (CSRF). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.4** | Verificare che i token di sessione basati su cookie utilizzino il prefisso "__Host-" in modo che i cookie vengano inviati solo all'host che ha inizialmente impostato il cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |

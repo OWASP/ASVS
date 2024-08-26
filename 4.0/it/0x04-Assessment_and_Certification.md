@@ -52,7 +52,7 @@ Molte organizzazioni possono trarre vantaggio dall'adozione dell'ASVS, scegliend
 
 ### Come guida per unit test e test di integrazione automatizzati
 
-L'ASVS è progettato per essere altamente testabile, con la sola eccezione dei requisiti architetturali e del codice malevolo. Creando unit test e test di integrazione che testano con fuzzing, abuse case specifici e pertinenti, l'applicazione diventa quasi auto-verificante con ogni singola build. Ad esempio, è possibile creare test aggiuntivi per la suite di test di un controller di login, testando il parametro username per nomi utente predefiniti comuni, enumerazione degli account, attacchi brute force, iniezione LDAP e SQL e XSS. Allo stesso modo, un test sul parametro password dovrebbe includere password comuni, lunghezza della password, iniezione di byte null, rimozione completa del parametro, XSS e altro ancora.
+L'ASVS è progettato per essere altamente testabile, con la sola eccezione dei requisiti architetturali e del codice malevolo. Creando unit test e test di integrazione che testano con fuzzing, scenari malevoli specifici e pertinenti, l'applicazione diventa quasi auto-verificante con ogni singola build. Ad esempio, è possibile creare test aggiuntivi per la suite di test di un controller di login, testando il parametro username per nomi utente predefiniti comuni, enumerazione degli account, attacchi brute force, iniezione LDAP e SQL e XSS. Allo stesso modo, un test sul parametro password dovrebbe includere password comuni, lunghezza della password, iniezione di byte null, rimozione completa del parametro, XSS e altro ancora.
 
 ### Per la formazione allo sviluppo sicuro
 
