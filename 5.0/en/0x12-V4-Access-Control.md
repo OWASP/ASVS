@@ -42,6 +42,11 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | **4.3.1** | [MODIFIED] Verify administrative interfaces can only be logically accessed from trusted endpoints or locations. For example, restricting access to bastion or jump hosts, trusted admin workstations or endpoints (e.g., device authentication), administrative LANs, etc. | ✓ | ✓ | ✓ | 419 |
 | **4.3.2** | [SPLIT TO 14.3.4, 14.3.5] | | | | |
 | **4.3.3** | [MODIFIED] Verify that, if the application allows changing highly sensitive configurations around passwords or connection parameters for integrations with databases and third-party systems, they are protected by extra controls such as re-authentication or multi-user approval. | | ✓ | ✓ | 732 |
+| **4.3.4** | Verify that sensitive information cannot be inferred from user, resource, action, or environment attributes or their aggregation. | | | ✓ | 1230 |
+| **4.3.5** | Verify that environmental and contextual attributes such as time of day and location are incorporated into access control decisions. | | | ✓ | 1220 |
+| **4.3.6** | Verify that the application has appropriate user and/or administrator interfaces to securely manage access control attributes and policies. | ✓ | ✓ | ✓ | 282 |
+| **4.3.7** | Verify that every object is addressed by at least one access control policy, and when an object does not have an access control policy all access to that object is rejected. | | ✓ | ✓ | 280 |
+| **4.3.8** | Verify that access control decisions are securely logged. | ✓ | ✓ | ✓ | 778 |
 
 ## References
 
