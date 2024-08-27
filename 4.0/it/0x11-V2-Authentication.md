@@ -89,7 +89,7 @@ Questa sezione è rivolta ad architetti e sviluppatori che si occupano della cre
 
 La lista della funzioni one-way per la derivazione delle chiavi è dettagliata nella sezione 5.1.1.2 del NIST 800-63 B, e nel [BSI Kryptographische Verfahren: Empfehlungen und Schlussell&auml;ngen (2018)](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile). Al posto di queste scelte possono essere utilizzati gli standard nazionali o regionali più recenti per algoritmi e lunghezza delle chiavi.
 
-Questa sezione non può essere soggetta a penetration test, pertanto i controlli non sono contrassegnati come L1. Tuttavia, questa sezione è di vitale importanza per la sicurezza delle credenziali in caso di furto. Pertanto, se si esegue il fork dell'ASVS per delineare un'architettura o lineee guida di sviluppo sicuro o un elenco di controlli per la revisione del codice sorgente, si prega di riportarli a L1 nella propria versione privata.
+Questa sezione non può essere soggetta a penetration test, pertanto i controlli non sono contrassegnati come L1. Tuttavia, questa sezione è di vitale importanza per la sicurezza delle credenziali in caso di furto. Pertanto, se si esegue il fork dell'ASVS per delineare un'architettura o linee guida di sviluppo sicuro o un elenco di controlli per la revisione del codice sorgente, si prega di riportarli a L1 nella propria versione privata.
 
 | # | Descrizione | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
