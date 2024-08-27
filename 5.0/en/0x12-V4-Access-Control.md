@@ -19,6 +19,11 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | **4.1.3** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ | 285 |
 | **4.1.4** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **4.1.5** | [GRAMMAR] Verify that access controls fail securely by denying access, including when an exception occurs. | ✓ | ✓ | ✓ | 285 |
+| **4.1.6** | Verify documentation and definition of all user, resource, action, and environmental attributes and access control policies. | ✓ | ✓ | ✓ | 284 |
+| **4.1.7** | Verify the adherence of the access control mechanism to the design documentation via regular review and audit. | ✓ | ✓ | ✓ | 284 |
+| **4.1.8** | Verify access control policies enforce separation of duties as a means to prevent conflict of interest cases and fraud. | | ✓ | ✓ | 654 |
+| **4.1.9** | Verify that access control policy attributes are transmitted and stored securely to maintain their integrity and confidentiality. | ✓ | ✓ | ✓ | 922 |
+| **4.1.10** | Verify that the access control system makes real-time access control decisions based on current attribute values. | ✓ | ✓ | ✓ | |
 
 ## V4.2 Operation Level Access Control
 
