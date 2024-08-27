@@ -83,7 +83,7 @@ Nota: alle password non deve essere assegnata una scadenza massima né devono es
 | **2.3.2** | Verificare che sia supportata la registrazione e l'utilizzo di dispositivi di autenticazione forniti dall'utente, come token U2F o FIDO. | | ✓ | ✓ | 308 | 6.1.3 |
 | **2.3.3** | Verificare che le istruzioni di rinnovo siano inviate con sufficiente anticipo per permettere il rinnovo degli autenticatori con scadenza. | | ✓ | ✓ | 287 | 6.1.4 |
 
-## V2.4 Credential Storage
+## V2.4 Memorizzazione delle credenziali
 
 Questa sezione è rivolta ad architetti e sviluppatori che si occupano della creazione o della ristrutturazione del codice. La verifica completa di questa sezione può essere effettuata solo attraverso la revisione del codice sorgente o tramite unit test o integration test specifici per la sicurezza. I penetration test non coprono nessuno di questi problemi.
 
