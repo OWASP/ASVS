@@ -53,7 +53,7 @@ Systems that rely solely on peer-to-peer media communication between web browser
 
 ## V53.3 Signalling
 
-Signalling is a critical component of WebRTC applications, responsible for coordinating communication sessions between peers. The security of the signalling process is essential to prevent unauthorized access, eavesdropping, and service disruptions. This protecting the system fralfo by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
+Signalling is a critical component of WebRTC applications, responsible for coordinating communication sessions between peers. The security of the signalling process is essential to prevent unauthorized access, eavesdropping, and service disruptions. It is important to protect the system by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
 
 These requirements only apply to systems that host signalling servers as part of their WebRTC infrastructure.
 
