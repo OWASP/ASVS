@@ -1,23 +1,41 @@
 name: URL Checker
 
 on:
-  workflow_dispatch:
+  pull_request:
+    paths:
+      - '5.0/**'
   push:
     branches:
       - master
+    paths:
+      - '5.0/**'
+  workflow_dispatch:
 
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-      - name: link-check
+        uses: actions/checkout@v4
+
+      - name: Set options
+        id: options
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "check-modified-files-only=yes" >> $GITHUB_OUTPUT
+            echo "use-quiet-mode=yes" >> $GITHUB_OUTPUT 
+            echo "use-verbose-mode=yes" >> $GITHUB_OUTPUT
+          else
+            echo "check-modified-files-only=no" >> $GITHUB_OUTPUT
+            echo "use-quiet-mode=yes" >> $GITHUB_OUTPUT 
+            echo "use-verbose-mode=no" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check URLs
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          use-quiet-mode: 'yes'
-          use-verbose-mode: 'no'
-          config-file: '.github/workflows/config/url-checker-config.json'
-          folder-path: './5.0/'
+          check-modified-files-only: ${{ steps.options.outputs.check-modified-files-only }}
+          config-file: .github/workflows/config/url-checker-config.json
+          folder-path: '5.0'
+          use-quiet-mode: ${{ steps.options.outputs.use-quiet-mode }}
+          use-verbose-mode: ${{ steps.options.outputs.use-verbose-mode }}
