@@ -19,7 +19,7 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | **4.1.3** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. | ✓ | ✓ | ✓ | 285 |
 | **4.1.4** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **4.1.5** | [GRAMMAR] Verify that access controls fail securely by denying access, including when an exception occurs. | ✓ | ✓ | ✓ | 285 |
-| **4.1.6** | [ADDED] Verify that access control control . | ✓ | ✓ | ✓ | 284 |
+| **4.1.6** | [ADDED] Verify that access controls are implemented as per the design documentation. | ✓ | ✓ | ✓ | 284 |
 | **4.1.7** |  Verify that the access control system makes real-time access control decisions based on current permissions values. | ✓ | ✓ | ✓ | |
 
 ## V4.2 Operation Level Access Control
