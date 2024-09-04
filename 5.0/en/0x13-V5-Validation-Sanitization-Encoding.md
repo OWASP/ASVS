@@ -66,7 +66,7 @@ Output encoding close or adjacent to the interpreter in use is critical to the s
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.3.1** | [MODIFIED] Verify that output encoding for an HTTP response/HTML document/XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, JavaScript, CSS, or HTTP headers, to avoid changing the message or document structure. | ✓ | ✓ | ✓ | 116 |
+| **5.3.1** | [MODIFIED, SPLIT TO 5.3.13] Verify that output encoding for an HTTP response/HTML document/XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, JavaScript, CSS, or HTTP headers, to avoid changing the message or document structure. | ✓ | ✓ | ✓ | 116 |
 | **5.3.2** | [DELETED, DUPLICATE OF 14.4.1] | | | | |
 | **5.3.3** | Verify that context-aware, preferably automated - or at worst, manual - output escaping protects against reflected, stored, and DOM based XSS. | ✓ | ✓ | ✓ | 79 |
 | **5.3.4** | [MODIFIED] Verify that data selection or database queries (e.g. SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | ✓ | ✓ | ✓ | 89 |
@@ -92,7 +92,7 @@ The following requirements will only apply when the application uses a systems l
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | | ✓ | ✓ | 120 |
-| **5.4.2** | [DELETED, MOVED TO 5.2.13] | | | | |
+| **5.4.2** | [MOVED TO 5.2.13] | | | | |
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | | ✓ | ✓ | 190 |
 
 ## V5.5 Deserialization Prevention
