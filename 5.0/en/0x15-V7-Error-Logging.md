@@ -18,7 +18,7 @@ For the specific information which should be included in a log entry, refer to e
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **7.1.1** | [MODIFIED, MERGED FROM 7.1.2] Verify that the application does not log credentials, payment details or any data defined as sensitive based on local privacy laws or relevant security policy. Session tokens should only be stored in logs in an irreversible, hashed form. | ✓ | ✓ | ✓ | 532 |
+| **7.1.1** | [MODIFIED, MERGED FROM 7.1.2] Verify that when logging sensitive data, the application considers the protection level of the data. For example, it may not be allowed to log certain data such as credentials or payment details. Other data such as session tokens may only be logged having been hashed or masked, either in full or partially. | ✓ | ✓ | ✓ | 532 |
 | **7.1.2** | [DELETED, MERGED TO 7.1.1] | | | | |
 | **7.1.3** | [MOVED TO 7.2.3] | | | | |
 | **7.1.4** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. | | ✓ | ✓ | 778 |
