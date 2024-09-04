@@ -20,7 +20,7 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | **4.1.4** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **4.1.5** | [GRAMMAR] Verify that access controls fail securely by denying access, including when an exception occurs. | ✓ | ✓ | ✓ | 285 |
 | **4.1.6** | [ADDED] Verify that access control control . | ✓ | ✓ | ✓ | 284 |
-| **4.1.8** |  Verify that the access control system makes real-time access control decisions based on current permissions values. | ✓ | ✓ | ✓ | |
+| **4.1.7** |  Verify that the access control system makes real-time access control decisions based on current permissions values. | ✓ | ✓ | ✓ | |
 
 ## V4.2 Operation Level Access Control
 
