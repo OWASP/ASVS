@@ -2,13 +2,7 @@
 
 ## Control Objective
 
-The most common web application security weakness is using untrusted content in an unsafe context without any output encoding, query parameterization, or other output handling defense. This weakness leads to almost all of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, OS command injection, template injection, log injection, LDAP injection, and more.
-
-Ensure that a verified application satisfies the following high-level requirements:
-
-* Input validation and output encoding architecture have an agreed pipeline to prevent injection attacks.
-* Input data is strongly typed, validated, range or length checked, or at worst, sanitized or filtered.
-* Output data is encoded or escaped as per the context of the data as close to the interpreter as possible.
+The most common web application security weakness is using untrusted content in an unsafe context without any output encoding, query parameterization, or other output handling defense. This weakness leads to many of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, OS command injection, template injection, log injection, LDAP injection, and more.
 
 With modern web application architecture, output encoding is more important than ever. It is difficult to provide robust input validation in certain scenarios, so the use of safer API such as parameterized queries, auto-escaping templating frameworks, or carefully chosen output encoding is critical to the security of the application.
 
@@ -32,17 +26,9 @@ Input validation still provides valuable security hygiene and should be applied 
 
 ## V5.2 Sanitization and Sandboxing
 
-Input validation is a complicated topic.
+The ideal protection against using untrusted content in an unsafe context is using context specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context. This is discussed in more detail in the next section.
 
-Sometimes input validation is not going to be helpful for security, other times it will help it to a moderate degree, whilst other times it will be fundamental for security defense. It depends on the type of data and the use of that data to determine how effective input validation will be.
-
-For example:
-
-* Sanitization: When a user is authoring HTML, the standard defense is to standardize HTML to remove Performing JSON sanitizing before JSON parsers are used, and of course HTML sanitization for XSS defense
-* Escaping: Done in the UI when you want to preserve displaying content as the user typed it in, also for some injection protection like LDAP injection protection
-* Parameterization: For SQL Injection, primarily
-* Sandboxing: When you can't sanitize HTML for some reason and need to dump potentially active content on your web page, iFrame sandboxing is critical. CSP has some sandboxing capabilities, too.
-* URLs in Web UIs should block JavaScript and data URLs as a defense against XSS attacks. However, it's important to note that often, even valid data can still pose a threat.
+Where it is not possible to do this, other options include sanitization and sandboxing. Sanitization will involve removing potentially dangerous characters or content which in some cases could change the semantic meaning of the input but for security reasons there may be no choice. Sandboxing mauy involve ensuring that a potentially dangerous operation is contained such that even if it suffers a security vulnerability, that will not endanger the wider application.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -60,9 +46,11 @@ For example:
 | **5.2.12** | [ADDED] Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | | ✓ | ✓ | |
 | **5.2.13** | [MODIFIED, MOVED FROM 5.4.2] Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | | ✓ | ✓ | 134 |
 
+Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user-supplied content domain to prevent successful XSS from taking over the application.
+
 ## V5.3 Output Encoding and Injection Prevention
 
-Output encoding close or adjacent to the interpreter in use is critical to the security of any application. Typically, output encoding is not persisted, but rather used to render output safely in the appropriate context for immediate use. Failing to output encode will result in an insecure, injectable, and unsafe application.
+Output encoding or escaping close or adjacent to a potentially dangerous context is critical to the security of any application. Typically, output encoding and escaping is not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. Trying to do this too early may lead to malformed content or even render the encoding or escaping ineffective.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -82,8 +70,6 @@ Output encoding close or adjacent to the interpreter in use is critical to the s
 
 Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
-Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user-supplied content domain to prevent successful XSS from taking over the application.
-
 ## V5.4 Memory, String, and Unmanaged Code
 
 The following requirements will only apply when the application uses a systems language or unmanaged code.
@@ -96,6 +82,8 @@ The following requirements will only apply when the application uses a systems l
 
 ## V5.5 Deserialization Prevention
 
+Conversion of data from some sort of stored or transmitted representation into actual application objects (deserialization) has historically been the cause of a variety of code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.5.1** | [DELETED, INCORRECT] | | | | |
@@ -106,9 +94,7 @@ The following requirements will only apply when the application uses a systems l
 
 ## V5.6 Validation and Sanitization Architecture
 
-With syntax-specific requirements we say "do the correct thing" and here are the requirements to say "do it in the correct order" and "do it in the correct place".
-
-Also, the requirements aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded state (e.g. HTML encoding) to prevent double encoding issues.
+In the sections above, we provided syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities. The requirements in this section cover the order in which this processing shoud happen and where it should take place.They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g. HTML encoding) to prevent double encoding issues.
 
 <!--
 The requirement belongs here if it is:
