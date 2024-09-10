@@ -51,6 +51,7 @@ Although zip bombs can be effectively tested using penetration testing technique
 | **12.5.1** | [MOVED TO 14.3.6] | | | | |
 | **12.5.2** | [MOVED TO 50.5.1] | | | | |
 | **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header in the response. | ✓ | ✓ | ✓ | 641 |
+| **12.5.4** | [ADDED] Verify that file names served (e.g., in HTTP response headers or email attachments) are encoded or sanitized (e.g., following RFC 6266) to preserve document structure and prevent injection attacks. | ✓ | ✓ | ✓ | |
 
 ## V12.6 SSRF Protection
 
