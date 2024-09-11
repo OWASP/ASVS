@@ -47,6 +47,7 @@ This is a placeholder for future architectural requirements.
 | **1.4.3** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **1.4.4** | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. | | ✓ | ✓ | 284 |
 | **1.4.5** | [GRAMMAR] Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature or data item rather than just their role. Permissions should still be allocated using roles. | | ✓ | ✓ | 275 |
+| **1.4.6** | [ADDED] Verify that the application documentation defines controls which use changes to a user's regular environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. | | | ✓ | |
 
 ## V1.5 Input and Output Architecture
 
