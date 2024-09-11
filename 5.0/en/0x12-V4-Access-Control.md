@@ -26,7 +26,7 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **4.2.1** | Verify that sensitive data and APIs are protected against Insecure Direct Object Reference (IDOR) attacks targeting creation, reading, updating and deletion of records, such as creating or updating someone else's record, viewing everyone's records, or deleting all records. | ✓ | ✓ | ✓ | 639 |
 | **4.2.2** | [MOVED TO 50.3.1] | | | | |
-| **4.2.3** | [ADDED] Verify that multi-tenant applications use cross-tenant controls to ensure user operations will never affect tenants with which they do not have permissions to interact. | ✓ | ✓ | ✓ | 284 |
+| **4.2.3** | [ADDED] Verify that multi-tenant applications use cross-tenant controls to ensure user operations will never affect tenants with which they do not have permissions to interact. | ✓ | ✓ | ✓ | 283 |
 
 ## V4.3 Other Access Control Considerations
 
