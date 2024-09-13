@@ -67,42 +67,29 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.4.1** | [MODIFIED, SPLIT TO 14.4.8] Verify that every HTTP response contains a Content-Type header which matches the actual content of the response. | ✓ | ✓ | ✓ | 173 |
+| **14.4.1** | [MOVED TO 13.1.7] | | | | |
 | **14.4.2** | [DELETED, DEPRECATED BY 50.5.3] | | | | |
 | **14.4.3** | [MOVED TO 50.2.1] | | | | |
 | **14.4.4** | [MOVED TO 50.2.2] | | | | |
 | **14.4.5** | [MOVED TO 50.2.3] | | | | |
 | **14.4.6** | [MOVED TO 50.2.4] | | | | |
 | **14.4.7** | [MOVED TO 50.2.5] | | | | |
-| **14.4.8** | [ADDED, SPLIT FROM 14.4.1] Verify that if a response specifies a Content-Type of "text/\*", "\*/\*+xml" and "\*/xml", it also specifies a safe character set (e.g., UTF-8, ISO-8859-1) with the charset parameter. | ✓ | ✓ | ✓ | 173 |
 
 ## V14.5 HTTP Request Header Validation
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.5.1** | [MODIFIED] Verify that the application only responds to HTTP methods in use by the application or by the API (including OPTIONS during preflight requests) and unused methods (e.g. TRACE) are blocked. | ✓ | ✓ | ✓ | 749 |
+| **14.5.1** | [MOVED TO 13.6.1] Verify that the application only responds to HTTP methods in use by the application or by the API (including OPTIONS during preflight requests) and unused methods (e.g. TRACE) are blocked. | ✓ | ✓ | ✓ | 749 |
 | **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
 | **14.5.3** | [SPLIT TO 50.2.6, 50.3.3] | | | | |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
-| **14.5.5** | [MODIFIED, MOVED FROM 13.2.1] Verify that HTTP requests using the HEAD, OPTIONS, TRACE or GET verb do not modify any backend data structure or perform any state-changing actions. These requests are safe methods and should therefore not have any side effects. | ✓ | ✓ | ✓ | 650 |
-| **14.5.6** | [ADDED] Verify that all application components, including load balancers, firewalls, and application servers, comply with RFC 2616 by ignoring the Content-Length header when a Transfer-Encoding header is present, to prevent HTTP Request Smuggling. | | ✓ | ✓ | 444 |
-| **14.5.7** | [ADDED] Verify that the web application warns users who are using an old browser which does not support HTTP security features on which the application relies. The list of old browsers must be periodically reviewed and updated. | | | ✓ | 1104 |
-| **14.5.8** | [ADDED] Verify that any HTTP headers used by the application and defined by intermediary devices like load balancers or proxies, such as X-Real-IP and X-Forwarded-*, cannot be overridden by the end-user. | | ✓ | ✓ | 346 |
 
-## V14.6 HTTP/2
+## V14.6 Web or Application Server Configuration
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.6.1** | [ADDED] Verify that the value in the Content-Length request header matches the calculated length using the built-in mechanism. | ✓ | ✓ | ✓ | 400 |
-| **14.6.2** | [ADDED] Verify that all Transfer-Encoding headers are stripped from the message or that the request is blocked entirely. | ✓ | ✓ | ✓ | |
-| **14.6.3** | [ADDED] Verify that a full CRLF (\r\n) sequence is neutralized inside a HTTP/2 header. | ✓ | ✓ | ✓ | 113 |
-
-## V14.7 Web or Application Server Configuration
-
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.7.1** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data or files from. | ✓ | ✓ | ✓ | 918 |
-| **14.7.2** | [ADDED] Verify that communications between back-end application components, including APIs, middleware and data layers, are performed with the least necessary privileges. | | ✓ | ✓ | 272 |
+| **14.6.1** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data or files from. | ✓ | ✓ | ✓ | 918 |
+| **14.6.2** | [ADDED] Verify that communications between back-end application components, including APIs, middleware and data layers, are performed with the least necessary privileges. | | ✓ | ✓ | 272 |
 
 ## References
 
