@@ -57,7 +57,7 @@ Although zip bombs can be effectively tested using penetration testing technique
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.6.1** | [MOVED TO 14.7.1] | | | | |
+| **12.6.1** | [MOVED TO 14.6.1] | | | | |
 
 ## V12.7 Application Resources
 

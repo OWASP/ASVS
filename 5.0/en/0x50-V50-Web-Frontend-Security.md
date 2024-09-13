@@ -69,6 +69,7 @@ it may need other separate section for "end-user protection via UI"
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.7.1** | [ADDED, SPLIT FROM 5.1.5] Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | | | ✓ | |
 | **50.7.2** | [MODIFIED, MOVED FROM 1.14.6] Verify the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
+| **50.7.3** | [ADDED] Verify that the web application warns users who are using an old browser which does not support HTTP security features on which the application relies. The list of old browsers must be periodically reviewed and updated. | | | ✓ | 1104 |
 
 ## References
 
