@@ -79,7 +79,7 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.5.1** | [MOVED TO 13.6.1] Verify that the application only responds to HTTP methods in use by the application or by the API (including OPTIONS during preflight requests) and unused methods (e.g. TRACE) are blocked. | ✓ | ✓ | ✓ | 749 |
+| **14.5.1** | [MOVED TO 13.6.1] | | | | |
 | **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
 | **14.5.3** | [SPLIT TO 50.2.6, 50.3.3] | | | | |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
