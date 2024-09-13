@@ -90,6 +90,8 @@ Configurations for production should be hardened to protect against common attac
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.6.1** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allow list of resources or systems to which the server can send requests or load data or files from. | ✓ | ✓ | ✓ | 918 |
 | **14.6.2** | [ADDED] Verify that communications between back-end application components, including APIs, middleware and data layers, are performed with the least necessary privileges. | | ✓ | ✓ | 272 |
+| **14.6.3** | [MODIFIED, MOVED FROM 1.2.1] Verify the use of unique or special low-privilege operating system accounts for all back-end application components, services, and servers. | | ✓ | ✓ | 250 |
+| **14.6.4** | [MODIFIED, MOVED FROM 1.2.2] Verify that communications between back-end application components, including APIs, middleware and data layers, are authenticated and use either the original user's session or individual service accounts. | | ✓ | ✓ | 306 |
 
 ## References
 
