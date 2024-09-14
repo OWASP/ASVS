@@ -23,7 +23,7 @@ I lead developer dovrebbero revisionare regolarmente i commit del codice, in par
 
 ## V10.2 Ricerca di codice malevolo
 
-Il codice malevolo è estremamente raro e difficile da individuare. La revisione manuale riga per riga del codice può aiutare a cercare bombe logiche, ma anche il revisore di codice più esperto avrà difficoltà a trovare codice malevolo anche se sa che esiste.
+Il codice malevolo è estremamente raro e difficile da individuare. La revisione manuale riga per riga del codice può essere utile per cercare bombe logiche, ma anche il revisore più esperto potrebbe avere difficoltà a individuare codice malevolo, anche sapendo della sua presenza.
 
 La conformità a questa sezione non è possibile senza un accesso completo al codice sorgente, incluse le librerie di terze parti.
 
@@ -38,9 +38,9 @@ La conformità a questa sezione non è possibile senza un accesso completo al co
 
 ## V10.3 Integrità dell'applicazione
 
-Anche dopo la distribuzione di un'applicazione, è possibile inserire codice malevolo. Le applicazioni devono proteggersi da attacchi comuni, come l'esecuzione di codice non firmato da fonti non fidate e takeover di sottodomini.
+Anche dopo la distribuzione, un'applicazione può essere vulnerabile all'inserimento di codice malevolo. Le applicazioni devono proteggersi da attacchi comuni, come l'esecuzione di codice non firmato proveniente da fonti non fidate e il takeover di sottodomini.
 
-La conformità a questa sezione richiede probabilmente controlli operativi e continui.
+La conformità a questa sezione richiede probabilmente l'implementazione di controlli operativi e monitoraggi continui.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
