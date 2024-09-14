@@ -5,17 +5,17 @@
 Assicurarsi che un'applicazione verificata disponga di:
 
 * Un ambiente di build sicuro, ripetibile e automatizzabile.
-* Gestione rigorosa di librerie, dipendenze e configurazione di terze parti in modo che l'applicazione non includa componenti obsoleti o non sicuri.
+* Una gestione rigorosa di librerie, dipendenze e configurazione di terze parti in modo che l'applicazione non includa componenti obsoleti o non sicuri.
 
 La configurazione predefinita dell'applicazione deve essere sicura per l'utilizzo su Internet.
 
 ## V14.1 Build e distribuzione
 
-Le pipeline di build sono fondamentali per garantire una sicurezza ripetibile: ogni volta che viene rilevata una vulnerabilità, è possibile correggerla nel codice sorgente, negli script di build o di distribuzione, e testare automaticamente la correzione. Si raccomanda vivamente di utilizzare pipeline di build con controlli automatici di sicurezza e gestione delle dipendenze, che avvisino o interrompano la build per prevenire la distribuzione in produzione di problemi di sicurezza noti. L'esecuzione irregolare di passaggi manuali può portare direttamente a errori di sicurezza evitabili.
+Le pipeline di build sono fondamentali per garantire una sicurezza ripetibile: ogni volta che viene rilevata una vulnerabilità, è possibile correggerla nel codice sorgente, negli script di build o di distribuzione, e testare automaticamente la correzione. Si raccomanda vivamente di utilizzare pipeline di build con controlli automatici di sicurezza e gestione delle dipendenze, che avvisino o interrompano la build per prevenire la distribuzione in produzione di problemi di sicurezza noti. L'esecuzione irregolare di passaggi manuali può facilmente portare a errori di sicurezza evitabili.
 
-Con l'avvento del modello DevSecOps, diventa essenziale garantire la continua disponibilità e integrità della distribuzione e della configurazione per mantenere uno stato noto e funzionante. In passato, se un sistema veniva compromesso, potevano volerci giorni o mesi per dimostrare che non si erano verificate ulteriori intrusioni. Oggi, grazie all'infrastruttura software-defined, alle distribuzioni A/B rapide a zero downtime e alle build automatizzate in container, è possibile creare, rafforzare e distribuire automaticamente e continuamente una versione "nota e funzionante" di qualsiasi sistema compromesso.
+Con il modello DevSecOps, è essenziale garantire la disponibilità e l'integrità continua della distribuzione e configurazione, mantenendo uno stato noto e funzionante. In passato, in caso di compromissione di un sistema, potevano servire giorni o mesi per dimostrare l'assenza di ulteriori intrusioni. Oggi, con infrastrutture software-defined, distribuzioni A/B a zero downtime e build automatizzate in container, è possibile creare, rafforzare e distribuire automaticamente una versione "nota e funzionante" di qualsiasi sistema compromesso.
 
-Se si utilizzano ancora modelli tradizionali, è necessario adottare procedure manuali per rafforzare ed eseguire il backup di tali configurazioni, in modo da consentire la rapida sostituzione dei sistemi compromessi con sistemi integri e non compromessi in modo tempestivo.
+Se si utilizzano modelli tradizionali, è necessario implementare procedure manuali per rafforzare e fare il backup delle configurazioni, consentendo la rapida sostituzione di sistemi compromessi con sistemi integri in modo tempestivo.
 
 La conformità a questa sezione richiede un sistema di build automatizzato e l'accesso agli script di build e distribuzione.
 
@@ -29,9 +29,9 @@ La conformità a questa sezione richiede un sistema di build automatizzato e l'a
 
 ## V14.2 Dipendenze
 
-La gestione delle dipendenze è fondamentale per il funzionamento sicuro di qualsiasi applicazione di qualsiasi tipo. La mancata manutenzione di dipendenze obsolete o non sicure fino ad oggi è la causa principale degli attacchi maggiori e costosi.
+La gestione delle dipendenze è cruciale per il funzionamento sicuro di qualsiasi applicazione. Il mancato aggiornamento di dipendenze obsolete o non sicure è una delle principali cause di attacchi gravi e costosi.
 
-Nota: Al Livello 1, la conformità a 14.2.1 riguarda le osservazioni o i rilevamenti di librerie e componenti lato client e di altro tipo, piuttosto che una più accurata analisi statica del codice in fase di build o analisi delle dipendenze. L'utilizzo di queste tecniche più affidabili potrebbe essere documentato attraverso colloquio, all'occorrenza.
+Nota: Al Livello 1, la conformità a 14.2.1 si basa sull'osservazione o il rilevamento di librerie e componenti lato client e di altro tipo, piuttosto che su un'analisi statica più approfondita del codice in fase di build o sull'analisi delle dipendenze. L'uso di queste tecniche più affidabili può essere documentato attraverso colloqui, se necessario.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -44,7 +44,7 @@ Nota: Al Livello 1, la conformità a 14.2.1 riguarda le osservazioni o i rilevam
 
 ## V14.3 Divulgazione accidentale di informazioni di sicurezza
 
-Le configurazioni di produzione devono essere rafforzate per proteggersi da attacchi comuni, come modalità di debug attiva, gli attacchi Cross-Site Scripting (XSS) e Remote File Inclusion (RFI), ed eliminare le "vulnerabilità" di information discovery, spesso segnalate nei report di penetration testing. Sebbene molti di questi problemi raramente vengano classificati come rischi significativi, possono essere sfruttati in combinazione con altre vulnerabilità. Garantendo che questi problemi siano assenti di default, si rende più difficile il successo della maggior parte degli attacchi.
+Le configurazioni di produzione devono essere rafforzate per proteggersi da attacchi comuni, come la modalità di debug attiva, Cross-Site Scripting (XSS), Remote File Inclusion (RFI) ed eliminare le vulnerabilità legate alla scoperta di informazioni, spesso segnalate nei report di penetration testing. Sebbene molti di questi problemi non siano classificati come rischi significativi singolarmente, possono essere sfruttati in combinazione con altre vulnerabilità. Assicurandosi che tali problemi siano assenti per impostazione predefinita, si aumenta la difficoltà per il successo della maggior parte degli attacchi.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
