@@ -2,24 +2,24 @@
 
 ## Obiettivo del controllo
 
-La problematica di sicurezza più comune nelle applicazioni web è la mancanza di una validazione appropriata dell'input proveniente dal client o dall'ambiente prima di utilizzarlo direttamente e senza alcuna codifica dell'output. Questo causa quasi tutte le vulnerabilità più impattanti delle applicazioni web, come Cross-Site Scripting (XSS), SQL injection, injection di interprete, attacchi locale/Unicode, attacchi al file system e buffer overflow.
+La problematica di sicurezza più comune nelle applicazioni web è la mancanza di una valida convalida dell'input proveniente dal client o dall'ambiente, e l'assenza di codifica dell'output. Questa carenza è alla base delle vulnerabilità più gravi delle applicazioni web, come Cross-Site Scripting (XSS), SQL injection, injection di interprete, attacchi locale/Unicode, attacchi al file system e buffer overflow.
 
-Per garantire la sicurezza dell'applicazione, è necessario assicurarsi che essa soddisfi i seguenti requisiti di alto livello:
+Per garantire la sicurezza dell'applicazione, è essenziale soddisfare i seguenti requisiti di alto livello:
 
-* L'architettura di convalida dell'input e di codifica dell'output deve seguire una procedura concordata per prevenire gli attacchi di injection.
-* I dati di input devono essere fortemente tipizzati, validati, controllati in base a range o lunghezza, o nel caso peggiore sanitizzati o filtrati.
-* I dati di output devono essere codificati o "escaped" a seconda del contesto, il più vicino possibile all'interprete.
+* L'architettura di convalida dell'input e di codifica dell'output deve seguire procedure concordate per prevenire gli attacchi di injection.
+* I dati di input devono essere fortemente tipizzati, validati, controllati per range o lunghezza, sanitizzati o filtrati.
+* I dati di output devono essere codificati o "escaped" in base al contesto, il più vicino possibile all'interprete.
 
-Con l'architettura moderna delle applicazioni web, la codifica dell'output è più importante che mai. In alcuni scenari è difficile fornire una convalida dell'input efficace, quindi l'utilizzo di API sicure come query parametrizzate, framework di templating con escaping automatico o una codifica dell'output accuratamente scelta sono fondamentali per la sicurezza dell'applicazione.
+Con l'architettura moderna delle applicazioni web, la codifica dell'output è più importante che mai. In alcuni scenari è difficile fornire una convalida dell'input efficace, quindi l'utilizzo di API sicure come query parametrizzate, framework di templating con escaping automatico o una codifica dell'output accuratamente scelta è fondamentale per la sicurezza dell'applicazione.
 
 ## V5.1 Input Validation
 
-L'implementazione corretta dei controlli di convalida dell'input, utilizzando allow list e tipizzazione forte dei dati, può eliminare oltre il 90% di tutti gli attacchi di injection. I controlli di lunghezza e di range possono ulteriormente ridurli. Integrare una convalida dell'input sicura è necessario durante l'architettura dell'applicazione, gli sprint di progettazione, l'implementazione e i test unitari e di integrazione. Sebbene molti di questi elementi non possano essere verificati durante i penetration test, i risultati della loro mancata implementazione si riscontrano generalmente in V5.3 - Requisiti di codifica dell'output e prevenzione delle injection. Si consiglia a sviluppatori e revisori di codice sicuro di trattare questa sezione come se il livello L1 fosse obbligatorio per tutte le voci al fine di prevenire le injection.
+L'implementazione corretta dei controlli di convalida dell'input, utilizzando allow list e tipizzazione forte dei dati, può eliminare oltre il 90% di tutti gli attacchi di injection. I controlli di lunghezza e di range possono ridurre ulteriormente tali attacchi. Integrare una convalida dell'input sicura è fondamentale durante l'architettura dell'applicazione, gli sprint di progettazione, l'implementazione e i test unitari e di integrazione. Sebbene molti di questi aspetti non possano essere verificati durante i penetration test, i risultati della loro mancata implementazione si riflettono generalmente in V5.3 - Requisiti di codifica dell'output e prevenzione delle injection. Si consiglia a sviluppatori e revisori di codice sicuro di trattare questa sezione come se il livello L1 fosse obbligatorio per tutte le voci al fine di prevenire le injection.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **5.1.1** | Verificare che l'applicazione disponga di difese contro gli attacchi di HTTP Parameter Pollution (HPP), soprattutto se il framework applicativo non distingue tra le sorgenti dei parametri di richiesta (GET, POST, cookie, header o variabili d'ambiente). | ✓ | ✓ | ✓ | 235 |
-| **5.1.2** | Verificare che il framework protegga dagli attacchi di assegnazione di massa dei parametri (Mass Assignment) o che l'applicazione disponga di contromisure per proteggersi dall'assegnazione non sicura dei parametri, come ad esempio la marcatura dei campi come privati. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
+| **5.1.2** | Verificare che il framework protegga dagli attacchi di assegnazione di massa dei parametri (Mass Assignment) o che l'applicazione implementi contromisure, come la marcatura dei campi come privati, per prevenire l'assegnazione insicura dei parametri. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
 | **5.1.3** | Verificare che tutti gli input (campi di form HTML, richieste REST, parametri URL, header HTTP, cookie, file batch, feed RSS, ecc.) siano validati utilizzando la convalida positiva (liste positive o allow list). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
 | **5.1.4** | Verificare che i dati strutturati siano fortemente tipizzati e validati rispetto a uno schema definito, inclusi caratteri consentiti, lunghezza e pattern (ad esempio numeri di carta di credito, indirizzi e-mail, numeri di telefono o convalida di coerenza tra campi correlati, come la verifica della corrispondenza tra città e codice postale). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
 | **5.1.5** | Verificare che i redirect e i forward degli URL consentano solo destinazioni presenti in una lista consentita, oppure che mostrino un avviso quando si reindirizza verso contenuti potenzialmente non sicuri. | ✓ | ✓ | ✓ | 601 |
@@ -39,24 +39,24 @@ L'implementazione corretta dei controlli di convalida dell'input, utilizzando al
 
 ## V5.3 V5.3 Codifica dell'output e prevenzione delle injection
 
-L'applicazione della codifica dell'output vicino o in prossimità dell'interprete utilizzato è fondamentale per la sicurezza di qualsiasi applicazione. In genere, la codifica dell'output non viene salvata in modo persistente, ma viene utilizzata per rendere l'output sicuro nell'opportuno contesto per un uso immediato. La mancata codifica dell'output si traduce in un'applicazione non sicura, vulnerabile a injection e pericolosa.
+L'applicazione della codifica dell'output nelle immediate vicinanze o direttamente all'interno dell'interprete utilizzato è fondamentale per garantire la sicurezza di qualsiasi applicazione. Generalmente, la codifica dell'output non viene memorizzata in modo permanente, ma serve a rendere sicuro l'output nel contesto appropriato per un utilizzo immediato. La mancata codifica dell'output rende l'applicazione vulnerabile a iniezioni e potenzialmente pericolosa.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.3.1** | Verificare che la codifica dell'output sia pertinente all'interprete e al contesto richiesti. Ad esempio, utilizzare codificatori specifici per valori HTML, attributi HTML, JavaScript, parametri URL, header HTTP, SMTP e altri a seconda del contesto, soprattutto per input non fidati (ad esempio nomi con caratteri Unicode o apostrofi, come ねこ o O'Hara). ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
+| **5.3.1** | Verificare che la codifica dell'output sia pertinente all'interprete e al contesto specifico. Ad esempio, utilizzare codificatori specifici per valori HTML, attributi HTML, JavaScript, parametri URL, header HTTP, SMTP e altri a seconda del contesto, soprattutto per input non fidati (ad esempio nomi con caratteri Unicode o apostrofi, come ねこ o O'Hara). ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
 | **5.3.2** | Verificare che la codifica dell'output preservi il set di caratteri e la località scelti dall'utente, in modo tale che qualsiasi punto del carattere Unicode sia valido e gestito in modo sicuro. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 176 |
-| **5.3.3** | Verificare che l'escape dell'output basato sul contesto, preferibilmente automatico - o al massimo manuale - protegga da XSS riflessa, memorizzata e basata su DOM. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 79 |
+| **5.3.3** | Verificare che l'escape dell'output contestuale, preferibilmente automatico o, in casi limite, manuale, protegga da XSS riflessa, memorizzata e basata su DOM.  ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 79 |
 | **5.3.4** | Verificare che la selezione dei dati o le query del database (ad esempio SQL, HQL, ORM, NoSQL) utilizzino query parametrizzate, ORM, framework di entità o siano altrimenti protette dagli attacchi di injection del database. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
-| **5.3.5** | Verificare che quando i meccanismi parametrizzati o più sicuri non siano presenti, venga utilizzata la codifica dell'output specifica del contesto per proteggersi dagli attacchi di injection, come l'utilizzo dell'escaping SQL per proteggersi dall'iniezione SQL. ([C3, C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
+| **5.3.5** | Verificare che, quando i meccanismi parametrizzati o più sicuri non siano presenti, venga utilizzata la codifica dell'output specifica del contesto per proteggersi dagli attacchi di injection, come l'utilizzo dell'escaping SQL per proteggersi dall'injection SQL. ([C3, C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
 | **5.3.6** | Verificare che l'applicazione si protegga dagli attacchi di injection JSON, dagli attacchi eval JSON e dalla valutazione delle espressioni JavaScript. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 830 |
 | **5.3.7** | Verificare che l'applicazione si protegga dalle vulnerabilità di injection LDAP o che siano stati implementati controlli di sicurezza specifici per prevenire l'injection LDAP. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 90 |
 | **5.3.8** | Verificare che l'applicazione si protegga dall'injection di comandi del SO e che le chiamate al sistema operativo utilizzino query del SO parametrizzate o la codifica contestuale dell'output della riga di comando. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 78 |
 | **5.3.9** | Verificare che l'applicazione si protegga dagli attacchi di inclusione locale di file (LFI) o inclusione remota di file (RFI). | ✓ | ✓ | ✓ | 829 |
 | **5.3.10** | Verificare che l'applicazione si protegga dagli attacchi di injection XPath o injection XML. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 643 |
 
-Nota: L'utilizzo di query SQL con parametri o escaping del codice SQL non è sempre sufficiente per prevenire le injection. Nome delle tabelle, colonne, clausole ORDER BY e così via non possono essere sottoposte a escaping. L'inclusione di dati forniti dall'utente sottoposti a escaping in questi campi può causare query fallite o injection SQL.
+Nota: L'utilizzo di query SQL parametrizzate o l'escaping del codice SQL non è sempre sufficiente a prevenire le injection. Nomi di tabelle, colonne, clausole ORDER BY e altri elementi simili non possono essere soggetti a escaping. L'inclusione di dati forniti dall'utente, anche se sottoposti a escaping, in questi campi può portare a query errate o a vulnerabilità di injection SQL.
 
-Nota: Il formato SVG consente esplicitamente script ECMA in quasi tutti i contesti, pertanto potrebbe non essere possibile bloccare completamente tutti i vettori XSS SVG. Se è richiesto il caricamento di SVG, si consiglia vivamente di servire questi file come testo/semplice o di utilizzare un dominio separato per il contenuto fornito dall'utente per impedire che un XSS di successo prenda il controllo dell'applicazione.
+Nota: Il formato SVG consente esplicitamente l'esecuzione di script ECMA in quasi tutti i contesti, il che potrebbe rendere impossibile bloccare completamente tutti i vettori XSS basati su SVG. Se il caricamento di file SVG è necessario, si raccomanda fortemente di servire tali file con il tipo MIME testo/plain o di utilizzare un dominio separato per i contenuti forniti dagli utenti, in modo da evitare che un attacco XSS riuscito possa compromettere l'intera applicazione.
 
 ## V5.4 Memoria, Stringhe e Codice Non Gestito
 
@@ -64,7 +64,7 @@ I seguenti requisiti si applicano solo quando l'applicazione utilizza un linguag
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.4.1** | Verificare che l'applicazione utilizzi stringhe di memoria sicure, copie di memoria più sicure e operazioni aritmetiche su puntatori per rilevare o prevenire overflow dello stack, del buffer o dell'heap. | | ✓ | ✓ | 120 |
+| **5.4.1** | Verificare che l'applicazione utilizzi stringhe memory-safe, copie di memoria sicure e operazioni aritmetiche su puntatori per rilevare o prevenire overflow dello stack, del buffer o dell'heap. | | ✓ | ✓ | 120 |
 | **5.4.2** | Verificare che le format string non accettino input potenzialmente ostile e siano immutabili. | | ✓ | ✓ | 134 |
 | **5.4.3** | Verificare che vengano utilizzate tecniche di convalida del segno, dell'intervallo e dell'input per prevenire overflow di interi. | | ✓ | ✓ | 190 |
 
