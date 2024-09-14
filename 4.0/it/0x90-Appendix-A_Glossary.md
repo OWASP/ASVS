@@ -9,7 +9,7 @@
 - **Automated Verification** – L'utilizzo di strumenti automatizzati (strumenti di analisi dinamica, strumenti di analisi statica o entrambi) che utilizzano firme di vulnerabilità per individuare problemi.
 - **Black box testing** – È un metodo di test del software che esamina le funzionalità di un'applicazione senza analizzare le sue strutture o il suo funzionamento interno.
 - **Component** – Un'unità di codice autoconsistente, con interfacce disco e di rete associate che comunica con altri componenti.
-- **Cross-Site Scripting** (XSS) – Una vulnerabilità di sicurezza che si trova tipicamente nelle applicazioni web e consente l'iniezione di script lato client nel contenuto.
+- **Cross-Site Scripting** (XSS) – Una vulnerabilità di sicurezza che si trova tipicamente nelle applicazioni web e consente l'injection di script lato client nel contenuto.
 - **Cryptographic module** – Hardware, software e/o firmware che implementa algoritmi crittografici e/o genera chiavi crittografiche.
 - **Common Weakness Enumeration** (CWE) - Un elenco sviluppato dalla comunità delle comuni debolezze di sicurezza del software. Serve come linguaggio comune, come metro di misura per gli strumenti di sicurezza software e come base per gli sforzi di identificazione, mitigazione e prevenzione delle debolezze.
 - **Design Verification** – La valutazione tecnica dell'architettura di sicurezza di un'applicazione.

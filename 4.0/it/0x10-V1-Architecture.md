@@ -56,7 +56,7 @@ Il termine "client non affidabile" si riferisce, in questo contesto, alle tecnol
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.5.1** | Verificare che i requisiti di input e output definiscano chiaramente come gestire ed elaborare i dati in base al tipo, al contenuto, alle leggi in vigore, ai regolamenti e alla conformità ad altre policy applicabili. | | ✓ | ✓ | 1029 |
-| **1.5.2** | Verificare che la serializzazione non venga utilizzata nelle comunicazioni con client non affidabili. Se inevitabile, applicare controlli di integrità adeguati (e possibilmente la crittografia se vengono inviati dati sensibili) per prevenire attacchi di deserializzazione, inclusa l'iniezione di oggetti. | | ✓ | ✓ | 502 |
+| **1.5.2** | Verificare che la serializzazione non venga utilizzata nelle comunicazioni con client non affidabili. Se inevitabile, applicare controlli di integrità adeguati (e possibilmente la crittografia se vengono inviati dati sensibili) per prevenire attacchi di deserializzazione, inclusa l'injection di oggetti. | | ✓ | ✓ | 502 |
 | **1.5.3** | Verificare che la convalida degli input venga applicata su un livello di servizio trusted. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 602 |
 | **1.5.4** | Verificare che la codifica dell'output avvenga vicino o dall'interprete per il quale è destinata. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 116 |
 
