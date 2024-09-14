@@ -2,11 +2,11 @@
 
 ## Obiettivo del controllo
 
-Con autorizzazione si intende il concetto per consentire l'accesso alle risorse solo a coloro che sono autorizzati a utilizzarle. Garantire che un'applicazione verificata soddisfi i seguenti requisiti di alto livello:
+Con il termine autorizzazione si intende il processo di consentire l'accesso alle risorse solo a coloro che sono autorizzati a utilizzarle. È essenziale che un'applicazione verificata soddisfi i seguenti requisiti di alto livello:
 
-* Gli utenti che accedono alle risorse dispongono di credenziali valide per farlo.
-* Agli utenti sono associati un set ben definito di ruoli e privilegi.
-* I metadati di ruoli e permessi sono protetti da replay o manomissione (tampering).
+* Gli utenti che accedono alle risorse devono disporre di credenziali valide.
+* Agli utenti devono essere associati ruoli e privilegi ben definiti.
+* I metadati di ruoli e permessi devono essere protetti da attacchi di replay o manomissione (tampering).
 
 ## Requisiti di verifica della sicurezza
 
@@ -24,16 +24,16 @@ Con autorizzazione si intende il concetto per consentire l'accesso alle risorse 
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.2.1** | Verificare che i dati sensibili e le API siano protetti da attacchi IDOR (Insecure Direct Object Reference). Questi attacchi mirano alla creazione, lettura, aggiornamento ed eliminazione di record, come la ad esempio quelli appartenenti ad un altro utente, la visualizzazione dei record di tutti gli utenti o l'eliminazione di tutti i record. | ✓ | ✓ | ✓ | 639 |
-| **4.2.2** | Verificare che l'applicazione o il framework implementi un meccanismo anti-CSRF robusto per proteggere le funzionalità autenticate e che un meccanismo anti-automazione o anti-CSRF efficace protegga le funzionalità non autenticate. | ✓ | ✓ | ✓ | 352 |
+| **4.2.1** | Verificare che i dati sensibili e le API siano protetti da attacchi IDOR (Insecure Direct Object Reference). Questi attacchi mirano alla creazione, lettura, aggiornamento ed eliminazione di record, come ad esempio quelli appartenenti ad altri utenti, la visualizzazione di tutti i record o l'eliminazione di tutti i dati. | ✓ | ✓ | ✓ | 639 |
+| **4.2.2** | Verificare che l'applicazione o il framework implementi un meccanismo anti-CSRF robusto per proteggere le funzionalità autenticate e che un meccanismo anti-automazione o anti-CSRF efficace protegga anche le funzionalità non autenticate. | ✓ | ✓ | ✓ | 352 |
 
 ## V4.3 Ulteriori considerazioni sul controllo degli accessi
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **4.3.1** | Verificare che le interfacce di amministrazione utilizzino un'adeguata autenticazione a due fattori per prevenire l'utilizzo non autorizzato. | ✓ | ✓ | ✓ | 419 |
-| **4.3.2** | Verificare che il directory listing sia disabilitato a meno che non sia espressamente voluto. Inoltre, le applicazioni non devono consentire la scoperta o la divulgazione di metadati di file o directory, come cartelle Thumbs.db, .DS_Store, .git o .svn. | ✓ | ✓ | ✓ | 548 |
-| **4.3.3** | Verificare che l'applicazione disponga di un'autorizzazione aggiuntiva (step-up o adattiva) per i sistemi di basso valore e/o separazione dei compiti per le applicazioni di alto valore per applicare controlli antifrode in base al rischio dell'applicazione e alle frodi passate. | | ✓ | ✓ | 732 |
+| **4.3.2** | Verificare che il directory listing sia disabilitato a meno che non sia espressamente richiesto. Inoltre, le applicazioni non devono consentire la scoperta o la divulgazione di metadati di file o directory, come cartelle Thumbs.db, .DS_Store, .git o .svn. | ✓ | ✓ | ✓ | 548 |
+| **4.3.3** | Verificare che l'applicazione implementi un'autorizzazione aggiuntiva (step-up o adattiva) per i sistemi di basso valore e/o separazione dei compiti per le applicazioni di alto valore, al fine di applicare controlli antifrode in base al rischio e alle frodi passate. | | ✓ | ✓ | 732 |
 
 ## Riferimenti
 
