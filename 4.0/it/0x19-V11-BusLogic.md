@@ -4,18 +4,18 @@
 
 Verificare che un'applicazione soddisfi i seguenti requisiti di alto livello:
 
-* Il flusso della logica di business deve essere sequenziale, elaborato in ordine e non deve poter essere aggirato.
-* La logica di business deve includere limiti per rilevare e prevenire attacchi automatizzati, come trasferimenti di fondi continui di piccolo importo o l'aggiunta di un milione di amici contemporaneamente.
-* I flussi della logica di business ad alto valore devono tenere conto di possibili abusi e attori malintenzionati, e devono essere dotati di protezioni contro attacchi di spoofing (falsificazione), manomissione, divulgazione di informazioni e escalation di privilegi.
+* Il flusso della logica di business deve essere sequenziale, elaborato nell'ordine corretto e non deve essere aggirabile.
+* La logica di business deve includere limiti per rilevare e prevenire attacchi automatizzati, come trasferimenti di fondi ripetuti di piccolo importo o l'aggiunta massiva di utenti (ad esempio, un milione di amici contemporaneamente).
+* I flussi della logica di business ad alto valore devono considerare possibili abusi e attori malintenzionati, e devono includere protezioni contro attacchi di spoofing, manomissione, divulgazione di informazioni e escalation di privilegi.
 
 ## V11.1 Sicurezza della logica di business
 
-La sicurezza della logica di business è così specifica per ogni applicazione che non esiste una lista di controllo univoca applicabile universalmente. La sicurezza della logica di business deve essere progettata per proteggersi da probabili minacce esterne - non può essere aggiunta utilizzando firewall per applicazioni web o comunicazioni sicure. Si raccomanda l'utilizzo del threat modeling durante le fasi di progettazione, ad esempio utilizzando OWASP Cornucopia o strumenti simili.
+La sicurezza della logica di business è così specifica per ogni applicazione che non esiste una lista di controllo universale. Deve essere progettata per proteggersi da minacce esterne probabili e non può essere implementata successivamente tramite firewall per applicazioni web o comunicazioni sicure. Si raccomanda di utilizzare il threat modeling durante le fasi di progettazione, ad esempio attraverso strumenti come OWASP Cornucopia o simili.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **11.1.1** | Verificare che l'applicazione elabori i flussi della logica di business per lo stesso utente solo in sequenza e senza saltare passaggi. | ✓ | ✓ | ✓ | 841 |
-| **11.1.2** | Verificare che l'applicazione elabori i flussi della logica di business solo con tutti i passaggi completati in un lasso di tempo umano realistico, ovvero le transazioni non vengono inviate troppo rapidamente. | ✓ | ✓ | ✓ | 799 |
+| **11.1.2** | Verificare che l'applicazione elabori i flussi della logica di business solo con tutti i passaggi completati in un lasso di tempo umano realistico, ovvero le transazioni non vengano eseguite troppo rapidamente. | ✓ | ✓ | ✓ | 799 |
 | **11.1.3** | Verificare che l'applicazione abbia limiti appropriati per azioni o transazioni aziendali specifiche, applicati correttamente su base per utente. | ✓ | ✓ | ✓ | 770 |
 | **11.1.4** | Verificare che l'applicazione disponga di controlli anti-automazione per proteggersi da chiamate eccessive, come esfiltrazione di massa di dati, richieste di logica di business, caricamenti di file o attacchi denial of service. | ✓ | ✓ | ✓ | 770 |
 | **11.1.5** | Verificare che l'applicazione disponga di limiti o convalide della logica di business per proteggersi da probabili rischi o minacce aziendali, identificati mediante threat modeling o metodologie simili. | ✓ | ✓ | ✓ | 841 |
