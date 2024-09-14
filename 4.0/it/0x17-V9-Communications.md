@@ -5,22 +5,22 @@
 Assicurarsi che l'applicazione rispetti i seguenti requisiti di alto livello:
 
 * È necessaria la crittografia TLS o una crittografia equivalente, indipendentemente dalla riservatezza del contenuto.
-* Segui le linee guida più recenti, inclusi:
+* Seguire le linee guida più recenti, comprese:
   * Consigli sulla configurazione
   * Cifrari e algoritmi consigliati
-* Evita algoritmi e cifrature deboli o che saranno presto deprecati, a meno che non sia strettamente necessario.
-* Disabilita algoritmi e cifrature deprecati o noti per essere insicuri.
+* Evitare l'uso di algoritmi e cifrature deboli o prossimi alla deprecazione, salvo necessità specifiche.
+* Disabilitare algoritmi e cifrature deprecati o noti per essere insicuri.
 
 All'interno di questi requisiti:
 
-* Tieni traccia dei consigli del settore sulla configurazione sicura di TLS, poiché cambiano frequentemente (spesso a causa di vulnerabilità critiche in algoritmi e cifrature esistenti).
-* Utilizza le versioni più recenti degli strumenti di revisione della configurazione TLS per impostare l'ordine preferito e la selezione degli algoritmi.
-* Verifica la validità e la attendibilità dei certificati utilizzati per l'autenticazione TLS.
+* Seguire costantemente i consigli del settore sulla configurazione sicura di TLS, poiché tali indicazioni cambiano frequentemente a causa di vulnerabilità critiche rilevate in algoritmi e cifrature esistenti.
+* Utilizzare le versioni più aggiornate degli strumenti di revisione della configurazione TLS per definire l'ordine preferito e la selezione degli algoritmi.
+* Verificare la validità e l'attendibilità dei certificati utilizzati per l'autenticazione TLS.
 
 ## V9.1 Sicurezza della Comunicazione lato Client
 
 Garantire che tutti i messaggi client vengano inviati su reti crittografate, utilizzando TLS 1.2 o versioni successive. 
-Utilizzare strumenti aggiornati per esaminare regolarmente la configurazione client.
+Utilizzare strumenti aggiornati per esaminare regolarmente la configurazione del client.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -30,7 +30,7 @@ Utilizzare strumenti aggiornati per esaminare regolarmente la configurazione cli
 
 ## V9.2 Sicurezza della Comunicazione lato Server
 
-La comunicazione server va oltre il semplice HTTP. Devono essere implementate connessioni sicure da e verso altri sistemi, come sistemi di monitoraggio, strumenti di gestione, accesso remoto e SSH, middleware, database, mainframe, sistemi partner o sorgenti esterne. Tutte queste connessioni devono essere crittografate per evitare situazioni in cui le difese perimetrali siano robuste, ma l'intercettazione interna sia banale.
+La comunicazione server va oltre il semplice HTTP. Devono essere implementate connessioni sicure da e verso altri sistemi, come sistemi di monitoraggio, strumenti di gestione, accesso remoto e SSH, middleware, database, mainframe, sistemi partner o sorgenti esterne. Tutte queste connessioni devono essere crittografate per evitare situazioni in cui le difese perimetrali siano robuste, ma l'intercettazione interna risulti banale.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
