@@ -9,7 +9,7 @@ Verificare che un'applicazione soddisfi i seguenti requisiti di alto livello:
 
 ## V12.1 Caricamento di file
 
-Sebbene gli attacchi "Zip Bomb" siano facilmente testabili utilizzando tecniche di penetration testing, vengono considerati di livello L2 e superiore per incoraggiare la progettazione e lo sviluppo con un'attenta revisione manuale, evitando test di penetration testing automatizzati o manuali non qualificati per individuare condizioni di denial-of-service.
+Sebbene gli attacchi "Zip Bomb" siano facilmente testabili tramite tecniche di penetration testing, sono classificati come di livello L2 e superiore per incoraggiare una progettazione e uno sviluppo accurati, con una revisione manuale attenta. Questo evita il ricorso a test di penetration testing automatizzati o manuali non qualificati per individuare condizioni di denial-of-service.
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
