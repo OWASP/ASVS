@@ -102,6 +102,7 @@ If you are interested in creating a translation, here are some pointers for how 
         * French
         * German
         * Portuguese
+        * Italian
     * v4.0.2
         * German
         * Russian
