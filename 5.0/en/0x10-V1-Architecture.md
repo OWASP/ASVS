@@ -128,7 +128,7 @@ This is a placeholder for future architectural requirements.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.14.1** | [MODIFIED] Verify the segregation of back-end components of differing trust levels through well-defined security controls, firewall rules, API gateways, reverse proxies, cloud-based security groups, or similar mechanisms. | | ✓ | ✓ | 923 |
+| **1.14.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
