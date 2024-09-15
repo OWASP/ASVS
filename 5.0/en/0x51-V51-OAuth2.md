@@ -14,7 +14,7 @@ There are various different personas in the OAuth process, described in more det
 | **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation to prevent token replay attacks. Refresh token rotation prevents usage in the event of a compromised refresh token. Sender-constrained refresh tokens cryptographically binds the refresh token to a particular Client. | ✓ | ✓ | ✓ |
 | **51.1.5** | [ADDED] Verify that if a Client sends a valid PKCE "code_challenge" parameter in the authorization request, the Authorization Server enforces the correct usage of "code_verifier" at the token endpoint. | ✓ | ✓ | ✓ |
 | **51.1.6** | [ADDED] Verify that the Resource Owner password credentials grant is not used or configured by the Authorization Server. This grant type insecurely exposes the credentials of the Resource Owner to the client, increasing the attack surface of the application. | ✓ | ✓ | ✓ |
-| **51.1.7** | [ADDED] Verify that the Authorization Server validates redirect URIs based on a client-specific allow list of pre-registered URIs using exact string comparison. | ✓ | ✓ | ✓ |
+| **51.1.7** | [ADDED] Verify that the Authorization Server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | ✓ | ✓ | ✓ |
 
 ## V51.2 OAuth Client
 

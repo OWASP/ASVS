@@ -16,7 +16,7 @@ Although zip bombs can be effectively tested using penetration testing technique
 | **12.1.1** | [MODIFIED] Verify that the application will only accept files of a size which it can process without causing a loss of performance or denial of service attack. | ✓ | ✓ | ✓ | 400 |
 | **12.1.2** | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | | ✓ | ✓ | 409 |
 | **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
-| **12.1.4** | [ADDED] Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allow list of the files that can be symlinked to). | | ✓ | ✓ | 61 |
+| **12.1.4** | [ADDED] Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | | ✓ | ✓ | 61 |
 
 ## V12.2 File Integrity and Content
 
