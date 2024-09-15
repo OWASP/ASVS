@@ -38,17 +38,17 @@ Nella versione 4.0, abbiamo deciso di rendere il Livello ASVS 1 completamente te
 
 Per le valutazioni di Livello 2 o 3, è preferibile avere accesso a sviluppatori, documentazione, codice sorgente e a un ambiente di test con dati non di produzione. Il penetration testing a questi livelli richiede questo tipo di accesso, definito "revisioni ibride" o "penetration test ibridi", per eseguire un'analisi più approfondita e accurata.
 
-## Altri utilizzi per la ASVS
+## Altri utilizzi del ASVS
 
 L'ASVS non è solo utile per valutare la sicurezza di un'applicazione, ma ha anche diversi altri potenziali impieghi.
 
-### Come guida dettagliata per l'architettura della sicurezza
+### Come guida completa per l'architettura della sicurezza
 
 Uno degli utilizzi più comuni dell'Application Security Verification Standard (ASVS) è come risorsa per gli architetti della sicurezza. Lo Sherwood Applied Business Security Architecture (SABSA) non fornisce molte delle informazioni necessarie per una revisione completa dell'architettura di sicurezza delle applicazioni. L'ASVS può colmare queste lacune, aiutando gli architetti della sicurezza a selezionare controlli più efficaci per affrontare problemi comuni, come i modelli di protezione dei dati e le strategie di convalida degli input.
 
-### Come sostituto degli elenchi di controllo predefiniti per la codifica sicura
+### Come alternativa agli elenchi di controllo predefiniti per la codifica sicura
 
-Molte organizzazioni possono beneficiare dell'adozione dell'ASVS, scegliendo uno dei tre livelli o modificandolo per adattare i requisiti a ciascun livello di rischio specifico per il proprio dominio. Incoraggiamo questo tipo di personalizzazione, a condizione che venga mantenuta la tracciabilità. In questo modo, se un'applicazione soddisfa il requisito 4.1, il risultato sarà coerente anche nelle versioni modificate rispetto allo standard originale, man mano che evolve.
+Molte organizzazioni possono beneficiare dell'adozione del ASVS, scegliendo uno dei tre livelli o modificandolo per adattare i requisiti a ciascun livello di rischio specifico per il proprio dominio. Incoraggiamo questo tipo di personalizzazione, a condizione che venga mantenuta la tracciabilità. In questo modo, se un'applicazione soddisfa il requisito 4.1, il risultato sarà coerente anche nelle versioni modificate rispetto allo standard originale, man mano che evolve.
 
 ### Come guida per unit test e test di integrazione automatizzati
 
@@ -58,7 +58,7 @@ L'ASVS è progettato per essere altamente testabile, ad eccezione dei requisiti 
 
 L'ASVS può essere utilizzato anche per definire le caratteristiche di un software sicuro. Molti corsi di "programmazione sicura" tendono a concentrarsi principalmente su tecniche di hacking etico, offrendo solo alcuni suggerimenti di programmazione, il che potrebbe non essere sufficiente per aiutare gli sviluppatori a scrivere codice più sicuro. Invece, i corsi di sviluppo sicuro possono basarsi sull'ASVS, ponendo maggiore enfasi sui controlli proattivi descritti nello standard, piuttosto che focalizzarsi solo sui 10 principali rischi da evitare. Questo approccio fornisce agli sviluppatori una guida pratica e concreta per costruire applicazioni sicure fin dall'inizio.
 
-### Come motore per la sicurezza delle applicazioni agili
+### Come catalizzatore per la sicurezza agile delle applicazioni
 
 L'ASVS può essere utilizzato in un processo di sviluppo agile come framework per definire attività specifiche necessarie a garantire un prodotto sicuro. Un approccio potrebbe consistere nel partire dal Livello 1, verificando l'applicazione o il sistema rispetto ai requisiti ASVS per il livello selezionato, individuando i controlli mancanti e creando ticket o attività specifiche nel backlog. Questo aiuta a dare priorità alle attività di sicurezza (o grooming) e rende la sicurezza una parte visibile e integrata del processo agile. L'ASVS può anche essere utilizzato per dare priorità ad attività di audit e revisione, dove un requisito specifico guida la revisione, il refactoring o l'audit da parte di un membro del team, e viene trattato come "debito" nel backlog, che dovrà essere risolto nel tempo.
 

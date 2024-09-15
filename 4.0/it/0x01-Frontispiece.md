@@ -4,7 +4,7 @@
 
 La Application Security Verification Standard è una lista di requisiti o test per la sicurezza delle applicazioni che può essere utilizzata da architetti del software, sviluppatori, tester, security professionals, tool vendors, e utenti per definire, realizzare, testare e verificare la sicurezza delle applicazioni.
 
-## Copyright and Licenza
+## Copyright e Licenza
 
 Version 4.0.3, October 2021
 
@@ -27,7 +27,7 @@ Copyright © 2008-2021 The OWASP Foundation. Questo documento è rilasciato sott
 | Ralph Andalis 	| Ron Perris     	| Sjoerd Langkemper 	|
 | Tonimir Kisasondi |               	|                   	|
 
-## Altri Contributors e Revisori
+## Altri Contributori e Revisori
 
 |                     |                    |                   |                  |                   |
 | ------------------- | ------------------ | ----------------- | ---------------- | ----------------- |

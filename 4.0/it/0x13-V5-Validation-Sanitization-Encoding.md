@@ -37,7 +37,7 @@ L'implementazione corretta dei controlli di convalida dell'input, utilizzando al
 | **5.2.7** | Verificare che l'applicazione sanitizzi, disabiliti o esegua in sandbox contenuti SVG (Scalable Vector Graphics) scriptabili forniti dall'utente, in particolare quelli relativi a XSS derivanti da script inline e foreignObject. | ✓ | ✓ | ✓ | 159 |
 | **5.2.8** | Verificare che l'applicazione sanitizzi, disabiliti o esegua in sandbox contenuti forniti dall'utente in linguaggi di scripting o di templating come Markdown, fogli di stile CSS o XSL, BBCode o simili. | ✓ | ✓ | ✓ | 94 |
 
-## V5.3 V5.3 Codifica dell'output e prevenzione delle injection
+## V5.3 Codifica dell'output e prevenzione dalle injection
 
 L'applicazione della codifica dell'output nelle immediate vicinanze o direttamente all'interno dell'interprete utilizzato è fondamentale per garantire la sicurezza di qualsiasi applicazione. Generalmente, la codifica dell'output non viene memorizzata in modo permanente, ma serve a rendere sicuro l'output nel contesto appropriato per un utilizzo immediato. La mancata codifica dell'output rende l'applicazione vulnerabile a iniezioni e potenzialmente pericolosa.
 

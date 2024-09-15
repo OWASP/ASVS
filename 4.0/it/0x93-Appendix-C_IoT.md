@@ -10,7 +10,7 @@ I dispositivi Embedded/IoT devono:
 * I dati sensibili memorizzati sul dispositivo devono essere protetti in modo sicuro utilizzando meccanismi supportati dall'hardware, come secure element.
 * Tutti i dati sensibili trasmessi dal dispositivo devono utilizzare la sicurezza a livello di trasporto.
 
-## Security Verification Requirements
+## Requisiti di Verifica della Sicurezza
 
 | # | Descrizione | L1 | L2 | L3 | Da |
 | --- | --- | --- | --- | -- | -- |

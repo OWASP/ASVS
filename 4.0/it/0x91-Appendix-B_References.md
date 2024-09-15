@@ -2,7 +2,7 @@
 
 I seguenti progetti OWASP sono probabilmente i più utili per gli utenti/adottatori di questo standard:
 
-## OWASP Core Projects
+## Progetti principali OWASP  
 
 1. OWASP Top 10 Project: [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
 2. OWASP Web Security Testing Guide: [https://owasp.org/www-project-web-security-testing-guide/](https://owasp.org/www-project-web-security-testing-guide/)
@@ -10,23 +10,23 @@ I seguenti progetti OWASP sono probabilmente i più utili per gli utenti/adottat
 4. OWASP Security Knowledge Framework: [https://owasp.org/www-project-security-knowledge-framework/](https://owasp.org/www-project-security-knowledge-framework/)
 5. OWASP Software Assurance Maturity Model (SAMM): [https://owasp.org/www-project-samm/](https://owasp.org/www-project-samm/)
 
-## OWASP Cheat Sheet Series project
+## Progetti OWASP Cheat Sheet  
 
-[Questo progetto](https://owasp.org/www-project-cheat-sheets/) contiene una serie di cheat sheet rilevanti per diversi argomenti dell'ASVS.
+[Questo progetto](https://owasp.org/www-project-cheat-sheets/) contiene una serie di cheat sheet rilevanti per diversi argomenti del ASVS.
 
 È disponibile una mappatura con l'ASVS che può essere trovata qui: [https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html](https://cheatsheetseries.owasp.org/cheatsheets/IndexASVS.html)
 
-## Mobile Security Related Projects
+## Progetti realitivi alla sicurezza Mobile 
 
 1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
 2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
 3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
 
-## OWASP Internet of Things related projects
+## Progetti OWASP relativi all'Internet of Things  
 
 1. OWASP Internet of Things Project: [https://owasp.org/www-project-internet-of-things/](https://owasp.org/www-project-internet-of-things/)
 
-## OWASP Serverless projects
+## Progetti OWASP relativi all'ambiente Serverless 
 
 1. OWASP Serverless Project: [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
 

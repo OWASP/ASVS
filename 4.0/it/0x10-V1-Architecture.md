@@ -73,34 +73,34 @@ I requisiti architetturali riguardano l'intero sistema e sono quindi difficili d
 | **1.6.3** | Verificare che tutte le chiavi e le password siano sostituibili e facciano parte di un processo ben definito per la ri-crittografia dei dati sensibili. | | ✓ | ✓ | 320 |
 | **1.6.4** | Verificare che l'architettura consideri i segreti lato client, come chiavi simmetriche, password o token API, come non sicuri e non li utilizzi mai per proteggere o accedere a dati sensibili. | | ✓ | ✓ | 320 |
 
-## V1.7 Architettura Errori, Logging e Audit
+## V1.7 Architettura di Errori, Logging e Audit
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.7.1** | Verificare che venga utilizzato un formato e un approccio di logging comune in tutto il sistema. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 1009 |
 | **1.7.2** | Verificare che i log vengano trasmessi in modo sicuro a un sistema, preferibilmente remoto, per analisi, rilevamento, allerta e escalation. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 
-## V1.8 Architettura Protezione Dati e Privacy
+## V1.8 Architettura per Protezione Dati e Privacy
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.8.1** | Verificare che tutti i dati sensibili siano identificati e classificati con adeguati livelli di protezione. | | ✓ | ✓ | |
 | **1.8.2** | Verificare che a tutti i livelli di protezione sia associato un set di requisiti di protezione, come requisiti di crittografia, requisiti di integrità, conservazione, privacy e altri requisiti di riservatezza, e che questi vengano applicati nell'architettura. | | ✓ | ✓ | |
 
-## V1.9 Architettura Comunicazione
+## V1.9 Architettura della Comunicazione
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.9.1** | Verificare che l'applicazione crittografi le comunicazioni tra componenti, in particolare quando questi componenti si trovano in container, sistemi, siti o provider cloud diversi. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 319 |
 | **1.9.2** | Verificare che i componenti applicativi verifichino l'autenticità di ciascuna parte in un collegamento di comunicazione per prevenire attacchi man-in-the-middle. Ad esempio, i componenti dell'applicazione dovrebbero validare i certificati e le catene TLS. | | ✓ | ✓ | 295 |
 
-## V1.10 Architettura Software Maligno
+## V1.10 Architettura del Software Maligno
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.10.1** | Verificare l'utilizzo di un sistema di controllo del codice sorgente, con procedure per garantire che i check-in siano accompagnati da segnalazioni o ticket di modifica. Il sistema di controllo del codice sorgente deve disporre di controlli di accesso e utenti identificabili per consentire la tracciabilità di qualsiasi modifica. | | ✓ | ✓ | 284 |
 
-## V1.11 Architettura Logica di Business
+## V1.11 Architettura della Logica di Business
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
@@ -108,18 +108,18 @@ I requisiti architetturali riguardano l'intero sistema e sono quindi difficili d
 | **1.11.2** | Verificare che tutti i flussi logici di business di alto valore, inclusi autenticazione, gestione sessioni e controllo degli accessi, sincronizzino correttamente lo stato. | | ✓ | ✓ | 362 |
 | **1.11.3** | Verificare che tutti i flussi logici di business di alto valore, inclusi autenticazione, gestione sessioni e controllo degli accessi, siano thread-safe e resistenti a race conditions quali "time-of-check" e "time-of-use". | | | ✓ | 367 |
 
-## V1.12 Architettura Caricamento Sicuro di File
+## V1.12 Architettura del Caricamento Sicuro di File
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **1.12.1** | [ELIMINATO, DUPLICATO DI 12.4.1] | | | | |
 | **1.12.2** | Verificare che i file caricati dagli utenti - se devono essere visualizzati o scaricati dall'applicazione - vengano serviti tramite octet stream o da un dominio non correlato, come un bucket di archiviazione file cloud. Implementare una Content Security Policy (CSP) adeguata per ridurre il rischio di vettori XSS o altri attacchi. | | ✓ | ✓ | 646 |
 
-## V1.13 API Architecture
+## V1.13 Architettura delle API
 
 Questo è un segnaposto per requisiti architetturali futuri.
 
-## V1.14 Configuration Architecture
+## V1.14 Architettura della Configurazione
 
 | # | Descrizione | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
