@@ -8,7 +8,7 @@ There are various different personas in the OAuth process, described in more det
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.1.1** | [ADDED] Verify that the Authorization Server supports CSRF protection either using the mechanism provided by PKCE, the "nonce" parameter or the "state" parameter. | ✓ | ✓ | ✓ |
+| **51.1.1** | [placeholder] | | | |
 | **51.1.2** | [ADDED] Verify that the replay of authorization codes into the authorization response is prevented either by using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started. | ✓ | ✓ | ✓ |
 | **51.1.3** | [ADDED] Verify that Authorization Servers are mitigating PKCE Downgrade Attacks by ensuring a token request containing a "code_verifier" parameter is accepted only if a "code_challenge" parameter was present in the authorization request. | ✓ | ✓ | ✓ |
 | **51.1.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation to prevent token replay attacks. Refresh token rotation prevents usage in the event of a compromised refresh token. Sender-constrained refresh tokens cryptographically binds the refresh token to a particular Client. | ✓ | ✓ | ✓ |
@@ -24,6 +24,7 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. | ✓ | ✓ | ✓ |
 | **51.2.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the Resource Server they want to access. | ✓ | ✓ | ✓ |
 | **51.2.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
+| **51.2.5** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against CSRF attacks for triggering token requests using PKCE functionality or checking the state parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
 
 ## V51.3 Resource Server
 
