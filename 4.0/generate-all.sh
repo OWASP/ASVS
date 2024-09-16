@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-ALLOWED_LANGS='ar de en es fr pt ru zh-cn'
+ALLOWED_LANGS='ar de en es fr pt ru zh-cn it'
 
 echo $@
 
