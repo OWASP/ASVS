@@ -9,6 +9,7 @@ There are various different personas in the OAuth process, described in more det
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.1.1** | [ADDED] Verify that tokens (such as ID tokens, access tokens and refresh tokens) can only be used for their intended purpose. For example, ID tokens can only be used to prove user authentication for the client. | ✓ | ✓ | ✓ |
+| **51.1.2** | [ADDED] Verify that tokens are only sent to components that strictly need them. For example, avoid having access or refresh tokens accessible for the frontend when they are only needed by the backend. | ✓ | ✓ | ✓ |
 
 ## V51.2 OAuth Authorization Server
 
