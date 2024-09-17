@@ -24,7 +24,7 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. | ✓ | ✓ | ✓ |
 | **51.2.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the Resource Server they want to access. | ✓ | ✓ | ✓ |
 | **51.2.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
-| **51.2.5** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against CSRF attacks for triggering token requests using PKCE functionality or checking the state parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
+| **51.2.5** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against CSRF attacks which trigger token requests, either by using PKCE functionality or checking the state parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
 
 ## V51.3 Resource Server
 
