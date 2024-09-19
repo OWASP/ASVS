@@ -28,7 +28,7 @@ When designing authentication systems, the strength of hardware-enabled multi-fa
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.2.1** | [MOVED TO 1.14.7] | | | | |
+| **1.2.1** | [MOVED TO 14.6.2] | | | | |
 | **1.2.2** | [MODIFIED] Verify that communications between back-end application components, including APIs, middleware and data layers, are authenticated and use individual user accounts. | | ✓ | ✓ | 306 |
 | **1.2.3** | [MODIFIED] Verify that the application uses a single vetted user authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
 | **1.2.4** | [MODIFIED, SPLIT TO 2.2.11] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | | ✓ | ✓ | 306 |
@@ -134,8 +134,7 @@ This is a placeholder for future architectural requirements.
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [MODIFIED] Verify that application deployments adequately sandbox or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | | ✓ | ✓ | 265 |
 | **1.14.6** | [MOVED TO 50.7.2] | | | | |
-| **1.14.7** | [MODIFIED, MOVED FROM 1.2.1] Verify the use of unique or special low-privilege operating system accounts for all back-end application components, services, and servers. | | ✓ | ✓ | 250 |
-| **1.14.8** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | | ✓ | ✓ | 348 |
+| **1.14.7** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | | ✓ | ✓ | 348 |
 
 ## References
 
