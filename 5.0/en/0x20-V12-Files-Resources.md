@@ -29,9 +29,9 @@ Although zip bombs can be effectively tested using penetration testing technique
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **12.3.1** | Verify that user-submitted filename metadata is not used directly by system or framework filesystems and that a URL API is used to protect against path traversal. | ✓ | ✓ | ✓ | 22 |
-| **12.3.2** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure, creation, updating or removal of local files (LFI). | ✓ | ✓ | ✓ | 73 |
-| **12.3.3** | Verify that user-submitted filename metadata is validated or ignored to prevent the disclosure or execution of remote files via Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | ✓ | ✓ | ✓ | 73 |
+| **12.3.1** | [MODIFIED, MERGED FROM 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use internal, trusted data for file I/O. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | ✓ | ✓ | ✓ | 73 |
+| **12.3.2** | [DELETED, MERGED TO 12.3.1] | | | | |
+| **12.3.3** | [DELETED, MERGED TO 12.3.1] | | | | |
 | **12.3.4** | [MOVED TO 12.5.3] | | | | |
 | **12.3.5** | [DELETED, DUPLICATE OF 5.3.8] | | | | |
 | **12.3.6** | Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs. | | ✓ | ✓ | 829 |
