@@ -21,7 +21,7 @@ Compliance with this section requires an automated build system, and access to b
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.1.1** | Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts. | | ✓ | ✓ | |
+| **14.1.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **14.1.2** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | | ✓ | ✓ | 120 |
 | **14.1.3** | [MODIFIED] Verify that configuration hardening is performed on all 3rd party products, libraries, frameworks and services as per their individual recommendations. | | ✓ | ✓ | 16 |
 | **14.1.4** | [DELETED, NOT IN SCOPE] | | | | |
