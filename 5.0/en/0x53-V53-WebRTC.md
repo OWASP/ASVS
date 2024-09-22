@@ -50,6 +50,7 @@ Systems that rely solely on peer-to-peer media communication between web browser
 | **53.2.5** | [ADDED] Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | | ✓ | ✓ |
 | **53.2.6** | [ADDED] Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | | ✓ | ✓ |
 | **53.2.7** | [ADDED] Verify that the media server is able to continue processing incoming media traffic when encountering malformed SRTP packets. | | ✓ | ✓ |
+| **53.2.8** | [ADDED] Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | ✓ | ✓ | ✓ |
 
 ## V53.3 Signalling
 
