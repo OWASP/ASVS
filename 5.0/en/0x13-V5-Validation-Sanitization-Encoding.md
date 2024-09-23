@@ -23,6 +23,7 @@ Input validation still provides valuable security hygiene and should be applied 
 | **5.1.5** | [MODIFIED, SPLIT TO 50.7.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | ✓ | ✓ | ✓ | 601 |
 | **5.1.6** | [ADDED] Verify that untrusted input is validated for length before being included in a cookie (including as part of a JWT) and that the cookie name and value length combined are not over 4096 bytes. | | ✓ | ✓ | |
 | **5.1.7** | [ADDED, SPLIT FROM 5.1.4] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | ✓ | ✓ | ✓ | 20 |
+| **5.1.8** | [ADDED] Verify that the application validates that user-controlled input in HTTP request header fields does not exceed the server's maximum header field size limit (usually 4kB or 8kB) to prevent client-based denial of service attacks. | | ✓ | ✓ | |
 
 ## V5.2 Sanitization and Sandboxing
 
