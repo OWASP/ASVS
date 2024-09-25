@@ -20,15 +20,15 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.3** | [ADDED] Verify that, if the code flow is used, the authorization server requires the use of PKCE to mitigate authorization code interception attacks. For authorization requests, the authorization server must require a valid code_challenge value and must only accept code_challenge_method value S256 (plain is not allowed). For a token request, it must require a code_verifier whose value is matching with the code_challenge. | ✓ | ✓ | ✓ |
 | **51.2.4** | [ADDED] Verify that refresh tokens are sender-constrained or use refresh token rotation to prevent token replay attacks. Refresh token rotation prevents usage in the event of a compromised refresh token. Sender-constrained refresh tokens cryptographically binds the refresh token to a particular Client. | ✓ | ✓ | ✓ |
 | **51.2.5** | [ADDED] Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) should no longer be used. | ✓ | ✓ | ✓ |
-| **51.2.6** | [ADDED] Verify that the Authorization Server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | ✓ | ✓ | ✓ |
+| **51.2.6** | [ADDED] Verify that the authorization server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | ✓ | ✓ | ✓ |
 
 ## V51.3 OAuth Client
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.3.1** | [ADDED] Verify that when an OAuth Client can interact with more than one Authorization Server, Clients should verify that the issuer "iss" parameter value is what it expected from the authorization response to prevent against mix-up attacks. In the absence of "iss" parameter, Clients may instead use distinct redirect URIs to identify authorization endpoints and token endpoints. | ✓ | ✓ | ✓ |
+| **51.3.1** | [ADDED] Verify that when an OAuth Client can interact with more than one authorization server, Clients should verify that the issuer "iss" parameter value is what it expected from the authorization response to prevent against mix-up attacks. In the absence of "iss" parameter, Clients may instead use distinct redirect URIs to identify authorization endpoints and token endpoints. | ✓ | ✓ | ✓ |
 | **51.3.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. | ✓ | ✓ | ✓ |
-| **51.3.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the Resource Server they want to access. | ✓ | ✓ | ✓ |
+| **51.3.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the resource server they want to access. | ✓ | ✓ | ✓ |
 | **51.3.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
 | **51.3.5** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against CSRF attacks which trigger token requests, either by using PKCE functionality or checking the state parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
 
@@ -36,9 +36,9 @@ There are various different personas in the OAuth process, described in more det
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.4.1** | [ADDED] Verify that Resource Servers implement sender-constrained access token mechanisms to mitigate token replay risks. This is achieved by mandating Mutual TLS for OAuth 2.0 or OAuth Demonstration of Proof of Possession (DPoP), using the client secret provided at client registration. | ✓ | ✓ | ✓ |
-| **51.4.2** | [ADDED] Verify that access tokens are restricted to certain Resource Servers (audience restriction), preferably to a single Resource Server. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular Resource Server. If not, the Resource Server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
-| **51.5.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on Resource Servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the Resource Server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
+| **51.4.1** | [ADDED] Verify that resource servers implement sender-constrained access token mechanisms to mitigate token replay risks. This is achieved by mandating Mutual TLS for OAuth 2.0 or OAuth Demonstration of Proof of Possession (DPoP), using the client secret provided at client registration. | ✓ | ✓ | ✓ |
+| **51.4.2** | [ADDED] Verify that access tokens are restricted to certain resource servers (audience restriction), preferably to a single resource server. Every resource server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular resource server. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
+| **51.5.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on resource servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 
 ## Terminology
 
