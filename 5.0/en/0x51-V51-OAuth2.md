@@ -42,6 +42,12 @@ There are various different personas in the OAuth process, described in more det
 | **51.4.2** | [ADDED] Verify that access tokens are restricted to certain resource servers (audience restriction), preferably to a single resource server. Every resource server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular resource server. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 | **51.5.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on resource servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 
+## V51.5 OIDC Client
+
+| # | Description | L1 | L2 | L3 |
+| :---: | :--- | :---: | :---: | :---: |
+| **51.5.1** | [ADDED] Verify that the Client (as the Relying Party) mitigates ID Token replay attacks. For example, by ensuring that the nonce claim in the ID Token matches the nonce value sent in the Authentication Request to the OpenID Provider (in OAuth2 refereed to as the Authorization request sent to the Authorization Server). | ✓ | ✓ | ✓ |
+
 ## Terminology
 
 This chapter uses the terms "Access tokens", "Refresh tokens", "Client", "Authorization Server", "Resource Owner", and "Resource Server" as defined by OAuth 2.0 RFC 6749. As such this chapter defines the following terms:
