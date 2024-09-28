@@ -48,6 +48,12 @@ There are various different personas in the OAuth process, described in more det
 | :---: | :--- | :---: | :---: | :---: |
 | **51.5.1** | [ADDED] Verify that the Client (as the Relying Party) mitigates ID Token replay attacks. For example, by ensuring that the nonce claim in the ID Token matches the nonce value sent in the Authentication Request to the OpenID Provider (in OAuth2 refereed to as the Authorization request sent to the Authorization Server). | ✓ | ✓ | ✓ |
 
+## V51.5 OIDC OpenID Provider
+
+| # | Description | L1 | L2 | L3 |
+| :---: | :--- | :---: | :---: | :---: |
+| **51.6.1** | [ADDED] Verify that the OpenID Provider only allows values 'code', 'ciba', 'id-token', or 'id-token code' for response mode. Note that 'code' is preferred over 'id-token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) should not be used. | ✓ | ✓ | ✓ |
+
 ## Terminology
 
 This chapter uses the terms "Access tokens", "Refresh tokens", "Client", "Authorization Server", "Resource Owner", and "Resource Server" as defined by OAuth 2.0 RFC 6749. As such this chapter defines the following terms:
