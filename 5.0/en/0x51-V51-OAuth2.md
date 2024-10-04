@@ -28,7 +28,7 @@ There are various different personas in the OAuth process, described in more det
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.3.1** | [ADDED] Verify that when an OAuth Client can interact with more than one authorization server, Clients should verify that the issuer "iss" parameter value is what it expected from the authorization response to prevent against mix-up attacks. In the absence of an "iss" parameter, Clients may instead use distinct redirect URIs to identify authorization endpoints and token endpoints. | ✓ | ✓ | ✓ |
+| **51.3.1** | [ADDED] Verify that if the OAuth Client can interact with more than one authorization server it has a defense against mix-up attacks, for example, by requiring that the authorization server returns the 'iss' parameter value and validating it in the authorization response and the token response. | ✓ | ✓ | ✓ |
 | **51.3.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. | ✓ | ✓ | ✓ |
 | **51.3.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the resource server they want to access. | ✓ | ✓ | ✓ |
 | **51.3.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
