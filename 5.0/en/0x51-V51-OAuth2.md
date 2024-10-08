@@ -22,19 +22,19 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.5** | [ADDED] Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) should no longer be used. | ✓ | ✓ | ✓ |
 | **51.2.6** | [ADDED] Verify that the authorization server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | ✓ | ✓ | ✓ |
 | **51.2.7** | [ADDED] Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, PAR requests, token revocation requests, and token introspection requests. | ✓ | ✓ | ✓ |
-| **51.2.8** | [ADDED] Verify that the OAuth Client is assigned only the required scopes in the authorization server configuration. | ✓ | ✓ | ✓ |
+| **51.2.8** | [ADDED] Verify that the authorization server configuration only assigns the required scopes to the OAut. | ✓ | ✓ | ✓ |
 | **51.2.9** | [ADDED] Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | | | ✓ |
 
 ## V51.3 OAuth Client
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.3.1** | [ADDED] Verify that if the OAuth Client can interact with more than one authorization server it has a defense against mix-up attacks, for example, by requiring that the authorization server returns the 'iss' parameter value and validating it in the authorization response and the token response. | ✓ | ✓ | ✓ |
+| **51.3.1** | [ADDED] Verify that, if the OAuth Client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server returns the 'iss' parameter value and validate it in the authorization response and the token response. | ✓ | ✓ | ✓ |
 | **51.3.2** | [ADDED] Verify that the Client is using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. | ✓ | ✓ | ✓ |
 | **51.3.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the resource server they want to access. | ✓ | ✓ | ✓ |
 | **51.3.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
 | **51.3.5** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against CSRF attacks which trigger token requests, either by using PKCE functionality or checking the state parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
-| **51.3.6** | [ADDED] Verify that the OAuth Client has requested only required scopes (or other authorization parameters) in requests to the authorization server. | ✓ | ✓ | ✓ |
+| **51.3.6** | [ADDED] Verify that the OAuth Client only requests the required scopes (or other authorization parameters) from the authorization server. | ✓ | ✓ | ✓ |
 
 ## V51.4 OAuth Resource Server
 
@@ -49,7 +49,7 @@ There are various different personas in the OAuth process, described in more det
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.5.1** | [ADDED] Verify that the Client (as the Relying Party) mitigates ID Token replay attacks. For example, by ensuring that the nonce claim in the ID Token matches the nonce value sent in the Authentication Request to the OpenID Provider (in OAuth2 refereed to as the Authorization request sent to the Authorization Server). | ✓ | ✓ | ✓ |
-| **51.5.2** | [ADDED] Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which can not be reassigned to other users (for the scope of an identity provider). | ✓ | ✓ | ✓ |
+| **51.5.2** | [ADDED] Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | ✓ | ✓ | ✓ |
 
 ## V51.5 OIDC OpenID Provider
 
