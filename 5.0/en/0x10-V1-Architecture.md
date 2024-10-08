@@ -29,7 +29,7 @@ When designing authentication systems, the strength of hardware-enabled multi-fa
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.2.1** | [MOVED TO 14.6.2] | | | | |
-| **1.2.2** | [MODIFIED] Verify that communications between back-end application components, including APIs, middleware and data layers, are authenticated and use individual user accounts. | | ✓ | ✓ | 306 |
+| **1.2.2** | [DELETED, MERGED TO 2.10.1] | | | | |
 | **1.2.3** | [MODIFIED] Verify that the application uses a single vetted user authentication mechanism that is known to be secure, can be extended to include strong authentication, and has sufficient logging and monitoring to detect account abuse or breaches. | | ✓ | ✓ | 306 |
 | **1.2.4** | [MODIFIED, SPLIT TO 2.2.11] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | | ✓ | ✓ | 306 |
 | **1.2.5** | [ADDED] Verify that a list of context specific words are documented in order to prevent their use in passwords. | | ✓ | ✓ | 521 |
