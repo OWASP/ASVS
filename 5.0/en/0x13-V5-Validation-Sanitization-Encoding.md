@@ -10,9 +10,7 @@ This chapter also talks about Input Validation which is a powerful defense in de
 
 ## V5.1 Input Validation
 
-<!--Note from Josh, I think this section should maybe be moved further down as it is less important, I would consider it for 5.4-->
-
- Everything the application uses or processes must be handled as user input, including HTML form fields, REST requests, URL parameters, HTTP headers, cookies, files on disk, databases, external APIs, etc.
+Everything the application uses or processes must be handled as user input, including HTML form fields, REST requests, URL parameters, HTTP headers, cookies, files on disk, databases, external APIs, etc.
 
 Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of servie condition.
 
@@ -30,8 +28,6 @@ Input validation provides valuable hygiene for the application in making sure th
 | **5.1.8** | [ADDED] Verify that the application validates that user-controlled input in HTTP request header fields does not exceed the server's maximum header field size limit (usually 4kB or 8kB) to prevent client-based denial of service attacks. | | ✓ | ✓ | |
 
 ## V5.2 Sanitization and Sandboxing
-
-<!--Note from Josh, I think this section should be moved after Output Encoding and Injection Prevention as it is less important, I would consider it for 5.3-->
 
 The ideal protection against using untrusted content in an unsafe context is using context specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context. This is discussed in more detail in the next section.
 
@@ -56,8 +52,6 @@ Where it is not possible to do this, other options include sanitization and sand
 Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user-supplied content domain to prevent successful XSS from taking over the application.
 
 ## V5.3 Output Encoding and Injection Prevention
-
-<!--Note from Josh, I think this section should be moved to 5.2, after architecture-->
 
 Output encoding or escaping close or adjacent to a potentially dangerous context is critical to the security of any application. Typically, output encoding and escaping is not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. Trying to do this too early may lead to malformed content or even render the encoding or escaping ineffective.
 
