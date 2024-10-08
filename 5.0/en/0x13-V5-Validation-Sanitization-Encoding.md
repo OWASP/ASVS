@@ -2,17 +2,19 @@
 
 ## Control Objective
 
-The most common web application security weakness is using untrusted content in an unsafe context without any output encoding, query parameterization, or other output handling defense. This weakness leads to many of the significant vulnerabilities in web applications, such as Cross-Site Scripting (XSS), SQL injection, OS command injection, template injection, log injection, LDAP injection, and more.
+This chapter focuses on the most common web application security weaknesses that are related to unsafe processing of untrusted data. This leads to a variety of technical vulnerabilities where the untrusted data gets interpreted using the syntax rules of the relevant interpreter.
 
-With modern web application architecture, output encoding is more important than ever. It is difficult to provide robust input validation in certain scenarios, so the use of safer API such as parameterized queries, auto-escaping templating frameworks, or carefully chosen output encoding is critical to the security of the application.
+With modern web applications, it will always be best to use safer APIs such as parameterized queries, auto-escaping templating frameworks, etc. Otherwise, or carefully performed output encoding/escaping or sanitization will be critical to the security of the application.
+
+This chapter also talks about Input Validation which is a powerful defense in depth mechanism for protected against unexpected, dangerous content but should not be considered as a specific security control.
 
 ## V5.1 Input Validation
 
-Input can come from a variety of sources including HTML form fields, REST requests, URL parameters, HTTP headers, cookies, files on disk, databases, external APIs, etc.
+Everything the application uses or processes must be handled as user input, including HTML form fields, REST requests, URL parameters, HTTP headers, cookies, files on disk, databases, external APIs, etc.
 
 Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of servie condition.
 
-Input validation still provides valuable security hygiene and should be applied to all inputs where possible. However, since input validation is generally not intended to prevent specific attacks is therefore not a complete security strategy, one should also make use of sandboxing, sanitization, encoding and parameterization whenever the input is being used in a potentially dangerous context.
+Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, escaping, or sanitization when using the data for next component or for presenting it for output.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -52,6 +54,8 @@ Note: The SVG format explicitly allows ECMA script in almost all contexts, so it
 ## V5.3 Output Encoding and Injection Prevention
 
 Output encoding or escaping close or adjacent to a potentially dangerous context is critical to the security of any application. Typically, output encoding and escaping is not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. Trying to do this too early may lead to malformed content or even render the encoding or escaping ineffective.
+
+In many cases, software libraries will include safe or safer functions which will do this automatically although it will be necessary to be sure that they are correct for the current context.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
