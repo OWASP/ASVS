@@ -98,7 +98,7 @@ The following hash functions are specifically recommended for secure password st
 
 ### Disallowed Hash Functions
 
-The following hash functions MUST NOT be used in any cryptographic operation due to known weaknesses and vulnerabilities:
+The following hash functions MUST NOT be used in any cryptographic operation generating new material due to known weaknesses and vulnerabilities, they MAY only be used for verification of existing material.
 
 | Hash functions   | Reference                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------- |
