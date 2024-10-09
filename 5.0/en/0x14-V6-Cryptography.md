@@ -170,8 +170,8 @@ The following hash functions are specifically recommended for secure password st
 
 | Hash Function | Reference                                                                                                                      | Required Parameter Sets                                                      |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| argon2\*\*    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                                                            | Recommended parameter sets as listed in the internal cryptographic standard. |
-| scrypt        | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                                                            | Recommended parameter sets as listed in the internal cryptographic standard. |
+| argon2\*\*    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                                                            | TODO |
+| scrypt        | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                                                            | TODO |
 | bcrypt        | --                                                                                                                             | At least 10 rounds.                                                          |
 | PBKDF2_SHA512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations                                                           |
 | PBKDF2_SHA256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations                                                           |
