@@ -57,18 +57,18 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 
 The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications. Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
 
-| Hash functions | Suitable for HMAC/KDF/RBG? |Reference                                                      |
-| -------------- | -------------------------- |-------------------------------------------------------------- |
-| SHA3-512       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-512        | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA3-384       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-384        | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA3-256       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-512/256    | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA-256        | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| KMAC256        | N                          |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
-| KMAC128        | N                          |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
-| SHAKE256       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| Hash functions | Suitable for<br>HMAC/KDF/RBG? |Reference                                                      |
+| -------------- | ----------------------------- |-------------------------------------------------------------- |
+| SHA3-512       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| SHA-512        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA3-384       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| SHA-384        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA3-256       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| SHA-512/256    | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA-256        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| KMAC256        | N                             |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
+| KMAC128        | N                             |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
+| SHAKE256       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
 
 ### Approved Hash Functions for Password Storage
 
