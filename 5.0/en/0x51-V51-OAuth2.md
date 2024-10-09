@@ -24,6 +24,8 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.7** | [ADDED] Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, PAR requests, token revocation requests, and token introspection requests. | ✓ | ✓ | ✓ |
 | **51.2.8** | [ADDED] Verify that the authorization server configuration only assigns the required scopes to the OAuth Client. | ✓ | ✓ | ✓ |
 | **51.2.9** | [ADDED] Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | | | ✓ |
+| **51.2.10** | [ADDED] Verify that the client is confidential and the authorization server requires the use of strong client authentication methods, i. e. 'mTLS' or 'private-key-jwt'. | | | ✓ |
+| **51.2.11** | [ADDED] Verify that the authorization server issues only sender-constrained (Proof-of-Posession) access tokens, either using mTLS certificate binding or Demonstration of Proof of Possession (DPoP). | | | ✓ |
 
 ## V51.3 OAuth Client
 
