@@ -42,7 +42,7 @@ There are various different personas in the OAuth process, described in more det
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.4.1** | [ADDED] Verify that resource servers implement sender-constrained access token mechanisms to mitigate token replay risks. This is achieved by mandating Mutual TLS for OAuth 2.0 or OAuth Demonstration of Proof of Possession (DPoP), using the client secret provided at client registration. | ✓ | ✓ | ✓ |
+| **51.4.1** | [ADDED] Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | | | ✓ |
 | **51.4.2** | [ADDED] Verify that access tokens are restricted to certain resource servers (audience restriction), preferably to a single resource server. Every resource server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular resource server. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 | **51.5.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on resource servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 
