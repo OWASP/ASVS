@@ -226,6 +226,47 @@ There exists a need for approved key exchange mechanisms, such as Diffie-Hellman
 | :-------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: | :-: |
 | **6.5.1** | Verify that industry-proven cryptographic algorithms, such as Diffie-Hellman groups, with a focus on ensuring that key exchange mechanisms use secure parameters to prevent man-in-the-middle attacks or cryptographic breaks, are used for key exchanges to prevent attacks on the key establishment process. |     |  ✓  |  ✓  | 798 |
 
+### Approved KEX Schemes
+
+A security strength of 112 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the next table.
+
+| Scheme | Domain Parameters |
+|--|--|
+| RSA | k >= 2048 |
+| Diffie-Hellman (DH) | (L, N) parameters: <br>L >= 2048 & N >= 224 |
+| Elliptic Curve <br>Diffie-Hellman (ECDH) | f >= 224 |
+
+Where the following parameters are:
+
+* k is the key size for RSA keys.
+* L is the size of the public key and N is the size of the private key for finite field cryptography.
+* f is the range of key sizes for ECC.
+
+### Approved DH groups
+
+The following groups are approved and MUST be used for implementations of Diffie-Hellman KEX. IKEv2 groups are provided for reference ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Equivalent groups might be used in other protocols. Other groups MUST NOT be used. This list is ordered STRONGEST to WEAKEST. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+
+| Group | Scheme | Parameters | Security bits |
+|--|--|--|--|
+| 21 | ECC | 521-bit random ECP group | 260 |
+| 32 | ECC | Curve448 | 224 |
+| 18 | MODP | 8192-bit MODP Group | 192 < 200 |
+| 20 | ECC | 384-bit random ECP group | 192 |
+| 17 | MODP | 6144-bit MODP Group | 128 < 176 |
+| 16 | MODP | 4096-bit MODP Group | 128 < 152 |
+| 31 | ECC | Curve25519 | 128 |
+| 19 | ECC | 256-bit random ECP group | 128 |
+| 15 | MODP | 3072-bit MODP Group | 128 |
+| 14 | MODP | 2048-bit MODP Group | 112 |
+
+A complete list of IKE Groups is available by [IANA](https://www.iana.org/assignments/ikev2-parameters/ikev2-parameters.xhtml) under "Transform Type 4 - Key Exchange Method Transform IDs". Further recommendations on IKE specifically can be found on the [IPSec](https://github.com/santander-group-cyber-cto/CryptographyStandard/blob/main/Implementations/IPSec/README.md) section.
+
+### Disallowed KEX Schemes
+
+Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) and [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final).
+
+Specifically, IKEv1 MUST NOT be used in production.
+
 ## V6.7 In-Use Data Cryptography
 
 Protecting data while it is being processed is paramount. Techniques such as full memory encryption, encryption of data in transit, and ensuring data is encrypted as quickly as possible after use is recommended.
