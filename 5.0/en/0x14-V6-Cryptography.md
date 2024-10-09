@@ -18,7 +18,7 @@ The most important asset is the data processed, stored, or transmitted by an app
 
 |     #     | Description                                                                                                                                                                                                                                                                                         | L1  | L2  | L3  | CWE |
 | :-------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: | :-: |
-| **6.1.1** | Verify that regulated data, such as private, health, and financial, is stored encrypted while at rest with at least 112-bit encryption, ideally 256-bit, such as Personally Identifiable Information (PII), sensitive personal information, or data assessed likely to be subject to the EU's GDPR. |     |  ✓  |  ✓  | 311 |
+| **6.1.1** | Verify that regulated data, such as private, health, and financial, is stored encrypted while at rest with at least 112-bit encryption, ideally 128-bit, such as Personally Identifiable Information (PII), sensitive personal information, or data assessed likely to be subject to the EU's GDPR. |     |  ✓  |  ✓  | 311 |
 | **6.1.2** | Verify that a cryptographic inventory performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application.                                                                                                                              |     |  ✓  |  ✓  | 311 |
 | **6.1.3** | Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations.                                                                                                                     |     |  ✓  |  ✓  | 311 |
 | **6.1.4** | Verify that regulated health data is stored encrypted while at rest, such as medical records, medical device details, or de-anonymized research records.                                                                                                                                            |     |  ✓  |  ✓  | 311 |
@@ -36,7 +36,7 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography.                                                                    |     |  ✓  |  ✓  | 327 |
 | **6.2.3** | Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks.                  |     |  ✓  |  ✓  | 326 |
 | **6.2.4** | Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used.                                                                                                              |     |  ✓  |  ✓  | 326 |
-| **6.2.5** | Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure modes** like AES with GCM are.                                                                                |  ✓  |  ✓  |  ✓  | 326 |
+| **6.2.5** | Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure ciphers and modes** such as AES with GCM are.                                                                                |  ✓  |  ✓  |  ✓  | 326 |
 | **6.2.6** | Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. |     |     |  ✓  | 326 |
 | **6.2.7** | Verify that encrypted data is authenticated via signatures, authenticated cipher modes, or HMAC to ensure that ciphertext is not altered by an unauthorized party.                                                   |     |     |  ✓  | 326 |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information.                                               |     |     |  ✓  | 385 |
@@ -55,34 +55,20 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 
 ### Approved Hash Functions for General Use Cases
 
-The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications.
+The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications. Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
 
-| Hash functions | Reference                                                      |
-| -------------- | -------------------------------------------------------------- |
-| SHA3-512       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-512        | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA3-384       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-384        | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA3-256       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-512/256    | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA-256        | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHAKE256       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-
-### Approved Hash Functions specifically for HMAC, KDF, and Random Bit Generation (RBG)
-
-The following hash functions are recommended for use with HMAC, KDF, and RBG operations. These hashes offer strong resistance to attacks when used with proper cryptographic key management.
-
-| Hash functions | Reference                                                      |
-| -------------- | -------------------------------------------------------------- |
-| SHA3-512       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA3-384       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA3-256       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-512        | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA-384        | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA-256        | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| KMAC256        | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
-| KMAC128        | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
-| SHAKE256       | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| Hash functions | Suitable for HMAC/KDF/RBG? |Reference                                                      |
+| -------------- | -------------------------- |-------------------------------------------------------------- |
+| SHA3-512       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| SHA-512        | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA3-384       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| SHA-384        | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA3-256       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| SHA-512/256    | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA-256        | Y                          |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| KMAC256        | N                          |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
+| KMAC128        | N                          |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
+| SHAKE256       | Y                          |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
 
 ### Approved Hash Functions for Password Storage
 
