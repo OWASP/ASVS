@@ -24,7 +24,7 @@ The most important asset is the data processed, stored, or transmitted by an app
 | **6.1.4** | Verify that regulated health data is stored encrypted while at rest, such as medical records, medical device details, or de-anonymized research records.                                                                                                                                            |     |  ✓  |  ✓  | 311 |
 | **6.1.5** | Verify that regulated financial data is stored encrypted while at rest, such as financial accounts, defaults or credit history, tax records, pay history, beneficiaries, or de-anonymized market or research records.                                                                               |     |  ✓  |  ✓  | 311 |
 
-## V6.2 Algorithms
+## V6.2 General Requirements for Cryptographic Algorithms
 
 Recent advances in cryptography mean that previously safe algorithms and key lengths are no longer safe or sufficient to protect data. Therefore, it should be possible to change algorithms.
 
@@ -35,13 +35,107 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.1** | All cryptographic modules must fail securely to prevent vulnerabilities like Padding Oracle attacks.                                                                                                                 |  ✓  |  ✓  |  ✓  | 310 |
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography.                                                                    |     |  ✓  |  ✓  | 327 |
 | **6.2.3** | Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks.                  |     |  ✓  |  ✓  | 326 |
+| **6.2.4** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information.                                               |     |     |  ✓  | 385 |
+
+## V6.3 Cipher Algorithms
+
+Cipher algorithms such as AES and CHACHA20 form the backbone of modern cryptographic practice.
+
+|     #     | Description                                                                                                                                                                                                          | L1  | L2  | L3  | CWE |
+| :-------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: | :-: |
 | **6.2.4** | Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used.                                                                                                              |     |  ✓  |  ✓  | 326 |
 | **6.2.5** | Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure ciphers and modes** such as AES with GCM are.                                                                                |  ✓  |  ✓  |  ✓  | 326 |
 | **6.2.6** | Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. |     |     |  ✓  | 326 |
 | **6.2.7** | Verify that encrypted data is authenticated via signatures, authenticated cipher modes, or HMAC to ensure that ciphertext is not altered by an unauthorized party.                                                   |     |     |  ✓  | 326 |
-| **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information.                                               |     |     |  ✓  | 385 |
 
-## V6.3 Hashing and Hash-based Functions
+### Approved Ciphers
+
+Implementations MUST choose from the ciphers in this list, in order of preference:
+
+| Symmetric Key Algorithms | Reference |
+|--|--|
+| AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |  
+| ChaCha20-Poly1305 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) |
+| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |
+| AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |
+
+Any other cipher options MUST NOT be used.
+
+### Disallowed Ciphers
+
+The following is a list of _explicitly unauthorized_ ciphers. Whilst anything not on the above list must be approved with documented reasons, the following are explicitly banned and MUST NOT be used:
+
+| Symmetric Key Algorithms |
+|--|
+| 2TDEA   | 
+| 3TDEA (3DES)   |
+| IDEA    |
+| RC4     |
+| Blowfish|
+| ARC4    |
+| DES     |
+
+### AES Cipher Modes
+
+Modern ciphers make use of various modes, particularly AES  for various purposes. We describe the requirements on AES Cipher Modes here.
+
+#### Approved Cipher Modes for General Use Cases
+
+Implementations MUST choose from the following block modes, in order of preference, EXCEPT where the function is encrypted data storage (see next subsection):
+
+| AES Encryption Mode | Authenticated?* | Reference |
+|--|--|--|
+| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) |
+| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) |
+| CCM-8** | Yes | [RFC 6655](https://www.rfc-editor.org/info/rfc6655) |
+| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) |
+
+* All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. This MUST be applied in the 'Encrypt-Then-Hash' or 'ETH' method. If this cannot be guaranteed, then CBC MUST NOT be used.
+
+**CCM-8 is included in regard to TLS cipher suites (see [TLS](https://github.com/santander-group-cyber-cto/CryptographyStandard/blob/main/Implementations/TLS/README.md) section). 
+
+##### Recommendations for Approved Cipher Modes for General Use Cases
+
+Out of the given approved block modes, implementations SHOULD use the ciphers in this list, in order of preference:
+
+| AES Encryption Mode | Reference |
+|--|--|
+| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) |
+| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) |
+
+#### Approved Cipher Modes ONLY for Data Storage (block encryption on disk)
+
+Implementations of disk-level block encryption MUST choose from the following list, in order of preference:
+
+| AES Disk Encryption Mode | Reference |
+|--|--|
+| XTS | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) |
+| XEX | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) |
+| LRW | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) |
+
+#### Disallowed Cipher Modes
+
+The following cipher modes MUST NOT be used for any use case:
+
+| Encryption Mode | 
+|--|
+| ECB |
+| CFB | 
+| OFB | 
+| CTR | 
+
+### Key Wrapping
+
+ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) and considering forward-looking provisions against the quantum threat. Cipher modes using AES are the following, in order of preference:
+
+| Key Wrapping | Reference |
+|--|--|
+| KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) |
+| KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) |
+
+AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory. Any other method for key wrapping MUST NOT be used.
+
+## V6.3a Hashing and Hash-based Functions
 
 Cryptographic hashes are used in a wide variety of cryptographic protocols, such as digital signatures, HMAC, key derivation functions (KDF), random bit generation, and password storage. The security of the cryptographic system is only as strong as the underlying hash functions used. This section outlines the requirements for using secure hash functions in cryptographic operations.
 
