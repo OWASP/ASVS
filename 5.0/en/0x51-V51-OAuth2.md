@@ -28,6 +28,7 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.11** | [ADDED] Verify that the authorization server issues only sender-constrained (Proof-of-Posession) access tokens, either using mTLS certificate binding or Demonstration of Proof of Possession (DPoP). | | | ✓ |
 | **51.2.12** | [ADDED] Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. | ✓ | ✓ | ✓ |
 | **51.2.13** | [ADDED] Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | ✓ | ✓ | ✓ |
+| **51.2.14** | [ADDED] Verify that refresh tokens and reference access tokens can be revoked by an authorized user. It can be achieved by using the authorization server user interface, or by a client that is using authorization server APIs for revocation. | ✓ | ✓ | ✓ |
 
 ## V51.3 OAuth Client
 
