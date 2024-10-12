@@ -26,6 +26,7 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.9** | [ADDED] Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | | | ✓ |
 | **51.2.10** | [ADDED] Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), i. e. 'mTLS' or 'private-key-jwt'. | | | ✓ |
 | **51.2.11** | [ADDED] Verify that the authorization server issues only sender-constrained (Proof-of-Posession) access tokens, either using mTLS certificate binding or Demonstration of Proof of Possession (DPoP). | | | ✓ |
+| **51.2.12** | [ADDED] Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. | ✓ | ✓ | ✓ |
 
 ## V51.3 OAuth Client
 
