@@ -1,4 +1,4 @@
-# Security Decision Documentation
+# V1 Security Decision Documentation
 
 ## Control Objective
 
@@ -43,7 +43,7 @@ When designing authentication systems, the strength of hardware-enabled multi-fa
 
 ## V1.3 Session Management Documentation
 
-This is a placeholder for future architectural requirements.
+This is a placeholder for future documentation requirements.
 
 ## V1.4 Access Control Documentation
 
@@ -132,7 +132,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 ## V1.13 API and Web Service Documentation
 
-This is a placeholder for future architectural requirements.
+This is a placeholder for future documentation requirements.
 
 ## V1.14 Configuration Documentation
 
