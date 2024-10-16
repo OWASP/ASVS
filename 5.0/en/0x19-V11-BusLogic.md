@@ -35,7 +35,7 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.3** | [MODIFIED, MERGED FROM 11.1.5] Verify that business logic limits and validations are implemented as per the application's documentation. | ✓ | ✓ | ✓ | |
 | **11.1.4** | [MOVED TO 11.2.2] | | | | |
 | **11.1.5** | [DELETED, MERGED TO 11.1.3] | | | | |
-| **11.1.6** | [MODIFIED] Verify that the application uses synchronization and locking mechanisms for sensitive operations in order to keep internal data consistent, maintain user state, and prevent race conditions, such as 'time of check to time of use (TOCTOU)' vulnerabilities. | | ✓ | ✓ | 367 |
+| **11.1.6** | [MODIFIED, MERGED FROM 1.11.3] Verify that all high-value business logic flows, as well as authentication, session management, and access control, are thread-safe, resistant to time-of-check and time-of-use (TOCTOU) race conditions, and utilize synchronization and locking mechanisms for sensitive operations to maintain internal data consistency and user state. | | ✓ | ✓ | 367 |
 | **11.1.7** | [MOVED TO 7.2.4] | | | | |
 | **11.1.8** | [MOVED TO 7.2.5] | | | | |
 | **11.1.9** | [ADDED] Verify that "atomic transactions" are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | | ✓ | ✓ | |
