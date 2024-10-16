@@ -61,7 +61,7 @@ In many cases, software libraries will include safe or safer functions which wil
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.3.1** | [MODIFIED, SPLIT TO 5.3.13] Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP headers, to avoid changing the message or document structure. | ✓ | ✓ | ✓ | 116 |
 | **5.3.2** | [DELETED, DUPLICATE OF 14.4.1] | | | | |
-| **5.3.3** | [MODIFIED, SPLIT TO 50.5.4] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | ✓ | ✓ | ✓ | |
+| **5.3.3** | [MODIFIED, SPLIT TO 50.5.2] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | ✓ | ✓ | ✓ | |
 | **5.3.4** | [MODIFIED] Verify that data selection or database queries (e.g. SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | ✓ | ✓ | ✓ | 89 |
 | **5.3.5** | [DELETED, DUPLICATE OF 5.3.4] | | | | |
 | **5.3.6** | [DELETED, DUPLICATE OF 5.3.3] | | | | |
