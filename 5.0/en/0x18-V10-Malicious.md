@@ -56,6 +56,7 @@ Complying with this section is likely to be operational and continuous.
 | **10.4.2** | [ADDED] Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | | ✓ | ✓ | 79 |
 | **10.4.3** | [ADDED] Verify that JavaScript code is written in a way that prevents prototype pollution, for example, by using Set() or Map() instead of object literals. | | ✓ | ✓ | |
 | **10.4.4** | [MODIFIED, MOVED FROM 5.1.2] Verify that the application has countermeasures to protect against mass assignment attacks by limiting allowed fields per controller and action, e.g. it is not possible to insert or update a field value when it was not intended to be part of that action. | ✓ | ✓ | ✓ | 915 |
+| **10.4.5** | [ADDED] Verify that the application returns only the data the user has permission to access. For example, the API response does not return a full object with attributes that contain values the user has no permission to access although having permission to access the data object. | ✓ | ✓ | ✓ | |
 
 ## References
 
