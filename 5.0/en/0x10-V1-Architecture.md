@@ -24,7 +24,7 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | **1.1.3** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.4** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | | ✓ | ✓ | 1059 |
 | **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | 1059 |
-| **1.1.6** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 |
+| **1.1.6** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.1.7** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V1.2 Authentication Documentation
