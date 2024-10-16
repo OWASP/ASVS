@@ -121,7 +121,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.11.1** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.11.2** | [MODIFIED] Verify that all application flows including authentication, session management and access control, maintain a consistent application and user state to prevent race conditions and business logic flaws. | | ✓ | ✓ | 362 |
+| **1.11.2** | [DELETED, MERGED TO 11.1.6] | | | | |
 | **1.11.3** | [DELETED, MERGED TO 11.1.6] | | | | |
 | **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are clearly documented including both per-user and also globally across the application. | | ✓ | ✓ | |
 
