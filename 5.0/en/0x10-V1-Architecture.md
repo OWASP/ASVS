@@ -22,7 +22,7 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | **1.1.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.3** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.1.4** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | | ✓ | ✓ | 1059 |
+| **1.1.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | 1059 |
 | **1.1.6** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.1.7** | [DELETED, NOT IN SCOPE] | | | | |
@@ -120,7 +120,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.11.1** | Verify the definition and documentation of all application components in terms of the business or security functions they provide. | | ✓ | ✓ | 1059 |
+| **1.11.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.11.2** | [MODIFIED] Verify that all application flows including authentication, session management and access control, maintain a consistent application and user state to prevent race conditions and business logic flaws. | | ✓ | ✓ | 362 |
 | **1.11.3** | Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions. | | | ✓ | 367 |
 | **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are clearly documented including both per-user and also globally across the application. | | ✓ | ✓ | |
