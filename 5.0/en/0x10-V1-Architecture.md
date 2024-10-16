@@ -24,7 +24,7 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | **1.1.3** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.4** | Verify documentation and justification of all the application's trust boundaries, components, and significant data flows. | | ✓ | ✓ | 1059 |
 | **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | 1059 |
-| **1.1.6** | Verify implementation of centralized, simple (economy of design), vetted, secure, and reusable security controls to avoid duplicate, missing, ineffective, or insecure controls. | | ✓ | ✓ | 637 |
+| **1.1.6** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.1.7** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V1.2 Authentication Documentation
@@ -43,7 +43,9 @@ When designing authentication systems, the strength of hardware-enabled multi-fa
 
 ## V1.3 Session Management Documentation
 
-This is a placeholder for future documentation requirements.
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.3.1** | [ADDED] Verify that the user's session inactivity period and maximum session lifetime before reauthentication are documented, appropriate in combination with other controls, and that documentation includes justification for any deviations from NIST SP 800-63B reauthentication requirements. | ✓ | ✓ | ✓ | |
 
 ## V1.4 Access Control Documentation
 
