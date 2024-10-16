@@ -15,8 +15,8 @@ There are various different personas in the OAuth process, described in more det
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.2.1** | [ADDED] Verify that, if the authorization server returns the authorization code, it can be used only once for a token request and it is only valid for up to 10 minutes. | ✓ | ✓ | ✓ |
-| **51.2.2** | [ADDED] Verify that the replay of authorization codes into the authorization response is prevented either by using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started. | ✓ | ✓ | ✓ |
+| **51.2.1** | [ADDED] Verify that, if the authorization server returns the authorization code, it can be used only once for a token request. | ✓ | ✓ | ✓ |
+| **51.2.2** | [ADDED] Verify that the authorization code is short-lived. The maximum lifetime can be 10 minutes for L1 and L2 applications and 1 minute for L3 applications. | ✓ | ✓ | ✓ |
 | **51.2.3** | [ADDED] Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring PKCE. For authorization requests, the authorization server must require a valid code_challenge value and must not accept code_challenge_method 'plain'. For a token request, it must require validation of the "code_verifier" parameter. | ✓ | ✓ | ✓ |
 | **51.2.4** | [ADDED] Verify that the authorization server mitigates refresh token replay attacks for public clients by using (L1, L2) refresh token rotation or (L1, L2, L3) sender-constrained refresh tokens using Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens (mTLS). If refresh token rotation is used, verify that the authorization server invalidates the refresh token after usage and revokes all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | ✓ | ✓ | ✓ |
 | **51.2.5** | [ADDED] Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) should no longer be used. | ✓ | ✓ | ✓ |
@@ -26,9 +26,10 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.9** | [ADDED] Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | | | ✓ |
 | **51.2.10** | [ADDED] Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), i. e. 'mTLS' or 'private-key-jwt'. | | | ✓ |
 | **51.2.11** | [ADDED] Verify that the authorization server issues only sender-constrained (Proof-of-Posession) access tokens, either using mTLS certificate binding or Demonstration of Proof of Possession (DPoP). | | | ✓ |
-| **51.2.12** | [ADDED] Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. | ✓ | ✓ | ✓ |
+| **51.2.12** | [ADDED] Verify that for a given client, an attacker may not tamper with the 'response_mode' parameter, for example by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured authorization request (JAR). | ✓ | ✓ | ✓ |
 | **51.2.13** | [ADDED] Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | ✓ | ✓ | ✓ |
 | **51.2.14** | [ADDED] Verify that refresh tokens and reference access tokens can be revoked by an authorized user. It can be achieved by using the authorization server user interface, or by a client that is using authorization server APIs for revocation. | ✓ | ✓ | ✓ |
+| **51.2.15** | [ADDED] Verify that the replay of authorization codes into the authorization response is prevented either by using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started. | ✓ | ✓ | ✓ |
 
 ## V51.3 OAuth Client
 
