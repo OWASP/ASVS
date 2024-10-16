@@ -130,7 +130,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
-| **1.12.2** | [MOVED TO 50.5.2] | | | | |
+| **1.12.2** | [DELETED, MERGED TO 50.5.1] | | | | |
 
 ## V1.13 API and Web Service Documentation
 
