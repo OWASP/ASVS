@@ -43,7 +43,9 @@ When designing authentication systems, the strength of hardware-enabled multi-fa
 
 ## V1.3 Session Management Documentation
 
-This is a placeholder for future documentation requirements.
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.3.1** | [ADDED] Verify that the user's session inactivity period and maximum session lifetime before reauthentication are documented, appropriate in combination with other controls, and that documentation includes justification for any deviations from NIST SP 800-63B reauthentication requirements. | ✓ | ✓ | ✓ | |
 
 ## V1.4 Access Control Documentation
 
