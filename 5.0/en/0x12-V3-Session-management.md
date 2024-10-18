@@ -40,7 +40,7 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For both IAL2
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.3.1** | [MOVED TO 3.8.1] | | | | | |
-| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is required at least every 30 days for L1 applications or every 12 hours for L2 and L3 applications. | ✓ | ✓ | ✓ | 613 | 7.2 |
+| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to documented requirements. | ✓ | ✓ | ✓ | | |
 | **3.3.3** | [MOVED TO 3.8.2] | | | | | |
 | **3.3.4** | [MOVED TO 3.8.3] | | | | | |
 | **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that re-authentication is required after 30 minutes of inactivity for L2 applications or after 15 minutes of inactivity for L3 applications. | | ✓ | ✓ | 613 | 7.2 |
