@@ -20,6 +20,7 @@ The following items are in-scope for ASVS. We don't think they should be made ma
 The following items were previously in ASVS but are not really requirements. Rather they are principles to consider when implementing security controls that when followed will lead to more robust controls. These include:
 
 * Security controls should be centralized, simple (economy of design), verifiably secure, and reusable. This should avoid duplicate, missing, or ineffective controls.
+* Ideally, A single and well-vetted access control mechanism should be used to access protected data and resources. All requests should pass through this single mechanism to avoid copy and paste or insecure alternative paths.
 
 ## Software Security processes
 
