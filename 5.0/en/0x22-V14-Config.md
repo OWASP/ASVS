@@ -33,13 +33,13 @@ Compliance with this section requires an automated build system, and access to b
 
 ## V14.2 Dependency
 
-Dependency management is critical to the safe operation of any application of any type. Failure to keep up to date with outdated or insecure dependencies is the root cause of the largest and most expensive attacks to date.
+Dependency management is critical to the safe operation of any application of any type. Failure to keep up to date with outdated or insecure dependencies is the root cause of the largest and most expensive attacks to date. While being up-to-date with patches is essential, relying solely on updates for publicly disclosed vulnerabilities introduces risk, as vendors may fix security issues without public announcements.
 
 Note: At Level 1, 14.2.1 compliance relates to observations or detections of client-side and other libraries and components, rather than the more accurate build-time static code analysis or dependency analysis. These more accurate techniques could be discoverable by interview as required.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.2.1** | Verify that all components are up to date, preferably using a dependency checker during build or compile time. | ✓ | ✓ | ✓ | 1026 |
+| **14.2.1** | Verify that all components are up to date. | ✓ | ✓ | ✓ | |
 | **14.2.2** | [MOVED TO 14.1.6] | | | | |
 | **14.2.3** | [MOVED TO 50.6.1] | | | | |
 | **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. | | ✓ | ✓ | 829 |
