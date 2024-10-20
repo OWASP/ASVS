@@ -39,7 +39,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.2.1** | Verify that all components are up to date. | ✓ | ✓ | ✓ | |
+| **14.2.1** | [MODIFIED] Verify that all components are up to date. | ✓ | ✓ | ✓ | |
 | **14.2.2** | [MOVED TO 14.1.6] | | | | |
 | **14.2.3** | [MOVED TO 50.6.1] | | | | |
 | **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. | | ✓ | ✓ | 829 |
@@ -54,11 +54,13 @@ Note: Certain languages and package managers, have ecosystems that require the i
 
 Configurations for production should be hardened to protect against common attacks. Measures should include disabling debug consoles, raising the bar against Cross-site Scripting (XSS) and Remote File Inclusion (RFI) attacks, and eliminating trivial information discovery "vulnerabilities" that often litter penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
 
+For example, hiding the version of server-side components does not fix the need to patch all components, and disabling the folder listing does not eliminate the need to use authorization controls or keep files away from the public folder, but it raises the bar.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.3.1** | [DELETED, DUPLICATE OF 7.4.1] | | | | |
 | **14.3.2** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | ✓ | ✓ | ✓ | 497 |
-| **14.3.3** | [MODIFIED] Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of server-side components. | ✓ | ✓ | ✓ | 200 |
+| **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | ✓ | ✓ | ✓ | 200 |
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | ✓ | ✓ | ✓ | 548 |
 | **14.3.5** | [ADDED, SPLIT FROM 4.3.2] Verify that applications do not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | ✓ | ✓ | ✓ | |
 | **14.3.6** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak), temporary working files (e.g. .swp), compressed files (.zip, .tar.gz, etc.) and other extensions commonly used by editors should be blocked unless required. | ✓ | ✓ | ✓ | 552 |
