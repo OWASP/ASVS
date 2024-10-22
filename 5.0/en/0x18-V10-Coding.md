@@ -1,21 +1,20 @@
-# V10 Malicious and Insecure Code
+# V10 Secure Coding Architecture and Implementation
 
 ## Control Objective
 
-Ensure that the code satisfies the following high-level requirements:
+Many ASVS requirements either relate to a particular area of security like authentication or access control or relate to a particular type of application functionality such as logging or file handling.
 
-* Malicious activity is handled securely and properly to not affect the rest of the application.
-* Does not have time bombs or other time-based attacks.
-* Does not "phone home" to malicious or unauthorized destinations.
-* Does not have back doors, Easter eggs, salami attacks, rootkits, or unauthorized code that can be controlled by an attacker.
+However, this chapter provides more general guidance on how to build applications and how to write secure code correctly. Not just clean architecture and code quality point of view, but specific architecture and coding practices that need to be followed in order for the application to be secure.
 
-Finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.
+This chapter also contains requirements to prevent the introduction of malicious code into the application.
 
 ## V10.1 Code Integrity
 
+<!--
 The best defense against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offense in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
 
 Lead developers should regularly review code check-ins, particularly those that might access time, I/O, or network functions.
+-->
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -23,9 +22,9 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 ## V10.2 Malicious Code Search
 
-Malicious code is extremely rare and is difficult to detect. Manual line-by-line code review can assist with detecting logic bombs, but even the most experienced code reviewers will struggle to find malicious code even if they know it exists.
+Malicious code is extremely rare and is difficult to detect. Manual line-by-line code review can assist with detecting logic bombs, but even the most experienced code reviewers will struggle to find malicious code even if they know it exists. As such, this section is mostly L3. Complying with this section is not possible without complete access to source code, including third-party libraries.
 
-Complying with this section is not possible without complete access to source code, including third-party libraries.
+Ultimately, finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
