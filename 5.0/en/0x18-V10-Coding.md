@@ -61,7 +61,7 @@ Complying with this section is likely to be operational and continuous.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.5.1** | [MODIFIED, MOVED FROM 1.14.5, LEVEL L2 > L3] Verify that the application architecture uses techniques such as sandboxing, containerization or network level isolation to delay and deter attackers from attacking other parts of the application, especially when the application is performing sensitive or dangerous actions such as deserialization. | | | ✓ | |
+| **10.5.1** | [MODIFIED, MOVED FROM 1.14.5, LEVEL L2 > L3] Verify that the application architecture uses techniques such as sandboxing, containerization or network level isolation to delay and deter attackers from attacking other parts of the application, especially when the application is performing sensitive or dangerous actions such as deserialization. | | | ✓ | 265 |
 
 ## References
 
