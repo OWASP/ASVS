@@ -115,11 +115,12 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | **1.9.1** | [DELETED, DUPLICATE OF 9.1.1, 9.2.2, 9.3.1] | | | | |
 | **1.9.2** | [DELETED, DUPLICATE OF 9.2.3, 9.3.2] | | | | |
 
-## V1.10 Malicious Software Documentation
+## V1.10 Secure Coding Documentation
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.10.1** | [DELETED, NOT IN SCOPE] | | | | |
+| **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
 
 ## V1.11 Business Logic Documentation
 
