@@ -4,7 +4,7 @@
 
 Many ASVS requirements either relate to a particular area of security like authentication or access control or relate to a particular type of application functionality such as logging or file handling.
 
-However, this chapter provides more general guidance on how to build applications and how to write secure code correctly. Not just clean architecture and code quality point of view, but specific architecture and coding practices that need to be followed in order for the application to be secure.
+However, this chapter provides more general guidance on how to build applications and how to write secure code correctly. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
 
 This chapter also contains requirements to prevent the introduction of malicious code into the application.
 
@@ -56,6 +56,12 @@ Complying with this section is likely to be operational and continuous.
 | **10.4.3** | [ADDED] Verify that JavaScript code is written in a way that prevents prototype pollution, for example, by using Set() or Map() instead of object literals. | | ✓ | ✓ | |
 | **10.4.4** | [MODIFIED, MOVED FROM 5.1.2] Verify that the application has countermeasures to protect against mass assignment attacks by limiting allowed fields per controller and action, e.g. it is not possible to insert or update a field value when it was not intended to be part of that action. | ✓ | ✓ | ✓ | 915 |
 | **10.4.5** | [ADDED] Verify that the application only returns data which the user has permission to access. For example, the API response does not return a full object with attributes that contain values the user has no permission to access, despite having permission to access the data object itself. | ✓ | ✓ | ✓ | |
+
+## 10.5 Security Architecture
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **10.5.1** | [MODIFIED, MOVED FROM 1.14.5, LEVEL L2 > L3] Verify that the application architecture uses techniques such as sandboxing, containerization or network level isolation to delay and deter attackers from attacking other parts of the application, especially when the application is performing sensitive or dangerous actions such as deserialization. | | | ✓ | 265 |
 
 ## References
 

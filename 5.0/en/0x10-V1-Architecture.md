@@ -150,7 +150,7 @@ This is a placeholder for future documentation requirements.
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.14.5** | [MODIFIED] Verify that application deployments adequately sandbox or isolate at the network level to delay and deter attackers from attacking other applications, especially when they are performing sensitive or dangerous actions such as deserialization. | | ✓ | ✓ | 265 |
+| **1.14.5** | [DELETED, MOVED TO 10.5.1] | | | | |
 | **1.14.6** | [MOVED TO 50.7.2] | | | | |
 | **1.14.7** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | | ✓ | ✓ | 348 |
 
