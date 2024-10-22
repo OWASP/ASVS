@@ -137,6 +137,7 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
 | **1.12.2** | [DELETED, MERGED TO 50.5.1] | | | | |
+| **1.12.3** | [ADDED] Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | ✓ | ✓ | ✓ | |
 
 ## V1.13 API and Web Service Documentation
 
