@@ -152,7 +152,6 @@ This is a placeholder for future documentation requirements.
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [DELETED, MOVED TO 10.5.1] | | | | |
 | **1.14.6** | [MOVED TO 50.7.2] | | | | |
-| **1.14.7** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | | ✓ | ✓ | 348 |
 
 ## References
 
