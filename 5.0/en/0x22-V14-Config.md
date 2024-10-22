@@ -42,8 +42,8 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.1** | [MODIFIED] Verify that all components are up to date. | ✓ | ✓ | ✓ | |
 | **14.2.2** | [MOVED TO 14.1.6] | | | | |
 | **14.2.3** | [MOVED TO 50.6.1] | | | | |
-| **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. | | ✓ | ✓ | 829 |
-| **14.2.5** | Verify that a Software Bill of Materials (SBOM) is maintained of all third party libraries in use. | | ✓ | ✓ | |
+| **14.2.4** | [DELETED, MERGED TO 1.10.2] | | | | |
+| **14.2.5** | [MOVED TO 1.10.2] | | | | |
 | **14.2.6** | [MODIFIED, SPLIT TO 14.2.8, LEVEL L2 > L3] Verify that risky third party libraries or those with a history of vulnerabilities are encapsulated such that only required behaviour is available to the application, to reduce attack surface. | | | ✓ | 1061 |
 | **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications to prevent dependency confusion attacks. | ✓ | ✓ | ✓ | 427 |
 | **14.2.8** | [ADDED, SPLIT FROM 14.2.6] Verify that risky third party libraries or those with a history of vulnerabilities are sandboxed away from the most sensitive system modules/services so that even if a vulnerability in the library was successfully exploited, the sensitive system modules/services would not be compromised. | | | ✓ | 1061 |
