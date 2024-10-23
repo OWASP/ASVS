@@ -24,7 +24,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.2.1** | [MODIFIED] Verify the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | [MODIFIED, MERGED FROM 3.2.4] Verify that random tokens representing user sessions are generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ |  |  |
+| **3.2.2** | [MODIFIED, MERGED FROM 3.2.4] Verify that random tokens representing user sessions are generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | | |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | | |
 | **3.2.4** | [DELETED, MERGED TO 3.2.2] | | | | | |
 | **3.2.5** | [ADDED] Verify that creating a session for the application requires the user's consent and that the application is protected against a CSRF-style attack where a new application session for the user is created via SSO without user interaction. | | ✓ | ✓ | | |
@@ -63,7 +63,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.5.1** | [GRAMMAR] Verify that the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | [MOVED TO 3.1.3] | | | | | |
-| **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of a digital signature to protect against tampering and this is checked before processing it further. | ✓ | ✓ | ✓ | 345 | |
+| **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless tokens use a digital signature or MAC to protect against tampering, ensuring it is checked before accepting the token's contents. | ✓ | ✓ | ✓ | 345 | |
 | **3.5.4** | [ADDED] Verify that stateless tokens are checked for expiration before processing them further. | ✓ | ✓ | ✓ | 613 | |
 | **3.5.5** | [ADDED] Verify that only signing algorithms on an allowlist are allowed for a stateless token. | ✓ | ✓ | ✓ | 757 | |
 | **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may include issuer, subject, and audience. | ✓ | ✓ | ✓ | 287 | |
