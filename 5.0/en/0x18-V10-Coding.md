@@ -64,6 +64,12 @@ Complying with this section is likely to be operational and continuous.
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.5.1** | [MODIFIED, MOVED FROM 1.14.5, LEVEL L2 > L3] Verify that the application architecture uses techniques such as sandboxing, containerization or network level isolation to delay and deter attackers from attacking other parts of the application, especially when the application is performing sensitive or dangerous actions such as deserialization. | | | ✓ | 265 |
 
+## 10.6 Code Dependencies
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **10.6.1** | [ADDED] Verify that third party components are being included from the expected repository, whether that is internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
+
 ## References
 
 For more information, see also:
