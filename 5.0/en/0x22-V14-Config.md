@@ -44,9 +44,8 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.3** | [MOVED TO 50.6.1] | | | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | | | |
 | **14.2.5** | [MOVED TO 1.10.2] | | | | |
-| **14.2.6** | [MODIFIED, SPLIT TO 14.2.8, LEVEL L2 > L3] Verify that risky third party libraries or those with a history of vulnerabilities are encapsulated such that only required behaviour is available to the application, to reduce attack surface. | | | ✓ | 1061 |
-| **14.2.7** | [ADDED] Verify that third party components are sourced separately from internally owned and developed applications to prevent dependency confusion attacks. | ✓ | ✓ | ✓ | 427 |
-| **14.2.8** | [ADDED, SPLIT FROM 14.2.6] Verify that risky third party libraries or those with a history of vulnerabilities are sandboxed away from the most sensitive system modules/services so that even if a vulnerability in the library was successfully exploited, the sensitive system modules/services would not be compromised. | | | ✓ | 1061 |
+| **14.2.6** | [MODIFIED, SPLIT TO 14.2.7, LEVEL L2 > L3] Verify that risky third party libraries or those with a history of vulnerabilities are encapsulated such that only required behaviour is available to the application, to reduce attack surface. | | | ✓ | 1061 |
+| **14.2.7** | [ADDED, SPLIT FROM 14.2.6] Verify that risky third party libraries or those with a history of vulnerabilities are sandboxed away from the most sensitive system modules/services so that even if a vulnerability in the library was successfully exploited, the sensitive system modules/services would not be compromised. | | | ✓ | 1061 |
 
 Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g. groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate the search order.
 
