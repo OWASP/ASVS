@@ -207,6 +207,8 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 | **6.3.2** | GUIDs must be created using the GUID v4 algorithm with CSPRNG.                                              |     |  ✓  |  ✓  | 338 |
 | **6.3.3** | Random number generation must work properly under heavy system load, or the system must degrade gracefully. |     |     |  ✓  | 338 |
 
+****TODO** - list of approved algos for RNG.
+
 ## V6.5 Secret Management
 
 Although this section is not easily penetration tested, developers should consider this entire section as mandatory even though L1 is missing from most of the items.
