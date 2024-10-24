@@ -16,7 +16,7 @@
         }
     ],
     "retryOn429": true,
-    "aliveStatusCodes": [403],
+    "aliveStatusCodes": [200, 403],
     "fallbackRetryDelay": "30s",
     "see": "https://github.com/tcort/markdown-link-check#config-file-format"
 }
