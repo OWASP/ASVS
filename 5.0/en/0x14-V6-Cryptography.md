@@ -32,10 +32,23 @@ Although this section is not easily penetration tested, developers should consid
 
 |     #     | Description                                                                                                                                                                                                          | L1  | L2  | L3  | CWE |
 | :-------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: | :-: |
-| **6.2.1** | All cryptographic modules must fail securely to prevent vulnerabilities like Padding Oracle attacks.                                                                                                                 |  ✓  |  ✓  |  ✓  | 310 |
-| **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography.                                                                    |     |  ✓  |  ✓  | 327 |
-| **6.2.3** | Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks.                  |     |  ✓  |  ✓  | 326 |
-| **6.2.4** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information.                                               |     |     |  ✓  | 385 |
+| **6.2.1** | All cryptographic primitives MUST utilize a minimum of 128-bits of security, with exceptions only made for equipment or applications approaching end of life, where the requirement is at least 112-bits of security for all cryptography. |  ✓  |  ✓  |  ✓  | 311 |
+| **6.2.2** | All cryptographic modules must fail securely to prevent vulnerabilities like Padding Oracle attacks.                                                                                                                 |  ✓  |  ✓  |  ✓  | 310 |
+| **6.2.3** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography.                                                                    |     |  ✓  |  ✓  | 327 |
+| **6.2.4** | Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks.                  |     |  ✓  |  ✓  | 326 |
+| **6.2.5** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information.                                               |     |     |  ✓  | 385 |
+
+### Equivalent Strenghts of Cryptographic Parameters
+
+The relative security strengths for various cryptographic systems are in this table (from [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final), p.71):
+
+| Security Strength | Symmetric Key Algorithms | Finite Field Cryptography (DSA, DH, MQV) | Integer Factorisation Cryptography (RSA) | Elliptic Curve Cryptography (ECDSA, EdDSA, DH, MQV) |
+|--|--|--|--|--|
+| <= 80 | 2TDEA   | L = 1024 <br> N = 160  | k = 1024  | f = 160-223 |
+| 112   | 3TDEA\*  | L = 2048 <br> N = 224  | k = 2048  | f = 224-255 |
+| 128   | AES-128 | L = 3072 <br> N = 256  | k = 3072  | f = 256-383 |
+| 192   | AES-192 | L = 7680 <br> N = 384  | k = 7680  | f = 384-511 |
+| 256   | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
 
 ## V6.3 Cipher Algorithms
 
@@ -207,7 +220,25 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 | **6.3.2** | GUIDs must be created using the GUID v4 algorithm with CSPRNG.                                              |     |  ✓  |  ✓  | 338 |
 | **6.3.3** | Random number generation must work properly under heavy system load, or the system must degrade gracefully. |     |     |  ✓  | 338 |
 
-****TODO** - list of approved algos for RNG.
+### Approved RNG Methods and Algorithms
+
+| Name | Version/Reference | Notes | L1 | L2 | L3 |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| `/dev/random` | Linux 4.8+ (Oct 2016) | Utilizing ChaCha20 stream. | ✓ | ✓ | ✓ |
+| `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | As used in common implementations, such as [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) | ✓ | ✓ | ✓ |
+| `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) |  | ✓ | ✓ | ✓ |
+| `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) |  | ✓ | ✓ | ✓ |
+
+### Disallowed Hashes for RBG
+
+The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)):
+
+| Hash functions | Reference |
+|--|--|
+| SHA3-224    | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) |
+| SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA-224     | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| KMAC128     | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
 
 ## V6.5 Secret Management
 
