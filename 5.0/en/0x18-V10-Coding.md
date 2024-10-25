@@ -68,7 +68,8 @@ Complying with this section is likely to be operational and continuous.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.6.1** | [ADDED] Verify that third party components are being included from the expected repository, whether that is internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
+| **10.6.1** | [MODIFIED, MOVED FROM 14.2.1] Verify that all components are up to date. | ✓ | ✓ | ✓ | |
+| **10.6.2** | [ADDED] Verify that third party components are being included from the expected repository, whether that is internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
 
 ## References
 
