@@ -36,14 +36,15 @@ Organizations who have donated $7,000 or more to the project via OWASP. Supporte
 
 Organizations who have donated $3,000 or more to the project via OWASP. Supporter will be listed in this section for 2 years from the date of the donation.
 <!--80-->
+
+[<img src="./images/supporters/jitlogo.svg" height=80>](https://www.jit.io)
+
 ## Tertiary supporters
 
 Organizations who have donated $500 or more to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
 <!--65-->
 
 <!--[<img src="./images/supporters/oneconsult.svg" height=65](https://www.oneconsult.com)-->
-
-[<img src="./images/supporters/jitlogo.svg" height=65>](https://www.jit.io)
 
 [<img src="./images/supporters/crestlogo.png" height=65>](https://www.crest-approved.org/members/)
 
