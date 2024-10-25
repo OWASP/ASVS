@@ -39,7 +39,7 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.2.1** | [MODIFIED] Verify that all components are up to date. | ✓ | ✓ | ✓ | |
+| **14.2.1** | [MOVED TO 10.6.1] | | | | |
 | **14.2.2** | [MOVED TO 14.1.6] | | | | |
 | **14.2.3** | [MOVED TO 50.6.1] | | | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | | | |
