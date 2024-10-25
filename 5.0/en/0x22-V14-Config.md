@@ -33,8 +33,6 @@ Compliance with this section requires an automated build system, and access to b
 
 ## V14.2 Dependency
 
-Note: At Level 1, 14.2.1 compliance relates to observations or detections of client-side and other libraries and components, rather than the more accurate build-time static code analysis or dependency analysis. These more accurate techniques could be discoverable by interview as required.
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.2.1** | [MOVED TO 10.6.1] | | | | |
@@ -44,8 +42,6 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 | **14.2.5** | [MOVED TO 1.10.2] | | | | |
 | **14.2.6** | [MODIFIED, SPLIT TO 14.2.7, LEVEL L2 > L3] Verify that risky third party libraries or those with a history of vulnerabilities are encapsulated such that only required behaviour is available to the application, to reduce attack surface. | | | ✓ | 1061 |
 | **14.2.7** | [ADDED, SPLIT FROM 14.2.6] Verify that risky third party libraries or those with a history of vulnerabilities are sandboxed away from the most sensitive system modules/services so that even if a vulnerability in the library was successfully exploited, the sensitive system modules/services would not be compromised. | | | ✓ | 1061 |
-
-Note: Certain languages and package managers, have ecosystems that require the identification of packages using multiple factors (e.g. groupId and artifactId). This would allow the build process to more specifically identify a resource. In other cases, package managers operate by the order of repositories or mirrors included. Consult your package managers to specifically indicate the search order.
 
 ## V14.3 Unintended Information Leakage
 
