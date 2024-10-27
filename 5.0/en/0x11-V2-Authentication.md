@@ -187,7 +187,7 @@ Secrets can be securely stored by using services offered by the framework, the o
 | **2.10.1** | [MODIFIED, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 | |
 | **2.10.2** | [GRAMMAR] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
 | **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | | |
-| **2.10.4** | [GRAMMAR] Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage should resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | ✓ | ✓ | 798 | |
+| **2.10.4** | [DELETED, MERGED TO 6.4.1] | | | | | |
 
 ## Additional US Agency Requirements
 
