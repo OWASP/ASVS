@@ -21,6 +21,7 @@ The following items were previously in ASVS but are not really requirements. Rat
 
 * Security controls should be centralized, simple (economy of design), verifiably secure, and reusable. This should avoid duplicate, missing, or ineffective controls.
 * Ideally, A single and well-vetted access control mechanism should be used to access protected data and resources. All requests should pass through this single mechanism to avoid copy and paste or insecure alternative paths.
+* Attribute or feature-based access control is a recommended pattern whereby the code checks the user's authorization for a feature or data item rather than just their role. Permissions should still be allocated using roles.
 
 ## Software Security processes
 

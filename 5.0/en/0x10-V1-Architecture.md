@@ -60,7 +60,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 | **1.4.2** | [DELETED] | | | | |
 | **1.4.3** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **1.4.4** | [DELETED, INSUFFICIENT IMPACT] | | | | |
-| **1.4.5** | [GRAMMAR] Verify that attribute or feature-based access control is used whereby the code checks the user's authorization for a feature or data item rather than just their role. Permissions should still be allocated using roles. | | ✓ | ✓ | 275 |
+| **1.4.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.4.6** | [ADDED] Verify that the application documentation defines controls which use changes to a user's regular environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. These changes should be detected both when the user tries to start a new session and also in the course of an existing session. | | | ✓ | |
 | **1.4.7** | [ADDED] Verify that access control documentation defines the rules for access control decision-making, specifying user and subject attributes, resource attributes, and relevant environmental factors involved in the process. | ✓ | ✓ | ✓ | |
 
