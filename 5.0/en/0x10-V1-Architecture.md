@@ -23,7 +23,7 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | **1.1.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.3** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.1.4** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.1.5** | Verify definition and security analysis of the application's high-level architecture and all connected remote services. | | ✓ | ✓ | 1059 |
+| **1.1.5** | [MOVED TO 1.14.7] | | | | |
 | **1.1.6** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.1.7** | [DELETED, NOT IN SCOPE] | | | | |
 
@@ -153,6 +153,7 @@ This is a placeholder for future documentation requirements.
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [MOVED TO 10.5.1] | | | | |
 | **1.14.6** | [MOVED TO 50.7.2] | | | | |
+| **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | | ✓ | ✓ | 1059 |
 
 ## References
 
