@@ -33,10 +33,6 @@ TLS or another secure transport channel is mandatory for session management. Thi
 
 ## V3.3 Session Timeout
 
-Session timeouts have been aligned with NIST SP 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations are advised to review the table below. If a longer timeout is desired based on the application's risk profile, the NIST value should serve as the maximum limit for session idle timeouts.
-
-L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For both IAL2/AAL2 and IAL3/AAL3, the shorter the idle timeout, the lower the bound of idle times for being logged out or re-authenticated to resume the session.
-
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.3.1** | [MOVED TO 3.8.1] | | | | | |
