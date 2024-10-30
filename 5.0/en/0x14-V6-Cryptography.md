@@ -225,7 +225,7 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 
 | Name | Version/Reference | Notes | L1 | L2 | L3 |
 |:-:|:-:|:-:|:-:|:-:|:-:|
-| `/dev/random` | Linux 4.8+ (Oct 2016) | Utilizing ChaCha20 stream. Found in iOS `SecRandomCopyBytes` and Android `Secure Random` with the correct settings provided to each. | ✓ | ✓ | ✓ |
+| `/dev/random` | Linux 4.8+ (Oct 2016) | Utilizing ChaCha20 stream. Found in iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) and Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) with the correct settings provided to each. | ✓ | ✓ | ✓ |
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | As used in common implementations, such as [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) | ✓ | ✓ | ✓ |
 | `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) |  | ✓ | ✓ | ✓ |
 | `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) |  | ✓ | ✓ | ✓ |
