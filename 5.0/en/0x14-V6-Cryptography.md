@@ -18,7 +18,7 @@ The most important asset is the data processed, stored, or transmitted by an app
 
 |     #     | Description                                                                                                                                                                                                                                                                                         | L1  | L2  | L3  | CWE |
 | :-------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: | :-: |
-| **6.1.1** | Verify that regulated data, such as private, health, and financial, is stored encrypted while at rest with at least 112-bit encryption, ideally 128-bit, such as Personally Identifiable Information (PII), sensitive personal information, or data assessed likely to be subject to the EU's GDPR. |     |  ✓  |  ✓  | 311 |
+| **6.1.1** | Verify that regulated data, such as private, health, and financial, is stored encrypted while at rest with at least 112-bit encryption, ideally 128-bit, such as Personally Identifiable Information (PII), sensitive personal information, or data assessed likely to be subject to the EU's GDPR. |     |  ✓  |  ✓  | 326 |
 | **6.1.2** | Verify that a cryptographic inventory performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application.                                                                                                                              |     |  ✓  |  ✓  | 311 |
 | **6.1.3** | Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations.                                                                                                                     |     |  ✓  |  ✓  | 311 |
 | **6.1.4** | Verify that regulated health data is stored encrypted while at rest, such as medical records, medical device details, or de-anonymized research records.                                                                                                                                            |     |  ✓  |  ✓  | 311 |
@@ -66,12 +66,12 @@ Cipher algorithms such as AES and CHACHA20 form the backbone of modern cryptogra
 
 Implementations MUST choose from the ciphers in this list, in order of preference:
 
-| Symmetric Key Algorithms | Reference |
-|--|--|
-| AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |  
-| ChaCha20-Poly1305 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) |
-| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |
-| AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |
+| Symmetric Key Algorithms | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |     |  ✓  |  ✓  |
+| ChaCha20-Poly1305 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) |     |  ✓  |  ✓  |
+| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |     |  ✓  |  ✓  |
+| AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) |  ✓  |  ✓  |  ✓  |
 
 Any other cipher options MUST NOT be used.
 
@@ -97,35 +97,35 @@ Modern ciphers make use of various modes, particularly AES  for various purposes
 
 Implementations MUST choose from the following block modes, in order of preference, EXCEPT where the function is encrypted data storage (see next subsection):
 
-| AES Encryption Mode | Authenticated?* | Reference |
-|--|--|--|
-| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) |
-| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) |
-| CCM-8** | Yes | [RFC 6655](https://www.rfc-editor.org/info/rfc6655) |
-| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) |
+| AES Encryption Mode | Authenticated?* | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|--|
+| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) |  ✓  |  ✓  |  ✓  |
+| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) |  ✓  |  ✓  |  ✓  |
+| CCM-8** | Yes | [RFC 6655](https://www.rfc-editor.org/info/rfc6655) |  ✓  |  ✓  |  ✓  |
+| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) |  ✓  |  ✓  |  ✓  |
 
 * All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. This MUST be applied in the 'Encrypt-Then-Hash' or 'ETH' method. If this cannot be guaranteed, then CBC MUST NOT be used.
 
 **CCM-8 is included in regard to TLS cipher suites (see [TLS](https://github.com/santander-group-cyber-cto/CryptographyStandard/blob/main/Implementations/TLS/README.md) section). 
 
-##### Recommendations for Approved Cipher Modes for General Use Cases
+#### Recommendations for Approved Cipher Modes for General Use Cases
 
 Out of the given approved block modes, implementations SHOULD use the ciphers in this list, in order of preference:
 
-| AES Encryption Mode | Reference |
-|--|--|
-| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) |
-| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) |
+| AES Encryption Mode | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| GCM | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) |  ✓  |  ✓  |  ✓  |
+| CCM | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) |  ✓  |  ✓  |  ✓  |
 
 #### Approved Cipher Modes ONLY for Data Storage (block encryption on disk)
 
 Implementations of disk-level block encryption MUST choose from the following list, in order of preference:
 
-| AES Disk Encryption Mode | Reference |
-|--|--|
-| XTS | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) |
-| XEX | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) |
-| LRW | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) |
+| AES Disk Encryption Mode | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| XTS | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) |  ✓  |  ✓  |  ✓  |
+| XEX | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) |  ✓  |  ✓  |  ✓  |
+| LRW | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) |  ✓  |  ✓  |  ✓  |
 
 #### Disallowed Cipher Modes
 
@@ -142,10 +142,10 @@ The following cipher modes MUST NOT be used for any use case:
 
 ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) and considering forward-looking provisions against the quantum threat. Cipher modes using AES are the following, in order of preference:
 
-| Key Wrapping | Reference |
-|--|--|
-| KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) |
-| KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) |
+| Key Wrapping | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) |  ✓  |  ✓  |  ✓  |
+| KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) |  ✓  |  ✓  |  ✓  |
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory. Any other method for key wrapping MUST NOT be used.
 
@@ -165,30 +165,30 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 
 The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications. Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
 
-| Hash functions | Suitable for<br>HMAC/KDF/RBG? |Reference                                                      |
-| -------------- | ----------------------------- |-------------------------------------------------------------- |
-| SHA3-512       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-512        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA3-384       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-384        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA3-256       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
-| SHA-512/256    | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA-256        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| KMAC256        | N                             |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
-| KMAC128        | N                             |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
-| SHAKE256       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |
+| Hash functions | Suitable for<br>HMAC/KDF/RBG? |Reference                                                      | L1 | L2 | L3 |
+| -------------- | ----------------------------- |-------------------------------------------------------------- |--|--|--|
+| SHA3-512       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |     |  ✓  |  ✓  |
+| SHA-512        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |     |  ✓  |  ✓  |
+| SHA3-384       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |     |  ✓  |  ✓  |
+| SHA-384        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |     |  ✓  |  ✓  |
+| SHA3-256       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |     |  ✓  |  ✓  |
+| SHA-512/256    | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |     |  ✓  |  ✓  |
+| SHA-256        | Y                             |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |  ✓  |  ✓  |  ✓  |
+| KMAC256        | N                             |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |  ✓  |  ✓  |  ✓  |
+| KMAC128        | N                             |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |  ✓  |  ✓  |  ✓  |
+| SHAKE256       | Y                             |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)          |  ✓  |  ✓  |  ✓  |
 
 ### Approved Hash Functions for Password Storage
 
 The following hash functions are specifically recommended for secure password storage. These slow-hashing algorithms mitigate brute-force and dictionary attacks by increasing the computational difficulty of password cracking.
 
-| Hash Function | Reference                                                                                                                      | Required Parameter Sets                                                      |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| argon2    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                                                            | TODO |
-| scrypt        | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                                                            | TODO |
-| bcrypt        | --                                                                                                                             | At least 10 rounds.                                                          |
-| PBKDF2_SHA512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations                                                           |
-| PBKDF2_SHA256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations                                                           |
+| Hash Function | Reference                                                                                                                      | Required Parameter Sets                                                      | L1 | L2 | L3 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --|--|--|
+| argon2    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                                                            | TODO |    |  ✓  |  ✓  |
+| scrypt        | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                                                            | TODO |    |  ✓  |  ✓  |
+| bcrypt        | --                                                                                                                             | At least 10 rounds.                                                          |    |  ✓  |  ✓  |
+| PBKDF2_SHA512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations                                                           |  ✓  |  ✓  |  ✓  |
+| PBKDF2_SHA256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations                                                           |  ✓  |  ✓  |  ✓  |
 
 ### Disallowed Hash Functions
 
@@ -280,18 +280,18 @@ Where the following parameters are:
 
 The following groups are approved and MUST be used for implementations of Diffie-Hellman KEX. IKEv2 groups are provided for reference ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Equivalent groups might be used in other protocols. Other groups MUST NOT be used. This list is ordered STRONGEST to WEAKEST. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-| Group | Scheme | Parameters | Security bits |
-|--|--|--|--|
-| 21 | ECC | 521-bit random ECP group | 260 |
-| 32 | ECC | Curve448 | 224 |
-| 18 | MODP | 8192-bit MODP Group | 192 < 200 |
-| 20 | ECC | 384-bit random ECP group | 192 |
-| 17 | MODP | 6144-bit MODP Group | 128 < 176 |
-| 16 | MODP | 4096-bit MODP Group | 128 < 152 |
-| 31 | ECC | Curve25519 | 128 |
-| 19 | ECC | 256-bit random ECP group | 128 |
-| 15 | MODP | 3072-bit MODP Group | 128 |
-| 14 | MODP | 2048-bit MODP Group | 112 |
+| Group | Scheme | Parameters | Security bits | L1 | L2 | L3 |
+|--|--|--|--|--|--|--|
+| 21 | ECC | 521-bit random ECP group | 260 |    |    |  ✓  |
+| 32 | ECC | Curve448 | 224 |    |    |  ✓  |
+| 18 | MODP | 8192-bit MODP Group | 192 < 200 |    |  ✓  |  ✓  |
+| 20 | ECC | 384-bit random ECP group | 192 |    |  ✓  |  ✓  |
+| 17 | MODP | 6144-bit MODP Group | 128 < 176 |  ✓  |  ✓  |  ✓  |
+| 16 | MODP | 4096-bit MODP Group | 128 < 152 |  ✓  |  ✓  |  ✓  |
+| 31 | ECC | Curve25519 | 128 |  ✓  |  ✓  |  ✓  |
+| 19 | ECC | 256-bit random ECP group | 128 |  ✓  |  ✓  |  ✓  |
+| 15 | MODP | 3072-bit MODP Group | 128 |  ✓  |  ✓  |  ✓  |
+| 14 | MODP | 2048-bit MODP Group | 112 |  ✓  |  ✓  |  ✓  |
 
 A complete list of IKE Groups is available by [IANA](https://www.iana.org/assignments/ikev2-parameters/ikev2-parameters.xhtml) under "Transform Type 4 - Key Exchange Method Transform IDs". Further recommendations on IKE specifically can be found on the [IPSec](https://github.com/santander-group-cyber-cto/CryptographyStandard/blob/main/Implementations/IPSec/README.md) section.
 
