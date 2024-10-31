@@ -40,8 +40,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.2.3** | [MOVED TO 50.6.1] | | | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | | | |
 | **14.2.5** | [MOVED TO 1.10.2] | | | | |
-| **14.2.6** | [MODIFIED, SPLIT TO 14.2.7, LEVEL L2 > L3] Verify that risky third party libraries or those with a history of vulnerabilities are encapsulated such that only required behaviour is available to the application, to reduce attack surface. | | | ✓ | 1061 |
-| **14.2.7** | [ADDED, SPLIT FROM 14.2.6] Verify that risky third party libraries or those with a history of vulnerabilities are sandboxed away from the most sensitive system modules/services so that even if a vulnerability in the library was successfully exploited, the sensitive system modules/services would not be compromised. | | | ✓ | 1061 |
+| **14.2.6** | [DELETED, SPLIT TO 1.10.3, 10.5.1] | | | | |
 
 ## V14.3 Unintended Information Leakage
 
