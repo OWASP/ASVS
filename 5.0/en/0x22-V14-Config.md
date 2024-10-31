@@ -40,7 +40,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.2.3** | [MOVED TO 50.6.1] | | | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | | | |
 | **14.2.5** | [MOVED TO 1.10.2] | | | | |
-| **14.2.6** | [DELETED, SPLIT TO 1.10.3, 10.5.1] | | | | |
+| **14.2.6** | [SPLIT TO 1.10.3, 10.5.1] | | | | |
 
 ## V14.3 Unintended Information Leakage
 
