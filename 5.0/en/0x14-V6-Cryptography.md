@@ -10,8 +10,6 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 ## V6.1 Data Classification
 
-The most important asset is the data processed, stored or transmitted by an application. Always perform a privacy impact assessment to classify the data protection needs of any stored data correctly.
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.1.1** | [DELETED, MERGED TO 1.8.1] | | | | |
