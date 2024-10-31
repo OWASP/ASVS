@@ -2,9 +2,7 @@
 
 ## Control Objective
 
-## Control Objective
-
-Ensure that the application adopts a proactive, adaptive, and holistic approach to cryptographic security by:
+The objective of V6 is not only to define best practices but also to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches by doing the following:
 
 - Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
 - Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
