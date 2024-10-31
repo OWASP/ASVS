@@ -121,8 +121,8 @@ Architectural requirements are intrinsic to the entire code base, and thus diffi
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.10.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
-| **1.10.3** | [MODIFIED, SPLIT FROM 14.2.6, LEVEL L2 > L3] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life, libraries which have historically had several significant vulnerabilities, etc. | | | ✓ | 1061 |
-| **1.10.4** | [MODIFIED, SPLIT FROM 1.14.5, LEVEL L2 > L3] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelyhood of being dangerously exploitated such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
+| **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life, libraries which have historically had several significant vulnerabilities, etc. | | | ✓ | 1061 |
+| **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelyhood of being dangerously exploitated such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
 
 ## V1.11 Business Logic Documentation
 
@@ -153,7 +153,7 @@ This is a placeholder for future documentation requirements.
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.14.5** | [DELETED, SPLIT TO 1.10.4, 10.5.1] | | | | |
+| **1.14.5** | [SPLIT TO 1.10.4, 10.5.1] | | | | |
 | **1.14.6** | [MOVED TO 50.7.2] | | | | |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | | ✓ | ✓ | 1059 |
 
