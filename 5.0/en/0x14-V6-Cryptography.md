@@ -10,13 +10,11 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 ## V6.1 Data Classification
 
-The most important asset is the data processed, stored or transmitted by an application. Always perform a privacy impact assessment to classify the data protection needs of any stored data correctly.
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.1.1** | Verify that regulated private data is stored encrypted while at rest, such as Personally Identifiable Information (PII), sensitive personal information, or data assessed likely to be subject to EU's GDPR. | | ✓ | ✓ | 311 |
-| **6.1.2** | Verify that regulated health data is stored encrypted while at rest, such as medical records, medical device details, or de-anonymized research records. | | ✓ | ✓ | 311 |
-| **6.1.3** | Verify that regulated financial data is stored encrypted while at rest, such as financial accounts, defaults or credit history, tax records, pay history, beneficiaries, or de-anonymized market or research records. | | ✓ | ✓ | 311 |
+| **6.1.1** | [DELETED, MERGED TO 1.8.1] | | | | |
+| **6.1.2** | [DELETED, MERGED TO 1.8.1] | | | | |
+| **6.1.3** | [DELETED, DUPLICATE OF 1.8.1] | | | | |
 
 ## V6.2 Algorithms
 
