@@ -22,18 +22,14 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 ## V10.2 Malicious Code Search
 
-Malicious code is extremely rare and is difficult to detect. Manual line-by-line code review can assist with detecting logic bombs, but even the most experienced code reviewers will struggle to find malicious code even if they know it exists. As such, this section is mostly L3. Complying with this section is not possible without complete access to source code, including third-party libraries.
-
-Ultimately, finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data. | | ✓ | ✓ | 359 |
+| **10.2.1** | [DELETED, NOT PRACTICAL] | | | | |
 | **10.2.2** | [MOVED TO 8.3.11] | | | | |
-| **10.2.3** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered. | | | ✓ | 507 |
-| **10.2.4** | Verify that the application source code and third party libraries do not contain time bombs by searching for date and time related functions. | | | ✓ | 511 |
-| **10.2.5** | Verify that the application source code and third party libraries do not contain malicious code, such as salami attacks, logic bypasses, or logic bombs. | | | ✓ | 511 |
-| **10.2.6** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. | | | ✓ | 507 |
+| **10.2.3** | [DELETED, NOT PRACTICAL] | | | | |
+| **10.2.4** | [DELETED, NOT PRACTICAL] | | | | |
+| **10.2.5** | [DELETED, NOT PRACTICAL] | | | | |
+| **10.2.6** | [DELETED, NOT PRACTICAL] | | | | |
 
 ## V10.3 Application Integrity
 
