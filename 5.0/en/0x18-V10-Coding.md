@@ -22,10 +22,6 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 ## V10.2 Malicious Code Search
 
-Malicious code is extremely rare and is difficult to detect. Manual line-by-line code review can assist with detecting logic bombs, but even the most experienced code reviewers will struggle to find malicious code even if they know it exists. As such, this section is mostly L3. Complying with this section is not possible without complete access to source code, including third-party libraries.
-
-Ultimately, finding malicious code is proof of the negative, which is impossible to completely validate. Best efforts should be undertaken to ensure that the code has no inherent malicious code or unwanted functionality.
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.2.1** | [DELETED, NOT PRACTICAL] | | | | |
