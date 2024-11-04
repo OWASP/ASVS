@@ -28,12 +28,12 @@ Ultimately, finding malicious code is proof of the negative, which is impossible
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.2.1** | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data. | | ✓ | ✓ | 359 |
+| **10.2.1** | [DELETED, NOT PRACTICAL] | | ✓ | ✓ | 359 |
 | **10.2.2** | [MOVED TO 8.3.11] | | | | |
-| **10.2.3** | Verify that the application source code and third party libraries do not contain back doors, such as hard-coded or additional undocumented accounts or keys, code obfuscation, undocumented binary blobs, rootkits, or anti-debugging, insecure debugging features, or otherwise out of date, insecure, or hidden functionality that could be used maliciously if discovered. | | | ✓ | 507 |
-| **10.2.4** | Verify that the application source code and third party libraries do not contain time bombs by searching for date and time related functions. | | | ✓ | 511 |
-| **10.2.5** | Verify that the application source code and third party libraries do not contain malicious code, such as salami attacks, logic bypasses, or logic bombs. | | | ✓ | 511 |
-| **10.2.6** | Verify that the application source code and third party libraries do not contain Easter eggs or any other potentially unwanted functionality. | | | ✓ | 507 |
+| **10.2.3** | [DELETED, NOT PRACTICAL] | | | ✓ | 507 |
+| **10.2.4** | [DELETED, NOT PRACTICAL] | | | ✓ | 511 |
+| **10.2.5** | [DELETED, NOT PRACTICAL] | | | ✓ | 511 |
+| **10.2.6** | [DELETED, NOT PRACTICAL] | | | ✓ | 507 |
 
 ## V10.3 Application Integrity
 
