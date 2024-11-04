@@ -10,6 +10,7 @@
 * **Automated Verification** – The use of automated tools (either dynamic analysis tools, static analysis tools, or both) that use vulnerability signatures to find problems.
 * **Black box testing** – It is a method of software testing that examines the functionality of an application without peering into its internal structures or workings.
 * **Component** – a self-contained unit of code, with associated disk and network interfaces that communicates with other components.
+* **Credential Service Provider** (CSP) - Also called an Identity Provider (IdP). A source of user data which may be used as an authentication source by other applications.
 * **Cross-Site Scripting** (XSS) – A security vulnerability typically found in web applications allowing the injection of client-side scripts into content.
 * **Cryptographic module** – Hardware, software, and/or firmware that implements cryptographic algorithms and/or generates cryptographic keys.
 * **Cryptographically Secured Token** - These tokens will generally contain claims or assertions encoded within the token structure, with cryptographic techniques such as signatures or message authentication codes (MAC) used to verify the authenticity and integrity of this data. The most common examples are SAML assertions and JWTs.
@@ -28,6 +29,7 @@
 * **JSON Web Token** (JWT) - RFC 7519 defines a standard for a JSON data object made up of a header section which explains how to validate the object, a body section containing a set of claims, and a signature section which contains a digital signature which can be used to validate the contents of the body section.
 * **Malicious Code** – Code introduced into an application during its development unbeknownst to the application owner, which circumvents the application's intended security policy. Not the same as malware such as a virus or worm!
 * **Malware** – Executable code that is introduced into an application during runtime without the knowledge of the application user or administrator.
+* **Multi-factor authentication** (MFA) - Authentication which includes two or more of the single factors.
 * **Open Worldwide Application Security Project** (OWASP) – The Open Worldwide Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible," so that people and organizations can make informed decisions about application security risks. See: [https://www.owasp.org/](https://www.owasp.org/).
 * **One-time Password** (OTP) - A password that is uniquely generated to be used on a single occasion.
 * **Object-relational Mapping** (ORM) - A system used to allow a relational/table-based database to be referenced and queried within an application program using an application-compatible object model.
@@ -45,6 +47,7 @@
 * **Security Configuration** – The runtime configuration of an application that affects how security controls are used.
 * **Security Control** – A function or component that performs a security check (e.g. an access control check) or when called results in a security effect (e.g. generating an audit record).
 * **Server-side Request Forgery** (SSRF) - An attack that abuses functionality on the server to read or update internal resources. The attacker supplies or modifies a URL, which the code running on the server will read or submit data to.
+* **Single-factor authenticator** - A mechanism to check that a user is authenticated. It should either be something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card). 
 * **Single Sign-on Authentication** (SSO) - This occurs when a user logs into one application and is then automatically logged into other applications without having to re-authenticate. For example, when you log into Google, you will be automatically logged into other Google services such as YouTube, Google Docs, and Gmail.
 * **Software Composition Analysis** (SCA) - A set of technologies designed to analyze application composition, dependencies, libraries and packages for security vulnerabilities of specific component versions in use. This is not to be confused with source-code analysis which is now commonly referred to as SAST.
 * **SQL Injection** (SQLi) – A code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry point.
@@ -56,7 +59,6 @@
 * **Transport Layer Security** (TLS) – Cryptographic protocols that provide communication security over a network connection.
 * **Trusted Platform Module** (TPM) - A type of HSM that is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
 * **Trusted Service Layer** - Any trusted control enforcement point, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. Trusted means that we are not concerned that an untrusted user will be able to bypass or skip the layer or controls implemented at that layer.
-* **Two-factor authentication** (2FA) - This adds a second level of authentication to an account log-in.
 * **Universal 2nd Factor** (U2F) - One of the standards created by FIDO specifically for allowing a USB or NFC security key to be used as a 2nd authentication factor.
 * **URI/URL/URL fragments** – A Uniform Resource Identifier is a string of characters used to identify a name or a web resource. A Uniform Resource Locator is often used as a reference to a resource.
 * **Verifier** – The person or team that is reviewing an application against the OWASP ASVS requirements.

@@ -115,7 +115,7 @@ Restricting token privileges ensures a Client is granted the proper access to a 
 
 ### Resource Owner Password Credentials Grant
 
-Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn), and authentication processes that require multiple steps can be hard or impossible. This grant type is not recommended in general due to security concerns. Instead, use the authorization code grant with PKCE. This grant type is omitted from the OAuth 2.1 specification.
+Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to multi-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn), and authentication processes that require multiple steps can be hard or impossible. This grant type is not recommended in general due to security concerns. Instead, use the authorization code grant with PKCE. This grant type is omitted from the OAuth 2.1 specification.
 -->
 
 ## References
