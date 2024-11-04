@@ -28,12 +28,12 @@ Ultimately, finding malicious code is proof of the negative, which is impossible
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.2.1** | [DELETED, NOT PRACTICAL] | | ✓ | ✓ | 359 |
+| **10.2.1** | [DELETED, NOT PRACTICAL] | | | | |
 | **10.2.2** | [MOVED TO 8.3.11] | | | | |
-| **10.2.3** | [DELETED, NOT PRACTICAL] | | | ✓ | 507 |
-| **10.2.4** | [DELETED, NOT PRACTICAL] | | | ✓ | 511 |
-| **10.2.5** | [DELETED, NOT PRACTICAL] | | | ✓ | 511 |
-| **10.2.6** | [DELETED, NOT PRACTICAL] | | | ✓ | 507 |
+| **10.2.3** | [DELETED, NOT PRACTICAL] | | | | |
+| **10.2.4** | [DELETED, NOT PRACTICAL] | | | | |
+| **10.2.5** | [DELETED, NOT PRACTICAL] | | | | |
+| **10.2.6** | [DELETED, NOT PRACTICAL] | | | | |
 
 ## V10.3 Application Integrity
 
