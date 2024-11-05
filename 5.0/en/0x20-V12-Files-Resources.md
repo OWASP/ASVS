@@ -2,11 +2,11 @@
 
 ## Control Objective
 
-Ensure that uploaded files are validated and stored to prevent denial of service, unauthorized access, and resource exhaustion.
+Ensure that untrusted files and other resources are handled safely to prevent denial of service, unauthorized access, and resource exhaustion
 
 ## V12.1 File Upload
 
-Ensure that uploaded files are limited in size, compressed files are controlled to avoid resource overload, users are restricted by file quota and size, and compressed files with symlinks are only allowed with specific permissions.
+Upload functionality is a key source of untrusted files. These should be carefully validated to prevent risks such as denial of service, unauthorized access, and resource exhaustion.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
