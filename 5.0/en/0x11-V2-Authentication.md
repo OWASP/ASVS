@@ -4,25 +4,21 @@
 
 Authentication is the process of establishing or confirming the authenticity of an individual or device. It involves verifying claims made by a person or about a device, ensuring resistance to impersonation, and preventing the recovery or interception of passwords.
 
-When the ASVS was initially released, the combination of username and password was the most common form of authentication, except in high-security systems. Multi-factor Authentication (MFA) was commonly accepted in security circles but rarely required elsewhere. As the number of password breaches increased, the idea that usernames are somehow confidential and passwords unknown, rendered many security controls untenable. For example, NIST SP 800-63 considers usernames and Knowledge Based Authentication (KBA) as public information, email as [not allowed](https://pages.nist.gov/800-63-FAQ/#q-b11), SMS as a ["restricted" authenticator type](https://pages.nist.gov/800-63-FAQ/#q-b01), and passwords as pre-breached. This reality renders knowledge-based authenticators, SMS and email recovery, and password-related controls such as history, complexity, and rotation, ineffective. These controls have always been less than helpful, often forcing users to come up with weak passwords every few months, but with the release of over 5 billion username and password breaches, it's time to move on.
-
-Of all the chapters in the ASVS, the authentication and session management chapters have changed the most. Adoption of effective, evidence-based leading practice will be challenging for many, and that's perfectly okay. We have to start the transition to a post-password future now.
+Adoption of effective, evidence-based leading practice will be challenging for many, and that's perfectly okay. We have to start the transition to a post-password future now.
 
 ## NIST SP 800-63 - Modern, evidence-based authentication standard
 
 [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
 
-NIST SP 800-63 terminology can be a little confusing at first, especially if you're only used to username + password authentication. Advancements in modern authentication are necessary, so we have to introduce terminology that will become commonplace in the future, but we do understand the difficulty in understanding until the industry settles on these new terms. We have provided a glossary at the end of this chapter to assist. We have rephrased many requirements to satisfy the intent of the requirement, rather than the letter of the requirement. For example, the ASVS uses the term "password" while NIST uses "memorized secret" throughout this standard.
+NIST SP 800-63 terminology can be a little confusing and we have tried to standardise the terminology to optimize for clarity, using more commonly understood terminology where possible.   
 
-The V2 Authentication and V3 Session Management chapters in the ASVS, and to a lesser extent the V4 Access Control chapter, have been adapted to align as a compliant subset of selected NIST SP 800-63B controls. This adaptation focuses on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
+As such, whilst this chapter aligns to a subset of selected NIST SP 800-63B controls, we have focused on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
 
-### Selecting an appropriate NIST AAL Level
-
-The Application Security Verification Standard has tried to map ASVS L1 to NIST AAL1 requirements, L2 to AAL2, and L3 to AAL3. However, the approach of ASVS Level 1 as "essential" controls may not necessarily be the correct AAL level to verify an application or API. For example, if the application is a Level 3 application or has regulatory requirements to be AAL3, Level 3 should be chosen in chapters V2 and V3 Session Management. The choice of NIST-compliant Authentication Assertion Level (AAL) should be performed as per NIST SP 800-63B guidelines as set out in *Selecting AAL* in [NIST SP 800-63B Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
+We strongly urge US government agencies to review and implement NIST SP 800-63 in its entirety.
 
 ## V2.1 Password Security
 
-Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
+Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authentication mechanism. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
 
 Applications should strongly encourage users to enroll in multi-factor authentication and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication.
 
@@ -50,39 +46,39 @@ Possible sources of frequently used passwords for requirement 2.1.7 include:
 * <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
 * <https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere>
 
-## V2.2 General Authenticator Security
+## V2.2 General Authentication Security
 
-Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as retiring deprecated or unsafe authenticators in an orderly fashion.
+Authentication factor agility is essential to future-proof applications. Applications should allow additional secure authentication factors to be used, as per user preferences, as well as retiring deprecated or unsafe authentication mechanisms in an orderly fashion.
 
-NIST considers SMS as ["restricted" authenticator types](https://pages.nist.gov/800-63-FAQ/#q-b01), and they are likely to be removed from NIST SP 800-63, and consequently from the ASVS, in the future. Applications should plan a roadmap that does not require the use of SMS.
+NIST considers SMS as a ["restricted" authentication mechanism](https://pages.nist.gov/800-63-FAQ/#q-b01), and it is likely to be removed from NIST SP 800-63, and consequently from the ASVS, in the future. As at the time of writing this has still not yet happened but applications should plan a roadmap that does not require the use of SMS.
 
-As noted above, NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authenticator.
+NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.2.1** | [MODIFIED] Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. More than 5 failed authentication attempts per hour for a single account should trigger some sort of reaction or alert. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
 | **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | ✓ | ✓ | ✓ | 304 | |
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 | 6.1.2 |
-| **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides verifier impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | | | ✓ | 308 | 4.3.1 |
+| **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | | | ✓ | 308 | 4.3.1 |
 | **2.2.5** | [MOVED TO 9.3.3] | | | | |
-| **2.2.6** | Verify replay resistance through the mandated use of One-time Passwords (OTP) devices, cryptographic authenticators, or lookup codes. | | | ✓ | 308 | 5.2.8 |
+| **2.2.6** | [DELETED, DUPLICATE OF 2.7.3, 2.8.4] | | | | | |
 | **2.2.7** | [DELETED, MERGED TO 2.2.4] | | | | | |
-| **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as based on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ | | |
-| **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that multi-factor authentication is required, that is, the application uses either a multi-factor authenticator or a combination of single-factor authenticators. | | ✓ | ✓ | 308 | 4.2.1 |
-| **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. Suspicious authentication attempts may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | | ✓ | ✓ | 778 | |
+| **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ | | |
+| **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a requires a combination of single-factor authentication mechanisms. | | ✓ | ✓ | 308 | 4.2.1 |
+| **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | | ✓ | ✓ | 778 | |
 | **2.2.11** | [ADDED, SPLIT FROM 1.2.4] Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | | ✓ | ✓ | 306 | |
 
-## V2.3 Authenticator Lifecycle
+## V2.3 Authentication Factor Lifecycle
 
-Authenticators are passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of authenticators is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
+Authentication mechanisms can involve passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of these authentication mechanisms is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
 
 Note: Passwords are not to have a maximum lifetime or be subject to password rotation. Passwords should be checked for being breached, not regularly replaced.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.3.1** | [MODIFIED] Verify system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
+| **2.3.1** | [MODIFIED] Verify that system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | [DELETED, MERGED TO 2.2.4] | | | | | |
-| **2.3.3** | [MODIFIED] Verify that automated reminders are configured and acted on to ensure that renewal instructions for time-bound authenticators are sent with enough time to be carried out before the old authenticator expires. | | ✓ | ✓ | 287 | 6.1.4 |
+| **2.3.3** | [MODIFIED] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | | ✓ | ✓ | 287 | 6.1.4 |
 | **2.3.4** | [ADDED] System administrators should not be able to change or choose any user's password, but rather only be able to initiate the password reset process for the user. | ✓ | ✓ | ✓ | 620 | |
 
 ## V2.4 Credential Storage
@@ -102,8 +98,6 @@ In particular, note that since these algorithms are intentionally compute-intens
 | **2.4.5** | [DELETED, INCORRECT] | | | | | |
 | **2.4.6** | [ADDED, SPLIT FROM 2.1.2] Verify that the application is protected against a denial of service attack caused by processing an overly long password. | | ✓ | ✓ | | |
 
-Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
-
 ## V2.5 Credential Recovery
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
@@ -113,66 +107,70 @@ Where US standards are mentioned, a regional or local standard can be used in pl
 | **2.5.3** | [DELETED, DUPLICATE OF 2.4.1] | | | | | |
 | **2.5.4** | [MODIFIED] Verify that default user accounts (e.g. "root", "admin", or "sa") are not present in the application or are disabled. | ✓ | ✓ | ✓ | 798 | |
 | **2.5.5** | [DELETED, DUPLICATE OF 2.2.3] | | | | | |
-| **2.5.6** | Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.7** | [LEVEL L2 > L1] Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | ✓ | ✓ | ✓ | 308 | 6.1.2.3 |
+| **2.5.6** | [GRAMMAR] Verify that forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | ✓ | ✓ | ✓ | 308 | 6.1.2.3 |
 
-## V2.6 Lookup Secret Verifier
+## V2.6 Lookup Secrets
 
-Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are single-use. Once all are utilized, the lookup secret list is discarded. This type of authenticator is considered "something you have".
+Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are single-use. Once all are utilized, the lookup secret list is discarded. This type of authentication mechanism is considered "something you have".
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.6.1** | Verify that lookup secrets can be used only once. | | ✓ | ✓ | 308 | 5.1.2.2 |
-| **2.6.2** | [MODIFIED, SPLIT TO 2.6.4] Verify that lookup secrets stored at the back-end with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | | ✓ | ✓ | 330 | 5.1.2.2 |
+| **2.6.2** | [MODIFIED, SPLIT TO 2.6.4] Verify that, when being stored in the application's back-end, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | | ✓ | ✓ | 330 | 5.1.2.2 |
 | **2.6.3** | [MODIFIED] Verify that lookup secrets are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | | ✓ | ✓ | 310 | 5.1.2.2 |
 | **2.6.4** | [ADDED, SPLIT FROM 2.6.2] Verify that lookup secrets have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 330 | 5.1.2.1 |
 
-## V2.7 Out-of-Band Verifier
+## V2.7 Out-of-Band authentication mechanisms
 
-In the past, a common out-of-band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out-of-band verification.
+In the past, a common out-of-band authentication mechanism would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out-of-band verification.
 
-Secure out-of-band authenticators are physical devices that can communicate with the verifier over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered "something you have". When a user wishes to authenticate, the verifying application sends a message to the out-of-band authenticator via a connection to the authenticator directly or indirectly through a third-party service. The message includes an authentication code, typically a random six-digit number, or features a modal approval dialog. The verifying application waits to receive the authentication code through the primary channel and compares the hash of the received value to the hash of the original authentication code. If they match, the out-of-band verifier can assume that the user has authenticated.
+Secure out-of-band authentication mechanisms will generally involve the authentication server communicating with a physical device over a secure secondary channel. Examples include push notifications to mobile devices. This type of authentication mechanism is considered "something you have".
 
-The ASVS assumes that only a few developers will be developing new out-of-band authenticators, such as push notifications, and thus the following ASVS controls apply to verifiers, such as authentication API, applications, and single sign-on implementations. If developing a new out-of-band authenticator, please refer to NIST SP 800-63B &sect; 5.1.3.1.
+The communication may includes an authentication code, typically a random number/code (which will get sent back as confirmation via the primary channel), or feature some form of approval dialog. The authentication server waits to receive the confirmation and if it is received correctly can consider authenticated to have succeeded.
 
-Unsafe out-of-band authenticators such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B &sect; 5.1.3.3.
+The ASVS assumes that few developers will be developing new types of out-of-band authentication mechanism but rather will be utilizing existing types. As such, the following ASVS requirements focus on existing mechanisms. If developing a new type of out-of-band mechanism, please refer to NIST SP 800-63B &sect; 5.1.3.1.
+
+Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B &sect; 5.1.3.3.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users | ✓ | ✓ | ✓ | 287 | 5.1.3.2, 5.1.3.3, 5.2.10 |
-| **2.7.2** | [MODIFIED] Verify that the out-of-band verifier expires out-of-band authentication requests, codes, or tokens within 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.3** | [GRAMMAR] Verify that the out-of-band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.4** | [GRAMMAR] Verify that the out-of-band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
-| **2.7.5** | [GRAMMAR] Verify that the out-of-band verifier retains only a hashed version of the authentication code. | | ✓ | ✓ | 256 | 5.1.3.2 |
-| **2.7.6** | [MODIFIED] Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
-| **2.7.7** | [ADDED] Verify that the initial authentication code is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | | ✓ | ✓ | 307 | 5.1.3.2 |
+| **2.7.2** | [MODIFIED] Verify that out-of-band authentication requests, codes, or tokens expire within 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.3** | [GRAMMAR] Verify that out-of-band authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.4** | [GRAMMAR] Verify that the secondary communications channel being used is secure and independent of the primary channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
+| **2.7.5** | [GRAMMAR] Verify that the authentication server only retains a hashed version of the authentication code at the back-end. | | ✓ | ✓ | 256 | 5.1.3.2 |
+| **2.7.6** | [MODIFIED] Verify that codes used in out-of-band authentication are generated using a cryptographically secure random number generator (CSPRNG) and contain at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
+| **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | | ✓ | ✓ | 307 | 5.1.3.2 |
 
-## V2.8 One-Time Verifier
+## V2.8 Time based One-time Passwords
 
-Single-factor One-time Passwords (OTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. These devices make phishing (impersonation) difficult, but not impossible. This type of authenticator is considered "something you have". Multi-factor tokens are similar to single-factor OTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
+Single-factor, time-based, one-time passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have".
+
+Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.8.1** | Verify that time-based OTPs have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.2** | Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of OTPs. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.4** | Verify that time-based OTP can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.1** | [GRAMMAR] Verify that time-based, one-time passwords have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.2** | [GRAMMAR] Verify that symmetric keys used to verify submitted time-based, one-time passwords are highly protected, such as by using a hardware security module or secure operating system based key storage. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.3** | [GRAMMAR] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of time-based, one-time passwords. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.4** | [GRAMMAR] Verify that a time-based, one-time password can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
-| **2.8.6** | Verify physical single-factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | ✓ | ✓ | 613 | 5.2.1 |
-| **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authenticators are only used as secondary factors together with either something you have or something you know. | | | ✓ | 308 | 5.2.3 |
+| **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | | ✓ | 613 | 5.2.1 |
+| **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | | | ✓ | 308 | 5.2.3 |
 | **2.8.8** | [ADDED] Ensure that generation of the time-based multi-factor OTP token is based on the server's system time and not the client's machine. | | | ✓ | 367 | 5.1.4.2 / 5.1.5.2 |
 
-## V2.9 Cryptographic Verifier
+## V2.9 Cryptographic authentication mechanism
 
-Cryptographic security keys are smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. Verifiers send a challenge nonce to the cryptographic devices or software, and the device or software calculates a response based upon a securely stored cryptographic key.
+Cryptographic authentication mechanism include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authenticatoin server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key.
 
-The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic authenticator proves possession of the authentication factor.
+The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic device proves possession of the authentication factor.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.9.1** | Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage. | | ✓ | ✓ | 320 | 5.1.7.2 |
-| **2.9.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | | ✓ | ✓ | 330 | 5.1.7.2 |
-| **2.9.3** | [MODIFIED] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | | ✓ | ✓ | 327 | 5.1.7.2 |
+| **2.9.1** | [MODIFIED, LEVEL L2 > L3] Verify that the authentication server stores the cryptographic keys used in verification are securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage. | | ✓ | ✓ | 320 | 5.1.7.2 |
+| **2.9.2** | [MODIFIED, LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | | | ✓ | 330 | 5.1.7.2 |
+| **2.9.3** | [MODIFIED, LEVEL L2 > L3]  Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | | | ✓ | 327 | 5.1.7.2 |
 
 ## V2.10 Service Authentication
 
@@ -187,19 +185,11 @@ Secrets can be securely stored by using services offered by the framework, the o
 | **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | | |
 | **2.10.4** | [DELETED, MERGED TO 6.4.1] | | | | | |
 
-## Additional US Agency Requirements
-
-US Agencies have mandatory requirements concerning NIST SP 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST SP 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications.
-
-We strongly urge US government agencies to review and implement NIST SP 800-63 in its entirety.
-
 ## Glossary of terms
 
 | Term | Meaning |
 | -- | -- |
 | CSP | Credential Service Provider also called an Identity Provider. |
-| Authenticator | Code that authenticates a password, token, MFA, federated assertion, and so on. |
-| Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status". |
 | OTP | One-time password. |
 | SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card). |
 | MFA | Multi-factor authentication, which includes two or more single factors. |
