@@ -30,21 +30,20 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended.  | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | [MODIFIED, SPLIT TO 2.4.6] Verify that passwords of at least 64 characters are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | ✓ | ✓ | ✓ | | 5.1.1.2 |
-| **2.1.4** | Verify that any printable Unicode character, including language neutral characters such as spaces and Emojis are permitted in passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
 | **2.1.7** | [MODIFIED, SPLIT TO 2.1.14] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
 | **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.10** | [MODIFIED, SPLIT TO 2.1.13, LEVEL L1 > L2] Verify that the application does not require periodic credential rotation. | | ✓ | ✓ | | 5.1.1.2 |
+| **2.1.10** | [MODIFIED, LEVEL L1 > L2] Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.12** | [MODIFIED] Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | ✓ | ✓ | ✓ | 549 | 5.1.1.2 |
-| **2.1.13** | [ADDED, SPLIT FROM 2.1.10, LEVEL L1 > L2] Verify that the application does not keep a password history. | | ✓ | ✓ | | 5.1.1.2 |
-| **2.1.14** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | | | ✓ | | 5.1.1.2 |
-| **2.1.15** | [ADDED] Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.13** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | | | ✓ | | 5.1.1.2 |
+| **2.1.14** | [ADDED] Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | | ✓ | ✓ | 521 | 5.1.1.2 |
 
 Possible sources of frequently used passwords for requirement 2.1.7 include:
 
@@ -62,17 +61,16 @@ NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.2.1** | [MODIFIED] Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. More than 5 failed authentication attempts per hour for a single account should trigger some sort of reaction or alert. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
-| **2.2.2** | [MODIFIED, SPLIT TO 2.2.12] Verify that restricted authenticators (those using PSTN to deliver OTPs via phone or SMS) are offered only when alternate stronger methods are also offered and when the service provides information on their security risks to users. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
+| **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | ✓ | ✓ | ✓ | 304 | |
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 | 6.1.2 |
-| **2.2.4** | [MODIFIED, SPLIT TO 2.2.9] Verify that a hardware-based authentication mechanism that provides verifier impersonation resistance against phishing attacks (such as WebAuthn) is used. | | | ✓ | 308 | 4.3.1 |
-| **2.2.5** | Verify that where a Credential Service Provider (CSP) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. | | | ✓ | 319 | 5.2.6 |
+| **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides verifier impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | | | ✓ | 308 | 4.3.1 |
+| **2.2.5** | [MOVED TO 9.3.3] | | | | |
 | **2.2.6** | [DELETED, DUPLICATE OF 2.7.3, 2.8.4] | | | | | |
-| **2.2.7** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. | | | ✓ | 308 | 5.2.9 |
+| **2.2.7** | [DELETED, MERGED TO 2.2.4] | | | | | |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ | | |
 | **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a requires a combination of single-factor authentication mechanisms. | | ✓ | ✓ | 308 | 4.2.1 |
 | **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | | ✓ | ✓ | 778 | |
 | **2.2.11** | [ADDED, SPLIT FROM 1.2.4] Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | | ✓ | ✓ | 306 | |
-| **2.2.12** | [ADDED, SPLIT FROM 2.2.2] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | ✓ | ✓ | ✓ | 1390 | |
 
 ## V2.3 Authenticator Lifecycle
 
@@ -83,7 +81,7 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.3.1** | [MODIFIED] Verify system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
-| **2.3.2** | Verify that enrollment and use of user-provided authentication devices are supported, such as a U2F or FIDO tokens. | | ✓ | ✓ | 308 | 6.1.3 |
+| **2.3.2** | [DELETED, MERGED TO 2.2.4] | | | | | |
 | **2.3.3** | [MODIFIED] Verify that automated reminders are configured and acted on to ensure that renewal instructions for time-bound authenticators are sent with enough time to be carried out before the old authenticator expires. | | ✓ | ✓ | 287 | 6.1.4 |
 | **2.3.4** | [ADDED] System administrators should not be able to change or choose any user's password, but rather only be able to initiate the password reset process for the user. | ✓ | ✓ | ✓ | 620 | |
 
@@ -141,7 +139,7 @@ Unsafe out-of-band authenticators such as e-mail and VOIP are not permitted. PST
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.7.1** | [GRAMMAR] Verify that cleartext out-of-band (NIST "restricted") authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users | ✓ | ✓ | ✓ | 287 | 5.1.3.2, 5.1.3.3, 5.2.10 |
 | **2.7.2** | [MODIFIED] Verify that the out-of-band verifier expires out-of-band authentication requests, codes, or tokens within 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.3** | [GRAMMAR] Verify that the out-of-band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.4** | [GRAMMAR] Verify that the out-of-band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
