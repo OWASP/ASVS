@@ -254,7 +254,7 @@ There exists a need for approved key exchange mechanisms, such as Diffie-Hellman
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.7.1** | Verify that industry-proven cryptographic algorithms, such as Diffie-Hellman groups, with a focus on ensuring that key exchange mechanisms use secure parameters to prevent man-in-the-middle attacks or cryptographic breaks, are used for key exchanges to prevent attacks on the key establishment process. | | ✓ | ✓ | 798 |
+| **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms, such as Diffie-Hellman groups, with a focus on ensuring that key exchange mechanisms use secure parameters to prevent man-in-the-middle attacks or cryptographic breaks, are used for key exchanges to prevent attacks on the key establishment process. | | ✓ | ✓ | 798 |
 
 ### Approved KEX Schemes
 
@@ -296,6 +296,25 @@ A complete list of IKE Groups is available by [IANA](https://www.iana.org/assign
 Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) and [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final).
 
 Specifically, IKEv1 MUST NOT be used in production.
+
+## V6.8 In-Use Data Cryptography
+
+Protecting data while it is being processed is paramount. Techniques such as full memory encryption, encryption of data in transit, and ensuring data is encrypted as quickly as possible after use is recommended.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **6.8.1** | [ADDED] Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | | ✓ | ✓ | 798 |
+| **6.8.2** | [ADDED] Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | | ✓ | ✓ | 798 |
+
+## V6.9 Post-Quantum Cryptography (PQC)
+
+The need to future-proof cryptographic systems in preparation for the eventual rise of quantum computing is critical. Post-Quantum Cryptography (PQC) focuses on developing cryptographic systems that are resistant to quantum attacks, which could break current encryption methods such as RSA and ECC.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **6.9.1** | [ADDED] Verify that Quantum-Safe Algorithms, or quantum-resistant algorithms, such as lattice-based, hash-based, code-based, or multivariate cryptographic schemes, as replacements for vulnerable classical algorithms like RSA and ECC, are used. | | ✓ | ✓ | 798 |
+| **6.9.2** | [ADDED] Verify that cryptographic systems are designed to allow for seamless upgrades to post-quantum cryptography, enabling the transition once PQC standards are fully established. | | ✓ | ✓ | 798 |
+| **6.9.3** | [ADDED] Regularly monitor advancements in the field of post-quantum cryptography and align with emerging industry standards to remain prepared for quantum threats. | | ✓ | ✓ | 798 |
 
 ## References
 
