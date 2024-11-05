@@ -166,6 +166,67 @@ ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory. Any other method for key wrapping MUST NOT be used.
 
+## V6.7 Hashing and Hash-based Functions
+
+Cryptographic hashes are used in a wide variety of cryptographic protocols, such as digital signatures, HMAC, key derivation functions (KDF), random bit generation, and password storage. The security of the cryptographic system is only as strong as the underlying hash functions used. This section outlines the requirements for using secure hash functions in cryptographic operations.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **6.7.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Approved hash functions are listed below. | | ✓ | ✓ | 916 |
+| **6.7.2** | [ADDED] Verify that slow hashing functions are used for password storage, with appropriate parameter settings as outlined below. | | ✓ | ✓ | 916 |
+| **6.7.3** | [ADDED] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | 327 |
+| **6.7.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | 916 |
+| **6.7.5** | [ADDED] Verify that hash functions used in HMAC, KDF, and random bit generation are derived from those with proper entropy seeding for random bit generation. | | ✓ | ✓ | 916 |
+
+### Approved Hash Functions for General Use Cases
+
+The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications. Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
+
+| Hash functions | Suitable for<br>HMAC/KDF/RBG? |Reference | L1 | L2 | L3 |
+| -------------- | ----------------------------- |-------------------------------------------------------------- |--|--|--|
+| SHA3-512 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
+| SHA-512 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
+| SHA3-384 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
+| SHA-384 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
+| SHA3-256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
+| SHA-512/256 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
+| SHA-256 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | ✓ | ✓ | ✓ |
+| KMAC256 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
+| KMAC128 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
+| SHAKE256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | ✓ | ✓ | ✓ |
+
+### Approved Hash Functions for Password Storage
+
+The following hash functions are specifically recommended for secure password storage. These slow-hashing algorithms mitigate brute-force and dictionary attacks by increasing the computational difficulty of password cracking.
+
+| Hash Function | Reference | Required Parameter Sets | L1 | L2 | L3 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --|--|--|
+| argon2 | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | TODO | | ✓ | ✓ |
+| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | TODO | | ✓ | ✓ |
+| bcrypt | -- | At least 10 rounds. | | ✓ | ✓ |
+| PBKDF2_SHA512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations | ✓ | ✓ | ✓ |
+| PBKDF2_SHA256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations | ✓ | ✓ | ✓ |
+
+### Disallowed Hash Functions
+
+The following hash functions MUST NOT be used in any cryptographic operation generating new material due to known weaknesses and vulnerabilities, they MAY only be used for verification of existing material.
+
+| Hash functions | Reference |
+| ---------------- | --------------------------------------------------------------------------------------------------------- |
+| CRC (any length) | -- |
+| MD4 | [RFC 1320](https://www.rfc-editor.org/info/rfc1320) |
+| MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321) |
+| SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
+
+### Disallowed Hash Functions for Digital Signatures
+
+For digital signature implementations, the following hash functions MUST NOT be used due to insufficient collision resistance:
+
+| Hash functions | Reference |
+| -------------- | -------------------------------------------------------------- |
+| SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
+| SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) |
 
 ## References
 
