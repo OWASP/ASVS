@@ -2,11 +2,13 @@
 
 ## Control Objective
 
-Ensure that a verified application satisfies the following high-level requirements:
+The objective of V6 is not only to define best practices but also to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches by doing the following:
 
-* All cryptographic modules fail securely and errors are handled correctly.
-* A suitable random number generator is used.
-* Access to keys is managed securely.
+- Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
+- Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
+- Maintaining a secure cryptographic key management system with appropriate access controls and auditing.
+- Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
+- Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
 ## V6.1 Data Classification
 
