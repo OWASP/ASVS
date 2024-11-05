@@ -125,25 +125,27 @@ Lookup secrets are pre-generated lists of secret codes, similar to Transaction A
 | **2.6.3** | [MODIFIED] Verify that lookup secrets are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | | ✓ | ✓ | 310 | 5.1.2.2 |
 | **2.6.4** | [ADDED, SPLIT FROM 2.6.2] Verify that lookup secrets have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 330 | 5.1.2.1 |
 
-## V2.7 Out-of-Band Verifier
+## V2.7 Out-of-Band authentication mechanisms
 
-In the past, a common out-of-band verifier would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out-of-band verification.
+In the past, a common out-of-band authentication mechanism would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out-of-band verification.
 
-Secure out-of-band authenticators are physical devices that can communicate with the verifier over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered "something you have". When a user wishes to authenticate, the verifying application sends a message to the out-of-band authenticator via a connection to the authenticator directly or indirectly through a third-party service. The message includes an authentication code, typically a random six-digit number, or features a modal approval dialog. The verifying application waits to receive the authentication code through the primary channel and compares the hash of the received value to the hash of the original authentication code. If they match, the out-of-band verifier can assume that the user has authenticated.
+Secure out-of-band authentication mechanisms will generally involve the authentication server communicating with a physical device over a secure secondary channel. Examples include push notifications to mobile devices. This type of authenticator is considered "something you have".
 
-The ASVS assumes that only a few developers will be developing new out-of-band authenticators, such as push notifications, and thus the following ASVS controls apply to verifiers, such as authentication API, applications, and single sign-on implementations. If developing a new out-of-band authenticator, please refer to NIST SP 800-63B &sect; 5.1.3.1.
+The communication may includes an authentication code, typically a random number/code (which will get sent back as confirmation via the primary channel), or feature some form of approval dialog. The authentication server waits to receive the confirmation and if it is received correctly can consider authenticated to have succeeded.
+
+The ASVS assumes that few developers will be developing new types of out-of-band authentication mechanism but rather will be utilizing existing types. As such, the following ASVS requirements focus on existing mechanisms. If developing a new type of out-of-band mechanism, please refer to NIST SP 800-63B &sect; 5.1.3.1.
 
 Unsafe out-of-band authenticators such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B &sect; 5.1.3.3.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users | ✓ | ✓ | ✓ | 287 | 5.1.3.2, 5.1.3.3, 5.2.10 |
-| **2.7.2** | [MODIFIED] Verify that the out-of-band verifier expires out-of-band authentication requests, codes, or tokens within 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.3** | [GRAMMAR] Verify that the out-of-band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.4** | [GRAMMAR] Verify that the out-of-band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
-| **2.7.5** | [GRAMMAR] Verify that the out-of-band verifier retains only a hashed version of the authentication code. | | ✓ | ✓ | 256 | 5.1.3.2 |
-| **2.7.6** | [MODIFIED] Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
-| **2.7.7** | [ADDED] Verify that the initial authentication code is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | | ✓ | ✓ | 307 | 5.1.3.2 |
+| **2.7.2** | [MODIFIED] Verify that out-of-band authentication requests, codes, or tokens expire within 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.3** | [GRAMMAR] Verify that out-of-band authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.4** | [GRAMMAR] Verify that the secondary communications channel being used is secure and independent of the primary channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
+| **2.7.5** | [GRAMMAR] Verify that the authentication server only retains a hashed version of the authentication code at the back-end. | | ✓ | ✓ | 256 | 5.1.3.2 |
+| **2.7.6** | [MODIFIED] Verify that codes used in out-of-band authentication are generated using a cryptographically secure random number generator (CSPRNG) and contain at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
+| **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | | ✓ | ✓ | 307 | 5.1.3.2 |
 
 ## V2.8 One-Time Verifier
 
