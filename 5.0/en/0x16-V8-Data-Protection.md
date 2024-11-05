@@ -31,7 +31,7 @@ Ensure that a verified application satisfies the following high-level data prote
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching headers (i.e. Cache-Control: no-store) so that sensitive data is not cached in browsers. | ✓ | ✓ | ✓ | 525 |
+| **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e. Cache-Control: no-store) so that sensitive data is not cached in browsers. | ✓ | ✓ | ✓ | 525 |
 | **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session identifiers. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | ✓ | ✓ | ✓ | 922 |
 
@@ -45,7 +45,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **8.3.1** | [MODIFIED, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or headers and that the URL and query string do not contain sensitive information, such as an API key or session token. | ✓ | ✓ | ✓ | 598 |
+| **8.3.1** | [MODIFIED, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or header fields and that the URL and query string do not contain sensitive information, such as an API key or session token. | ✓ | ✓ | ✓ | 598 |
 | **8.3.2** | [MODIFIED, SPLIT TO 8.3.9, LEVEL L1 > L3] Verify that users have a method to remove their data on demand. | | | ✓ | |
 | **8.3.3** | [MODIFIED, LEVEL L1 > L3] Verify that the application provides guidance regarding how it collects and uses of personal data and that users have to provide opt-in consent for this use. | | | ✓ | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
@@ -63,7 +63,7 @@ When considering data protection, a primary consideration should be around bulk 
 
 For more information, see also:
 
-* [Consider using the Security Headers website to check security and anti-caching headers](https://securityheaders.com/)
+* [Consider using the Security Headers website to check security and anti-caching header fields](https://securityheaders.com/)
 * [Documentation about anti-caching headers by Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
 * [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
 * [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)

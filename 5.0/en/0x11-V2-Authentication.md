@@ -91,7 +91,7 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 
 Architects and developers should adhere to this section when building or refactoring code.
 
-The current list of approved password hashing algorithms is detailed in NIST SP 800-63B section 5.1.1.2, and in the [OWASP Password Storage Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms). Pay careful attention to the configuration guidance to be aware of any implementation challenges or limits with each algorithm.
+The current list of approved password hashing algorithms is detailed in NIST SP 800-63B section 5.1.1.2, and in the [OWASP Password Storage Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms). Pay careful attention to the configuration guidance to be aware of any implementation challenges or limits with each algorithm. At time of writing, Argon2id is the prefered password hashing algorithm, based on its resistance to side-channel attacks and its customizable memory, CPU, and parallelism parameters.
 
 In particular, note that since these algorithms are intentionally compute-intensive, there have been cases in the past where providing a very long password leads to a denial of service condition. It is therefore very important to protect against this.
 
@@ -187,7 +187,7 @@ Secrets can be securely stored by using services offered by the framework, the o
 | **2.10.1** | [MODIFIED, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 | |
 | **2.10.2** | [GRAMMAR] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
 | **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | | |
-| **2.10.4** | [GRAMMAR] Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage should resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. | | ✓ | ✓ | 798 | |
+| **2.10.4** | [DELETED, MERGED TO 6.4.1] | | | | | |
 
 ## Additional US Agency Requirements
 

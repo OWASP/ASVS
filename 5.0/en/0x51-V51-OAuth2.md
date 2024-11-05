@@ -10,6 +10,7 @@ There are various different personas in the OAuth process, described in more det
 | :---: | :--- | :---: | :---: | :---: |
 | **51.1.1** | [ADDED] Verify that tokens (such as ID tokens, access tokens and refresh tokens) can only be used for their intended purpose. For example, ID tokens can only be used to prove user authentication for the client. | ✓ | ✓ | ✓ |
 | **51.1.2** | [ADDED] Verify that tokens are only sent to components that strictly need them. For example, avoid having access or refresh tokens accessible for the frontend when they are only needed by the backend. | ✓ | ✓ | ✓ |
+| **51.1.3** | [ADDED] Verify that the client only accepts values from the authorization server (such as the authorization code or ID token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce' are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | ✓ | ✓ | ✓ |
 
 ## V51.2 OAuth Authorization Server
 
@@ -17,11 +18,11 @@ There are various different personas in the OAuth process, described in more det
 | :---: | :--- | :---: | :---: | :---: |
 | **51.2.1** | [ADDED] Verify that, if the authorization server returns the authorization code, it can be used only once for a token request. | ✓ | ✓ | ✓ |
 | **51.2.2** | [ADDED] Verify that the authorization code is short-lived. The maximum lifetime can be 10 minutes for L1 and L2 applications and 1 minute for L3 applications. | ✓ | ✓ | ✓ |
-| **51.2.3** | [ADDED] Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring PKCE. For authorization requests, the authorization server must require a valid code_challenge value and must not accept code_challenge_method 'plain'. For a token request, it must require validation of the "code_verifier" parameter. | ✓ | ✓ | ✓ |
-| **51.2.4** | [ADDED] Verify that the authorization server mitigates refresh token replay attacks for public clients by using (L1, L2) refresh token rotation or (L1, L2, L3) sender-constrained refresh tokens using Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens (mTLS). If refresh token rotation is used, verify that the authorization server invalidates the refresh token after usage and revokes all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | ✓ | ✓ | ✓ |
+| **51.2.3** | [ADDED] Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring proof key for code exchange (PKCE). For authorization requests, the authorization server must require a valid 'code_challenge' value and must not accept 'code_challenge_method' value 'plain'. For a token request, it must require validation of the 'code_verifier' parameter. | ✓ | ✓ | ✓ |
+| **51.2.4** | [ADDED] Verify that the authorization server mitigates refresh token replay attacks for public clients, preferably using sender-constrained refresh tokens (i.e. Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens (mTLS)). For L1 applications only, refresh token rotation may be used instead. If refresh token rotation is used, verify that the authorization server invalidates the refresh token after usage and revokes all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | ✓ | ✓ | ✓ |
 | **51.2.5** | [ADDED] Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) should no longer be used. | ✓ | ✓ | ✓ |
 | **51.2.6** | [ADDED] Verify that the authorization server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | ✓ | ✓ | ✓ |
-| **51.2.7** | [ADDED] Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, PAR requests, token revocation requests, and token introspection requests. | ✓ | ✓ | ✓ |
+| **51.2.7** | [ADDED] Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, pushed authorization requests (PAR), token revocation requests, and token introspection requests. | ✓ | ✓ | ✓ |
 | **51.2.8** | [ADDED] Verify that the authorization server configuration only assigns the required scopes to the OAuth Client. | ✓ | ✓ | ✓ |
 | **51.2.9** | [ADDED] Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | | | ✓ |
 | **51.2.10** | [ADDED] Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), i. e. 'mTLS' or 'private-key-jwt'. | | | ✓ |
@@ -29,14 +30,13 @@ There are various different personas in the OAuth process, described in more det
 | **51.2.12** | [ADDED] Verify that for a given client, an attacker may not tamper with the 'response_mode' parameter, for example by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured authorization request (JAR). | ✓ | ✓ | ✓ |
 | **51.2.13** | [ADDED] Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | ✓ | ✓ | ✓ |
 | **51.2.14** | [ADDED] Verify that refresh tokens and reference access tokens can be revoked by an authorized user. It can be achieved by using the authorization server user interface, or by a client that is using authorization server APIs for revocation. | ✓ | ✓ | ✓ |
-| **51.2.15** | [ADDED] Verify that the replay of authorization codes into the authorization response is prevented either by using the PKCE flow or alternatively the OpenID Connect "nonce" parameter and the respective Claim in the ID Token. The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started. | ✓ | ✓ | ✓ |
 
 ## V51.3 OAuth Client
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.3.1** | [ADDED] Verify that, if the OAuth Client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server returns the 'iss' parameter value and validate it in the authorization response and the token response. | ✓ | ✓ | ✓ |
-| **51.3.2** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against CSRF attacks which trigger token requests, either by using PKCE functionality or checking the state parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
+| **51.3.2** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against cross-site request forgery (CSRF) attacks which trigger token requests, either by using proof key for code exchange (PKCE) functionality or checking the 'state' parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
 | **51.3.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the resource server they want to access. | ✓ | ✓ | ✓ |
 | **51.3.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
 | **51.3.5** | [ADDED] Verify that the OAuth Client only requests the required scopes (or other authorization parameters) in requests to the authorization server. | ✓ | ✓ | ✓ |
@@ -54,7 +54,7 @@ There are various different personas in the OAuth process, described in more det
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.5.1** | [ADDED] Verify that the Client (as the Relying Party) mitigates ID Token replay attacks. For example, by ensuring that the nonce claim in the ID Token matches the nonce value sent in the Authentication Request to the OpenID Provider (in OAuth2 refereed to as the Authorization request sent to the Authorization Server). | ✓ | ✓ | ✓ |
+| **51.5.1** | [ADDED] Verify that the Client (as the relying party) mitigates ID token replay attacks. For example, by ensuring that the 'nonce' claim in the ID token matches the 'nonce' value sent in the authentication request to the OpenID provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | ✓ | ✓ | ✓ |
 | **51.5.2** | [ADDED] Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | ✓ | ✓ | ✓ |
 | **51.5.3** | [ADDED] Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by client. | ✓ | ✓ | ✓ |
 
@@ -92,6 +92,7 @@ The Resource Owner refers to an entity capable of granting access to a protected
 
 The Resource Server refers to the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
 
+<!--
 ## OAuth 2.0 Basics
 
 In OpenID Connect flows, the "nonce" parameter provides CSRF protection. Otherwise, one-time user CSRF tokens carried in the "state" parameter that are securely bound to the user agent must be used for CSRF protection.
@@ -115,14 +116,33 @@ Restricting token privileges ensures a Client is granted the proper access to a 
 ### Resource Owner Password Credentials Grant
 
 Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to two-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn), and authentication processes that require multiple steps can be hard or impossible. This grant type is not recommended in general due to security concerns. Instead, use the authorization code grant with PKCE. This grant type is omitted from the OAuth 2.1 specification.
+-->
 
-## OAuth 2.0 References
+## References
 
-For more information, see also:
+For more information on OAuth, please see:
 
-* RFC 6749 - The OAuth 2.0 Authorization Framework: <https://www.rfc-editor.org/info/rfc6749>
-* RFC 6750 - The OAuth 2.0 Authorization Framework: Bearer Token Usage: <https://www.rfc-editor.org/info/rfc6750>
-* OAuth 2.0 Best Practices: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices>
-* Mix-up attacks: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-18#mix_up>
-* RFC9207 - OAuth 2.0 Authorization Server Issuer Identifier in Authorization Response: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-iss-auth-resp-00>
-* Other Countermeasures for Mix-up attacks: <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-18#section-2.1-6>
+* [oauth.net](https://oauth.net/)
+* [OWASP Cheat Sheet: OAuth 2.0 Protocol Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
+
+For OAuth-related requirements in ASVS following published and in draft status RFC-s are used:
+
+* [RFC6749 The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
+* [RFC6750 The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
+* [RFC6819 OAuth 2.0 Threat Model and Security Considerations](https://datatracker.ietf.org/doc/html/rfc6819)
+* [RFC7636 Proof Key for Code Exchange by OAuth Public Clients](https://datatracker.ietf.org/doc/html/rfc7636)
+* [RFC9068 JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens](https://datatracker.ietf.org/doc/html/rfc9068)
+* [RFC8628 OAuth 2.0 Device Authorization Grant](https://datatracker.ietf.org/doc/html/rfc8628)
+* [RFC8707 Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707)
+* [RFC9126 OAuth 2.0 Pushed Authorization Requests](https://datatracker.ietf.org/doc/html/rfc9126)
+* [RFC9207 OAuth 2.0 Authorization Server Issuer Identification](https://datatracker.ietf.org/doc/html/rfc9207)
+* [RFC9396 OAuth 2.0 Rich Authorization Requests](https://datatracker.ietf.org/doc/html/rfc9396)
+* [RFC9449 OAuth 2.0 Demonstrating Proof of Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449)
+* [draft OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics)<!-- recheck on release -->
+* [draft OAuth 2.0 for Browser-Based Applications](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)<!-- recheck on release -->
+* [draft The OAuth 2.1 Authorization Framework](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-11)<!-- recheck on release -->
+
+For more information on OpenID Connect, please see:
+
+* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
+* [FAPI 2.0 Security Profile](https://openid.bitbucket.io/fapi/fapi-2_0-security-profile.html)<!-- recheck on release -->

@@ -24,7 +24,7 @@ As previously noted, these requirements have been adapted to be a compliant subs
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.2.1** | [MODIFIED] Verify the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | [MODIFIED, MERGED FROM 3.2.4] Verify that random tokens representing user sessions are generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ |  |  |
+| **3.2.2** | [MODIFIED, MERGED FROM 3.2.4] Verify that random tokens representing user sessions are generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | | |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | | |
 | **3.2.4** | [DELETED, MERGED TO 3.2.2] | | | | | |
 | **3.2.5** | [ADDED] Verify that creating a session for the application requires the user's consent and that the application is protected against a CSRF-style attack where a new application session for the user is created via SSO without user interaction. | | ✓ | ✓ | | |
@@ -33,24 +33,20 @@ TLS or another secure transport channel is mandatory for session management. Thi
 
 ## V3.3 Session Timeout
 
-Session timeouts have been aligned with NIST SP 800-63, which permits much longer session timeouts than traditionally permitted by security standards. Organizations are advised to review the table below. If a longer timeout is desired based on the application's risk profile, the NIST value should serve as the maximum limit for session idle timeouts.
-
-L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For both IAL2/AAL2 and IAL3/AAL3, the shorter the idle timeout, the lower the bound of idle times for being logged out or re-authenticated to resume the session.
-
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.3.1** | [MOVED TO 3.8.1] | | | | | |
-| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is required at least every 30 days for L1 applications or every 12 hours for L2 and L3 applications. | ✓ | ✓ | ✓ | 613 | 7.2 |
+| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | ✓ | ✓ | ✓ | | |
 | **3.3.3** | [MOVED TO 3.8.2] | | | | | |
 | **3.3.4** | [MOVED TO 3.8.3] | | | | | |
-| **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that re-authentication is required after 30 minutes of inactivity for L2 applications or after 15 minutes of inactivity for L3 applications. | | ✓ | ✓ | 613 | 7.2 |
+| **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | ✓ | ✓ | ✓ | 613 | 7.2 |
 
 ## V3.4 Cookie-based Session Management
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. | ✓ | ✓ | ✓ | 614 | 7.1.1 |
-| **3.4.2** | [MODIFIED] Verify that cookie-based session tokens are not readable by client-side scripts. The session token cookie should have the 'HttpOnly' attribute set and the session token value should only be transferred to the client via the Set-Cookie header. | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
+| **3.4.2** | [MODIFIED] Verify that cookie-based session tokens are not readable by client-side scripts. The session token cookie should have the 'HttpOnly' attribute set and the session token value should only be transferred to the client via the Set-Cookie header field. | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
 | **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. | ✓ | ✓ | ✓ | 1275 | 7.1.1 |
 | **3.4.4** | Verify that cookie-based session tokens use the "__Host-" prefix so cookies are only sent to the host that initially set the cookie. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 | **3.4.5** | [DELETED, DEPRECATED BY 50.1.1] | | | | | |
@@ -63,11 +59,10 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.5.1** | [GRAMMAR] Verify that the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 | 7.1.2 |
 | **3.5.2** | [MOVED TO 3.1.3] | | | | | |
-| **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless session tokens make use of a digital signature to protect against tampering and this is checked before processing it further. | ✓ | ✓ | ✓ | 345 | |
+| **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that stateless tokens use a digital signature or MAC to protect against tampering, which is checked before accepting the token's contents. | ✓ | ✓ | ✓ | 345 | |
 | **3.5.4** | [ADDED] Verify that stateless tokens are checked for expiration before processing them further. | ✓ | ✓ | ✓ | 613 | |
-| **3.5.5** | [ADDED] Verify that only signing algorithms on an allowlist are allowed for a stateless token. | ✓ | ✓ | ✓ | 757 | |
+| **3.5.5** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify cryptographically secured tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | ✓ | ✓ | ✓ | 757 | |
 | **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may include issuer, subject, and audience. | ✓ | ✓ | ✓ | 287 | |
-| **3.5.7** | [ADDED] Verify that all active stateless tokens, which are being relied upon for access control decisions, are revoked when admins change the entitlements or roles of the user. | ✓ | ✓ | ✓ | 613 | |
 
 ## V3.6 Federated Re-authentication
 
@@ -80,7 +75,7 @@ This section relates to those writing Relying Party (RP) or Credential Service P
 
 ## V3.7 Defenses Against Session Management Exploits
 
-There are a small number of session management attacks, some related to the user experience (UX) of sessions. Previously, based on ISO 27002 requirements, the ASVS has required blocking multiple simultaneous sessions. Blocking simultaneous sessions is no longer appropriate, not only as modern users have many devices or the app is an API without a browser session, but in most of these implementations, the last authenticator wins, which is often the attacker. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
+There are a small number of session management attacks, some related to the user experience (UX) of sessions. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
 
 ### Description of the half-open Attack
 
