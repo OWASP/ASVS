@@ -67,6 +67,106 @@ Although this section is not easily penetration tested, developers should consid
 | **6.4.1** | [MODIFIED, MERGED FROM 2.10.4] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy back-end secrets, such as passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys. Secrets must not be included in source code or be received as CI/CD variables. For a L3 application, this should involved a hardware-backed solution such as an HSM. | | ✓ | ✓ | 798 |
 | **6.4.2** | [MODIFIED] Verify that key material is not exposed to the application (neither the front-end nor the back-end) but instead uses an isolated security module like a vault for cryptographic operations. | | ✓ | ✓ | 320 |
 
+## V6.6 Cipher Algorithms
+
+Cipher algorithms such as AES and CHACHA20 form the backbone of modern cryptographic practice.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **6.2.4** | [ADDED] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | | ✓ | ✓ | 326 |
+| **6.2.5** | [ADDED] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure ciphers and modes** such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
+| **6.2.6** | [ADDED] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | | | ✓ | 326 |
+| **6.2.7** | [ADDED] Verify that encrypted data is authenticated via signatures, authenticated cipher modes, or HMAC to ensure that ciphertext is not altered by an unauthorized party. | | | ✓ | 326 |
+| **6.2.8** | [ADDED] Verify that any authenticated signatures are operating in encrypt-then-MAC or encrypt-then-hash modes as required. party. | | | ✓ | 326 |
+
+### Approved Ciphers
+
+Implementations MUST choose from the ciphers in this list, in order of preference:
+
+| Symmetric Key Algorithms | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
+| ChaCha20-Poly1305 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | | ✓ | ✓ |
+| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
+| AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
+
+Any other cipher options MUST NOT be used.
+
+### Disallowed Ciphers
+
+The following is a list of _explicitly unauthorized_ ciphers. Whilst anything not on the above list must be approved with documented reasons, the following are explicitly banned and MUST NOT be used:
+
+| Symmetric Key Algorithms |
+|--|
+| 2TDEA |
+| 3TDEA (3DES) |
+| IDEA |
+| RC4 |
+| Blowfish|
+| ARC4 |
+| DES |
+
+### AES Cipher Modes
+
+Modern ciphers make use of various modes, particularly AES for various purposes. We describe the requirements on AES Cipher Modes here.
+
+#### Approved Cipher Modes for General Use Cases
+
+Implementations MUST choose from the following block modes, in order of preference, EXCEPT where the function is encrypted data storage (see next subsection):
+
+| AES Encryption Mode | Authenticated?* | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|--|
+| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | ✓ | ✓ | ✓ |
+| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | ✓ | ✓ | ✓ |
+| CCM-8** | Yes | [RFC 6655](https://www.rfc-editor.org/info/rfc6655) | ✓ | ✓ | ✓ |
+| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | ✓ | ✓ | ✓ |
+
+* All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. This MUST be applied in the 'Encrypt-Then-Hash' or 'ETH' method. If this cannot be guaranteed, then CBC MUST NOT be used.
+
+\*\*CCM-8 is included in regard to TLS cipher suites (see [TLS](https://github.com/santander-group-cyber-cto/CryptographyStandard/blob/main/Implementations/TLS/README.md) section).
+
+#### Recommendations for Approved Cipher Modes for General Use Cases
+
+Out of the given approved block modes, implementations SHOULD use the ciphers in this list, in order of preference:
+
+| AES Encryption Mode | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| GCM | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | ✓ | ✓ | ✓ |
+| CCM | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | ✓ | ✓ | ✓ |
+
+#### Approved Cipher Modes ONLY for Data Storage (block encryption on disk)
+
+Implementations of disk-level block encryption MUST choose from the following list, in order of preference:
+
+| AES Disk Encryption Mode | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| XTS | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) | ✓ | ✓ | ✓ |
+| XEX | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) | ✓ | ✓ | ✓ |
+| LRW | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | ✓ | ✓ | ✓ |
+
+#### Disallowed Cipher Modes
+
+The following cipher modes MUST NOT be used for any use case:
+
+| Encryption Mode |
+|--|
+| ECB |
+| CFB |
+| OFB |
+| CTR |
+
+### Key Wrapping
+
+ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) and considering forward-looking provisions against the quantum threat. Cipher modes using AES are the following, in order of preference:
+
+| Key Wrapping | Reference | L1 | L2 | L3 |
+|--|--|--|--|--|
+| KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | ✓ | ✓ | ✓ |
+| KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | ✓ | ✓ | ✓ |
+
+AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory. Any other method for key wrapping MUST NOT be used.
+
+
 ## References
 
 For more information, see also:
