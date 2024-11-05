@@ -17,7 +17,7 @@ Upload functionality is a key source of untrusted files. These should be careful
 
 ## V12.2 File Integrity and Content
 
-Ensure that uploaded files and files within archives match expected file types and content formats, and that oversized images are blocked to prevent pixel flood attacks.
+Uploaded files and uploaded files within archives must match expected file types and content formats, and oversized images must be blocked to prevent pixel flood attacks.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -26,7 +26,7 @@ Ensure that uploaded files and files within archives match expected file types a
 
 ## V12.3 File Execution
 
-Ensure that file operations do not rely on user-submitted filenames or metadata to avoid path traversal and inclusion attacks, and that server-side file processing ignores user-provided path details to prevent vulnerabilities like zip slip.
+File operations should not rely on user-submitted filenames or metadata to avoid path traversal and inclusion attacks, and server-side file processing should ignore user-provided path details to prevent vulnerabilities like zip slip.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -40,7 +40,7 @@ Ensure that file operations do not rely on user-submitted filenames or metadata 
 
 ## V12.4 File Storage
 
-Ensure that files from untrusted sources, stored in public folders, are not executable as server-side code and that files from untrusted sources are scanned by antivirus software to prevent serving malicious content.
+Files from untrusted sources, when stored in public folders, must not be executable as server-side code. Files from untrusted sources must also be scanned by antivirus software to prevent serving malicious content.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -49,7 +49,7 @@ Ensure that files from untrusted sources, stored in public folders, are not exec
 
 ## V12.5 File Download
 
-Ensure that the application validates or ignores user-submitted filenames and specifies filenames in the Content-Disposition header for downloads, and that served filenames are encoded or sanitized to prevent injection attacks.
+User-submitted filenames should be validated or ignored in the Content-Disposition header for downloads, and that served filenames are encoded or sanitized to prevent injection attacks.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -66,7 +66,7 @@ Ensure that the application validates or ignores user-submitted filenames and sp
 
 ## V12.7 Application Resources
 
-Ensure that the application releases system resources like database connections, open files, and threads after use to prevent resource exhaustion.
+Applications must release system resources like database connections, open files, and threads after use to prevent resource exhaustion.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
