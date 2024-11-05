@@ -185,15 +185,6 @@ Secrets can be securely stored by using services offered by the framework, the o
 | **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | | |
 | **2.10.4** | [DELETED, MERGED TO 6.4.1] | | | | | |
 
-## Glossary of terms
-
-| Term | Meaning |
-| -- | -- |
-| CSP | Credential Service Provider also called an Identity Provider. |
-| OTP | One-time password. |
-| SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card). |
-| MFA | Multi-factor authentication, which includes two or more single factors. |
-
 ## References
 
 For more information, see also:
