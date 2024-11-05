@@ -34,7 +34,7 @@ Although zip bombs can be effectively tested using penetration testing technique
 | **12.3.3** | [DELETED, MERGED TO 12.3.1] | | | | |
 | **12.3.4** | [MOVED TO 12.5.3] | | | | |
 | **12.3.5** | [DELETED, DUPLICATE OF 5.3.8] | | | | |
-| **12.3.6** | Verify that the application does not include and execute functionality from untrusted sources, such as unverified content distribution networks, JavaScript libraries, node npm libraries, or server-side DLLs. | | ✓ | ✓ | 829 |
+| **12.3.6** | [DELETED, DUPLICATE OF 50.6.1] | | | | |
 | **12.3.7** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | ✓ | ✓ | ✓ | 23 |
 
 ## V12.4 File Storage
