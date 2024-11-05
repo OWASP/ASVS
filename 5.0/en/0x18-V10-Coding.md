@@ -40,7 +40,7 @@ Complying with this section is likely to be operational and continuous.
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.3.1** | Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update. | ✓ | ✓ | ✓ | 16 |
-| **10.3.2** | [MODIFIED] Verify that the application only loads or executes code, modules, content or plugins from sources not under the application's direct control or protection if it employs integrity protections, such as code signing. | ✓ | ✓ | ✓ | 829 |
+| **10.3.2** | [DELETED, MERGED TO 10.6.2| ✓ | ✓ | ✓ | 829 |
 | **10.3.3** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V10.4 Defensive Coding
@@ -67,7 +67,7 @@ Dependency management is critical to the safe operation of any application of an
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.6.1** | [MODIFIED, MOVED FROM 14.2.1] Verify that all components are up to date. | ✓ | ✓ | ✓ | |
-| **10.6.2** | [ADDED] Verify that third party components are being included from the expected repository, whether that is internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
+| **10.6.2** | [MODIFIED] Verify that third party components and all of their transitive dependencies are being included from the expected repository, whether that is internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
 
 ## References
 
