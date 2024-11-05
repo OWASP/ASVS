@@ -26,13 +26,13 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended.  | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | [MODIFIED, SPLIT TO 2.4.6] Verify that passwords of at least 64 characters are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | ✓ | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
-| **2.1.7** | [MODIFIED, SPLIT TO 2.1.14] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.7** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
 | **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.10** | [MODIFIED, LEVEL L1 > L2] Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | | ✓ | ✓ | | 5.1.1.2 |
@@ -135,7 +135,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users | ✓ | ✓ | ✓ | 287 | 5.1.3.2, 5.1.3.3, 5.2.10 |
+| **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. | ✓ | ✓ | ✓ | 287 | 5.1.3.2, 5.1.3.3, 5.2.10 |
 | **2.7.2** | [MODIFIED] Verify that out-of-band authentication requests, codes, or tokens expire within 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.3** | [GRAMMAR] Verify that out-of-band authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
 | **2.7.4** | [GRAMMAR] Verify that the secondary communications channel being used is secure and independent of the primary channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
