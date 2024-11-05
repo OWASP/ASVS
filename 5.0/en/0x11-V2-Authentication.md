@@ -147,18 +147,20 @@ Unsafe out-of-band authenticators such as e-mail and VOIP are not permitted. PST
 | **2.7.6** | [MODIFIED] Verify that codes used in out-of-band authentication are generated using a cryptographically secure random number generator (CSPRNG) and contain at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 | 5.1.3.2 |
 | **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | | ✓ | ✓ | 307 | 5.1.3.2 |
 
-## V2.8 One-Time Verifier
+## V2.8 Time based One-time Passwords
 
-Single-factor One-time Passwords (OTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. These devices make phishing (impersonation) difficult, but not impossible. This type of authenticator is considered "something you have". Multi-factor tokens are similar to single-factor OTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
+Single-factor, time-based, one-time passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authenticator is considered "something you have".
+
+Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.8.1** | Verify that time-based OTPs have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.2** | Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of OTPs. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.4** | Verify that time-based OTP can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.1** | [GRAMMAR] Verify that time-based, one-time passwords have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.2** | [GRAMMAR] Verify that symmetric keys used to verify submitted time-based, one-time passwords are highly protected, such as by using a hardware security module or secure operating system based key storage. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.3** | [GRAMMAR] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of time-based, one-time passwords. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.4** | Verify that a time-based, one-time password can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.5** | Verify that if a time-based multi-factor OTP token is re-used during the validity period, it is logged and rejected with secure notifications being sent to the holder of the device. | | ✓ | ✓ | 287 | 5.1.5.2 |
-| **2.8.6** | Verify physical single-factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | ✓ | ✓ | 613 | 5.2.1 |
+| **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | | ✓ | 613 | 5.2.1 |
 | **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authenticators are only used as secondary factors together with either something you have or something you know. | | | ✓ | 308 | 5.2.3 |
 | **2.8.8** | [ADDED] Ensure that generation of the time-based multi-factor OTP token is based on the server's system time and not the client's machine. | | | ✓ | 367 | 5.1.4.2 / 5.1.5.2 |
 
