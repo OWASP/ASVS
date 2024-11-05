@@ -102,8 +102,6 @@ In particular, note that since these algorithms are intentionally compute-intens
 | **2.4.5** | [DELETED, INCORRECT] | | | | | |
 | **2.4.6** | [ADDED, SPLIT FROM 2.1.2] Verify that the application is protected against a denial of service attack caused by processing an overly long password. | | ✓ | ✓ | | |
 
-Where US standards are mentioned, a regional or local standard can be used in place of or in addition to the US standard as required.
-
 ## V2.5 Credential Recovery
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
