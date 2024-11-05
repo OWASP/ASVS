@@ -77,12 +77,6 @@ This section relates to those writing Relying Party (RP) or Credential Service P
 
 There are a small number of session management attacks, some related to the user experience (UX) of sessions. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
 
-### Description of the half-open Attack
-
-In early 2018, several financial institutions were compromised using what the attackers called "half-open attacks". This term has stuck in the industry. The attackers struck multiple institutions with different proprietary code bases, and indeed it seems different code bases within the same institutions. The half-open attack exploits a design pattern flaw commonly present in many authentication, session management and access control systems.
-
-Attackers start a half-open attack by attempting to lock, reset, or recover a credential. A popular session management design pattern re-uses user profile session objects/models between unauthenticated, half-authenticated (password resets, forgot username), and fully authenticated code. This design pattern populates a valid session object or token containing the victim's profile, including password hashes and roles. If access control checks in controllers or routers do not correctly verify that the user is fully logged in, the attacker will be able to act as the user. Attacks could include changing the user's password to a known value, updating the email address to perform a valid password reset, disabling multi-factor authentication or enrolling a new MFA device, revealing or changing API keys, and so on.
-
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.7.1** | [MODIFIED] Verify that the application requires re-authentication or secondary verification before allowing highly sensitive transactions, modifications to account profile or authentication settings, or a large export of sensitive data. | ✓ | ✓ | ✓ | 306 | |
