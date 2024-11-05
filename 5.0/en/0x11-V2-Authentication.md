@@ -65,7 +65,7 @@ As noted above, NIST SP 800-63 considers email as [not acceptable](https://pages
 | **2.2.2** | [MODIFIED, SPLIT TO 2.2.12] Verify that restricted authenticators (those using PSTN to deliver OTPs via phone or SMS) are offered only when alternate stronger methods are also offered and when the service provides information on their security risks to users. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 | 6.1.2 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9] Verify that a hardware-based authenticator and an authenticator that provides verifier impersonation resistance against phishing attacks (such as WebAuthn) are used. | | | ✓ | 308 | 4.3.1 |
-| **2.2.5** | Verify that where a Credential Service Provider (CSP) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. | | | ✓ | 319 | 5.2.6 |
+| **2.2.5** | [MOVED TO 9.3.3] | | | | |
 | **2.2.6** | Verify replay resistance through the mandated use of One-time Passwords (OTP) devices, cryptographic authenticators, or lookup codes. | | | ✓ | 308 | 5.2.8 |
 | **2.2.7** | Verify intent to authenticate by requiring the entry of an OTP token or user-initiated action such as a button press on a FIDO hardware key. | | | ✓ | 308 | 5.2.9 |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as based on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ | | |
