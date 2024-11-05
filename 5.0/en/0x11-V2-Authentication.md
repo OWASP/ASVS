@@ -199,12 +199,8 @@ We strongly urge US government agencies to review and implement NIST SP 800-63 i
 
 | Term | Meaning |
 | -- | -- |
-| CSP | Credential Service Provider also called an Identity Provider. |
 | Authenticator | Code that authenticates a password, token, MFA, federated assertion, and so on. |
 | Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status". |
-| OTP | One-time password. |
-| SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card). |
-| MFA | Multi-factor authentication, which includes two or more single factors. |
 
 ## References
 
