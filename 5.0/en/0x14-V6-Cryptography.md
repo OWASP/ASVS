@@ -10,9 +10,9 @@ The objective of V6 is not only to define best practices but also to instill a f
 - Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
 - Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
-## V6.1 Data Classification and Cryptographic Inventory
+## V6.1 Cryptographic Inventory
 
-The most important asset is the data processed, stored, or transmitted by an application. Always perform a privacy impact assessment to classify the data protection needs of any stored data correctly. In addition, ensure that all cryptographic assets, such as algorithms, keys, and certificates, are regularly discovered, inventoried, and assessed.
+Ensure that all cryptographic assets, such as algorithms, keys, and certificates, are regularly discovered, inventoried, and assessed.
 
 |     #     | Description                                                                                                                                                                                                                                                                                         | L1  | L2  | L3  | CWE |
 | :-------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: | :-: |
