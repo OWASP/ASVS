@@ -30,7 +30,7 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended.  | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | [MODIFIED, SPLIT TO 2.4.6] Verify that passwords of at least 64 characters are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | ✓ | ✓ | ✓ | | 5.1.1.2 |
 | **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
