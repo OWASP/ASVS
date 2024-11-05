@@ -35,7 +35,7 @@ File operations should not rely on user-submitted filenames or metadata to avoid
 | **12.3.3** | [DELETED, MERGED TO 12.3.1] | | | | |
 | **12.3.4** | [MOVED TO 12.5.3] | | | | |
 | **12.3.5** | [DELETED, DUPLICATE OF 5.3.8] | | | | |
-| **12.3.6** | [DELETED, DUPLICATE OF 50.6.1] | | | | |
+| **12.3.6** | [DELETED, DUPLICATE OF 14.2.4] | | | | |
 | **12.3.7** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | ✓ | ✓ | ✓ | 23 |
 
 ## V12.4 File Storage
