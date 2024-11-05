@@ -40,7 +40,7 @@ Complying with this section is likely to be operational and continuous.
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.3.1** | Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update. | ✓ | ✓ | ✓ | 16 |
-| **10.3.2** | [MOVED TO 10.6.2| | | | |
+| **10.3.2** | [MOVED TO 10.6.2] | | | | |
 | **10.3.3** | [DELETED, NOT IN SCOPE] | | | | |
 
 ## V10.4 Defensive Coding
