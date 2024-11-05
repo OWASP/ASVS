@@ -51,13 +51,13 @@ Possible sources of frequently used passwords for requirement 2.1.7 include:
 * <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
 * <https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere>
 
-## V2.2 General Authenticator Security
+## V2.2 General Authentication Security
 
-Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as retiring deprecated or unsafe authenticators in an orderly fashion.
+Authentication factor agility is essential to future-proof applications. Applications should allow additional secure authentication factors to be used, as per user preferences, as well as retiring deprecated or unsafe authentication mechanisms in an orderly fashion.
 
-NIST considers SMS as ["restricted" authenticator types](https://pages.nist.gov/800-63-FAQ/#q-b01), and they are likely to be removed from NIST SP 800-63, and consequently from the ASVS, in the future. Applications should plan a roadmap that does not require the use of SMS.
+NIST considers SMS as a ["restricted" authenticator type](https://pages.nist.gov/800-63-FAQ/#q-b01), and they are likely to be removed from NIST SP 800-63, and consequently from the ASVS, in the future. As at the time of writing this has still not yet happened but applications should plan a roadmap that does not require the use of SMS.
 
-As noted above, NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authenticator.
+NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authenticator.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
