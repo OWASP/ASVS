@@ -10,7 +10,7 @@ Adoption of effective, evidence-based leading practice will be challenging for m
 
 [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
 
-NIST SP 800-63 terminology can be a little confusing and we have tried to standardise the terminology to optimize for clarity, using more commonly understood terminology where possible.   
+NIST SP 800-63 terminology can be a little confusing and we have tried to standardise the terminology to optimize for clarity, using more commonly understood terminology where possible.
 
 As such, whilst this chapter aligns to a subset of selected NIST SP 800-63B controls, we have focused on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
 
