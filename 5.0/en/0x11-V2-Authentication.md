@@ -158,8 +158,8 @@ Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN c
 | **2.8.1** | [GRAMMAR] Verify that time-based, one-time passwords have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.2** | [GRAMMAR] Verify that symmetric keys used to verify submitted time-based, one-time passwords are highly protected, such as by using a hardware security module or secure operating system based key storage. | | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.3** | [GRAMMAR] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of time-based, one-time passwords. | | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.4** | Verify that a time-based, one-time password can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.5** | Verify that if a time-based multi-factor OTP token is re-used during the validity period, it is logged and rejected with secure notifications being sent to the holder of the device. | | ✓ | ✓ | 287 | 5.1.5.2 |
+| **2.8.4** | [GRAMMAR] Verify that a time-based, one-time password can be used only once within the validity period. | | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | | | | |
 | **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | | ✓ | 613 | 5.2.1 |
 | **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authenticators are only used as secondary factors together with either something you have or something you know. | | | ✓ | 308 | 5.2.3 |
 | **2.8.8** | [ADDED] Ensure that generation of the time-based multi-factor OTP token is based on the server's system time and not the client's machine. | | | ✓ | 367 | 5.1.4.2 / 5.1.5.2 |
