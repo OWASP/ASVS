@@ -1,8 +1,15 @@
 # V51 OAuth and OIDC
 
-This chapter describes and summarizes the [best current security practices](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-best-practices) for OAuth 2.0 as derived from its [RFC 6750](https://www.rfc-editor.org/info/rfc6750) and [6749](https://www.rfc-editor.org/info/rfc6749) for every OAuth implementor. OAuth became the standard for API protection and the basis for federated login using OpenID Connect. OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner.
+## Control Objective
 
-There are various different personas in the OAuth process, described in more detail in the terminology section below. The requirements in this chapter are structured based on those personas as requirements for one persona may not be relevant for a different persona.
+OAuth2 has become industry standard for delegating API authorization and also the basis for end-user authentication using OpenID Connect (OIDC), where OIDC is an identity layer on top of OAuth2. Thus, all OAuth2 verifications in this chapter also apply to OIDC, while OAuth2 can be used without OIDC verifications.
+
+OAuth was initially made for third-party access delegation but it is often nowadays used as a first-party solution, including as a replacement for session management. Due to the complexity, it may introduce the risk of overengineering and causing new security challenges.
+
+OAuth and OIDC are logic on top of web technologies and therefore general requirements from other chapters always apply and this chapter can not be taken out of context.
+This chapter addresses best current practices for OAuth2 and OIDC aligned with specifications found at <https://oauth.net/2/> and <https://openid.net/developers/specs/>. Even if RFCs are considered to be mature, they are being updated frequently. Thus, it is important to align with the latest versions when applying the requirements in this chapter, see the references sections for more details.
+
+Given the complexity of the area, it is vitally important for a secure OAuth or OIDC solution to use well-known industry standard authorization servers and apply the recommended security configuration.
 
 ## V51.1 Generic OAuth and OIDC security
 
