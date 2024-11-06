@@ -97,6 +97,16 @@ For example, hiding the version of server-side components does not fix the need 
 | **14.6.1** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | ✓ | ✓ | ✓ | 918 |
 | **14.6.2** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between back-end application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | | ✓ | ✓ | 272 |
 
+## V14.7 External Service Configuration
+
+Applications need to interact with multiple external services including APIs, databases or other components. These might be considered internal to the application but not be included in the application's standard access control mechanisms or might be entirely external. In either case, it will be necessary to configure the application to interact securely with these components and, if necessary protect that configuration.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **14.7.1** | [MODIFIED, MOVED FROM 2.10.1, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 |
+| **14.7.2** | [GRAMMAR, MOVED FROM 2.10.2] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 |
+| **14.7.3** | [MODIFIED, MOVED FROM 4.3.3] Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | | ✓ | ✓ | 732 |
+
 ## References
 
 For more information, see also:
