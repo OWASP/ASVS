@@ -10,7 +10,7 @@ The objective of V6 is not only to define best practices but also to instill a f
 * Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
 * Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
-In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in Appendix V. 
+In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in [Appendix V](./0x97-Appendix-V_Cryptography.md). 
 
 ## V1.6 Cryptographic Inventory and Documentation
 
@@ -51,9 +51,9 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | | ✓ | ✓ | 327 |
 | **6.2.3** | [DELETED, DUPLICATE OF 6.2.5] | | | | |
 | **6.2.4** | Verify that the application is designed with crypto agility such that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once PQC standards are fully established. | | ✓ | ✓ | 320 |
-| **6.2.5** | [MODIFIED] Verify that known insecure block modes (i.e. ECB, etc.), padding modes (i.e. PKCS#1 v1.5, etc.), ciphers with small block sizes (i.e. Triple-DES, Blowfish, etc.), and weak hashing algorithms (i.e. MD5, SHA1, etc.) are not used. | | ✓ | ✓ | 326 |
-| **6.2.6** | [DELETED, DUPLICATE OF 6.5.3]| | | ✓ | 326 |
-| **6.2.7** | Verify that encrypted data is authenticated via signatures, authenticated cipher modes, or HMAC to ensure that ciphertext is not altered by an unauthorized party. | | | ✓ | 326 |
+| **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.3]. | | | | |
+| **6.2.6** | [MOVED TO 6.5.3]| | | | |
+| **6.2.7** | [MOVED TO 6.5.4]| | | | |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | | | ✓ | 385 |
 | **6.2.9** | [ADDED] All cryptographic primitives MUST utilize a minimum of 128-bits of security, with exceptions only made for equipment or applications approaching end of life, where the requirement is at least 112-bits of security for all cryptography. | ✓ | ✓ | ✓ | 311 |
 
@@ -64,10 +64,9 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.3.1** | [MODIFIED] All random numbers and strings intended to be non-guessable must be generated using a CSPRNG. | ✓ | ✓ | ✓ | 338 |
-| **6.3.2** | 6.3.2 [MODIFIED] Verify that GUIDs are created with an implementation of the GUID v4 or v7 algorithms which utilizes a CSPRNG.                                               |     |  ✓  |  ✓  | 338 |
-| **6.3.3** | Random number generation must work properly under heavy system load, or the system must degrade gracefully. | ✓ | ✓ | ✓ | 338 |
-
+| **6.3.1** | [GRAMMAR, LEVEL L2 > L1] Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG). | ✓ | ✓ | ✓ | 338 |
+| **6.3.2** | [MODIFIED] Verify that GUIDs are created with an implementation of the GUID v4 or v7 algorithms which utilizes a cryptographically-secure pseudo-random number generator (CSPRNG). | | ✓ | ✓ | 338 |
+| **6.3.3** | [GRAMMAR, LEVEL L3 > L1] Verify that random number generation works properly under heavy system load, or that the system degrades gracefully. | ✓ | ✓ | ✓ | 338 |
 
 ## V6.4 Secret Management
 
@@ -86,10 +85,10 @@ Cipher algorithms such as AES and CHACHA20 form the backbone of modern cryptogra
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.5.1** | [ADDED] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | | ✓ | ✓ | 326 |
-| **6.5.2** | [ADDED] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure ciphers and modes** such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
-| **6.5.3** | [ADDED] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | | | ✓ | 326 |
-| **6.5.4** | [ADDED] Verify that encrypted data is authenticated via signatures, including unencrypted tokens being used for secure access control, as well as through authenticated cipher modes or HMAC for protection against unauthorized modification. | | | ✓ | 326 |
+| **6.5.1** | [ADDED, SPLIT FROM 6.2.5] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | | ✓ | ✓ | 326 |
+| **6.5.2** | [ADDED, SPLIT FROM 6.2.5, LEVEL L2 > L1] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure ciphers and modes** such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
+| **6.5.3** | [MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | | | ✓ | 326 |
+| **6.5.4** | [MOVED FROM 6.2.7] Verify that encrypted data is authenticated via signatures, including unencrypted tokens being used for secure access control, as well as through authenticated cipher modes or HMAC for protection against unauthorized modification. | | | ✓ | 326 |
 | **6.5.5** | [ADDED] Verify that any authenticated signatures are operating in encrypt-then-MAC or encrypt-then-hash modes as required.| | | ✓ | 326 |
 
 ## V6.6 Hashing and Hash-based Functions
@@ -98,9 +97,9 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Approved hash functions are listed below. | | ✓ | ✓ | 916 |
+| **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. | | ✓ | ✓ | 916 |
 | **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | 916 |
-| **6.6.3** | [ADDED] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | 327 |
+| **6.6.3** | [ADDED, SPLIT FROM 6.2.5] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | 327 |
 | **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | 916 |
 | **6.6.5** | [ADDED] Verify that hash functions used in HMAC, KDF, and random bit generation are derived from those with proper entropy seeding for random bit generation. | | ✓ | ✓ | 916 |
 
@@ -129,7 +128,7 @@ The need to future-proof cryptographic systems in preparation for the eventual r
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.9.1** | [ADDED] Verify that Quantum-Safe Algorithms, or quantum-resistant algorithms, such as lattice-based (ML-KEM), hash-based, code-based, or multivariate cryptographic schemes, as replacements for vulnerable classical algorithms like RSA and ECC, are used. | | ✓ | ✓ | 798 |
-| **6.9.2** | [ADDED] Regularly monitor advancements in the field of post-quantum cryptography and align with emerging industry standards to remain prepared for quantum threats. | | ✓ | ✓ | 798 |
+| **6.9.2** | [ADDED] Verify that advancements in the field of post-quantum cryptography are being monitored in order to ensure that the application is aligned with emerging industry standards, and remains prepared for quantum threats. | | ✓ | ✓ | 798 |
 
 ## References
 
