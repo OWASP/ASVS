@@ -16,6 +16,20 @@ As such, whilst this chapter aligns to a subset of selected NIST SP 800-63B cont
 
 We strongly urge US government agencies to review and implement NIST SP 800-63 in its entirety.
 
+## V1.2 Authentication Documentation
+
+<!--
+When designing authentication systems, the strength of hardware-enabled multi-factor authentication becomes irrelevant if an attacker can easily reset an account by calling a call center and answering commonly known questions. To ensure secure identity verification, all authentication pathways must possess equivalent strength.
+-->
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.2.1** | [MOVED TO 14.6.2] | | | | |
+| **1.2.2** | [DELETED, MERGED TO 2.10.1] | | | | |
+| **1.2.3** | [DELETED, DUPLICATE OF 1.2.4] | | | | |
+| **1.2.4** | [MODIFIED, SPLIT TO 2.2.11] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | | ✓ | ✓ | 306 |
+| **1.2.5** | [ADDED] Verify that a list of context specific words are documented in order to prevent their use in passwords. | | ✓ | ✓ | 521 |
+
 ## V2.1 Password Security
 
 Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authentication mechanism. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
