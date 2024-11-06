@@ -64,7 +64,7 @@ The purpose of error handling is to ensure the application fails gracefully and 
 | **7.4.2** | [MODIFIED] Verify that a consistent and standardized exception handling mechanism (or a functional equivalent) is used across the codebase. | | ✓ | ✓ | 544 |
 | **7.4.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. | | ✓ | ✓ | 431 |
 | **7.4.4** | [ADDED] Verify that the application is designed in a way that a failure to access external resources does not result in the entire application failing, for example using the circuit breaker pattern. | | ✓ | ✓ | |
-| **7.4.5** | [MODIFIED, MOVED FROM 4.1.5] Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions. | ✓ | ✓ | ✓ | |
+| **7.4.5** | [MODIFIED, MOVED FROM 4.1.5] Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions such as processing a transaction despite errors resulting from validation logic. | ✓ | ✓ | ✓ | |
 
 Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last-resort event handlers. In this case, architects and developers should use a pattern, language, or framework-friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
 
