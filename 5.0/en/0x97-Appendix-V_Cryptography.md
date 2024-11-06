@@ -52,7 +52,7 @@ Implementations MUST choose from the ciphers in this list, in order of preferenc
 | Symmetric Key Algorithms | Reference | L1 | L2 | L3 |
 |--|--|--|--|--|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
-| ChaCha20-Poly1305 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | | ✓ | ✓ |
+| ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | | ✓ | ✓ |
 | AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
 | AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
 
