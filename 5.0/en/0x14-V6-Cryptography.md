@@ -22,7 +22,7 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 320 |
 | **1.6.2** | Verify that consumers of cryptographic services protect key material and other secrets by using key vaults or API based alternatives. | | ✓ | ✓ | 320 |
-| **1.6.3** | Verify that all keys and passwords are replaceable and are part of a well-defined process to re-encrypt sensitive data. | | ✓ | ✓ | 320 |
+| **1.6.3** | [MERGED INTO 6.2.4] | | | | |
 | **1.6.4** | [GRAMMAR] Verify that the architecture treats client-side secrets (such as symmetric keys, passwords, or API tokens) as insecure and never uses them to protect or access sensitive data. | | ✓ | ✓ | 320 |
 | **1.6.5** | [ADDED] Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. | | ✓ | ✓ | 311 |
 | **1.6.7** | [ADDED] Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | | ✓ | ✓ | 311 |
@@ -46,7 +46,7 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.1** | Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable Padding Oracle attacks. | ✓ | ✓ | ✓ | 310 |
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | | ✓ | ✓ | 327 |
 | **6.2.3** | [DELETED, DUPLICATE OF 6.2.5] | | | | |
-| **6.2.4** | Verify that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes, can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. | | ✓ | ✓ | 326 |
+| **6.2.4** | Verify that the application is designed with crypto agility such that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once PQC standards are fully established. | | ✓ | ✓ | 320 |
 | **6.2.5** | [MODIFIED] Verify that known insecure block modes (i.e. ECB, etc.), padding modes (i.e. PKCS#1 v1.5, etc.), ciphers with small block sizes (i.e. Triple-DES, Blowfish, etc.), and weak hashing algorithms (i.e. MD5, SHA1, etc.) are not used. | | ✓ | ✓ | 326 |
 | **6.2.6** | [MODIFIED, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | | | ✓ | 326 |
 | **6.2.7** | Verify that encrypted data is authenticated via signatures, authenticated cipher modes, or HMAC to ensure that ciphertext is not altered by an unauthorized party. | | | ✓ | 326 |
@@ -330,8 +330,7 @@ The need to future-proof cryptographic systems in preparation for the eventual r
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.9.1** | [ADDED] Verify that Quantum-Safe Algorithms, or quantum-resistant algorithms, such as lattice-based, hash-based, code-based, or multivariate cryptographic schemes, as replacements for vulnerable classical algorithms like RSA and ECC, are used. | | ✓ | ✓ | 798 |
-| **6.9.2** | [ADDED] Verify that cryptographic systems are designed to allow for seamless upgrades to post-quantum cryptography, enabling the transition once PQC standards are fully established. | | ✓ | ✓ | 798 |
-| **6.9.3** | [ADDED] Regularly monitor advancements in the field of post-quantum cryptography and align with emerging industry standards to remain prepared for quantum threats. | | ✓ | ✓ | 798 |
+| **6.9.2** | [ADDED] Regularly monitor advancements in the field of post-quantum cryptography and align with emerging industry standards to remain prepared for quantum threats. | | ✓ | ✓ | 798 |
 
 ## References
 
