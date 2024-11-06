@@ -50,7 +50,6 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.9** | [ADDED] Verify that "atomic transactions" are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | | ✓ | ✓ | |
 | **11.1.10** | [ADDED] Verify that very high-value business logic flows are restricted with multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to critical nuclear facility operations, healthcare record modifications, access to classified information, or safety overrides in manufacturing. | | | ✓ | |
 
-
 ## V11.2 Anti-automation
 
 | # | Description | L1 | L2 | L3 | CWE |
