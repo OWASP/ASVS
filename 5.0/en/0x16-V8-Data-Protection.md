@@ -11,7 +11,7 @@ Ensure that a verified application satisfies the following high-level data prote
 * Confidentiality: Data should be protected from unauthorized observation or disclosure both in transit and when stored.
 * Integrity: Data should be protected from being maliciously created, altered or deleted by unauthorized attackers.
 * Availability: Data should be available to authorized users as required.
-  
+
 ## V1.8 Data Protection and Privacy Documentation
 
 | # | Description | L1 | L2 | L3 | CWE |
