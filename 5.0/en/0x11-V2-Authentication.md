@@ -90,7 +90,7 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.3.1** | [MODIFIED] Verify that system generated initial passwords or activation codes are securely randomly generated, at least 6 characters long, may contain letters and numbers, expire after a short period of time, and are single-use. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
+| **2.3.1** | [MODIFIED] Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | [DELETED, MERGED TO 2.2.4] | | | | | |
 | **2.3.3** | [MODIFIED] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | | ✓ | ✓ | 287 | 6.1.4 |
 | **2.3.4** | [ADDED] System administrators should not be able to change or choose any user's password, but rather only be able to initiate the password reset process for the user. | ✓ | ✓ | ✓ | 620 | |
