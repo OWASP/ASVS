@@ -37,9 +37,7 @@ There are various different personas in the OAuth process, described in more det
 | :---: | :--- | :---: | :---: | :---: |
 | **51.3.1** | [ADDED] Verify that, if the OAuth Client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server returns the 'iss' parameter value and validate it in the authorization response and the token response. | ✓ | ✓ | ✓ |
 | **51.3.2** | [ADDED] Verify that, if the code flow is used, the OAuth Client has protection against cross-site request forgery (CSRF) attacks which trigger token requests, either by using proof key for code exchange (PKCE) functionality or checking the 'state' parameter that was sent in the authorization request. | ✓ | ✓ | ✓ |
-| **51.3.3** | [ADDED] Verify that Clients are utilizing the "scope" and "resource" parameters, respectively to determine the resource server they want to access. | ✓ | ✓ | ✓ |
-| **51.3.4** | [ADDED] Verify that Clients are utilizing the "scope" and "authorization_details" parameters to determine the related resources and actions the access token are restricted to. | ✓ | ✓ | ✓ |
-| **51.3.5** | [ADDED] Verify that the OAuth Client only requests the required scopes (or other authorization parameters) in requests to the authorization server. | ✓ | ✓ | ✓ |
+| **51.3.3** | [ADDED] Verify that the OAuth Client only requests the required scopes (or other authorization parameters) in requests to the authorization server. | ✓ | ✓ | ✓ |
 
 ## V51.4 OAuth Resource Server
 
