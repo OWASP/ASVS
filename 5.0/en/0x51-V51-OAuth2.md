@@ -90,32 +90,6 @@ The Resource Owner refers to an entity capable of granting access to a protected
 
 The Resource Server refers to the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
 
-<!--
-## OAuth 2.0 Basics
-
-In OpenID Connect flows, the "nonce" parameter provides CSRF protection. Otherwise, one-time user CSRF tokens carried in the "state" parameter that are securely bound to the user agent must be used for CSRF protection.
-
-### PKCE - Proof Key for Code Exchange Mechanism / Authorization Code Grant
-
-OAuth 2.0 public clients utilizing the Authorization Code Grant are susceptible to the authorization code interception attack. Proof Key for Code Exchange (PKCE, pronounced "pixy") is the technique used to mitigate against the threat of authorization code interception attack.
-
-Originally, PKCE is intended to be used solely focused on securing native apps, but then it became a deployed OAuth feature. It does not only protect against authorization code injection attacks, but also protects authorization codes created for public clients as PKCE ensures that the attacker cannot redeem a stolen authorization code at the token endpoint of the authorization server without knowledge of the code_verifier.
-
-The PKCE challenge or OpenID Connect "nonce" must be transaction-specific and securely bound to the client and the user agent in which the transaction was started.
-
-### Token Replay Prevention
-
-Preventing token replay attacks is of essential importance in using and implementing OAuth 2.0.
-
-### Access Token Privilege Restriction
-
-Restricting token privileges ensures a Client is granted the proper access to a specific resource.
-
-### Resource Owner Password Credentials Grant
-
-Aside from this grant type can leak credentials in more places than just the Authorization Server, adapting the Resource Owner password credentials grant to multi-factor authentication, authentication with cryptographic credentials (e.g. WebCrypto, WebAuthn), and authentication processes that require multiple steps can be hard or impossible. This grant type is not recommended in general due to security concerns. Instead, use the authorization code grant with PKCE. This grant type is omitted from the OAuth 2.1 specification.
--->
-
 ## References
 
 For more information on OAuth, please see:
