@@ -18,7 +18,6 @@ Aside from this, it is also important to ensure that the application fails secur
 | **1.7.2** | [MOVED TO 7.3.5] | | | | |
 | **1.7.3** | [ADDED] Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled and how long logs are kept for. | | ✓ | ✓ | 778 |
 
-
 ## V7.1 General Logging
 
 Logging sensitive information is dangerous - the logs become classified themselves, which means they may need to be encrypted, become subject to retention policies, and must be disclosed in security audits. Ensure only necessary information is kept in logs, and certainly no payment, credentials (including session tokens), sensitive or personally identifiable information.

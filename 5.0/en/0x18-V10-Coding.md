@@ -24,7 +24,6 @@ The best defense against malicious code is "trust, but verify". Introducing unau
 Lead developers should regularly review code check-ins, particularly those that might access time, I/O, or network functions.
 -->
 
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.1.1** | [DELETED, NOT IN SCOPE] | | | | |

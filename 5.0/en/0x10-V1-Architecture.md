@@ -27,26 +27,6 @@ In this chapter, the ASVS covers the primary aspects of any sound security archi
 | **1.1.6** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.1.7** | [DELETED, NOT IN SCOPE] | | | | |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## References
 
 For more information, see also:

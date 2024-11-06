@@ -10,7 +10,6 @@ Authorization is the concept of allowing access to resources only to those permi
 
 Access control deficiencies are unlikely to be discovered using generic automated testing tools. Verifying the requirements in this section will either require manual or manual assisted testing or alternatively a robust series of automated end-to-end access control tests which validate the effectiveness of the access controls under various scenarios. Integrating these tests into the continuous integration/continuous deployment (CI/CD) pipeline will make it easier to validate these requirements on an ongoing basis.
 
-
 ## V1.4 Access Control Documentation
 
 | # | Description | L1 | L2 | L3 | CWE |

@@ -11,8 +11,6 @@ Ensure that a verified application satisfies the following high-level session ma
 
 As previously noted, these requirements have been adapted to be a compliant subset of selected NIST SP 800-63B controls, focused on common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) requirements.
 
-
-
 ## V1.3 Session Management Documentation
 
 Session management mechanisms give applications the ability to correlate user and device interactions over time, even when using otherwise stateless communication protocols. Modern applications may utilize multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that optimally prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session.
