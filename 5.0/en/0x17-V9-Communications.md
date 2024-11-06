@@ -17,6 +17,13 @@ Within these requirements:
 * Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
 * Check your configuration periodically to ensure that secure communication is always present and effective.
 
+## V1.9 Communications Documentation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.9.1** | [DELETED, DUPLICATE OF 9.1.1, 9.2.2, 9.3.1] | | | | |
+| **1.9.2** | [DELETED, DUPLICATE OF 9.2.3, 9.3.2] | | | | |
+
 ## V9.1 HTTPS Communication with External Facing Services
 
 Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publically trusted certificates.

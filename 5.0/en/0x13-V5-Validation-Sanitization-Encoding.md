@@ -8,6 +8,22 @@ With modern web applications, it will always be best to use safer APIs such as p
 
 This chapter also talks about Input Validation which is a powerful defense in depth mechanism for protected against unexpected, dangerous content but should not be considered as a specific security control.
 
+## V1.5 Input and Output Documentation
+
+<!--
+In 4.0, we moved away from the term "server-side" as a loaded trust boundary term. The trust boundary is still concerning - making decisions on untrusted browsers or client devices is bypassable. However, in mainstream architectural deployments today, the trust enforcement point has dramatically changed. Therefore, where the term "trusted service layer" is used in the ASVS, we mean any trusted enforcement point, regardless of location, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on.
+
+The "untrusted client" term here refers to client-side technologies that render the presentation layer, commonly referred to as 'front-end' technologies. The term 'serialization' in this context refers not only to transmitting data over the wire, such as an array of values or processing a JSON structure but also to the handling of complex objects that may contain logic.
+-->
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.5.1** | [MODIFIED, SPLIT TO 1.5.5, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | ✓ | ✓ | ✓ | 20 |
+| **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
+| **1.5.3** | [MOVED TO 5.6.2] | | | | |
+| **1.5.4** | [MOVED TO 5.6.3] | | | | |
+| **1.5.5** | [ADDED, SPLIT FROM 1.5.1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zipcode match. | ✓ | ✓ | ✓ | 20 |
+
 ## V5.1 Input Validation
 
 Everything the application uses or processes must be handled as user input, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, external APIs, etc.

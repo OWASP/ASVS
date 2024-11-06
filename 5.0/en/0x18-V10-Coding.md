@@ -8,6 +8,15 @@ However, this chapter provides more general guidance on how to build application
 
 This chapter also contains requirements to prevent the introduction of malicious code into the application.
 
+## V1.10 Secure Coding Documentation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.10.1** | [DELETED, NOT IN SCOPE] | | | | |
+| **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
+| **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life, libraries which have historically had several significant vulnerabilities, etc. | | | ✓ | 1061 |
+| **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelyhood of being dangerously exploitated such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
+
 ## V10.1 Code Integrity
 
 <!--

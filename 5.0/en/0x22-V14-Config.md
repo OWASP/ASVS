@@ -9,6 +9,18 @@ Ensure that a verified application has:
 
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out-of-the-box configuration.
 
+## V1.14 Configuration Documentation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.14.1** | [DELETED, NOT IN SCOPE] | | | | |
+| **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
+| **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
+| **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
+| **1.14.5** | [SPLIT TO 1.10.4, 10.5.1] | | | | |
+| **1.14.6** | [MOVED TO 50.7.2] | | | | |
+| **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | | ✓ | ✓ | 1059 |
+
 ## V14.1 Build and Deploy
 
 Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We strongly encourage the use of build pipelines with automatic security and dependency checks that warn about or break the build to prevent known security issues from being deployed into production. Manual steps performed irregularly can directly lead to avoidable security mistakes.
