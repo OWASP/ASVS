@@ -74,7 +74,7 @@ NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63
 | **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | ✓ | ✓ | ✓ | 304 | |
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 | 6.1.2 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | | | ✓ | 308 | 4.3.1 |
-| **2.2.5** | [MOVED TO 9.3.3] | | | | |
+| **2.2.5** | [MOVED TO 9.3.3] | | | | | |
 | **2.2.6** | [DELETED, DUPLICATE OF 2.7.3, 2.8.4] | | | | | |
 | **2.2.7** | [DELETED, MERGED TO 2.2.4] | | | | | |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ | | |
@@ -107,8 +107,8 @@ In particular, note that since these algorithms are intentionally compute-intens
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.4.1** | [MOVED TO 6.6.2] | | | | | |
 | **2.4.2** | [DELETED, INCORRECT] | | | | | |
-| **2.4.3** | [DELETED, MERGED TO 2.4.1] | | | | | |
-| **2.4.4** | [DELETED, MERGED TO 2.4.1] | | | | | |
+| **2.4.3** | [DELETED, MERGED TO 6.6.2] | | | | | |
+| **2.4.4** | [DELETED, MERGED TO 6.6.2] | | | | | |
 | **2.4.5** | [DELETED, INCORRECT] | | | | | |
 | **2.4.6** | [ADDED, SPLIT FROM 2.1.2] Verify that the application is protected against a denial of service attack caused by processing an overly long password. | | ✓ | ✓ | | |
 
@@ -183,9 +183,9 @@ The requirements for single-factor cryptographic devices and software, and multi
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.9.1** | [MODIFIED, LEVEL L2 > L3] Verify that the authentication server stores the cryptographic keys used in verification are securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage. | | ✓ | ✓ | 320 | 5.1.7.2 |
-| **2.9.2** | [MODIFIED, LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | | | ✓ | 330 | 5.1.7.2 |
-| **2.9.3** | [MODIFIED, LEVEL L2 > L3]  Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | | | ✓ | 327 | 5.1.7.2 |
+| **2.9.1** | [MODIFIED, LEVEL L2 > L3] Verify that the authentication server stores the cryptographic keys used in verification are securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage. | | | ✓ | 320 | 5.1.7.2 |
+| **2.9.2** | [LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | | | ✓ | 330 | 5.1.7.2 |
+| **2.9.3** | [MODIFIED, LEVEL L2 > L3] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | | | ✓ | 327 | 5.1.7.2 |
 
 ## V2.10 Service Authentication
 

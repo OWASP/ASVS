@@ -83,11 +83,11 @@ Dependency management is critical to the safe operation of any application of an
 Without proper synchronization, concurrent access to shared resources can result in corrupted data, system crashes, or unreliable application behavior. Furthermore, race conditions can often be chained to perform privilege escalations or remote code execution.
 
 | # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---:| :---: | :---: |
+| :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.7.1** | [MODIFIED, MOVED FROM 1.11.3, LEVEL L2 > L3] Verify that only thread-safe types are used in multi-threaded contexts, or that non-thread-safe types are properly synchronized to prevent race conditions. | | | ✓ | 362 |
 | **10.7.2** | [MODIFIED, MOVED FROM 1.11.2, LEVEL L2 > L3] Verify that concurrent access to shared resources is controlled using synchronization primitives (e.g., locks, mutexes, semaphores) to prevent race conditions and ensure atomic operations on these resources. | | | ✓ | 366 |
 | **10.7.3** | [MODIFIED, MOVED FROM 11.1.6] Verify that all access to shared resources is consistently checked and accessed in a single atomic operation to prevent Time-of-Check to Time-of-Use (TOC/TOU) race conditions, ensuring resource state consistency between check and use. | | ✓ | ✓ | 367 |
-| **10.7.4** | [ADDED] Verify that resource acquisition uses a consistent locking strategy to avoid circular dependencies and ensure forward progress, preventing both deadlocks and livelock scenarios.  | | | ✓ | 833 |
+| **10.7.4** | [ADDED] Verify that resource acquisition uses a consistent locking strategy to avoid circular dependencies and ensure forward progress, preventing both deadlocks and livelock scenarios. | | | ✓ | 833 |
 | **10.7.5** | [ADDED] Verify that resource allocation policies prevent thread starvation by ensuring fair access to resources, such as by leveraging thread pools, allowing lower-priority threads to proceed within a reasonable timeframe. | | | ✓ | 410 |
 | **10.7.6** | [ADDED] Verify that locking primitives are only accessible to the owning class or module and are not publicly modifiable, ensuring that locks cannot be inadvertently or maliciously modified by external classes or code. | | | ✓ | 412 |
 
