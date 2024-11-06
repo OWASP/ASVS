@@ -50,7 +50,7 @@ TLS or another secure transport channel is mandatory for session management. Thi
 | **3.3.1** | [MOVED TO 3.8.1] | | | | | |
 | **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | ✓ | ✓ | ✓ | | |
 | **3.3.3** | [MOVED TO 3.8.2] | | | | | |
-| **3.3.4** | [MOVED TO 3.8.3] | | | | | |
+| **3.3.4** | [MOVED TO 3.7.2] | | | | | |
 | **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | ✓ | ✓ | ✓ | 613 | 7.2 |
 
 ## V3.4 Cookie-based Session Management
