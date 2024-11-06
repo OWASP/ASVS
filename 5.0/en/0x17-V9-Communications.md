@@ -26,14 +26,14 @@ Within these requirements:
 
 ## V9.1 HTTPS Communication with External Facing Services
 
-Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publically trusted certificates.
+Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publicly trusted certificates.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **9.1.1** | [MODIFIED] Verify that TLS is used for all connectivity between a client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. | ✓ | ✓ | ✓ | 319 |
 | **9.1.2** | [MOVED TO 9.4.1] | | | | |
 | **9.1.3** | [MOVED TO 9.4.2] | | | | |
-| **9.1.4** | [ADDED] Verify that external facing services use publically trusted TLS certificates. | ✓ | ✓ | ✓ | 295 |
+| **9.1.4** | [ADDED] Verify that external facing services use publicly trusted TLS certificates. | ✓ | ✓ | ✓ | 295 |
 
 ## V9.2 General Service to Service Communication Security
 
