@@ -6,7 +6,7 @@ The objective of V6 is not only to define best practices but also to instill a f
 
 * Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
 * Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
-* Maintaining a secure crypv6tographic key management system with appropriate access controls and auditing.
+* Maintaining a secure cryptographic key management system with appropriate access controls and auditing.
 * Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
 * Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
@@ -193,7 +193,7 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Approved hash functions are listed below. | | ✓ | ✓ | 916 |
-| **6.6.2** | [ADDED] Verify that passwords are stored using a slow, computationally intensive hashing algorithm with recommended parameter settings, as outlined below, that balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | 916 |
+| **6.6.2** | [ADDED] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | 916 |
 | **6.6.3** | [ADDED] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | 327 |
 | **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | 916 |
 | **6.6.5** | [ADDED] Verify that hash functions used in HMAC, KDF, and random bit generation are derived from those with proper entropy seeding for random bit generation. | | ✓ | ✓ | 916 |

@@ -97,7 +97,7 @@ In particular, note that since these algorithms are intentionally compute-intens
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.4.1** | [DELETED, MOVED TO 6.6.2] | | | | | |
+| **2.4.1** | [MOVED TO 6.6.2] | | | | | |
 | **2.4.2** | [DELETED, INCORRECT] | | | | | |
 | **2.4.3** | [DELETED, MERGED TO 2.4.1] | | | | | |
 | **2.4.4** | [DELETED, MERGED TO 2.4.1] | | | | | |
