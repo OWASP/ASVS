@@ -28,7 +28,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.1.1** | [DELETED, MERGED TO 8.3.1] | | | | | |
 | **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 | |
-| **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either cryptographically secured or random session tokens for session management. Static API secrets and keys should be avoided.  | ✓ | ✓ | ✓ | 798 | 7.1 |
+| **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either cryptographically secured or random session tokens for session management. Static API secrets and keys should be avoided. | ✓ | ✓ | ✓ | 798 | 7.1 |
 
 ## V3.2 Session Binding
 
