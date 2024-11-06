@@ -210,7 +210,7 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Approved hash functions are listed below. | | ✓ | ✓ | 916 |
-| **6.6.2** | [ADDED] Verify that slow hashing functions are used for password storage, with appropriate parameter settings as outlined below. | | ✓ | ✓ | 916 |
+| **6.6.2** | [ADDED] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | 916 |
 | **6.6.3** | [ADDED] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | 327 |
 | **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | 916 |
 | **6.6.5** | [ADDED] Verify that hash functions used in HMAC, KDF, and random bit generation are derived from those with proper entropy seeding for random bit generation. | | ✓ | ✓ | 916 |
@@ -238,8 +238,8 @@ The following hash functions are specifically recommended for secure password st
 
 | Hash Function | Reference | Required Parameter Sets | L1 | L2 | L3 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --|--|--|
-| argon2 | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | TODO | | ✓ | ✓ |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | TODO | | ✓ | ✓ |
+| argon2 | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | Argon2ID: Memory Cost 19MB, Time Cost 2, Parallelism 1 | | ✓ | ✓ |
+| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | 2^15 r = 8 p = 1 | | ✓ | ✓ |
 | bcrypt | -- | At least 10 rounds. | | ✓ | ✓ |
 | PBKDF2_SHA512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations | ✓ | ✓ | ✓ |
 | PBKDF2_SHA256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations | ✓ | ✓ | ✓ |
