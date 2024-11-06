@@ -25,7 +25,7 @@ When designing authentication systems, the strength of hardware-enabled multi-fa
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.2.1** | [MOVED TO 14.6.2] | | | | |
-| **1.2.2** | [DELETED, MERGED TO 2.10.1] | | | | |
+| **1.2.2** | [DELETED, MERGED TO 14.7.1] | | | | |
 | **1.2.3** | [DELETED, DUPLICATE OF 1.2.4] | | | | |
 | **1.2.4** | [MODIFIED, SPLIT TO 2.2.11] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | | ✓ | ✓ | 306 |
 | **1.2.5** | [ADDED] Verify that a list of context specific words are documented in order to prevent their use in passwords. | | ✓ | ✓ | 521 |
@@ -189,14 +189,10 @@ The requirements for single-factor cryptographic devices and software, and multi
 
 ## V2.10 Service Authentication
 
-This section is not penetration testable, so does not have any L1 requirements.
-
-Secrets can be securely stored by using services offered by the framework, the operating system, or hardware. For example, the Java Key Store, Keychain Access and AWS Secrets Manager are services that can help store secrets securely. For optimal security, a hardware solution such as a Hardware Security Module or Trusted Platform Module should be used. To conform to level 2, secrets must be stored in a secured service offered by the framework or operating system. For level 3, secrets must be stored in a hardware-assisted service.
-
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **2.10.1** | [MODIFIED, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 | |
-| **2.10.2** | [GRAMMAR] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 | |
+| **2.10.1** | [MOVED TO 14.7.1] | | | | | |
+| **2.10.2** | [MOVED TO 14.7.2] | | | | | |
 | **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | | |
 | **2.10.4** | [DELETED, MERGED TO 6.4.1] | | | | | |
 

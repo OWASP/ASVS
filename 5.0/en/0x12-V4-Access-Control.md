@@ -49,7 +49,7 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **4.3.1** | [MODIFIED, LEVEL L1 > L3] Verify that access to administrative interfaces incorporates multiple layers of security, including continuous user identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they reduce likelihood. | | | ✓ | 419 |
 | **4.3.2** | [SPLIT TO 14.3.4, 14.3.5] | | | | |
-| **4.3.3** | [MODIFIED] Verify that, if the application allows changing highly sensitive configurations around passwords or connection parameters for integrations with databases and third-party systems, they are protected by extra controls such as re-authentication or multi-user approval. | | ✓ | ✓ | 732 |
+| **4.3.3** | [MOVED TO 14.7.3] | | | | | |
 
 ## References
 
