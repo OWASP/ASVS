@@ -38,7 +38,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 | **3.2.1** | [MODIFIED] Verify the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | ✓ | ✓ | ✓ | 384 | 7.1 |
 | **3.2.2** | [MOVED TO 3.1.4] | | | | | |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | | |
-| **3.2.4** | [DELETED, MERGED TO 3.2.2] | | | | | |
+| **3.2.4** | [DELETED, MERGED TO 3.1.4] | | | | | |
 | **3.2.5** | [ADDED] Verify that creating a session for the application requires the user's consent and that the application is protected against a CSRF-style attack where a new application session for the user is created via SSO without user interaction. | | ✓ | ✓ | | |
 
 TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
