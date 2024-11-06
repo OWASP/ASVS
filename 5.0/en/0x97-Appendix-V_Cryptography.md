@@ -2,7 +2,7 @@
 
 V6 goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in V6. 
 
-## V6.2 Algorithms
+## Algorithms (V6.2)
 
 ### Equivalent Strenghts of Cryptographic Parameters
 
@@ -17,7 +17,7 @@ The relative security strengths for various cryptographic systems are in this ta
 | 256 | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
 
 
-## V6.3 Random Values
+## Random Values (V6.3)
 
 ### Approved RNG Methods and Algorithms
 
@@ -43,7 +43,7 @@ The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](h
 | KMAC128 | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
 
 
-## V6.5 Cipher Algorithms
+## Cipher Algorithms (V6.5)
 
 ### Approved Ciphers
 
@@ -132,7 +132,7 @@ ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory. Any other method for key wrapping MUST NOT be used.
 
-## V6.6 Hashing and Hash-based Functions
+## Hashing and Hash-based Functions (V6.6)
 
 ### Approved Hash Functions for General Use Cases
 
@@ -184,7 +184,7 @@ For digital signature implementations, the following hash functions MUST NOT be 
 | SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
 | SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) |
 
-## V6.7 Key Exchange Mechanisms
+## Key Exchange Mechanisms (V6.7)
 
 ### Approved KEX Schemes
 
