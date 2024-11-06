@@ -10,7 +10,7 @@ The objective of V6 is not only to define best practices but also to instill a f
 * Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
 * Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
-In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in [Appendix V](./0x97-Appendix-V_Cryptography.md). 
+In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in [Appendix V](./0x97-Appendix-V_Cryptography.md).
 
 ## V1.6 Cryptographic Inventory and Documentation
 
@@ -56,7 +56,6 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.7** | [MOVED TO 6.5.4]| | | | |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | | | ✓ | 385 |
 | **6.2.9** | [ADDED] All cryptographic primitives MUST utilize a minimum of 128-bits of security, with exceptions only made for equipment or applications approaching end of life, where the requirement is at least 112-bits of security for all cryptography. | ✓ | ✓ | ✓ | 311 |
-
 
 ## V6.3 Random Values
 
@@ -110,7 +109,6 @@ There exists a need for approved key exchange mechanisms, such as Diffie-Hellman
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms, such as Diffie-Hellman groups, with a focus on ensuring that key exchange mechanisms use secure parameters to prevent man-in-the-middle attacks or cryptographic breaks, are used for key exchanges to prevent attacks on the key establishment process. | | ✓ | ✓ | 798 |
-
 
 ## V6.8 In-Use Data Cryptography
 

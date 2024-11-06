@@ -1,6 +1,6 @@
 # Appendix V: Cryptography
 
-V6 goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in V6. 
+V6 goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in V6
 
 ## Algorithms (V6.2)
 
@@ -16,7 +16,6 @@ The relative security strengths for various cryptographic systems are in this ta
 | 192 | AES-192 | L = 7680 <br> N = 384 | k = 7680 | f = 384-511 |
 | 256 | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
 
-
 ## Random Values (V6.3)
 
 ### Approved RNG Methods and Algorithms
@@ -30,7 +29,6 @@ The relative security strengths for various cryptographic systems are in this ta
 | `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | ✓ | ✓ | ✓ |
 | `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2), available in [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) and [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | Provides secure random bytes directly from the kernel's entropy source with a straightforward and minimal API. It’s more modern and avoids pitfalls associated with older APIs. | ✓ | ✓ | ✓ |
 
-
 ### Disallowed Hashes for RBG
 
 The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)):
@@ -41,7 +39,6 @@ The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](h
 | SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
 | SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
 | KMAC128 | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
-
 
 ## Cipher Algorithms (V6.5)
 
