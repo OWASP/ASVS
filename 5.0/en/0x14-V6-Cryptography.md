@@ -64,9 +64,9 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.3.1** | [MODIFIED] Verify that all random numbers, random file names, and random strings are generated using a cryptographically-secure pseudo-random number generator (CSPRNG) when these random values are intended to be not guessable by an attacker. | | ✓ | ✓ | 338 |
-| **6.3.2** | 6.3.2 [MODIFIED] Verify that GUIDs are created with an implementation of the GUID v4 or v7 algorithms which utilizes a CSPRNG. GUIDs created using other algorithm versions or using insufficiently secure pseudo-random number generators may be predictable.                                              |     |  ✓  |  ✓  | 338 |
-| **6.3.3** | Verify that random numbers are created with proper entropy even when the application is under heavy load, or that the application degrades gracefully in such circumstances. | ✓ | ✓ | ✓ | 338 |
+| **6.3.1** | [MODIFIED] All random numbers and strings intended to be non-guessable must be generated using a CSPRNG. | ✓ | ✓ | ✓ | 338 |
+| **6.3.2** | 6.3.2 [MODIFIED] Verify that GUIDs are created with an implementation of the GUID v4 or v7 algorithms which utilizes a CSPRNG.                                               |     |  ✓  |  ✓  | 338 |
+| **6.3.3** | Random number generation must work properly under heavy system load, or the system must degrade gracefully. | ✓ | ✓ | ✓ | 338 |
 
 
 ## V6.4 Secret Management
