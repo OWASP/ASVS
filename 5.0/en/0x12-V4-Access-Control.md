@@ -30,7 +30,7 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | **4.1.2** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **4.1.3** | [MODIFIED] Verify that the application ensures that function level access is restricted to consumers with explicit permissions. | ✓ | ✓ | ✓ | 285 |
 | **4.1.4** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
-| **4.1.5** | [GRAMMAR] Verify that access controls fail securely by denying access, including when an exception occurs. | ✓ | ✓ | ✓ | 285 |
+| **4.1.5** | [MOVED TO 7.4.5] | | | | |
 | **4.1.6** | [ADDED] Verify that changes to values on which access control decisions are made, are applied immediately. Where changes cannot be applied immediately, (such as when relying on data in cryptographically secured tokens), there must be mitigating controls to alert when a user performs an action when they should no longer be able to do so, and revert the change. Note that this would be unable to mitigate information leakage. | | ✓ | ✓ | |
 
 ## V4.2 Operation Level Access Control
