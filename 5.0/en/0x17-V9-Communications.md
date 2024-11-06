@@ -17,6 +17,13 @@ Within these requirements:
 * Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
 * Check your configuration periodically to ensure that secure communication is always present and effective.
 
+## V1.9 Communications Documentation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.9.1** | [DELETED, DUPLICATE OF 9.1.1, 9.2.2, 9.3.1] | | | | |
+| **1.9.2** | [DELETED, DUPLICATE OF 9.2.3, 9.3.2] | | | | |
+
 ## V9.1 HTTPS Communication with External Facing Services
 
 Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publically trusted certificates.
@@ -48,7 +55,7 @@ HTTP traffic between internal-facing services should also be encrypted, ideally 
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **9.3.1** | [ADDED] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services within the application, and does not fall back to insecure or unencrypted communications. | | ✓ | ✓ | 319 |
 | **9.3.2** | [MODIFIED, MOVED FROM 9.2.1] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
-| **9.3.3** | [ADDED] Verify that mutual TLS (mTLS) is used by services communicating internally within a system or "intra-service communications" to ensure all the involved parties at each end of a network connection are who they claim to be. | | | ✓ | 295 |
+| **9.3.3** | [MODIFIED, MOVED FROM 2.2.5] Verify that mutual TLS (mTLS) is used by services communicating internally within a system or "intra-service communications" to ensure all the involved parties at each end of a network connection are who they claim to be. | | | ✓ | 295 |
 
 ## V9.4 General TLS Security Guidance
 

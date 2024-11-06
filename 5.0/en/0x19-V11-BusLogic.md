@@ -24,6 +24,15 @@ Ensure that a verified application satisfies the following high-level requiremen
 * Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers and adding a million friends one at a time.
 * High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
 
+## V1.11 Business Logic Documentation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.11.1** | [DELETED, NOT IN SCOPE] | | | | |
+| **1.11.2** | [MOVED TO 10.7.2] | | | | |
+| **1.11.3** | [DELETED, DUPLICATE OF 11.1.6] | | | | |
+| **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are clearly documented including both per-user and also globally across the application. | | ✓ | ✓ | |
+
 ## V11.1 Business Logic Security
 
 Business logic security is so individual to every application that no one checklist will ever apply. Business logic security must be designed into the system to protect against likely external threats - it cannot be added using web application firewalls or secure communications.
@@ -35,10 +44,11 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.3** | [MODIFIED, MERGED FROM 11.1.5] Verify that business logic limits and validations are implemented as per the application's documentation. | ✓ | ✓ | ✓ | |
 | **11.1.4** | [MOVED TO 11.2.2] | | | | |
 | **11.1.5** | [DELETED, MERGED TO 11.1.3] | | | | |
-| **11.1.6** | [MODIFIED, MERGED FROM 1.11.2, 1.11.3] Verify that all high-value business logic flows, as well as authentication, session management, and access control, are thread-safe, resistant to time-of-check and time-of-use (TOCTOU) race conditions, and utilize synchronization and locking mechanisms for sensitive operations to maintain internal data consistency and user state. | | ✓ | ✓ | 367 |
+| **11.1.6** | [SPLIT TO 10.7.1, 10.7.2, 10.7.3] | | | | |
 | **11.1.7** | [MOVED TO 7.2.4] | | | | |
 | **11.1.8** | [MOVED TO 7.2.5] | | | | |
 | **11.1.9** | [ADDED] Verify that "atomic transactions" are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | | ✓ | ✓ | |
+| **11.1.10** | [ADDED] Verify that very high-value business logic flows are restricted with multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to critical nuclear facility operations, healthcare record modifications, access to classified information, or safety overrides in manufacturing. | | | ✓ | |
 
 ## V11.2 Anti-automation
 

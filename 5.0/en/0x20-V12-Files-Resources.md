@@ -4,6 +4,14 @@
 
 Ensure that untrusted files and other resources are handled safely to prevent denial of service, unauthorized access, and resource exhaustion
 
+## V1.12 Secure File Upload Documentation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
+| **1.12.2** | [DELETED, MERGED TO 50.5.1] | | | | |
+| **1.12.3** | [ADDED] Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | ✓ | ✓ | ✓ | |
+
 ## V12.1 File Upload
 
 Upload functionality is a key source of untrusted files. These should be carefully validated to prevent risks such as denial of service, unauthorized access, and resource exhaustion.

@@ -11,22 +11,34 @@ Ensure that a verified application satisfies the following high-level session ma
 
 As previously noted, these requirements have been adapted to be a compliant subset of selected NIST SP 800-63B controls, focused on common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) requirements.
 
+## V1.3 Session Management Documentation
+
+Session management mechanisms give applications the ability to correlate user and device interactions over time, even when using otherwise stateless communication protocols. Modern applications may utilize multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that optimally prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session.
+
+There is no single pattern that suits all applications. Therefore, it is infeasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application. Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.3.1** | [ADDED] Verify that the user's session inactivity period and maximum session lifetime before reauthentication are documented, appropriate in combination with other controls, and that documentation includes justification for any deviations from NIST SP 800-63B reauthentication requirements. | ✓ | ✓ | ✓ | |
+| **1.3.2** | [ADDED] Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviours and actions to be taken when the maximum number of active sessions is reached. | ✓ | ✓ | ✓ | |
+
 ## V3.1 Fundamental Session Management Security
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.1.1** | [DELETED, MERGED TO 8.3.1] | | | | | |
 | **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 | |
-| **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either cryptographically signed or opaque tokens for session management. Static API secrets and keys should be avoided. | ✓ | ✓ | ✓ | 798 | 7.1 |
+| **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either cryptographically secured or random session tokens for session management. Static API secrets and keys should be avoided. | ✓ | ✓ | ✓ | 798 | 7.1 |
+| **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if random tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | | |
 
 ## V3.2 Session Binding
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.2.1** | [MODIFIED] Verify the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | [MODIFIED, MERGED FROM 3.2.4] Verify that random tokens representing user sessions are generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | | |
+| **3.2.2** | [MOVED TO 3.1.4] | | | | | |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | | |
-| **3.2.4** | [DELETED, MERGED TO 3.2.2] | | | | | |
+| **3.2.4** | [DELETED, MERGED TO 3.1.4] | | | | | |
 | **3.2.5** | [ADDED] Verify that creating a session for the application requires the user's consent and that the application is protected against a CSRF-style attack where a new application session for the user is created via SSO without user interaction. | | ✓ | ✓ | | |
 
 TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
@@ -38,7 +50,7 @@ TLS or another secure transport channel is mandatory for session management. Thi
 | **3.3.1** | [MOVED TO 3.8.1] | | | | | |
 | **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | ✓ | ✓ | ✓ | | |
 | **3.3.3** | [MOVED TO 3.8.2] | | | | | |
-| **3.3.4** | [MOVED TO 3.8.3] | | | | | |
+| **3.3.4** | [MOVED TO 3.7.2] | | | | | |
 | **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | ✓ | ✓ | ✓ | 613 | 7.2 |
 
 ## V3.4 Cookie-based Session Management
@@ -73,13 +85,14 @@ This section relates to those writing Relying Party (RP) or Credential Service P
 | **3.6.1** | Verify that Relying Parties (RPs) specify the maximum authentication time to Credential Service Providers (CSPs) and that CSPs re-authenticate the user if they haven't used a session within that period. | | | ✓ | 613 | 7.2.1 |
 | **3.6.2** | Verify that Credential Service Providers (CSPs) inform Relying Parties (RPs) of the last authentication event, to allow RPs to determine if they need to re-authenticate the user. | | | ✓ | 613 | 7.2.1 |
 
-## V3.7 Defenses Against Session Management Exploits
+## V3.7 Defenses Against Session Abuse
 
-There are a small number of session management attacks, some related to the user experience (UX) of sessions. This section provides leading guidance on deterring, delaying and detecting session management attacks using code.
+This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors such as cross-site attacks.
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **3.7.1** | [MODIFIED] Verify that the application requires re-authentication or secondary verification before allowing highly sensitive transactions, modifications to account profile or authentication settings, or a large export of sensitive data. | ✓ | ✓ | ✓ | 306 | |
+| **3.7.1** | [MODIFIED] Verify that the application requires re-authentication or secondary verification before allowing highly sensitive transactions or modifications to sensitive account attributes such as authentication settings. | ✓ | ✓ | ✓ | 306 | |
+| **3.7.2** | [MODIFIED, MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | | ✓ | ✓ | | |
 
 ## V3.8 Session Termination
 
@@ -93,10 +106,9 @@ For stateful session mechanisms, this should just require invalidating the sessi
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **3.8.1** | [MODIFIED, MOVED FROM 3.3.1] Verify that logout and expiration terminate the user's session, such that the back button or a downstream relying party cannot resume an authenticated session. | ✓ | ✓ | ✓ | 613 | 7.1 |
 | **3.8.2** | [MODIFIED, LEVEL L2 > L1, MOVED FROM 3.3.3] Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | ✓ | ✓ | ✓ | 613 | |
-| **3.8.3** | [MODIFIED, MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | | ✓ | ✓ | 613 | 7.1 |
-| **3.8.4** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | | ✓ | ✓ | | |
-| **3.8.5** | [ADDED] Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | ✓ | ✓ | ✓ | 613 | |
-| **3.8.6** | [ADDED] Verify that application administrators are able to terminate active sessions for an individual user or for all users. | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.8.3** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | | ✓ | ✓ | | |
+| **3.8.4** | [ADDED] Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | ✓ | ✓ | ✓ | 613 | |
+| **3.8.5** | [ADDED] Verify that application administrators are able to terminate active sessions for an individual user or for all users. | ✓ | ✓ | ✓ | 613 | 7.1 |
 
 ## References
 

@@ -8,6 +8,15 @@ However, this chapter provides more general guidance on how to build application
 
 This chapter also contains requirements to prevent the introduction of malicious code into the application.
 
+## V1.10 Secure Coding Documentation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **1.10.1** | [DELETED, NOT IN SCOPE] | | | | |
+| **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
+| **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life, libraries which have historically had several significant vulnerabilities, etc. | | | ✓ | 1061 |
+| **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelyhood of being dangerously exploitated such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
+
 ## V10.1 Code Integrity
 
 <!--
@@ -68,6 +77,19 @@ Dependency management is critical to the safe operation of any application of an
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.6.1** | [MODIFIED, MOVED FROM 14.2.1] Verify that all components are up to date. | ✓ | ✓ | ✓ | |
 | **10.6.2** | [MODIFIED, MOVED FROM 10.3.2] Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
+
+## V10.7 Concurrency
+
+Without proper synchronization, concurrent access to shared resources can result in corrupted data, system crashes, or unreliable application behavior. Furthermore, race conditions can often be chained to perform privilege escalations or remote code execution.
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---:| :---: | :---: |
+| **10.7.1** | [MODIFIED, MOVED FROM 1.11.3, LEVEL L2 > L3] Verify that only thread-safe types are used in multi-threaded contexts, or that non-thread-safe types are properly synchronized to prevent race conditions. | | | ✓ | 362 |
+| **10.7.2** | [MODIFIED, MOVED FROM 1.11.2, LEVEL L2 > L3] Verify that concurrent access to shared resources is controlled using synchronization primitives (e.g., locks, mutexes, semaphores) to prevent race conditions and ensure atomic operations on these resources. | | | ✓ | 366 |
+| **10.7.3** | [MODIFIED, MOVED FROM 11.1.6] Verify that all access to shared resources is consistently checked and accessed in a single atomic operation to prevent Time-of-Check to Time-of-Use (TOC/TOU) race conditions, ensuring resource state consistency between check and use. | | ✓ | ✓ | 367 |
+| **10.7.4** | [ADDED] Verify that resource acquisition uses a consistent locking strategy to avoid circular dependencies and ensure forward progress, preventing both deadlocks and livelock scenarios.  | | | ✓ | 833 |
+| **10.7.5** | [ADDED] Verify that resource allocation policies prevent thread starvation by ensuring fair access to resources, such as by leveraging thread pools, allowing lower-priority threads to proceed within a reasonable timeframe. | | | ✓ | 410 |
+| **10.7.6** | [ADDED] Verify that locking primitives are only accessible to the owning class or module and are not publicly modifiable, ensuring that locks cannot be inadvertently or maliciously modified by external classes or code. | | | ✓ | 412 |
 
 ## References
 
