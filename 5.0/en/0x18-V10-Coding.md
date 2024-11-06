@@ -7,6 +7,7 @@ Many ASVS requirements either relate to a particular area of security like authe
 However, this chapter provides more general guidance on how to build applications and how to write secure code correctly. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
 
 This chapter also contains requirements to prevent the introduction of malicious code into the application.
+
 ## V1.10 Secure Coding Documentation
 
 | # | Description | L1 | L2 | L3 | CWE |
