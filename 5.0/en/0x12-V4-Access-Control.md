@@ -34,7 +34,7 @@ Implementing granular access controls at the function, data, and field levels wi
 | **4.1.5** | [MOVED TO 7.4.5] | | | | |
 | **4.1.6** | [MODIFIED, MOVED FROM 4.2.1] Verify that the application ensures that data-specific access is restricted to consumers with explicit permissions to specific data items to mitigate insecure direct object reference (IDOR) and broken object level authorization (BOLA). | ✓ | ✓ | ✓ | 639 |
 | **4.1.7** | [ADDED] Verify that the application ensures that field-level access is restricted to consumers with explicit permissions to specific fields to mitigate broken object property level authorization (BOPLA). | | ✓ | ✓ | 283 |
-| **4.1.8** | [ADDED] Verify that application ensures adaptive security controls that respond to environmental and contextual attribute changes (such as time of day, location, IP address, or device) for authentication and authorization decisions during both new and ongoing sessions. | | ✓ | ✓ | |
+| **4.1.8** | [ADDED] Verify that adaptive security controls related to authentication and authorization decisions based on a consumers environmental and contextual attributes (such as time of day, location, IP address, or device) are implemented as defined in access control documentation. | | ✓ | ✓ | |
 
 ## V4.2 Operation Level Access Control
 
