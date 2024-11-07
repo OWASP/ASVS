@@ -19,7 +19,7 @@
 * **Dynamic Application Security Testing** (DAST) - Technologies are designed to detect conditions indicative of a security vulnerability in an application in its running state.
 * **Dynamic Verification** – The use of automated tools that use vulnerability signatures to find problems during the execution of an application.
 * **Fast IDentity Online** (FIDO) - A set of authentication standards that allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
-* **Globally Unique Identifier** (GUID) – a unique reference number used as an identifier in software.
+* **Univerally Unique Identifier** (UUID) – a unique reference number used as an identifier in software.
 * **HyperText Transfer Protocol** (HTTPS) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
 * **Hardcoded keys** – Cryptographic keys that are stored on the filesystem, be it in code, comments or files.
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
