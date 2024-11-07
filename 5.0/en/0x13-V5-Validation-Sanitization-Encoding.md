@@ -100,6 +100,7 @@ The following requirements will only apply when the application uses a systems l
 | **5.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | | ✓ | ✓ | 120 |
 | **5.4.2** | [MOVED TO 5.2.13] | | | | |
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | | ✓ | ✓ | 190 |
+| **5.4.4** | [ADDED] Verify that dynamically allocated memory and resources are properly released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | | ✓ | ✓ | 416 |
 
 ## V5.5 Safe Deserialization
 
