@@ -11,7 +11,7 @@ Due to complexity, manual or assisted testing is recommended, with automated end
 
 ## V1.4 Access Control Documentation
 
-Comprehensive access control documentation is essential to ensure that security decisions are consistently applied, auditable, and aligned with organizational policies, reducing the risk of unauthorized access by making security requirements clear and actionable for developers and administrators.
+Comprehensive access control documentation is essential to ensure that security decisions are consistently applied, auditable, and aligned with organizational policies, reducing the risk of unauthorized access by making security requirements clear and actionable for developers, administrators and testers.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
