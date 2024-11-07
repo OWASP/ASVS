@@ -196,6 +196,12 @@ The requirements for single-factor cryptographic devices and software, and multi
 | **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | | |
 | **2.10.4** | [DELETED, MERGED TO 6.4.1] | | | | | |
 
+## V2.11 Federated Authentication
+
+| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| **2.11.1** | [ADDED] Verify that, if the application supports multiple identity providers (IDPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). Usually, the application should register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IDP. | | ✓ | ✓ | | |
+
 ## References
 
 For more information, see also:
