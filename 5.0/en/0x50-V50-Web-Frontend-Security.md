@@ -12,7 +12,7 @@ Application documentation must specifiy required browser security features.
 
 ## V50.1 Site Isolation Architecture
 
-To leverage the benefits of the same-origin policy, separate applications should be hosted on distinct hostnames.
+To leverage the benefits of the cross-origin isolation, separate applications should be hosted on distinct hostnames.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
