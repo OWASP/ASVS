@@ -24,7 +24,7 @@ HTTP responses must include security headers to set rules to how browsers can se
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **50.2.1** | [MODIFIED, MOVED FROM 14.4.3] Verify that every HTTP response includes a Content-Security-Policy header to reduce the risk of malicious JavaScript. The directives object-src 'none' and base-uri 'none' must be defined. For an L3 application, a per-response policy with nonces or hashes must be defined. | | ✓ | ✓ | |
+| **50.2.1** | [MODIFIED, MOVED FROM 14.4.3, LEVEL L1 > L2] Verify that every HTTP response includes a Content-Security-Policy header to reduce the risk of malicious JavaScript. The directives object-src 'none' and base-uri 'none' must be defined. For an L3 application, a per-response policy with nonces or hashes must be defined. | | ✓ | ✓ | |
 | **50.2.2** | [GRAMMAR, MOVED FROM 14.4.4] Verify that all responses contain a X-Content-Type-Options: nosniff header field. | ✓ | ✓ | ✓ | 116 |
 | **50.2.3** | [MODIFIED, MOVED FROM 14.4.5] Verify that a Strict-Transport-Security header field is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=31536000; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
 | **50.2.4** | [MODIFIED, MOVED FROM 14.4.6] Verify that an suitable Referrer-Policy header is included to prevent sensitive information in the URL from being exposed to untrusted parties via the Referer header. | ✓ | ✓ | ✓ | 116 |

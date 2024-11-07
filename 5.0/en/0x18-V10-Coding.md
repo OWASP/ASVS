@@ -84,7 +84,7 @@ Without proper synchronization, concurrent access to shared resources can result
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.7.1** | [MODIFIED, MOVED FROM 1.11.3, LEVEL L2 > L3] Verify that only thread-safe types are used in multi-threaded contexts, or that non-thread-safe types are properly synchronized to prevent race conditions. | | | ✓ | 362 |
+| **10.7.1** | [MODIFIED, MOVED FROM 1.11.3] Verify that only thread-safe types are used in multi-threaded contexts, or that non-thread-safe types are properly synchronized to prevent race conditions. | | | ✓ | 362 |
 | **10.7.2** | [MODIFIED, MOVED FROM 1.11.2, LEVEL L2 > L3] Verify that concurrent access to shared resources is controlled using synchronization primitives (e.g., locks, mutexes, semaphores) to prevent race conditions and ensure atomic operations on these resources. | | | ✓ | 366 |
 | **10.7.3** | [MODIFIED, MOVED FROM 11.1.6] Verify that all access to shared resources is consistently checked and accessed in a single atomic operation to prevent Time-of-Check to Time-of-Use (TOC/TOU) race conditions, ensuring resource state consistency between check and use. | | ✓ | ✓ | 367 |
 | **10.7.4** | [ADDED] Verify that resource acquisition uses a consistent locking strategy to avoid circular dependencies and ensure forward progress, preventing both deadlocks and livelock scenarios. | | | ✓ | 833 |

@@ -49,9 +49,9 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | | ✓ | ✓ | 327 |
 | **6.2.3** | [DELETED, DUPLICATE OF 6.2.5] | | | | |
 | **6.2.4** | Verify that the application is designed with crypto agility such that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once PQC standards are fully established. | | ✓ | ✓ | 320 |
-| **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.3]. | | | | |
-| **6.2.6** | [MOVED TO 6.5.3]| | | | |
-| **6.2.7** | [MOVED TO 6.5.4]| | | | |
+| **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.3] | | | | |
+| **6.2.6** | [MOVED TO 6.5.3] | | | | |
+| **6.2.7** | [MOVED TO 6.5.4] | | | | |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | | | ✓ | 385 |
 | **6.2.9** | [ADDED] All cryptographic primitives MUST utilize a minimum of 128-bits of security, with exceptions only made for equipment or applications approaching end of life, where the requirement is at least 112-bits of security for all cryptography. | ✓ | ✓ | ✓ | 311 |
 
@@ -86,7 +86,7 @@ Cipher algorithms such as AES and CHACHA20 form the backbone of modern cryptogra
 | **6.5.2** | [ADDED, SPLIT FROM 6.2.5, LEVEL L2 > L1] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure ciphers and modes** such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
 | **6.5.3** | [MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | | | ✓ | 326 |
 | **6.5.4** | [MOVED FROM 6.2.7] Verify that encrypted data is authenticated via signatures, including unencrypted tokens being used for secure access control, as well as through authenticated cipher modes or HMAC for protection against unauthorized modification. | | | ✓ | 326 |
-| **6.5.5** | [ADDED] Verify that any authenticated signatures are operating in encrypt-then-MAC or encrypt-then-hash modes as required.| | | ✓ | 326 |
+| **6.5.5** | [ADDED] Verify that any authenticated signatures are operating in encrypt-then-MAC or encrypt-then-hash modes as required. | | | ✓ | 326 |
 
 ## V6.6 Hashing and Hash-based Functions
 
