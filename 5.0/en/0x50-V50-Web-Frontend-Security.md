@@ -52,7 +52,7 @@ The category should contain requirements with ideas:
 
 ## V50.4 Cross-Site Script Inclusion
 
-Disable JSONP functionality and prevent Cross-Site Script Inclusion (XSSI) attacks.
+JSONP is an anti-pattern that can lead to data theft. Poor authorization in scripts that include sensitive data can lead to Cross-Site Script Inclusion (XSSI) attacks.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
