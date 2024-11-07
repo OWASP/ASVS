@@ -20,7 +20,7 @@ To leverage the benefits of same-origin isolation, applications should be hosted
 
 ## V50.2 Browser Security Mechanism Headers
 
-HTTP responses must include headers for Content-Security-Policy, X-Content-Type-Options, Strict-Transport-Security, Referrer-Policy, and CORS origin validation. Also restrict embedding with CSP frame-ancestors, report CSP violations, and ensure top-level domains are in the HSTS preload list.
+HTTP responses must include security headers to set rules to how browsers can securely render content.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
