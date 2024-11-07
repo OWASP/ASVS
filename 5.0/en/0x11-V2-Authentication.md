@@ -201,6 +201,8 @@ The requirements for single-factor cryptographic devices and software, and multi
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **2.11.1** | [ADDED] Verify that, if the application supports multiple identity providers (IDPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). Usually, the application should register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IDP. | | ✓ | ✓ | | |
+| **2.11.2** | [ADDED] Verify that the presence and integrity of digital signatures on SAML assertions is validated, rejecting any assertions that are unsigned or have invalid signatures. | | ✓ | ✓ | | |
+| **2.11.3** | [ADDED] Verify that each SAML assertion is uniquely processed and used only once within its validity period to prevent replay attacks. | | ✓ | ✓ | | |
 
 ## References
 
