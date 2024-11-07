@@ -123,7 +123,7 @@ The need to future-proof cryptographic systems in preparation for the eventual r
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.9.1** | [ADDED] Verify that Quantum-Safe Algorithms, or quantum-resistant algorithms, such as lattice-based (ML-KEM), hash-based, code-based, or multivariate cryptographic schemes, as replacements for vulnerable classical algorithms like RSA and ECC, are used. | | ✓ | ✓ | 798 |
+| **6.9.1** | [ADDED] Verify, if the application needs to support post-quantum cryptography, that quantum-safe algorithms, or quantum-resistant algorithms, such as lattice-based (ML-KEM), hash-based, code-based, or multivariate cryptographic schemes, are used as replacements for vulnerable classical algorithms like RSA and ECC. | | ✓ | ✓ | 798 |
 | **6.9.2** | [ADDED] Verify that advancements in the field of post-quantum cryptography are being monitored in order to ensure that the application is aligned with emerging industry standards, and remains prepared for quantum threats. | | ✓ | ✓ | 798 |
 
 ## References
