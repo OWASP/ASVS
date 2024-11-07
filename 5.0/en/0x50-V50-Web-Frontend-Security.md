@@ -61,7 +61,7 @@ JSONP is an anti-pattern that can lead to data theft. Poor authorization in scri
 
 ## V50.5 Unintended Content Interpretation
 
-Implement security controls to ensure content is rendered in the correct context.
+Rendering content or functionality in an incorrect context can lead to a wide variety of security issues.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
