@@ -78,7 +78,7 @@ Use Subresource Integrity to validate the integrity of externally hosted client-
 
 ## V50.7 Other Browser Security Considerations
 
-Notify on external redirects, use secure client technologies, and document behavior for unsupported browser security features.
+Notify users on external redirects, use secure client technologies, and document behavior for unsupported browser security features.
 
 <!--
 it may need other separate section for "end-user protection via UI"
