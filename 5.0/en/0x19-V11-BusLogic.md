@@ -54,8 +54,8 @@ Business logic security is so individual to every application that no one checkl
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **11.2.1** | [MOVED FROM 11.1.2] Verify that the application will only process business logic flows with all steps being processed in realistic human time, i.e. transactions are not submitted too quickly. | ✓ | ✓ | ✓ | 799 |
-| **11.2.2** | [MODIFIED, MOVED FROM 11.1.4] Verify that the application has anti-automation controls to protect against excessive calls to application functionality which could result in mass data exfiltration, junk data creation, resource quota exhaustion, rate limit breaches, out-of-band communication flooding, denial of service, overuse of an expensive resource, etc. | ✓ | ✓ | ✓ | 770 |
+| **11.2.1** | [MOVED FROM 11.1.2, LEVEL L1 > L3] Verify that business logic processes require realistic human timing, preventing excessively rapid transaction submissions. | | | ✓ | 799 |
+| **11.2.2** | [MODIFIED, MOVED FROM 11.1.4, LEVEL L1 > L2] Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, junk data creation, quota exhaustion, rate limit breaches, denial of service, or overuse of costly resources. | | ✓ | ✓ | 770 |
 
 ## References
 
