@@ -2,15 +2,16 @@
 
 ## Control Objective
 
-Authorization is the concept of allowing access to resources only to those permitted to use them. Ensure that a verified application satisfies the following high-level requirements:
+Authorization is the concept of allowing access only to those permitted. Ensure that a verified application satisfies the following high-level requirements:
 
-* Persons accessing resources hold valid credentials to do so.
-* Users are associated with a well-defined set of entitlements.
-* Access control policy metadata is protected from replay or tampering.
+* Document access control rules, including decision-making factors and environmental contexts.
+* Users access only permitted access based on defined entitlements.
 
-Access control deficiencies are unlikely to be discovered using generic automated testing tools. Verifying the requirements in this section will either require manual or manual assisted testing or alternatively a robust series of automated end-to-end access control tests which validate the effectiveness of the access controls under various scenarios. Integrating these tests into the continuous integration/continuous deployment (CI/CD) pipeline will make it easier to validate these requirements on an ongoing basis.
+Due to complexity, manual or assisted testing is recommended, with automated end-to-end tests in the CI/CD pipeline for continuous validation.
 
 ## V1.4 Access Control Documentation
+
+Comprehensive access control documentation is essential to ensure that security decisions are consistently applied, auditable, and aligned with organizational policies, reducing the risk of unauthorized access by making security requirements clear and actionable for developers and administrators.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -24,6 +25,8 @@ Access control deficiencies are unlikely to be discovered using generic automate
 
 ## V4.1 General Access Control Design
 
+Implementing granular access controls at the function, data, and field levels will ensure that consumers can only access what has been explicitly granted to them.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **4.1.1** | [MOVED TO 4.2.3] | | | | |
@@ -36,6 +39,8 @@ Access control deficiencies are unlikely to be discovered using generic automate
 
 ## V4.2 Operation Level Access Control
 
+Immediate application of access control changes in the appropriate tier of an application's architecture is critical to preventing unauthorized actions, especially in dynamic environments.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **4.2.1** | [MOVED TO 4.1.6] | | | | |
@@ -45,6 +50,8 @@ Access control deficiencies are unlikely to be discovered using generic automate
 | **4.2.5** | [ADDED] Verify that access to an object is based on the originating subject's (e.g. user's) permissions, not on the permissions of any intermediary or service acting on their behalf. For example, if a user calls a web service using a signed token for authentication, and the service then requests data from a different service, the second service should use the user's signed token, rather than a machine-to-machine token from the first service, to make permission decisions. | | | ✓ | 441 |
 
 ## V4.3 Other Access Control Considerations
+
+Additional considerations for access control, particularly for administrative interfaces and multi-tenant environments, will help prevent unauthorized access.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
