@@ -1,15 +1,8 @@
 # Using the ASVS
 
-As noted in the preface, the ASVS is a standard that defines the functional and non-functional security requirements to consider for modern web applications and web services.
+The ASVS defines functional and non-functional security requirements for modern web applications and services, focusing on application content rather than secure development processes, which are covered in [OWASP SAMM](https://owaspsamm.org/).
 
-It therefore focuses on the content of the application and not the secure processes by which the application should be developed. Secure Development processes are better covered in the [OWASP SAMM](https://owaspsamm.org/) project and are not the primary scope of the ASVS.
-
-In the context of secure requirements, the ASVS should be useful to anyone trying to:
-
-* Develop and maintain secure applications.
-* Evaluate the security of applications.
-
-This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-based approach and different use cases for the standard.
+The ASVS is useful for anyone aiming to develop and maintain secure applications, or evaluate the security of applications. This chapter covers key aspects of using the ASVS, including priority-based levels and various use cases for the standard
 
 ## Application Security Verification Levels
 
@@ -51,11 +44,9 @@ Threats to Level 2 applications will typically be skilled and motivated attacker
 
 ### Level 3 - High value, high assurance, or high safety
 
-ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc.
+ASVS Level 3, the highest verification level, is reserved for applications needing extensive security, such as those in military, health, safety, or critical infrastructure. This level is appropriate for applications where failure would severely impact an organization’s operations.
 
-Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.
-
-An application at ASVS Level 3 requires more in-depth analysis of architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defense in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), authorization, and auditing (logging).
+To achieve ASVS Level 3, an application must defend against advanced security vulnerabilities and demonstrate sound security design. This requires in-depth analysis of architecture, code, and testing. Secure applications at Level 3 are modularized for resiliency, scalability, and layered security, with each module responsible for its own security functions, including confidentiality, integrity, availability, authentication, authorization, and auditing, all thoroughly documented.
 
 ## How to Reference ASVS Requirements
 
@@ -77,9 +68,9 @@ ASVS requirement lists are made available in CSV, JSON, and other formats which 
 
 ## Forking the ASVS
 
-Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain-specific way. We encourage this type of forking as long as traceability is maintained so that if an app has passed requirement 4.1.1, this means the same thing for forked copies of the standard as it evolves.
+Organizations can benefit from adopting ASVS by choosing one of the three levels or by creating a domain-specific fork that adjusts requirements per application risk level. We encourage such forking, provided it maintains traceability so that passing requirement 4.1.1 means the same across all versions.
 
-Ideally, every organization should have its own forked ASVS and select tailor-fitted requirements. So if the organization is not using GraphQL, Websockets, or SOAP web service on their applications, they should drop those sections from their forked ASVS. The forking process must start with looking at ASVS level 1 requirements as a baseline for the organization and then gradually move into ASVS level 2 or 3 based on their application's risk level.
+Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, Websockets, SOAP, if unused). Forking should start with ASVS Level 1 as a baseline, advancing to Levels 2 or 3 based on the application’s risk.
 
 ## Uses for the ASVS
 
