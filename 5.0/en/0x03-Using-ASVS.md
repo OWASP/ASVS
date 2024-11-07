@@ -1,15 +1,8 @@
 # Using the ASVS
 
-As noted in the preface, the ASVS is a standard that defines the functional and non-functional security requirements to consider for modern web applications and web services.
+The ASVS defines functional and non-functional security requirements for modern web applications and services, focusing on application content rather than secure development processes, which are covered in [OWASP SAMM](https://owaspsamm.org/).
 
-It therefore focuses on the content of the application and not the secure processes by which the application should be developed. Secure Development processes are better covered in the [OWASP SAMM](https://owaspsamm.org/) project and are not the primary scope of the ASVS.
-
-In the context of secure requirements, the ASVS should be useful to anyone trying to:
-
-* Develop and maintain secure applications.
-* Evaluate the security of applications.
-
-This chapter will talk about some of the key aspects of using the ASVS including using the levels to take a risk-based approach and different use cases for the standard.
+The ASVS is useful for anyone aiming to develop, maintain, or evaluate secure applications. This chapter covers key aspects of using the ASVS, including risk-based levels and various use cases for the standard
 
 ## Application Security Verification Levels
 
@@ -19,15 +12,11 @@ The Application Security Verification Standard defines three security verificati
 * ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps.
 * ASVS Level 3 is intended for the most critical applications, such as those handling high-value transactions, containing sensitive medical data, or any application demanding the highest level of trust.
 
-Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
+Each ASVS level lists security requirements, which developers must integrate into software. Level 1 can be tested solely through penetration testing, though this 'black box' approach is limited and insufficient for thorough security assurance. Unlike attackers, who have ample time, defenders must prevent, identify, and resolve vulnerabilities swiftly. Black box testing, often done late or briefly, fails to address this imbalance and misses critical issues, as evidenced by decades of breaches.
 
-Level 1 is the only level that is completely penetration testable using humans. All others require access to documentation, source code, configuration, and the people involved in the development process. However, even if L1 allows "black box" (no documentation and no source) testing to occur, it is not an effective assurance activity and should be actively discouraged. Malicious attackers have a great deal of time, most penetration tests are over within a couple of weeks. Defenders need to incorporate security controls, protect, find and resolve all weaknesses, and detect and respond to malicious actors in a reasonable time. Malicious actors have essentially infinite time and only require a single porous defense, a single weakness, or missing detection to succeed. Black box testing, often performed at the end of development, quickly, or not at all, is completely unable to cope with that asymmetry.
+We recommend hybrid testing at Level 1, with full access to developers and documentation, similar to transparent financial audits. Continuous security tool use, like DAST and SAST in the build pipeline, can address basic security issues early.
 
-Over the last 30+ years, black box testing has proven over and over again to miss critical security issues that led directly to ever more massive breaches. We strongly encourage the use of a wide range of security assurance and verification, including replacing penetration tests with source code-led (hybrid) penetration tests at Level 1, with full access to developers and documentation throughout the development process. Financial regulators do not tolerate external financial audits with no access to the books, sample transactions, or the people performing the controls. Industry and governments must demand the same standard of transparency in the software engineering field.
-
-We strongly encourage the use of security tools within the development process itself. DAST and SAST tools, when continuously implemented in the build pipeline, can effectively identify and address straightforward security issues that should never exist.
-
-Automated tools and online scans are unable to complete more than half of the ASVS without human assistance. If comprehensive test automation for each build is required, then a combination of custom unit and integration tests, along with build-initiated online scans are used. Business logic flaws and access control testing are only possible using human assistance. These should be turned into unit and integration tests.
+Automation alone can't complete over half of ASVS requirements; human insight is essential for tasks like testing business logic and access controls, which should be incorporated as unit and integration tests.
 
 ## How to use this standard
 
@@ -35,27 +24,21 @@ One of the best ways to use the Application Security Verification Standard is to
 
 ### Level 1 - First steps, automated, or whole of portfolio view
 
-An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover and included in the OWASP Top 10 and other similar checklists.
+An application meets ASVS Level 1 if it defends against easily discovered security vulnerabilities, such as those in the OWASP Top 10. Level 1 is the minimum standard for all applications, particularly those without sensitive data, and is useful as a starting point in phased security efforts. Controls at this level can be verified automatically or manually without source code access.
 
-Level 1 is the bare minimum that all applications should strive for. It is also useful as a first step in a multi-phase effort or when applications do not store or handle sensitive data and therefore do not need the more rigorous controls of Level 2 or 3. Level 1 controls can be checked either automatically by tools or simply manually without access to the source code. We consider Level 1 the minimum required for all applications.
-
-Threats to the application will most likely be from attackers who are using simple and low-effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If your application processes high-value data, you would rarely want to stop at a Level 1 review.
+Level 1 primarily addresses threats from attackers using simple techniques to exploit obvious vulnerabilities, rather than dedicated attackers. Applications handling high-value data generally require more rigorous controls beyond Level 1.
 
 ### Level 2 - Most applications
 
-An application achieves ASVS Level 2 (or Standard) if it adequately defends against most of the risks associated with software today.
+An application meets ASVS Level 2 if it defends against most contemporary software risks. Level 2 ensures that security controls are implemented, effective, and actively used. This level is suitable for applications managing significant B2B transactions, sensitive data like healthcare information, critical business functions, or industries needing integrity, such as gaming to prevent cheating.
 
-Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets, or industries where integrity is a critical facet to protect their business, such as the game industry to thwart cheaters and game hacks.
-
-Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.
+Level 2 applications face threats from skilled attackers targeting specific vulnerabilities with sophisticated, effective tools and techniques.
 
 ### Level 3 - High value, high assurance, or high safety
 
-ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc.
+ASVS Level 3, the highest verification level, is reserved for applications needing extensive security, such as those in military, health, safety, or critical infrastructure. This level is appropriate for applications where failure would severely impact an organization’s operations.
 
-Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.
-
-An application at ASVS Level 3 requires more in-depth analysis of architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defense in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), authorization, and auditing (logging).
+To achieve ASVS Level 3, an application must defend against advanced security vulnerabilities and demonstrate sound security design. This requires in-depth analysis of architecture, code, and testing. Secure applications at Level 3 are modularized for resiliency, scalability, and layered security, with each module responsible for its own security functions, including confidentiality, integrity, availability, authentication, authorization, and auditing, all thoroughly documented.
 
 ## How to Reference ASVS Requirements
 
@@ -77,9 +60,9 @@ ASVS requirement lists are made available in CSV, JSON, and other formats which 
 
 ## Forking the ASVS
 
-Many organizations can benefit from adopting the ASVS, by choosing one of the three levels, or by forking ASVS and changing what is required for each application risk level in a domain-specific way. We encourage this type of forking as long as traceability is maintained so that if an app has passed requirement 4.1.1, this means the same thing for forked copies of the standard as it evolves.
+Organizations can benefit from adopting ASVS by choosing one of the three levels or by creating a domain-specific fork that adjusts requirements per application risk level. We encourage such forking, provided it maintains traceability so that passing requirement 4.1.1 means the same across all versions.
 
-Ideally, every organization should have its own forked ASVS and select tailor-fitted requirements. So if the organization is not using GraphQL, Websockets, or SOAP web service on their applications, they should drop those sections from their forked ASVS. The forking process must start with looking at ASVS level 1 requirements as a baseline for the organization and then gradually move into ASVS level 2 or 3 based on their application's risk level.
+Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, Websockets, SOAP, if unused). Forking should start with ASVS Level 1 as a baseline, advancing to Levels 2 or 3 based on the application’s risk.
 
 ## Uses for the ASVS
 
