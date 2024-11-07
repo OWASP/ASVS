@@ -29,8 +29,6 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | **1.6.5** | [ADDED] Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. | | ✓ | ✓ | 311 |
 | **1.6.7** | [ADDED] Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | | ✓ | ✓ | 311 |
 
-In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in Appendix V. 
-
 ## V6.1 Data Classification
 
 | # | Description | L1 | L2 | L3 | CWE |
