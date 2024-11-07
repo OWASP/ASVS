@@ -48,7 +48,7 @@ The immediate application of access control changes in the appropriate tier of a
 | **4.2.1** | [MOVED TO 4.1.6] | | | | |
 | **4.2.2** | [MOVED TO 50.3.1] | | | | |
 | **4.2.3** | [MODIFIED, MOVED FROM 4.1.1] Verify that the application enforces access control rules at a trusted service layer and doesn't rely on controls that an untrusted consumer could manipulate, such as client-side JavaScript. | ✓ | ✓ | ✓ | 602 |
-| **4.2.4** | [ADDED] Verify that changes to values on which access control decisions are made, are applied immediately. Where changes cannot be applied immediately, (such as when relying on data in cryptographically secured tokens), there must be mitigating controls to alert when a consumer performs an action when they should no longer be able to do so, and revert the change. Note that this would be unable to mitigate information leakage. | | ✓ | ✓ | |
+| **4.2.4** | [ADDED] Verify that changes to values on which access control decisions are made are applied immediately. Where changes cannot be applied immediately, (such as when relying on data in cryptographically secured tokens), there must be mitigating controls to alert when a consumer performs an action when they should no longer be able to do so and revert the change. Note that this would be unable to mitigate information leakage. | | ✓ | ✓ | |
 | **4.2.5** | [ADDED] Verify that access to an object is based on the originating subject's (e.g. consumer's) permissions, not on the permissions of any intermediary or service acting on their behalf. For example, if a consumer calls a web service using a signed token for authentication, and the service then requests data from a different service, the second service should use the consumer's signed token, rather than a machine-to-machine token from the first service, to make permission decisions. | | | ✓ | 441 |
 
 ## V4.3 Other Access Control Considerations
@@ -57,7 +57,7 @@ Additional considerations for access control, particularly for administrative in
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **4.3.1** | [MODIFIED, LEVEL L1 > L3] Verify that access to administrative interfaces incorporates multiple layers of security, including continuous consumer identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they reduce likelihood. | | | ✓ | 419 |
+| **4.3.1** | [MODIFIED, LEVEL L1 > L3] Verify that access to administrative interfaces incorporates multiple layers of security, including continuous consumer identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they may reduce the likelihood of unauthorized access. | | | ✓ | 419 |
 | **4.3.2** | [SPLIT TO 14.3.4, 14.3.5] | | | | |
 | **4.3.3** | [MOVED TO 14.7.3] | | | | |
 | **4.3.4** | [ADDED] Verify that multi-tenant applications use cross-tenant controls to ensure consumer operations will never affect tenants with which they do not have permissions to interact. | ✓ | ✓ | ✓ | 283 |
