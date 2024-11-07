@@ -204,9 +204,6 @@ The requirements for single-factor cryptographic devices and software, and multi
 | **2.11.2** | [ADDED] Verify that the presence and integrity of digital signatures on SAML assertions is validated, rejecting any assertions that are unsigned or have invalid signatures. | | ✓ | ✓ | | |
 | **2.11.3** | [ADDED] Verify that each SAML assertion is uniquely processed and used only once within its validity period to prevent replay attacks. | | ✓ | ✓ | | |
 
-
-
-
 ## References
 
 For more information, see also:
