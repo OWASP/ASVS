@@ -26,6 +26,6 @@ The line between automated and manual testing is increasingly blurred, as expert
 
 #### The Role of Penetration Testing
 
-In version 5.0, L1 was made fully penetration testable without access to source code, documentation, or developers. However, two logging items still require interviews or evidence collection to comply with OWASP Top 10 2017 A10. Testing without full access limits thorough security verification, as it prevents source review and threat identification.
+In version 4.0, we decided to make L1 completely penetration testable without access to source code, documentation, or developers. Two logging items, which are required to comply with OWASP Top 10 2017 A10, will require interviews, screenshots or other evidence collection, just as they do in the OWASP Top 10 2017. However, testing without access to necessary information is not an ideal method of security verification, as it misses out on the possibility of reviewing the source, identifying threats and missing controls, and performing a far more thorough test in a shorter timeframe.
 
-For L2 or L3 assessments, access to developers, documentation, code, and a test application with non-production data is essential. Penetration testing at these levels requires this 'hybrid review' approach.
+Where possible, access to developers, documentation, code, and access to a test application with non-production data, is required when performing a L2 or L3 Assessment. Penetration testing done at these levels requires this level of access, which we call "hybrid reviews" or "hybrid penetration tests".
