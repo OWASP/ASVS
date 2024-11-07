@@ -21,6 +21,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.3.1** | [ADDED] Verify that the user's session inactivity period and maximum session lifetime before reauthentication are documented, appropriate in combination with other controls, and that documentation includes justification for any deviations from NIST SP 800-63B reauthentication requirements. | ✓ | ✓ | ✓ | |
 | **1.3.2** | [ADDED] Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviours and actions to be taken when the maximum number of active sessions is reached. | ✓ | ✓ | ✓ | |
+| **1.3.3** | [ADDED] Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other condition that should require re-authentication. | ✓ | ✓ | ✓ | |
 
 ## V3.1 Fundamental Session Management Security
 
