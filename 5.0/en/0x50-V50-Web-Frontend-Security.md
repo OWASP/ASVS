@@ -70,7 +70,7 @@ Rendering content or functionality in an incorrect context can lead to a wide va
 
 ## V50.6 External Resource Integrity
 
-Use Subresource Integrity to validate the integrity of externally hosted client-side assets.
+Hosting content on third-party sites can lead to malicious content modification and supply chain attacks.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
