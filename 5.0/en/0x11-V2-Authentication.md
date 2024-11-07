@@ -39,6 +39,8 @@ Applications should strongly encourage users to enroll in multi-factor authentic
 
 Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name just a few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
 
+The requirements in this section mostly relate to section [5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | ✓ | ✓ | ✓ | 521 |
@@ -68,6 +70,8 @@ Authentication factor agility is essential to future-proof applications. Applica
 NIST considers SMS as a ["restricted" authentication mechanism](https://pages.nist.gov/800-63-FAQ/#q-b01), and it is likely to be removed from NIST SP 800-63, and consequently from the ASVS, in the future. As at the time of writing this has still not yet happened but applications should plan a roadmap that does not require the use of SMS.
 
 NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism.
+
+The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: 4.2.1, 4.3.1, 5.2.2, and 6.1.2.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -115,6 +119,8 @@ In particular, note that since these algorithms are intentionally compute-intens
 
 ## V2.5 Credential Recovery
 
+The requirements in this section mostly relate to section [5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.5.1** | [DELETED, INCORRECT] | | | | |
@@ -128,6 +134,8 @@ In particular, note that since these algorithms are intentionally compute-intens
 ## V2.6 Lookup Secrets
 
 Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are single-use. Once all are utilized, the lookup secret list is discarded. This type of authentication mechanism is considered "something you have".
+
+The requirements in this section mostly relate to section [5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -148,6 +156,8 @@ The ASVS assumes that few developers will be developing new types of out-of-band
 
 Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B &sect; 5.1.3.3.
 
+The requirements in this section mostly relate to section [5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. | ✓ | ✓ | ✓ | 287 |
@@ -165,6 +175,8 @@ Single-factor, time-based, one-time passwords (TOTPs) are physical or soft token
 
 Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
 
+The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: 5.1.4.2, 5.1.5.2, 5.2.1, and 5.2.3.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.8.1** | [GRAMMAR] Verify that time-based, one-time passwords have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 |
@@ -181,6 +193,8 @@ Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN c
 Cryptographic authentication mechanism include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authenticatoin server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key.
 
 The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic device proves possession of the authentication factor.
+
+The requirements in this section mostly relate to section [5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
