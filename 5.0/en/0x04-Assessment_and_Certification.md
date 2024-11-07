@@ -2,35 +2,27 @@
 
 ## OWASP's Stance on ASVS Certifications and Trust Marks
 
-OWASP, as a vendor-neutral not-for-profit organization, does not currently certify any vendors, verifiers or software.
+OWASP, as a vendor-neutral nonprofit, does not certify any vendors, verifiers, or software. Any assurance, trust mark, or certification claiming ASVS compliance is not officially endorsed by OWASP, so organizations should be cautious of third-party claims of ASVS certification.
 
-All such assurance assertions, trust marks, or certifications are not officially vetted, registered, or certified by OWASP, so an organization relying upon such a view needs to be cautious of the trust placed in any third party or trust mark claiming ASVS certification.
-
-This should not inhibit organizations from offering such assurance services, as long as they do not claim official OWASP certification.
+Organizations may offer assurance services, provided they do not claim official OWASP certification
 
 ## Guidance for Certifying Organizations
 
-The Application Security Verification Standard can be used as an open book verification of the application, including open and unfettered access to key resources such as architects and developers, project documentation, source code, authenticated access to test systems (including access to one or more accounts in each role), particularly for L2 and L3 verifications.
+The Application Security Verification Standard (ASVS) requires open access to resources, such as architects, developers, documentation, source code, and authenticated test systems, especially for L2 and L3 verifications.
 
-Historically, penetration testing and secure code reviews have included issues “by exception” - that is only failed tests appear in the final report. A certifying organization must include in any report the scope of the verification (particularly if a key component is out of scope, such as SSO authentication), a summary of verification findings, including passed and failed tests, with clear indications of how to resolve the failed tests.
+Traditional penetration testing reports issues “by exception,” only listing failures. However, certifying reports should include scope, summaries of passed and failed tests, and guidance on resolving issues. Some requirements may be non-applicable (e.g., session management in stateless APIs), and this must be noted in the report.
 
-Some verification requirements might not apply to the specific application under test. For example, if you provide a stateless service layer API without a client implementation to your customers, many of the requirements in V3 Session Management are not directly applicable. In such cases, a certifying organization may still claim full ASVS compliance, but must clearly indicate in any report a reason for non-applicability of such excluded verification requirements.
-
-Keeping detailed work papers, screenshots or movies, scripts to reliably and repeatedly exploit an issue, and electronic records of testing, such as intercepting proxy logs and associated notes such as a cleanup list, is considered standard industry practice and can be really useful as proof of the findings for the most doubtful developers. It is not sufficient to simply run a tool and report on the failures; this does not (at all) provide sufficient evidence that all issues at a certifying level have been tested and tested thoroughly. In case of dispute, there should be sufficient assurance evidence to demonstrate each verified requirement has indeed been tested.
+Detailed documentation, including work papers, screenshots, scripts, and testing logs, is standard practice to provide robust evidence of findings. Merely running a tool without thorough testing is insufficient for certification, as each requirement must be verifiably tested.
 
 ### Testing Method
 
-Certifying organizations are free to choose the appropriate testing method(s), but should indicate them in a report.
-
-Depending on the application under test and the verification requirement, different testing methods may be used to gain similar confidence in the results. For example, validating the effectiveness of an application's input verification mechanisms can be assessed either through a manual penetration test or by conducting source code analysis.
+Certifying organizations can choose their testing methods but should disclose them in the report. Different methods, like manual penetration tests or source code analysis, may be used to verify aspects such as input validation, depending on the application and requirements.
 
 #### The Role of Automated Security Testing Tools
 
-The use of automated penetration testing tools is encouraged to provide as much coverage as possible.
+Automated penetration testing tools are encouraged for coverage, though they cannot fully complete ASVS verification. While many Level 1 requirements are suited to automation, most requirements still require manual testing.
 
-It is not possible to fully complete ASVS verification using automated penetration testing tools alone. Whilst a large majority of requirements in L1 can be performed using automated tests, the overall majority of requirements are not amenable to automated penetration testing.
-
-Please note that the lines between automated and manual testing have blurred as the application security industry matures. Automated tools are often manually tuned by experts and manual testers often leverage a wide variety of automated tools.
+The line between automated and manual testing is increasingly blurred, as experts often tune automated tools, and manual testers frequently use automation.
 
 #### The Role of Penetration Testing
 
