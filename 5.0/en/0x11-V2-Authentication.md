@@ -211,7 +211,7 @@ The requirements in this section mostly relate to section [5.1.7.2](https://page
 | **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | |
 | **2.10.4** | [DELETED, MERGED TO 6.4.1] | | | | |
 
-## V2.11 Authentication with an Identity Providers 
+## V2.11 Authentication with an Identity Providers
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
