@@ -34,7 +34,7 @@ Compliance with this section requires an automated build system, and access to b
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.1.1** | [DELETED, NOT IN SCOPE] | | | | |
-| **14.1.2** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | | | ✓ | 120 |
+| **14.1.2** | [LEVEL L2 > L3] Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | | | ✓ | 120 |
 | **14.1.3** | [MODIFIED] Verify that configuration hardening is performed on all third-party products, libraries, frameworks and services as per their individual recommendations. | | ✓ | ✓ | 16 |
 | **14.1.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **14.1.5** | [MODIFIED] Verify that deployed environments are short lived and frequently redeployed to a "known good" but updated state. Alternatively, long lived environments should use some form of "drift prevention" to ensure that deployed configurations are not changed to an insecure state. | | | ✓ | |
