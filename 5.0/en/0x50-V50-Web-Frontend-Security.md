@@ -70,7 +70,7 @@ Implement security controls to ensure content is rendered in the correct context
 
 ## V50.6 External Resource Integrity
 
-Use Subresource Integrity (SRI) to validate the integrity of externally hosted client-side assets.
+Use Subresource Integrity to validate the integrity of externally hosted client-side assets.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
