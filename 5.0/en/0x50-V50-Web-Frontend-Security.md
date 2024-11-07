@@ -61,7 +61,7 @@ Disable JSONP functionality and prevent Cross-Site Script Inclusion (XSSI) attac
 
 ## V50.5 Unintended Content Interpretation
 
-Implement security controls to ensure content is rendered in the correct context (e.g., using Sec-Fetch headers, CSP sandbox, Content-Disposition) and use context-aware methods for handling untrusted data.
+Implement security controls to ensure content is rendered in the correct context.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
