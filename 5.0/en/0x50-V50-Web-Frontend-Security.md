@@ -4,17 +4,23 @@ The category focuses on requirements that protect against attacks that are execu
 
 ## V1.50 Web Frontend Security Documentation
 
+Application documentation must specifiy required browser security features (like HTTPS, HSTS, and CSP).
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.50.1** | [ADDED] Verify that application documentation states the expected security features that browsers using the application should support (such as HTTPS, HSTS, Content Security Policy (CSP), and other relevant HTTP security mechanisms). It should also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | | | ✓ | |
 
 ## V50.1 Site Isolation Architecture
 
+Separate applications should be hosted on different hostnames to enforce same-origin policy restrictions.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.1.1** | [ADDED, DEPRECATES 3.4.5] Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | ✓ | ✓ | ✓ | 668 |
 
 ## V50.2 Browser Security Mechanism Headers
+
+HTTP responses must include headers for Content-Security-Policy, X-Content-Type-Options, Strict-Transport-Security, Referrer-Policy, and CORS origin validation. Also restrict embedding with CSP frame-ancestors, report CSP violations, and ensure top-level domains are in the HSTS preload list.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -46,12 +52,16 @@ The category should contain requirements with ideas:
 
 ## V50.4 Cross-Site Script Inclusion
 
+Disable JSONP functionality and prevent Cross-Site Script Inclusion (XSSI) attacks.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.4.1** | [ADDED] Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
 | **50.4.2** | [ADDED] Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | ✓ | ✓ | ✓ | |
 
 ## V50.5 Unintended Content Interpretation
+
+Implement security controls to ensure content is rendered in the correct context (e.g., using Sec-Fetch headers, CSP sandbox, Content-Disposition) and use context-aware methods for handling untrusted data.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -60,11 +70,15 @@ The category should contain requirements with ideas:
 
 ## V50.6 External Resource Integrity
 
+Use Subresource Integrity (SRI) to validate the integrity of externally hosted client-side assets.
+
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.6.1** | [MODIFIED, MOVED FROM 14.2.3] Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
 
 ## V50.7 Other Browser Security Considerations
+
+Notify on external redirects, use secure client technologies, and document behavior for unsupported browser security features.
 
 <!--
 it may need other separate section for "end-user protection via UI"
