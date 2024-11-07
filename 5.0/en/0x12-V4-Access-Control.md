@@ -18,8 +18,8 @@ Comprehensive access control documentation is essential to ensure that security 
 | **1.4.3** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
 | **1.4.4** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.4.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
-| **1.4.6** | [ADDED] Verify that the application documentation defines controls that incorporate changes to a consumers environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. These changes should be detected both when the consumer tries to start a new session or during an existing session. | | | ✓ | |
-| **1.4.7** | [ADDED] Verify that access control documentation defines the rules for access control decision-making, specifying consumer and subject attributes, resource attributes, and relevant environmental factors involved in the process. | ✓ | ✓ | ✓ | |
+| **1.4.6** | [ADDED] Verify that access control documentation defines controls that incorporate changes to a consumers environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. These changes should be detected both when the consumer tries to start a new session or during an existing session. | | | ✓ | |
+| **1.4.7** | [ADDED] Verify that access control documentation defines explicit rules for restricting function-level, data-specific, and field-level access based on consumer permissions, specifying relevant consumer and resource attributes, as well as environmental factors involved in decision-making. | ✓ | ✓ | ✓ | |
 
 ## V4.1 General Access Control Design
 
@@ -34,6 +34,7 @@ Implementing granular access controls at the function, data, and field levels wi
 | **4.1.5** | [MOVED TO 7.4.5] | | | | |
 | **4.1.6** | [MODIFIED, MOVED FROM 4.2.1] Verify that the application ensures that data-specific access is restricted to consumers with explicit permissions to specific data items to mitigate insecure direct object reference (IDOR) and broken object level authorization (BOLA). | ✓ | ✓ | ✓ | 639 |
 | **4.1.7** | [ADDED] Verify that the application ensures that field-level access is restricted to consumers with explicit permissions to specific fields to mitigate broken object property level authorization (BOPLA). | | ✓ | ✓ | 283 |
+| **4.1.8** | [ADDED] Verify that adaptive security controls related to authentication and authorization decisions based on a consumers environmental and contextual attributes (such as time of day, location, IP address, or device) are implemented as defined in access control documentation. | | ✓ | ✓ | |
 
 ## V4.2 Operation Level Access Control
 
