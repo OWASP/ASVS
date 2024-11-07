@@ -58,7 +58,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
 | **8.3.5** | [MOVED TO 7.2.7] | | | | |
 | **8.3.6** | [DELETED, NOT PRACTICAL] | | | | |
-| **8.3.7** | Verify that sensitive or private information that is required to be encrypted, is encrypted using approved algorithms that provide both confidentiality and integrity. | | ✓ | ✓ | 327 |
+| **8.3.7** | [DELETED, DUPLICATE OF 1.8.2] | | | | |
 | **8.3.8** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | ✓ | ✓ | |
 | **8.3.9** | [ADDED, SPLIT FROM 8.3.2] Verify that users have a method to export their data on demand. | | | ✓ | |
 | **8.3.10** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | ✓ | ✓ | ✓ | 212 |
