@@ -18,7 +18,7 @@ The category focuses on requirements that protect against attacks that are execu
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **50.2.1** | [MODIFIED, MOVED FROM 14.4.3] Verify that every HTTP response includes a Content-Security-Policy (CSP) header field to reduce the risk of malicious JavaScript. For Level 2, allowlists, a global policy, and object-src and base-uri set to 'none' must be defined. For Level 3, a per-response policy with nonces or hashes must be defined. | ✓ | ✓ | ✓ | |
+| **50.2.1** | [MODIFIED, MOVED FROM 14.4.3] Verify that every HTTP response includes a Content-Security-Policy (CSP) header field to reduce the risk of malicious JavaScript. For Level 2 object-src and base-uri set to 'none' must be defined. For Level 3, a per-response policy with nonces or hashes must be defined. | ✓ | ✓ | ✓ | |
 | **50.2.2** | [GRAMMAR, MOVED FROM 14.4.4] Verify that all responses contain a X-Content-Type-Options: nosniff header field. | ✓ | ✓ | ✓ | 116 |
 | **50.2.3** | [MODIFIED, MOVED FROM 14.4.5] Verify that a Strict-Transport-Security header field is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=31536000; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
 | **50.2.4** | [GRAMMAR, MOVED FROM 14.4.6] Verify that a suitable Referrer-Policy header field is included to avoid exposing sensitive information in the URL through the Referer header field to untrusted parties. | ✓ | ✓ | ✓ | 116 |
