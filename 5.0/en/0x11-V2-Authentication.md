@@ -52,7 +52,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | **2.1.7** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | ✓ | ✓ | ✓ | 521 |
 | **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | ✓ | ✓ | ✓ | 521 |
-| **2.1.10** | [MODIFIED, LEVEL L1 > L2] Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | | ✓ | ✓ |  |
+| **2.1.10** | [MODIFIED, LEVEL L1 > L2] Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | | ✓ | ✓ | |
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 |
 | **2.1.12** | [MODIFIED] Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | ✓ | ✓ | ✓ | 549 |
 | **2.1.13** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | | | ✓ | |
@@ -82,7 +82,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **2.2.5** | [MOVED TO 9.3.3] | | | | |
 | **2.2.6** | [DELETED, DUPLICATE OF 2.7.3, 2.8.4] | | | | |
 | **2.2.7** | [DELETED, MERGED TO 2.2.4] | | | | |
-| **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ |  |
+| **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ | |
 | **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a requires a combination of single-factor authentication mechanisms. | | ✓ | ✓ | 308 |
 | **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | | ✓ | ✓ | 778 |
 | **2.2.11** | [ADDED, SPLIT FROM 1.2.4] Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | | ✓ | ✓ | 306 |
@@ -115,7 +115,7 @@ In particular, note that since these algorithms are intentionally compute-intens
 | **2.4.3** | [DELETED, MERGED TO 6.6.2] | | | | |
 | **2.4.4** | [DELETED, MERGED TO 6.6.2] | | | | |
 | **2.4.5** | [DELETED, INCORRECT] | | | | |
-| **2.4.6** | [ADDED, SPLIT FROM 2.1.2] Verify that the application is protected against a denial of service attack caused by processing an overly long password. | | ✓ | ✓ |  |
+| **2.4.6** | [ADDED, SPLIT FROM 2.1.2] Verify that the application is protected against a denial of service attack caused by processing an overly long password. | | ✓ | ✓ | |
 
 ## V2.5 Credential Recovery
 
@@ -167,7 +167,7 @@ The requirements in this section mostly relate to section [5.1.3](https://pages.
 | **2.7.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **2.7.6** | [MODIFIED] Verify that codes used in out-of-band authentication are generated using a cryptographically secure random number generator (CSPRNG) and contain at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 |
 | **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | | ✓ | ✓ | 307 |
-| **2.7.8** | [ADDED] Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | | | ✓ |  |
+| **2.7.8** | [ADDED] Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | | | ✓ | |
 
 ## V2.8 Time based One-time Passwords
 
