@@ -67,7 +67,7 @@ Where it is not possible to do this, other options include sanitization and sand
 
 Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user-supplied content domain to prevent successful XSS from taking over the application.
 
-## V5.3 Output Encoding and Injection Prevention
+## V5.3 Injection Prevention
 
 Output encoding or escaping close or adjacent to a potentially dangerous context is critical to the security of any application. Typically, output encoding and escaping is not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. Trying to do this too early may lead to malformed content or even render the encoding or escaping ineffective.
 
@@ -101,7 +101,7 @@ The following requirements will only apply when the application uses a systems l
 | **5.4.2** | [MOVED TO 5.2.13] | | | | |
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | | ✓ | ✓ | 190 |
 
-## V5.5 Deserialization Prevention
+## V5.5 Safe Deserialization
 
 Conversion of data from some sort of stored or transmitted representation into actual application objects (deserialization) has historically been the cause of a variety of code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
 
