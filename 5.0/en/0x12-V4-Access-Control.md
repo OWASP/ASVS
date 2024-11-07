@@ -2,14 +2,10 @@
 
 ## Control Objective
 
-Authorization is the process of allowing access only to permitted consumers. Ensure that a verified application satisfies the following high-level requirements:
+Authorization is the process of allowing access only to permitted consumers (users, servers and other clients). Ensure that a verified application satisfies the following high-level requirements:
 
 * Document access control rules, including decision-making factors and environmental contexts.
-* consumers should have access only to resources permitted by their defined entitlements.
-
-Due to the complexity, manual or assisted testing is recommended, along with automated end-to-end tests in the CI/CD pipeline.
-
-Please note, the term "consumer" referes to users, servers and other clients.
+* Consumers should have access only to resources permitted by their defined entitlements.
 
 ## V1.4 Access Control Documentation
 
