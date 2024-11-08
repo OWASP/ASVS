@@ -46,6 +46,7 @@ Server communications involve more than just HTTP. Connections to and from other
 | **9.2.3** | [DELETED, NOT IN SCOPE] | | | | |
 | **9.2.4** | [MOVED TO 9.4.3] | | | | |
 | **9.2.5** | [MOVED TO 7.2.6] | | | | |
+| **9.2.6** | [ADDED] Verify that TLS clients validate certificates received before communicating with a TLS server. | ✓ | ✓ | ✓ | |
 
 ## V9.3 HTTPS Communication between Internal Services
 
