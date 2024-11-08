@@ -6,7 +6,21 @@ The ASVS is useful for anyone aiming to develop and maintain secure applications
 
 ## Application Security Verification Levels
 
-The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
+The Application Security Verification Standard defines three security verification levels, with each level increasing in depth and complexity.
+
+In version 4.0, we described the levels as L1 - "Mininum", L2 - "Standard", and L3 - "Advanced" with the implication that all applications processing sensitive data should be at least L2.
+
+The challenge with this approach, amongst other things, is that L1 had over 100 requirements as did L2 with only a few requirements left in L3.
+
+The other challenge was that a primary motivator behind putting controls in L1 was whether they could be checked using "black box" style testing which was not entirely in line with the concept of L1 being the minimum security controls.
+
+Testability is relative and in some cases misleading. Just because something is testable does not mean that it is testable in an automated or trivial way. Also, the most testable requirements are not necessary those that have the most important security impact or are the easiest to implement.
+
+
+Following much discussion, we dislike the concept of risk based levels as the order of implementing security controls will depend on factors including both risk reduction and also effort to implement. As such, we have moved to a priority based evaluation of each requirement.
+
+
+
 
 * ASVS Level 1 is for low assurance levels and is completely verifiable through penetration testing.
 * ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps.
