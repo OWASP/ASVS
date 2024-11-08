@@ -29,7 +29,7 @@ When designing authentication systems, the strength of hardware-enabled multi-fa
 | **1.2.3** | [DELETED, DUPLICATE OF 1.2.4] | | | | |
 | **1.2.4** | [MODIFIED, SPLIT TO 2.2.11] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | | ✓ | ✓ | 306 |
 | **1.2.5** | [ADDED] Verify that a list of context specific words are documented in order to prevent their use in passwords. | | ✓ | ✓ | 521 |
-| **1.2.6** | [ADDED, SPLIT FROM 2.2.1] Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation should make clear how these controls are configured. | ✓ | ✓ | ✓ | 307 |
+| **1.2.6** | [ADDED, SPLIT FROM 2.2.1] Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation should make clear how these controls are configured and prevent malicious account lockout. | ✓ | ✓ | ✓ | 307 |
 
 ## V2.1 Password Security
 
