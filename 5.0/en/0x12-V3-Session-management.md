@@ -27,6 +27,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 
 Some of the requirements in this section relate to section [7.1](https://pages.nist.gov/800-63-3/sp800-63b.html#71-session-bindings) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
+| # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **3.1.1** | [DELETED, MERGED TO 8.3.1] | | | | |
 | **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 |
