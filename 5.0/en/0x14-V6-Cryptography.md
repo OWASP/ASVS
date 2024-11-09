@@ -116,7 +116,7 @@ Protecting data while it is being processed is paramount. Techniques such as ful
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.8.1** | [ADDED] Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | | | ✓ | |
 | **6.8.2** | [ADDED] Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | | ✓ | ✓ | |
-| **6.8.3** | [ADDED] Verify that Encrypted Client Hello (ECH) is supported and properly configured within the application’s TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | | ✓ | ✓ |  |
+| **6.8.3** | [ADDED] Verify that Encrypted Client Hello (ECH) is supported and properly configured within the application’s TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | | ✓ | ✓ | |
 
 ## V6.9 Post-Quantum Cryptography (PQC)
 
