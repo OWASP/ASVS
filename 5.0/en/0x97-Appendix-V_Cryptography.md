@@ -258,7 +258,7 @@ The following digital signature algorithms are approved for use in ensuring data
 | Signature Algorithm        | Reference                                                                          | Suitable for General Use? | L1 | L2 | L3 |
 | -------------------------- | ---------------------------------------------------------------------------------- | ------------------------- |----|----|----|
 | EdDSA (Ed25519, Ed448)     | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)                                | ✓                         | ✓  | ✓  | ✓  |
-| ECDSA (P-256, P-384, P-521)| [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)                         | ✓                         | ✓  | ✓  | ✓  |
+| ECDSA (P-256, P-384, P-521)| [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)                         | ✓                         | ✓  | ✓  | ✓  |
 | RSA-PSS                    | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                | ✓                         | ✓  | ✓  | ✓  |
 
 
