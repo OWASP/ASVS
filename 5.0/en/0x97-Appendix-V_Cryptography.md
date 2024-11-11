@@ -223,3 +223,75 @@ A complete list of IKE Groups is available by [IANA](https://www.iana.org/assign
 Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) and [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final).
 
 Specifically, IKEv1 MUST NOT be used in production.
+
+## Message Authentication Codes (MAC)
+
+Message Authentication Codes (MACs) are cryptographic constructs used to verify the integrity and authenticity of a message. A MAC takes a message and a secret key as inputs and produces a fixed-size tag (the MAC value). MACs are widely used in secure communication protocols (e.g., TLS/SSL) to ensure that messages exchanged between parties are authentic and intact.
+
+### Approved MAC Algorithms
+
+The following MAC algorithms are approved for use in securing messages by providing integrity and authenticity guarantees. Implementations MUST use only authenticated encryption modes or separately applied HMAC to ensure the security of messages:
+
+| MAC Algorithm     | Reference                                                                                 | Suitable for General Use? | L1 | L2 | L3 |
+| ----------------- | ----------------------------------------------------------------------------------------- | ------------------------- |----|----|----|
+| HMAC-SHA-256      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       | ✓  | ✓  | ✓  |
+| HMAC-SHA-384      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
+| HMAC-SHA-512      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
+| KMAC128           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
+| KMAC256           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
+
+### Disallowed MAC Algorithms
+
+The following algorithms are explicitly banned and MUST NOT be used due to known vulnerabilities or insufficient security strength:
+
+| MAC Algorithm    | Reference                                                                          |
+| ---------------- | ---------------------------------------------------------------------------------- |
+| MD5-based HMAC   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
+| SHA-1-based HMAC | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
+
+## Digital Signatures
+
+### Approved Digital Signature Algorithms
+
+The following digital signature algorithms are approved for use in ensuring data authenticity and integrity. Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final):
+
+| Signature Algorithm        | Reference                                                                          | Suitable for General Use? | L1 | L2 | L3 |
+| -------------------------- | ---------------------------------------------------------------------------------- | ------------------------- |----|----|----|
+| EdDSA (Ed25519, Ed448)     | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)                                | ✓                         | ✓  | ✓  | ✓  |
+| ECDSA (P-256, P-384, P-521)| [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)                         | ✓                         | ✓  | ✓  | ✓  |
+| RSA-PSS                    | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                | ✓                         | ✓  | ✓  | ✓  |
+
+
+### Disallowed Digital Signature Algorithms
+
+The following digital signature algorithms MUST NOT be used due to known weaknesses or insufficient security strength:
+
+| Signature Algorithm | Reference                                                                          |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| RSA PKCS#1 v1.5     | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                |
+| DSA (any key size)  | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)                          |
+
+
+## Key Derivation Functions (KDFs)
+
+### Approved KDFs
+
+Key derivation functions transform a keying material into keys suitable for specific cryptographic operations. The following KDFs are approved and MUST be used based on the application’s needs and security context:
+
+| KDF         | Reference                                                                                     | Suitable for General Use? | L1 | L2 | L3 |
+| ----------- | --------------------------------------------------------------------------------------------- | ------------------------- |----|----|----|
+| argon2id    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                          | ✓                       |    | ✓  | ✓  |
+| scrypt      | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                          | ✓                       |    | ✓  | ✓  |
+| PBKDF2      | [RFC 8018](https://www.rfc-editor.org/info/rfc8018) & [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final) | ✓                       | ✓  | ✓  | ✓  |
+| HKDF        | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                          | ✓                       | ✓  | ✓  | ✓  |
+
+
+### Disallowed KDFs
+
+The following KDFs are explicitly banned and MUST NOT be used due to insufficient security properties or known weaknesses:
+
+| KDF            | Reference                                                                          |
+| -------------- | ---------------------------------------------------------------------------------- |
+| MD5-based KDFs | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
+| SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
+
