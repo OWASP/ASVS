@@ -10,14 +10,27 @@ The Application Security Verification Standard defines three security verificati
 
 In version 4.0, we described the levels as L1 - "Mininum", L2 - "Standard", and L3 - "Advanced" with the implication that all applications processing sensitive data should be at least L2.
 
-The challenge with this approach, amongst other things, is that L1 had over 100 requirements as did L2 with only a few requirements left in L3.
+### Challenges with the previous approach
 
-The other challenge was that a primary motivator behind putting controls in L1 was whether they could be checked using "black box" style testing which was not entirely in line with the concept of L1 being the minimum security controls.
+There are a few challenges with this approach.
 
-Testability is relative and in some cases misleading. Just because something is testable does not mean that it is testable in an automated or trivial way. Also, the most testable requirements are not necessary those that have the most important security impact or are the easiest to implement.
+#### High barrier to entry
 
+L1 in version 4.0 had over 100 requirements as did L2 with only a few requirements left in L3. This meant that a high level of effort required to achieve even L1 at which point the user is told that this is the "minimum" level and that to achieve a "standard" level of security, another 100 requirements are required. In our discussions for version 5.0, we felt like this was demoralizing and made it harder for applications to start adopting the ASVS. 
 
-Following much discussion, we dislike the concept of risk based levels as the order of implementing security controls will depend on factors including both risk reduction and also effort to implement. As such, we have moved to a priority based evaluation of each requirement.
+#### The fallacy of testability
+
+A primary motivator behind putting controls in L1 version 4.0 was whether they could be checked using "black box" style testing which was not entirely in line with the concept of L1 being the minimum security controls. On the one hand, we would hear from users that L1 was not sufficient for a secure application whilst on the other hand we would get complaints that ASVS was too difficult to test.
+
+Additionally, testability is relative and in some cases misleading. Just because something is testable does not mean that it is testable in an automated or trivial way. Also, the most testable requirements are not necessary those that have the most important security impact or are the easiest to implement.
+
+#### Not just about risk
+
+We dislike the concept of prescriptive, risk based levels which mandate that a certain application has to be at a certain level. In our experience, the order of implementing security controls will depend on factors including both risk reduction and also effort to implement. 
+
+### Our approach for v5.0
+
+As such, for version 5.0 we have moved to a priority based evaluation of each requirement based on our combined experience implementing security requirements which takes into account both the risk reduction which the requirement brings and also the difficulty and complexity of implementing the requirement.
 
 
 
