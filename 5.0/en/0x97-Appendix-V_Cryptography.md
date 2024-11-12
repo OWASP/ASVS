@@ -86,7 +86,7 @@ Implementations MUST choose from the following block modes, in order of preferen
 
 * All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. This MUST be applied in the 'Encrypt-Then-Hash' or 'ETH' method. If this cannot be guaranteed, then CBC MUST NOT be used.
 
-\*\*CCM-8 is included in regard to TLS cipher suites (see [TLS](https://github.com/santander-group-cyber-cto/CryptographyStandard/blob/main/Implementations/TLS/README.md) section).
+
 
 #### Recommendations for Approved Cipher Modes for General Use Cases
 
@@ -216,7 +216,7 @@ The following groups are approved and MUST be used for implementations of Diffie
 | 15 | MODP | 3072-bit MODP Group | 128 | ✓ | ✓ | ✓ |
 | 14 | MODP | 2048-bit MODP Group | 112 | ✓ | ✓ | ✓ |
 
-A complete list of IKE Groups is available by [IANA](https://www.iana.org/assignments/ikev2-parameters/ikev2-parameters.xhtml) under "Transform Type 4 - Key Exchange Method Transform IDs". Further recommendations on IKE specifically can be found on the [IPSec](https://github.com/santander-group-cyber-cto/CryptographyStandard/blob/main/Implementations/IPSec/README.md) section.
+
 
 ### Disallowed KEX Schemes
 
