@@ -44,7 +44,6 @@ Some of the requirements in this section relate to section [7.1](https://pages.n
 | **3.2.2** | [MOVED TO 3.1.4] | | | | |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | |
 | **3.2.4** | [DELETED, MERGED TO 3.1.4] | | | | |
-| **3.2.5** | [ADDED] Verify that creating a session for the application requires the user's consent and that the application is protected against a CSRF-style attack where a new application session for the user is created via SSO without user interaction. | | ✓ | ✓ | |
 
 TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
 
@@ -95,6 +94,7 @@ Some of the requirements in this section relate to section [7.2.1](https://pages
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Credential Service Providers (CSPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between CSP authentication events is reached. | | | ✓ | 613 |
 | **3.6.2** | [DELETED, MERGED TO 3.6.1] | | | | |
+| **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | | ✓ | ✓ | |
 
 ## V3.7 Defenses Against Session Abuse
 
