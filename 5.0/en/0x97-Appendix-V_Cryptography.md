@@ -86,8 +86,6 @@ Implementations MUST choose from the following block modes, in order of preferen
 
 * All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. This MUST be applied in the 'Encrypt-Then-Hash' or 'ETH' method. If this cannot be guaranteed, then CBC MUST NOT be used.
 
-
-
 #### Recommendations for Approved Cipher Modes for General Use Cases
 
 Out of the given approved block modes, implementations SHOULD use the ciphers in this list, in order of preference:
@@ -135,7 +133,7 @@ AES-192 and AES-128 MAY be used if the use case demands it, but its motivation M
 
 The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications. Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
 
-| Hash functions | Suitable for<br>HMAC/KDF/RBG? |Reference | L1 | L2 | L3 |
+| Hash functions | Suitable for HMAC/KDF/RBG? | Reference | L1 | L2 | L3 |
 | -------------- | ----------------------------- |-------------------------------------------------------------- |--|--|--|
 | SHA3-512 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
 | SHA-512 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
@@ -190,8 +188,8 @@ A security strength of 112 bits or above MUST be ensured for all Key Exchange sc
 | Scheme | Domain Parameters |
 |--|--|
 | RSA | k >= 2048 |
-| Diffie-Hellman (DH) | (L, N) parameters: <br>L >= 2048 & N >= 224 |
-| Elliptic Curve <br>Diffie-Hellman (ECDH) | f >= 224 |
+| Diffie-Hellman (DH) | L >= 2048 & N >= 224 |
+| Elliptic Curve Diffie-Hellman (ECDH) | f >= 224 |
 
 Where the following parameters are:
 
@@ -215,8 +213,6 @@ The following groups are approved and MUST be used for implementations of Diffie
 | 19 | ECC | 256-bit random ECP group | 128 | ✓ | ✓ | ✓ |
 | 15 | MODP | 3072-bit MODP Group | 128 | ✓ | ✓ | ✓ |
 | 14 | MODP | 2048-bit MODP Group | 112 | ✓ | ✓ | ✓ |
-
-
 
 ### Disallowed KEX Schemes
 
@@ -261,7 +257,6 @@ The following digital signature algorithms are approved for use in ensuring data
 | ECDSA (P-256, P-384, P-521)| [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)                         | ✓                         | ✓  | ✓  | ✓  |
 | RSA-PSS                    | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                | ✓                         | ✓  | ✓  | ✓  |
 
-
 ### Disallowed Digital Signature Algorithms
 
 The following digital signature algorithms MUST NOT be used due to known weaknesses or insufficient security strength:
@@ -270,7 +265,6 @@ The following digital signature algorithms MUST NOT be used due to known weaknes
 | ------------------- | ---------------------------------------------------------------------------------- |
 | RSA PKCS#1 v1.5     | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                |
 | DSA (any key size)  | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)                          |
-
 
 ## Key Derivation Functions (KDFs)
 
@@ -285,7 +279,6 @@ Key derivation functions transform a keying material into keys suitable for spec
 | PBKDF2      | [RFC 8018](https://www.rfc-editor.org/info/rfc8018) & [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final) | ✓                       | ✓  | ✓  | ✓  |
 | HKDF        | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                          | ✓                       | ✓  | ✓  | ✓  |
 
-
 ### Disallowed KDFs
 
 The following KDFs are explicitly banned and MUST NOT be used due to insufficient security properties or known weaknesses:
@@ -294,4 +287,3 @@ The following KDFs are explicitly banned and MUST NOT be used due to insufficien
 | -------------- | ---------------------------------------------------------------------------------- |
 | MD5-based KDFs | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
 | SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
-
