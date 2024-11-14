@@ -1,4 +1,4 @@
-# V6 Stored Cryptography
+# V6 Cryptography
 
 ## Control Objective
 
@@ -106,7 +106,7 @@ There exists a need for approved key exchange mechanisms, such as Diffie-Hellman
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms, such as Diffie-Hellman groups, with a focus on ensuring that key exchange mechanisms use secure parameters to prevent man-in-the-middle attacks or cryptographic breaks, are used for key exchanges to prevent attacks on the key establishment process. | | ✓ | ✓ |  |
+| **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms, such as Diffie-Hellman, with a focus on ensuring that key exchange mechanisms use secure parameters to prevent man-in-the-middle attacks or cryptographic breaks, are used for key exchanges to prevent attacks on the key establishment process. | | ✓ | ✓ |  |
 
 ## V6.8 In-Use Data Cryptography
 
