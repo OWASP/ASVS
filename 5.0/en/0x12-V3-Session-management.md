@@ -77,7 +77,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **3.5.1** | [GRAMMAR] Verify that the application allows users to revoke OAuth tokens that form trust relationships with linked applications. | | ✓ | ✓ | 290 |
+| **3.5.1** | [MOVED TO 51.2.14] | | | | |
 | **3.5.2** | [MOVED TO 3.1.3] | | | | |
 | **3.5.3** | [MODIFIED, LEVEL L2 > L1] Verify that cryptographically secured tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | ✓ | ✓ | ✓ | 345 |
 | **3.5.4** | [ADDED] Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs the claims 'nbf' and 'exp' must be verified. | ✓ | ✓ | ✓ | 613 |
