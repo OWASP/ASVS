@@ -37,7 +37,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 | **51.2.12** | [ADDED] Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. For example by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured authorization request (JAR). | ✓ | ✓ | ✓ |
 | **51.2.13** | [ADDED] Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | ✓ | ✓ | ✓ |
 | **51.2.14** | [MODIFIED, MOVED FROM 3.5.1] Verify that refresh tokens and reference access tokens can be revoked by an authorized user. It can be achieved by using the authorization server user interface, or by a client that is using authorization server APIs for revocation. | | ✓ | ✓ |
-| **51.2.15** | [ADDED] Verify that for a server-side client (which is not executed on the end-user device), the authorization server enforces that the 'authorization_details' parameter value is from the client backend and not tampered by the user. For example by requiring the usage of pushed authorization request (PAR) or JWT-secured authorization request (JAR). | | | ✓ |
+| **51.2.15** | [ADDED] Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example by requiring the usage of pushed authorization request (PAR) or JWT-secured authorization request (JAR). | | | ✓ |
 
 ## V51.3 OAuth Client
 
@@ -52,7 +52,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.4.1** | [ADDED] Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | | | ✓ |
-| **51.4.2** | [ADDED] Verify that the resource server validates that the access token is intended to be used on that resource server (audience). For access token in JWT format or using JWT from token introspection can be done by checking the 'aud' claim. | ✓ | ✓ | ✓ |
+| **51.4.2** | [ADDED] Verify that the resource server ensures that the access token is intended to be used with that server (audience). For an access token in JWT format or when using a JWT from token introspection, this can be done by checking the 'aud' claim. | ✓ | ✓ | ✓ |
 | **51.4.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on resource servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 | **51.4.4** | [ADDED] Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that can not be reassigned to other users. Typically it means using a combination of 'iss' and 'sub' claims. | ✓ | ✓ | ✓ |
 
