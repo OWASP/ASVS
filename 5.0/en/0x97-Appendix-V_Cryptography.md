@@ -118,6 +118,11 @@ The following cipher modes MUST NOT be used for any use case:
 
 ### Key Wrapping
 
+Cryptographic key wrap (and corresponding key unwrap) is a method of protecting an existing key by encapsulating (i.e. wrapping) it by employing an additional encryption mechanism so that the original key is not obviously exposed, e.g. during a transfer. This additional key used to protect the original key is referred to as the the wrap key.
+
+This operation may be performed when it is desirable to protect keys in places deemed untrustworthy, or to send sensitive keys over untrusted networks or within applications.
+However, serious consideration should be given to understanding the nature (e.g. the identity and the purpose) of the original key prior to committing to a wrap/unwrap procedure as this may have repercussions for both source and target systems/applications in terms of security and especially compliance which may include audit trails of a key's function (e.g. signing) as well as appropriate key storage.
+
 ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) and considering forward-looking provisions against the quantum threat. Cipher modes using AES are the following, in order of preference:
 
 | Key Wrapping | Reference | L1 | L2 | L3 |
