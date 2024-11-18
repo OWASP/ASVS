@@ -37,6 +37,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 | **51.2.12** | [ADDED] Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. For example by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured authorization request (JAR). | ✓ | ✓ | ✓ |
 | **51.2.13** | [ADDED] Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | ✓ | ✓ | ✓ |
 | **51.2.14** | [MODIFIED, MOVED FROM 3.5.1] Verify that refresh tokens and reference access tokens can be revoked by an authorized user. It can be achieved by using the authorization server user interface, or by a client that is using authorization server APIs for revocation. | | ✓ | ✓ |
+| **51.2.15** | [ADDED] Verify that for a server-side client (which is not executed on the end-user device), the authorization server enforces that the 'authorization_details' parameter value is from the client backend and not tampered by the user. For example by requiring the usage of pushed authorization request (PAR) or JWT-secured authorization request (JAR). | | | ✓ |
 
 ## V51.3 OAuth Client
 
