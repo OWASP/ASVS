@@ -292,3 +292,7 @@ The following KDFs are explicitly banned and MUST NOT be used due to insufficien
 | -------------- | ---------------------------------------------------------------------------------- |
 | MD5-based KDFs | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
 | SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
+
+### Post-Quantum Encryption Standards
+
+PQC implementations must be inline with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there isn't any hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
