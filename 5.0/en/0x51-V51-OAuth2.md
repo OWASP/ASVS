@@ -52,7 +52,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.4.1** | [ADDED] Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | | | ✓ |
-| **51.4.2** | [ADDED] Verify that the resource server validates that the access token is intended to be used on that resource server (audience), for example by checking the 'aud' claim from the access token to be an expected value. | ✓ | ✓ | ✓ |
+| **51.4.2** | [ADDED] Verify that the resource server validates that the access token is intended to be used on that resource server (audience). For access token in JWT format or using JWT from token introspection can be done by checking the 'aud' claim. | ✓ | ✓ | ✓ |
 | **51.4.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on resource servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 | **51.4.4** | [ADDED] Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that can not be reassigned to other users. Typically it means using a combination of 'iss' and 'sub' claims. | ✓ | ✓ | ✓ |
 
@@ -63,6 +63,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 | **51.5.1** | [ADDED] Verify that the Client (as the relying party) mitigates ID token replay attacks. For example, by ensuring that the 'nonce' claim in the ID token matches the 'nonce' value sent in the authentication request to the OpenID provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | ✓ | ✓ | ✓ |
 | **51.5.2** | [ADDED] Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | ✓ | ✓ | ✓ |
 | **51.5.3** | [ADDED] Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by client. | ✓ | ✓ | ✓ |
+| **51.5.4** | [ADDED] Verify that the client validates that the ID token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | ✓ | ✓ | ✓ |
 
 ## V51.5 OIDC OpenID Provider
 
