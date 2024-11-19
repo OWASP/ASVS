@@ -51,7 +51,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **51.4.1** | [ADDED] Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | | | ✓ |
-| **51.4.2** | [ADDED] Verify that the resource server ensures that the access token is intended to be used with that server (audience). For an access token in JWT format or when using a JWT from token introspection, this can be done by checking the 'aud' claim. | ✓ | ✓ | ✓ |
+| **51.4.2** | [ADDED] Verify that the resource server ensures that the access token is intended to be used with that server (audience). Validation can be done by checking the 'aud' claim from the access token or from the token introspection response. | ✓ | ✓ | ✓ |
 | **51.4.3** | [ADDED] Verify that access tokens are restricted to certain resources and actions on resource servers or resources. Every Resource Server is obliged to verify, for every request, whether the access token sent with that request was meant to be used for that particular action on the particular resource. If not, the resource server must refuse to serve the respective request. | ✓ | ✓ | ✓ |
 | **51.4.4** | [ADDED] Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that can not be reassigned to other users. Typically it means using a combination of 'iss' and 'sub' claims. | ✓ | ✓ | ✓ |
 
