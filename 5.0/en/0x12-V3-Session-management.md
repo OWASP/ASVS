@@ -85,6 +85,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may include issuer, subject, and audience. | ✓ | ✓ | ✓ | 287 |
 | **3.5.7** | [ADDED] Verify that key material that is used to validate cryptographically secured tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | ✓ | ✓ | ✓ | |
 | **3.5.8** | [ADDED] Verify that the service receiving a token validates the token to be intended for the service (audience) before accepting the token's contents. For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | ✓ | ✓ | ✓ | |
+| **3.5.9** | [ADDED] Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID tokens can be used for proving user authentication. | ✓ | ✓ | ✓ | |
 
 ## V3.6 Federated Re-authentication
 
