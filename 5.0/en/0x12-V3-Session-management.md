@@ -84,6 +84,7 @@ Token-based session management includes JWT, OAuth, SAML, and API keys. Of these
 | **3.5.5** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify cryptographically secured tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | ✓ | ✓ | ✓ | 757 |
 | **3.5.6** | [ADDED] Verify that other, security-sensitive attributes of a stateless token are being verified. For example, in a JWT this may include issuer, subject, and audience. | ✓ | ✓ | ✓ | 287 |
 | **3.5.7** | [ADDED] Verify that key material that is used to validate cryptographically secured tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | ✓ | ✓ | ✓ | |
+| **3.5.8** | [ADDED] Verify that the service receiving a token validates the token to be intended for the service (audience) before accepting the token's contents. For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | ✓ | ✓ | ✓ | |
 
 ## V3.6 Federated Re-authentication
 
