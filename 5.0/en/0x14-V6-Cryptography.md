@@ -23,7 +23,7 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 320 |
-| **1.6.2** | [DELETED, MERGED TO 6.4.1] | | | | |
+| **1.6.2** | [DELETED, MERGED TO 14.8.1] | | | | |
 | **1.6.3** | [DELETED, MERGED TO 6.2.4] | | | | |
 | **1.6.4** | [MODIFIED] Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It should also document where keys can and cannot be used in the system and also the types of data which can and cannot be protected using the keys. | | ✓ | ✓ | 320 |
 | **1.6.5** | [ADDED] Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | | | ✓ | 320 |
@@ -70,10 +70,8 @@ Although this section is not easily penetration tested, developers should consid
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.4.1** | [MODIFIED, MERGED FROM 1.6.2, 2.10.4] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy back-end secrets. These could include passwords, key material, integrations with databases and third-party systems, seeds and internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this should involve a hardware-backed solution such as an HSM. | | ✓ | ✓ | 798 |
-| **6.4.2** | [MODIFIED] Verify that key material is not exposed to the application (neither the front-end nor the back-end) but instead uses an isolated security module like a vault for cryptographic operations. | | ✓ | ✓ | 320 |
-| **6.4.3** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization’s threat model and business requirements. | | ✓ | ✓ | 320 |
-| **6.4.4** | [ADDED] Verify that access to secret assets adheres to the principle of least privilege. | | ✓ | ✓ | 320 |
+| **6.4.1** | [MOVED TO 14.8.1] | | | | |
+| **6.4.2** | [MOVED TO 14.8.2] | | | | |
 
 ## V6.5 Cipher Algorithms
 
