@@ -71,10 +71,8 @@ Although this section is not easily penetration tested, developers should consid
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.4.1** | [MODIFIED, MERGED FROM 2.10.4] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy back-end secrets, such as passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys. Secrets must not be included in source code or be received as CI/CD variables. For a L3 application, this should involved a hardware-backed solution such as an HSM. | | ✓ | ✓ | 798 |
-| **6.4.2** | [MODIFIED] Verify that key material is not exposed to the application (neither the front-end nor the back-end) but instead uses an isolated security module like a vault for cryptographic operations. | | ✓ | ✓ | 320 |
-| **6.4.3** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization’s threat model and business requirements. | | ✓ | ✓ | 320 |
-| **6.4.4** | [ADDED] Verify that access to secret assets adheres to the principle of least privilege. | | ✓ | ✓ | 320 |
+| **6.4.1** | [MOVED TO 14.8.1] | | | | |
+| **6.4.2** | [MOVED TO 14.8.2] | | | | |
 
 ## V6.5 Cipher Algorithms
 
