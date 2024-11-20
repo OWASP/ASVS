@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The objective of V6 is not only to define best practices but also to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches by doing the following:
+The objective of V6 is to define best practices for the general use of cryptography but also to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches. It encourages doing the following:
 
 * Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
 * Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
@@ -11,6 +11,8 @@ The objective of V6 is not only to define best practices but also to instill a f
 * Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
 In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in [Appendix V](./0x97-Appendix-V_Cryptography.md).
+
+Requirements which use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
 
 ## V1.6 Cryptographic Inventory and Documentation
 

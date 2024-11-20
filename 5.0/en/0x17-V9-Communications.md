@@ -1,8 +1,10 @@
-# V9 Communication Encryption
+# V9 Secure Communication
 
 ## Control Objective
 
-Ensure that a verified application meets the following high-level requirements:
+This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end user client and a back-end service but also between internal and back-end services.
+
+The general concepts promoted by this chapter include:
 
 * Require TLS or strong encryption, independent of the sensitivity of the content.
 * Follow the latest guidance, including:
@@ -16,6 +18,8 @@ Within these requirements:
 * Stay current with recommended industry advice on secure TLS configuration, as it changes frequently (often due to catastrophic breaks in existing algorithms and ciphers).
 * Use the most recent versions of TLS configuration review tools to configure the preferred order and algorithm selection.
 * Check your configuration periodically to ensure that secure communication is always present and effective.
+
+In addition to outlining general principles and best practices, this document also provides more in-depth technical information about cryptographic strength in [Appendix V](./0x97-Appendix-V_Cryptography.md).
 
 ## V1.9 Communications Documentation
 
