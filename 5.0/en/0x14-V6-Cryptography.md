@@ -93,11 +93,11 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. | | ✓ | ✓ |  |
-| **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ |  |
-| **6.6.3** | [ADDED, SPLIT FROM 6.2.5] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ |  |
-| **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ |  |
-| **6.6.5** | [ADDED] Verify that suitable hash functions are used in HMACs, KDFs, and random bit generation. | | ✓ | ✓ |  |
+| **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. | | ✓ | ✓ | |
+| **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | |
+| **6.6.3** | [ADDED, SPLIT FROM 6.2.5] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | |
+| **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | |
+| **6.6.5** | [ADDED] Verify that suitable hash functions are used in HMACs, KDFs, and random bit generation. | | ✓ | ✓ | |
 
 ## V6.7 Key Exchange Mechanisms
 
@@ -113,8 +113,8 @@ Protecting data while it is being processed is paramount. Techniques such as ful
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.8.1** | [ADDED] Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | | | ✓ |  |
-| **6.8.2** | [ADDED] Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | | ✓ | ✓ |  |
+| **6.8.1** | [ADDED] Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | | | ✓ | |
+| **6.8.2** | [ADDED] Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | | ✓ | ✓ | |
 
 ## V6.9 Post-Quantum Cryptography (PQC)
 
@@ -122,8 +122,8 @@ The need to future-proof cryptographic systems in preparation for the eventual r
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| 6.9.1 | [ADDED] Verify that a cryptographic inventory is maintained and includes a documented transformation plan or mapping that outlines the migration path from current cryptographic algorithms and systems to those that are post-quantum cryptography/quantum-safe.| | ✓ | ✓ | |
-| **6.9.2** | [ADDED] Verify that advancements in the field of post-quantum cryptography are being monitored in order to ensure that the application is aligned with emerging industry standards, and remains prepared for quantum threats. | | ✓ | ✓ |  |
+| **6.9.1** | [ADDED] Verify that a cryptographic inventory is maintained and includes a documented transformation plan or mapping that outlines the migration path from current cryptographic algorithms and systems to those that are post-quantum cryptography/quantum-safe. | | ✓ | ✓ | |
+| **6.9.2** | [ADDED] Verify that advancements in the field of post-quantum cryptography are being monitored in order to ensure that the application is aligned with emerging industry standards, and remains prepared for quantum threats. | | ✓ | ✓ | |
 
 ## References
 
