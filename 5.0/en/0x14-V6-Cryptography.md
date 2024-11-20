@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The objective of V6 is not only to define best practices but also to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches by doing the following:
+The objective of V6 is to define best practices for the general use of cryptography but also to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches. It encourages doing the following:
 
 * Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
 * Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
@@ -11,6 +11,8 @@ The objective of V6 is not only to define best practices but also to instill a f
 * Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
 In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in [Appendix V](./0x97-Appendix-V_Cryptography.md).
+
+Requirements which use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
 
 ## V1.6 Cryptographic Inventory and Documentation
 
@@ -95,7 +97,7 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 | **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ |  |
 | **6.6.3** | [ADDED, SPLIT FROM 6.2.5] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ |  |
 | **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ |  |
-| **6.6.5** | [ADDED] Verify that all hash functions used in HMAC, KDF, and random bit generation are suitable for these usages. | | ✓ | ✓ |  |
+| **6.6.5** | [ADDED] Verify that suitable hash functions are used in HMACs, KDFs, and random bit generation. | | ✓ | ✓ |  |
 
 ## V6.7 Key Exchange Mechanisms
 
@@ -103,7 +105,7 @@ There exists a need for approved key exchange mechanisms, such as Diffie-Hellman
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms, such as Diffie-Hellman, with a focus on ensuring that key exchange mechanisms use secure parameters to prevent man-in-the-middle attacks or cryptographic breaks, are used for key exchanges to prevent attacks on the key establishment process. | | ✓ | ✓ |  |
+| **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This should prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | | ✓ | ✓ | |
 
 ## V6.8 In-Use Data Cryptography
 

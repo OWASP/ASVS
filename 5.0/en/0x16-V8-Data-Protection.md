@@ -4,13 +4,9 @@
 
 There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.
 
-Applications have to assume that all user devices are compromised in some way. Where an application transmits or stores sensitive information on insecure devices, such as shared computers, phones and tablets, the application is responsible for ensuring data stored on these devices is encrypted and cannot be easily illicitly obtained, altered or disclosed.
+Applications have to assume that all user devices are compromised in some way. Where an application transmits or stores sensitive information on insecure devices, such as shared computers, phones and tablets, the application is responsible for ensuring data stored on these devices is protected and cannot be easily illicitly obtained, altered or disclosed. Possible solutions including making sure it is not persisted or making sure it is stored in an encrypted form.
 
-Ensure that a verified application satisfies the following high-level data protection requirements:
-
-* Confidentiality: Data should be protected from unauthorized observation or disclosure both in transit and when stored.
-* Integrity: Data should be protected from being maliciously created, altered or deleted by unauthorized attackers.
-* Availability: Data should be available to authorized users as required.
+This chapter includes requirements related to defining what data needs to be protected, how it should be protected, and specific mechanisms to implement or pitfalls to avoid.
 
 ## V1.8 Data Protection and Privacy Documentation
 
