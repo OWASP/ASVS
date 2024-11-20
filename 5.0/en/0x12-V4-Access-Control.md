@@ -47,6 +47,7 @@ The immediate application of access control changes in the appropriate tier of a
 | **4.2.3** | [MODIFIED, MOVED FROM 4.1.1] Verify that the application enforces access control rules at a trusted service layer and doesn't rely on controls that an untrusted consumer could manipulate, such as client-side JavaScript. | ✓ | ✓ | ✓ | 602 |
 | **4.2.4** | [ADDED] Verify that changes to values on which access control decisions are made are applied immediately. Where changes cannot be applied immediately, (such as when relying on data in cryptographically secured tokens), there must be mitigating controls to alert when a consumer performs an action when they should no longer be able to do so and revert the change. Note that this would be unable to mitigate information leakage. | | ✓ | ✓ | |
 | **4.2.5** | [ADDED] Verify that access to an object is based on the originating subject's (e.g. consumer's) permissions, not on the permissions of any intermediary or service acting on their behalf. For example, if a consumer calls a web service using a signed token for authentication, and the service then requests data from a different service, the second service should use the consumer's signed token, rather than a machine-to-machine token from the first service, to make permission decisions. | | | ✓ | 441 |
+| **4.2.6** | [ADDED] Verify that the user can review, modify and revoke granted consents at any time. | | ✓ | ✓ | |
 
 ## V4.3 Other Access Control Considerations
 
