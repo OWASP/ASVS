@@ -68,7 +68,7 @@ Use secure TLS configuration and up-to-date tools to review the configuration on
 | **9.4.2** | [MOVED FROM 9.1.3] Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol should be the preferred option. | ✓ | ✓ | ✓ | 326 |
 | **9.4.3** | [MOVED FROM 9.2.4] Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | | ✓ | ✓ | 299 |
 | **9.4.4** | [ADDED] Verify that Encrypted Client Hello (ECH) is supported and properly configured within the application’s TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | | | ✓ | |
-| **9.4.5** | [ADDED] Verify that the application validates that mTLS client certificates are trusted before using the certificate identity for authentication or authorization. | ✓ | ✓ | ✓ | |
+| **9.4.5** | [ADDED] Verify that the application validates that mTLS client certificates are trusted before using the certificate identity for authentication or authorization. | | | ✓ | |
 
 ## References
 
