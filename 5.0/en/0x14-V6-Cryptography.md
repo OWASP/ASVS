@@ -25,9 +25,8 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | | ✓ | ✓ | 320 |
 | **1.6.2** | Verify that consumers of cryptographic services protect key material and other secrets by using key vaults or API based alternatives. | | ✓ | ✓ | 320 |
 | **1.6.3** | [DELETED, MERGED TO 6.2.4] | | | | |
-| **1.6.4** | [GRAMMAR] Verify that the architecture treats client-side secrets (such as symmetric keys, passwords, or API tokens) as insecure and never uses them to protect or access sensitive data. | | ✓ | ✓ | 320 |
-| **1.6.5** | [ADDED] Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. | | ✓ | ✓ | 311 |
-| **1.6.7** | [ADDED] Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | | ✓ | ✓ | 311 |
+| **1.6.4** | [MODIFIED] Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It should also document where keys can and cannot be used in the system and also the types of data which can and cannot be protected using the keys. | | ✓ | ✓ | 320 |
+| **1.6.5** | [ADDED] Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | | | ✓ | 320 |
 
 ## V6.1 Data Classification
 
