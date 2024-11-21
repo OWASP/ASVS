@@ -240,6 +240,10 @@ The following MAC algorithms are approved for use in securing messages by provid
 | HMAC-SHA-512      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
 | KMAC128           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
 | KMAC256           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
+| HMAC-SHA-1        | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
+
+Note that while SHA-1 should not be used in general, the usage of HMAC-SHA-1 is currently not considered to be problematic
+([NIST SP 800-57](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)).
 
 ### Disallowed MAC Algorithms
 
@@ -247,8 +251,7 @@ The following algorithms are explicitly banned and MUST NOT be used due to known
 
 | MAC Algorithm    | Reference                                                                          |
 | ---------------- | ---------------------------------------------------------------------------------- |
-| MD5-based HMAC   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
-| SHA-1-based HMAC | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
+| HMAC-MD5         | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
 
 ## Digital Signatures
 
