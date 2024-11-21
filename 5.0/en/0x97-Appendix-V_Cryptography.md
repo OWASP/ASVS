@@ -44,13 +44,16 @@ The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](h
 
 ### Approved Ciphers
 
-The following ciphers are approved and listed in order of preference:
+The following ciphers are approved:
 
 | Symmetric Key Algorithms | Reference | L1 | L2 | L3 |
 |--|--|--|--|--|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
-| ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | | ✓ | ✓ |
-| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
+| Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | | ✓ | ✓ |
+| XChaCha20 |  | ✓ | ✓ | ✓ |
+| XSalsa20 | [Extending the Salsa20 nonce](https://cr.yp.to/snuffle/xsalsa-20110204.pdf) | ✓ | ✓ | ✓ |
+| ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | ✓ | ✓ | ✓ |
+| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
 | AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
 
 ### Disallowed Ciphers
@@ -73,8 +76,7 @@ Modern ciphers make use of various modes, particularly AES for various purposes.
 
 #### Approved Cipher Modes for General Use Cases
 
-The following modes are approved except where the function is encrypted data storage (see next subsection)
-and are listed in order of preference:
+The following modes are approved except where the function is encrypted data storage (see next subsection):
 
 | AES Encryption Mode | Authenticated?* | Reference | L1 | L2 | L3 |
 |--|--|--|--|--|--|
@@ -149,6 +151,9 @@ The following hash functions are approved for use in general cryptographic use c
 | KMAC256 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
 | KMAC128 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
 | SHAKE256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | ✓ | ✓ | ✓ |
+| BLAKE2s | Y | | ✓ | ✓ | ✓ |
+| BLAKE2b | Y | | ✓ | ✓ | ✓ |
+| BLAKE3 | Y | | ✓ | ✓ | ✓ |
 
 ### Approved Hash Functions for Password Storage
 
@@ -239,6 +244,7 @@ The following MAC algorithms are approved for use in securing messages by provid
 | HMAC-SHA-512      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
 | KMAC128           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
 | KMAC256           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
+| Blake3            |                                                                                            | ✓                       | ✓  | ✓  | ✓  |
 
 ### Disallowed MAC Algorithms
 
@@ -255,11 +261,12 @@ The following algorithms are explicitly banned and MUST NOT be used due to known
 
 The following digital signature algorithms are approved for use in ensuring data authenticity and integrity. Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final):
 
-| Signature Algorithm        | Reference                                                                          | Suitable for General Use? | L1 | L2 | L3 |
-| -------------------------- | ---------------------------------------------------------------------------------- | ------------------------- |----|----|----|
-| EdDSA (Ed25519, Ed448)     | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)                                | ✓                         | ✓  | ✓  | ✓  |
-| ECDSA (P-256, P-384, P-521)| [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)                         | ✓                         | ✓  | ✓  | ✓  |
-| RSA-PSS                    | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                | ✓                         | ✓  | ✓  | ✓  |
+| Signature Algorithm            | Reference                                                  | Suitable for General Use? | L1 | L2 | L3 |
+| ------------------------------ | ---------------------------------------------------------- | ------------------------- |----|----|----|
+| EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | ✓                         | ✓  | ✓  | ✓  |
+| XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | ✓                         | ✓  | ✓  | ✓  |
+| ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | ✓                         | ✓  | ✓  | ✓  |
+| RSA-PSS                        | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | ✓                         | ✓  | ✓  | ✓  |
 
 ### Disallowed Digital Signature Algorithms
 
