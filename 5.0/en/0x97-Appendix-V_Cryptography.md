@@ -44,16 +44,17 @@ The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](h
 
 ### Approved Ciphers
 
-Implementations MUST choose from the ciphers in this list, in order of preference:
+The following ciphers are approved:
 
 | Symmetric Key Algorithms | Reference | L1 | L2 | L3 |
 |--|--|--|--|--|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
-| ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | | ✓ | ✓ |
-| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
+| Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | | ✓ | ✓ |
+| XChaCha20 |  | ✓ | ✓ | ✓ |
+| XSalsa20 | [Extending the Salsa20 nonce](https://cr.yp.to/snuffle/xsalsa-20110204.pdf) | ✓ | ✓ | ✓ |
+| ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | ✓ | ✓ | ✓ |
+| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
 | AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
-
-Any other cipher options MUST NOT be used.
 
 ### Disallowed Ciphers
 
@@ -75,7 +76,7 @@ Modern ciphers make use of various modes, particularly AES for various purposes.
 
 #### Approved Cipher Modes for General Use Cases
 
-Implementations MUST choose from the following block modes, in order of preference, EXCEPT where the function is encrypted data storage (see next subsection):
+The following modes are approved except where the function is encrypted data storage (see next subsection):
 
 | AES Encryption Mode | Authenticated?* | Reference | L1 | L2 | L3 |
 |--|--|--|--|--|--|
@@ -97,7 +98,7 @@ Out of the given approved block modes, implementations SHOULD use the ciphers in
 
 #### Approved Cipher Modes ONLY for Data Storage (block encryption on disk)
 
-Implementations of disk-level block encryption MUST choose from the following list, in order of preference:
+The following disk-level block encryption modes are approved and are listed in order of preference:
 
 | AES Disk Encryption Mode | Reference | L1 | L2 | L3 |
 |--|--|--|--|--|
@@ -130,7 +131,7 @@ ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://
 | KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | ✓ | ✓ | ✓ |
 | KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | ✓ | ✓ | ✓ |
 
-AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory. Any other method for key wrapping MUST NOT be used.
+AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
 
 ## Hashing and Hash-based Functions (V6.6)
 
@@ -150,6 +151,9 @@ The following hash functions are approved for use in general cryptographic use c
 | KMAC256 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
 | KMAC128 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
 | SHAKE256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | ✓ | ✓ | ✓ |
+| BLAKE2s | Y | | ✓ | ✓ | ✓ |
+| BLAKE2b | Y | | ✓ | ✓ | ✓ |
+| BLAKE3 | Y | | ✓ | ✓ | ✓ |
 
 ### Approved Hash Functions for Password Storage
 
@@ -204,7 +208,7 @@ Where the following parameters are:
 
 ### Approved DH groups
 
-The following groups are approved and MUST be used for implementations of Diffie-Hellman KEX. IKEv2 groups are provided for reference ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Equivalent groups might be used in other protocols. Other groups MUST NOT be used. This list is ordered STRONGEST to WEAKEST. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+The following groups are approved and MUST be used for implementations of Diffie-Hellman KEX. IKEv2 groups are provided for reference ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Equivalent groups might be used in other protocols. This list is ordered STRONGEST to WEAKEST. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
 | Group | Scheme | Parameters | Security bits | L1 | L2 | L3 |
 |--|--|--|--|--|--|--|
@@ -238,9 +242,10 @@ The following MAC algorithms are approved for use in securing messages by provid
 | HMAC-SHA-256      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       | ✓  | ✓  | ✓  |
 | HMAC-SHA-384      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
 | HMAC-SHA-512      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
+| HMAC-SHA-1        | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
 | KMAC128           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
 | KMAC256           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
-| HMAC-SHA-1        | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
+| Blake3            |                                                                                            | ✓                       | ✓  | ✓  | ✓  |
 
 Note that while SHA-1 should not be used in general, the usage of HMAC-SHA-1 is currently not considered to be problematic
 ([NIST SP 800-57](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)).
@@ -259,11 +264,12 @@ The following algorithms are explicitly banned and MUST NOT be used due to known
 
 The following digital signature algorithms are approved for use in ensuring data authenticity and integrity. Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final):
 
-| Signature Algorithm        | Reference                                                                          | Suitable for General Use? | L1 | L2 | L3 |
-| -------------------------- | ---------------------------------------------------------------------------------- | ------------------------- |----|----|----|
-| EdDSA (Ed25519, Ed448)     | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)                                | ✓                         | ✓  | ✓  | ✓  |
-| ECDSA (P-256, P-384, P-521)| [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)                         | ✓                         | ✓  | ✓  | ✓  |
-| RSA-PSS                    | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                | ✓                         | ✓  | ✓  | ✓  |
+| Signature Algorithm            | Reference                                                  | Suitable for General Use? | L1 | L2 | L3 |
+| ------------------------------ | ---------------------------------------------------------- | ------------------------- |----|----|----|
+| EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | ✓                         | ✓  | ✓  | ✓  |
+| XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | ✓                         | ✓  | ✓  | ✓  |
+| ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | ✓                         | ✓  | ✓  | ✓  |
+| RSA-PSS                        | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | ✓                         | ✓  | ✓  | ✓  |
 
 ### Disallowed Digital Signature Algorithms
 

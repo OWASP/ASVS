@@ -126,7 +126,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | **2.5.1** | [DELETED, INCORRECT] | | | | |
 | **2.5.2** | Verify password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 |
 | **2.5.3** | [DELETED, DUPLICATE OF 2.4.1] | | | | |
-| **2.5.4** | [MODIFIED] Verify that default user accounts (e.g. "root", "admin", or "sa") are not present in the application or are disabled. | ✓ | ✓ | ✓ | 798 |
+| **2.5.4** | [MOVED TO 14.1.10] | | | | |
 | **2.5.5** | [DELETED, DUPLICATE OF 2.2.3] | | | | |
 | **2.5.6** | [GRAMMAR] Verify that forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. | ✓ | ✓ | ✓ | 640 |
 | **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | ✓ | ✓ | ✓ | 308 |
