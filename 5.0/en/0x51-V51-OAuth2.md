@@ -72,8 +72,11 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 
 ## V51.6 Consent Management
 
+| # | Description | L1 | L2 | L3 |
+| :---: | :--- | :---: | :---: | :---: |
 | **51.6.1** | [ADDED] Verify that the authorization server ensures that the user consents to each authorization request. If the identity of the client cannot be assured, the authorization server must always explicitly prompt the user for consent. | | ✓ | ✓ |
 | **51.6.2** | [ADDED] Verify that when the authorization server prompts for user consent, it presents sufficient and clear information about what is being consented to. When applicable this should include the nature of the requested authorizations (typically based on scope, resource server, rich authorization requests (RAR) authorization details), the identity of the authorized application and the lifetime of these authorizations. | | ✓ | ✓ |
+| **51.6.3** | [ADDED] Verify that the user can review, modify and revoke consents which the user has granted through the authorization server. | | ✓ | ✓ |
 
 ## Terminology
 
