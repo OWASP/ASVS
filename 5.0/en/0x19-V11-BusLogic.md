@@ -1,21 +1,5 @@
 # V11 Business Logic
 
-## Definition
-
-Business logic in application security refers to the customized rules and processes that safeguard an application in accordance with its specific requirements or the needs of the business it serves. These rules dictate various aspects such as user interactions, data handling, and system behavior, tailored to suit the unique characteristics of each application, business, or industry.
-
-Some examples of business logic vulnerabilities:
-
-### Example 1
-
-* Business Rule: Products should only be provided to customers after their transactions are successfully verified to prevent loss due to fraud or non-payment.
-* Vulnerability: If an attacker can manipulate the application to deliver a product before the purchase is verified, there's a risk of providing goods without receiving payment, leading to financial losses for the business.
-
-### Example 2
-
-* **Business Rule:** High-value transactions above a certain threshold should be manually reviewed to ensure accuracy, legitimacy, and compliance with business policies.
-* **Vulnerability:** If an attacker can manipulate the application to skip the review process for high-value transactions, then fraudulent or erroneous transactions may go unnoticed, increasing the risk of financial losses or compliance violations.
-
 ## Control Objective
 
 Ensure that a verified application satisfies the following high-level requirements:
