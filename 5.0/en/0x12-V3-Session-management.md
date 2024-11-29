@@ -61,14 +61,12 @@ Some of the requirements in this section relate to section [7.2](https://pages.n
 
 ## V3.4 Cookie-based Session Management
 
-Some of the requirements in this section relate to section [7.1.1](https://pages.nist.gov/800-63-3/sp800-63b.html#711-browser-cookies) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. | ✓ | ✓ | ✓ | 614 |
-| **3.4.2** | [MODIFIED] Verify that cookie-based session tokens are not readable by client-side scripts. The session token cookie should have the 'HttpOnly' attribute set and the session token value should only be transferred to the client via the Set-Cookie header field. | ✓ | ✓ | ✓ | 1004 |
-| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. | ✓ | ✓ | ✓ | 1275 |
-| **3.4.4** | Verify that cookie-based session tokens use the "__Host-" prefix so cookies are only sent to the host that initially set the cookie. | ✓ | ✓ | ✓ | 16 |
+| **3.4.1** | [MOVED TO 50.2.1] | | | | |
+| **3.4.2** | [MOVED TO 50.2.2] | | | | |
+| **3.4.3** | [MOVED TO 50.2.3] | | | | |
+| **3.4.4** | [MOVED TO 50.2.4] | | | | |
 | **3.4.5** | [DELETED, DEPRECATED BY 50.1.1] | | | | |
 
 ## V3.5 Token-based Session Management
@@ -131,4 +129,3 @@ For more information, see also:
 
 * [OWASP Testing Guide 4.0: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/README.html)
 * [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
-* [Set-Cookie __Host- prefix details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes)
