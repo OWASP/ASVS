@@ -269,7 +269,7 @@ The following digital signature algorithms are approved for use in ensuring data
 | EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | ✓                         | ✓  | ✓  | ✓  |
 | XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | ✓                         | ✓  | ✓  | ✓  |
 | ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | ✓                         | ✓  | ✓  | ✓  |
-| RSA-PSS                        | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | ✓                         | ✓  | ✓  | ✓  |
+| RSA-RSSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | ✓                         | ✓  | ✓  | ✓  |
 
 ### Disallowed Digital Signature Algorithms
 
@@ -277,7 +277,7 @@ The following digital signature algorithms MUST NOT be used due to known weaknes
 
 | Signature Algorithm | Reference                                                                          |
 | ------------------- | ---------------------------------------------------------------------------------- |
-| RSA PKCS#1 v1.5     | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                |
+| RSA-SSA-PKCS#1 v1.5 | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                |
 | DSA (any key size)  | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)                          |
 
 ## Key Derivation Functions (KDFs)
