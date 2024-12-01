@@ -11,7 +11,7 @@ The relative security strengths for various cryptographic systems are in this ta
 | Security Strength | Symmetric Key Algorithms | Finite Field Cryptography (DSA, DH, MQV) | Integer Factorisation Cryptography (RSA) | Elliptic Curve Cryptography (ECDSA, EdDSA, DH, MQV) |
 |--|--|--|--|--|
 | <= 80 | 2TDEA | L = 1024 <br> N = 160 | k = 1024 | f = 160-223 |
-| 112 | 3TDEA\* | L = 2048 <br> N = 224 | k = 2048 | f = 224-255 |
+| 112 | 3TDEA   | L = 2048 <br> N = 224 | k = 2048 | f = 224-255 |
 | 128 | AES-128 | L = 3072 <br> N = 256 | k = 3072 | f = 256-383 |
 | 192 | AES-192 | L = 7680 <br> N = 384 | k = 7680 | f = 384-511 |
 | 256 | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
