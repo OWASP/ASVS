@@ -1,14 +1,14 @@
-# V52 Self-contained Tokens
+# V52 Cryptographically Secured Tokens
 
 ## Control Objective
 
-The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It effectively refers to a token which contains data or claims which a receiving service will rely upon to make security decisions. This is to be differentiated from a token which is just an identifier which a receiving service will use to lookup data locally. The most common example of a self-contained token is a JSON Web Token (JWT) but a SAML assertion could also fall into this category.
+In a cryptographically secured token, the authenticity of the token is validated using cryptography. This type of token may just contain a reference to data stored locally within a service or it might be a self-contained token. The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It effectively refers to a cryptographically secured token which contains data or claims which a receiving service will rely upon to make security decisions. The most common example of a self-contained token is a JSON Web Token (JWT) but a SAML assertion could also fall into this category.
 
 The use of self-contained tokens has become very widespread, even outside of OIDC/OAuth. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process and this chapter will provide specific details of the mechanisms that applications should have in place to prevent them.
 
 ## V52.1 Token source and integrity
 
-Before inspecting the contents of a self-contained token, it is necessary to ensure that the token has been produced by a trusted party and that it has not been tampered with.
+Before using a cryptographically secured token, it is necessary to ensure that the token has been produced by a trusted party and that it has not been tampered with.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -18,7 +18,7 @@ Before inspecting the contents of a self-contained token, it is necessary to ens
 
 ## V52.2 Using token content
 
-Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within it's validity period and that it is meant for use by the receiving service and for the purpose for which it was presented. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
+For cryptographically secured tokens which are not self-contained tokens, validating the authenticity of the token will be sufficient. However, for a self-contained token, it is necessary to validate that the token has been presented within it's validity period and that it is meant for use by the receiving service and for the purpose for which it was presented, before making security decisions based on the content. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
 
 Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
 
