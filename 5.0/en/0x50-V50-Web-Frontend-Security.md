@@ -24,7 +24,7 @@ To leverage the benefits of same-origin isolation, applications should be hosted
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.2.1** | [MODIFIED, MOVED FROM 3.4.1] Verify that cookies have the 'Secure' attribute set, and if the '\__Host-' prefix is not used for the cookie name, the '__Secure-' prefix must be used for the cookie name. | ✓ | ✓ | ✓ | 614 |
 | **50.2.2** | [MODIFIED, MOVED FROM 3.4.2, LEVEL L1 > L2] Verify that if the value of a cookie is not meant to be accessible to client-side scripts (such as a session token), the cookie must have the 'HttpOnly' attribute set and the same value (e. g. session token) must only be transferred to the client via the 'Set-Cookie' header field. | | ✓ | ✓ | 1004 |
-| **50.2.3** | [MOVED FROM 3.4.3] Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. | ✓ | ✓ | ✓ | 1275 |
+| **50.2.3** | [MODIFIED, MOVED FROM 3.4.3, LEVEL L1 > L2] Verify that each cookie's 'SameSite' attribute value is set according to the purpose of the cookie, to limit exposure to cross-site request forgery and user interface redress attacks. | | ✓ | ✓ | 1275 |
 | **50.2.4** | [MOVED FROM 3.4.4] Verify that cookie-based session tokens use the "__Host-" prefix so cookies are only sent to the host that initially set the cookie. | ✓ | ✓ | ✓ | 16 |
 
 ## V50.3 Browser Security Mechanism Headers
