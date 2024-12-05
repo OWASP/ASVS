@@ -12,9 +12,10 @@ Before inspecting the contents of a self-contained token, it is necessary to ens
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **52.1.1** | [MOVED FROM 3.5.3, MODIFIED, LEVEL L2 > L1] Verify that cryptographically secured tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | ✓ | ✓ | ✓ | 345 |
-| **52.1.2** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify cryptographically secured tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | ✓ | ✓ | ✓ | 757 |
-| **52.1.3** | [ADDED] Verify that key material that is used to validate cryptographically secured tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | ✓ | ✓ | ✓ | |
+| **52.1.1** | [MOVED FROM 3.5.3, MODIFIED, LEVEL L2 > L1] Verify that the authenticity of cryptographically secured tokens is validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | ✓ | ✓ | ✓ | 345 |
+| **52.1.2** | [ADDED] Verify that only algorithms on an allowlist are used to create and validate cryptographically secured tokens. The allowlist must only include algorithms which are considered strong for this purpose according to current recommendations (such as PS256 for JWTs) and must not allow integrity validation to be ignored (such as accepting the 'None' algorithm for JWTs). | ✓ | ✓ | ✓ | 757 |
+| **52.1.3** | [ADDED] Verify that when the application validates the authenticity of a cryptographically secured token, it only uses key material for the specified cryptographic algorithms and intended usages, to prevent key confusion attacks. For keys provided in JWK format, this can be done by validating the 'kty', 'use', 'key_ops', or 'alg' headers. | ✓ | ✓ | ✓ | |
+| **52.1.4** | [ADDED] Verifythat the application validates the authenticity of a cryptographically secured token based on key material that is bound to the token issuer. For JWTs and other JWS structures, if the application resolves the key material based on the 'jwk', 'jku', 'x5u' or 'kid' headers, it must interpret and validate (for example using an allowlist) these values depending on the token issuer. | ✓ | ✓ | ✓ | |
 
 ## V52.2 Using token content
 
