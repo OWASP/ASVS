@@ -16,7 +16,9 @@ Before inspecting the contents of a self-contained token, it is necessary to ens
 | **52.1.2** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify cryptographically secured tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | ✓ | ✓ | ✓ | 757 |
 | **52.1.3** | [ADDED] Verify that key material that is used to validate cryptographically secured tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | ✓ | ✓ | ✓ | |
 
-## V52.2 Using token contentFor cryptographically secured tokens which are not self-contained tokens, validating the authenticity of the token will be sufficient. However, for a self-contained token, it is necessary to validate that the token has been presented within it's validity period and that it is meant for use by the receiving service and for the purpose for which it was presented, before making security decisions based on the content. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
+## V52.2 Using token content
+
+Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within it's validity period and that it is meant for use by the receiving service and for the purpose for which it was presented. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
 
 Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
 
