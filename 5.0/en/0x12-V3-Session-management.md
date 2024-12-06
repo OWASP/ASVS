@@ -35,8 +35,8 @@ Some of the requirements in this section relate to section [7.1](https://pages.n
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **3.1.1** | [DELETED, MERGED TO 8.3.1] | | | | |
 | **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | ✓ | ✓ | ✓ | 603 |
-| **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either cryptographically secured or random session tokens for session management. Static API secrets and keys should be avoided. | ✓ | ✓ | ✓ | 798 |
-| **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if random tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | |
+| **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either self-contained or reference tokens for session management. Static API secrets and keys should be avoided. | ✓ | ✓ | ✓ | 798 |
+| **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | ✓ | ✓ | ✓ | |
 
 ## V3.2 Session Binding
 
@@ -108,7 +108,7 @@ Session termination may be handled either by the application itself or by the SS
 
 Session termination should result in requiring re-authentication and be effective across the application, federated login (if present), and any relying parties.
 
-For stateful session mechanisms, this should just require invalidating the session at the backend. If a stateless session mechanism with signed tokens is being used, a way to revoke these tokens will be needed.
+For stateful session mechanisms, this should just require invalidating the session at the backend. If self-contained tokens are being used, a way to revoke these tokens will be needed.
 
 Some of the requirements in this section relate to section [7.1](https://pages.nist.gov/800-63-3/sp800-63b.html#71-session-bindings) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
