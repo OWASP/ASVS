@@ -44,7 +44,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | ✓ | ✓ | ✓ | 521 |
-| **2.1.2** | [MODIFIED, SPLIT TO 2.4.6] Verify that passwords of at least 64 characters are permitted. | ✓ | ✓ | ✓ | 521 |
+| **2.1.2** | [MODIFIED] Verify that passwords of at least 64 characters are permitted. | ✓ | ✓ | ✓ | 521 |
 | **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | ✓ | ✓ | ✓ | |
 | **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 |
@@ -115,7 +115,6 @@ In particular, note that since these algorithms are intentionally compute-intens
 | **2.4.3** | [DELETED, MERGED TO 6.6.2] | | | | |
 | **2.4.4** | [DELETED, MERGED TO 6.6.2] | | | | |
 | **2.4.5** | [DELETED, INCORRECT] | | | | |
-| **2.4.6** | [ADDED, SPLIT FROM 2.1.2] Verify that the application is protected against a denial of service attack caused by processing an overly long password. | | ✓ | ✓ | |
 
 ## V2.5 Credential Recovery
 
