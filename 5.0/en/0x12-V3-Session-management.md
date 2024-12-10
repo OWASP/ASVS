@@ -41,16 +41,12 @@ Some of the requirements in this section relate to section [7.1](https://pages.n
 
 ## V3.2 Session Binding
 
-Some of the requirements in this section relate to section [7.1](https://pages.nist.gov/800-63-3/sp800-63b.html#71-session-bindings) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
-
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **3.2.1** | [MODIFIED, MOVED TO 3.1.5] | | | | |
+| **3.2.1** | [MOVED TO 3.1.5] | | | | |
 | **3.2.2** | [MOVED TO 3.1.4] | | | | |
 | **3.2.3** | [DELETED, MERGED TO 8.2.2] | | | | |
 | **3.2.4** | [DELETED, MERGED TO 3.1.4] | | | | |
-
-TLS or another secure transport channel is mandatory for session management. This is covered in the Communications Security chapter.
 
 ## V3.3 Session Timeout
 
