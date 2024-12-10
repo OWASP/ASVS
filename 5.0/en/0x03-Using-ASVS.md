@@ -32,7 +32,7 @@ We dislike the concept of prescriptive, risk based levels which mandate that a c
 
 For version 5.0, after much discussion within the Working Group, the consensus was that we wanted to stay with three levels. However, we wanted to significantly reduce the number of requirements in Level 1 to lower the barrier to entry, we wanted to change the criteria which are used to define the level which a requirement goes into, and in doing so reframe the definition of the levels.
 
-### Level evaluation criteria.
+### Level evaluation criteria
 
 To achieve this, we have moved to a priority based evaluation of each requirement based on our combined experience implementing security requirements. In this approach, we evaluted each requirement using the following criteria.
 

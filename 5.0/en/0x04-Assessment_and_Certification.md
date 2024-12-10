@@ -28,7 +28,7 @@ Certifying organizations can choose their testing methods but should disclose th
 
 ### Verification Mechanisms
 
-There are a number of different techniques which may be needed to verify specific ASVS requirements. Aside from penetration testing, verifying ASVS requirements may require access to documentation, source code, configuration, and the people involved in the development process. 
+There are a number of different techniques which may be needed to verify specific ASVS requirements. Aside from penetration testing, verifying ASVS requirements may require access to documentation, source code, configuration, and the people involved in the development process.
 
 The use of automation to verify ASVS requirements is a topic that is constantly of interest. After version 5.0 is released, we would like to prepare a testing guide to try and demonstrate how requirements can be verified but for now it is important to clarify some points related to automated and black box testing.
 
@@ -36,7 +36,7 @@ The use of automation to verify ASVS requirements is a topic that is constantly 
 
 Automated security testing tools such as DAST and SAST tools, when effectively implemented in the build pipeline, can effectively identify some security issues that should never exist. However, without careful configuration and tuning they may not provide the required coverage and the level of noise is likely to prevent real security issues from being identified and mitigated.
 
-Whilst this may provide coverage of some of the more basic and straightforward technical requirements such as those relating to output encoding or sanitiation, it is critical to note that these tools will be unable entirely to verify many of the more complicated ASVS requirements or those that relate to business logic and access control. 
+Whilst this may provide coverage of some of the more basic and straightforward technical requirements such as those relating to output encoding or sanitiation, it is critical to note that these tools will be unable entirely to verify many of the more complicated ASVS requirements or those that relate to business logic and access control.
 
 For less straightforward requirements, it is likely that automation can still be utilized but application specific verifications will need to be written to achieve this. These may be similar to unit and integration tests that the organization may already be using. It may therefore be possible to use this existing test automation infrastructure to write these ASVS specific tests. Whilst doing this will require short term investment, the long term benefits being able to continually verify these ASVS requirements will be significant.
 
@@ -44,9 +44,8 @@ In summary, testable using automation != running an off the shelf tool.
 
 #### The Role of Penetration Testing
 
-Whilst L1 in version 4.0 was optimized for "black box" (no documentation and no source) testing to occur, even then we were clear that it is not an effective assurance activity and should be actively discouraged. 
+Whilst L1 in version 4.0 was optimized for "black box" (no documentation and no source) testing to occur, even then we were clear that it is not an effective assurance activity and should be actively discouraged.
 
 Testing without access to necessary additional information is an inefficient and ineffective mechanism for security verification, as it misses out on the possibility of reviewing the source, identifying threats and missing controls, and performing a far more thorough test in a shorter timeframe.
 
 We strongly encourage including replacing penetration tests with documentation or source code-led (hybrid) penetration testing, with full access to developers and documentation throughout the development process, and this will be necessary in order to verify many of the ASVS requirements.
-
