@@ -38,7 +38,7 @@ Input validation provides valuable hygiene for the application in making sure th
 | **5.1.2** | [MOVED TO 10.4.4] | | | | |
 | **5.1.3** | [MODIFIED] Verify that all input is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. | ✓ | ✓ | ✓ | 20 |
 | **5.1.4** | [MODIFIED, SPLIT TO 5.1.7] Verify that data items with an expected structure are validated according to the pre-defined rules. | ✓ | ✓ | ✓ | 20 |
-| **5.1.5** | [MODIFIED, SPLIT TO 50.7.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | ✓ | ✓ | ✓ | 601 |
+| **5.1.5** | [MODIFIED, SPLIT TO 50.8.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | ✓ | ✓ | ✓ | 601 |
 | **5.1.6** | [ADDED] Verify that untrusted input is validated for length before being included in a cookie (including as part of a JWT) and that the cookie name and value length combined are not over 4096 bytes. | | ✓ | ✓ | |
 | **5.1.7** | [ADDED, SPLIT FROM 5.1.4] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | ✓ | ✓ | ✓ | 20 |
 | **5.1.8** | [ADDED] Verify that the application validates that user-controlled input in HTTP request header fields does not exceed the server's maximum header field size limit (usually 4kB or 8kB) to prevent client-based denial of service attacks. | | ✓ | ✓ | |
@@ -77,7 +77,7 @@ In many cases, software libraries will include safe or safer functions which wil
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.3.1** | [MODIFIED, SPLIT TO 5.3.13] Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP header fields, to avoid changing the message or document structure. | ✓ | ✓ | ✓ | 116 |
 | **5.3.2** | [DELETED, DUPLICATE OF 14.4.1] | | | | |
-| **5.3.3** | [MODIFIED, SPLIT TO 50.5.2] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | ✓ | ✓ | ✓ | |
+| **5.3.3** | [MODIFIED, SPLIT TO 50.6.2] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | ✓ | ✓ | ✓ | |
 | **5.3.4** | [MODIFIED] Verify that data selection or database queries (e.g. SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | ✓ | ✓ | ✓ | 89 |
 | **5.3.5** | [DELETED, DUPLICATE OF 5.3.4] | | | | |
 | **5.3.6** | [DELETED, DUPLICATE OF 5.3.3] | | | | |

@@ -74,7 +74,7 @@ Some of the requirements in this section relate to section [7.2](https://pages.n
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **3.5.1** | [MOVED TO 51.2.14] | | | | |
+| **3.5.1** | [MOVED TO 51.4.14] | | | | |
 | **3.5.2** | [MOVED TO 3.1.3] | | | | |
 | **3.5.3** | [MOVED TO 52.1.1] | | | | |
 

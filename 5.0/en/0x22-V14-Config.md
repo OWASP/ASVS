@@ -18,7 +18,7 @@ Configuration of the application out of the box should be safe to be on the Inte
 | **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [SPLIT TO 1.10.4, 10.5.1] | | | | |
-| **1.14.6** | [MOVED TO 50.7.2] | | | | |
+| **1.14.6** | [MOVED TO 50.8.2] | | | | |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | | ✓ | ✓ | 1059 |
 
 ## V14.1 Build and Deploy
@@ -50,7 +50,7 @@ Compliance with this section requires an automated build system, and access to b
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.2.1** | [MOVED TO 10.6.1] | | | | |
 | **14.2.2** | [MOVED TO 14.1.6] | | | | |
-| **14.2.3** | [MOVED TO 50.6.1] | | | | |
+| **14.2.3** | [MOVED TO 50.7.1] | | | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | | | |
 | **14.2.5** | [MOVED TO 1.10.2] | | | | |
 | **14.2.6** | [SPLIT TO 1.10.3, 10.5.1] | | | | |
@@ -75,12 +75,12 @@ For example, hiding the version of server-side components does not fix the need 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.4.1** | [MOVED TO 13.1.7] | | | | |
-| **14.4.2** | [DELETED, MERGED TO 50.5.1] | | | | |
-| **14.4.3** | [MOVED TO 50.2.1] | | | | |
-| **14.4.4** | [MOVED TO 50.2.2] | | | | |
-| **14.4.5** | [MOVED TO 50.2.3] | | | | |
-| **14.4.6** | [MOVED TO 50.2.4] | | | | |
-| **14.4.7** | [MOVED TO 50.2.5] | | | | |
+| **14.4.2** | [DELETED, MERGED TO 50.6.1] | | | | |
+| **14.4.3** | [MOVED TO 50.3.1] | | | | |
+| **14.4.4** | [MOVED TO 50.3.2] | | | | |
+| **14.4.5** | [MOVED TO 50.3.3] | | | | |
+| **14.4.6** | [MOVED TO 50.3.4] | | | | |
+| **14.4.7** | [MOVED TO 50.3.5] | | | | |
 
 ## V14.5 HTTP Request Header Validation
 
@@ -88,7 +88,7 @@ For example, hiding the version of server-side components does not fix the need 
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | [MOVED TO 13.6.1] | | | | |
 | **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
-| **14.5.3** | [SPLIT TO 50.2.6, 50.3.3] | | | | |
+| **14.5.3** | [SPLIT TO 50.3.6, 50.4.3] | | | | |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
 
 ## V14.6 Web or Application Server Configuration

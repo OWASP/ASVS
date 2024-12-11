@@ -12,7 +12,7 @@ Before inspecting the contents of a self-contained token, it is necessary to ens
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **52.1.1** | [MOVED FROM 3.5.3, MODIFIED, LEVEL L2 > L1] Verify that self-contained tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | ✓ | ✓ | ✓ | 345 |
+| **52.1.1** | [MODIFIED, MOVED FROM 3.5.3, LEVEL L2 > L1] Verify that self-contained tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | ✓ | ✓ | ✓ | 345 |
 | **52.1.2** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify self-contained tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | ✓ | ✓ | ✓ | 757 |
 | **52.1.3** | [ADDED] Verify that key material that is used to validate self-contained tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | ✓ | ✓ | ✓ | |
 
