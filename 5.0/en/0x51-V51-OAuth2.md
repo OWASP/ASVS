@@ -43,7 +43,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 | **51.4.2** | [ADDED] Verify that the authorization code is short-lived. The maximum lifetime can be 10 minutes for L1 and L2 applications and 1 minute for L3 applications. | ✓ | ✓ | ✓ |
 | **51.4.3** | [ADDED] Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring proof key for code exchange (PKCE). For authorization requests, the authorization server must require a valid 'code_challenge' value and must not accept 'code_challenge_method' value 'plain'. For a token request, it must require validation of the 'code_verifier' parameter. | ✓ | ✓ | ✓ |
 | **51.4.4** | [ADDED] Verify that the authorization server mitigates refresh token replay attacks for public clients, preferably using sender-constrained refresh tokens (i.e. Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens (mTLS)). For L1 applications only, refresh token rotation may be used instead. If refresh token rotation is used, verify that the authorization server invalidates the refresh token after usage and revokes all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | ✓ | ✓ | ✓ |
-| **51.4.5** | [ADDED] Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) should no longer be used. | ✓ | ✓ | ✓ |
+| **51.4.5** | [ADDED] Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) must no longer be used. | | ✓ | ✓ |
 | **51.4.6** | [ADDED] Verify that the authorization server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | ✓ | ✓ | ✓ |
 | **51.4.7** | [ADDED] Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, pushed authorization requests (PAR), token revocation requests, and token introspection requests. | ✓ | ✓ | ✓ |
 | **51.4.8** | [ADDED] Verify that the authorization server configuration only assigns the required scopes to the OAuth Client. | ✓ | ✓ | ✓ |
@@ -68,7 +68,7 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.6.1** | [ADDED] Verify that the OpenID Provider only allows values 'code', 'ciba', 'id-token', or 'id-token code' for response mode. Note that 'code' is preferred over 'id-token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) should not be used. | ✓ | ✓ | ✓ |
+| **51.6.1** | [ADDED] Verify that the OpenID Provider only allows values 'code', 'ciba', 'id-token', or 'id-token code' for response mode. Note that 'code' is preferred over 'id-token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | | ✓ | ✓ |
 
 ## V51.7 Consent Management
 
