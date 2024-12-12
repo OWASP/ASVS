@@ -42,11 +42,31 @@ In version 4.0, Levels 1 and 2 both had around 120 requirements and Level 3 had 
 
 ### Definition of the Levels
 
+Based on the above criteria, the requirements for version 5.0 were allocated into one of the 3 levels. Moving from a prescriptive level definition to a comparative analysis based on various factors means that there was an element of judgement in the allocation.
+
+Nevertheless, the rigorous discussions around both the criteria and the leveling decisions has resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+
+The types of requirements in each level could be characterised as follows.
+
+#### Level 1 requirements
+
+These will generally be critical or basic, first layer of defense requirements for preventing common attacks that are either relatively straightforward to implement or important enough to be worth the effort.
+
+Level 1 is not necessarily penetration testable using humans, although the lower number of requirements should make it easier to verify.
+
+#### Level 2 requirements
+
+These requirements will generally relate to either less common attacks, or more complicated protections against common attacks. They will generally still be a first layer of defense.
+
+#### Level 3 requirements
+
+These requirements will generally relate to attacks which are a lot more niche or only relevant in certain circumstances. Requirements in this section may also be defense in depth mechanisms or other useful but hard to implement controls.
+
+### Which level to achieve
+
 By moving to a priority based evaluation of each requirement, the levels become more of a reflection of the application security maturity of the organization and the application. Rather than the ASVS prescriptively stating what level an application should be at, an organization should decide what level it believes it should be at, depending on the sensitivity of the application and of course the expectations of the application's users.
 
 For example, an early stage startup which is only collecting limited sensitive data may decide that Level 1 is sufficient but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
-
-Additionally, Version 5.0 does not commit to ensuring that Level 1 is completely penetration testable using humans, although the lower number of requirements should make it easier to verify.
 
 ## How to Reference ASVS Requirements
 
