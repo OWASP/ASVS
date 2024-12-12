@@ -1,6 +1,6 @@
 # Guidance for users of version 4.0
 
-TODO: Add more content
+## TODO: Add more content
 
 ### Challenges with the previous approach
 

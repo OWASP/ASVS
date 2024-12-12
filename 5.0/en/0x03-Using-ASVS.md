@@ -127,4 +127,3 @@ Different threats have different motivations. Some industries have unique inform
 Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
 
 We have received feedback from various members of the community on how they implement the standard in practice:
-
