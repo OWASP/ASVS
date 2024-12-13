@@ -6,8 +6,8 @@ Session management mechanisms give applications the ability to correlate user an
 
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and timed out during periods of inactivity.
-  
-Many of the requirements in this chapter have been adapted to be a compliant subset of selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focused on common threats and commonly exploited authentication weaknesses. 
+
+Many of the requirements in this chapter have been adapted to be a compliant subset of selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focused on common threats and commonly exploited authentication weaknesses.
 
 Requirements governing some concepts related to implementation details of session management mechanisms can be found elsewhere:
 
@@ -26,7 +26,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 
 ## V3.1 Fundamental Session Management Security
 
-This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated, managed, and validated. 
+This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated, managed, and validated.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -100,7 +100,7 @@ Session termination may be handled either by the application itself or by the SS
 
 Session termination should result in requiring re-authentication and be effective across the application, federated login (if present), and any relying parties.
 
-For stateful session mechanisms, termination typically involves invalidating the session on the backend. In the case of self-contained tokens, additional measures are required to revoke or block these tokens, as they may otherwise remain valid until expiration. 
+For stateful session mechanisms, termination typically involves invalidating the session on the backend. In the case of self-contained tokens, additional measures are required to revoke or block these tokens, as they may otherwise remain valid until expiration.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
