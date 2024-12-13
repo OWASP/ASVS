@@ -2,22 +2,19 @@
 
 ## Control Objective
 
-One of the core components of any web-based application or stateful API is the mechanism by which it controls and maintains the state for a user or device interacting with it. Session management changes a stateless protocol to stateful, which is critical for differentiating different users or devices.
-
-Ensure that a verified application satisfies the following high-level session management requirements:
+Session management mechanisms give applications the ability to correlate user and device interactions over time, even when using otherwise stateless communication protocols. Modern applications may utilize multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that optimally prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are satisfied:
 
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and timed out during periods of inactivity.
+  
+Many of the requirements in this chapter have been adapted to be a compliant subset of selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focused on common threats and commonly exploited authentication weaknesses. 
 
-As previously noted, these requirements have been adapted to be a compliant subset of selected NIST SP 800-63B controls, focused on common threats and commonly exploited authentication weaknesses. Previous verification requirements have been retired, de-duped, or in most cases adapted to be strongly aligned with the intent of mandatory [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) requirements.
+Requirements governing some concepts related to implementation details of session management mechanisms can be found elsewhere:
 
-Cookies are a common mechanism for securing session identifiers and specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
-
-Self-contained tokens are frequently used as a way of maintaining session. Specific security requirements can be found in the "Self-contained Tokens" chapter.
+* HTTP Cookies are a common mechanism for securing session identifiers and specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
+* Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
 
 ## V1.3 Session Management Documentation
-
-Session management mechanisms give applications the ability to correlate user and device interactions over time, even when using otherwise stateless communication protocols. Modern applications may utilize multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that optimally prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session.
 
 There is no single pattern that suits all applications. Therefore, it is infeasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application. Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements.
 
@@ -29,7 +26,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 
 ## V3.1 Fundamental Session Management Security
 
-Some of the requirements in this section relate to section [7.1](https://pages.nist.gov/800-63-3/sp800-63b.html#71-session-bindings) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated, managed, and validated. 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -50,7 +47,7 @@ Some of the requirements in this section relate to section [7.1](https://pages.n
 
 ## V3.3 Session Timeout
 
-Some of the requirements in this section relate to section [7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#72-reauthentication) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Session timeout mechanisms serve to minimize the window of opportunity for session hijacking and other forms of session abuse. Timeouts must satisfy documented requirements.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -80,9 +77,7 @@ Some of the requirements in this section relate to section [7.2](https://pages.n
 
 ## V3.6 Federated Re-authentication
 
-This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. If relying on code implementing these features, ensure that these issues are handled correctly.
-
-Some of the requirements in this section relate to section [7.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#721-reauthentication-from-a-federation-or-assertion) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -92,7 +87,7 @@ Some of the requirements in this section relate to section [7.2.1](https://pages
 
 ## V3.7 Defenses Against Session Abuse
 
-This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors such as cross-site attacks.
+This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors such as cross-site request forgery (CSRF) and other cross-site attacks, which rely on the existence and capabilities of active user sessions.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
@@ -105,9 +100,7 @@ Session termination may be handled either by the application itself or by the SS
 
 Session termination should result in requiring re-authentication and be effective across the application, federated login (if present), and any relying parties.
 
-For stateful session mechanisms, this should just require invalidating the session at the backend. If self-contained tokens are being used, a way to revoke these tokens will be needed.
-
-Some of the requirements in this section relate to section [7.1](https://pages.nist.gov/800-63-3/sp800-63b.html#71-session-bindings) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+For stateful session mechanisms, termination typically involves invalidating the session on the backend. In the case of self-contained tokens, additional measures are required to revoke or block these tokens, as they may otherwise remain valid until expiration. 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
