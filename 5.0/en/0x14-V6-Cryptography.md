@@ -57,7 +57,7 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.6** | [MOVED TO 6.5.3] | | | | |
 | **6.2.7** | [MOVED TO 6.5.4] | | | | |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | | | ✓ | 385 |
-| **6.2.9** | [ADDED] All cryptographic primitives MUST utilize a minimum of 128-bits of security, with exceptions only made for equipment or applications approaching end of life, where the requirement is at least 112-bits of security for all cryptography. | ✓ | ✓ | ✓ | 311 |
+| **6.2.9** | [ADDED] Verify that all cryptographic primitives utilize a minimum of 128-bits of security, with exceptions only made for equipment or applications approaching end of life, where the requirement is at least 112-bits of security for all cryptography. | ✓ | ✓ | ✓ | 311 |
 
 ## V6.3 Random Values
 
