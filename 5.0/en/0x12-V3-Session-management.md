@@ -2,14 +2,14 @@
 
 ## Control Objective
 
-Session management mechanisms give applications the ability to correlate user and device interactions over time, even when using otherwise stateless communication protocols. Modern applications may utilize multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that optimally prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are satisfied:
+Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are satisfied:
 
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and timed out during periods of inactivity.
 
-Many of the requirements in this chapter have been adapted to be a compliant subset of selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focused on common threats and commonly exploited authentication weaknesses.
+Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focused on common threats and commonly exploited authentication weaknesses.
 
-Requirements governing some concepts related to implementation details of session management mechanisms can be found elsewhere:
+Note that requirements for specific implementation details of certain session management mechanisms can be found in other:
 
 * HTTP Cookies are a common mechanism for securing session identifiers and specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
 * Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
