@@ -47,7 +47,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | **2.1.2** | [MODIFIED] Verify that passwords of at least 64 characters are permitted. | ✓ | ✓ | ✓ | 521 |
 | **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | ✓ | ✓ | ✓ | |
 | **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | | | |
-| **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 |
+| **2.1.5** | [GRAMMAR] Verify that users can change their password. | ✓ | ✓ | ✓ | 620 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 |
 | **2.1.7** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | ✓ | ✓ | ✓ | 521 |
 | **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | | | |
@@ -123,7 +123,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.5.1** | [DELETED, INCORRECT] | | | | |
-| **2.5.2** | Verify password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 |
+| **2.5.2** | [GRAMMAR] Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 |
 | **2.5.3** | [DELETED, DUPLICATE OF 2.4.1] | | | | |
 | **2.5.4** | [MOVED TO 14.1.10] | | | | |
 | **2.5.5** | [DELETED, DUPLICATE OF 2.2.3] | | | | |
