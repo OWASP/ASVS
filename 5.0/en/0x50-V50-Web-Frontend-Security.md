@@ -76,7 +76,7 @@ Rendering content or functionality in an incorrect context can lead to a wide va
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.6.1** | [MODIFIED, MOVED FROM 12.5.2, MERGED FROM 1.12.2, 14.4.2] Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields, such as Sec-Fetch-\*, indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc. | ✓ | ✓ | ✓ | |
-| **50.6.2** | [ADDED, SPLIT FROM 5.3.3] Verify that JavaScript context-aware methods are used when handling untrusted data to avoid unintended content execution, such as executing content as HTML instead of displaying it as text. | ✓ | ✓ | ✓ | |
+| **50.6.2** | [ADDED, SPLIT FROM 5.3.3] Verify that untrusted input must not be applied via innerHTML, document.write, or other properties or functions that render HTML. Instead, use createTextNode, textContent, and similar safe functions that do not render HTML and only render content as text. | ✓ | ✓ | ✓ | |
 
 ## V50.7 External Resource Integrity
 
