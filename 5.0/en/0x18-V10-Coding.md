@@ -15,7 +15,7 @@ This chapter also contains requirements to prevent the introduction of malicious
 | **1.10.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
 | **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life, libraries which have historically had several significant vulnerabilities, etc. | | | ✓ | 1061 |
-| **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelyhood of being dangerously exploitated such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
+| **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
 
 ## V10.1 Code Integrity
 
@@ -67,7 +67,7 @@ Complying with this section is likely to be operational and continuous.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.5.1** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libaries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | | | ✓ | |
+| **10.5.1** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | | | ✓ | |
 
 ## 10.6 Code Dependencies
 

@@ -22,13 +22,13 @@ The "untrusted client" term here refers to client-side technologies that render 
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
 | **1.5.3** | [MOVED TO 5.6.2] | | | | |
 | **1.5.4** | [MOVED TO 5.6.3] | | | | |
-| **1.5.5** | [ADDED, SPLIT FROM 1.5.1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zipcode match. | ✓ | ✓ | ✓ | 20 |
+| **1.5.5** | [ADDED, SPLIT FROM 1.5.1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | ✓ | ✓ | ✓ | 20 |
 
 ## V5.1 Input Validation
 
 Everything the application uses or processes must be handled as user input, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, external APIs, etc.
 
-Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of servie condition.
+Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
 
 Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, escaping, or sanitization when using the data for next component or for presenting it for output.
 
@@ -46,14 +46,14 @@ Input validation provides valuable hygiene for the application in making sure th
 
 The ideal protection against using untrusted content in an unsafe context is using context specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context. This is discussed in more detail in the next section.
 
-Where it is not possible to do this, other options include sanitization and sandboxing. Sanitization will involve removing potentially dangerous characters or content which in some cases could change the semantic meaning of the input but for security reasons there may be no choice. Sandboxing mauy involve ensuring that a potentially dangerous operation is contained such that even if it suffers a security vulnerability, that will not endanger the wider application.
+Where it is not possible to do this, other options include sanitization and sandboxing. Sanitization will involve removing potentially dangerous characters or content which in some cases could change the semantic meaning of the input but for security reasons there may be no choice. Sandboxing may involve ensuring that a potentially dangerous operation is contained such that even if it suffers a security vulnerability, that will not endanger the wider application.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.2.1** | [MODIFIED] Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized using a well-known and secure HTML sanitization library or framework feature. | ✓ | ✓ | ✓ | 116 |
 | **5.2.2** | [MODIFIED] Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | ✓ | ✓ | ✓ | 138 |
 | **5.2.3** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 147 |
-| **5.2.4** | [MODIFIED] Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Lanugage (SpEL). Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 95 |
+| **5.2.4** | [MODIFIED] Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 95 |
 | **5.2.5** | [MODIFIED] Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | ✓ | ✓ | ✓ | 94 |
 | **5.2.6** | [MODIFIED] Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | ✓ | ✓ | ✓ | 918 |
 | **5.2.7** | Verify that the application sanitizes, disables, or sandboxes user-supplied Scalable Vector Graphics (SVG) scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject. | ✓ | ✓ | ✓ | 159 |
@@ -115,7 +115,7 @@ Conversion of data from some sort of stored or transmitted representation into a
 
 ## V5.6 Validation and Sanitization Architecture
 
-In the sections above, we provided syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities. The requirements in this section cover the order in which this processing shoud happen and where it should take place.They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g. HTML encoding) to prevent double encoding issues.
+In the sections above, we provided syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g. HTML encoding) to prevent double encoding issues.
 
 <!--
 The requirement belongs here if it is:

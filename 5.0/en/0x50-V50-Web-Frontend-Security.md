@@ -4,7 +4,7 @@ The category focuses on requirements that protect against attacks that are execu
 
 ## V1.50 Web Frontend Security Documentation
 
-Application documentation must specifiy required browser security features.
+Application documentation must specify required browser security features.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
