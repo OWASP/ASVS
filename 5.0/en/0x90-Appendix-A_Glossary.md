@@ -18,7 +18,7 @@
 * **Dynamic Application Security Testing** (DAST) - Technologies are designed to detect conditions indicative of a security vulnerability in an application in its running state.
 * **Dynamic Verification** – The use of automated tools that use vulnerability signatures to find problems during the execution of an application.
 * **Fast IDentity Online** (FIDO) - A set of authentication standards that allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
-* **Univerally Unique Identifier** (UUID) – a unique reference number used as an identifier in software.
+* **Universally Unique Identifier** (UUID) – a unique reference number used as an identifier in software.
 * **HyperText Transfer Protocol** (HTTPS) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
 * **Hardcoded keys** – Cryptographic keys that are stored on the filesystem, be it in code, comments or files.
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
@@ -37,7 +37,7 @@
 * **Position-independent executable** (PIE) - A body of machine code that, being placed somewhere in the primary memory, executes properly regardless of its absolute address.
 * **Public Key Infrastructure** (PKI) - An arrangement that binds public keys with respective identities of entities. The binding is established through a process of registration and issuance of certificates at and by a certificate authority (CA).
 * **Public Switched Telephone Network** (PSTN) - The traditional telephone network that includes both fixed-line telephones and mobile telephones.
-* **Reference Token** - A type of token that acts as a pointer or identifier to state or metadata stored on a server, sometimes refered to as random tokens or opaque tokens. Unlike self-contained tokens, which embed some of their relevant data within the token itself, reference tokens contain no intrinsic information, instead relying on the server for context.
+* **Reference Token** - A type of token that acts as a pointer or identifier to state or metadata stored on a server, sometimes referred to as random tokens or opaque tokens. Unlike self-contained tokens, which embed some of their relevant data within the token itself, reference tokens contain no intrinsic information, instead relying on the server for context.
 * **Relying Party** (RP) - Generally an application which is relying on a user having authenticated against a separate authentication provider. The application relies on some sort of token or set of signed assertions provided by that authentication provider to trust that the user is who they say they are.
 * **Security Assertion Markup Language** (SAML) - An open standard for single sign-on authentication based on passing signed assertions (usually XML objects) between the identity provider and the relying party.
 * **Static application security testing** (SAST) - A set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the “inside out” in a nonrunning state.
