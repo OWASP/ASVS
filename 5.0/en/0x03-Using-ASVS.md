@@ -1,52 +1,72 @@
 # Using the ASVS
 
-The ASVS defines functional and non-functional security requirements for modern web applications and services, focusing on application content rather than secure development processes, which are covered in [OWASP SAMM](https://owaspsamm.org/).
+The ASVS defines functional and non-functional security requirements for modern web applications and services, focusing on aspects that are in the control of the application developers.
 
 The ASVS is useful for anyone aiming to develop and maintain secure applications, or evaluate the security of applications. This chapter covers key aspects of using the ASVS, including priority-based levels and various use cases for the standard
 
 ## Application Security Verification Levels
 
-The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
+The Application Security Verification Standard defines three security verification levels, with each level increasing in depth and complexity. Each ASVS level indicates the security requirements that are required to achieve that level (with the others remaining as recommendations). The general aim is that organizations will start with L1 and then move up the levels from there.
 
-* ASVS Level 1 is for low assurance levels and is completely verifiable through penetration testing.
-* ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps.
-* ASVS Level 3 is intended for the most critical applications, such as those handling high-value transactions, containing sensitive medical data, or any application demanding the highest level of trust.
+### Approach to levels for v5.0
 
-Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
+The approach to level definition for version 5.0, was decided after much discussion within the Working Group based on feedback from ASVS users and the considerations above.
 
-Level 1 is the only level that is completely penetration testable using humans. All others require access to documentation, source code, configuration, and the people involved in the development process. However, even if L1 allows "black box" (no documentation and no source) testing to occur, it is not an effective assurance activity and should be actively discouraged. Malicious attackers have a great deal of time, most penetration tests are over within a couple of weeks. Defenders need to incorporate security controls, protect, find and resolve all weaknesses, and detect and respond to malicious actors in a reasonable time. Malicious actors have essentially infinite time and only require a single porous defense, a single weakness, or missing detection to succeed. Black box testing, often performed at the end of development, quickly, or not at all, is completely unable to cope with that asymmetry.
+Whilst, the consensus was to stay with three levels, the number of requirements in Level 1 has been significantly reduced to lower the barrier to entry. The criteria which are used to define the level which a requirement goes into have been changed and this therefore reframes the definition of the levels.
 
-Over the last 30+ years, black box testing has proven over and over again to miss critical security issues that led directly to ever more massive breaches. We strongly encourage the use of a wide range of security assurance and verification, including replacing penetration tests with source code-led (hybrid) penetration tests at Level 1, with full access to developers and documentation throughout the development process. Financial regulators do not tolerate external financial audits with no access to the books, sample transactions, or the people performing the controls. Industry and governments must demand the same standard of transparency in the software engineering field.
+### Level evaluation criteria
 
-We strongly encourage the use of security tools within the development process itself. DAST and SAST tools, when continuously implemented in the build pipeline, can effectively identify and address straightforward security issues that should never exist.
+Version 5.0 makes a priority-based evaluation of each requirement based on experience implementing security requirements. In this approach, each requirement was evaluated using the following criteria.
 
-Automated tools and online scans are unable to complete more than half of the ASVS without human assistance. If comprehensive test automation for each build is required, then a combination of custom unit and integration tests, along with build-initiated online scans are used. Business logic flaws and access control testing are only possible using human assistance. These should be turned into unit and integration tests.
+#### Risk Reduction
 
-## How to use this standard
+To what extent does the requirement reduce security risk within the application? This takes into account the classic Confidentiality, Integrity, and Availability impact factors as well as considering whether this is a first layer of defense or would be considered defense in depth.
 
-One of the best ways to use the Application Security Verification Standard is to use it as a blueprint to create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus on the security requirements that are most important to your projects and environments.
+In general, the requirements which bring the greatest risk reduction would be in Level 1 or Level 2 and requirements which are still valuable but are either defense in depth or relate to a more niche area or issue are in Level 3.
 
-### Level 1 - First steps, automated, or whole of portfolio view
+#### Effort to implement
 
-An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover and included in the OWASP Top 10 and other similar checklists.
+Whilst the ASVS is named as a verification standard, there is nothing to verify unless the requirement has been implemented in the application. There are clearly some requirements which are far more complicated to implement and maintain than others and it is important that this is taken into account when deciding the relative priority of a requirement.
 
-Level 1 is the bare minimum that all applications should strive for. It is also useful as a first step in a multi-phase effort or when applications do not store or handle sensitive data and therefore do not need the more rigorous controls of Level 2 or 3. Level 1 controls can be checked either automatically by tools or simply manually without access to the source code. We consider Level 1 the minimum required for all applications.
+Whilst there will still be some harder to implement controls that provide a large enough risk reduction to be in Level 1, the more complex requirements will be in Level 2 or Level 3.
 
-Threats to the application will most likely be from attackers who are using simple and low-effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If your application processes high-value data, you would rarely want to stop at a Level 1 review.
+#### Low barrier to entry
 
-### Level 2 - Most applications
+From feedback on the use (or non-use) of the ASVS in industry, the single greatest problem that has been identified is the double-edged sword of Level 1 having a large number of requirements (~120) but at the same time being considered the "minimum" level that is not good enough for most applications. This seems to lead to organizations either giving up before they start or trying to implement a subset of the requirements without actually achieving Level 1, therefore reducing the sense of achievement and progress.
 
-An application achieves ASVS Level 2 (or Standard) if it adequately defends against most of the risks associated with software today.
+To this end, it was decided that Level 1 would have a maximum of around 60 of the highest priority requirements and others would get pushed into Level 2 or Level 3. To achieve this, some hard decisions were made about what would make it into Level 1 and what would not. The goal was to have a good Level 1 that is achievable instead of a perfect Level 1 that is not.
 
-Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets, or industries where integrity is a critical facet to protect their business, such as the game industry to thwart cheaters and game hacks.
+#### Better level balance
 
-Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.
+In version 4.0, Levels 1 and 2 both had around 120 requirements and Level 3 had around 30. Version 5.0 balances the requirements more evenly across the levels, trying to distribute Level 2 and Level 3 requirements more evenly. Again, the aim is to make Level 2 more achievable and realistic whilst leaving Level 3 for applications that want to demonstrate the highest level of security.
 
-### Level 3 - High value, high assurance, or high safety
+### Definition of the Levels
 
-ASVS Level 3, the highest verification level, is reserved for applications needing extensive security, such as those in military, health, safety, or critical infrastructure. This level is appropriate for applications where failure would severely impact an organization’s operations.
+Based on the above criteria, the requirements for version 5.0 were allocated into one of the 3 levels. Moving from a prescriptive level definition to a comparative analysis based on various factors means that there was an element of judgement in the allocation.
 
-To achieve ASVS Level 3, an application must defend against advanced security vulnerabilities and demonstrate sound security design. This requires in-depth analysis of architecture, code, and testing. Secure applications at Level 3 are modularized for resiliency, scalability, and layered security, with each module responsible for its own security functions, including confidentiality, integrity, availability, authentication, authorization, and auditing, all thoroughly documented.
+Nevertheless, the rigorous discussions around both the criteria and the leveling decisions has resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+
+The types of requirements in each level could be characterised as follows.
+
+#### Level 1 requirements
+
+These will generally be critical or basic, first layer of defense requirements for preventing common attacks that are either relatively straightforward to implement or important enough to be worth the effort.
+
+Level 1 is not necessarily penetration testable using humans, although the lower number of requirements should make it easier to verify.
+
+#### Level 2 requirements
+
+These requirements will generally relate to either less common attacks, or more complicated protections against common attacks. They will generally still be a first layer of defense.
+
+#### Level 3 requirements
+
+These requirements will generally relate to attacks which are a lot more niche or only relevant in certain circumstances. Requirements in this section may also be defense in depth mechanisms or other useful but hard to implement controls.
+
+### Which level to achieve
+
+By moving to a priority based evaluation of each requirement, the levels become more of a reflection of the application security maturity of the organization and the application. Rather than the ASVS prescriptively stating what level an application should be at, an organization should decide what level it believes it should be at, depending on the sensitivity of the application and of course the expectations of the application's users.
+
+For example, an early stage startup which is only collecting limited sensitive data may decide that Level 1 is sufficient but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
 
 ## How to Reference ASVS Requirements
 
@@ -107,37 +127,3 @@ Different threats have different motivations. Some industries have unique inform
 Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
 
 We have received feedback from various members of the community on how they implement the standard in practice:
-
-### Personal Case Studies
-
-#### Matthew Hackling
-
-* Drive pen test scope and test cases
-* Drive security requirements for designs help
-* Populate an ISO27034 organisational normative framework aka requirements library.
-
-#### Dominique Righetto
-
-* Used for code review and as a checklist when performing web application vulnerability assessments.
-
-#### Giovanni Cruz
-
-* In the last OWASP Latam Tour Bogotá 2019 a training course was prepared totally based on ASVS. All the content was created with a vulnerable platform for training to assist developers. It got a great feedback because they showed them how to use it and what levels of security they might want to achieve based on some standard.
-
-#### Sebastien Gioria
-
-* For some customers, uses it as a basis for mandatory requirements to perform secure design and coding.
-
-#### Riotaro Okada
-
-* In recent years, observed some banks in Japan included ASVS into their RFP for security testing services, as their mandatory requirement. They wanted proposals which security vendors would fit appropriate ASVS levels.
-* A local software vendor in Japan sells SFA related packages received customer criteria to check whether their products would fit ASVS, and which levels the product aligned to. (It was a good start for the vendor to introduce secure development and verifications into their teams)
-
-#### John Patrick Lita
-
-* Uses this and integrates this in their CI/CD activity
-
-### Use within other projects and tools
-
-* OWASP Defectdojo has built-in ASVS support https://www.defectdojo.org/
-* A few weeks after the ASVS 4 release, RIPS added support for it: https://blog.ripstech.com/2019/rips-3.1-adds-teamcity-ldap-jsp-support/
