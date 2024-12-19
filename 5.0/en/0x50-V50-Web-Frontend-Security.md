@@ -41,7 +41,6 @@ HTTP responses must include security headers to set rules to how browsers can se
 | **50.3.5** | [MODIFIED, MOVED FROM 14.4.7] Verify that the content of the web application cannot be embedded in a third-party site by default, and that embedding of specific resources is allowed only when necessary, using the Content-Security-Policy frame-ancestors directive. Note that X-Frame-Options is now obsolete. | ✓ | ✓ | ✓ | 1021 |
 | **50.3.6** | [ADDED, SPLIT FROM 14.5.3] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field is validated against an allowlist of trusted origins. When "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | ✓ | ✓ | ✓ | 183 |
 | **50.3.7** | [ADDED] Verify that the Content-Security-Policy header field specifies a location to report violations. | | | ✓ | |
-| **50.3.8** | [ADDED] Verify that the application's top-level domain (e.g., site.tld) is added to the public HSTS preload list so that the use of TLS for the application is built directly into the main browsers, rather than relying only on the relevant HTTP response header field. | | | ✓ | |
 
 ## V50.4 Browser Origin Separation
 
@@ -97,6 +96,7 @@ it may need other separate section for "end-user protection via UI"
 | **50.8.1** | [ADDED, SPLIT FROM 5.1.5] Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | | | ✓ | |
 | **50.8.2** | [MODIFIED, MOVED FROM 1.14.6] Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | | ✓ | ✓ | 477 |
 | **50.8.3** | [ADDED] Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features. | | | ✓ | |
+| **50.8.4** | [ADDED] Verify that the application's top-level domain (e.g., site.tld) is added to the public HSTS preload list so that the use of TLS for the application is built directly into the main browsers, rather than relying only on the relevant HTTP response header field. | | | ✓ | |
 
 ## References
 
