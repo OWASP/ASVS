@@ -18,11 +18,10 @@ The "untrusted client" term here refers to client-side technologies that render 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.5.1** | [MODIFIED, SPLIT TO 1.5.5, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | ✓ | ✓ | ✓ | 20 |
+| **1.5.1** | [SPLIT TO 1.11.5, 1.11.6] | | | | |
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
 | **1.5.3** | [MOVED TO 5.6.2] | | | | |
 | **1.5.4** | [MOVED TO 5.6.3] | | | | |
-| **1.5.5** | [ADDED, SPLIT FROM 1.5.1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | ✓ | ✓ | ✓ | 20 |
 
 ## V5.1 Input Validation
 
@@ -34,13 +33,12 @@ Input validation provides valuable hygiene for the application in making sure th
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.1.1** | [MODIFIED] Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | ✓ | ✓ | ✓ | 235 |
+| **5.1.1** | [MOVED TO 10.4.7] | | | | |
 | **5.1.2** | [MOVED TO 10.4.4] | | | | |
-| **5.1.3** | [MODIFIED] Verify that all input is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. | ✓ | ✓ | ✓ | 20 |
-| **5.1.4** | [MODIFIED, SPLIT TO 5.1.7] Verify that data items with an expected structure are validated according to the pre-defined rules. | ✓ | ✓ | ✓ | 20 |
+| **5.1.3** | [MOVED TO 11.3.1] | | | | |
+| **5.1.4** | [SPLIT TO 11.3.2, 11.3.3] | | | | |
 | **5.1.5** | [MODIFIED, SPLIT TO 50.8.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | ✓ | ✓ | ✓ | 601 |
 | **5.1.6** | [ADDED] Verify that the application validates that user-controlled input in HTTP request header fields does not exceed the server's maximum header field size limit (usually 4kB or 8kB) to prevent client-based denial of service attacks. | | ✓ | ✓ | |
-| **5.1.7** | [ADDED, SPLIT FROM 5.1.4] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | ✓ | ✓ | ✓ | 20 |
 
 ## V5.2 Sanitization and Sandboxing
 
