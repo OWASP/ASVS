@@ -16,8 +16,8 @@ Ensure that a verified application satisfies the following high-level requiremen
 | **1.11.2** | [MOVED TO 10.7.2] | | | | |
 | **1.11.3** | [MOVED TO 10.7.1] | | | | |
 | **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are clearly documented including both per-user and also globally across the application. | | ✓ | ✓ | |
-| **1.11.5** | [MODIFIED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | ✓ | ✓ | ✓ | 20 |
-| **1.11.6** | [MODIFIED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | ✓ | ✓ | ✓ | 20 |
+| **1.11.5** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | ✓ | ✓ | ✓ | 20 |
+| **1.11.6** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | ✓ | ✓ | ✓ | 20 |
 
 ## V11.1 Business Logic Security
 
@@ -47,9 +47,10 @@ Business logic security is so individual to every application that no one checkl
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **11.3.1** | [MODIFIED, MOVED FROM 5.1.3] Verify that input on which business or security decisions will be made is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L2, input validation should be implemented globally. | ✓ | ✓ | ✓ | 20 |
-| **11.3.2** | [MODIFIED, SPLIT FROM 5.1.4] Verify that data items with an expected structure on which business or security decisions will be made are validated according to the pre-defined rules. For L2, input validation should be implemented globally. | ✓ | ✓ | ✓ | 20 |
-| **11.3.3** | [MODIFIED, SPLIT FROM 5.1.4, LEVEL L1 > L2] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | | ✓ | ✓ | 20 |
+| **11.3.1** | [MODIFIED, MOVED FROM 5.1.3] Verify that input which is used to make business or security decisions is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L2, input validation should be implemented globally. | ✓ | ✓ | ✓ | 20 |
+| **11.3.2** | [ADDED, SPLIT FROM 5.1.4] Verify that data items with an expected structure, and which are used to make business or security decisions, are validated according to the pre-defined rules. For L2, input validation must be implemented globally. | ✓ | ✓ | ✓ | 20 |
+| **11.3.3** | [ADDED, SPLIT FROM 5.1.4, LEVEL L1 > L2] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | | ✓ | ✓ | 20 |
+| **11.3.4** | [MODIFIED, MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability, it must not be relied upon as a security control. | ✓ | ✓ | ✓ | 602 |
 
 ## References
 
