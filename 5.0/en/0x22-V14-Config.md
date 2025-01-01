@@ -48,7 +48,7 @@ Compliance with this section requires an automated build system, and access to b
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.2.1** | [MOVED TO 10.6.1] | | | | |
+| **14.2.1** | [SPLIT TO 1.10.5, 10.6.1] | | | | |
 | **14.2.2** | [MOVED TO 14.1.6] | | | | |
 | **14.2.3** | [MOVED TO 50.7.1] | | | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | | | |
