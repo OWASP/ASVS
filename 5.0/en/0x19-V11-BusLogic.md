@@ -50,6 +50,7 @@ Business logic security is so individual to every application that no one checkl
 | **11.3.1** | [MODIFIED, MOVED FROM 5.1.3] Verify that input which is used to make business or security decisions is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L2, input validation should be implemented globally. | ✓ | ✓ | ✓ | 20 |
 | **11.3.2** | [ADDED, SPLIT FROM 5.1.4] Verify that data items with an expected structure, and which are used to make business or security decisions, are validated according to the pre-defined rules. For L2, input validation must be implemented globally. | ✓ | ✓ | ✓ | 20 |
 | **11.3.3** | [ADDED, SPLIT FROM 5.1.4, LEVEL L1 > L2] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | | ✓ | ✓ | 20 |
+| **11.3.4** | [MODIFIED, MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability, it must not be relied upon as a security control. | ✓ | ✓ | ✓ | 602 |
 
 ## References
 
