@@ -35,7 +35,7 @@ Input validation provides valuable hygiene for the application in making sure th
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.1.1** | [MOVED TO 10.4.7] | | | | |
 | **5.1.2** | [MOVED TO 10.4.4] | | | | |
-| **5.1.3** | [MODIFIED] Verify that all input is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. | ✓ | ✓ | ✓ | 20 |
+| **5.1.3** | [MOVED TO 11.3.1] | | | | |
 | **5.1.4** | [MODIFIED, SPLIT TO 5.1.7] Verify that data items with an expected structure are validated according to the pre-defined rules. | ✓ | ✓ | ✓ | 20 |
 | **5.1.5** | [MODIFIED, SPLIT TO 50.8.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | ✓ | ✓ | ✓ | 601 |
 | **5.1.6** | [ADDED] Verify that the application validates that user-controlled input in HTTP request header fields does not exceed the server's maximum header field size limit (usually 4kB or 8kB) to prevent client-based denial of service attacks. | | ✓ | ✓ | |
