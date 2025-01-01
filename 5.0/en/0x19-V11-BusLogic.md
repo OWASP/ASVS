@@ -16,6 +16,8 @@ Ensure that a verified application satisfies the following high-level requiremen
 | **1.11.2** | [MOVED TO 10.7.2] | | | | |
 | **1.11.3** | [MOVED TO 10.7.1] | | | | |
 | **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are clearly documented including both per-user and also globally across the application. | | ✓ | ✓ | |
+| **1.11.5** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | ✓ | ✓ | ✓ | 20 |
+| **1.11.6** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | ✓ | ✓ | ✓ | 20 |
 
 ## V11.1 Business Logic Security
 

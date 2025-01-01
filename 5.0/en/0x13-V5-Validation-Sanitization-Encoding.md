@@ -18,11 +18,10 @@ The "untrusted client" term here refers to client-side technologies that render 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.5.1** | [MODIFIED, SPLIT TO 1.5.5, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | ✓ | ✓ | ✓ | 20 |
+| **1.5.1** | [SPLIT TO 1.11.5, 1.11.6] | | | | |
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
 | **1.5.3** | [MOVED TO 5.6.2] | | | | |
 | **1.5.4** | [MOVED TO 5.6.3] | | | | |
-| **1.5.5** | [ADDED, SPLIT FROM 1.5.1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | ✓ | ✓ | ✓ | 20 |
 
 ## V5.1 Input Validation
 
