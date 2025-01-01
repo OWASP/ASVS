@@ -43,6 +43,12 @@ Business logic security is so individual to every application that no one checkl
 | **11.2.1** | [MODIFIED, MOVED FROM 11.1.2, LEVEL L1 > L3] Verify that business logic processes require realistic human timing, preventing excessively rapid transaction submissions. | | | ✓ | 799 |
 | **11.2.2** | [MODIFIED, MOVED FROM 11.1.4, LEVEL L1 > L2] Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, garbage data creation, quota exhaustion, rate limit breaches, denial of service, or overuse of costly resources. | | ✓ | ✓ | 770 |
 
+## 11.3 Input Validation
+
+| # | Description | L1 | L2 | L3 | CWE |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| **11.3.1** | [MODIFIED, MOVED FROM 5.1.3] Verify that input which is used to make business or security decisions is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L2, input validation should be implemented globally. | ✓ | ✓ | ✓ | 20 |
+
 ## References
 
 For more information, see also:
