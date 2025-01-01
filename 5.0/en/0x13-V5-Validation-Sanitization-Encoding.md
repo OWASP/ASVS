@@ -20,8 +20,8 @@ The "untrusted client" term here refers to client-side technologies that render 
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.5.1** | [SPLIT TO 1.11.5, 1.11.6] | | | | |
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
-| **1.5.3** | [MOVED TO 5.6.2] | | | | |
-| **1.5.4** | [MOVED TO 5.6.3] | | | | |
+| **1.5.3** | [MOVED TO 11.3.4] | | | | |
+| **1.5.4** | [MOVED TO 5.6.2] | | | | |
 
 ## V5.1 Input Validation
 
@@ -131,8 +131,7 @@ reorg: move it to 1st chapter in the paragraph
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.6.1** | [ADDED] Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | ✓ | ✓ | ✓ | 174 |
-| **5.6.2** | [MODIFIED, MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability, it must not be relied upon as a security control. | ✓ | ✓ | ✓ | 602 |
-| **5.6.3** | [MODIFIED, MOVED FROM 1.5.4] Verify that the application performs output encoding and escaping either as a final step before being used by the interpreter for which it is intended or by the interpreter itself. | | ✓ | ✓ | 116 |
+| **5.6.2** | [MODIFIED, MOVED FROM 1.5.4] Verify that the application performs output encoding and escaping either as a final step before being used by the interpreter for which it is intended or by the interpreter itself. | | ✓ | ✓ | 116 |
 
 ## References
 
