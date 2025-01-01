@@ -76,7 +76,7 @@ Dependency management is critical to the safe operation of any application of an
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.6.1** | [SPLIT FROM 14.2.1] Verify that the application only contains components which have not breached the documented update and remediation time frames. | ✓ | ✓ | ✓ | |
+| **10.6.1** | [ADDED, SPLIT FROM 14.2.1] Verify that the application only contains components which have not breached the documented update and remediation time frames. | ✓ | ✓ | ✓ | |
 | **10.6.2** | [MODIFIED, MOVED FROM 10.3.2] Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
 
 ## V10.7 Concurrency
