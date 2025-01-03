@@ -16,7 +16,7 @@ This chapter also contains requirements to prevent the introduction of malicious
 | **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
 | **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life, libraries which have historically had several significant vulnerabilities, etc. | | | ✓ | 1061 |
 | **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
-| **1.10.4** | [ADDED, SPLIT FROM 14.2.1] Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | ✓ | ✓ | ✓ | |
+| **1.10.5** | [ADDED, SPLIT FROM 14.2.1] Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | ✓ | ✓ | ✓ | |
 
 ## V10.1 Code Integrity
 
@@ -65,13 +65,13 @@ Complying with this section is likely to be operational and continuous.
 | **10.4.6** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | | ✓ | ✓ | 348 |
 | **10.4.7** | [MODIFIED, MOVED FROM 5.1.1, LEVEL L1 > L2] Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | | ✓ | ✓ | 235 |
 
-## 10.5 Security Architecture
+## V10.5 Security Architecture
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **10.5.1** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | | | ✓ | |
 
-## 10.6 Code Dependencies
+## V10.6 Code Dependencies
 
 Dependency management is critical to the safe operation of any application of any type. Failure to keep up to date with outdated or insecure dependencies is the root cause of the largest and most expensive attacks to date. While being up-to-date with patches is essential, relying solely on updates for publicly disclosed vulnerabilities introduces risk, as vendors may fix security issues without public announcements.
 
