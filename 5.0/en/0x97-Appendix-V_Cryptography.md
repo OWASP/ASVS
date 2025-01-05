@@ -133,7 +133,7 @@ ONLY AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
 
-## Hashing and Hash-based Functions (V6.6)
+## Hash Functions (V6.6)
 
 ### Approved Hash Functions for General Use Cases
 
