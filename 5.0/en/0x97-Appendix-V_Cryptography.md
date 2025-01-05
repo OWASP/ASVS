@@ -16,6 +16,8 @@ The relative security strengths for various cryptographic systems are in this ta
 | 192 | AES-192 | L = 7680 <br> N = 384 | k = 7680 | f = 384-511 |
 | 256 | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
 
+Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
+
 ## Random Values (V6.3)
 
 ### Approved RNG Methods and Algorithms
