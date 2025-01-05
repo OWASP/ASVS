@@ -52,7 +52,7 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.1** | [MODIFIED] Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | ✓ | ✓ | ✓ | 310 |
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | | ✓ | ✓ | 327 |
 | **6.2.3** | [DELETED, DUPLICATE OF 6.2.5] | | | | |
-| **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, encryption or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once PQC standards are fully established. | | ✓ | ✓ | 320 |
+| **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC,  or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once PQC standards are fully established. | | ✓ | ✓ | 320 |
 | **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.3] | | | | |
 | **6.2.6** | [MOVED TO 6.5.3] | | | | |
 | **6.2.7** | [MOVED TO 6.5.4] | | | | |
@@ -78,14 +78,14 @@ Although this section is not easily penetration tested, developers should consid
 | **6.4.1** | [MOVED TO 14.8.1] | | | | |
 | **6.4.2** | [MOVED TO 14.8.2] | | | | |
 
-## V6.5 Cipher Algorithms
+## V6.5 Encryption at Rest
 
-Cipher algorithms such as AES and CHACHA20 form the backbone of modern cryptographic practice.
+Authenticated encryption algorithms built on AES and CHACHA20 form the backbone of modern cryptographic practice.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.5.1** | [ADDED, SPLIT FROM 6.2.5] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | | ✓ | ✓ | 326 |
-| **6.5.2** | [ADDED, SPLIT FROM 6.2.5, LEVEL L2 > L1] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure ciphers and modes such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
+| **6.5.2** | [ADDED, SPLIT FROM 6.2.5, LEVEL L2 > L1] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure authenticated ciphers and modes such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
 | **6.5.3** | [MODIFIED, MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | | | ✓ | 326 |
 | **6.5.4** | [MODIFIED, MOVED FROM 6.2.7] Verify that encrypted data is authenticated via signatures, as well as through authenticated cipher modes or HMAC for protection against unauthorized modification. | | | ✓ | 326 |
 | **6.5.5** | [ADDED] Verify that any authenticated signatures are operating in encrypt-then-MAC or encrypt-then-hash modes as required. | | | ✓ | 326 |
