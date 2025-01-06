@@ -197,7 +197,7 @@ The requirements in this section mostly relate to section [5.1.7.2](https://page
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **2.9.1** | [MODIFIED, LEVEL L2 > L3] Verify that the authentication server stores the cryptographic keys used in verification are securely and protected against disclosure, such as using a Trusted Platform Module (TPM) or Hardware Security Module (HSM), or an OS service that can use this secure storage. | | | ✓ | 320 |
+| **2.9.1** | [MODIFIED, LEVEL L2 > L3] Verify that the authentication server stores the cryptographic keys used in verification such that they are protected against modification (and for symmetric keys, against disclosure). This could involve using a Trusted Platform Module (TPM), a Hardware Security Module (HSM), or an OS service that can provide this secure storage. | | | ✓ | 320 |
 | **2.9.2** | [LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | | | ✓ | 330 |
 | **2.9.3** | [MODIFIED, LEVEL L2 > L3] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | | | ✓ | 327 |
 
