@@ -54,6 +54,7 @@ class ASVS:
     asvs_flat2 = {}
     asvs_flat['requirements'] = []
     asvs_flat2['requirements'] = []
+    asvs_raw = {}
     language = ''
 
     def __init__(self, language_in):    
@@ -61,88 +62,127 @@ class ASVS:
         self.language = language_in
         prefix_char1, prefix_char2, prefix_char1_b = self.get_prefix()
 
-        regex = re.compile('Version (([\d.]+){3})')
+        version_regex = re.compile('Version (([\d.]+){3})')
         
         for line in open(os.path.join(self.language, "0x01-Frontispiece.md"), encoding="utf8"):
-            m = re.search(regex, line)
+            m = re.search(version_regex, line)
             if m:
                 self.asvs['Version'] = m.group(1)
                 break
 
-        regex = re.compile('## About the Standard\n\n(.*)')
+        about_regex = re.compile('## About the Standard\n\n(.*)')
 
         with open(os.path.join(self.language, "0x01-Frontispiece.md"), encoding="utf8") as content:
-            m = re.search(regex, content.read())
+            m = re.search(about_regex, content.read())
             if m:
                 self.asvs['Description'] = m.group(1)
 
         self.asvs['Requirements'] = chapters = []
+        self.asvs_raw['Chapters'] = chapters_raw = []
 
     
         for file in sorted(os.listdir(self.language)):
 
             if re.match("0x\d{2}-V", file):
+                
                 chapter = {}
+                chapter_raw = {}
                 chapter['Shortcode'] = ""
                 chapter['Ordinal'] = ""
                 chapter['ShortName'] = ""
                 chapter['Name'] = ""
+                chapter_raw['Filename'] = file
+                chapter_raw['Name'] = ""
                 chapter['Items'] = []
 
                 section = {}
+                section_raw = {}
                 section['Shortcode'] = ""
                 section['Ordinal'] = ""
                 section['Name'] = ""
+                section_raw['Name'] = ""
                 section['Items'] = []
 
-                regex = re.compile('0x\d{2}-(V([0-9]{1,3}))-(\w[^-.]*)')
-                m = re.search(regex, file)
+                # The filename_regex is used to match filenames that follow the pattern:
+                # "0xNN-VNNN-Name", where NN is a two-digit number, VNNN is a chapter number, 
+                # and Name is a string that does not contain a dot or hyphen.
+                filename_regex = re.compile('0x\d{2}-(V([0-9]{1,3}))-(\w[^-.]*)')
+                
+                m = re.search(filename_regex, file)
                 if m:
                     chapter = {}
                     chapter['Shortcode'] = m.group(1).replace('V', prefix_char1)
                     chapter['Ordinal'] = int(m.group(2))
                     chapter['ShortName'] = m.group(3)
                     chapter['Name'] = ""
+                    chapter_raw['Name'] = ""
                     chapter['Items'] = []
+                    chapter_raw['Lines'] = []
+                    chapter_raw['Sections'] = []
 
+                    '''
                     section = {}
                     section['Shortcode'] = m.group(1).replace('V', prefix_char1)
                     section['Ordinal'] = int(m.group(2))
                     section['Name'] = m.group(3)
+                    print(m)
                     section['Items'] = []
-
+                    '''
                     chapters.append(chapter)
+                    chapters_raw.append(chapter_raw)
 
+                # This regex matches lines that start with a hash (#) followed by a space,
+                # prefix_char1 (usually 'V'), one or two digits, prefix_char1_b (which is usually empty)
+                # another space, and then some sort of text
+                chapter_heading_regex = re.compile("^#\s(" + prefix_char1 + "([0-9]{1,2})" + prefix_char1_b + ")\s([\w\s][^\n]*)")
+
+                # section_regex matches section headings in the format "## VNN.NNN Name".
+                section_regex = re.compile("## (" + prefix_char2 + "[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)")
+
+                # This regex matches requirement lines with the format:
+                # **number** | text | text | text | text | numbers, separated by commas | text, separated by slashes
+                req_regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|(.*?)\|"
+                                        "(.*?)\|(.*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9/\s,.]*)\|{0,1}")
+
+                before_reqs = True
+                matched_already = False
+                
                 for line in open(os.path.join(self.language, file), encoding="utf8"):
-                    regex = re.compile("^#\s(" + prefix_char1 + "([0-9]{1,2})" + prefix_char1_b + ")\s([\w\s][^\n]*)")
+                    matched_already = False
                     
-                    #if line.startswith('# '):
-                    #    print(line)
-                    m = re.search(regex, line)
+                    m = re.search(chapter_heading_regex, line)
                     if m:
                         chapter['Name'] = m.group(3)
-
-
-                    regex = re.compile("## (" + prefix_char2 + "[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)")
-                    m = re.search(regex, line)
+                        chapter_raw['Name'] = line
+                        
+                        matched_already = True
+                    
+                    m = re.search(section_regex, line)
                     if m:
                         section = {}
+                        section_raw = {}
                         section['Shortcode'] = m.group(1)
                         section['Ordinal'] = int(m.group(2))
-                        
+
                         if self.language == 'ar':
                             section['Ordinal'] = int(m.group(1).split('.')[0].replace(prefix_char2, ''))
-                        
+
                         section['Name'] = m.group(3)
+                        section_raw['Name']  = line
                         section['Items'] = []
-
+                        section_raw['LinesBeforeReqs'] = []
+                        section_raw['LinesAfterReqs'] = []
+                        section_raw['Reqs'] = []
                         chapter['Items'].append(section)
+                        chapter_raw['Sections'].append(section_raw)
+                        before_reqs = True
+                        has_cwe = True
 
-                    regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|(.*?)\|"\
-                                        "(.*?)\|(.*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9/\s,.]*)\|{0,1}")
-                    m = re.search(regex, line)
+                        matched_already = True
+
+                    m = re.search(req_regex, line)
                     if m:
-                    
+                        before_reqs = False
                         req_flat = {}
                         req_flat2 = {}
                         req_flat2['Section'] = req_flat['chapter_id'] = chapter['Shortcode']
@@ -189,7 +229,56 @@ class ASVS:
                         section['Items'].append(req)
                         self.asvs_flat['requirements'].append(req_flat)
                         self.asvs_flat2['requirements'].append(req_flat2)
+                        req2 = req.copy()
 
+
+                        req2['rawtext'] = line
+                        req2['has_cwe'] = has_cwe
+                        if req2['Description'].startswith('[') and ']' in req2['Description']:
+                            mapping, text = req2['Description'].split(']', 1)
+                            req2['Mapping'] = mapping.strip('[]').strip()
+                            req2['DescriptionClean'] = text.strip()
+                        else:
+                            req2['Mapping'] = ''
+                            req2['DescriptionClean'] = req2['Description']
+                        section_raw['Reqs'].append(req2)
+                        matched_already = True
+
+                    elif not matched_already:
+                        if section['Ordinal']:
+                            if before_reqs:
+                                section_raw['LinesBeforeReqs'].append(line)
+                                if '| # |' in line and '| CWE |' not in line:
+                                    has_cwe = False
+                            else:
+                                section_raw['LinesAfterReqs'].append(line)
+                        else:
+                            chapter_raw['Lines'].append(line)
+
+    def print_raw_requirement(self, req):
+        ret_str = ''
+        description = f'{req["DescriptionClean"]}'
+        if req['Mapping'] != '':
+            description = f'[{req["Mapping"]}] {description}'
+
+
+        ret_str =  (f'| **{req["Shortcode"][1:]}** '
+            f'| {description.strip()} '
+            f'| {self.pad_if_set(req["L1"]["Requirement"])}'
+            f'| {self.pad_if_set(req["L2"]["Requirement"])}'
+            f'| {self.pad_if_set(req["L3"]["Requirement"])}|'
+        )
+
+        if req['has_cwe']:
+            ret_str += f' {self.pad_if_set(" ".join(map(str, req["CWE"])))}|'
+            
+        return f'{ret_str}\n'
+    
+    def pad_if_set(self, string):
+        if len(string) > 0:
+            return string + ' '
+        return string
+    
     def get_prefix(self):
         prefix_char1 = prefix_char2 = 'V'
         prefix_char1_b = ''
@@ -201,6 +290,36 @@ class ASVS:
         
 
         return prefix_char1, prefix_char2, prefix_char1_b
+
+    def to_raw(self, output_folder):
+        ''' Returns the raw data '''
+        str_return = ''
+        str_return_not = ''
+        str_chapter = ''
+        for chapter in self.asvs_raw['Chapters']:
+            #if chapter['Name'] == '# V53 WebRTC\n':
+            if True: #'V2' in chapter['Name']:
+                str_chapter = chapter['Name']
+                for line in chapter['Lines']:
+                    str_chapter += line
+                for section in chapter['Sections']:
+                    str_chapter += section['Name']
+                    for line in section['LinesBeforeReqs']:
+                        str_chapter += line
+                    for req in section['Reqs']:
+                        #if len(req['rawtext']) != len(self.print_raw_requirement(req)):
+                        #str_chapter += req['rawtext']
+                        str_chapter += self.print_raw_requirement(req)
+                    for line in section['LinesAfterReqs']:
+                        str_chapter += line
+            
+            if output_folder != '':
+                with open(os.path.join(output_folder, chapter['Filename']), 'w', encoding='utf-8') as f:
+                    f.write(str_chapter)
+            else:
+                str_return += str_chapter
+
+        return str_return
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
