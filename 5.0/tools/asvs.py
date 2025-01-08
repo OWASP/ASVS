@@ -232,7 +232,7 @@ class ASVS:
                         req2 = req.copy()
 
 
-                        req2['rawtext'] = line
+                        req2['raw_text'] = line
                         req2['has_cwe'] = has_cwe
                         if req2['Description'].startswith('[') and ']' in req2['Description']:
                             mapping, text = req2['Description'].split(']', 1)
@@ -307,8 +307,8 @@ class ASVS:
                     for line in section['LinesBeforeReqs']:
                         str_chapter += line
                     for req in section['Reqs']:
-                        #if len(req['rawtext']) != len(self.print_raw_requirement(req)):
-                        #str_chapter += req['rawtext']
+                        #if len(req['raw_text']) != len(self.print_raw_requirement(req)):
+                        #str_chapter += req['raw_text']
                         str_chapter += self.print_raw_requirement(req)
                     for line in section['LinesAfterReqs']:
                         str_chapter += line
