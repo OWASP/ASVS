@@ -154,6 +154,7 @@ class ASVS:
                     if m:
                         chapter['Name'] = m.group(3)
                         chapter_raw['Name'] = line
+                        chapter_raw['Chapter'] = chapter
                         
                         matched_already = True
                     
@@ -168,6 +169,7 @@ class ASVS:
                             section['Ordinal'] = int(m.group(1).split('.')[0].replace(prefix_char2, ''))
 
                         section['Name'] = m.group(3)
+                        section_raw['Section'] = section
                         section_raw['Name']  = line
                         section['Items'] = []
                         section_raw['LinesBeforeReqs'] = []
@@ -241,6 +243,9 @@ class ASVS:
                         else:
                             req2['Mapping'] = ''
                             req2['DescriptionClean'] = req2['Description']
+
+                        req2 = self.parse_mapping_into_req(req2)
+
                         section_raw['Reqs'].append(req2)
                         matched_already = True
 
@@ -255,11 +260,151 @@ class ASVS:
                         else:
                             chapter_raw['Lines'].append(line)
 
+
+    def get_new_modification(self):
+        new_modification = {}
+        new_modification['text'] = ''
+        new_modification['ids'] = []
+        return new_modification
+
+    def parse_mapping_into_req(self, req):
+
+        mapping = req['Mapping']
+        req['status'] = {}
+        #req['status']['delete_reason'] = ''
+        if mapping == '':
+            return req
+        
+        delete_status = "DELETED, "
+        if delete_status in mapping:
+            req['status']['delete_reason'] = ''
+            mapping = mapping.replace(delete_status, '')
+            req['status']['content'] = 'DELETED'
+            delete_destination_options = ['MERGED TO ', 'DUPLICATE OF ', 'DEPRECATED BY , ']
+            
+            for delete_destination_option in delete_destination_options:            
+                if delete_destination_option in mapping:
+                    mapping = mapping.replace(delete_destination_option, '')
+                    req['status']['delete_reason'] = delete_destination_option.strip()
+                    req['status']['delete_destination_ids'] = mapping.split(',')
+                    break
+            
+            if req['status']['delete_reason'] == '':
+                req['status']['delete_reason'] = mapping.strip()
+
+            return req      
+
+        #modified_status = "MODIFIED"
+        #if f'{modified_status}, ' in mapping:
+        
+        #req['status']['content'] = modified_status
+        #mapping = mapping.replace(modified_status, '')
+
+        level_regex = re.compile(r'LEVEL L([1-3]) > L([1-3])')
+
+        req['status']['modifications'] = []
+        
+        curr_modification = self.get_new_modification()
+
+        for mapping_token in mapping.split(','):
+            
+            found = False
+            if mapping_token=='':
+                continue
+
+            m = re.search(level_regex, mapping)
+            if m:
+                req['status']['level_change'] = f'LEVEL L{m.group(1)} > L{m.group(2)}'
+                continue
+            
+            content_options = ['MODIFIED', 'ADDED', 'GRAMMAR']
+            for content_option in content_options:
+                if content_option in mapping_token:
+                    req['status']['content'] = content_option
+                    found = True
+                    break
+            
+            if found:
+                continue
+
+            modified_options = ['MERGED FROM ', 'MOVED FROM ', 'SPLIT FROM ', 'SPLIT TO ', 'MOVED TO ', 'DEPRECATES ']
+            
+            
+            for modified_option in modified_options:            
+                if modified_option in mapping_token:
+                    if 'text' in curr_modification and curr_modification['text'] != '':
+                        req['status']['modifications'].append(curr_modification)
+
+                    curr_modification = self.get_new_modification()
+                    curr_modification['text'] = modified_option
+                    mapping_token = mapping_token.replace(modified_option, '')
+                    curr_modification['ids'].append(mapping_token.strip())
+                    found = True
+                    break
+            
+            if found:
+                continue
+
+            curr_modification['ids'].append(mapping_token.strip())
+
+        if 'text' in curr_modification and curr_modification['text'] != '':
+            req['status']['modifications'].append(curr_modification)
+
+        return req
+
+    #if f'{modified_status}' in mapping:
+    #    req['status']['content'] = modified_status
+    #    return req
+    
+    #return req
+
+                
+    def status_to_text(self, status):
+        status_text = ''
+        
+        comma = ''
+
+        if 'content' in status:
+            if status['content'] == 'DELETED':
+                #return ''
+                status_text = f'{status["content"]}, {status["delete_reason"]}'        
+                if  'delete_destination_ids' in status and status["delete_destination_ids"] != []:
+                    status_text += f' {",".join(status["delete_destination_ids"])}'
+
+            elif status['content'] != '':
+                status_text = f'{status["content"]}'
+                comma = ', '
+
+        if 'modifications' in status:
+            for modification in status['modifications']:
+                status_text += f'{comma}{modification["text"]}{", ".join(modification["ids"])}'
+                comma = ', '
+        
+        if 'level_change' in status:
+            status_text += f'{comma}{status["level_change"]}'
+
+        if status_text == '':
+            return status
+        else:
+            return f'[{status_text}]'
+
+        
+
+    
     def print_raw_requirement(self, req):
         ret_str = ''
         description = f'{req["DescriptionClean"]}'
+
+        if req["Shortcode"][1:] == '14.3.4':
+            print(json.dumps(req, indent = 2, sort_keys = False, ensure_ascii=False).strip())
+            
         if req['Mapping'] != '':
-            description = f'[{req["Mapping"]}] {description}'
+            
+            if 'status' in req:
+                description = f'{self.status_to_text(req["status"])} {description}'
+            else:
+                description = 'BLANK'#f'[{req["Mapping"]}] {description}'
+
 
 
         ret_str =  (f'| **{req["Shortcode"][1:]}** '
@@ -294,24 +439,29 @@ class ASVS:
     def to_raw(self, output_folder):
         ''' Returns the raw data '''
         str_return = ''
-        str_return_not = ''
+
         str_chapter = ''
         for chapter in self.asvs_raw['Chapters']:
-            #if chapter['Name'] == '# V53 WebRTC\n':
-            if True: #'V2' in chapter['Name']:
-                str_chapter = chapter['Name']
-                for line in chapter['Lines']:
-                    str_chapter += line
-                for section in chapter['Sections']:
+            #str_chapter = chapter['Name']
+            str_chapter = f"# V{chapter['Chapter']['Ordinal']} {chapter['Chapter']['Name']}\n"
+            for line in chapter['Lines']:
+                str_chapter += line
+            for section in chapter['Sections']:
+                #str_chapter += section['Name']
+
+                # This is a silly hack for the first section that was moved for V1
+                if 'V1' in section['Name']:
                     str_chapter += section['Name']
-                    for line in section['LinesBeforeReqs']:
-                        str_chapter += line
-                    for req in section['Reqs']:
-                        #if len(req['raw_text']) != len(self.print_raw_requirement(req)):
-                        #str_chapter += req['raw_text']
-                        str_chapter += self.print_raw_requirement(req)
-                    for line in section['LinesAfterReqs']:
-                        str_chapter += line
+                else:
+                    str_chapter += f"## V{chapter['Chapter']['Ordinal']}.{section['Section']['Ordinal']} {section['Section']['Name']}\n"
+                for line in section['LinesBeforeReqs']:
+                    str_chapter += line
+                for req in section['Reqs']:
+                    #if len(req['raw_text']) != len(self.print_raw_requirement(req)):
+                    #str_chapter += req['raw_text']
+                    str_chapter += self.print_raw_requirement(req)
+                for line in section['LinesAfterReqs']:
+                    str_chapter += line
             
             if output_folder != '':
                 with open(os.path.join(output_folder, chapter['Filename']), 'w', encoding='utf-8') as f:
