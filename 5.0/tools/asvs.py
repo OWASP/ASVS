@@ -275,8 +275,13 @@ class ASVS:
         if mapping == '':
             return req
         
-        delete_status = "DELETED, "
+        delete_status = "DELETED"
         if delete_status in mapping:
+
+            delete_status_comma = f'{delete_status}, '
+            if delete_status_comma in mapping:
+                delete_status = delete_status_comma
+
             req['status']['delete_reason'] = ''
             mapping = mapping.replace(delete_status, '')
             req['status']['content'] = 'DELETED'
@@ -309,10 +314,10 @@ class ASVS:
         for mapping_token in mapping.split(','):
             
             found = False
-            if mapping_token=='':
+            if mapping_token == '':
                 continue
 
-            m = re.search(level_regex, mapping)
+            m = re.search(level_regex, mapping_token)
             if m:
                 req['status']['level_change'] = f'LEVEL L{m.group(1)} > L{m.group(2)}'
                 continue
@@ -367,7 +372,10 @@ class ASVS:
         if 'content' in status:
             if status['content'] == 'DELETED':
                 #return ''
-                status_text = f'{status["content"]}, {status["delete_reason"]}'        
+                status_text = f'{status["content"]}'        
+                
+                if status["delete_reason"] != '':
+                    status_text += f', {status["delete_reason"]}'        
                 if  'delete_destination_ids' in status and status["delete_destination_ids"] != []:
                     status_text += f' {",".join(status["delete_destination_ids"])}'
 
@@ -395,15 +403,13 @@ class ASVS:
         ret_str = ''
         description = f'{req["DescriptionClean"]}'
 
-        if req["Shortcode"][1:] == '14.3.4':
-            print(json.dumps(req, indent = 2, sort_keys = False, ensure_ascii=False).strip())
-            
+           
         if req['Mapping'] != '':
             
             if 'status' in req:
                 description = f'{self.status_to_text(req["status"])} {description}'
             else:
-                description = 'BLANK'#f'[{req["Mapping"]}] {description}'
+                description = 'PARSING ERROR'#f'[{req["Mapping"]}] {description}'
 
 
 
@@ -474,6 +480,10 @@ class ASVS:
     def to_json(self):
         ''' Returns a JSON-formatted string '''
         return json.dumps(self.asvs, indent = 2, sort_keys = False, ensure_ascii=False).strip()
+    
+    def to_json_xl(self):
+        ''' Returns a JSON-formatted string '''
+        return json.dumps(self.asvs_raw['Chapters'], indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
     def to_json_flat(self):
         ''' Returns a JSON-formatted string which is flattened and simpler '''
