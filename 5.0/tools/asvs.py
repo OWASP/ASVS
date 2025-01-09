@@ -56,6 +56,8 @@ class ASVS:
     asvs_flat2['requirements'] = []
     asvs_raw = {}
     language = ''
+    mapping_v4 = {}            
+    mapping_v5 = {}
 
     def __init__(self, language_in):    
         
@@ -260,6 +262,9 @@ class ASVS:
                         else:
                             chapter_raw['Lines'].append(line)
 
+        self.mapping_v4 = dict(sorted(self.mapping_v4.items(), key=lambda x: [int(part) for part in x[0].split('.')]))
+        self.mapping_v5 = dict(sorted(self.mapping_v5.items(), key=lambda x: [int(part) for part in x[0].split('.')]))
+
 
     def get_new_modification(self):
         new_modification = {}
@@ -272,11 +277,12 @@ class ASVS:
         mapping = req['Mapping']
         req['status'] = {}
         #req['status']['delete_reason'] = ''
-        if mapping == '':
-            return req
-        
         delete_status = "DELETED"
-        if delete_status in mapping:
+        if mapping == '':
+            pass
+        
+        
+        elif delete_status in mapping:
 
             delete_status_comma = f'{delete_status}, '
             if delete_status_comma in mapping:
@@ -297,63 +303,158 @@ class ASVS:
             if req['status']['delete_reason'] == '':
                 req['status']['delete_reason'] = mapping.strip()
 
-            return req      
+            
 
         #modified_status = "MODIFIED"
         #if f'{modified_status}, ' in mapping:
         
         #req['status']['content'] = modified_status
         #mapping = mapping.replace(modified_status, '')
+        else:
+            level_regex = re.compile(r'LEVEL L([1-3]) > L([1-3])')
 
-        level_regex = re.compile(r'LEVEL L([1-3]) > L([1-3])')
+            req['status']['modifications'] = []
+            
+            curr_modification = self.get_new_modification()
 
-        req['status']['modifications'] = []
+            for mapping_token in mapping.split(','):
+                
+                found = False
+                if mapping_token == '':
+                    continue
+
+                m = re.search(level_regex, mapping_token)
+                if m:
+                    req['status']['level_change'] = f'LEVEL L{m.group(1)} > L{m.group(2)}'
+                    continue
+                
+                content_options = ['MODIFIED', 'ADDED', 'GRAMMAR']
+                for content_option in content_options:
+                    if content_option in mapping_token:
+                        req['status']['content'] = content_option
+                        found = True
+                        break
+                
+                if found:
+                    continue
+
+                destination_options = []
+                source_options = []
+
+                source_options = ['SPLIT TO ', 'MOVED TO ', 'MERGED TO ', 'DUPLICATE OF ', 'DEPRECATED BY ']
+                destination_options = ['MERGED FROM ', 'MOVED FROM ', 'SPLIT FROM ', 'DEPRECATES ']
+                modified_options = destination_options + source_options
+
+                for modified_option in modified_options:            
+                    if modified_option in mapping_token:
+                        if 'text' in curr_modification and curr_modification['text'] != '':
+                            req['status']['modifications'].append(curr_modification)
+
+                        curr_modification = self.get_new_modification()
+                        curr_modification['text'] = modified_option
+                        mapping_token = mapping_token.replace(modified_option, '')
+                        curr_modification['ids'].append(mapping_token.strip())
+                        found = True
+                        break
+                
+                if found:
+                    continue
+
+                curr_modification['ids'].append(mapping_token.strip())
+
+            if 'text' in curr_modification and curr_modification['text'] != '':
+                req['status']['modifications'].append(curr_modification)
+
+        req['status']['v4ids'] = []
         
-        curr_modification = self.get_new_modification()
+        req_id = req['Shortcode'][1:]
+        
+        if 'modifications' in req['status'] and len(req['status']['modifications']) > 0:
+            for modification in req['status']['modifications']:
+                if modification['text'] in source_options:
+                    self.mapping_v4 = self.add_if_not_exists(self.mapping_v4, req_id)
+                    for id in modification['ids']:
+                        mapping_item = {}
+                        mapping_item['text'] = modification['text']
+                        mapping_item['v5.0.be'] = id
+                        mapping_item['direction'] = '4>5'
+                        self.mapping_v4[req_id]['mappings'].append(mapping_item)
 
-        for mapping_token in mapping.split(','):
-            
-            found = False
-            if mapping_token == '':
-                continue
+                elif 'MERGED FROM' in mapping and 'MOVED FROM' not in mapping:
+                    self.mapping_v4 = self.add_if_not_exists(self.mapping_v4, req_id)
+                    for id in modification['ids']:
+                        mapping_item = {}
+                        mapping_item['text'] = modification['text']
+                        mapping_item['v5.0.be'] = id
+                        mapping_item['direction'] = '4>5'
+                        self.mapping_v4[req_id]['mappings'].append(mapping_item)
+                        
+                if modification['text'] in destination_options:
+                    self.mapping_v5 = self.add_if_not_exists(self.mapping_v5, req_id)
+                    for id in modification['ids']:
+                        mapping_item = {}
+                        mapping_item['text'] = modification['text']
+                        mapping_item['direction'] = '5>4'
+                        mapping_item['v4.0.3'] = id
+                        self.mapping_v5[req_id]['mappings'].append(mapping_item)
 
-            m = re.search(level_regex, mapping_token)
-            if m:
-                req['status']['level_change'] = f'LEVEL L{m.group(1)} > L{m.group(2)}'
-                continue
+        
+        elif 'content' in req['status'] and 'DELETED' in req['status']['content']:
+            self.mapping_v4 = self.add_if_not_exists(self.mapping_v4, req_id)
             
-            content_options = ['MODIFIED', 'ADDED', 'GRAMMAR']
-            for content_option in content_options:
-                if content_option in mapping_token:
-                    req['status']['content'] = content_option
-                    found = True
-                    break
             
-            if found:
-                continue
+            if 'delete_destination_ids' in req['status'] and len(req['status']['delete_destination_ids']) > 0:
+                for id in req['status']['delete_destination_ids']:
+                    
+                    mapping_item = {}
+                    mapping_item['text'] = req['status']['delete_reason']
+                    mapping_item['v5.0.be'] = id
+                    mapping_item['direction'] = '4>5'
+                    self.mapping_v4[req_id]['mappings'].append(mapping_item)
+            
+            else:
+                mapping_item = {}
+                mapping_item['text'] = req['status']['delete_reason']
+                mapping_item['v5.0.be'] = ''
+                mapping_item['direction'] = '4>5'
+                self.mapping_v4[req_id]['mappings'].append(mapping_item)
 
-            modified_options = ['MERGED FROM ', 'MOVED FROM ', 'SPLIT FROM ', 'SPLIT TO ', 'MOVED TO ', 'DEPRECATES ']
+        elif 'content' in req['status'] and ('MODIFIED' in req['status']['content'] or 'GRAMMAR' in req['status']['content']):
             
+            self.mapping_v4 = self.add_if_not_exists(self.mapping_v4, req_id)
+            mapping_item = {}
+            mapping_item['text'] = req['status']['content']
+            mapping_item['v5.0.be'] = req_id
+            mapping_item['direction'] = '4>5'
+            self.mapping_v4[req_id]['mappings'].append(mapping_item)
+                
+        
+            self.mapping_v5 = self.add_if_not_exists(self.mapping_v5, req_id)
+            mapping_item = {}
+            mapping_item['text'] = req['status']['content']
+            mapping_item['direction'] = '5>4'
+            mapping_item['v4.0.3'] = req_id
+            self.mapping_v5[req_id]['mappings'].append(mapping_item)
+        
+        elif 'level_change' in req['status']:
             
-            for modified_option in modified_options:            
-                if modified_option in mapping_token:
-                    if 'text' in curr_modification and curr_modification['text'] != '':
-                        req['status']['modifications'].append(curr_modification)
+            self.mapping_v4 = self.add_if_not_exists(self.mapping_v4, req_id)
+            mapping_item = {}
+            mapping_item['text'] = req['status']['level_change']
+            mapping_item['v5.0.be'] = req_id
+            mapping_item['direction'] = '4>5'
+            self.mapping_v4[req_id]['mappings'].append(mapping_item)
+                
+        
+            self.mapping_v5 = self.add_if_not_exists(self.mapping_v5, req_id)
+            mapping_item = {}
+            mapping_item['text'] = req['status']['level_change']
+            mapping_item['direction'] = '5>4'
+            mapping_item['v4.0.3'] = req_id
+            self.mapping_v5[req_id]['mappings'].append(mapping_item)
+        elif mapping == '':
+            self.mapping_v4 = self.add_if_not_exists(self.mapping_v4, req_id)
 
-                    curr_modification = self.get_new_modification()
-                    curr_modification['text'] = modified_option
-                    mapping_token = mapping_token.replace(modified_option, '')
-                    curr_modification['ids'].append(mapping_token.strip())
-                    found = True
-                    break
-            
-            if found:
-                continue
-
-            curr_modification['ids'].append(mapping_token.strip())
-
-        if 'text' in curr_modification and curr_modification['text'] != '':
-            req['status']['modifications'].append(curr_modification)
 
         return req
 
@@ -363,7 +464,15 @@ class ASVS:
     
     #return req
 
-                
+    def add_if_not_exists(self, dict_in, key):
+        if key not in dict_in:
+            dict_in[key] = {}
+            dict_in[key]['mappings'] = []
+
+        return dict_in
+
+
+
     def status_to_text(self, status):
         status_text = ''
         
@@ -476,6 +585,49 @@ class ASVS:
                 str_return += str_chapter
 
         return str_return
+
+    def to_v4_mapping(self):
+        return self.mapping_to_csv(self.mapping_v4)
+        #return json.dumps(self.mapping_v4, indent = 2, sort_keys = False, ensure_ascii=False).strip()             
+
+    def to_v5_mapping(self):
+        return self.mapping_to_csv(self.mapping_v5)
+        #return json.dumps(self.mapping_v5, indent = 2, sort_keys = False, ensure_ascii=False).strip()
+
+    def mapping_to_csv(self, mapping):
+
+        mapping_lines = []
+
+        for key, req in mapping.items():
+            #print(key)
+            mapping_found = False
+            for mapping_item in req['mappings']:
+                mapping_line = {}
+                mapping_line['action'] = mapping_item['text'].strip()
+                
+                if '4>5' in mapping_item['direction']:
+                    mapping_line['v4.0.3'] = key
+                    mapping_line['v5.0.be'] = mapping_item['v5.0.be']
+
+                elif '5>4' in mapping_item['direction']:
+                    mapping_line['v4.0.3'] = mapping_item['v4.0.3']
+                    mapping_line['v5.0.be'] = key
+                
+                mapping_found = True
+                mapping_lines.append(mapping_line)
+
+            if not mapping_found:   
+                mapping_line = {}             
+                mapping_line['v4.0.3'] = key
+                mapping_lines.append(mapping_line)
+        
+        si = StringIO()
+
+        writer = csv.DictWriter(si, ['v4.0.3', 'action', 'v5.0.be'])
+        writer.writeheader()
+        writer.writerows(mapping_lines)
+
+        return si.getvalue()
 
     def to_json(self):
         ''' Returns a JSON-formatted string '''
