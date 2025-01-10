@@ -124,7 +124,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.5.1** | [DELETED, INCORRECT] | | | | |
 | **2.5.2** | [GRAMMAR] Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 |
-| **2.5.3** | [DELETED, DUPLICATE OF 2.4.1] | | | | |
+| **2.5.3** | [DELETED, COVERED BY 6.6.2] | | | | |
 | **2.5.4** | [MOVED TO 14.1.10] | | | | |
 | **2.5.5** | [DELETED, DUPLICATE OF 2.2.3] | | | | |
 | **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | ✓ | ✓ | ✓ | 640 |
