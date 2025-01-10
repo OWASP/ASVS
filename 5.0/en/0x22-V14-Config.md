@@ -63,7 +63,7 @@ For example, hiding the version of server-side components does not fix the need 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.3.1** | [DELETED, DUPLICATE OF 7.4.1] | | | | |
+| **14.3.1** | [DELETED] | | | | |
 | **14.3.2** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | ✓ | ✓ | ✓ | 200 |
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | ✓ | ✓ | ✓ | 548 |
