@@ -80,7 +80,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | | | ✓ | 308 |
 | **2.2.5** | [MOVED TO 9.3.3] | | | | |
-| **2.2.6** | [DELETED, DUPLICATE OF 2.7.3, 2.8.4] | | | | |
+| **2.2.6** | [DELETED, COVERED BY 2.7.3, 2.8.4] | | | | |
 | **2.2.7** | [DELETED, MERGED TO 2.2.4] | | | | |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | | | ✓ | |
 | **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a requires a combination of single-factor authentication mechanisms. | | ✓ | ✓ | 308 |
@@ -161,7 +161,7 @@ The requirements in this section mostly relate to section [5.1.3](https://pages.
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. | ✓ | ✓ | ✓ | 287 |
 | **2.7.2** | [MODIFIED] Verify that out-of-band authentication requests, codes, or tokens expire within 10 minutes. | ✓ | ✓ | ✓ | 287 |
-| **2.7.3** | [GRAMMAR] Verify that out-of-band authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 |
+| **2.7.3** | [GRAMMAR, COVERS 2.2.6] Verify that out-of-band authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 |
 | **2.7.4** | [GRAMMAR] Verify that the secondary communications channel being used is secure and independent of the primary channel. | ✓ | ✓ | ✓ | 523 |
 | **2.7.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **2.7.6** | [MODIFIED] Verify that codes used in out-of-band authentication are generated using a cryptographically secure random number generator (CSPRNG) and contain at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | | ✓ | ✓ | 310 |
@@ -181,7 +181,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **2.8.1** | [GRAMMAR] Verify that time-based, one-time passwords have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 |
 | **2.8.2** | [GRAMMAR] Verify that symmetric keys used to verify submitted time-based, one-time passwords are highly protected, such as by using a hardware security module or secure operating system based key storage. | | ✓ | ✓ | 320 |
 | **2.8.3** | [GRAMMAR] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of time-based, one-time passwords. | | ✓ | ✓ | 326 |
-| **2.8.4** | [GRAMMAR] Verify that a time-based, one-time password can be used only once within the validity period. | | ✓ | ✓ | 287 |
+| **2.8.4** | [GRAMMAR, COVERS 2.2.6] Verify that a time-based, one-time password can be used only once within the validity period. | | ✓ | ✓ | 287 |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | | ✓ | 613 |
 | **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | | | ✓ | 308 |
