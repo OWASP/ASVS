@@ -26,7 +26,7 @@ In addition to outlining general principles and best practices, this document al
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.9.1** | [DELETED, COVERED BY 9.1.1, 9.2.2, 9.3.1] | | | | |
-| **1.9.2** | [DELETED, DUPLICATE OF 9.2.3, 9.3.2] | | | | |
+| **1.9.2** | [DELETED, COVERED BY 9.3.2] | | | | |
 
 ## V9.1 HTTPS Communication with External Facing Services
 
@@ -59,7 +59,7 @@ HTTP traffic between internal-facing services should also be encrypted, ideally 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **9.3.1** | [ADDED, COVERS 1.9.1] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services within the application, and does not fall back to insecure or unencrypted communications. | | ✓ | ✓ | 319 |
-| **9.3.2** | [MODIFIED, MOVED FROM 9.2.1] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
+| **9.3.2** | [MODIFIED, MOVED FROM 9.2.1, COVERS 1.9.2] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | | ✓ | ✓ | 295 |
 | **9.3.3** | [MODIFIED, MOVED FROM 2.2.5] Verify that services communicating internally within a system (intra-service communications) use strong authentication to ensure that each endpoint is verified. Strong authentication methods, such as mTLS, should be employed to ensure identity, using public-key infrastructure and mechanisms that are resistant to replay attacks. For microservice architectures, consider using a service mesh to simplify certificate management and enhance security. | | | ✓ | 295 |
 
 ## V9.4 General TLS Security Guidance
