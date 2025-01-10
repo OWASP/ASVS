@@ -87,7 +87,7 @@ For example, hiding the version of server-side components does not fix the need 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | [MOVED TO 13.6.1] | | | | |
-| **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
+| **14.5.2** | [DELETED, COVERED BY 4.2.3] | | | | |
 | **14.5.3** | [SPLIT TO 50.3.6, 50.4.3] | | | | |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
 
