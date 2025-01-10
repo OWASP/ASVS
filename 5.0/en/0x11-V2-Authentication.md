@@ -207,7 +207,7 @@ The requirements in this section mostly relate to section [5.1.7.2](https://page
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.10.1** | [MOVED TO 14.7.1] | | | | |
 | **2.10.2** | [MOVED TO 14.7.2] | | | | |
-| **2.10.3** | [DELETED, DUPLICATE OF 2.10.4] | | | | |
+| **2.10.3** | [DELETED, COVERED BY 14.8.1] | | | | |
 | **2.10.4** | [DELETED, MERGED TO 14.8.1] | | | | |
 
 ## V2.11 Authentication with an Identity Providers
