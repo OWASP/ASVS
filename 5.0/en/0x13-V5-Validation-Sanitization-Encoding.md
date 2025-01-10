@@ -79,7 +79,7 @@ In many cases, software libraries will include safe or safer functions which wil
 | **5.3.5** | [DELETED, COVERED BY 5.3.4] | | | | |
 | **5.3.6** | [DELETED, COVERED BY 5.3.3] | | | | |
 | **5.3.7** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | ✓ | ✓ | ✓ | 90 |
-| **5.3.8** | Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | ✓ | ✓ | ✓ | 78 |
+| **5.3.8** | [COVERS 12.3.5] Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | ✓ | ✓ | ✓ | 78 |
 | **5.3.9** | [DELETED, MERGED TO 12.3.1] | | | | |
 | **5.3.10** | [MODIFIED] Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | ✓ | ✓ | ✓ | 643 |
 | **5.3.11** | [ADDED] Verify that the application is protected against CSV and Formula Injection. The application should follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV files. The application should escape special characters including '=', '+', '-', '@' '\t' (tab) and '\00' (null character) using a single quote, if they are the first character in a field, when exporting CSV files and other spreadsheet formats such as xls, xlsx, odf. | ✓ | ✓ | ✓ | 1236 |
