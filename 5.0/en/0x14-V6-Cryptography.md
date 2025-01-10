@@ -39,7 +39,7 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.1.1** | [DELETED, MERGED TO 1.8.1] | | | | |
 | **6.1.2** | [DELETED, MERGED TO 1.8.1] | | | | |
-| **6.1.3** | [DELETED, DUPLICATE OF 1.8.1] | | | | |
+| **6.1.3** | [DELETED, COVERED BY 1.8.1] | | | | |
 
 ## V6.2 Algorithms
 
