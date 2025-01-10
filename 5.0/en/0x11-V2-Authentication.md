@@ -77,7 +77,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **2.2.1** | [MODIFIED, SPLIT TO 1.2.6] Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | ✓ | ✓ | ✓ | 307 |
 | **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | ✓ | ✓ | ✓ | 304 |
-| **2.2.3** | [MODIFIED, SPLIT TO 2.2.10] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 |
+| **2.2.3** | [MODIFIED, SPLIT TO 2.2.10, COVERS 2.5.5] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | ✓ | ✓ | ✓ | 778 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | | | ✓ | 308 |
 | **2.2.5** | [MOVED TO 9.3.3] | | | | |
 | **2.2.6** | [DELETED, COVERED BY 2.7.3, 2.8.4] | | | | |
@@ -126,7 +126,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | **2.5.2** | [GRAMMAR] Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 |
 | **2.5.3** | [DELETED, COVERED BY 6.6.2] | | | | |
 | **2.5.4** | [MOVED TO 14.1.10] | | | | |
-| **2.5.5** | [DELETED, DUPLICATE OF 2.2.3] | | | | |
+| **2.5.5** | [DELETED, COVERED BY 2.2.3] | | | | |
 | **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | ✓ | ✓ | ✓ | 640 |
 | **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | ✓ | ✓ | ✓ | 308 |
 
