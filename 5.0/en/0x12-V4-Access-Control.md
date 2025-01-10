@@ -15,7 +15,7 @@ Comprehensive access control documentation is essential to ensure that security 
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.4.1** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
 | **1.4.2** | [DELETED] | | | | |
-| **1.4.3** | [DELETED, DUPLICATE OF 4.1.3] | | | | |
+| **1.4.3** | [DELETED] | | | | |
 | **1.4.4** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.4.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **1.4.6** | [ADDED] Verify that access control documentation defines controls that incorporate changes to a consumers environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. These changes should be detected both when the consumer tries to start a new session or during an existing session. | | | ✓ | |
@@ -29,8 +29,8 @@ Implementing granular access controls at the function, data, and field levels wi
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **4.1.1** | [MOVED TO 4.2.3] | | | | |
 | **4.1.2** | [DELETED, COVERED BY 4.1.3] | | | | |
-| **4.1.3** | [MODIFIED, COVERS 4.1.2, 4.1.4] Verify that the application ensures that function-level access is restricted to consumers with explicit permissions. | ✓ | ✓ | ✓ | 285 |
-| **4.1.4** | [DELETED, COVERED BY 4.1.3] | | | | |
+| **4.1.3** | [MODIFIED, COVERS 4.1.2] Verify that the application ensures that function-level access is restricted to consumers with explicit permissions. | ✓ | ✓ | ✓ | 285 |
+| **4.1.4** | [DELETED] | | | | |
 | **4.1.5** | [MOVED TO 7.4.5] | | | | |
 | **4.1.6** | [MODIFIED, MOVED FROM 4.2.1] Verify that the application ensures that data-specific access is restricted to consumers with explicit permissions to specific data items to mitigate insecure direct object reference (IDOR) and broken object level authorization (BOLA). | ✓ | ✓ | ✓ | 639 |
 | **4.1.7** | [ADDED] Verify that the application ensures that field-level access is restricted to consumers with explicit permissions to specific fields to mitigate broken object property level authorization (BOPLA). | | ✓ | ✓ | 283 |
