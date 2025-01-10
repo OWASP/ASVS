@@ -15,7 +15,7 @@ Configuration of the application out of the box should be safe to be on the Inte
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.14.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
+| **1.14.3** | [DELETED, COVERED BY 1.10.5, 10.6.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [SPLIT TO 1.10.4, 10.5.1] | | | | |
 | **1.14.6** | [MOVED TO 50.8.2] | | | | |
