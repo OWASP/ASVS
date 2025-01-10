@@ -65,8 +65,8 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.3.1** | [GRAMMAR, LEVEL L2 > L1] Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | ✓ | ✓ | ✓ | 338 |
-| **6.3.2** | [DELETED, DUPLICATE OF 6.3.1] | | | | |
+| **6.3.1** | [GRAMMAR, COVERS 6.3.2, LEVEL L2 > L1] Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | ✓ | ✓ | ✓ | 338 |
+| **6.3.2** | [DELETED, COVERED BY 6.3.1] | | | | |
 | **6.3.3** | [GRAMMAR, LEVEL L3 > L1] Verify that random number generation works properly under heavy system load, or that the system degrades gracefully. | ✓ | ✓ | ✓ | 338 |
 
 ## V6.4 Secret Management
