@@ -2,16 +2,6 @@
 
 ## Control Objective
 
-<!--
-OAuth2 has become industry standard for delegating API authorization and also the basis for end-user authentication using OpenID Connect (OIDC), where OIDC is an identity layer on top of OAuth2. Thus, all OAuth2 verifications in this chapter also apply to OIDC, while OAuth2 can be used without OIDC verifications.
-
-OAuth was initially made for third-party access delegation but it is often nowadays used as a first-party solution, including as a replacement for session management. Due to the complexity, it may introduce the risk of overengineering and causing new security challenges.
-
-OAuth and OIDC are logic on top of web technologies and therefore general requirements from other chapters always apply and this chapter can not be taken out of context.
-This chapter addresses best current practices for OAuth2 and OIDC aligned with specifications found at <https://oauth.net/2/> and <https://openid.net/developers/specs/>. Even if RFCs are considered to be mature, they are being updated frequently. Thus, it is important to align with the latest versions when applying the requirements in this chapter, see the references sections for more details.
-
-Given the complexity of the area, it is vitally important for a secure OAuth or OIDC solution to use well-known industry standard authorization servers and apply the recommended security configuration.
--->
 OAuth2 (referred to as OAuth in this chapter) is an industry standard framework for obtaining API authorizations. For example, using OAuth, a client application can obtain access to APIs (server resources) on the user's behalf, where the user has delegated authorization to the application.
 
 By itself, OAuth is not designed for user authentication. The OpenID Connect (OIDC) framework extends OAuth by adding a user identity layer on top of OAuth. Where OIDC provides support for e.g. standardized user information, Single-Sign On (SSO) and session management. As OIDC is an extension of OAuth, the OAuth requirements in this chapter also apply to OIDC.
@@ -19,8 +9,8 @@ By itself, OAuth is not designed for user authentication. The OpenID Connect (OI
 The following roles are defined in OAuth:
 
 * The OAuth client is the application that attempts to obtain an authorization for some server resources (e.g., by calling an API using the issued access token). The OAuth client is often a server-side application.
-  * A confidential client is a client that is capable of maintaining the confidentiality of their credentials, to authenticate itself with the authorization server.
-  * A public client does not have client credentials (is not capable of maintaining the confidentiality) and does not authenticate itself with the authorization server.
+    * A confidential client is a client that is capable of maintaining the confidentiality of their credentials, to authenticate itself with the authorization server.
+    * A public client does not have client credentials (is not capable of maintaining the confidentiality) and does not authenticate itself with the authorization server.
 * The OAuth resource server (RS) is the server API exposing resources to OAuth clients.
 * The OAuth authorization server (AS) is a server application which issues access tokens to Oauth clients. These access tokens represents authorizations for OAuth clients to access RS resources, either on behalf of an end-user or on the OAuth client's own behalf. The AS is often a separate application, but (if appropriate) it may be integrated in a suitable RS.
 * The resource owner (RO) is an end-user which uses AS to grant to the client the authorizations to access RS on his behalf.
