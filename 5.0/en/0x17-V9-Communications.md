@@ -64,7 +64,7 @@ HTTP traffic between internal-facing services should also be encrypted, ideally 
 
 ## V9.4 General TLS Security Guidance
 
-Use secure TLS configuration and up-to-date tools to review the configuration on a regular basis. While usage of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g. production, staging, development, test, etc.) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible.
+Use secure TLS configuration and up-to-date tools to review the configuration on a regular basis. While usage of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development, test, etc.) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |

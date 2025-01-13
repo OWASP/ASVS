@@ -42,7 +42,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.7** | [ADDED] Verify that production environment does not include test code. | | ✓ | ✓ | 489 |
 | **14.1.8** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | | | ✓ | |
 | **14.1.9** | [ADDED] Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | | ✓ | ✓ | |
-| **14.1.10** | [MODIFIED, MOVED FROM 2.5.4] Verify that default user accounts (e.g. "root", "admin", or "sa") are not present in the application or are disabled. | ✓ | ✓ | ✓ | 798 |
+| **14.1.10** | [MODIFIED, MOVED FROM 2.5.4] Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | ✓ | ✓ | ✓ | 798 |
 
 ## V14.2 Dependency
 
@@ -68,7 +68,7 @@ For example, hiding the version of server-side components does not fix the need 
 | **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | ✓ | ✓ | ✓ | 200 |
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | ✓ | ✓ | ✓ | 548 |
 | **14.3.5** | [ADDED, SPLIT FROM 4.3.2] Verify that the application does not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | ✓ | ✓ | ✓ | |
-| **14.3.6** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g. .bak), temporary working files (e.g. .swp), compressed files (.zip, .tar.gz, etc.) and other extensions commonly used by editors should be blocked unless required. | ✓ | ✓ | ✓ | 552 |
+| **14.3.6** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (e.g., .bak), temporary working files (e.g., .swp), compressed files (.zip, .tar.gz, etc.) and other extensions commonly used by editors should be blocked unless required. | ✓ | ✓ | ✓ | 552 |
 
 ## V14.4 HTTP Security Headers
 
@@ -105,7 +105,7 @@ Applications need to interact with multiple external services including APIs, da
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.7.1** | [MODIFIED, MOVED FROM 2.10.1, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | | ✓ | ✓ | 287 |
-| **14.7.2** | [GRAMMAR, MOVED FROM 2.10.2] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g. root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 |
+| **14.7.2** | [GRAMMAR, MOVED FROM 2.10.2] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin are default in some services during installation). | | ✓ | ✓ | 255 |
 | **14.7.3** | [MODIFIED, MOVED FROM 4.3.3] Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | | ✓ | ✓ | 732 |
 
 ## V14.8 Secret Management
