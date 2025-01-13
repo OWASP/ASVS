@@ -39,7 +39,7 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.1.1** | [DELETED, MERGED TO 1.8.1] | | | | |
 | **6.1.2** | [DELETED, MERGED TO 1.8.1] | | | | |
-| **6.1.3** | [DELETED, DUPLICATE OF 1.8.1] | | | | |
+| **6.1.3** | [DELETED, COVERED BY 1.8.1] | | | | |
 
 ## V6.2 Algorithms
 
@@ -51,7 +51,7 @@ Although this section is not easily penetration tested, developers should consid
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.2.1** | [MODIFIED] Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | ✓ | ✓ | ✓ | 310 |
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | | ✓ | ✓ | 327 |
-| **6.2.3** | [DELETED, DUPLICATE OF 6.2.5] | | | | |
+| **6.2.3** | [DELETED, COVERED BY 6.5.1, 6.5.2, 6.6.3] | | | | |
 | **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC,  or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once PQC standards are fully established. | | ✓ | ✓ | 320 |
 | **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.3] | | | | |
 | **6.2.6** | [MOVED TO 6.5.3] | | | | |
@@ -65,8 +65,8 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.3.1** | [GRAMMAR, LEVEL L2 > L1] Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | ✓ | ✓ | ✓ | 338 |
-| **6.3.2** | [DELETED, DUPLICATE OF 6.3.1] | | | | |
+| **6.3.1** | [GRAMMAR, COVERS 6.3.2, LEVEL L2 > L1] Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | ✓ | ✓ | ✓ | 338 |
+| **6.3.2** | [DELETED, COVERED BY 6.3.1] | | | | |
 | **6.3.3** | [GRAMMAR, LEVEL L3 > L1] Verify that random number generation works properly under heavy system load, or that the system degrades gracefully. | ✓ | ✓ | ✓ | 338 |
 
 ## V6.4 Secret Management
@@ -84,8 +84,8 @@ Authenticated encryption algorithms built on AES and CHACHA20 form the backbone 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.5.1** | [ADDED, SPLIT FROM 6.2.5] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | | ✓ | ✓ | 326 |
-| **6.5.2** | [ADDED, SPLIT FROM 6.2.5, LEVEL L2 > L1] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure authenticated ciphers and modes such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
+| **6.5.1** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | | ✓ | ✓ | 326 |
+| **6.5.2** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3, LEVEL L2 > L1] Verify that insecure ciphers, including Triple-DES and Blowfish, are not used but secure authenticated ciphers and modes such as AES with GCM are. | ✓ | ✓ | ✓ | 326 |
 | **6.5.3** | [MODIFIED, MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | | | ✓ | 326 |
 | **6.5.4** | [MODIFIED, MOVED FROM 6.2.7] Verify that encrypted data is authenticated via signatures, as well as through authenticated cipher modes or HMAC for protection against unauthorized modification. | | | ✓ | 326 |
 | **6.5.5** | [ADDED] Verify that any authenticated signatures are operating in encrypt-then-MAC or encrypt-then-hash modes as required. | | | ✓ | 326 |
@@ -97,8 +97,8 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. | | ✓ | ✓ | |
-| **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | |
-| **6.6.3** | [ADDED, SPLIT FROM 6.2.5] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | |
+| **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4, COVERS 2.5.3] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | |
+| **6.6.3** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | |
 | **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | |
 
 ## V6.7 Key Exchange Mechanisms

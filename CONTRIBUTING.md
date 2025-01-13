@@ -88,7 +88,8 @@ The following tags should be added to any modified requirement as appropriate.
 * `[ADDED, SPLIT FROM a.b.c]` - New requirement which was previously part of another requirement.
 * `[DELETED]` - Placeholder to keep number, requirement has been deleted.
 * `[DELETED, MERGED TO x.y.z]` - Placeholder to keep number, requirement has been merged into another requirement.
-* `[DELETED, DUPLICATE OF x.y.z]` - Placeholder to keep number, requirement has been deleted because of clear duplicate to referenced requirement (referenced requirement do not have changes because of that).
+* `[DELETED, COVERED BY x.y.z]` - Placeholder to keep number, requirement has been deleted because of clear duplicate to referenced requirement (referenced requirement do not have changes because of that).
+* `[COVERS a.b.c]` - new requirement that covers old requirement marked by `COVERED BY x.y.z`
 * `[DELETED, NOT IN SCOPE]` - Placeholder to keep number, requirement has been decided to be out of ASVS scope.
 * `[DELETED, INCORRECT]` - Placeholder to keep number, requirement was invalid or provided inadvisable advice.
 * `[DELETED, NOT PRACTICAL]` - Placeholder to keep number, requirement was not practical (enough) to implement in reality.

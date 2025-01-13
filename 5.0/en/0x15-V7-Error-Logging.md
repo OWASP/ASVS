@@ -57,7 +57,7 @@ Logs that can be trivially modified or deleted are useless for investigations an
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **7.3.1** | Verify that all logging components appropriately encode data to prevent log injection. | | ✓ | ✓ | 117 |
-| **7.3.2** | [DELETED, DUPLICATE OF 7.3.1] | | | | |
+| **7.3.2** | [DELETED] | | | | |
 | **7.3.3** | [MODIFIED] Verify that logs are protected from unauthorized access and cannot be modified. | | ✓ | ✓ | 200 |
 | **7.3.4** | [MOVED TO 7.1.5] | | | | |
 | **7.3.5** | [MOVED FROM 1.7.2] Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. | | ✓ | ✓ | |

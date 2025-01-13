@@ -15,7 +15,7 @@ Configuration of the application out of the box should be safe to be on the Inte
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.14.1** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.14.3** | [DELETED, DUPLICATE OF 14.2.1] | | | | |
+| **1.14.3** | [DELETED, COVERED BY 1.10.5, 10.6.1] | | | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | | | |
 | **1.14.5** | [SPLIT TO 1.10.4, 10.5.1] | | | | |
 | **1.14.6** | [MOVED TO 50.8.2] | | | | |
@@ -63,7 +63,7 @@ For example, hiding the version of server-side components does not fix the need 
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.3.1** | [DELETED, DUPLICATE OF 7.4.1] | | | | |
+| **14.3.1** | [DELETED] | | | | |
 | **14.3.2** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | ✓ | ✓ | ✓ | 497 |
 | **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | ✓ | ✓ | ✓ | 200 |
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | ✓ | ✓ | ✓ | 548 |
@@ -87,7 +87,7 @@ For example, hiding the version of server-side components does not fix the need 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **14.5.1** | [MOVED TO 13.6.1] | | | | |
-| **14.5.2** | [DELETED, DUPLICATE OF 4.1.1] | | | | |
+| **14.5.2** | [DELETED, COVERED BY 4.2.3] | | | | |
 | **14.5.3** | [SPLIT TO 50.3.6, 50.4.3] | | | | |
 | **14.5.4** | [DELETED, INCORRECT] | | | | |
 
@@ -114,7 +114,7 @@ Secret Management is a configuration task that is essential to ensure the protec
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **14.8.1** | [MODIFIED, MOVED FROM 6.4.1, MERGED FROM 1.6.2, 2.10.4] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy back-end secrets. These could include passwords, key material, integrations with databases and third-party systems, seeds and internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this should involve a hardware-backed solution such as an HSM. | | ✓ | ✓ | 798 |
+| **14.8.1** | [MODIFIED, MOVED FROM 6.4.1, MERGED FROM 1.6.2, 2.10.4, COVERS 2.10.3] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy back-end secrets. These could include passwords, key material, integrations with databases and third-party systems, seeds and internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this should involve a hardware-backed solution such as an HSM. | | ✓ | ✓ | 798 |
 | **14.8.2** | [MODIFIED, MOVED FROM 6.4.2] Verify that key material is not exposed to the application (neither the front-end nor the back-end) but instead uses an isolated security module like a vault for cryptographic operations. | | ✓ | ✓ | 320 |
 | **14.8.3** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization’s threat model and business requirements. | | ✓ | ✓ | 320 |
 | **14.8.4** | [ADDED] Verify that access to secret assets adheres to the principle of least privilege. | | ✓ | ✓ | 320 |

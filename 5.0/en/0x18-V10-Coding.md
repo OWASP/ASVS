@@ -13,10 +13,10 @@ This chapter also contains requirements to prevent the introduction of malicious
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **1.10.1** | [DELETED, NOT IN SCOPE] | | | | |
-| **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
+| **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4, COVERS 12.3.6] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | | ✓ | ✓ | |
 | **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life, libraries which have historically had several significant vulnerabilities, etc. | | | ✓ | 1061 |
 | **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing, direct memory manipulation, etc. | | | ✓ | |
-| **1.10.5** | [ADDED, SPLIT FROM 14.2.1] Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | ✓ | ✓ | ✓ | |
+| **1.10.5** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | ✓ | ✓ | ✓ | |
 
 ## V10.1 Code Integrity
 
@@ -77,7 +77,7 @@ Dependency management is critical to the safe operation of any application of an
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **10.6.1** | [ADDED, SPLIT FROM 14.2.1] Verify that the application only contains components which have not breached the documented update and remediation time frames. | ✓ | ✓ | ✓ | |
+| **10.6.1** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that the application only contains components which have not breached the documented update and remediation time frames. | ✓ | ✓ | ✓ | |
 | **10.6.2** | [MODIFIED, MOVED FROM 10.3.2] Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | ✓ | ✓ | ✓ | 427 |
 
 ## V10.7 Concurrency
