@@ -51,7 +51,7 @@ Where it is not possible to do this, other options include sanitization and sand
 | **5.2.1** | [MODIFIED] Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized using a well-known and secure HTML sanitization library or framework feature. | ✓ | ✓ | ✓ | 116 |
 | **5.2.2** | [MODIFIED] Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | ✓ | ✓ | ✓ | 138 |
 | **5.2.3** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 147 |
-| **5.2.4** | [MODIFIED] Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 95 |
+| **5.2.4** | [MODIFIED, COVERS 5.5.4] Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 95 |
 | **5.2.5** | [MODIFIED] Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | ✓ | ✓ | ✓ | 94 |
 | **5.2.6** | [MODIFIED] Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | ✓ | ✓ | ✓ | 918 |
 | **5.2.7** | Verify that the application sanitizes, disables, or sandboxes user-supplied Scalable Vector Graphics (SVG) scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject. | ✓ | ✓ | ✓ | 159 |
@@ -73,13 +73,13 @@ In many cases, software libraries will include safe or safer functions which wil
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **5.3.1** | [MODIFIED, SPLIT TO 5.3.13] Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP header fields, to avoid changing the message or document structure. | ✓ | ✓ | ✓ | 116 |
-| **5.3.2** | [DELETED, DUPLICATE OF 14.4.1] | | | | |
-| **5.3.3** | [MODIFIED, SPLIT TO 50.6.2] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | ✓ | ✓ | ✓ | |
-| **5.3.4** | [MODIFIED] Verify that data selection or database queries (e.g. SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | ✓ | ✓ | ✓ | 89 |
-| **5.3.5** | [DELETED, DUPLICATE OF 5.3.4] | | | | |
-| **5.3.6** | [DELETED, DUPLICATE OF 5.3.3] | | | | |
+| **5.3.2** | [DELETED, COVERED BY 13.1.7] | | | | |
+| **5.3.3** | [MODIFIED, SPLIT TO 50.6.2, COVERS 5.3.6] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | ✓ | ✓ | ✓ | |
+| **5.3.4** | [MODIFIED, COVERS 5.3.5] Verify that data selection or database queries (e.g., SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | ✓ | ✓ | ✓ | 89 |
+| **5.3.5** | [DELETED, COVERED BY 5.3.4] | | | | |
+| **5.3.6** | [DELETED, COVERED BY 5.3.3] | | | | |
 | **5.3.7** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | ✓ | ✓ | ✓ | 90 |
-| **5.3.8** | Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | ✓ | ✓ | ✓ | 78 |
+| **5.3.8** | [COVERS 12.3.5] Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | ✓ | ✓ | ✓ | 78 |
 | **5.3.9** | [DELETED, MERGED TO 12.3.1] | | | | |
 | **5.3.10** | [MODIFIED] Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | ✓ | ✓ | ✓ | 643 |
 | **5.3.11** | [ADDED] Verify that the application is protected against CSV and Formula Injection. The application should follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV files. The application should escape special characters including '=', '+', '-', '@' '\t' (tab) and '\00' (null character) using a single quote, if they are the first character in a field, when exporting CSV files and other spreadsheet formats such as xls, xlsx, odf. | ✓ | ✓ | ✓ | 1236 |
@@ -108,12 +108,12 @@ Conversion of data from some sort of stored or transmitted representation into a
 | **5.5.1** | [DELETED, INCORRECT] | | | | |
 | **5.5.2** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | ✓ | ✓ | ✓ | 611 |
 | **5.5.3** | [MODIFIED, MERGED FROM 1.5.2] Verify that deserialization with untrusted clients enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure (such as BinaryFormatter) must not be used with untrusted input. | ✓ | ✓ | ✓ | 502 |
-| **5.5.4** | [DELETED, DUPLICATE OF 5.2.4] | | | | |
-| **5.5.5** | [MODIFIED, MOVED FROM 13.1.1, LEVEL L1 > L2] Verify that different parsers used in the application for the same data type (e.g. JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | | ✓ | ✓ | 436 |
+| **5.5.4** | [DELETED, COVERED BY 5.2.4] | | | | |
+| **5.5.5** | [MODIFIED, MOVED FROM 13.1.1, LEVEL L1 > L2] Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | | ✓ | ✓ | 436 |
 
 ## V5.6 Validation and Sanitization Architecture
 
-In the sections above, we provided syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g. HTML encoding) to prevent double encoding issues.
+In the sections above, we provided syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g., HTML encoding) to prevent double encoding issues.
 
 <!--
 The requirement belongs here if it is:

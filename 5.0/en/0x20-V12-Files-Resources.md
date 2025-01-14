@@ -8,7 +8,7 @@ Ensure that untrusted files and other resources are handled safely to prevent de
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.12.1** | [DELETED, DUPLICATE OF 12.4.1] | | | | |
+| **1.12.1** | [DELETED] | | | | |
 | **1.12.2** | [DELETED, MERGED TO 50.6.1] | | | | |
 | **1.12.3** | [ADDED] Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | ✓ | ✓ | ✓ | |
 
@@ -19,7 +19,7 @@ Upload functionality is a key source of untrusted files. These should be careful
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **12.1.1** | [MODIFIED] Verify that the application will only accept files of a size which it can process without causing a loss of performance or denial of service attack. | ✓ | ✓ | ✓ | 400 |
-| **12.1.2** | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | | ✓ | ✓ | 409 |
+| **12.1.2** | [GRAMMAR] Verify that the application checks compressed files (e.g., zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | | ✓ | ✓ | 409 |
 | **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | | ✓ | ✓ | 770 |
 | **12.1.4** | [ADDED] Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | | ✓ | ✓ | 61 |
 
@@ -42,8 +42,8 @@ File operations should not rely on user-submitted filenames or metadata to avoid
 | **12.3.2** | [DELETED, MERGED TO 12.3.1] | | | | |
 | **12.3.3** | [DELETED, MERGED TO 12.3.1] | | | | |
 | **12.3.4** | [MOVED TO 12.5.3] | | | | |
-| **12.3.5** | [DELETED, DUPLICATE OF 5.3.8] | | | | |
-| **12.3.6** | [DELETED, DUPLICATE OF 14.2.4] | | | | |
+| **12.3.5** | [DELETED, COVERED BY 5.3.8] | | | | |
+| **12.3.6** | [DELETED, COVERED BY 1.10.2] | | | | |
 | **12.3.7** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | ✓ | ✓ | ✓ | 23 |
 
 ## V12.4 File Storage

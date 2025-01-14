@@ -12,8 +12,8 @@ This chapter includes requirements related to defining what data needs to be pro
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.8.1** | [MODIFIED, MERGED FROM 8.3.4, 6.1.1, 6.1.2] Verify that all sensitive data created and processed by the application has been identified and classified into protection levels, and ensure that a policy is in place on how to deal with sensitive data. Note that this includes sensitive data that is being encoded in a recoverable form such as Base64 and JWT. Protection levels need to take into account any data protection and privacy regulations and standards which the application is required to comply with. | | ✓ | ✓ | 213 |
-| **1.8.2** | [MODIFIED, SPLIT TO 8.1.9] Verify that all protection levels have a documented set of protection requirements. This should include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | | ✓ | ✓ | |
+| **1.8.1** | [MODIFIED, MERGED FROM 8.3.4, 6.1.1, 6.1.2, COVERS 6.1.3] Verify that all sensitive data created and processed by the application has been identified and classified into protection levels, and ensure that a policy is in place on how to deal with sensitive data. Note that this includes sensitive data that is being encoded in a recoverable form such as Base64 and JWT. Protection levels need to take into account any data protection and privacy regulations and standards which the application is required to comply with. | | ✓ | ✓ | 213 |
+| **1.8.2** | [MODIFIED, SPLIT TO 8.1.9, COVERS 8.3.7] Verify that all protection levels have a documented set of protection requirements. This should include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | | ✓ | ✓ | |
 
 ## V8.1 General Data Protection
 
@@ -26,7 +26,7 @@ This chapter includes requirements related to defining what data needs to be pro
 | **8.1.5** | [DELETED, NOT IN SCOPE] | | | | |
 | **8.1.6** | [DELETED, NOT IN SCOPE] | | | | |
 | **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | | ✓ | ✓ | 444 |
-| **8.1.8** | [ADDED] Verify that defined sensitive data is not sent to untrusted parties (e.g. user trackers) to prevent unwanted collection of data outside of the application's control. | | ✓ | ✓ | 200 |
+| **8.1.8** | [ADDED] Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | | ✓ | ✓ | 200 |
 | **8.1.9** | [ADDED, SPLIT FROM 1.8.2] Verify that controls around sensitive data are implemented as defined in the documentation for the specific data's protection level. | | ✓ | ✓ | |
 | **8.1.10** | [ADDED] Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the full data is absolutely required, it should be masked in the user interface unless the user specifically views it. | | | ✓ | |
 
@@ -34,7 +34,7 @@ This chapter includes requirements related to defining what data needs to be pro
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e. Cache-Control: no-store) so that sensitive data is not cached in browsers. | ✓ | ✓ | ✓ | 525 |
+| **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | ✓ | ✓ | ✓ | 525 |
 | **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session identifiers. | ✓ | ✓ | ✓ | 922 |
 | **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | ✓ | ✓ | ✓ | 922 |
 
@@ -54,7 +54,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | | | |
 | **8.3.5** | [MOVED TO 7.2.7] | | | | |
 | **8.3.6** | [DELETED, NOT PRACTICAL] | | | | |
-| **8.3.7** | [DELETED, DUPLICATE OF 1.8.2] | | | | |
+| **8.3.7** | [DELETED, COVERED BY 1.8.2] | | | | |
 | **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | | | ✓ | |
 | **8.3.9** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | | ✓ | ✓ | 212 |
 
