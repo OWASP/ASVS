@@ -10,15 +10,15 @@ The following roles are defined in OAuth:
 
 * The OAuth client is the application that attempts to obtain an authorization for some server resources (e.g., by calling an API using the issued access token). The OAuth client is often a server-side application.
     * A confidential client is a client that is capable of maintaining the confidentiality of their credentials, to authenticate itself with the authorization server.
-    * A public client does not have client credentials (is not capable of maintaining the confidentiality) and does not authenticate itself with the authorization server.
+    * A public client is not capable of maintaining the confidentiality of credentials for authenticating itself on the authorization server. Therefore, instead of authenticating itself on the client using a client_id and a client_secret, it only identifies itself using a client_id.
 * The OAuth resource server (RS) is the server API exposing resources to OAuth clients.
 * The OAuth authorization server (AS) is a server application which issues access tokens to Oauth clients. These access tokens represents authorizations for OAuth clients to access RS resources, either on behalf of an end-user or on the OAuth client's own behalf. The AS is often a separate application, but (if appropriate) it may be integrated in a suitable RS.
-* The resource owner (RO) is an end-user which uses AS to grant to the client the authorizations to access RS on his behalf.
+* The resource owner (RO) is an end-user which authorizes OAuth clients to get limited access to resources hosted on the the resource server on his own behalf. The resource owner consents to this delegated authorization by interacting with the authorization server.
 
 The following roles are defined in OIDC:
 
 * The relying party (RP) is the client application requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
-* The OpenID provider (OP) is the identity provider (IdP) providing authentication to the relying party. It often assumes the role of an OAuth AS, but it is common with federated scenarios where the OAuth AS and OP are different server applications.
+* The OpenID provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to a RP. The OP may be the identity provider (IdP) but, in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
 
 OAuth and OIDC were initially designed for third-party applications. Nowadays, they are often used by first-party applications as well. However, when used in first-party scenarios e. g. authentication and session management, the protocol adds some complexity which may introduce new security challenges.
 
