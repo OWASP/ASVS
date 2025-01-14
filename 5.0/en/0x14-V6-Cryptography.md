@@ -78,7 +78,7 @@ Although this section is not easily penetration tested, developers should consid
 | **6.4.1** | [MOVED TO 14.8.1] | | | | |
 | **6.4.2** | [MOVED TO 14.8.2] | | | | |
 
-## V6.5 Encryption at Rest
+## V6.5 Encryption Algorithms
 
 Authenticated encryption algorithms built on AES and CHACHA20 form the backbone of modern cryptographic practice.
 
