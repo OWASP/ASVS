@@ -185,7 +185,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | | | |
 | **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | | | ✓ | 613 |
 | **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | | | ✓ | 308 |
-| **2.8.8** | [ADDED] Ensure that generation of the time-based multi-factor OTP token is based on the server's system time and not the client's machine. | | | ✓ | 367 |
+| **2.8.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | | | ✓ | 367 |
 
 ## V2.9 Cryptographic authentication mechanism
 
