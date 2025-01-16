@@ -2,18 +2,18 @@
 
 ## Control Objective
 
-OAuth2 (referred to as OAuth in this chapter) is an industry standard framework for obtaining API authorizations. For example, using OAuth, a client application can obtain access to APIs (server resources) on the user's behalf, where the user has delegated authorization to the application.
+OAuth2 (referred to as OAuth in this chapter) is an industry standard framework for delegated authorization. For example, using OAuth, a client application can obtain access to APIs (server resources) on a user's behalf, where the user has authorized the client application to do so.
 
-By itself, OAuth is not designed for user authentication. The OpenID Connect (OIDC) framework extends OAuth by adding a user identity layer on top of OAuth. Where OIDC provides support for e.g. standardized user information, Single-Sign On (SSO) and session management. As OIDC is an extension of OAuth, the OAuth requirements in this chapter also apply to OIDC.
+By itself, OAuth is not designed for user authentication. The OpenID Connect (OIDC) framework extends OAuth by adding a user identity layer on top of OAuth. OIDC provides support for functionality including standardized user information, Single-Sign On (SSO) and session management. As OIDC is an extension of OAuth, the OAuth requirements in this chapter also apply to OIDC.
 
 The following roles are defined in OAuth:
 
-* The OAuth client is the application that attempts to obtain an authorization for some server resources (e.g., by calling an API using the issued access token). The OAuth client is often a server-side application.
-    * A confidential client is a client that is capable of maintaining the confidentiality of their credentials, to authenticate itself with the authorization server.
-    * A public client is not capable of maintaining the confidentiality of credentials for authenticating itself on the authorization server. Therefore, instead of authenticating itself on the client using a client_id and a client_secret, it only identifies itself using a client_id.
+* The OAuth client is the application that attempts to obtain access to server resources (e.g., by calling an API using the issued access token). The OAuth client is often a server-side application.
+    * A confidential client is a client that is capable of maintaining the confidentiality of the credentials which it uses to authenticate itself with the authorization server.
+    * A public client is not capable of maintaining the confidentiality of credentials for authenticating with the authorization server. Therefore, instead of authenticating itself using a client_id and a client_secret, it only identifies itself using a client_id.
 * The OAuth resource server (RS) is the server API exposing resources to OAuth clients.
-* The OAuth authorization server (AS) is a server application which issues access tokens to Oauth clients. These access tokens represents authorizations for OAuth clients to access RS resources, either on behalf of an end-user or on the OAuth client's own behalf. The AS is often a separate application, but (if appropriate) it may be integrated in a suitable RS.
-* The resource owner (RO) is an end-user which authorizes OAuth clients to get limited access to resources hosted on the the resource server on his own behalf. The resource owner consents to this delegated authorization by interacting with the authorization server.
+* The OAuth authorization server (AS) is a server application which issues access tokens to OAuth clients. These access tokens allow OAuth clients to access RS resources, either on behalf of an end-user or on the OAuth client's own behalf. The AS is often a separate application, but (if appropriate) it may be integrated in a suitable RS.
+* The resource owner (RO) is the end-user who authorizes OAuth clients to get limited access to resources hosted on the resource server on their behalf. The resource owner consents to this delegated authorization by interacting with the authorization server.
 
 The following roles are defined in OIDC:
 
@@ -32,11 +32,11 @@ Given the complexity of the area, it is vitally important for a secure OAuth or 
 
 Terminology is defined in Appendix A - Glossary and aligns with OAuth RFCs and OIDC specifications. Note that in this chapter OIDC terminology is only used for OIDC-specific requirements, otherwise OAuth terminology is used.
 
-For the context of OAuth and OIDC the term token in this chapter refers to:
+In the context of OAuth and OIDC, the term "token" in this chapter refers to:
 
-* Access tokens, shall only be consumed by RS and can either be reference tokens, validated using introspection, or self-contained tokens, validated using some key material.
-* Refresh tokens, shall only be consumed by the authorization server who issued the token.
-* OIDC ID Tokens, shall only be consumed by the client who issued the authorization flow.
+* Access tokens, which shall only be consumed by the RS and can either be reference tokens, validated using introspection, or self-contained tokens, validated using some key material.
+* Refresh tokens, which shall only be consumed by the authorization server which issued the token.
+* OIDC ID Tokens, which shall only be consumed by the client which triggered the authorization flow.
 
 Other kinds of tokens, like logout tokens, are not in the scope for this chapter.
 
@@ -44,7 +44,7 @@ The risk levels for some of the requirements in this chapter depend on whether t
 
 ## V51.1 Generic OAuth and OIDC security
 
-The requirements cover generic architectural requirements that apply to all applications using OAuth or OIDC, such as main architectural patterns available when building browser-based JavaScript applications that rely on OAuth or OIDC for accessing protected resources.
+These requirements cover generic architectural requirements that apply to all applications using OAuth or OIDC, such as key architectural patterns available when building browser-based JavaScript applications that rely on OAuth or OIDC for accessing protected resources.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -53,9 +53,9 @@ The requirements cover generic architectural requirements that apply to all appl
 
 ## V51.2 OAuth Client
 
-The requirements cover responsibilities for OAuth client applications. The client can be for example a web server backend (often acting as a Backend For Frontend, BFF), a backend service integration, or a frontend Single Page Application (SPA, aka browser-based application).
+These requirements detail the responsibilities for OAuth client applications. The client can be, for example, a web server backend (often acting as a Backend For Frontend, BFF), a backend service integration, or a frontend Single Page Application (SPA, aka browser-based application).
 
-In general backend clients are regarded as confidential clients and frontend clients are regarded as public clients. However, native application running on the end user device can be regarded as confidential when using OAuth dynamic client registration.
+In general, backend clients are regarded as confidential clients and frontend clients are regarded as public clients. However, native applications running on the end user device can be regarded as confidential when using OAuth dynamic client registration.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -67,10 +67,10 @@ In general backend clients are regarded as confidential clients and frontend cli
 
 In the context of ASVS and this chapter, the resource server is an API. To provide secure access the resource server must:
 
-* Validate the access token, according to token format and protocol specifications, e.g. JWT-validation or OAuth token introspection.
-* If valid, enforce authorization decisions based on information from the access token and granted permissions. For example, the resource server needs to verify that the client (acting on behalf of RO) is authorized to access the requested resource.
+* Validate the access token, according to the token format and relevant protocol specifications, e.g. JWT-validation or OAuth token introspection.
+* If valid, enforce authorization decisions based on the information from the access token and permissions which have been granted. For example, the resource server needs to verify that the client (acting on behalf of RO) is authorized to access the requested resource.
 
-Thus the requirements listed here are OAuth or OIDC specific and should be performed after token validation and before performing authorization based on information from the token.
+Therefore, the requirements listed here are OAuth or OIDC specific and should be performed after token validation and before performing authorization based on information from the token.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -81,7 +81,7 @@ Thus the requirements listed here are OAuth or OIDC specific and should be perfo
 
 ## V51.4 OAuth Authorization Server
 
-These requirements cover responsibilities for OAuth authorization servers, including OpenID providers.
+These requirements detail the responsibilities for OAuth authorization servers, including OpenID providers.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -114,7 +114,9 @@ As the OIDC Relying Party acts as an OAuth client, the requirements from the sec
 
 ## V51.6 OpenID Provider
 
-As OpenID Providers act as OAuth Authorization servers, the requirements from the section "OAuth Authorization Server" apply as well. Note that if using the id-token flow (not the code flow), no access tokens are issued and many of the requirements for OAuth AS are not applicable.
+As OpenID Providers act as OAuth Authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
+
+Note that if using the id-token flow (not the code flow), no access tokens are issued and many of the requirements for OAuth AS are not applicable.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
