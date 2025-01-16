@@ -84,7 +84,6 @@ The following modes are approved except where the function is encrypted data sto
 |--|--|--|--|--|--|
 | GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | ✓ | ✓ | ✓ |
 | CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | ✓ | ✓ | ✓ |
-| CCM-8 | Yes | [RFC 6655](https://www.rfc-editor.org/info/rfc6655) | ✓ | ✓ | ✓ |
 | CBC* | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | ✓ | ✓ | ✓ |
 
 \* All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used.
@@ -118,6 +117,10 @@ The following cipher modes MUST NOT be used for any use case:
 | CFB |
 | OFB |
 | CTR |
+| CCM-8** |
+
+\** When using CCM-8, the MAC tag only has 64 bits of security.
+This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
 
 ### Key Wrapping
 
