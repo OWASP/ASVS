@@ -36,7 +36,7 @@ For the context of OAuth and OIDC the term token in this chapter refers to:
 
 * Access tokens, shall only be consumed by RS and can either be reference tokens, validated using introspection, or self-contained tokens, validated using some key material.
 * Refresh tokens, shall only be consumed by the authorization server who issued the token.
-* OIDC ID Tokens, shall only be consumed by the client who issued the authorization flow (as a proof of user authentication).
+* OIDC ID Tokens, shall only be consumed by the client who issued the authorization flow.
 
 Other kinds of tokens, like logout tokens, are not in the scope for this chapter.
 
@@ -67,10 +67,10 @@ In general backend clients are regarded as confidential clients and frontend cli
 
 In the context of ASVS and this chapter, the resource server is an API. To provide secure access the resource server must:
 
-* Validate the access token, according to token format and protocol specifications
+* Validate the access token, according to token format and protocol specifications, e.g. JWT-validation or OAuth token introspection.
 * If valid, enforce authorization decisions based on information from the access token and granted permissions. For example, the resource server needs to verify that the client (acting on behalf of RO) is authorized to access the requested resource.
 
-Thus the requirements listed here are OAuth or OIDC specific and should be performed after token integrity validation and before accepting the delegated authorization information from the token.
+Thus the requirements listed here are OAuth or OIDC specific and should be performed after token validation and before performing authorization based on information from the token.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
@@ -103,7 +103,7 @@ These requirements cover responsibilities for OAuth authorization servers, inclu
 
 ## V51.5 OIDC Client
 
-As the OIDC Relying Party acts as an OAuth client, the requirements from the section "OAuth Client" apply as well. Note that if using the 'id-token' flow (not the 'code' flow), then no access tokens are issued and requirements for OAuth clients are not applicable.
+As the OIDC Relying Party acts as an OAuth client, the requirements from the section "OAuth Client" apply as well.
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
