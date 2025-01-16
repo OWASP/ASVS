@@ -48,7 +48,7 @@ These requirements cover generic architectural requirements that apply to all ap
 
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
-| **51.1.1** | [ADDED] Verify that tokens are only sent to trusted components that strictly need them. For example, when using a backend-for-frontend pattern for browser-based JavaScript applications, access and refresh tokens shall only be accessible for the backend. | ✓ | ✓ | ✓ |
+| **51.1.1** | [ADDED] Verify that tokens are only sent to components that strictly need them. For example, when using a backend-for-frontend pattern for browser-based JavaScript applications, access and refresh tokens shall only be accessible for the backend. | ✓ | ✓ | ✓ |
 | **51.1.2** | [ADDED] Verify that the client only accepts values from the authorization server (such as the authorization code or ID token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce' are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | ✓ | ✓ | ✓ |
 
 ## V51.2 OAuth Client
