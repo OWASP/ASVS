@@ -51,9 +51,9 @@ Although this section is not easily penetration tested, developers should consid
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **6.2.1** | [MODIFIED] Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | ✓ | ✓ | ✓ | 310 |
 | **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | | ✓ | ✓ | 327 |
-| **6.2.3** | [DELETED, COVERED BY 6.5.1, 6.5.2, 6.6.3] | | | | |
+| **6.2.3** | [DELETED, COVERED BY 6.5.1, 6.5.2, 6.6.1] | | | | |
 | **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC,  or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | | ✓ | ✓ | 320 |
-| **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.3] | | | | |
+| **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.1] | | | | |
 | **6.2.6** | [MOVED TO 6.5.3] | | | | |
 | **6.2.7** | [MOVED TO 6.5.4] | | | | |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | | | ✓ | 385 |
@@ -96,10 +96,9 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **6.6.1** | [ADDED] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. | | ✓ | ✓ | |
+| **6.6.1** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation Disallowed hash functions, such as MD5, SHA-1, should not be used for any cryptographic purpose. | ✓ | ✓ | ✓ | |
 | **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4, COVERS 2.5.3] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | | ✓ | ✓ | |
-| **6.6.3** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3] Verify that cryptographic systems avoid the use of disallowed hash functions, such as MD5, SHA-1, or any other insecure hash functions, for any cryptographic purpose. | ✓ | ✓ | ✓ | |
-| **6.6.4** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | |
+| **6.6.3** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | ✓ | ✓ | ✓ | |
 
 ## V6.7 Key Exchange Mechanisms
 
