@@ -100,6 +100,7 @@ These requirements detail the responsibilities for OAuth authorization servers, 
 | **51.4.13** | [ADDED] Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | ✓ | ✓ | ✓ |
 | **51.4.14** | [MODIFIED, MOVED FROM 3.5.1] Verify that refresh tokens and reference access tokens can be revoked by an authorized user. It can be achieved by using the authorization server user interface, or by a client that is using authorization server APIs for revocation. | | ✓ | ✓ |
 | **51.4.15** | [ADDED] Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example by requiring the usage of pushed authorization request (PAR) or JWT-secured authorization request (JAR). | | | ✓ |
+| **51.4.16** | [ADDED] Verify that if the authorization server supports unauthenticated dynamic client registration, it mitigates the risk of malicious client applications. It must validate client metadata such as any registered URIs, ensure the user's consent and warn the user before processing an authorization request with an untrusted client application. | | ✓ | ✓ |
 
 ## V51.5 OIDC Client
 
