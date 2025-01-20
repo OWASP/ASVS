@@ -64,6 +64,7 @@ Complying with this section is likely to be operational and continuous.
 | **10.4.5** | [ADDED] Verify that the application only returns data which the user has permission to access. For example, the API response does not return a full object with attributes that contain values the user has no permission to access, despite having permission to access the data object itself. | ✓ | ✓ | ✓ | |
 | **10.4.6** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | | ✓ | ✓ | 348 |
 | **10.4.7** | [MODIFIED, MOVED FROM 5.1.1, LEVEL L1 > L2] Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | | ✓ | ✓ | 235 |
+| **10.4.8** | [ADDED] Verify that where the application back-end makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | | ✓ | ✓ | |
 
 ## V10.5 Security Architecture
 
