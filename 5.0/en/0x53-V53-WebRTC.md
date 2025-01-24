@@ -44,7 +44,7 @@ Systems that rely solely on peer-to-peer media communication between web browser
 | # | Description | L1 | L2 | L3 |
 | :---: | :--- | :---: | :---: | :---: |
 | **53.2.1** | [ADDED] Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | ✓ | ✓ | ✓ |
-| **53.2.2** | [ADDED] Verify that the media server is configured to use and support strong cipher suites for the Datagram Transport Layer Security (DTLS) exchange, ensuring that the selected cipher suites are considered strong and secure. | ✓ | ✓ | ✓ |
+| **53.2.2** | [ADDED] Verify that the media server is configured to use and support strong and secure DTLS cipher suites and DTLS-SRTP protection profiles. | ✓ | ✓ | ✓ |
 | **53.2.3** | [ADDED] Verify that the media server is not susceptible to the "WebRTC DTLS ClientHello Race Condition" vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | | ✓ | ✓ |
 | **53.2.4** | [ADDED] Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | ✓ | ✓ | ✓ |
 | **53.2.5** | [ADDED] Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | | ✓ | ✓ |
