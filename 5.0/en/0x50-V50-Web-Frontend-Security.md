@@ -55,7 +55,7 @@ The category should contain requirements with ideas:
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---: | :---: | :---: |
-| **50.4.1** | [MODIFIED, MOVED FROM 4.2.2, MERGED FROM 13.2.3] Verify that the application defends against Cross-Site Request Forgery (CSRF) attacks to protect authenticated or sensitive public functionality, using the development framework's built-in anti-CSRF functionality or CSRF tokens, along with additional defense-in-depth measures. | ✓ | ✓ | ✓ | 352 |
+| **50.4.1** | [MODIFIED, MOVED FROM 4.2.2, MERGED FROM 13.2.3] Verify that CORS-safelisted requests to sensitive functionality are checked to ensure that they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP headers that are not CORS-safelisted request-headers. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | ✓ | ✓ | ✓ | 352 |
 | **50.4.2** | [ADDED] Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | | ✓ | ✓ | 346 |
 | **50.4.3** | [ADDED, SPLIT FROM 14.5.3] Verify that the Origin header field is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
 
