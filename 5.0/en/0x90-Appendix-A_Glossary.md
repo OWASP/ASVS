@@ -3,6 +3,7 @@
 * **Absolute Maximum Session Lifetime** - Also referred to as "Overall Timeout" by NIST, this is the maximal amount of time a session can remain active following authentication regardless of user interaction. This is a component of session expiration.
 * **Address Space Layout Randomization** (ASLR) – A technique to make exploiting memory corruption bugs more difficult.
 * **Allowlist** – A list of permitted data or operations, for example, a list of characters that are allowed to perform input validation.
+* **Anti-forgery token** - A mechanism by which one or more tokens are passed in a request and validated by the application server to ensure that the request has come from an expected endpoint.
 * **Application Security** – Application-level security focuses on the analysis of components that comprise the application layer of the Open Systems Interconnection Reference Model (OSI Model), rather than focusing on for example the underlying operating system or connected networks.
 * **Application Security Verification** – The technical assessment of an application against the OWASP ASVS.
 * **Application Security Verification Report** – A report that documents the overall results and supporting analysis produced by the verifier for a particular application.
