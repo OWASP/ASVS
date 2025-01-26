@@ -57,7 +57,7 @@ The category should contain requirements with ideas:
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **50.4.1** | [MODIFIED, MOVED FROM 4.2.2, MERGED FROM 13.2.3] Verify that CORS-safelisted requests to sensitive functionality are checked to ensure that they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP headers that are not CORS-safelisted request-headers. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | ✓ | ✓ | ✓ | 352 |
 | **50.4.2** | [ADDED] Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | | ✓ | ✓ | 346 |
-| **50.4.3** | [ADDED, SPLIT FROM 14.5.3] Verify that the Origin header field is validated against a defined list of allowed origins to match the desired Cross-Origin Resource Sharing (CORS) policy. | ✓ | ✓ | ✓ | 346 |
+| **50.4.3** | [MODIFIED, MOVED FROM 13.2.5, SPLIT FROM 14.5.3] Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a CORS-safelisted request. This may require checking the values of the 'Origin' and 'Content-Type' request headers or using an extra header field that is not CORS-safelisted.| ✓ | ✓ | ✓ | 346 |
 
 ## V50.5 Cross-Site Script Inclusion
 
