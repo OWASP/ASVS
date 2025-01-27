@@ -71,3 +71,4 @@ For more information, see also:
 * [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
 * [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
 * The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+* [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)
