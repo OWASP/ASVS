@@ -139,7 +139,7 @@ class ASVS:
                         chapter['Items'].append(section)
 
                     regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|(.*?)\|"\
-                                        "(.*?)\|(.*?)\|([0-9,\s]*)\|([A-Z0-9/\s,.]*)\|{0,1}")
+                                        "(.*?)\|(.*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9/\s,.]*)\|{0,1}")
                     m = re.search(regex, line)
                     if m:
                     
