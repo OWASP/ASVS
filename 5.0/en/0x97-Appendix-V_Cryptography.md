@@ -309,4 +309,6 @@ The following KDFs are explicitly banned and MUST NOT be used due to insufficien
 
 ### Post-Quantum Encryption Standards
 
-PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there isn't any hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
+PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there is minimal hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
+
+Proposed hybrid TLS key exchange groups that are specified in [draft-tls-westerbaan-xyber768x00-03](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) and supported by major browsers such as [Firefox release 132](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) MAY be used in cryptographic testing environments and/or when available within industry- or government-approved libraries.
