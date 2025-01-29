@@ -65,7 +65,7 @@ The following is a list of _explicitly unauthorized_ ciphers. Whilst anything no
 | Symmetric Key Algorithms |
 |--|
 | 2TDEA |
-| 3TDEA (3DES) |
+| TDEA (3DES/3DEA) |
 | IDEA |
 | RC4 |
 | Blowfish|
