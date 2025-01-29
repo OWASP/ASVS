@@ -52,7 +52,7 @@ The following ciphers are approved:
 |--|--|--|--|--|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
 | Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | | ✓ | ✓ |
-| XChaCha20 |  | ✓ | ✓ | ✓ |
+| XChaCha20 | [XChaCha20 Draft](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-xchacha-03) | ✓ | ✓ | ✓ |
 | XSalsa20 | [Extending the Salsa20 nonce](https://cr.yp.to/snuffle/xsalsa-20110204.pdf) | ✓ | ✓ | ✓ |
 | ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | ✓ | ✓ | ✓ |
 | AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
