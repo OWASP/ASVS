@@ -156,9 +156,9 @@ The following hash functions are approved for use in general cryptographic use c
 | KMAC256 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
 | KMAC128 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
 | SHAKE256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | ✓ | ✓ | ✓ |
-| BLAKE2s | Y | | ✓ | ✓ | ✓ |
-| BLAKE2b | Y | | ✓ | ✓ | ✓ |
-| BLAKE3 | Y | | ✓ | ✓ | ✓ |
+| BLAKE2s | Y | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | ✓ | ✓ | ✓ |
+| BLAKE2b | Y | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | ✓ | ✓ | ✓ |
+| BLAKE3 | Y | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf) | ✓ | ✓ | ✓ |
 
 ### Approved Hash Functions for Password Storage
 
@@ -250,7 +250,7 @@ The following MAC algorithms are approved for use in securing messages by provid
 | HMAC-SHA-1        | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
 | KMAC128           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
 | KMAC256           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
-| Blake3            |                                                                                            | ✓                       | ✓  | ✓  | ✓  |
+| BLAKE3            |  [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | ✓                       | ✓  | ✓  | ✓  |
 
 Note that while SHA-1 should not be used in general, the usage of HMAC-SHA-1 is currently not considered to be problematic
 ([NIST SP 800-57](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)).
