@@ -182,7 +182,7 @@ The following hash functions MUST NOT be used in any cryptographic operation gen
 
 ### Disallowed Hash Functions for Digital Signatures
 
-For digital signature implementations, the following hash functions MUST NOT be used due to insufficient collision resistance:
+Due to insufficient collision resistance, the following hash functions MUST NOT be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
 
 | Hash functions | Reference |
 | -------------- | -------------------------------------------------------------- |
