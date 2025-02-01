@@ -251,9 +251,6 @@ The following MAC algorithms are approved for use in securing messages by provid
 | KMAC256           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
 | BLAKE3            |  [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | ✓                       | ✓  | ✓  | ✓  |
 
-Note that while SHA-1 should not be used in general, the usage of HMAC-SHA-1 is currently not considered to be problematic
-([NIST SP 800-57](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)).
-
 ### Disallowed MAC Algorithms
 
 The following algorithms are explicitly banned and MUST NOT be used due to known vulnerabilities or insufficient security strength:
