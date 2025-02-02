@@ -16,12 +16,12 @@ In 4.0, we moved away from the term "server-side" as a loaded trust boundary ter
 The "untrusted client" term here refers to client-side technologies that render the presentation layer, commonly referred to as 'front-end' technologies. The term 'serialization' in this context refers not only to transmitting data over the wire, such as an array of values or processing a JSON structure but also to the handling of complex objects that may contain logic.
 -->
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **1.5.1** | [SPLIT TO 1.11.5, 1.11.6] | | | | |
-| **1.5.2** | [DELETED, MERGED TO 5.5.3] | | | | |
-| **1.5.3** | [MOVED TO 11.3.4] | | | | |
-| **1.5.4** | [MOVED TO 5.6.2] | | | | |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **1.5.1** | [SPLIT TO 1.11.5, 1.11.6] | | |
+| **1.5.2** | [DELETED, MERGED TO 5.5.3] | | |
+| **1.5.3** | [MOVED TO 11.3.4] | | |
+| **1.5.4** | [MOVED TO 5.6.2] | | |
 
 ## V5.1 Input Validation
 
@@ -31,14 +31,14 @@ Properly implemented input validation controls, using positive allowlists and st
 
 Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, escaping, or sanitization when using the data for next component or for presenting it for output.
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.1.1** | [MOVED TO 10.4.7] | | | | |
-| **5.1.2** | [MOVED TO 10.4.4] | | | | |
-| **5.1.3** | [MOVED TO 11.3.1] | | | | |
-| **5.1.4** | [SPLIT TO 11.3.2, 11.3.3] | | | | |
-| **5.1.5** | [MODIFIED, SPLIT TO 50.8.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | ✓ | ✓ | ✓ | 601 |
-| **5.1.6** | [ADDED] Verify that the application validates that user-controlled input in HTTP request header fields does not exceed the server's maximum header field size limit (usually 4kB or 8kB) to prevent client-based denial of service attacks. | | ✓ | ✓ | |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **5.1.1** | [MOVED TO 10.4.7] | | |
+| **5.1.2** | [MOVED TO 10.4.4] | | |
+| **5.1.3** | [MOVED TO 11.3.1] | | |
+| **5.1.4** | [SPLIT TO 11.3.2, 11.3.3] | | |
+| **5.1.5** | [MODIFIED, SPLIT TO 50.8.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | 1 | 601 |
+| **5.1.6** | [ADDED] Verify that the application validates that user-controlled input in HTTP request header fields does not exceed the server's maximum header field size limit (usually 4kB or 8kB) to prevent client-based denial of service attacks. | 2 | |
 
 ## V5.2 Sanitization and Sandboxing
 
@@ -46,21 +46,21 @@ The ideal protection against using untrusted content in an unsafe context is usi
 
 Where it is not possible to do this, other options include sanitization and sandboxing. Sanitization will involve removing potentially dangerous characters or content which in some cases could change the semantic meaning of the input but for security reasons there may be no choice. Sandboxing may involve ensuring that a potentially dangerous operation is contained such that even if it suffers a security vulnerability, that will not endanger the wider application.
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.2.1** | [MODIFIED] Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized using a well-known and secure HTML sanitization library or framework feature. | ✓ | ✓ | ✓ | 116 |
-| **5.2.2** | [MODIFIED] Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | ✓ | ✓ | ✓ | 138 |
-| **5.2.3** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 147 |
-| **5.2.4** | [MODIFIED, COVERS 5.5.4] Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 95 |
-| **5.2.5** | [MODIFIED] Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | ✓ | ✓ | ✓ | 94 |
-| **5.2.6** | [MODIFIED] Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | ✓ | ✓ | ✓ | 918 |
-| **5.2.7** | [MODIFIED] Verify that user-supplied Scalable Vector Graphics (SVG) scriptable content is validated or sanitized to contain only tags and attributes (such as draw graphics) that are safe for the application, e.g., do not contain scripts and foreignObject. | ✓ | ✓ | ✓ | 159 |
-| **5.2.8** | Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | ✓ | ✓ | ✓ | 94 |
-| **5.2.9** | [ADDED] Verify that the application uses slashes to correctly escape special characters being used in regular expressions to ensure they are not misinterpreted as control characters. | ✓ | ✓ | ✓ | 624 |
-| **5.2.10** | [ADDED] Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | ✓ | ✓ | ✓ | 1333 |
-| **5.2.11** | [ADDED] Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured as securely as possible to prevent JNDI injection attacks. | ✓ | ✓ | ✓ | 917 |
-| **5.2.12** | [ADDED] Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | | ✓ | ✓ | |
-| **5.2.13** | [MODIFIED, MOVED FROM 5.4.2] Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | | ✓ | ✓ | 134 |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **5.2.1** | [MODIFIED] Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized using a well-known and secure HTML sanitization library or framework feature. | 1 | 116 |
+| **5.2.2** | [MODIFIED] Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | 1 | 138 |
+| **5.2.3** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | 1 | 147 |
+| **5.2.4** | [MODIFIED, COVERS 5.5.4] Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | 1 | 95 |
+| **5.2.5** | [MODIFIED] Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | 1 | 94 |
+| **5.2.6** | [MODIFIED] Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | 1 | 918 |
+| **5.2.7** | [MODIFIED] Verify that user-supplied Scalable Vector Graphics (SVG) scriptable content is validated or sanitized to contain only tags and attributes (such as draw graphics) that are safe for the application, e.g., do not contain scripts and foreignObject. | 1 | 159 |
+| **5.2.8** | Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | 1 | 94 |
+| **5.2.9** | [ADDED] Verify that the application uses slashes to correctly escape special characters being used in regular expressions to ensure they are not misinterpreted as control characters. | 1 | 624 |
+| **5.2.10** | [ADDED] Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | 1 | 1333 |
+| **5.2.11** | [ADDED] Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured as securely as possible to prevent JNDI injection attacks. | 1 | 917 |
+| **5.2.12** | [ADDED] Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | 2 | |
+| **5.2.13** | [MODIFIED, MOVED FROM 5.4.2] Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | 2 | 134 |
 
 Note: The SVG format explicitly allows ECMA script in almost all contexts, so it may not be possible to block all SVG XSS vectors completely. If SVG upload is required, we strongly recommend either serving these uploaded files as text/plain or using a separate user-supplied content domain to prevent successful XSS from taking over the application.
 
@@ -70,21 +70,21 @@ Output encoding or escaping close or adjacent to a potentially dangerous context
 
 In many cases, software libraries will include safe or safer functions which will do this automatically although it will be necessary to be sure that they are correct for the current context.
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.3.1** | [MODIFIED, SPLIT TO 5.3.13] Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP header fields, to avoid changing the message or document structure. | ✓ | ✓ | ✓ | 116 |
-| **5.3.2** | [DELETED, COVERED BY 13.1.7] | | | | |
-| **5.3.3** | [MODIFIED, SPLIT TO 50.6.2, COVERS 5.3.6] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | ✓ | ✓ | ✓ | |
-| **5.3.4** | [MODIFIED, COVERS 5.3.5] Verify that data selection or database queries (e.g., SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | ✓ | ✓ | ✓ | 89 |
-| **5.3.5** | [DELETED, COVERED BY 5.3.4] | | | | |
-| **5.3.6** | [DELETED, COVERED BY 5.3.3] | | | | |
-| **5.3.7** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | ✓ | ✓ | ✓ | 90 |
-| **5.3.8** | [COVERS 12.3.5] Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | ✓ | ✓ | ✓ | 78 |
-| **5.3.9** | [DELETED, MERGED TO 12.3.1] | | | | |
-| **5.3.10** | [MODIFIED] Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | ✓ | ✓ | ✓ | 643 |
-| **5.3.11** | [ADDED] Verify that the application is protected against CSV and Formula Injection. The application should follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV files. The application should escape special characters including '=', '+', '-', '@' '\t' (tab) and '\00' (null character) using a single quote, if they are the first character in a field, when exporting CSV files and other spreadsheet formats such as xls, xlsx, odf. | ✓ | ✓ | ✓ | 1236 |
-| **5.3.12** | [ADDED] Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | | ✓ | ✓ | |
-| **5.3.13** | [ADDED, SPLIT FROM 5.3.1] Verify that when dynamically building URLs, untrusted data is encoded according to its context (e.g., URL encoding or base64url encoding for query or path parameters). Ensure that only safe URL protocols are permitted (e.g., disallow javascript: or data:). | ✓ | ✓ | ✓ | 116 |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **5.3.1** | [MODIFIED, SPLIT TO 5.3.13] Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP header fields, to avoid changing the message or document structure. | 1 | 116 |
+| **5.3.2** | [DELETED, COVERED BY 13.1.7] | | |
+| **5.3.3** | [MODIFIED, SPLIT TO 50.6.2, COVERS 5.3.6] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | 1 | |
+| **5.3.4** | [MODIFIED, COVERS 5.3.5] Verify that data selection or database queries (e.g., SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | 1 | 89 |
+| **5.3.5** | [DELETED, COVERED BY 5.3.4] | | |
+| **5.3.6** | [DELETED, COVERED BY 5.3.3] | | |
+| **5.3.7** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | 1 | 90 |
+| **5.3.8** | [COVERS 12.3.5] Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | 1 | 78 |
+| **5.3.9** | [DELETED, MERGED TO 12.3.1] | | |
+| **5.3.10** | [MODIFIED] Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 1 | 643 |
+| **5.3.11** | [ADDED] Verify that the application is protected against CSV and Formula Injection. The application should follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV files. The application should escape special characters including '=', '+', '-', '@' '\t' (tab) and '\00' (null character) using a single quote, if they are the first character in a field, when exporting CSV files and other spreadsheet formats such as xls, xlsx, odf. | 1 | 1236 |
+| **5.3.12** | [ADDED] Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 | |
+| **5.3.13** | [ADDED, SPLIT FROM 5.3.1] Verify that when dynamically building URLs, untrusted data is encoded according to its context (e.g., URL encoding or base64url encoding for query or path parameters). Ensure that only safe URL protocols are permitted (e.g., disallow javascript: or data:). | 1 | 116 |
 
 Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
@@ -92,24 +92,24 @@ Note: Using parameterized queries or escaping SQL is not always sufficient; tabl
 
 The following requirements will only apply when the application uses a systems language or unmanaged code.
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | | ✓ | ✓ | 120 |
-| **5.4.2** | [MOVED TO 5.2.13] | | | | |
-| **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | | ✓ | ✓ | 190 |
-| **5.4.4** | [ADDED] Verify that dynamically allocated memory and resources are properly released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | | ✓ | ✓ | 416 |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **5.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 | 120 |
+| **5.4.2** | [MOVED TO 5.2.13] | | |
+| **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | 2 | 190 |
+| **5.4.4** | [ADDED] Verify that dynamically allocated memory and resources are properly released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | 2 | 416 |
 
 ## V5.5 Safe Deserialization
 
 Conversion of data from some sort of stored or transmitted representation into actual application objects (deserialization) has historically been the cause of a variety of code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.5.1** | [DELETED, INCORRECT] | | | | |
-| **5.5.2** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | ✓ | ✓ | ✓ | 611 |
-| **5.5.3** | [MODIFIED, MERGED FROM 1.5.2] Verify that deserialization with untrusted clients enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure (such as BinaryFormatter) must not be used with untrusted input. | ✓ | ✓ | ✓ | 502 |
-| **5.5.4** | [DELETED, COVERED BY 5.2.4] | | | | |
-| **5.5.5** | [MODIFIED, MOVED FROM 13.1.1, LEVEL L1 > L2] Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | | ✓ | ✓ | 436 |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **5.5.1** | [DELETED, INCORRECT] | | |
+| **5.5.2** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | 1 | 611 |
+| **5.5.3** | [MODIFIED, MERGED FROM 1.5.2] Verify that deserialization with untrusted clients enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure (such as BinaryFormatter) must not be used with untrusted input. | 1 | 502 |
+| **5.5.4** | [DELETED, COVERED BY 5.2.4] | | |
+| **5.5.5** | [MODIFIED, MOVED FROM 13.1.1, LEVEL L1 > L2] Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 2 | 436 |
 
 ## V5.6 Validation and Sanitization Architecture
 
@@ -128,10 +128,10 @@ The requirement does not belong here, if it is:
 reorg: move it to 1st chapter in the paragraph
 -->
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **5.6.1** | [ADDED] Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | ✓ | ✓ | ✓ | 174 |
-| **5.6.2** | [MODIFIED, MOVED FROM 1.5.4] Verify that the application performs output encoding and escaping either as a final step before being used by the interpreter for which it is intended or by the interpreter itself. | | ✓ | ✓ | 116 |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **5.6.1** | [ADDED] Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | 1 | 174 |
+| **5.6.2** | [MODIFIED, MOVED FROM 1.5.4] Verify that the application performs output encoding and escaping either as a final step before being used by the interpreter for which it is intended or by the interpreter itself. | 2 | 116 |
 
 ## References
 
