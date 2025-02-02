@@ -10,11 +10,11 @@ The use of self-contained tokens has become very widespread, even outside of OID
 
 Before inspecting the contents of a self-contained token, it is necessary to ensure that the token has been produced by a trusted party and that it has not been tampered with.
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **52.1.1** | [MODIFIED, MOVED FROM 3.5.3, LEVEL L2 > L1] Verify that self-contained tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | ✓ | ✓ | ✓ | 345 |
-| **52.1.2** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify self-contained tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | ✓ | ✓ | ✓ | 757 |
-| **52.1.3** | [ADDED] Verify that key material that is used to validate self-contained tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | ✓ | ✓ | ✓ | |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **52.1.1** | [MODIFIED, MOVED FROM 3.5.3, LEVEL L2 > L1] Verify that self-contained tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | 1 | 345 |
+| **52.1.2** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify self-contained tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | 1 | 757 |
+| **52.1.3** | [ADDED] Verify that key material that is used to validate self-contained tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | 1 | |
 
 ## V52.2 Using token content
 
@@ -22,11 +22,11 @@ Before making security decisions based on the content of a self-contained token,
 
 Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
 
-| # | Description | L1 | L2 | L3 | CWE |
-| :---: | :--- | :---: | :---: | :---: | :---: |
-| **52.2.1** | [ADDED] Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs the claims 'nbf' and 'exp' must be verified. | ✓ | ✓ | ✓ | 613 |
-| **52.2.2** | [ADDED] Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID tokens can be used for proving user authentication. | ✓ | ✓ | ✓ | |
-| **52.2.3** | [ADDED] Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | ✓ | ✓ | ✓ | |
+| # | Description | Level | CWE |
+| :---: | :--- | :---: | :---: |
+| **52.2.1** | [ADDED] Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs the claims 'nbf' and 'exp' must be verified. | 1 | 613 |
+| **52.2.2** | [ADDED] Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID tokens can be used for proving user authentication. | 1 | |
+| **52.2.3** | [ADDED] Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | 1 | |
 
 ## References
 
