@@ -66,7 +66,12 @@ $(DISTDIR):
 
 # transform origin md files. needed by the next stages
 $(BUILDDIR)/%.md: $(SOURCE_FILES) $(BUILD_FOLDERS) $(BUILDDIR)
-	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(patsubst $(BUILDDIR)/%, $(SOURCEDIR)/%, $@) > $@
+	sed -E \
+		-e 's#(\| ?)([0-9]{2,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#' \ # Add links to CWE definitions
+		-e 's#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#' \ # Adjust table formatting
+		-e 's#.(./images/)#\1#' \ # Fix image paths
+		-e 's#(\\)([rntv])#\\escape{\2}#g' \ # Escape special characters
+		$(patsubst $(BUILDDIR)/%, $(SOURCEDIR)/%, $@) > $@
 
 $(DIST_FOLDERS): $(DISTDIR)
 	echo $@
