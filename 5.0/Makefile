@@ -66,7 +66,7 @@ $(DISTDIR):
 
 # transform origin md files. needed by the next stages
 $(BUILDDIR)/%.md: $(SOURCE_FILES) $(BUILD_FOLDERS) $(BUILDDIR)
-	sed -E 's#(\| ?)([0-9]{1,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(patsubst $(BUILDDIR)/%, $(SOURCEDIR)/%, $@) > $@
+	sed -E 's#(\| ?)([0-9]{2,4})( ?\|)#\1[\2](https://cwe.mitre.org/data/definitions/\2.html)\3#; s#^(\| :?---:? \| :?)---( .*)#\| :-----: \| :---------------------------------------------------\2#; s#.(./images/)#\1#; s#(\\)([rntv])#\\escape{\2}#g' $(patsubst $(BUILDDIR)/%, $(SOURCEDIR)/%, $@) > $@
 
 $(DIST_FOLDERS): $(DISTDIR)
 	echo $@
