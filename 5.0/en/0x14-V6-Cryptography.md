@@ -98,7 +98,7 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 | :---: | :--- | :---: | :---: |
 | **6.6.1** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Disallowed hash functions, such as MD5, must not be used for any cryptographic purpose. | 2 | |
 | **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4, COVERS 2.5.3] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | 2 | |
-| **6.6.3** | [ADDED] Verify that hash functions used in digital signatures are collision resistant and have appropriate bit-lengths to avoid attacks, such as collision or pre-image attacks. | 1 | |
+| **6.6.3** | [ADDED] Verify that hash functions used in digital signatures, as part of data authentication or data integrity are collision resistant and have appropriate bit-lengths. If collision resistance is required, the output length must be at least 256 bits. If only resistance to second pre-image attacks is required, the output length must be at least 128 bits. | 1 | |
 
 ## V6.7 Key Exchange Mechanisms
 
