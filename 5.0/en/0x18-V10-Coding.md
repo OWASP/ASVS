@@ -65,6 +65,7 @@ Complying with this section is likely to be operational and continuous.
 | **10.4.6** | [ADDED] Verify that the application is able to discern and utilizes the user's true IP address to provide for sensitive functions, including rate limiting and logging. | 2 | 348 |
 | **10.4.7** | [MODIFIED, MOVED FROM 5.1.1, LEVEL L1 > L2] Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | 2 | 235 |
 | **10.4.8** | [ADDED] Verify that where the application back-end makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | 2 | |
+| **10.4.9** | [ADDED] Verify that, if the application (back-end or front-end) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 2 | |
 
 ## V10.5 Security Architecture
 
