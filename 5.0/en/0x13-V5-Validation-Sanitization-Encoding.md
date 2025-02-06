@@ -37,7 +37,7 @@ Input validation provides valuable hygiene for the application in making sure th
 | **5.1.2** | [MOVED TO 10.4.4] | | |
 | **5.1.3** | [MOVED TO 11.3.1] | | |
 | **5.1.4** | [SPLIT TO 11.3.2, 11.3.3] | | |
-| **5.1.5** | [MODIFIED, SPLIT TO 50.8.1] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | 1 | 601 |
+| **5.1.5** | [SPLIT TO 50.8.1, 50.8.5] | | |
 
 ## V5.2 Sanitization and Sandboxing
 
