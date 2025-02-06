@@ -61,7 +61,7 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 Possible sources of frequently used passwords for requirement 2.1.7 include:
 
 * <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
-* <https://www.ncsc.gov.uk/blog-post/passwords-passwords-everywhere>
+* <https://www.ncsc.gov.uk/static-assets/documents/PwnedPasswordsTop100k.txt>
 
 ## V2.2 General Authentication Security
 
