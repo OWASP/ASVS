@@ -100,6 +100,7 @@ it may need other separate section for "end-user protection via UI"
 | **50.8.2** | [MODIFIED, MOVED FROM 1.14.6] Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | 2 | 477 |
 | **50.8.3** | [ADDED] Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features. | 3 | |
 | **50.8.4** | [ADDED] Verify that the application's top-level domain (e.g., site.tld) is added to the public HSTS preload list so that the use of TLS for the application is built directly into the main browsers, rather than relying only on the relevant HTTP response header field. | 3 | |
+| **50.8.5** | [ADDED, SPLIT FROM 5.1.5] Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | 1 | 601 |
 
 ## References
 
