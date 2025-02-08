@@ -113,7 +113,7 @@ As the OIDC Relying Party acts as an OAuth client, the requirements from the sec
 | **51.5.2** | [ADDED] Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 1 |
 | **51.5.3** | [ADDED] Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by client. | 1 |
 | **51.5.4** | [ADDED] Verify that the client validates that the ID token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 1 |
-| **51.5.5** | [ADDED] Verify that, if specific authentication strength, authentication methods or recentness is required, the RP verifies that the presented ID-token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 |
+| **51.5.5** | [ADDED] Verify that, if specific authentication strength, methods or recentness is required, the RP verifies that the presented ID-token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 |
 
 ## V51.6 OpenID Provider
 
