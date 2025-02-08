@@ -78,6 +78,7 @@ Therefore, the requirements listed here are OAuth or OIDC specific and should be
 | **51.3.2** | [ADDED] Verify that the resource server only accepts access tokens that are intended for use with that service (audience). The audience may be included in a structured access token (such as the 'aud' claim in JWT) or it can be checked using the token introspection endpoint. | 1 |
 | **51.3.3** | [ADDED] Verify that the resource server enforces authorization decisions based on claims from the access token that define delegated authorization. If claims such as 'sub', 'scope', and 'authorization_details' are present, they should be part of the decision. | 1 |
 | **51.3.4** | [ADDED] Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that can not be reassigned to other users. Typically it means using a combination of 'iss' and 'sub' claims. | 1 |
+| **51.3.5** | [ADDED] Verify that, if the resource server requires specific authentication strength, methods or recentness, it verifies that the presented access token satisfies these constraints. For example, if present, using the OIDC 'acr', 'amr' and 'auth_time' claims respectively. | 2 |
 
 ## V51.4 OAuth Authorization Server
 
@@ -112,6 +113,7 @@ As the OIDC Relying Party acts as an OAuth client, the requirements from the sec
 | **51.5.2** | [ADDED] Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 1 |
 | **51.5.3** | [ADDED] Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by client. | 1 |
 | **51.5.4** | [ADDED] Verify that the client validates that the ID token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 1 |
+| **51.5.5** | [ADDED] Verify that, if specific authentication strength, authentication methods or recentness is required, the RP verifies that the presented ID-token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 |
 
 ## V51.6 OpenID Provider
 
