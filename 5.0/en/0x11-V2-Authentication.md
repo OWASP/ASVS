@@ -6,8 +6,6 @@ Authentication is the process of establishing or confirming the authenticity of 
 
 Adoption of effective, evidence-based leading practice will be challenging for many, and that's perfectly okay. We have to start the transition to a post-password future now.
 
-**NIST SP 800-63 - A modern, evidence-based authentication standard**
-
 [NIST SP 800-63](https://pages.nist.gov/800-63-3/) is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
 
 For this chapter, it was useful to refer to the second section of the NIST standard known as NIST SP 800-63B "Digital Identity Guidelines - Authentication and Lifecycle Management" when preparing requirements.
