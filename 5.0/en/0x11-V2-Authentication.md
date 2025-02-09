@@ -6,15 +6,15 @@ Authentication is the process of establishing or confirming the authenticity of 
 
 Adoption of effective, evidence-based leading practice will be challenging for many, and that's perfectly okay. We have to start the transition to a post-password future now.
 
-## NIST SP 800-63 - Modern, evidence-based authentication standard
+**NIST SP 800-63 - A modern, evidence-based authentication standard**
 
-[NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
+[NIST SP 800-63](https://pages.nist.gov/800-63-3/) is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
 
-NIST SP 800-63 terminology can be a little confusing and we have tried to standardise the terminology to optimize for clarity, using more commonly understood terminology where possible.
+For this chapter, it was useful to refer to the second section of the NIST standard known as NIST SP 800-63B "Digital Identity Guidelines - Authentication and Lifecycle Management" when preparing requirements.
 
-As such, whilst this chapter aligns to a subset of selected NIST SP 800-63B controls, we have focused on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
+However, NIST SP 800-63 terminology can sometimes be a little hard to understand and we have therefore tried to use more commonly understood terminology where possible. to make the chapter clearer.
 
-We strongly urge US government agencies to review and implement NIST SP 800-63 in its entirety.
+This means that whilst this chapter aligns to a subset of selected NIST SP 800-63B controls, we have focused on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
 
 ## V1.2 Authentication Documentation
 
@@ -39,7 +39,7 @@ Applications should strongly encourage users to enroll in multi-factor authentic
 
 Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name just a few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
 
-The requirements in this section mostly relate to section [5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -71,7 +71,7 @@ NIST considers SMS as a ["restricted" authentication mechanism](https://pages.ni
 
 NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism.
 
-The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: 4.2.1, 4.3.1, 5.2.2, and 6.1.2.
+The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling), and [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -118,7 +118,7 @@ In particular, note that since these algorithms are intentionally compute-intens
 
 ## V2.5 Credential Recovery
 
-The requirements in this section mostly relate to section [5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -144,7 +144,7 @@ Lookup secrets are pre-generated lists of secret codes, similar to Transaction A
 
 More details on out-of-band mechanisms and time based One-time Passwords (TOTPs) mechanism will be provided in subsequent sections.
 
-The requirements in these sections mostly relate to sections [5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -158,7 +158,7 @@ The requirements in these sections mostly relate to sections [5.1.2](https://pag
 
 This will generally involve the authentication server communicating with a physical device over a secure secondary channel. Examples include push notifications to mobile devices and One-time Passwords (OTPs) sent to a user via SMS. This type of authentication mechanism is considered "something you have".
 
-Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B &sect; 5.1.3.3.
+Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -194,7 +194,7 @@ Cryptographic authentication mechanism include smart cards or FIDO keys, where t
 
 The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic device proves possession of the authentication factor.
 
-The requirements in this section mostly relate to section [5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
