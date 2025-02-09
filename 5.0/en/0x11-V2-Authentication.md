@@ -150,8 +150,8 @@ The requirements in these sections mostly relate to sections [5.1.2](https://pag
 | :---: | :--- | :---: | :---: |
 | **2.6.1** | [MODIFIED, MERGED FROM 2.8.4, SPLIT FROM 2.7.3, COVERS 2.2.6] Verify that lookup secrets, out-of-band authentication requests or codes, and time-based, one-time passwords (TOTPs) are only usable once. | 2 | 308 |
 | **2.6.2** | [MODIFIED, SPLIT TO 2.6.4] Verify that, when being stored in the application's back-end, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 | 330 |
-| **2.6.3** | [MODIFIED] Verify that lookup secrets are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | 310 |
-| **2.6.4** | [ADDED, SPLIT FROM 2.6.2] Verify that lookup secrets have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | 330 |
+| **2.6.3** | [MODIFIED, MERGED FROM 2.8.3, SPLIT FROM 2.7.6] Verify that lookup secrets, out-of-band authentication code, and time-based, one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | 310 |
+| **2.6.4** | [ADDED, SPLIT FROM 2.6.2, 2.7.6] Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | 330 |
 
 ## V2.7 Out-of-Band authentication mechanisms
 
@@ -166,7 +166,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | **2.7.3** | [MODIFIED, SPLIT TO 2.6.1] Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request. | 1 | 287 |
 | **2.7.4** | [GRAMMAR] Verify that the secondary communications channel being used is secure and independent of the primary channel. | 1 | 523 |
 | **2.7.5** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.7.6** | [MODIFIED] Verify that codes used in out-of-band authentication are generated using a cryptographically secure random number generator (CSPRNG) and contain at least 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | 310 |
+| **2.7.6** | [SPLIT TO 2.6.3, 2.6.4] | | |
 | **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | 2 | 307 |
 | **2.7.8** | [ADDED] Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | 3 | |
 
@@ -180,7 +180,7 @@ Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN c
 | :---: | :--- | :---: | :---: |
 | **2.8.1** | [GRAMMAR] Verify that time-based, one-time passwords have a defined lifetime before expiring. | 1 | 613 |
 | **2.8.2** | [DELETED, COVERED BY 14.8.1] | | |
-| **2.8.3** | [GRAMMAR] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of time-based, one-time passwords. | 2 | 326 |
+| **2.8.3** | [MERGED TO 2.6.3] | | |
 | **2.8.4** | [MERGED TO 2.6.1] | | |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | 3 | 613 |
