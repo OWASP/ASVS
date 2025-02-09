@@ -130,11 +130,21 @@ The requirements in this section mostly relate to section [5.1.1.2](https://page
 | **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 1 | 640 |
 | **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | 1 | 308 |
 
-## V2.6 Lookup Secrets
+## V2.6 General Multi-factor authentication requirements
 
-Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. These are distributed securely to users. These lookup codes are single-use. Once all are utilized, the lookup secret list is discarded. This type of authentication mechanism is considered "something you have".
+This section provides general guidance that will be relevant to various different multi-factor authentication methods.
 
-The requirements in this section mostly relate to section [5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+The mechanisms include:
+
+* Lookup Secrets
+* Out-of-Band mechanisms
+* Time based One-time Passwords (TOTPs)
+
+Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. This type of authentication mechanism is considered "something you have" since the codes are random so you need to have stored them somewhere.
+
+More details on out-of-band mechanisms and time based One-time Passwords (TOTPs) mechanism will be provided in subsequent sections.
+
+The requirements in these sections mostly relate to sections [5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -145,17 +155,9 @@ The requirements in this section mostly relate to section [5.1.2](https://pages.
 
 ## V2.7 Out-of-Band authentication mechanisms
 
-In the past, a common out-of-band authentication mechanism would have been an email or SMS containing a password reset link. Attackers use this weak mechanism to reset accounts they don't yet control, such as taking over a person's email account and re-using any discovered reset links. There are better ways to handle out-of-band verification.
-
-Secure out-of-band authentication mechanisms will generally involve the authentication server communicating with a physical device over a secure secondary channel. Examples include push notifications to mobile devices. This type of authentication mechanism is considered "something you have".
-
-The communication may includes an authentication code, typically a random number/code (which will get sent back as confirmation via the primary channel), or feature some form of approval dialog. The authentication server waits to receive the confirmation and if it is received correctly can consider authenticated to have succeeded.
-
-The ASVS assumes that few developers will be developing new types of out-of-band authentication mechanism but rather will be utilizing existing types. As such, the following ASVS requirements focus on existing mechanisms. If developing a new type of out-of-band mechanism, please refer to NIST SP 800-63B &sect; 5.1.3.1.
+This will generally involve the authentication server communicating with a physical device over a secure secondary channel. Examples include push notifications to mobile devices and One-time Passwords (OTPs) sent to a user via SMS. This type of authentication mechanism is considered "something you have".
 
 Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B &sect; 5.1.3.3.
-
-The requirements in this section mostly relate to section [5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -170,11 +172,9 @@ The requirements in this section mostly relate to section [5.1.3](https://pages.
 
 ## V2.8 Time based One-time Passwords
 
-Single-factor, time-based, one-time passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have".
+Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have".
 
 Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
-
-The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: 5.1.4.2, 5.1.5.2, 5.2.1, and 5.2.3.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
