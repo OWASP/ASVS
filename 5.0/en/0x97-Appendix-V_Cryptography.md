@@ -138,6 +138,22 @@ Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F]
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
 
+### Authenticated Encryption
+
+With the exception of disk encryption, encrypted data must be protected against unauthorized modification using some form of authenticated encryption (AE) scheme, usually using an authenticated encryption with associated data (AEAD) scheme.
+
+The application should preferably use an approved AEAD scheme. It might alternatively combine an approved cipher scheme and an approved MAC algorithm with a Encrypt-then-MAC construct.
+
+MAC-then-encrypt is still allowed for compatibility with legacy applications. It is used in TLS v1.2 with old ciphers suites.
+
+| AEAD mechanism | Reference | Status
+|--------------------------|---------|-----|
+|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | approved
+|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | approved
+|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | approved
+|Encrypt-then-MAC | | approved
+|MAC-then-encrypt | | legacy
+
 ## Hash Functions (V6.6)
 
 ### Approved Hash Functions for General Use Cases
