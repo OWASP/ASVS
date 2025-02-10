@@ -78,7 +78,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10, COVERS 2.5.5] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 1 | 778 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | 3 | 308 |
 | **2.2.5** | [MOVED TO 9.3.3] | | |
-| **2.2.6** | [DELETED, COVERED BY 2.7.3, 2.8.4] | | |
+| **2.2.6** | [DELETED, COVERED BY 2.6.1] | | |
 | **2.2.7** | [DELETED, MERGED TO 2.2.4] | | |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | 3 | |
 | **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a requires a combination of single-factor authentication mechanisms. | 2 | 308 |
@@ -150,7 +150,7 @@ The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages
 | **2.6.2** | [MODIFIED, SPLIT TO 2.6.4] Verify that, when being stored in the application's back-end, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 | 330 |
 | **2.6.3** | [MODIFIED, MERGED FROM 2.8.3, SPLIT FROM 2.7.6] Verify that lookup secrets, out-of-band authentication code, and time-based, one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | 310 |
 | **2.6.4** | [ADDED, SPLIT FROM 2.6.2, 2.7.6] Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | 330 |
-| **2.6.5** | [ADDED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. For out of band this should be 10 minutes and for TOTP this should be as short as possible, usually 30 seconds. | 1 | 287 |
+| **2.6.5** | [MODIFIED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. For out of band this should be 10 minutes and for TOTP this should be as short as possible, usually 30 seconds. | 1 | 287 |
 
 ## V2.7 Out-of-Band authentication mechanisms
 
@@ -177,10 +177,10 @@ Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN c
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **2.8.1** | [MERGED TO 2.6.5] | | |
+| **2.8.1** | [DELETED, MERGED TO 2.6.5] | | |
 | **2.8.2** | [DELETED, COVERED BY 14.8.1] | | |
-| **2.8.3** | [MERGED TO 2.6.3] | | |
-| **2.8.4** | [MERGED TO 2.6.1] | | |
+| **2.8.3** | [DELETED, MERGED TO 2.6.3] | | |
+| **2.8.4** | [DELETED, MERGED TO 2.6.1] | | |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | 3 | 613 |
 | **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | 308 |
