@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Authorization is the process of allowing access only to permitted consumers (users, servers and other clients). Ensure that a verified application satisfies the following high-level requirements:
+Authorization ensures that access is granted only to permitted consumers (users, servers, and other clients). To enforce the Principle of Least Privilege (POLP), verified applications must meet the following high-level requirements:
 
 * Document access control rules, including decision-making factors and environmental contexts.
 * Consumers should have access only to resources permitted by their defined entitlements.
