@@ -178,7 +178,7 @@ Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN c
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **2.8.1** | [DELETED, MERGED TO 2.6.5] | | |
-| **2.8.2** | [GRAMMAR] Verify that symmetric keys used to verify submitted time-based, one-time passwords are highly protected, such as by using a hardware security module or secure operating system based key storage. | 2 | 320 |
+| **2.8.2** | [DELETED, COVERED BY 14.8.1] | | |
 | **2.8.3** | [DELETED, MERGED TO 2.6.3] | | |
 | **2.8.4** | [DELETED, MERGED TO 2.6.1] | | |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
