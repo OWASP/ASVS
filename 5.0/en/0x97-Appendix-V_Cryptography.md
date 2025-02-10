@@ -138,19 +138,13 @@ Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F]
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
 
-# Authenticated Encryption
+### Authenticated Encryption
 
-With the exception of disk encryption,
-encrypted data must be protected against unauthorized modification
-using some form of authenticated encryption (AE) scheme,
-usually using an authenticated encryption with associated data (AEAD) scheme.
+With the exception of disk encryption, encrypted data must be protected against unauthorized modification using some form of authenticated encryption (AE) scheme, usually using an authenticated encryption with associated data (AEAD) scheme.
 
-The application should preferably use an approved AEAD scheme.
-It might alternatively combine an approved cipher scheme
-and an approved MAC algorithm with a Encrypt-then-MAC construct.
+The application should preferably use an approved AEAD scheme. It might alternatively combine an approved cipher scheme and an approved MAC algorithm with a Encrypt-then-MAC construct.
 
-MAC-then-encrypt is still allowed for compatibility with legacy applications.
-It is used in TLS v1.2 with old ciphers suites.
+MAC-then-encrypt is still allowed for compatibility with legacy applications. It is used in TLS v1.2 with old ciphers suites.
 
 | AEAD mechanism | Reference | Status
 |--------------------------|---------|-----|
