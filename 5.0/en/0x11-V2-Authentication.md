@@ -179,7 +179,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **2.8.1** | [GRAMMAR] Verify that time-based, one-time passwords have a defined lifetime before expiring. | 1 | 613 |
-| **2.8.2** | [GRAMMAR] Verify that symmetric keys used to verify submitted time-based, one-time passwords are highly protected, such as by using a hardware security module or secure operating system based key storage. | 2 | 320 |
+| **2.8.2** | [DELETED, COVERED BY 14.8.1] | | |
 | **2.8.3** | [GRAMMAR] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of time-based, one-time passwords. | 2 | 326 |
 | **2.8.4** | [GRAMMAR, COVERS 2.2.6] Verify that a time-based, one-time password can be used only once within the validity period. | 2 | 287 |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
