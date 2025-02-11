@@ -182,7 +182,7 @@ Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN c
 | **2.8.3** | [DELETED, MERGED TO 2.6.3] | | |
 | **2.8.4** | [DELETED, MERGED TO 2.6.1] | | |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that physical single-factor OTP generators can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. | 3 | 613 |
+| **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 | 613 |
 | **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | 308 |
 | **2.8.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | 367 |
 
