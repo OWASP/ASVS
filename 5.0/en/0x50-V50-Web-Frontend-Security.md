@@ -46,7 +46,7 @@ HTTP responses must include security headers to set rules to how browsers can se
 
 When accepting a request to sensitive functionality on the server side, we need to be sure it is initiated by the application itself or by a trusted party and has not been forged by an attacker.
 
-Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state changing operations,  resource-demanding functionality (such as data export), etc.
+Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state changing operations or resource-demanding functionality (such as data export).
 
 The key protections here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies. Another common protection is the CORS preflight mechanism. This mechanism will be critical for endpoints designed to be called from a different origin, but it can also be a useful request forgery prevention mechanism for endpoints which are not designed to be called from a different origin.
 
@@ -77,7 +77,7 @@ Rendering content or functionality in an incorrect context can lead to a wide va
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **50.6.1** | [MODIFIED, MOVED FROM 12.5.2, MERGED FROM 1.12.2, 14.4.2] Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields, such as Sec-Fetch-\*, indicate it is the correct context, Content-Security-Policy: sandbox, Content-Disposition: attachment, etc. | 1 | |
+| **50.6.1** | [MODIFIED, MOVED FROM 12.5.2, MERGED FROM 1.12.2, 14.4.2] Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields, such as Sec-Fetch-\*, indicate it is the correct context, using the "Content-Security-Policy: sandbox" header or using the "Content-Disposition: attachment header". | 1 | |
 | **50.6.2** | [ADDED, SPLIT FROM 5.3.3] Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 | |
 
 ## V50.7 External Resource Integrity

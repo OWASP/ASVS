@@ -78,7 +78,7 @@ Applications must release system resources like database connections, open files
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **12.7.1** | [ADDED] Verify that the application proactively releases system resources, such as database connections, open files, threads, etc, when it finishes using them to prevent resource exhaustion. | 2 | 404 |
+| **12.7.1** | [ADDED] Verify that the application proactively releases system resources, such as database connections, open files and threads when it finishes using them to prevent resource exhaustion. | 2 | 404 |
 
 ## References
 

@@ -91,7 +91,7 @@ This section provides requirements to mitigate the risk posed by active sessions
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **3.7.1** | [MODIFIED, SPLIT TO 3.7.3, LEVEL L1 > L2] Verify that the application requires re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, other information used in account recovery, etc. | 2 | 306 |
+| **3.7.1** | [MODIFIED, SPLIT TO 3.7.3, LEVEL L1 > L2] Verify that the application requires re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | 306 |
 | **3.7.2** | [MODIFIED, MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | 2 | |
 | **3.7.3** | [ADDED, SPLIT FROM 3.7.1] Verify that the application requires re-authentication or secondary verification before performing highly sensitive transactions or operations. | 3 | 306 |
 
