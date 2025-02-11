@@ -183,8 +183,8 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | **2.8.3** | [DELETED, MERGED TO 2.6.3] | | |
 | **2.8.4** | [DELETED, MERGED TO 2.6.1] | | |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.8.6** | **[DELETED, MOVED TO 2.6.6]** | | |
-| **2.8.7** | **[DELETED, MOVED TO 2.6.7]** | | |
+| **2.8.6** | [DELETED, MOVED TO 2.6.6] | | |
+| **2.8.7** | [DELETED, MOVED TO 2.6.7] | | |
 
 ## V2.9 Cryptographic authentication mechanism
 
