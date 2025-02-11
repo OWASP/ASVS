@@ -135,12 +135,14 @@ This section provides general guidance that will be relevant to various differen
 The mechanisms include:
 
 * Lookup Secrets
-* Out-of-Band mechanisms
 * Time based One-time Passwords (TOTPs)
+* Out-of-Band mechanisms
 
 Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. This type of authentication mechanism is considered "something you have" since the codes are random so you need to have stored them somewhere.
 
-More details on out-of-band mechanisms and time based One-time Passwords (TOTPs) mechanism will be provided in subsequent sections.
+Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have". Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
+
+More details on out-of-band mechanisms will be provided in a subsequent section.
 
 The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
@@ -151,6 +153,9 @@ The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages
 | **2.6.3** | [MODIFIED, MERGED FROM 2.8.3, SPLIT FROM 2.7.6] Verify that lookup secrets, out-of-band authentication code, and time-based, one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | 310 |
 | **2.6.4** | [ADDED, SPLIT FROM 2.6.2, 2.7.6] Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | 330 |
 | **2.6.5** | [MODIFIED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. For out of band this should be 10 minutes and for TOTP this should be as short as possible, usually 30 seconds. | 1 | 287 |
+| **2.6.6** | [MODIFIED, MOVED FROM 2.8.6, LEVEL L2 > L3] Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 | 613 |
+| **2.6.7** | [MODIFIED, MOVED FROM 2.8.7, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | 308 |
+| **2.6.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | 367 |
 
 ## V2.7 Out-of-Band authentication mechanisms
 
@@ -171,10 +176,6 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 
 ## V2.8 Time based One-time Passwords
 
-Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have".
-
-Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **2.8.1** | [DELETED, MERGED TO 2.6.5] | | |
@@ -182,9 +183,8 @@ Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN c
 | **2.8.3** | [DELETED, MERGED TO 2.6.3] | | |
 | **2.8.4** | [DELETED, MERGED TO 2.6.1] | | |
 | **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.8.6** | [MODIFIED, LEVEL L2 > L3] Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 | 613 |
-| **2.8.7** | [MODIFIED, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | 308 |
-| **2.8.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | 367 |
+| **2.8.6** | [MOVED TO 2.6.6] | | |
+| **2.8.7** | [MOVED TO 2.6.7] | | |
 
 ## V2.9 Cryptographic authentication mechanism
 
