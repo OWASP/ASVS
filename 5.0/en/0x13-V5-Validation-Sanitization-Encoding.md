@@ -4,7 +4,7 @@
 
 This chapter focuses on the most common web application security weaknesses that are related to unsafe processing of untrusted data. This leads to a variety of technical vulnerabilities where the untrusted data gets interpreted using the syntax rules of the relevant interpreter.
 
-With modern web applications, it will always be best to use safer APIs such as parameterized queries, auto-escaping and templating frameworks. Otherwise, or carefully performed output encoding/escaping or sanitization will be critical to the security of the application.
+With modern web applications, it will always be best to use safer APIs such as parameterized queries, auto-escaping or templating frameworks. Otherwise, or carefully performed output encoding/escaping or sanitization will be critical to the security of the application.
 
 This chapter also talks about Input Validation which is a powerful defense in depth mechanism for protected against unexpected, dangerous content but should not be considered as a specific security control.
 
