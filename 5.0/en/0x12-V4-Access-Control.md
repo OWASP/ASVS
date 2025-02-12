@@ -19,7 +19,9 @@ Comprehensive access control documentation is essential to ensure that security 
 | **1.4.4** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **1.4.5** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **1.4.6** | [ADDED] Verify that access control documentation defines controls that incorporate changes to a consumer's environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. These changes should be detected both when the consumer tries to start a new session or during an existing session. | 3 | |
-| **1.4.7** | [ADDED] Verify that access control documentation defines explicit rules for restricting function-level, data-specific, and field-level access based on consumer permissions, specifying relevant consumer and resource attributes, as well as environmental factors involved in decision-making. | 1 | |
+| **1.4.7** | [ADDED] Verify that access control documentation defines rules for restricting function-level and data-specific access based on consumer permissions and resource attributes. | 1 | |
+| **1.4.8** | [ADDED] Verify that access control documentation defines rules for field-level access restrictions based on consumer permissions and resource attributes. | 2 | |
+| **1.4.9** | [ADDED] Verify that access control documentation considers environmental and contextual factors in decision-making, in addition to function-level, data-specific, and field-level access controls. | 3 | |
 
 ## V4.1 General Access Control Design
 
