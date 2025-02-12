@@ -55,6 +55,8 @@ Complying with this section is likely to be operational and continuous.
 
 ## V10.4 Defensive Coding
 
+Secure coding practices can mitigate common vulnerabilities like injection, prototype pollution, mass asignment and request manipulation by enforcing strict type validation and input handling.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **10.4.1** | [ADDED] Verify that the application explicitly ensures that variables are of the correct type and performs strict equality and comparator operations to avoid type juggling or type confusion vulnerabilities caused by the application code making an assumption about a variable type. | 1 | 843 |

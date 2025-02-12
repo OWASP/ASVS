@@ -90,9 +90,7 @@ Hosting content on third-party sites can lead to malicious content modification 
 
 ## V50.8 Other Browser Security Considerations
 
-<!--
-it may need other separate section for "end-user protection via UI"
--->
+Client-side security requires enforcing security behavior based on restricting automatic redirections, mandating HSTS preloading, and using other modern browser security features.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
