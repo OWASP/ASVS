@@ -55,7 +55,7 @@ Complying with this section is likely to be operational and continuous.
 
 ## V10.4 Defensive Coding
 
-Secure coding practices can mitigate common vulnerabilities like injection, prototype pollution, mass asignment and request manipulation by enforcing strict type validation and input handling.
+Common vulnerabilities like injection, prototype pollution, mass assignment, and request manipulation can be prevented through secure coding techniques specific to each vulnerability type.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -86,7 +86,7 @@ Dependency management is critical to the safe operation of any application of an
 
 ## V10.7 Concurrency
 
-Without proper synchronization, concurrent access to shared resources can result in corrupted data, system crashes, or unreliable application behavior. Furthermore, race conditions can often be chained to perform privilege escalations or remote code execution.
+Concurrency issues such as race conditions, TOC/TOU vulnerabilities, deadlocks, livelocks, thread starvation, and improper synchronization can lead to unpredictable behavior and security risks. Various techniques, including synchronization primitives, atomic operations, controlled resource access, and consistent locking strategies, help mitigate these risks.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
