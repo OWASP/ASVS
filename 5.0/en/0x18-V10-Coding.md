@@ -71,6 +71,8 @@ Common vulnerabilities like injection, prototype pollution, mass assignment, and
 
 ## V10.5 Security Architecture
 
+Architectural techniques such as sandboxing, encapsulation, containerization, and network isolation can help protect applications from "risky" operations.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **10.5.1** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | |
