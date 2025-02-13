@@ -21,8 +21,6 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 ## V11.1 Business Logic Security
 
-Business Logic Security focuses on ensuring the integrity and correctness of application workflows to prevent abuse, exploitation, and unintended consequences.
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **11.1.1** | Verify that the application will only process business logic flows for the same user in sequential step order and without skipping steps. | 1 | 841 |
@@ -38,7 +36,7 @@ Business Logic Security focuses on ensuring the integrity and correctness of app
 
 ## V11.2 Anti-automation
 
-Anti-automation focuses on enforcing controls that ensure human-like interactions and mitigate excessive automated requests.
+Anti-automation controls ensure that human-like interactions are required and excessive automated requests are prevented.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -47,7 +45,7 @@ Anti-automation focuses on enforcing controls that ensure human-like interaction
 
 ## V11.3 Input Validation
 
-Input Validation ensures that inputs affecting business or security decisions are strictly validated to prevent logic abuse and data integrity issues.
+Properly implemented input validation, using positive allowlists and strong data typing, provide an important enforcement of business logic controls around the type of data that the application expects to receive.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
