@@ -82,7 +82,7 @@ Rendering content or functionality in an incorrect context can lead to a wide va
 
 ## V50.7 External Resource Integrity
 
-Hosting content on third-party sites can lead to malicious content modification and supply chain attacks.
+Subresource integrity allows for safe hosting of content on third-party sites.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -90,7 +90,7 @@ Hosting content on third-party sites can lead to malicious content modification 
 
 ## V50.8 Other Browser Security Considerations
 
-Client-side security requires enforcing security behavior based on restricting automatic redirections, mandating HSTS preloading, and using other modern browser security features.
+Client-side security controls for redirects, HTTPS enforcement, and safe use of modern browser security features.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
