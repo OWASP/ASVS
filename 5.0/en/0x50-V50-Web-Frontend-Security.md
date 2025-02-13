@@ -90,7 +90,7 @@ Subresource integrity allows for safe hosting of content on third-party sites.
 
 ## V50.8 Other Browser Security Considerations
 
-Client-side security controls for redirects, HTTPS enforcement, and safe use of modern browser security features.
+Security controls for redirects, HTTPS enforcement, and the use of modern browser security features are required for client-side browser security.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
