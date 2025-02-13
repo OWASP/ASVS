@@ -10,6 +10,8 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 ## V1.11 Business Logic Documentation
 
+Business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **1.11.1** | [DELETED, NOT IN SCOPE] | | |
@@ -45,7 +47,7 @@ Anti-automation controls ensure that human-like interactions are required and ex
 
 ## V11.3 Input Validation
 
-Properly implemented input validation, using positive allowlists and strong data typing, provide an important enforcement of business logic controls around the type of data that the application expects to receive.
+Input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic rules around the type of data that the application expects to receive.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
