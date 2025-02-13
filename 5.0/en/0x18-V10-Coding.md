@@ -55,6 +55,8 @@ Complying with this section is likely to be operational and continuous.
 
 ## V10.4 Defensive Coding
 
+Common vulnerabilities like injection, prototype pollution, mass assignment, and request manipulation can be prevented through secure coding techniques specific to each vulnerability type.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **10.4.1** | [ADDED] Verify that the application explicitly ensures that variables are of the correct type and performs strict equality and comparator operations to avoid type juggling or type confusion vulnerabilities caused by the application code making an assumption about a variable type. | 1 | 843 |
@@ -68,6 +70,8 @@ Complying with this section is likely to be operational and continuous.
 | **10.4.9** | [ADDED] Verify that, if the application (back-end or front-end) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 2 | |
 
 ## V10.5 Security Architecture
+
+Architectural techniques such as sandboxing, encapsulation, containerization, and network isolation can help protect applications from "risky" operations.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -84,7 +88,7 @@ Dependency management is critical to the safe operation of any application of an
 
 ## V10.7 Concurrency
 
-Without proper synchronization, concurrent access to shared resources can result in corrupted data, system crashes, or unreliable application behavior. Furthermore, race conditions can often be chained to perform privilege escalations or remote code execution.
+Concurrency issues such as race conditions, TOC/TOU vulnerabilities, deadlocks, livelocks, thread starvation, and improper synchronization can lead to unpredictable behavior and security risks. Various techniques, including synchronization primitives, atomic operations, controlled resource access, and consistent locking strategies, help mitigate these risks.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
