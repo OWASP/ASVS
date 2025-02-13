@@ -211,6 +211,8 @@ The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages
 
 ## V2.11 Authentication with an Identity Providers
 
+Secure use of identity providers requires extensive configuration to prevent identity spoofing across multiple IDPs, the use of invalid digital signatures on authentication assertions, and prevention of replay attacks.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **2.11.1** | [ADDED] Verify that, if the application supports multiple identity providers (IDPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). Usually, the application should register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IDP. | 2 | |
