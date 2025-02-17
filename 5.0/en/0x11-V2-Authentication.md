@@ -211,7 +211,7 @@ The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages
 
 ## V2.11 Authentication with an Identity Providers
 
-Secure use of identity providers requires extensive configuration to prevent identity spoofing across multiple IDPs, the use of invalid digital signatures on authentication assertions, and prevention of replay attacks.
+Secure use of external identity providers requires careful configuration and verification to prevent identity spoofing or forged assertions. This section provides requirements to address these risks.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
