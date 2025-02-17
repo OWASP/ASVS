@@ -82,7 +82,7 @@ Rendering content or functionality in an incorrect context can lead to a wide va
 
 ## V50.7 External Resource Integrity
 
-Subresource integrity allows for safe hosting of content on third-party sites.
+This section provides guidance for the safe hosting of content on third-party sites.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -90,7 +90,7 @@ Subresource integrity allows for safe hosting of content on third-party sites.
 
 ## V50.8 Other Browser Security Considerations
 
-Security controls for redirects, HTTPS enforcement, and the use of modern browser security features are required for client-side browser security.
+This section includes various other security controls and modern browser security features which are required for client-side browser security.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |

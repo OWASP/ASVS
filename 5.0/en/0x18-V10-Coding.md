@@ -55,7 +55,7 @@ Complying with this section is likely to be operational and continuous.
 
 ## V10.4 Defensive Coding
 
-Common vulnerabilities like injection, prototype pollution, mass assignment, and request manipulation can be prevented through secure coding techniques specific to each vulnerability type.
+This section covers vulnerability types including type juggling, prototype pollution, mass assignment, and others which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages whereas others will have language specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -71,7 +71,7 @@ Common vulnerabilities like injection, prototype pollution, mass assignment, and
 
 ## V10.5 Security Architecture
 
-Architectural techniques such as sandboxing, encapsulation, containerization, and network isolation can help protect applications from "risky" operations.
+This section considers architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation which can help protect applications from "risky" operations or libraries.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -88,7 +88,7 @@ Dependency management is critical to the safe operation of any application of an
 
 ## V10.7 Concurrency
 
-Concurrency issues such as race conditions, TOC/TOU vulnerabilities, deadlocks, livelocks, thread starvation, and improper synchronization can lead to unpredictable behavior and security risks. Various techniques, including synchronization primitives, atomic operations, controlled resource access, and consistent locking strategies, help mitigate these risks.
+Concurrency issues such as race conditions, TOC/TOU vulnerabilities, deadlocks, livelocks, thread starvation, and improper synchronization can lead to unpredictable behavior and security risks. This section includes various techniques and strategies to help mitigate these risks.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
