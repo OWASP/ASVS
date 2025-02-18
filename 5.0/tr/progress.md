@@ -8,3 +8,7 @@ Logo vs. minor değişiklikler gerekebilir
 Önsöz hala 4.0 ile ilgili, güncelleme bekleniyor.
 
 Yeniilikler hala 4.0 ile ilgili, güncelleme bekleniyor.
+
+# 0x03-Using-ASVS.md
+
+Şimdilik yarısı bitti, devam etmek için herhangi bir engel bulunmuyor.

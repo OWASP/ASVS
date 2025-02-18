@@ -30,29 +30,29 @@ ASVS bir doğrulama standardı olarak adlandırılsa da, bir gereksinim uygulama
 
 Büyük bir risk azaltımı sağlayarak Seviye 1’de yer almayı hak eden bazı zorlayıcı kontroller olsa da, daha karmaşık gereksinimler genellikle Seviye 2 veya Seviye 3’te yer alacaktır.
 
-#### Low barrier to entry
+#### Düşük Giriş Engeli
 
-From feedback on the use (or non-use) of the ASVS in industry, the single greatest problem that has been identified is the double-edged sword of Level 1 having a large number of requirements (~120) but at the same time being considered the "minimum" level that is not good enough for most applications. This seems to lead to organizations either giving up before they start or trying to implement a subset of the requirements without actually achieving Level 1, therefore reducing the sense of achievement and progress.
+ASVS’nin sektörde kullanımı (veya kullanılmaması) hakkında alınan geri bildirimlere göre belirlenen en büyük sorun, Seviye 1’in yaklaşık 120 gereksinim içermesi nedeniyle hem oldukça kapsamlı olması hem de çoğu uygulama için yeterli bulunmayan bir "asgari" seviye olarak görülmesidir. Bu durum, kuruluşların ya başlamadan vazgeçmesine ya da Seviye 1’e tam olarak ulaşmadan yalnızca bazı gereksinimleri uygulamaya çalışmasına, dolayısıyla başarı ve ilerleme duygusunun azalmasına yol açıyor gibi görünmektedir.
 
-To this end, it was decided that Level 1 would have a maximum of around 60 of the highest priority requirements and others would get pushed into Level 2 or Level 3. To achieve this, some hard decisions were made about what would make it into Level 1 and what would not. The goal was to have a good Level 1 that is achievable instead of a perfect Level 1 that is not.
+Bu nedenle, Seviye 1’de en fazla yaklaşık 60 yüksek öncelikli gereksinimin bulunmasına ve diğerlerinin Seviye 2 veya Seviye 3’e kaydırılmasına karar verilmiştir. Bunu başarmak için, Seviye 1’e hangi gereksinimlerin dahil edileceği ve hangilerinin edilmeyeceği konusunda zor kararlar alınmıştır. Hedef, ulaşılamaz derecede "mükemmel" bir Seviye 1 yerine, gerçekleştirilebilir bir "iyi" Seviye 1 oluşturmaktı.
 
-#### Better level balance
+#### Daha İyi Seviye Dengesi
 
-In version 4.0, Levels 1 and 2 both had around 120 requirements and Level 3 had around 30. Version 5.0 balances the requirements more evenly across the levels, trying to distribute Level 2 and Level 3 requirements more evenly. Again, the aim is to make Level 2 more achievable and realistic whilst leaving Level 3 for applications that want to demonstrate the highest level of security.
+Sürüm 4.0’da, Seviye 1 ve Seviye 2’nin her biri yaklaşık 120 gereksinime sahipken, Seviye 3’te yaklaşık 30 gereksinim bulunuyordu. Sürüm 5.0, gereksinimleri seviyeler arasında daha dengeli bir şekilde dağıtarak, Seviye 2 ve Seviye 3’ü daha eşit bir yapıya kavuşturmayı amaçlamaktadır. Amaç, Seviye 2’yi daha ulaşılabilir ve gerçekçi hale getirirken, Seviye 3’ü en yüksek güvenlik seviyesini göstermek isteyen uygulamalara bırakmaktır.
 
-### Definition of the Levels
+### Seviyelerin Tanımları
 
-Based on the above criteria, the requirements for version 5.0 were allocated into one of the 3 levels. Moving from a prescriptive level definition to a comparative analysis based on various factors means that there was an element of judgement in the allocation.
+Yukarıdaki kriterlere dayanarak, sürüm 5.0’daki gereksinimler üç seviyeden birine yerleştirilmiştir. Kuralcı bir seviye tanımından, çeşitli faktörlere dayanan karşılaştırmalı bir analize geçmek, bu yerleştirme sürecinde belli bir ölçüde değerlendirme yapılmasını gerektirmiştir.
 
-Nevertheless, the rigorous discussions around both the criteria and the leveling decisions has resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+Bununla birlikte, hem kriterler hem de seviye kararları üzerine yapılan titiz tartışmalar, çoğu durumda geçerliliğini koruyacak bir dağılım sağlamıştır. Ancak, her durum için %100 uyum sağlanamayabileceği de kabul edilmektedir. Bu, bazı durumlarda kuruluşların kendi özel risk değerlendirmelerine göre daha yüksek seviyedeki gereksinimlere daha erken öncelik verebileceği anlamına gelir.
 
-The types of requirements in each level could be characterised as follows.
+Her seviyedeki gereksinim türleri aşağıdaki şekilde karakterize edilebilir.
 
-#### Level 1 requirements
+#### Seviye 1 Gereksinimleri
 
-These will generally be critical or basic, first layer of defense requirements for preventing common attacks that are either relatively straightforward to implement or important enough to be worth the effort.
+Bu gereksinimler, genellikle yaygın saldırıları önlemek için kritik veya temel öneme sahip, birincil savunma katmanı gereksinimleridir ve uygulanması nispeten kolay ya da çabaya değecek kadar önemli olanlardır.
 
-Level 1 is not necessarily penetration testable using humans, although the lower number of requirements should make it easier to verify.
+Seviye 1, mutlaka insanlarla yapılan bir sızma testiyle doğrulanabilir olmak zorunda değildir; ancak gereksinim sayısının azaltılması, doğrulamayı kolaylaştırmalıdır.
 
 #### Level 2 requirements
 
