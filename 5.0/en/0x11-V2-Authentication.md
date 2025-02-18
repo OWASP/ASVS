@@ -10,7 +10,7 @@ Adoption of effective, evidence-based leading practice will be challenging for m
 
 For this chapter, it was useful to refer to the second section of the NIST standard known as NIST SP 800-63B "Digital Identity Guidelines - Authentication and Lifecycle Management" when preparing requirements.
 
-However, NIST SP 800-63 terminology can sometimes be a little hard to understand and we have therefore tried to use more commonly understood terminology where possible. to make the chapter clearer.
+However, NIST SP 800-63 terminology can sometimes be different and we have therefore tried to use more commonly understood terminology where possible, to make the chapter clearer.
 
 This means that whilst this chapter aligns to a subset of selected NIST SP 800-63B controls, we have focused on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
 
