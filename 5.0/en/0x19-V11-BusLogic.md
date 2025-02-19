@@ -47,7 +47,7 @@ This section includes anti-automation controls to ensure that human-like interac
 
 ## V11.3 Input Validation
 
-Properly implemented input validation controls, using positive validation patterns, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. 
+Properly implemented input validation controls, using positive validation patterns, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive.
 
 Everything the application uses or processes must be validated as user input, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
 
