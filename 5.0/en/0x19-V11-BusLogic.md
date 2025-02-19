@@ -37,6 +37,7 @@ Business logic documentation should clearly define business logic limits, valida
 | **11.1.10** | [ADDED] Verify that very high-value business logic flows are restricted with multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to critical nuclear facility operations, healthcare record modifications, access to classified information, or safety overrides in manufacturing. | 3 | |
 
 ## V11.2 Anti-automation
+
 This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
 
 | # | Description | Level | CWE |
