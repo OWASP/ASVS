@@ -50,7 +50,7 @@ Although this section is not easily penetration tested, developers should consid
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **6.2.1** | [MODIFIED] Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | 1 | 310 |
-| **6.2.2** | Verify that industry proven or government approved cryptographic algorithms, modes, and libraries are used, instead of custom coded cryptography. | 2 | 327 |
+| **6.2.2** | [MODIFIED, SPLIT TO 6.5.1, 6.5.2, 6.5.4, 6.6.1, 6.7.2] Verify that industry-validated implementations (including libraries and hardware-accelerated implementations) are used for cryptographic operations. | 2 | 327 |
 | **6.2.3** | [DELETED, COVERED BY 6.5.1, 6.5.2, 6.6.1] | | |
 | **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC,  or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 | 320 |
 | **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.1] | | |
@@ -84,10 +84,10 @@ Authenticated encryption algorithms built on AES and CHACHA20 form the backbone 
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **6.5.1** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | 2 | 326 |
-| **6.5.2** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3, LEVEL L2 > L1] Verify that only secure, authenticated ciphers and modes such as AES with GCM are used. | 1 | 326 |
+| **6.5.1** | [ADDED, SPLIT FROM 6.2.2, 6.2.5, COVERS 6.2.3] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | 2 | 326 |
+| **6.5.2** | [ADDED, SPLIT FROM 6.2.2, 6.2.5, COVERS 6.2.3, LEVEL L2 > L1] Verify that only secure, authenticated ciphers and modes such as AES with GCM are used. | 1 | 326 |
 | **6.5.3** | [MODIFIED, MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 | 326 |
-| **6.5.4** | [MODIFIED, MOVED FROM 6.2.7] Verify that encrypted data is protected against unauthorized modification preferably by using an approved authenticated encryption method or by combining an approved encryption method with an approved MAC algorithm. | 3 | 326 |
+| **6.5.4** | [MODIFIED, SPLIT FROM 6.2.2, MOVED FROM 6.2.7] Verify that encrypted data is protected against unauthorized modification preferably by using an approved authenticated encryption method or by combining an approved encryption method with an approved MAC algorithm. | 3 | 326 |
 | **6.5.5** | [ADDED] Verify that any combination of an encryption algorithm and a MAC algorithm is operating in encrypt-then-MAC mode. | 3 | 326 |
 
 ## V6.6 Hashing and Hash-based Functions
@@ -96,17 +96,20 @@ Cryptographic hashes are used in a wide variety of cryptographic protocols, such
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **6.6.1** | [ADDED, SPLIT FROM 6.2.5, COVERS 6.2.3] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Disallowed hash functions, such as MD5, must not be used for any cryptographic purpose. | 2 | |
+| **6.6.1** | [ADDED, SPLIT FROM 6.2.2, 6.2.5, COVERS 6.2.3] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Disallowed hash functions, such as MD5, must not be used for any cryptographic purpose. | 2 | |
 | **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4, COVERS 2.5.3] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | 2 | |
 | **6.6.3** | [ADDED] Verify that hash functions used in digital signatures, as part of data authentication or data integrity are collision resistant and have appropriate bit-lengths. If collision resistance is required, the output length must be at least 256 bits. If only resistance to second pre-image attacks is required, the output length must be at least 128 bits. | 1 | |
 
-## V6.7 Key Exchange Mechanisms
+## V6.7 Public Key Cryptography
 
-There exists a need for approved key exchange mechanisms, such as Diffie-Hellman and Elliptic Curve Diffie-Hellman (ECDH) to ensure that the cryptosystem remains secure against modern threats.
+Public Key Cryptography will be used where it is not possible or not desirable to share a secret key between multiple parties.
+
+As part of this, there exists a need for approved key exchange mechanisms, such as Diffie-Hellman and Elliptic Curve Diffie-Hellman (ECDH) to ensure that the cryptosystem remains secure against modern threats.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This should prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 2 | |
+| **6.7.2** | [ADDED, SPLIT FROM 6.2.2] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | 327 |
 
 ## V6.8 In-Use Data Cryptography
 
