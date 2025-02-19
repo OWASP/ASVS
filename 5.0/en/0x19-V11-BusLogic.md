@@ -56,7 +56,6 @@ Input validation provides valuable hygiene for the application in making sure th
 <!--
 Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
 -->
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **11.3.1** | [MODIFIED, MOVED FROM 5.1.3] Verify that input which is used to make business or security decisions is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L2, input validation should be implemented globally. | 1 | 20 |
