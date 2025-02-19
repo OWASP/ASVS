@@ -37,8 +37,7 @@ Business logic documentation should clearly define business logic limits, valida
 | **11.1.10** | [ADDED] Verify that very high-value business logic flows are restricted with multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to critical nuclear facility operations, healthcare record modifications, access to classified information, or safety overrides in manufacturing. | 3 | |
 
 ## V11.2 Anti-automation
-
-Anti-automation controls ensure that human-like interactions are required and excessive automated requests are prevented.
+This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -47,15 +46,14 @@ Anti-automation controls ensure that human-like interactions are required and ex
 
 ## V11.3 Input Validation
 
-Input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic rules around the type of data that the application expects to receive.
+Properly implemented input validation controls, using positive validation patterns, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. 
 
-<!-- Previous text from v5
+Everything the application uses or processes must be validated as user input, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
 
-Everything the application uses or processes must be handled as user input, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
+Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, parameterization or sanitization when using the data in another component or for presenting it for output.
 
-Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
-
-Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, escaping, or sanitization when using the data for next component or for presenting it for output.
+<!--
+Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
 -->
 
 | # | Description | Level | CWE |
