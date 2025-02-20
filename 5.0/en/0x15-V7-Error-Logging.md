@@ -43,7 +43,7 @@ This section will briefly discuss the types of events to log but deliberately do
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **7.2.1** | [MODIFIED] Verify that all authentication operations are logged including both successful and unsuccessful attempts. Additional metadata such as type of authentication or factors used should also be collected. | 2 | 778 |
-| **7.2.2** | [MODIFIED] Verify that all access control decisions are logged including failed attempts. | 2 | 285 |
+| **7.2.2** | [MODIFIED] Verify that failed access control attempts are logged. For L3 this should include logging all access control decisions. | 2 | 285 |
 | **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs attempts to bypass the security controls defined in the design documentation such as input validation. | 2 | 778 |
 | **7.2.4** | [MODIFIED, MOVED FROM 11.1.7] Verify that the application monitors for unusual events or activity from a business logic perspective. | 2 | 754 |
 | **7.2.5** | [MODIFIED, MOVED FROM 11.1.8] Verify that the application has configurable alerting when unusual or malicious activity is detected. | 2 | 390 |
