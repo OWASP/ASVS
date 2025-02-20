@@ -168,7 +168,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. | 1 | 287 |
 | **2.7.2** | [MOVED TO 2.6.5]  | | |
 | **2.7.3** | [MODIFIED, SPLIT TO 2.6.1] Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request for which they were generated and not a previous or subsequent one. | 1 | 287 |
-| **2.7.4** | [GRAMMAR] Verify that the secondary communications channel being used is secure and independent of the primary channel. | 1 | 523 |
+| **2.7.4** | [DELETED, NOT IN SCOPE] | | |
 | **2.7.5** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **2.7.6** | [SPLIT TO 2.6.3, 2.6.4] | | |
 | **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | 2 | 307 |
@@ -190,13 +190,13 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 
 Cryptographic authentication mechanism include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authenticatoin server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key.
 
-The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic device proves possession of the authentication factor.
+The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic device proves possession of the authentication factor. Where shared or secret keys are used for cryptographic authentication, these should be stored using the same mechanisms as other system secrets, as documented in the "Secret Management" section in the "Configuration" chapter.
 
 The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **2.9.1** | [MODIFIED, LEVEL L2 > L3] Verify that the authentication verifier stores the cryptographic keys used in verification such that they are protected against modification (and for symmetric keys, against disclosure). This could involve using a Trusted Platform Module (TPM), a Hardware Security Module (HSM), or an OS service that can provide this secure storage. | 3 | 320 |
+| **2.9.1** | [MODIFIED, SPLIT TO 14.8.1, LEVEL L2 > L3] Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 | 320 |
 | **2.9.2** | [LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 | 330 |
 | **2.9.3** | [MODIFIED, LEVEL L2 > L3] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | 3 | 327 |
 
@@ -210,6 +210,8 @@ The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages
 | **2.10.4** | [DELETED, MERGED TO 14.8.1] | | |
 
 ## V2.11 Authentication with an Identity Providers
+
+Secure use of external identity providers requires careful configuration and verification to prevent identity spoofing or forged assertions. This section provides requirements to address these risks.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
