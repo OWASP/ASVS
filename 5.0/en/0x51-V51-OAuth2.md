@@ -92,15 +92,15 @@ These requirements detail the responsibilities for OAuth authorization servers, 
 | **51.4.4** | [ADDED] Verify that the authorization server mitigates refresh token replay attacks for public clients, preferably using sender-constrained refresh tokens (i.e., Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens (mTLS)). For L1 applications only, refresh token rotation may be used instead. If refresh token rotation is used, verify that the authorization server invalidates the refresh token after usage and revokes all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | 1 |
 | **51.4.5** | [ADDED] Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) must no longer be used. | 2 |
 | **51.4.6** | [ADDED] Verify that the authorization server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | 1 |
-| **51.4.7** | [ADDED] Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, Pushed Authorization Requests (PAR), token revocation requests, and token introspection requests. | 1 |
+| **51.4.7** | [ADDED] Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, pushed authorization requests (PAR), token revocation requests, and token introspection requests. | 1 |
 | **51.4.8** | [ADDED] Verify that the authorization server configuration only assigns the required scopes to the OAuth Client. | 1 |
-| **51.4.9** | [ADDED] Verify that grant type 'code' is always used together with Pushed Authorization Requests (PAR). | 3 |
+| **51.4.9** | [ADDED] Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | 3 |
 | **51.4.10** | [ADDED] Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), i.e., 'mTLS' or 'private-key-jwt'. | 3 |
 | **51.4.11** | [ADDED] Verify that the authorization server issues only sender-constrained (Proof-of-Possession) access tokens, either using mTLS certificate binding or Demonstration of Proof of Possession (DPoP). | 3 |
-| **51.4.12** | [ADDED] Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. For example, by having the authorization server validate this value against the expected values or by using Pushed Authorization Request (PAR) or JWT-secured Authorization Request (JAR). | 1 |
+| **51.4.12** | [ADDED] Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. For example, by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 1 |
 | **51.4.13** | [ADDED] Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | 1 |
 | **51.4.14** | [MODIFIED, MOVED FROM 3.5.1] Verify that refresh tokens and reference access tokens can be revoked by an authorized user. It can be achieved by using the authorization server user interface, or by a client that is using authorization server APIs for revocation. | 2 |
-| **51.4.15** | [ADDED] Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example, by requiring the usage of Pushed Authorization Request (PAR) or JWT-secured Authorization Request (JAR). | 3 |
+| **51.4.15** | [ADDED] Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example, by requiring the usage of pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 |
 | **51.4.16** | [ADDED] Verify that if the authorization server supports unauthenticated dynamic client registration, it mitigates the risk of malicious client applications. It must validate client metadata such as any registered URIs, ensure the user's consent and warn the user before processing an authorization request with an untrusted client application. | 2 |
 
 ## V51.5 OIDC Client
@@ -150,7 +150,7 @@ For OAuth-related requirements in ASVS following published and in draft status R
 * [RFC8628 OAuth 2.0 Device Authorization Grant](https://datatracker.ietf.org/doc/html/rfc8628)
 * [RFC8707 Resource Indicators for OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc8707)
 * [RFC9068 JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens](https://datatracker.ietf.org/doc/html/rfc9068)
-* [RFC9126 OAuth 2.0 Pushed Authorization Requests](https://datatracker.ietf.org/doc/html/rfc9126)
+* [RFC9126 OAuth 2.0 pushed authorization requests](https://datatracker.ietf.org/doc/html/rfc9126)
 * [RFC9207 OAuth 2.0 Authorization Server Issuer Identification](https://datatracker.ietf.org/doc/html/rfc9207)
 * [RFC9396 OAuth 2.0 Rich Authorization Requests](https://datatracker.ietf.org/doc/html/rfc9396)
 * [RFC9449 OAuth 2.0 Demonstrating Proof of Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449)
