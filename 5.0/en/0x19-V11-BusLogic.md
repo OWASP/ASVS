@@ -29,7 +29,7 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.2** | [MOVED TO 11.2.1] | | |
 | **11.1.3** | [MODIFIED] Verify that business logic limits are implemented as per the application's documentation, to avoid business logic flaws being exploited. | 1 | |
 | **11.1.4** | [MOVED TO 11.2.2] | | |
-| **11.1.5** | [DELETED, COVERED BY 11.3.1] | | |
+| **11.1.5** | [DELETED, MERGED TO 11.3.2] | | |
 | **11.1.6** | [MOVED TO 10.7.3] | | |
 | **11.1.7** | [MOVED TO 7.2.4] | | |
 | **11.1.8** | [MOVED TO 7.2.5] | | |
@@ -47,8 +47,8 @@ Business logic security is so individual to every application that no one checkl
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **11.3.1** | [MODIFIED, MOVED FROM 5.1.3, COVERS 11.1.5] Verify that input is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L1 this can focus on input which is used to make specific business or security decisions. For L2 and up its should be applied for all input. | 1 | 20 |
-| **11.3.2** | [ADDED, SPLIT FROM 5.1.4] Verify that data items with an expected structure, and which are used to make business or security decisions, are validated according to the pre-defined rules. For L2, input validation must be implemented globally. | 1 | 20 |
+| **11.3.1** | [MODIFIED, MOVED FROM 5.1.3] Verify that input is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L1 this can focus on input which is used to make specific business or security decisions. For L2 and up its should be applied for all input. | 1 | 20 |
+| **11.3.2** | [ADDED, SPLIT FROM 5.1.4, MERGED FROM 11.1.5] Verify that data items with an expected structure or logical limit, and which are used to make business or security decisions, are validated according to the pre-defined rules. For L2, input validation must be implemented globally. | 1 | 20 |
 | **11.3.3** | [ADDED, SPLIT FROM 5.1.4, LEVEL L1 > L2] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | 2 | 20 |
 | **11.3.4** | [MODIFIED, MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability, it must not be relied upon as a security control. | 1 | 602 |
 
