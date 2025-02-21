@@ -24,3 +24,17 @@ Son cümleden sonra eklemeler gelebilir diye düşünüyorum.
 <span style="color:lightgreen">**Tamamlandı.**</span>
 
 Şimdilik sorun yok.
+
+# 0x05-For-Users-Of-4.0.md
+
+<span style="color:orange">**Güncelleme bekleniyor.**</span>
+
+Büyük ihtimalle eklemeler yapılacak.
+
+# 0x10-V1-Architecture.md
+<span style="color:lightgreen">**Tamamlandı.**</span>
+
+Bu bölümden her şey silinmiş, değişiklik yapılması olası.
+
+# 0x11-V2-Authentication.md
+<span style="color:orangered">**Devam ediyor.**</span>
