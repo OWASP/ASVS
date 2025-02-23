@@ -52,7 +52,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.2** | [DELETED, NOT IN SCOPE] | | |
 | **8.3.3** | [DELETED, NOT IN SCOPE] | | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | |
-| **8.3.5** | [MOVED TO 7.2.7] | | |
+| **8.3.5** | [MOVED TO 7.2.5] | | |
 | **8.3.6** | [DELETED, NOT PRACTICAL] | | |
 | **8.3.7** | [DELETED, COVERED BY 1.8.2] | | |
 | **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | |
