@@ -32,7 +32,7 @@ Business logic security is so individual to every application that no one checkl
 | **11.1.5** | [DELETED, MERGED TO 11.3.1] | | |
 | **11.1.6** | [MOVED TO 10.7.3] | | |
 | **11.1.7** | [MOVED TO 7.2.4] | | |
-| **11.1.8** | [MOVED TO 7.2.5] | | |
+| **11.1.8** | [DELETED, NOT IN SCOPE] | | |
 | **11.1.9** | [ADDED] Verify that transactions are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | 2 | |
 | **11.1.10** | [ADDED] Verify that very high-value business logic flows are restricted with multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to critical nuclear facility operations, healthcare record modifications, access to classified information, or safety overrides in manufacturing. | 3 | |
 
