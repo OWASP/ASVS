@@ -69,7 +69,7 @@ The purpose of error handling is to ensure the application fails gracefully and 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **7.4.1** | [MODIFIED] Verify that a generic message is shown when an unexpected or security sensitive error occurs, which does not expose sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 1 | 210 |
-| **7.4.2** | [MODIFIED] Verify that a consistent and standardized exception handling mechanism (or a functional equivalent) is used across the codebase. | 2 | 544 |
+| **7.4.2** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **7.4.3** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. | 2 | 431 |
 | **7.4.4** | [ADDED] Verify that the application is designed in a way that a failure to access external resources does not result in the entire application failing, for example using the circuit breaker pattern. | 2 | |
 | **7.4.5** | [MODIFIED, MOVED FROM 4.1.5, LEVEL L1 > L2] Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions such as processing a transaction despite errors resulting from validation logic. | 2 | |
