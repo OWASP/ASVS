@@ -30,74 +30,77 @@ Bu durum, bu bölümün NIST SP 800-63B’nin seçilmiş bir alt kümesiyle uyum
 
 ## V2.1 Parola Güvenliği
 
-Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authentication mechanism. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
+NIST SP 800-63 tarafından "Ezberlenmiş Sırlar" (Memorized Secrets) olarak adlandırılan parolalar; parolalar, PIN kodları, ekran kilidi desenleri, doğru kediyi veya başka bir görsel öğeyi seçme gibi yöntemler ve parola ifadelerini içerir. Genellikle "bildiğiniz bir şey" olarak kabul edilir ve çoğunlukla tek faktörlü kimlik doğrulama mekanizması olarak kullanılır. Ancak, tek faktörlü kimlik doğrulamanın kullanımıyla ilgili ciddi güvenlik riskleri bulunmaktadır. Bu riskler arasında, internete sızdırılmış milyarlarca geçerli kullanıcı adı ve parola, varsayılan veya zayıf parolalar, rainbow tabloları ve en yaygın parolaları içeren sıralı sözlükler bulunmaktadır.
 
-Applications should strongly encourage users to enroll in multi-factor authentication and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication.
+Uygulamalar, kullanıcıları güçlü bir şekilde çok faktörlü kimlik doğrulamaya (MFA) kaydolmaya teşvik etmeli ve mevcutta sahip oldukları FIDO veya U2F token'leri gibi kimlik doğrulama araçlarını yeniden kullanmalarına izin vermelidir. Alternatif olarak, çok faktörlü kimlik doğrulama sağlayan bir kimlik doğrulama hizmeti sağlayıcısına (CSP) bağlanma imkanı sunulmalıdır.
 
-Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name just a few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
+Kimlik Doğrulama Hizmeti Sağlayıcıları (Credential Service Providers - CSPs), kullanıcılar için federasyonlu kimlik yönetimi sunar. Kullanıcılar genellikle birden fazla CSP ile ilişkili birden fazla kimliğe sahip olabilir. Örneğin, Azure AD, Okta, Ping Identity veya Google gibi kurumsal kimlik doğrulama sağlayıcılarını kullanabilirler ya da Facebook, Twitter, Google veya WeChat gibi platformlar üzerinden tüketici kimliği oluşturabilirler. Bu liste, belirtilen şirketleri veya hizmetleri onaylamak amacıyla verilmemiştir; yalnızca geliştiricilerin birçok kullanıcının halihazırda farklı kimlik sağlayıcılarına sahip olduğunu dikkate almasını teşvik etmek için sunulmuştur. Kuruluşlar, CSP'nin kimlik doğrulama güvenliğine ilişkin risk profiline göre mevcut kullanıcı kimlikleriyle entegrasyon sağlamayı düşünebilir. Örneğin, bir devlet kurumu, sahte veya geçici kimliklerin kolayca oluşturulabilmesi nedeniyle bir sosyal medya kimliğini hassas sistemlerine giriş yapmak için kabul etmeyebilir. Buna karşın, bir mobil oyun şirketi, aktif oyuncu tabanını büyütmek amacıyla büyük sosyal medya platformlarıyla entegrasyon sağlamaya ihtiyaç duyabilir.
 
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Bu bölümdeki gereksinimlerin çoğu, [NIST Kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html) içindeki [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) bölümüne dayanmaktadır.
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | 1 | 521 |
-| **2.1.2** | [MODIFIED] Verify that passwords of at least 64 characters are permitted. | 1 | 521 |
-| **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 1 | |
-| **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.1.5** | [GRAMMAR] Verify that users can change their password. | 1 | 620 |
-| **2.1.6** | Verify that password change functionality requires the user's current and new password. | 1 | 620 |
-| **2.1.7** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | 1 | 521 |
-| **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | 1 | 521 |
-| **2.1.10** | [MODIFIED, LEVEL L1 > L2] Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | 2 | |
-| **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | 1 | 521 |
-| **2.1.12** | [MODIFIED] Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | 1 | 549 |
-| **2.1.13** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | 3 | |
-| **2.1.14** | [ADDED] Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | 2 | 521 |
 
-Possible sources of frequently used passwords for requirement 2.1.7 include:
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.1.1** | [GÜNCELLENDİ] Kullanıcı tarafından belirlenen parolaların en az 8 karakter uzunluğunda olmasını doğrulayın; ancak en az 15 karakter kullanılması şiddetle tavsiye edilir. | 1 | 521 |  
+| **2.1.2** | [GÜNCELLENDİ] En az 64 karakter uzunluğundaki parolalara izin verildiğini doğrulayın. | 1 | 521 |  
+| **2.1.3** | [GÜNCELLENDİ] Uygulamanın, kullanıcının parolasını aldığı şekilde, herhangi bir değişiklik yapmadan (örneğin, kısaltma veya büyük/küçük harf dönüşümü olmadan) doğruladığını doğrulayın. | 1 | |  
+| **2.1.4** | [SİLİNDİ, YETERSİZ ETKİ] | | |  
+| **2.1.5** | [GRAMER DÜZELTİLDİ] Kullanıcıların parolalarını değiştirebileceğini doğrulayın. | 1 | 620 |  
+| **2.1.6** | Parola değiştirme işlevinin, kullanıcının mevcut ve yeni parolasını girmesini gerektirdiğini doğrulayın. | 1 | 620 |  
+| **2.1.7** | [GÜNCELLENDİ, 2.1.13’E BÖLÜNDÜ] Hesap kaydı veya parola değişikliği sırasında girilen parolaların en az en yaygın 3000 parola listesiyle karşılaştırılarak kontrol edildiğini doğrulayın. | 1 | 521 |  
+| **2.1.8** | [SİLİNDİ, YETERSİZ ETKİ] | | |  
+| **2.1.9** | Parola oluşturma kurallarının, belirli karakter türlerini zorunlu kılmadığını doğrulayın. Üst/büyük harf, küçük harf, rakam veya özel karakter kullanımı zorunlu olmamalıdır. | 1 | 521 |  
+| **2.1.10** | [GÜNCELLENDİ, SEVİYE L1 > L2] Kullanıcının parolasının, ancak güvenliği ihlal edildiğinde veya kullanıcı tarafından değiştirildiğinde geçersiz hale geldiğini doğrulayın. Uygulama, periyodik kimlik bilgisi değişimini zorunlu kılmamalıdır. | 2 | |  
+| **2.1.11** | "Yapıştır" işlevinin, tarayıcı parola yöneticilerinin ve harici parola yöneticilerinin kullanımına izin verildiğini doğrulayın. | 1 | 521 |  
+| **2.1.12** | [GÜNCELLENDİ] Parola giriş alanlarının girdi maskeleme (type=password) kullandığını doğrulayın. Uygulamalar, kullanıcının geçici olarak tüm maskelenmiş parolayı veya en son girilen karakteri görmesine izin verebilir.** | 1 | 549 |  
+| **2.1.13** | [EKLENDİ, 2.1.7’DEN AYRILDI, SEVİYE L1 > L3] Hesap kaydı veya parola değişikliği sırasında girilen parolaların, ihlal edilmiş parolalar listesiyle karşılaştırılarak kontrol edildiğini doğrulayın. | 3 | |  
+| **2.1.14** | [EKLENDİ] Belgelenmiş bağlama özgü kelime listelerinin, tahmin edilmesi kolay parolaların oluşturulmasını engellemek için kullanıldığını doğrulayın. | 2 | 521 |  
+
+Sık kullanılan parolaların gereksinim 2.1.7 için kullanılabilecek kaynakları:
 
 * <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
 * <https://www.ncsc.gov.uk/static-assets/documents/PwnedPasswordsTop100k.txt>
 
-## V2.2 General Authentication Security
+## V2.2 Genel Kimlik Doğrulama Güvenliği
 
-Authentication factor agility is essential to future-proof applications. Applications should allow additional secure authentication factors to be used, as per user preferences, as well as retiring deprecated or unsafe authentication mechanisms in an orderly fashion.
+Kimlik doğrulama faktörü esnekliği, uygulamaların geleceğe uyum sağlaması açısından kritik öneme sahiptir. Uygulamalar, kullanıcı tercihlerine bağlı olarak ek güvenli kimlik doğrulama faktörlerinin kullanımına izin vermeli ve aynı zamanda eski veya güvensiz kimlik doğrulama mekanizmalarını aşamalı olarak devre dışı bırakmalıdır.
 
-NIST considers SMS as a ["restricted" authentication mechanism](https://pages.nist.gov/800-63-FAQ/#q-b01), and it is likely to be removed from NIST SP 800-63, and consequently from the ASVS, in the future. As at the time of writing this has still not yet happened but applications should plan a roadmap that does not require the use of SMS.
+NIST, SMS tabanlı kimlik doğrulamayı ["kısıtlı" bir kimlik doğrulama mekanizması](https://pages.nist.gov/800-63-FAQ/#q-b01) olarak değerlendirmektedir ve gelecekte NIST SP 800-63'ten, dolayısıyla ASVS’den kaldırılması muhtemeldir. Bu belge yazıldığı sırada henüz kaldırılmamış olsa da, uygulamaların SMS kullanımı gerektirmeyen bir yol haritası planlaması önerilmektedir.
 
-NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism.
+NIST SP 800-63, e-posta tabanlı kimlik doğrulamayı [kabul edilemez](https://pages.nist.gov/800-63-FAQ/#q-b11) olarak değerlendirmektedir.
 
-The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling), and [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
+Bu bölümdeki gereksinimler, [NIST Kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html) içindeki çeşitli bölümlerle ilgilidir: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling) ve [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
 
-| # | Description | Level | CWE |
+
+| # | Açıklama | Seviye | CWE |
 | :---: | :--- | :---: | :---: |
-| **2.2.1** | [MODIFIED, SPLIT TO 1.2.6] Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | 1 | 307 |
-| **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 1 | 304 |
-| **2.2.3** | [MODIFIED, SPLIT TO 2.2.10, COVERS 2.5.5] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 1 | 778 |
-| **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | 3 | 308 |
-| **2.2.5** | [MOVED TO 9.3.3] | | |
-| **2.2.6** | [DELETED, COVERED BY 2.6.1] | | |
-| **2.2.7** | [DELETED, MERGED TO 2.2.4] | | |
-| **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | 3 | |
-| **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a requires a combination of single-factor authentication mechanisms. | 2 | 308 |
-| **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | 2 | 778 |
-| **2.2.11** | [ADDED, SPLIT FROM 1.2.4] Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 | 306 |
+| **2.2.1** | [GÜNCELLENDİ, 1.2.6'YA BÖLÜNDÜ] Kimlik bilgisi doldurma (credential stuffing) ve parola brute-force saldırılarını önlemek için güvenlik dokümantasyonunda belirtilen kontrollerin uygulandığını doğrulayın. | 1 | 307 |
+| **2.2.2** | [GÜNCELLENDİ] E-postanın tek faktörlü veya çok faktörlü kimlik doğrulama mekanizması olarak kullanılmadığını doğrulayın. | 1 | 304 |
+| **2.2.3** | [GÜNCELLENDİ, 2.2.10’A BÖLÜNDÜ, 2.5.5'İ KAPSIYOR] Kullanıcılara, kimlik bilgisi sıfırlama veya kullanıcı adı/e-posta adresi değişikliği gibi kimlik doğrulama bilgileri güncellendikten sonra bildirim gönderildiğini doğrulayın. | 1 | 778 |
+| **2.2.4** | [GÜNCELLENDİ, 2.2.9’A BÖLÜNDÜ, 2.2.7 VE 2.3.2 İLE BİRLEŞTİRİLDİ] Kimlik avı (phishing) saldırılarına karşı taklit koruması sağlayan (örn. WebAuthn gibi) ve kullanıcının kimlik doğrulama amacını açıkça belirlemesini gerektiren (örn. bir FIDO donanım anahtarında düğmeye basma) donanım tabanlı kimlik doğrulama mekanizmalarının desteklendiğini doğrulayın. | 3 | 308 |
+| **2.2.5** | [9.3.3’E TAŞINDI] | | |
+| **2.2.6** | [SİLİNDİ, 2.6.1 TARAFINDAN KAPSANIYOR] | | |
+| **2.2.7** | [SİLİNDİ, 2.2.4 İLE BİRLEŞTİRİLDİ] | | |
+| **2.2.8** | [EKLENDİ] Geçersiz kimlik doğrulama girişimlerinden, hata mesajları, HTTP yanıt kodları veya farklı yanıt süreleri gibi yöntemlerle geçerli kullanıcıların belirlenemediğini doğrulayın. Bu koruma, kayıt ve parola sıfırlama işlevleri için de uygulanmalıdır. | 3 | |
+| **2.2.9** | [EKLENDİ, 2.2.4’TEN BÖLÜNDÜ] Uygulamanın, kullanıcılardan ya çok faktörlü kimlik doğrulama mekanizmaları kullanmasını ya da birden fazla tek faktörlü kimlik doğrulama mekanizmasını bir arada kullanmasını gerektirdiğini doğrulayın. | 2 | 308 |
+| **2.2.10** | [EKLENDİ, 2.2.3’TEN BÖLÜNDÜ] Kullanıcılara şüpheli kimlik doğrulama girişimleri hakkında bildirim gönderildiğini doğrulayın. Bu bildirimler; bilinmeyen bir konum veya istemciden yapılan başarılı veya başarısız kimlik doğrulama girişimleri, birden fazla faktör gerektiren bir sistemde yalnızca tek bir faktörle kısmen başarılı kimlik doğrulama girişimleri, uzun süre etkin olmayan bir hesapta yapılan başarılı veya başarısız kimlik doğrulama girişimleri ve birden fazla başarısız denemenin ardından başarılı kimlik doğrulama girişimlerini içerebilir. | 2 | 778 |      
+| **2.2.11** | [EKLENDİ, 1.2.4’TEN BÖLÜNDÜ] Uygulama birden fazla kimlik doğrulama yolu içeriyorsa, belgelenmemiş kimlik doğrulama yollarının bulunmadığını ve güvenlik kontrollerinin tutarlı bir şekilde uygulandığını doğrulayın. | 2 | 306 |
 
-## V2.3 Authentication Factor Lifecycle
+## V2.3 Kimlik Doğrulama Faktörü Yaşam Döngüsü
 
-Authentication mechanisms can involve passwords, soft tokens, hardware tokens, and biometric devices. The lifecycle of these authentication mechanisms is critical to the security of an application - if anyone can self-register an account with no evidence of identity, there can be little trust in the identity assertion. For social media sites like Reddit, that's perfectly okay. For banking systems, a greater focus on the registration and issuance of credentials and devices is critical to the security of the application.
+Kimlik doğrulama mekanizmaları; parolalar, yazılım (soft) token'ları, donanım (hardware) token'ları ve biyometrik cihazları içerebilir. Bu kimlik doğrulama mekanizmalarının yaşam döngüsü, bir uygulamanın güvenliği açısından kritik öneme sahiptir - eğer herhangi biri, kimliğine dair herhangi bir kanıt sunmadan kendi kendine bir hesap oluşturabiliyorsa, kimlik iddiasına olan güven oldukça düşük olacaktır. Reddit gibi sosyal medya siteleri için bu durum tamamen kabul edilebilir. Bankacılık sistemleri için ise kimlik doğrulama bilgileri ve cihazlarının kaydı ve dağıtımı sürecine daha fazla önem verilmesi çok önemlidir.
 
-Note: Passwords are not to have a maximum lifetime or be subject to password rotation. Passwords should be checked for being breached, not regularly replaced.
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.3.1** | [MODIFIED] Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 | 330 |
-| **2.3.2** | [DELETED, MERGED TO 2.2.4] | | |
-| **2.3.3** | [MODIFIED] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 2 | 287 |
-| **2.3.4** | [ADDED] Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 1 | 620 |
+Not: Parolaların maksimum kullanım süresi olmamalıdır veya zorunlu parola değişimi (rotation) uygulanmamalıdır. Parolaların düzenli olarak değiştirilmesi yerine, ihlal edilip edilmediği kontrol edilmelidir.
 
-## V2.4 Credential Storage
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| 2.3.1 | [GÜNCELLENDİ] Sistem tarafından oluşturulan ilk parolaların veya aktivasyon kodlarının güvenli bir şekilde rastgele üretildiğini, mevcut parola politikasına uygun olduğunu ve kısa bir süre içinde veya ilk kullanımdan sonra geçersiz hale geldiğini doğrulayın. Bu başlangıç şifreleri, uzun vadeli parola olarak kullanılmamalıdır. | 1 | 330 |  
+| 2.3.2 | [SİLİNDİ, 2.2.4 İLE BİRLEŞTİRİLDİ] | | |  
+| 2.3.3 | [GÜNCELLENDİ] Süresi dolacak kimlik doğrulama mekanizmalarının yenilenmesine yönelik talimatların, kullanıcıların eski kimlik doğrulama mekanizmasının süresi dolmadan önce işlemi tamamlayabilmesi için yeterli süre öncesinde gönderildiğini doğrulayın. Gerekirse otomatik hatırlatmaların yapılandırıldığını kontrol edin. | 2 | 287 |  
+| 2.3.4 | [EKLENDİ] Yönetici kullanıcıların, bir kullanıcının parola sıfırlama sürecini başlatabilmesini ancak kullanıcının parolasını değiştiremeyeceğini veya yeni bir parola belirleyemeyeceğini doğrulayın. Bu, yöneticilerin kullanıcının parolasını bilmesini engellemek için gereklidir. | 1 | 620 |  
+
+## V2.4 Kimlik Bilgisi Depolama
 
 Architects and developers should adhere to this section when building or refactoring code.
 
