@@ -10,6 +10,8 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 ## V1.11 Business Logic Documentation
 
+Business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items so that it is clear what needs to be implemented in the application.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **1.11.1** | [DELETED, NOT IN SCOPE] | | |
@@ -21,7 +23,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 ## V11.1 Business Logic Security
 
-Business logic security is so individual to every application that no one checklist will ever apply. Business logic security must be designed into the system to protect against likely external threats - it cannot be added using web application firewalls or secure communications.
+This section considers key requirements to ensure that the application enforces business logic processes in the correct way and is not vulnerable to attacks that exploit the logic and flow of the application.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -38,12 +40,18 @@ Business logic security is so individual to every application that no one checkl
 
 ## V11.2 Anti-automation
 
+This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **11.2.1** | [MODIFIED, MOVED FROM 11.1.2, LEVEL L1 > L3] Verify that business logic processes require realistic human timing, preventing excessively rapid transaction submissions. | 3 | 799 |
 | **11.2.2** | [MODIFIED, MOVED FROM 11.1.4, LEVEL L1 > L2] Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, garbage data creation, quota exhaustion, rate limit breaches, denial of service, or overuse of costly resources. | 2 | 770 |
 
 ## V11.3 Input Validation
+
+Properly implemented input validation controls, using positive validation patterns, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. In this context, "input" could come from a wide variety of sources including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
+
+Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, parameterization or sanitization when using the data in another component or for presenting it for output.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
