@@ -22,7 +22,7 @@ This chapter includes requirements related to defining what data needs to be pro
 | **8.1.1** | [MODIFIED, MERGED FROM 8.1.2] Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | 2 | 524 |
 | **8.1.2** | [DELETED, MERGED TO 8.1.1] | | |
 | **8.1.3** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **8.1.4** | [GRAMMAR] Verify that the application can detect and alert on abnormal numbers of requests, such as by IP, user, total per hour or day, or whatever makes sense for the application. | 2 | 770 |
+| **8.1.4** | [DELETED, MERGED TO 7.2.4] | | |
 | **8.1.5** | [DELETED, NOT IN SCOPE] | | |
 | **8.1.6** | [DELETED, NOT IN SCOPE] | | |
 | **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 2 | 444 |
@@ -52,7 +52,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.2** | [DELETED, NOT IN SCOPE] | | |
 | **8.3.3** | [DELETED, NOT IN SCOPE] | | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | |
-| **8.3.5** | [MOVED TO 7.2.7] | | |
+| **8.3.5** | [MOVED TO 7.2.5] | | |
 | **8.3.6** | [DELETED, NOT PRACTICAL] | | |
 | **8.3.7** | [DELETED, COVERED BY 1.8.2] | | |
 | **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | |
