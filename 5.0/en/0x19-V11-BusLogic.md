@@ -10,7 +10,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 
 ## V1.11 Business Logic Documentation
 
-Business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items.
+Business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items so that it is clear what needs to be implemented in the application.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -22,6 +22,8 @@ Business logic documentation should clearly define business logic limits, valida
 | **1.11.6** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | 1 | 20 |
 
 ## V11.1 Business Logic Security
+
+This section considers key requirements to ensure that the application enforces business logic processes in the correct way and is not vulnerable to attacks that exploit the logic and flow of the application.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -47,15 +49,10 @@ This section includes anti-automation controls to ensure that human-like interac
 
 ## V11.3 Input Validation
 
-Properly implemented input validation controls, using positive validation patterns, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive.
-
-Everything the application uses or processes must be validated as user input, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
+Properly implemented input validation controls, using positive validation patterns, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. In this context, "input" could come from a wide variety of sources including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
 
 Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, parameterization or sanitization when using the data in another component or for presenting it for output.
 
-<!--
-Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
--->
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **11.3.1** | [MODIFIED, MOVED FROM 5.1.3] Verify that input which is used to make business or security decisions is validated using positive validation, against an allowed list of values, patterns or ranges to enforce business or functional expectations for that input. For L2, input validation should be implemented globally. | 1 | 20 |
