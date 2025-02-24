@@ -37,4 +37,6 @@ Büyük ihtimalle eklemeler yapılacak.
 Bu bölümden her şey silinmiş, değişiklik yapılması olası.
 
 # 0x11-V2-Authentication.md
-<span style="color:orangered">**Devam ediyor.**</span>
+<span style="color:lightgreen">**Tamamlandı.**</span>
+
+Şimdilik sorun yok.

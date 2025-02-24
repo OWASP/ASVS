@@ -95,143 +95,144 @@ Not: Parolaların maksimum kullanım süresi olmamalıdır veya zorunlu parola d
 
 | # | Açıklama | Seviye | CWE |  
 | :---: | :--- | :---: | :---: |  
-| 2.3.1 | [GÜNCELLENDİ] Sistem tarafından oluşturulan ilk parolaların veya aktivasyon kodlarının güvenli bir şekilde rastgele üretildiğini, mevcut parola politikasına uygun olduğunu ve kısa bir süre içinde veya ilk kullanımdan sonra geçersiz hale geldiğini doğrulayın. Bu başlangıç şifreleri, uzun vadeli parola olarak kullanılmamalıdır. | 1 | 330 |  
-| 2.3.2 | [SİLİNDİ, 2.2.4 İLE BİRLEŞTİRİLDİ] | | |  
-| 2.3.3 | [GÜNCELLENDİ] Süresi dolacak kimlik doğrulama mekanizmalarının yenilenmesine yönelik talimatların, kullanıcıların eski kimlik doğrulama mekanizmasının süresi dolmadan önce işlemi tamamlayabilmesi için yeterli süre öncesinde gönderildiğini doğrulayın. Gerekirse otomatik hatırlatmaların yapılandırıldığını kontrol edin. | 2 | 287 |  
-| 2.3.4 | [EKLENDİ] Yönetici kullanıcıların, bir kullanıcının parola sıfırlama sürecini başlatabilmesini ancak kullanıcının parolasını değiştiremeyeceğini veya yeni bir parola belirleyemeyeceğini doğrulayın. Bu, yöneticilerin kullanıcının parolasını bilmesini engellemek için gereklidir. | 1 | 620 |  
+| **2.3.1** | [GÜNCELLENDİ] Sistem tarafından oluşturulan ilk parolaların veya aktivasyon kodlarının güvenli bir şekilde rastgele üretildiğini, mevcut parola politikasına uygun olduğunu ve kısa bir süre içinde veya ilk kullanımdan sonra geçersiz hale geldiğini doğrulayın. Bu başlangıç şifreleri, uzun vadeli parola olarak kullanılmamalıdır. | 1 | 330 |  
+| **2.3.2** | [SİLİNDİ, 2.2.4 İLE BİRLEŞTİRİLDİ] | | |  
+| **2.3.3** | [GÜNCELLENDİ] Süresi dolacak kimlik doğrulama mekanizmalarının yenilenmesine yönelik talimatların, kullanıcıların eski kimlik doğrulama mekanizmasının süresi dolmadan önce işlemi tamamlayabilmesi için yeterli süre öncesinde gönderildiğini doğrulayın. Gerekirse otomatik hatırlatmaların yapılandırıldığını kontrol edin. | 2 | 287 |  
+| **2.3.4** | [EKLENDİ] Yönetici kullanıcıların, bir kullanıcının parola sıfırlama sürecini başlatabilmesini ancak kullanıcının parolasını değiştiremeyeceğini veya yeni bir parola belirleyemeyeceğini doğrulayın. Bu, yöneticilerin kullanıcının parolasını bilmesini engellemek için gereklidir. | 1 | 620 |  
 
-## V2.4 Kimlik Bilgisi Depolama
+## V2.4 Kimlik Bilgisinin Depolanması
 
-Architects and developers should adhere to this section when building or refactoring code.
+Mimarlar ve geliştiriciler, yeni kod oluştururken veya mevcut kodu yeniden yapılandırırken bu bölüme bağlı kalmalıdır.
 
-The current list of approved password hashing algorithms is detailed in NIST SP 800-63B section 5.1.1.2, and in the [OWASP Password Storage Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms). Pay careful attention to the configuration guidance to be aware of any implementation challenges or limits with each algorithm. At time of writing, Argon2id is the prefered password hashing algorithm, based on its resistance to side-channel attacks and its customizable memory, CPU, and parallelism parameters.
+Mevcut onaylanmış parola hash'leme algoritmalarının listesi, NIST SP 800-63B bölüm 5.1.1.2 ve [OWASP Parola Depolama Hatırlatma Notu](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) belgelerinde ayrıntılı olarak açıklanmıştır. Her algoritmanın uygulanmasıyla ilgili potansiyel zorluklar veya sınırlamalar hakkında farkındalık sağlamak için yapılandırma rehberine özellikle dikkat edilmelidir. Bu belge yazıldığı sırada, Argon2id en çok önerilen parola hash'leme algoritmasıdır. Yan kanal saldırılarına (side-channel attacks) karşı direnci ve bellek, CPU kullanımı ve paralellik parametrelerinin özelleştirilebilir olması nedeniyle tercih edilmektedir.
 
-In particular, note that since these algorithms are intentionally compute-intensive, there have been cases in the past where providing a very long password leads to a denial of service condition. It is therefore very important to protect against this.
+Özellikle dikkate alınması gereken bir nokta, bu algoritmaların bilinçli olarak hesaplama açısından yoğun (compute-intensive) olarak tasarlandığıdır. Geçmişte, çok uzun parolaların işlenmesinin hizmet aksatma (Denial of Service - DoS) koşullarına yol açtığı bazı vakalar yaşanmıştır. Bu nedenle, sistemin bu tür saldırılara karşı korunduğundan emin olmak büyük önem taşımaktadır.
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.4.1** | [MOVED TO 6.6.2] | | |
-| **2.4.2** | [DELETED, INCORRECT] | | |
-| **2.4.3** | [DELETED, MERGED TO 6.6.2] | | |
-| **2.4.4** | [DELETED, MERGED TO 6.6.2] | | |
-| **2.4.5** | [DELETED, INCORRECT] | | |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.4.1** | [6.6.2'YE TAŞINDI] | | |  
+| **2.4.2** | [SİLİNDİ, HATALI BİLGİ] | | |  
+| **2.4.3** | [SİLİNDİ, 6.6.2 İLE BİRLEŞTİRİLDİ] | | |  
+| **2.4.4** | [SİLİNDİ, 6.6.2 İLE BİRLEŞTİRİLDİ] | | |  
+| **2.4.5** | [SİLİNDİ, HATALI BİLGİ] | | |  
 
-## V2.5 Credential Recovery
+## V2.5 Kimlik Bilgisinin Kurtarılması
 
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Bu bölümdeki gereksinimlerin çoğu, [NIST Kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html) içindeki [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) veya [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) bölümleriyle ilgilidir.
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.5.1** | [DELETED, INCORRECT] | | |
-| **2.5.2** | [GRAMMAR] Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | 1 | 640 |
-| **2.5.3** | [DELETED, COVERED BY 6.6.2] | | |
-| **2.5.4** | [MOVED TO 14.1.10] | | |
-| **2.5.5** | [DELETED, COVERED BY 2.2.3] | | |
-| **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 1 | 640 |
-| **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | 1 | 308 |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.5.1** | [SİLİNDİ, HATALI BİLGİ] | | |  
+| **2.5.2** | [GRAMER DÜZELTİLDİ] Parola ipuçlarının (password hints) veya bilgi tabanlı kimlik doğrulamanın ("gizli sorular") kullanılmadığını doğrulayın. | 1 | 640 |  
+| **2.5.3** | [SİLİNDİ, 6.6.2 TARAFINDAN KAPSANIYOR] | | |  
+| **2.5.4** | [14.1.10’A TAŞINDI] | | |  
+| **2.5.5** | [SİLİNDİ, 2.2.3 TARAFINDAN KAPSANIYOR] | | |  
+| **2.5.6** | [GÜNCELLENDİ] Unutulan parolaların sıfırlanması için güvenli bir sürecin uygulandığını ve bu sürecin etkinleştirilmiş herhangi bir çok faktörlü kimlik doğrulama mekanizmasını atlamadığını doğrulayın. | 1 | 640 |  
+| **2.5.7** | [GRAMER DÜZELTİLDİ, SEVİYE L2 > L1] Tek kullanımlık parola (OTP) veya diğer çok faktörlü kimlik doğrulama faktörleri kaybolduğunda, kimlik doğrulama sürecinin, kaydolma sırasında uygulanan kimlik doğrulama seviyesiyle aynı düzeyde kanıt talep ettiğini doğrulayın. | 1 | 308 |  
 
-## V2.6 General Multi-factor authentication requirements
+## V2.6 Genel Çok Faktörlü Kimlik Doğrulama Gereksinimleri
 
-This section provides general guidance that will be relevant to various different multi-factor authentication methods.
+Bu bölüm, çeşitli çok faktörlü kimlik doğrulama (MFA) yöntemleri ile ilgili genel yönergeleri içermektedir.
 
-The mechanisms include:
+Bu mekanizmalar şunları içerir:
 
-* Lookup Secrets
-* Time based One-time Passwords (TOTPs)
-* Out-of-Band mechanisms
+* Önceden oluşturulmuş gizli kodlar (Lookup Secrets)
+* Zaman tabanlı tek kullanımlık parolalar (TOTP - Time-based One-Time Passwords)
+* Bant dışı (Out-of-Band) kimlik doğrulama mekanizmaları
 
-Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. This type of authentication mechanism is considered "something you have" since the codes are random so you need to have stored them somewhere.
+Lookup secrets, önceden oluşturulmuş rastgele gizli kodlardan oluşan listelerdir. İşlem Yetkilendirme Numaraları (TAN - Transaction Authorization Numbers), sosyal medya hesap kurtarma kodları veya rastgele değerlerden oluşan bir yerleşim bu kategoriye girer. Bu tür kimlik doğrulama mekanizmaları "sahip olduğunuz bir şey" olarak değerlendirilir, çünkü kodlar rastgeledir ve bunları bir yerde saklamış olmanız gerekir.
 
-Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have". Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
+Zaman tabanlı tek kullanımlık parolalar (TOTP), fiziksel veya yazılım tabanlı token'lar aracılığıyla sürekli değişen, sözde-rastgele (pseudo-random) bir kimlik doğrulama kodu üretir. Bu tür kimlik doğrulama mekanizmaları "sahip olduğunuz bir şey" olarak kabul edilir. Çok faktörlü TOTP yöntemleri, tek faktörlü TOTP yöntemlerine benzer ancak geçerli bir PIN kodu, biyometrik doğrulama, USB takma veya NFC eşleştirme gibi ek bir değer gerektirir. Örneğin, işlem imzalama hesaplayıcıları (transaction signing calculators) ek bir doğrulama faktörü olarak kullanılabilir.
 
-More details on out-of-band mechanisms will be provided in a subsequent section.
+Bant dışı (Out-of-Band) kimlik doğrulama mekanizmaları hakkında daha fazla ayrıntı sonraki bölümlerde verilecektir.
 
-The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Bu bölümdeki gereksinimler, [NIST Kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html) içindeki [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators) ve [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) bölümleriyle ilgilidir.
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.6.1** | [MODIFIED, MERGED FROM 2.8.4, SPLIT FROM 2.7.3, COVERS 2.2.6] Verify that lookup secrets, out-of-band authentication requests or codes, and time-based, one-time passwords (TOTPs) are only usable once. | 2 | 308 |
-| **2.6.2** | [MODIFIED, SPLIT TO 2.6.4] Verify that, when being stored in the application's back-end, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 | 330 |
-| **2.6.3** | [MODIFIED, MERGED FROM 2.8.3, SPLIT FROM 2.7.6] Verify that lookup secrets, out-of-band authentication code, and time-based, one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | 310 |
-| **2.6.4** | [ADDED, SPLIT FROM 2.6.2, 2.7.6] Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | 330 |
-| **2.6.5** | [MODIFIED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. For out of band this should be 10 minutes and for TOTP this should be as short as possible, usually 30 seconds. | 1 | 287 |
-| **2.6.6** | [MODIFIED, MOVED FROM 2.8.6, LEVEL L2 > L3] Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 | 613 |
-| **2.6.7** | [MODIFIED, MOVED FROM 2.8.7, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | 308 |
-| **2.6.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | 367 |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.6.1** | [GÜNCELLENDİ, 2.8.4 İLE BİRLEŞTİRİLDİ, 2.7.3’TEN AYRILDI, 2.2.6’YI KAPSIYOR] Lookup secrets, bant dışı kimlik doğrulama kodları veya zaman tabanlı tek kullanımlık parolaların (TOTP) yalnızca bir kez kullanılabildiğini doğrulayın. | 2 | 308 |  
+| **2.6.2** | [GÜNCELLENDİ, 2.6.4’E AYRILDI] Uygulamanın arka ucunda (backend) saklanan lookup secrets, 112 bitten daha az entropiye (rastgelelik seviyesine) sahipse, onaylanmış bir parola hash'leme algoritması kullanılarak 32 bit rastgele salt ile hash'lenmesi gerektiğini doğrulayın. Eğer gizli kod 112 bit veya daha fazla entropiye sahipse, standart bir hash fonksiyonu kullanılabilir. | 2 | 330 |  
+| **2.6.3** | [GÜNCELLENDİ, 2.8.3 İLE BİRLEŞTİRİLDİ, 2.7.6’DAN AYRILDI] Lookup secrets, bant dışı kimlik doğrulama kodları ve TOTP kodlarının, tahmin edilebilir değerleri önlemek için Kriptografik Olarak Güvenli Bir Sahte Rastgele Sayı Üretici (CSPRNG) kullanılarak üretildiğini doğrulayın. | 2 | 310 |  
+| **2.6.4** | [EKLENDİ, 2.6.2 VE 2.7.6’DAN AYRILDI] Lookup secrets ve bant dışı kimlik doğrulama kodlarının en az 20 bit entropiye sahip olduğunu doğrulayın (genellikle 4 rastgele alfasayısal karakter veya 6 rastgele rakam yeterlidir). | 2 | 330 |  
+| **2.6.5** | [GÜNCELLENDİ, 2.7.2’DEN TAŞINDI, 2.8.1 İLE BİRLEŞTİRİLDİ] Bant dışı kimlik doğrulama isteklerinin, kodlarının veya token'larının yanı sıra TOTP'lerin belirli bir kullanım süresi (lifetime) olduğunu doğrulayın. Bant dışı kimlik doğrulama için süre 10 dakika olmalı, TOTP için ise genellikle 30 saniye olacak şekilde mümkün olduğunca kısa tutulmalıdır. | 1 | 287 |  
+| **2.6.6** | [GÜNCELLENDİ, 2.8.6’DAN TAŞINDI, SEVİYE L2 > L3] Herhangi bir kimlik doğrulama faktörünün (fiziksel cihazlar dahil) çalınma veya kaybolma durumunda iptal edilebildiğini doğrulayın. | 3 | 613 |  
+| **2.6.7** | [GÜNCELLENDİ, 2.8.7’DEN TAŞINDI, SEVİYE L2 > L3] Biyometrik kimlik doğrulama mekanizmalarının yalnızca ikincil faktör olarak kullanıldığını ve "sahip olduğunuz bir şey" veya "bildiğiniz bir şey" ile birlikte çalıştığını doğrulayın. | 3 | 308 |  
+| **2.6.8** | [EKLENDİ] Zaman tabanlı tek kullanımlık parolaların (TOTP), güvenilir bir hizmetten sağlanan zaman kaynağına dayanarak kontrol edildiğini ve güvensiz veya istemci tarafından sağlanan bir zaman kaynağının kullanılmadığını doğrulayın. | 3 | 367 |  
 
-## V2.7 Out-of-Band authentication mechanisms
+## V2.7 Bant Dışı (Out-of-Band) Kimlik Doğrulama Mekanizmaları
 
-This will generally involve the authentication server communicating with a physical device over a secure secondary channel. Examples include push notifications to mobile devices and One-time Passwords (OTPs) sent to a user via SMS. This type of authentication mechanism is considered "something you have".
+Bu mekanizmalar genellikle, kimlik doğrulama sunucusunun güvenli ikincil bir kanal üzerinden fiziksel bir cihazla iletişim kurmasını içerir. Örnekler arasında mobil cihazlara gönderilen anlık bildirimler (push notifications) ve kullanıcılara SMS ile iletilen tek kullanımlık parolalar (OTP) yer alır. Bu tür kimlik doğrulama mekanizmaları "sahip olduğunuz bir şey" kategorisine girer.
 
-Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently "restricted" by NIST and should be deprecated in favor of push notifications or similar. If you need to use telephone or SMS out-of-band authentication, please see NIST SP 800-63B [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network).
+Güvensiz bant dışı kimlik doğrulama mekanizmalarına, e-posta ve VOIP dahil değildir ve bunların kullanımı yasaktır. NIST, PSTN (Geleneksel Telefon Ağı) ve SMS kimlik doğrulamasını "kısıtlı" olarak sınıflandırmıştır ve bu yöntemlerin yerine anlık bildirimler (push notifications) gibi daha güvenli alternatiflerin kullanılması önerilmektedir. Telefon veya SMS tabanlı bir bant dışı kimlik doğrulaması kullanmanız gerekiyorsa, NIST SP 800-63B'nin [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network) bölümünü inceleyin..
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. | 1 | 287 |
-| **2.7.2** | [MOVED TO 2.6.5]  | | |
-| **2.7.3** | [MODIFIED, SPLIT TO 2.6.1] Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request for which they were generated and not a previous or subsequent one. | 1 | 287 |
-| **2.7.4** | [DELETED, NOT IN SCOPE] | | |
-| **2.7.5** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.7.6** | [SPLIT TO 2.6.3, 2.6.4] | | |
-| **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | 2 | 307 |
-| **2.7.8** | [ADDED] Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | 3 | |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.7.1** | [GÜNCELLENDİ] Geleneksel Telefon Ağı (PSTN) üzerinden telefon veya SMS yoluyla Tek Kullanımlık Parola (OTP) ile kimlik doğrulama mekanizmalarının yalnızca, daha güçlü alternatifler (örneğin anlık bildirimler) sunulduğunda ve hizmet sağlayıcının bu yöntemlerin güvenlik riskleri hakkında kullanıcıları bilgilendirdiğinde sunulduğunu doğrulayın. | 1 | 287 |  
+| **2.7.2** | [2.6.5’E TAŞINDI] | | |  
+| **2.7.3** | [GÜNCELLENDİ, 2.6.1’E BÖLÜNDÜ] Bant dışı kimlik doğrulama isteklerinin, kodlarının veya token'larının yalnızca oluşturuldukları orijinal kimlik doğrulama isteği için geçerli olduğunu ve önceki veya sonraki istekler için kullanılamadığını doğrulayın. | 1 | 287 |  
+| **2.7.4** | [SİLİNDİ, KAPSAM DIŞI] | | |  
+| **2.7.5** | [SİLİNDİ, YETERSİZ ETKİ] | | |  
+| **2.7.6** | [2.6.3 VE 2.6.4’E BÖLÜNDÜ] | | |  
+| **2.7.7** | [EKLENDİ] Kod tabanlı bant dışı kimlik doğrulama mekanizmasının, ya hız sınırlama (rate limiting) ya da en az 64 bit entropiye sahip bir kod kullanılarak kaba kuvvet saldırılarına karşı korunduğunu doğrulayın. | 2 | 307 |  
+| **2.7.8** | [EKLENDİ] Çok faktörlü kimlik doğrulamada anlık bildirimler (push notifications) kullanılıyorsa, push bombing saldırılarını önlemek için hız sınırlama (rate limiting) veya sayı eşleştirme (number matching) gibi koruma mekanizmalarının uygulandığını doğrulayın. | 3 | |  
 
-## V2.8 Time based One-time Passwords
+## V2.8 Zaman Tabanlı Tek Kullanımlık Parolalar (TOTP)  
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.8.1** | [DELETED, MERGED TO 2.6.5] | | |
-| **2.8.2** | [DELETED, COVERED BY 14.8.1] | | |
-| **2.8.3** | [DELETED, MERGED TO 2.6.3] | | |
-| **2.8.4** | [DELETED, MERGED TO 2.6.1] | | |
-| **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **2.8.6** | [MOVED TO 2.6.6] | | |
-| **2.8.7** | [MOVED TO 2.6.7] | | |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.8.1** | [SİLİNDİ, 2.6.5 İLE BİRLEŞTİRİLDİ] | | |  
+| **2.8.2** | [SİLİNDİ, 14.8.1 TARAFINDAN KAPSANIYOR] | | |  
+| **2.8.3** | [SİLİNDİ, 2.6.3 İLE BİRLEŞTİRİLDİ] | | |  
+| **2.8.4** | [SİLİNDİ, 2.6.1 İLE BİRLEŞTİRİLDİ] | | |  
+| **2.8.5** | [SİLİNDİ, YETERSİZ ETKİ] | | |  
+| **2.8.6** | [2.6.6’YA TAŞINDI] | | |  
+| **2.8.7** | [2.6.7’YE TAŞINDI] | | |  
 
-## V2.9 Cryptographic authentication mechanism
+## V2.9 Kriptografik Kimlik Doğrulama Mekanizması  
 
-Cryptographic authentication mechanism include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authenticatoin server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key.
+Kriptografik kimlik doğrulama mekanizmaları, akıllı kartlar (smart cards) veya FIDO anahtarları gibi cihazları içerir. Kullanıcının kimlik doğrulamayı tamamlamak için kriptografik cihazı bilgisayara takması veya eşleştirmesi gerekir. Kimlik doğrulama sunucusu, kriptografik cihaza veya yazılıma bir "nonce" (rastgele bir doğrulama değeri) gönderir ve cihaz veya yazılım, güvenli bir şekilde saklanan bir kriptografik anahtar kullanarak bir yanıt hesaplar.
 
-The requirements for single-factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic device proves possession of the authentication factor. Where shared or secret keys are used for cryptographic authentication, these should be stored using the same mechanisms as other system secrets, as documented in the "Secret Management" section in the "Configuration" chapter.
+Tek faktörlü ve çok faktörlü kriptografik cihazlar/yazılımlar için gereksinimler aynıdır, çünkü kriptografik cihazın doğrulanması, kimlik doğrulama faktörüne sahip olunduğunu kanıtlar. Kriptografik kimlik doğrulama için kullanılan paylaşılan veya gizli anahtarlar, diğer sistem sırlarıyla aynı mekanizmalar kullanılarak saklanmalıdır. Bu mekanizmalar, "Sır Yönetimi" (Secret Management) bölümünde açıklanmıştır ve "Yapılandırma" (Configuration) bölümünde yer almaktadır.
 
-The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Bu bölümdeki gereksinimler, [NIST Kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html) içindeki [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) bölümüyle ilgilidir.
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.9.1** | [MODIFIED, SPLIT TO 14.8.1, LEVEL L2 > L3] Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 | 320 |
-| **2.9.2** | [LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 | 330 |
-| **2.9.3** | [MODIFIED, LEVEL L2 > L3] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | 3 | 327 |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.9.1** | [GÜNCELLENDİ, 14.8.1’E BÖLÜNDÜ, SEVİYE L2 > L3] Kriptografik kimlik doğrulama iddialarını doğrulamak için kullanılan sertifikaların, değiştirilmesini önleyecek şekilde güvenli bir ortamda saklandığını doğrulayın. | 3 | 320 |  
+| **2.9.2** | [SEVİYE L2 > L3] Kimlik doğrulama için kullanılan "nonce" (rastgele doğrulama değeri) en az 64 bit uzunluğunda olmalı ve kriptografik cihazın ömrü boyunca istatistiksel olarak benzersiz veya tamamen benzersiz olmalıdır. | 3 | 330 |  
+| **2.9.3** | [GÜNCELLENDİ, SEVİYE L2 > L3] Kriptografik anahtarların oluşturulması, tohumlanması (seeding) ve doğrulanması için yalnızca onaylanmış kriptografik algoritmaların kullanıldığını doğrulayın. | 3 | 327 |  
 
-## V2.10 Service Authentication
+## V2.10 Hizmet Kimlik Doğrulaması (Service Authentication)  
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.10.1** | [MOVED TO 14.7.1] | | |
-| **2.10.2** | [MOVED TO 14.7.2] | | |
-| **2.10.3** | [DELETED, COVERED BY 14.8.1] | | |
-| **2.10.4** | [DELETED, MERGED TO 14.8.1] | | |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.10.1** | [14.7.1’E TAŞINDI] | | |  
+| **2.10.2** | [14.7.2’YE TAŞINDI] | | |  
+| **2.10.3** | [SİLİNDİ, 14.8.1 TARAFINDAN KAPSANIYOR] | | |  
+| **2.10.4** | [SİLİNDİ, 14.8.1 İLE BİRLEŞTİRİLDİ] | | |  
 
-## V2.11 Authentication with an Identity Providers
+## V2.11 Kimlik Sağlayıcıları (Identity Providers) ile Kimlik Doğrulama
 
-Secure use of external identity providers requires careful configuration and verification to prevent identity spoofing or forged assertions. This section provides requirements to address these risks.
+Harici kimlik sağlayıcılarının (Identity Providers - IDP) güvenli bir şekilde kullanımı, kimlik sahtekarlığını veya sahte kimlik doğrulama iddialarını önlemek için dikkatli yapılandırma ve doğrulama gerektirir. Bu bölüm, bu riskleri ele almak için gereksinimleri içermektedir.
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **2.11.1** | [ADDED] Verify that, if the application supports multiple identity providers (IDPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). Usually, the application should register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IDP. | 2 | |
-| **2.11.2** | [ADDED] Verify that the presence and integrity of digital signatures on authentication assertions (for example on JWTs or SAML assertions) are always validated, rejecting any assertions that are unsigned or have invalid signatures. | 2 | |
-| **2.11.3** | [ADDED] Verify that SAML assertions are uniquely processed and used only once within the validity period to prevent replay attacks. | 2 | |
+| # | Açıklama | Seviye | CWE |  
+| :---: | :--- | :---: | :---: |  
+| **2.11.1** | [EKLENDİ] Uygulama birden fazla kimlik sağlayıcısını (IDP) destekliyorsa, kullanıcının kimliğinin başka bir desteklenen kimlik sağlayıcı aracılığıyla (örneğin aynı kullanıcı tanımlayıcısını kullanarak) taklit edilemediğini doğrulayın. Genellikle, uygulamanın kullanıcıyı IDP kimliği (IDP ID) ve kullanıcı kimliği kombinasyonunu kullanarak kaydetmesi ve tanımlaması gerekir. | 2 | |  
+| **2.11.2** | [EKLENDİ] Kimlik doğrulama iddialarının (örneğin JWT veya SAML iddialarının) dijital imzalarının varlığı ve bütünlüğünün her zaman doğrulandığını, imzasız veya geçersiz imzalı iddiaların reddedildiğini doğrulayın. | 2 | |  
+| **2.11.3** | [EKLENDİ] SAML iddialarının benzersiz bir şekilde işlendiğini ve geçerlilik süresi içinde yalnızca bir kez kullanıldığını, yeniden yürütme saldırılarını (replay attacks) önlemek için doğrulayın. | 2 | |  
 
-## References
 
-For more information, see also:
+## Referanslar
 
-* [NIST SP 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
-* [NIST SP 800-63A - Enrollment and Identity Proofing](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63a.pdf)
-* [NIST SP 800-63B - Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
-* [NIST SP 800-63C - Federation and Assertions](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63c.pdf)
-* [NIST SP 800-63 FAQ](https://pages.nist.gov/800-63-FAQ/)
-* [OWASP Testing Guide 4.0: Testing for Authentication](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/04-Authentication_Testing/README.html)
-* [OWASP Cheat Sheet - Password storage](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-* [OWASP Cheat Sheet - Forgot password](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
-* [OWASP Cheat Sheet - Choosing and using security questions](https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html)
-* [CISA Guidance on "Number Matching"](https://www.cisa.gov/sites/default/files/publications/fact-sheet-implement-number-matching-in-mfa-applications-508c.pdf)
+Daha fazla bilgi için aşağıdaki kaynaklara bakabilirsiniz:
+
+* [NIST SP 800-63 - Dijital Kimlik Yönergeleri](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
+* [NIST SP 800-63A - Kayıt ve Kimlik İspatlama](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63a.pdf)
+* [NIST SP 800-63B - Kimlik Doğrulama ve Yaşam Döngüsü Yönetimi](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
+* [NIST SP 800-63C - Birleştirme ve Kimlik Doğrulama İddiaları](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63c.pdf)
+* [NIST SP 800-63 SSS](https://pages.nist.gov/800-63-FAQ/)
+* [OWASP Test Kılavuzu 4.0: Kimlik Doğrulama Testi](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/04-Authentication_Testing/README.html)
+* [OWASP Hatırlatma Notu - Parola Depolama](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+* [OWASP Hatırlatma Notu - Parola Sıfırlama](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
+* [OWASP Hatırlatma Notu - Güvenlik Sorularının Seçilmesi ve Kullanımı](https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html)
+* ["Sayı Eşleştirme" Üzerine CISA Rehberi](https://www.cisa.gov/sites/default/files/publications/fact-sheet-implement-number-matching-in-mfa-applications-508c.pdf)
