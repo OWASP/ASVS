@@ -43,7 +43,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.8** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | 3 | |
 | **14.1.9** | [ADDED] Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | |
 | **14.1.10** | [MODIFIED, MOVED FROM 2.5.4] Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 | 798 |
-| **14.1.11** | [ADDED, SPLIT FROM 4.3.2] Verify that the application is deployed without any source control metadata including the .git or .svn folders. | 1 | |
+| **14.1.11** | [ADDED, SPLIT FROM 4.3.2] Verify that the application is deployed either without any source control metadata including the .git or .svn folders or in a way that these folders are inaccessible both externally and to the application itself. | 1 | |
 
 ## V14.2 Dependency
 
