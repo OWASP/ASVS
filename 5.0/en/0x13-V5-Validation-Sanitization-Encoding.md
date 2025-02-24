@@ -20,7 +20,7 @@ The "untrusted client" term here refers to client-side technologies that render 
 | :---: | :--- | :---: | :---: |
 | **1.5.1** | [SPLIT TO 1.11.5, 1.11.6] | | |
 | **1.5.2** | [DELETED, MERGED TO 5.5.3] | | |
-| **1.5.3** | [MOVED TO 11.3.4] | | |
+| **1.5.3** | [MOVED TO 11.3.2] | | |
 | **1.5.4** | [MOVED TO 5.6.2] | | |
 
 ## V5.1 Input Validation
@@ -36,7 +36,7 @@ Input validation provides valuable hygiene for the application in making sure th
 | **5.1.1** | [MOVED TO 10.4.7] | | |
 | **5.1.2** | [MOVED TO 10.4.4] | | |
 | **5.1.3** | [MOVED TO 11.3.1] | | |
-| **5.1.4** | [SPLIT TO 11.3.2, 11.3.3] | | |
+| **5.1.4** | [SPLIT TO 11.3.1, 11.3.3] | | |
 | **5.1.5** | [SPLIT TO 50.8.1, 50.8.5] | | |
 
 ## V5.2 Sanitization and Sandboxing

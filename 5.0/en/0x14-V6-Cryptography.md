@@ -86,7 +86,7 @@ Authenticated encryption algorithms built on AES and CHACHA20 form the backbone 
 | :---: | :--- | :---: | :---: |
 | **6.5.1** | [ADDED, SPLIT FROM 6.2.2, 6.2.5, COVERS 6.2.3] Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | 2 | 326 |
 | **6.5.2** | [ADDED, SPLIT FROM 6.2.2, 6.2.5, COVERS 6.2.3, LEVEL L2 > L1] Verify that only secure, authenticated ciphers and modes such as AES with GCM are used. | 1 | 326 |
-| **6.5.3** | [MODIFIED, MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key/data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 | 326 |
+| **6.5.3** | [MODIFIED, MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key and data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 | 326 |
 | **6.5.4** | [MODIFIED, SPLIT FROM 6.2.2, MOVED FROM 6.2.7] Verify that encrypted data is protected against unauthorized modification preferably by using an approved authenticated encryption method or by combining an approved encryption method with an approved MAC algorithm. | 3 | 326 |
 | **6.5.5** | [ADDED] Verify that any combination of an encryption algorithm and a MAC algorithm is operating in encrypt-then-MAC mode. | 3 | 326 |
 
@@ -126,7 +126,7 @@ The need to future-proof cryptographic systems in preparation for the eventual r
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **6.9.1** | [ADDED] Verify that a cryptographic inventory is maintained and includes a documented transformation plan or mapping that outlines the migration path from current cryptographic algorithms and systems to those that are post-quantum cryptography/quantum-safe. | 2 | |
+| **6.9.1** | [ADDED] Verify that a cryptographic inventory is maintained and includes a documented transformation plan or mapping that outlines the migration path from current cryptographic algorithms and systems to those that use post-quantum cryptography. | 2 | |
 | **6.9.2** | [ADDED] Verify that advancements in the field of post-quantum cryptography are being monitored in order to ensure that the application is aligned with emerging industry standards, and remains prepared for quantum threats. | 2 | |
 
 ## References

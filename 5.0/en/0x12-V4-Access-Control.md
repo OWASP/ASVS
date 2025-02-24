@@ -57,7 +57,7 @@ Additional considerations for access control, particularly for administrative in
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **4.3.1** | [MODIFIED, LEVEL L1 > L3] Verify that access to administrative interfaces incorporates multiple layers of security, including continuous consumer identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they may reduce the likelihood of unauthorized access. | 3 | 419 |
-| **4.3.2** | [SPLIT TO 14.3.4, 14.3.5] | | |
+| **4.3.2** | [SPLIT TO 14.1.6, 14.1.11, 14.3.4] | | |
 | **4.3.3** | [MOVED TO 14.7.3] | | |
 | **4.3.4** | [ADDED] Verify that multi-tenant applications use cross-tenant controls to ensure consumer operations will never affect tenants with which they do not have permissions to interact. | 1 | 283 |
 
