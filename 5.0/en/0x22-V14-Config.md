@@ -69,6 +69,7 @@ For example, hiding the version of server-side components does not fix the need 
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | 1 | 548 |
 | **14.3.5** | [ADDED, SPLIT FROM 4.3.2] Verify that the application does not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | 1 | |
 | **14.3.6** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors should be blocked unless required. | 1 | 552 |
+| **14.3.7** | [ADDED, SPLIT FROM 14.5.1] Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 1 | 749 |
 
 ## V14.4 HTTP Security Headers
 
@@ -86,7 +87,7 @@ For example, hiding the version of server-side components does not fix the need 
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **14.5.1** | [MOVED TO 13.6.1] | | |
+| **14.5.1** | [SPLIT TO 13.6.1, 14.3.7] | | |
 | **14.5.2** | [DELETED, COVERED BY 4.2.3] | | |
 | **14.5.3** | [SPLIT TO 50.3.6, 50.4.3] | | |
 | **14.5.4** | [DELETED, INCORRECT] | | |
