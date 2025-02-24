@@ -71,7 +71,6 @@ For example, hiding the version of server-side components does not fix the need 
 | **14.3.5** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors should be blocked unless required. | 1 | 552 |
 | **14.3.6** | [ADDED, SPLIT FROM 14.5.1] Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 1 | 749 |
 
-
 ## V14.4 HTTP Security Headers
 
 | # | Description | Level | CWE |
