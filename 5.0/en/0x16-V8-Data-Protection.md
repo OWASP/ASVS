@@ -22,7 +22,7 @@ This chapter includes requirements related to defining what data needs to be pro
 | **8.1.1** | [MODIFIED, MERGED FROM 8.1.2] Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | 2 | 524 |
 | **8.1.2** | [DELETED, MERGED TO 8.1.1] | | |
 | **8.1.3** | [DELETED, INSUFFICIENT IMPACT] | | |
-| **8.1.4** | [DELETED, MERGED TO 7.2.4] | 2 | 770 |
+| **8.1.4** | [DELETED, MERGED TO 7.2.4] | | |
 | **8.1.5** | [DELETED, NOT IN SCOPE] | | |
 | **8.1.6** | [DELETED, NOT IN SCOPE] | | |
 | **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 2 | 444 |
