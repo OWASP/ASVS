@@ -29,6 +29,7 @@ This chapter includes requirements related to defining what data needs to be pro
 | **8.1.8** | [ADDED] Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 | 200 |
 | **8.1.9** | [ADDED, SPLIT FROM 1.8.2] Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 | |
 | **8.1.10** | [ADDED] Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the full data is absolutely required, it should be masked in the user interface unless the user specifically views it. | 3 | |
+| **8.1.11** | [MODIFIED, MOVED FROM 8.3.1, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or header fields and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 | 598 |
 
 ## V8.2 Client-side Data Protection
 
@@ -48,7 +49,7 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **8.3.1** | [MODIFIED, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or header fields and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 | 598 |
+| **8.3.1** | [MOVED TO 8.1.11] | | |
 | **8.3.2** | [DELETED, NOT IN SCOPE] | | |
 | **8.3.3** | [DELETED, NOT IN SCOPE] | | |
 | **8.3.4** | [DELETED, MERGED TO 1.8.1] | | |
