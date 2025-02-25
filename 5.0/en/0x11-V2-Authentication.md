@@ -198,7 +198,7 @@ The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages
 | :---: | :--- | :---: | :---: |
 | **2.9.1** | [MODIFIED, SPLIT TO 14.8.1, LEVEL L2 > L3] Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 | 320 |
 | **2.9.2** | [LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 | 330 |
-| **2.9.3** | [MODIFIED, LEVEL L2 > L3] Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of the cryptographic keys. | 3 | 327 |
+| **2.9.3** | [DELETED, MERGED TO 6.7.2] | | |
 
 ## V2.10 Service Authentication
 
