@@ -8,7 +8,11 @@ Applications have to assume that all user devices are compromised in some way. W
 
 This chapter includes requirements related to defining what data needs to be protected, how it should be protected, and specific mechanisms to implement or pitfalls to avoid.
 
+Another consideration for data protection, could be around bulk extraction or modification or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euro of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the Security Logging and Error Handling chapter and setting limits is handed in the Business Logic chapter.
+
 ## V1.8 Data Protection and Privacy Documentation
+
+A key pre-requisite for being able to protect data is to be able to categorize what data should be considered sensitive. There are likely to be a few different levels of sensitivity, and for each level of sensitivity, the controls required to protect data at that level will be different.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -16,6 +20,8 @@ This chapter includes requirements related to defining what data needs to be pro
 | **1.8.2** | [MODIFIED, SPLIT TO 8.1.9, COVERS 8.3.7] Verify that all protection levels have a documented set of protection requirements. This should include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | 2 | |
 
 ## V8.1 General Data Protection
+
+This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leaking but there is also a general requirment to implement protection controls based on the protection level required for each data item.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -32,6 +38,8 @@ This chapter includes requirements related to defining what data needs to be pro
 
 ## V8.2 Client-side Data Protection
 
+This section contains requirements related to specific ways in which data can leak at the client or user agebt side of an application.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 1 | 525 |
@@ -40,11 +48,9 @@ This chapter includes requirements related to defining what data needs to be pro
 
 ## V8.3 Sensitive Private Data
 
-This section helps protect sensitive data from being created, read, updated, or deleted without authorization, particularly in bulk quantities.
+Privacy regulations and laws, such as the Australian Privacy Principles APP-11 or GDPR, directly affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This ranges from severe penalties to simple advice. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
 
-Compliance with this section implies compliance with V4 Access Control, and in particular V4.2. For example, to protect against unauthorized updates or disclosure of sensitive personal information requires adherence to V4.2.1. Please comply with this section and V4 for full coverage.
-
-Note: Privacy regulations and laws, such as the Australian Privacy Principles APP-11 or GDPR, directly affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This ranges from severe penalties to simple advice. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
+This section no longer tries to duplicate these types of data protection or privacy legislation but instead focuses on some key additional technical considerations for protecting sensitive data.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -57,8 +63,6 @@ Note: Privacy regulations and laws, such as the Australian Privacy Principles AP
 | **8.3.7** | [DELETED, COVERED BY 1.8.2] | | |
 | **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | |
 | **8.3.9** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 2 | 212 |
-
-When considering data protection, a primary consideration should be around bulk extraction or modification or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euro of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. Important criteria are the ability to detect, deter, or preferably block such abnormal bulk actions.
 
 ## References
 
