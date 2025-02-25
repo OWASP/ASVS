@@ -109,7 +109,7 @@ As part of this, there exists a need for approved key exchange mechanisms, such 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This should prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 2 | |
-| **6.7.2** | [ADDED, SPLIT FROM 6.2.2] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | 327 |
+| **6.7.2** | [ADDED, SPLIT FROM 6.2.2, MERGED FROM 2.9.3] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | 327 |
 
 ## V6.8 In-Use Data Cryptography
 
