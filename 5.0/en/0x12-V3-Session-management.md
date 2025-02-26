@@ -30,7 +30,7 @@ This section satisfies the essential requirements of secure sessions by verifyin
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **3.1.1** | [DELETED, MERGED TO 8.3.1] | | |
+| **3.1.1** | [DELETED, MERGED TO 8.1.11] | | |
 | **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | 1 | 603 |
 | **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either self-contained or reference tokens for session management. Static API secrets and keys should be avoided. | 1 | 798 |
 | **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 | |
