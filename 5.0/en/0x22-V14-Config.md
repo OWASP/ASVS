@@ -4,7 +4,7 @@
 
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out-of-the-box configuration.
 
-This chapter tries to provide guidance on the various configurations that will be necessary to achieve this including both configurations to apply whilst developing the application and also those that are applied at build and deploy time.
+This chapter provides guidance on the various configurations that will be necessary to achieve this including both configurations to apply whilst developing the application and also those that are applied at build and deploy time.
 
 This includes topics such as preventing data leakage, securely managing communications between different components and how secrets are protected.
 
@@ -22,7 +22,7 @@ This includes topics such as preventing data leakage, securely managing communic
 
 ## V14.1 Build and Deploy
 
-Whilst the security of build processes and the DevSecOps aspects involved are generally not in scope for ASVS, this section tries to capture security controls for the application itself which are applied at the build and deploy process such as how the application is compiled and avoiding unnecessary content when the application is deployed.
+Whilst the security of build processes and the DevSecOps aspects involved are generally not in scope for ASVS, this section captures security controls for the application itself which are applied at the build and deploy process such as how the application is compiled and avoiding unnecessary content when the application is deployed.
 
 Compliance with this section requires an automated build system, and access to build and deployment scripts.
 
@@ -54,6 +54,8 @@ Compliance with this section requires an automated build system, and access to b
 ## V14.3 Unintended Information Leakage
 
 Configurations for production should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application and it may encourage the attacker to look for easier targets.
+
+For example, hiding the version of server-side components does not fix the need to patch all components, and disabling the folder listing does not eliminate the need to use authorization controls or keep files away from the public folder, but it raises the bar.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
