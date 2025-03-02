@@ -27,7 +27,7 @@ This section contains requirements detailing the authentication documentation th
 
 ## V2.1 Password Security
 
-Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authentication mechanism. From level 2 onwards, multi-factor authentication mechanisms are required, where passwords may be one of those factors.
+Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authentication mechanism. From L2 onwards, multi-factor authentication mechanisms are required, where passwords may be one of those factors.
 
 As such, this section contains requirements for making sure that passwords are created and handled securely.
 
