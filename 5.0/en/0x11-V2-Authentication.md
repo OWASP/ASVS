@@ -79,14 +79,11 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 
 ## V2.3 Authentication Factor Lifecycle
 
-Authentication factors may include passwords, soft tokens, hardware tokens, and biometric devices. Securely handling the lifecycle of these mechanisms is critical to the security of an application and this section includes requirements related to this.
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **2.3.1** | [MODIFIED] Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 | 330 |
+| **2.3.1** | [MOVED TO 2.5.8] | | |
 | **2.3.2** | [DELETED, MERGED TO 2.2.4] | | |
-| **2.3.3** | [MODIFIED] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 2 | 287 |
-| **2.3.4** | [ADDED] Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 1 | 620 |
+| **2.3.3** | [MOVED TO 2.5.9] | | |
 
 ## V2.4 Credential Storage
 
@@ -98,7 +95,9 @@ Authentication factors may include passwords, soft tokens, hardware tokens, and 
 | **2.4.4** | [DELETED, MERGED TO 6.6.2] | | |
 | **2.4.5** | [DELETED, INCORRECT] | | |
 
-## V2.5 Credential Recovery
+## V2.5 Authentication Factor Lifecycle and Recovery
+
+Authentication factors may include passwords, soft tokens, hardware tokens, and biometric devices. Securely handling the lifecycle of these mechanisms is critical to the security of an application and this section includes requirements related to this.
 
 The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
@@ -111,6 +110,9 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **2.5.5** | [DELETED, COVERED BY 2.2.3] | | |
 | **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 1 | 640 |
 | **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | 1 | 308 |
+| **2.5.8** | [MODIFIED, MOVED FROM 2.3.1] Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 | 330 |
+| **2.5.9** | [MODIFIED, MOVED FROM 2.3.3] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 2 | 287 |
+| **2.5.10** | [ADDED] Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 1 | 620 |
 
 ## V2.6 General Multi-factor authentication requirements
 
