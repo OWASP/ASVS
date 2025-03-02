@@ -18,7 +18,7 @@ This section contains requirements detailing the authentication documentation th
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **1.2.1** | [MOVED TO 14.6.2] | | |
+| **1.2.1** | [MOVED TO 14.7.5] | | |
 | **1.2.2** | [DELETED, MERGED TO 14.7.1] | | |
 | **1.2.3** | [DELETED, COVERED BY 1.2.4] | | |
 | **1.2.4** | [MODIFIED, SPLIT TO 2.2.11, COVERS 1.2.3] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | 2 | 306 |

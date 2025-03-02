@@ -70,7 +70,7 @@ User-submitted filenames should be validated or ignored in the Content-Dispositi
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **12.6.1** | [MOVED TO 14.6.1] | | |
+| **12.6.1** | [MOVED TO 14.7.4] | | |
 
 ## V12.7 Application Resources
 
