@@ -81,7 +81,7 @@ This section relates to those writing Relying Party (RP) or Identity Provider (I
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between (IdPs authentication events is reached. | 3 | 613 |
+| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 3 | 613 |
 | **3.6.2** | [DELETED, MERGED TO 3.6.1] | | |
 | **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 | |
 
