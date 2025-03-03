@@ -77,11 +77,11 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 
 ## V3.6 Federated Re-authentication
 
-This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
+This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Credential Service Providers (CSPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between CSP authentication events is reached. | 3 | 613 |
+| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 3 | 613 |
 | **3.6.2** | [DELETED, MERGED TO 3.6.1] | | |
 | **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 | |
 

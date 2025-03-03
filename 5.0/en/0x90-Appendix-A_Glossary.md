@@ -24,6 +24,7 @@
 * **Hardcoded keys** – Cryptographic keys that are stored on the filesystem, be it in code, comments or files.
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
 * **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library.
+* **Identity Provider** (IdP) - Also called a Credential Service Provider (CSP) in NIST references. An entity that provides an authentication source for other applications.
 * **Inactivity Timeout** - This is the length of time a session can remain active in the absence of user interaction with the application. This is a component of session expiration.
 * **Input Validation** – The canonicalization and validation of untrusted user input.
 * **JSON Web Token** (JWT) - RFC 7519 defines a standard for a JSON data object made up of a header section which explains how to validate the object, a body section containing a set of claims, and a signature section which contains a digital signature which can be used to validate the contents of the body section. It is a type of self-contained token.
