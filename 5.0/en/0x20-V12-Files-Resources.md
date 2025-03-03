@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Ensure that untrusted files and other resources are handled safely to prevent denial of service, unauthorized access, and resource exhaustion
+The use of files and other resources can present a variety of risks for the application including denial of service, unauthorized access, and resource exhaustion. This chapter includes requirements to address these risks.
 
 ## V1.12 Secure File Upload Documentation
 
@@ -14,7 +14,7 @@ Ensure that untrusted files and other resources are handled safely to prevent de
 
 ## V12.1 File Upload
 
-Upload functionality is a key source of untrusted files. These should be carefully validated to prevent risks such as denial of service, unauthorized access, and resource exhaustion.
+Upload functionality is a key source of untrusted files. This section details the requirements for ensuring that the presence or volume of these files cannot harm the application.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -38,7 +38,7 @@ File operations should not rely on user-submitted filenames or metadata to avoid
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **12.3.1** | [MODIFIED, MERGED FROM 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use internal, trusted data for file I/O. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | 1 | 73 |
+| **12.3.1** | [MODIFIED, MERGED FROM 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use either internally generated or trusted data for file I/O operations. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | 1 | 73 |
 | **12.3.2** | [DELETED, MERGED TO 12.3.1] | | |
 | **12.3.3** | [DELETED, MERGED TO 12.3.1] | | |
 | **12.3.4** | [MOVED TO 12.5.3] | | |
