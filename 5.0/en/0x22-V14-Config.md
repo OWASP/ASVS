@@ -16,7 +16,7 @@ This includes topics such as preventing data leakage, securely managing communic
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | |
 | **1.14.3** | [DELETED, COVERED BY 1.10.5, 10.6.1] | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | |
-| **1.14.5** | [SPLIT TO 1.10.4, 10.5.1] | | |
+| **1.14.5** | [SPLIT TO 1.10.4, 10.6.3] | | |
 | **1.14.6** | [MOVED TO 50.8.2] | | |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 | 1059 |
 
@@ -49,7 +49,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.2.3** | [MOVED TO 50.7.1] | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | |
 | **14.2.5** | [MOVED TO 1.10.2] | | |
-| **14.2.6** | [SPLIT TO 1.10.3, 10.5.1] | | |
+| **14.2.6** | [SPLIT TO 1.10.3, 10.6.3] | | |
 
 ## V14.3 Unintended Information Leakage
 
