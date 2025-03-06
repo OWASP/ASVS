@@ -2,12 +2,11 @@
 
 ## Control Objective
 
-Ensure that a verified application has:
-
-* A secure, repeatable, automatable build environment.
-* Hardened third-party library, dependency, and configuration management to ensure that out-of-date or insecure components are not included in the application.
-
 Configuration of the application out of the box should be safe to be on the Internet, which means a safe out-of-the-box configuration.
+
+This chapter provides guidance on the various configurations that will be necessary to achieve this including both configurations to apply whilst developing the application and also those that are applied at build and deploy time.
+
+This includes topics such as preventing data leakage, securely managing communications between different components and how secrets are protected.
 
 ## V1.14 Configuration Documentation
 
@@ -17,17 +16,13 @@ Configuration of the application out of the box should be safe to be on the Inte
 | **1.14.2** | [DELETED, NOT IN SCOPE] | | |
 | **1.14.3** | [DELETED, COVERED BY 1.10.5, 10.6.1] | | |
 | **1.14.4** | [DELETED, NOT IN SCOPE] | | |
-| **1.14.5** | [SPLIT TO 1.10.4, 10.5.1] | | |
+| **1.14.5** | [SPLIT TO 1.10.4, 10.6.3] | | |
 | **1.14.6** | [MOVED TO 50.8.2] | | |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 | 1059 |
 
 ## V14.1 Build and Deploy
 
-Build pipelines are the basis for repeatable security - every time something insecure is discovered, it can be resolved in the source code, build or deployment scripts, and tested automatically. We strongly encourage the use of build pipelines with automatic security and dependency checks that warn about or break the build to prevent known security issues from being deployed into production. Manual steps performed irregularly can directly lead to avoidable security mistakes.
-
-As the industry moves to a DevSecOps model, it is important to ensure the continued availability and integrity of deployment and configuration to achieve a "known good" state. In the past, if a system was hacked, it would take days to months to prove that no further intrusions had taken place. Today, with the advent of software-defined infrastructure, rapid A/B deployments with zero downtime, and automated containerized builds, it is possible to automatically and continuously build, harden, and deploy a "known good" replacement for any compromised system.
-
-If traditional models are still in place, then manual steps must be taken to harden and back up that configuration to allow the compromised systems to be quickly replaced with high-integrity, uncompromised systems in a timely fashion.
+Whilst the security of build processes and the DevSecOps aspects involved are generally not in scope for ASVS, this section captures security controls for the application itself which are applied at the build and deploy process such as how the application is compiled and avoiding unnecessary content when the application is deployed.
 
 Compliance with this section requires an automated build system, and access to build and deployment scripts.
 
@@ -54,11 +49,11 @@ Compliance with this section requires an automated build system, and access to b
 | **14.2.3** | [MOVED TO 50.7.1] | | |
 | **14.2.4** | [DELETED, MERGED TO 1.10.2] | | |
 | **14.2.5** | [MOVED TO 1.10.2] | | |
-| **14.2.6** | [SPLIT TO 1.10.3, 10.5.1] | | |
+| **14.2.6** | [SPLIT TO 1.10.3, 10.6.3] | | |
 
 ## V14.3 Unintended Information Leakage
 
-Configurations for production should be hardened to protect against common attacks. Measures should include disabling debug consoles, raising the bar against Cross-site Scripting (XSS) and Remote File Inclusion (RFI) attacks, and eliminating trivial information discovery "vulnerabilities" that often litter penetration testing reports. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar before most attacks can succeed.
+Configurations for production should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application and it may encourage the attacker to look for easier targets.
 
 For example, hiding the version of server-side components does not fix the need to patch all components, and disabling the folder listing does not eliminate the need to use authorization controls or keep files away from the public folder, but it raises the bar.
 
@@ -94,20 +89,17 @@ For example, hiding the version of server-side components does not fix the need 
 
 ## V14.6 Web or Application Server Configuration
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **14.6.1** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 1 | 918 |
-| **14.6.2** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between back-end application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | 272 |
+## V14.7 Back-end Communication Configuration
 
-## V14.7 External Service Configuration
-
-Applications need to interact with multiple external services including APIs, databases or other components. These might be considered internal to the application but not be included in the application's standard access control mechanisms or might be entirely external. In either case, it will be necessary to configure the application to interact securely with these components and, if necessary protect that configuration.
+Applications need to interact with multiple services including APIs, databases or other components. These might be considered internal to the application but not be included in the application's standard access control mechanisms or might be entirely external. In either case, it will be necessary to configure the application to interact securely with these components and, if necessary protect that configuration.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **14.7.1** | [MODIFIED, MOVED FROM 2.10.1, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | 2 | 287 |
 | **14.7.2** | [GRAMMAR, MOVED FROM 2.10.2] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin are default in some services during installation). | 2 | 255 |
 | **14.7.3** | [MODIFIED, MOVED FROM 4.3.3] Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | 2 | 732 |
+| **14.7.4** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 1 | 918 |
+| **14.7.5** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between back-end application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | 272 |
 
 ## V14.8 Secret Management
 

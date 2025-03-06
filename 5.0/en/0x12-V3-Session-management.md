@@ -30,7 +30,7 @@ This section satisfies the essential requirements of secure sessions by verifyin
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **3.1.1** | [DELETED, MERGED TO 8.3.1] | | |
+| **3.1.1** | [DELETED, MERGED TO 8.1.11] | | |
 | **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | 1 | 603 |
 | **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either self-contained or reference tokens for session management. Static API secrets and keys should be avoided. | 1 | 798 |
 | **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 | |
@@ -77,11 +77,11 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 
 ## V3.6 Federated Re-authentication
 
-This section relates to those writing Relying Party (RP) or Credential Service Provider (CSP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
+This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Credential Service Providers (CSPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between CSP authentication events is reached. | 3 | 613 |
+| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 3 | 613 |
 | **3.6.2** | [DELETED, MERGED TO 3.6.1] | | |
 | **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 | |
 

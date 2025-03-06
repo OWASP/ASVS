@@ -94,6 +94,8 @@ Authenticated encryption algorithms built on AES and CHACHA20 form the backbone 
 
 Cryptographic hashes are used in a wide variety of cryptographic protocols, such as digital signatures, HMAC, key derivation functions (KDF), random bit generation, and password storage. The security of the cryptographic system is only as strong as the underlying hash functions used. This section outlines the requirements for using secure hash functions in cryptographic operations.
 
+For password stroage, as well as the cryptography appendix, the [OWASP Password Storage Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) will also provide useful context and guidance.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **6.6.1** | [ADDED, SPLIT FROM 6.2.2, 6.2.5, COVERS 6.2.3] Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Disallowed hash functions, such as MD5, must not be used for any cryptographic purpose. | 2 | |
@@ -109,7 +111,7 @@ As part of this, there exists a need for approved key exchange mechanisms, such 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This should prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 2 | |
-| **6.7.2** | [ADDED, SPLIT FROM 6.2.2] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | 327 |
+| **6.7.2** | [ADDED, SPLIT FROM 6.2.2, MERGED FROM 2.9.3] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | 327 |
 
 ## V6.8 In-Use Data Cryptography
 
