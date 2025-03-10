@@ -9,9 +9,9 @@ Session management mechanisms allow applications to correlate user and device in
 
 Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focused on common threats and commonly exploited authentication weaknesses.
 
-Note that requirements for specific implementation details of certain session management mechanisms can be found in other:
+Note that requirements for specific implementation details of certain session management mechanisms can be elsewhere:
 
-* HTTP Cookies are a common mechanism for securing session identifiers and specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
+* HTTP Cookies are a common mechanism for securing session identifiers. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
 * Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
 
 ## V1.3 Session Management Documentation
