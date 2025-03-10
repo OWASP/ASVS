@@ -55,7 +55,7 @@ This section includes requirements to prevent files being inappropriately execut
 
 ## V12.5 File Download
 
-This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This includes making sure they don't contain dangerous content.
+This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This also includes making sure they don't contain dangerous content.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
