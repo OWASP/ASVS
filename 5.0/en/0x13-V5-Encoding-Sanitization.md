@@ -1,4 +1,4 @@
-# V5 Validation, Sanitization and Encoding
+# V5 Encoding and Sanitization
 
 ## Control Objective
 
