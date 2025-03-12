@@ -2,10 +2,6 @@
 
 ## Control Objective
 
-This paragraph contains documentation requirements that are pre-conditions for implementation and testing.
-
-Note that the documentation requirements here are a temporary solution, and it is yet to be decided how to organize them in the release. The requirements, that or not documentation requirements, are subject to be removed or moved.
-
 ## V1.1 Secure Software Development Lifecycle
 
 | # | Description | Level | CWE |
@@ -27,5 +23,4 @@ For more information, see also:
 * [OWASP Threat modeling](https://owasp.org/www-community/Application_Threat_Modeling)
 * [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/securityengineering/sdl/)
-* [NIST SP 800-57](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
 * [More information on security.txt including a link to the RFC](https://securitytxt.org/)
