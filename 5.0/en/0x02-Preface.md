@@ -3,7 +3,6 @@
 Welcome to the Application Security Verification Standard (ASVS) version 5.0.
 
 TBD
-
 <!--
  The ASVS is a community-driven effort to establish a standard that defines the functional and non-functional security requirements to consider when designing, developing and testing modern web applications and web services.
 
