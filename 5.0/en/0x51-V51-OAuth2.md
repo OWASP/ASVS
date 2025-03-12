@@ -127,6 +127,8 @@ Note that if using the id-token flow (not the code flow), no access tokens are i
 
 ## V51.7 Consent Management
 
+These requirements cover the verification of the user's consent by the authorization server. Without proper user consent verification, a malicious actor may obtain permissions on the user's behalf through spoofing or social-engineering.
+
 | # | Description | Level |
 | :---: | :--- | :---: |
 | **51.7.1** | [ADDED] Verify that the authorization server ensures that the user consents to each authorization request. If the identity of the client cannot be assured, the authorization server must always explicitly prompt the user for consent. | 2 |
