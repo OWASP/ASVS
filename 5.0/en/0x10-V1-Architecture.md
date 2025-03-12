@@ -1,7 +1,5 @@
 # V1 Security Decision Documentation
 
-## Control Objective
-
 ## V1.1 Secure Software Development Lifecycle
 
 | # | Description | Level | CWE |
