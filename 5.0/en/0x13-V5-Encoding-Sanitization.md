@@ -1,4 +1,4 @@
-# V5 Validation, Sanitization and Encoding
+# V5 Encoding and Sanitization
 
 ## Control Objective
 
@@ -6,15 +6,9 @@ This chapter focuses on the most common web application security weaknesses that
 
 With modern web applications, it will always be best to use safer APIs such as parameterized queries, auto-escaping or templating frameworks. Otherwise, or carefully performed output encoding/escaping or sanitization will be critical to the security of the application.
 
-This chapter also talks about Input Validation which is a powerful defense in depth mechanism for protected against unexpected, dangerous content but should not be considered as a specific security control.
+Input Validation can act as a defense in depth mechanism for protecting against unexpected, dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements around this can be found in the "Business Logic" chapter.
 
 ## V1.5 Input and Output Documentation
-
-<!--
-In 4.0, we moved away from the term "server-side" as a loaded trust boundary term. The trust boundary is still concerning - making decisions on untrusted browsers or client devices is bypassable. However, in mainstream architectural deployments today, the trust enforcement point has dramatically changed. Therefore, where the term "trusted service layer" is used in the ASVS, we mean any trusted enforcement point, regardless of location, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on.
-
-The "untrusted client" term here refers to client-side technologies that render the presentation layer, commonly referred to as 'front-end' technologies. The term 'serialization' in this context refers not only to transmitting data over the wire, such as an array of values or processing a JSON structure but also to the handling of complex objects that may contain logic.
--->
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -24,12 +18,6 @@ The "untrusted client" term here refers to client-side technologies that render 
 | **1.5.4** | [MOVED TO 5.6.2] | | |
 
 ## V5.1 Input Validation
-
-Everything the application uses or processes must be handled as user input, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
-
-Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive. Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
-
-Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, escaping, or sanitization when using the data for next component or for presenting it for output.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -79,7 +67,7 @@ In many cases, software libraries will include safe or safer functions which wil
 | **5.3.6** | [DELETED, COVERED BY 5.3.3] | | |
 | **5.3.7** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | 1 | 90 |
 | **5.3.8** | [COVERS 12.3.5] Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | 1 | 78 |
-| **5.3.9** | [DELETED, MERGED TO 12.3.1] | | |
+| **5.3.9** | [DELETED, MERGED TO 12.4.3] | | |
 | **5.3.10** | [MODIFIED] Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 1 | 643 |
 | **5.3.11** | [ADDED] Verify that the application is protected against CSV and Formula Injection. The application should follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV files. The application should escape special characters including '=', '+', '-', '@' '\t' (tab) and '\00' (null character) using a single quote, if they are the first character in a field, when exporting CSV files and other spreadsheet formats such as xls, xlsx, odf. | 1 | 1236 |
 | **5.3.12** | [ADDED] Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 | |
@@ -89,7 +77,7 @@ Note: Using parameterized queries or escaping SQL is not always sufficient; tabl
 
 ## V5.4 Memory, String, and Unmanaged Code
 
-The following requirements will only apply when the application uses a systems language or unmanaged code.
+The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a systems language or unmanaged code.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -114,19 +102,6 @@ Conversion of data from some sort of stored or transmitted representation into a
 
 In the sections above, we provided syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g., HTML encoding) to prevent double encoding issues.
 
-<!--
-The requirement belongs here if it is:
-
-  * input validation, sanitization or encoding architecture
-  * input validation, sanitization or encoding processing (order)
-
-The requirement does not belong here, if it is:
-
-  * syntax specific or clear input validation, sanitization or encoding requirement
-
-reorg: move it to 1st chapter in the paragraph
--->
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **5.6.1** | [ADDED] Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | 1 | 174 |
@@ -136,8 +111,6 @@ reorg: move it to 1st chapter in the paragraph
 
 For more information, see also:
 
-* [OWASP Testing Guide 4.0: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
-* [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [OWASP Testing Guide 4.0: Testing for HTTP Parameter Pollution](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution.html)
 * [OWASP LDAP Injection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
 * [OWASP Testing Guide 4.0: Client-Side Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing/README)

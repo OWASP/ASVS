@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Ensure that untrusted files and other resources are handled safely to prevent denial of service, unauthorized access, and resource exhaustion
+The use of files and other resources can present a variety of risks for the application including denial of service, unauthorized access, and resource exhaustion. This chapter includes requirements to address these risks.
 
 ## V1.12 Secure File Upload Documentation
 
@@ -12,9 +12,9 @@ Ensure that untrusted files and other resources are handled safely to prevent de
 | **1.12.2** | [DELETED, MERGED TO 50.6.1] | | |
 | **1.12.3** | [ADDED] Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | 1 | |
 
-## V12.1 File Upload
+## V12.1 File Upload and Content
 
-Upload functionality is a key source of untrusted files. These should be carefully validated to prevent risks such as denial of service, unauthorized access, and resource exhaustion.
+Upload functionality is a key source of untrusted files. This section details the requirements for ensuring that the presence, volume, or content of these files cannot harm the application.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -22,42 +22,40 @@ Upload functionality is a key source of untrusted files. These should be careful
 | **12.1.2** | [GRAMMAR] Verify that the application checks compressed files (e.g., zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | 2 | 409 |
 | **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | 2 | 770 |
 | **12.1.4** | [ADDED] Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | 2 | 61 |
+| **12.1.5** | [MODIFIED, MOVED FROM 12.2.1] Verify that when the application accepts a file, either on its own or within an archive such as a zip file, it checks if the file extension matches an expected file extension and validates that the contents correspond to the type represented by the extension. This includes, but is not limited to, checking the initial 'magic bytes', performing image re-writing, and using specialized libraries for file content validation. | 2 | 434 |
+| **12.1.6** | [ADDED] Verify that the application blocks uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 1 | 400 |
 
 ## V12.2 File Integrity and Content
 
-Uploaded files and uploaded files within archives must match expected file types and content formats, and oversized images must be blocked to prevent pixel flood attacks.
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **12.2.1** | [MODIFIED] Verify that when the application accepts a file, either on its own or within an archive such as a zip file, it checks if the file extension matches an expected file extension and validates that the contents correspond to the type represented by the extension. This includes, but is not limited to, checking the initial 'magic bytes', performing image re-writing, and using specialized libraries for file content validation. | 2 | 434 |
-| **12.2.2** | [ADDED] Verify that the application blocks uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 1 | 400 |
+| **12.2.1** | [DELETED, MOVED TO 12.1.5] | | |
 
 ## V12.3 File Execution
 
-File operations should not rely on user-submitted filenames or metadata to avoid path traversal and inclusion attacks, and server-side file processing should ignore user-provided path details to prevent vulnerabilities like zip slip.
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **12.3.1** | [MODIFIED, MERGED FROM 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use internal, trusted data for file I/O. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | 1 | 73 |
-| **12.3.2** | [DELETED, MERGED TO 12.3.1] | | |
-| **12.3.3** | [DELETED, MERGED TO 12.3.1] | | |
+| **12.3.1** | [DELETED, MERGED TO 12.4.3] | | |
+| **12.3.2** | [DELETED, MERGED TO 12.4.3] | | |
+| **12.3.3** | [DELETED, MERGED TO 12.4.3] | | |
 | **12.3.4** | [MOVED TO 12.5.3] | | |
 | **12.3.5** | [DELETED, COVERED BY 5.3.8] | | |
 | **12.3.6** | [DELETED, COVERED BY 1.10.2] | | |
-| **12.3.7** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | 1 | 23 |
 
 ## V12.4 File Storage
 
-Files from untrusted sources, when stored in public folders, must not be executable as server-side code. Files from untrusted sources must also be scanned by antivirus software to prevent serving malicious content.
+This section includes requirements to prevent files being inappropriately executed after upload, to detect dangerous content, and avoid untrusted data being used to control where files are being stored.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **12.4.1** | [MODIFIED] Verify that files uploaded or generated by untrusted input which are stored in a public folder are not executable as server-side program code when accessed directly by an end user. | 1 | 552 |
-| **12.4.2** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload and serving of known malicious content. | 1 | 509 |
+| **12.4.2** | [MOVED TO 12.5.5] | | |
+| **12.4.3** | [MODIFIED, MERGED FROM 12.3.1, 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use either internally generated or trusted data for file I/O operations. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | 1 | 73 |
+| **12.4.4** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | 1 | 23 |
 
 ## V12.5 File Download
 
-User-submitted filenames should be validated or ignored in the Content-Disposition header for downloads, and that served filenames are encoded or sanitized to prevent injection attacks.
+This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This also includes making sure they don't contain dangerous content.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -65,6 +63,7 @@ User-submitted filenames should be validated or ignored in the Content-Dispositi
 | **12.5.2** | [MOVED TO 50.6.1] | | |
 | **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header field in the response. | 1 | 641 |
 | **12.5.4** | [ADDED] Verify that file names served (e.g., in HTTP response header fields or email attachments) are encoded or sanitized (e.g., following RFC 6266) to preserve document structure and prevent injection attacks. | 1 | |
+| **12.5.5** | [MODIFIED, MOVED FROM 12.4.2] Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent serving of known malicious content. | 1 | 509 |
 
 ## V12.6 SSRF Protection
 
@@ -74,7 +73,7 @@ User-submitted filenames should be validated or ignored in the Content-Dispositi
 
 ## V12.7 Application Resources
 
-Applications must release system resources like database connections, open files, and threads after use to prevent resource exhaustion.
+This section covers the need for applications to release system resources like database connections, open files, and threads after use to prevent resource exhaustion.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |

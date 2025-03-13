@@ -4,7 +4,7 @@
 
 OWASP, as a vendor-neutral nonprofit, does not certify any vendors, verifiers, or software. Any assurance, trust mark, or certification claiming ASVS compliance is not officially endorsed by OWASP, so organizations should be cautious of third-party claims of ASVS certification.
 
-Organizations may offer assurance services, provided they do not claim official OWASP certification
+Organizations may offer assurance services, provided they do not claim official OWASP certification.
 
 ## Guidance for Certifying Organizations
 

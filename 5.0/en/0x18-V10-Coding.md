@@ -10,6 +10,8 @@ This chapter also contains requirements to prevent the introduction of malicious
 
 ## V1.10 Secure Coding Documentation
 
+Many of the requirements needed for a secure and defendable architecture require having clear documentation around what components are used in the application. This section provides the requirements for this documentation including which of these components are risky due to being poorly maintained, unsupported, end of life, or with a history of significant vulnerabilities and which components perform risky operations such as deserialization of untrusted data, raw file parsing or direct memory manipulation. It also includes mandates defining appropriate timescales for addressing vulnerabilities in 3rd party components.
+
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **1.10.1** | [DELETED, NOT IN SCOPE] | | |
@@ -19,12 +21,6 @@ This chapter also contains requirements to prevent the introduction of malicious
 | **1.10.5** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | 1 | |
 
 ## V10.1 Code Integrity
-
-<!--
-The best defense against malicious code is "trust, but verify". Introducing unauthorized or malicious code into code is often a criminal offense in many jurisdictions. Policies and procedures should make sanctions regarding malicious code clear.
-
-Lead developers should regularly review code check-ins, particularly those that might access time, I/O, or network functions.
--->
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -43,19 +39,15 @@ Lead developers should regularly review code check-ins, particularly those that 
 
 ## V10.3 Application Integrity
 
-Once an application is deployed, malicious code can still be inserted. Applications need to protect themselves against common attacks, such as executing unsigned code from untrusted sources and subdomain takeovers.
-
-Complying with this section is likely to be operational and continuous.
-
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **10.3.1** | [MODIFIED, LEVEL L1 > L3] Verify that, if the application has an auto-update feature, updates should be digitally signed, with the digital signature being validated before installing or executing the update. | 3 | 16 |
+| **10.3.1** | [MOVED TO 10.4.10] | | |
 | **10.3.2** | [MOVED TO 10.6.2] | | |
 | **10.3.3** | [DELETED, NOT IN SCOPE] | | |
 
 ## V10.4 Defensive Coding
 
-This section covers vulnerability types including type juggling, prototype pollution, mass assignment, and others which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages whereas others will have language specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters.
+This section covers vulnerability types including type juggling, prototype pollution, mass assignment, and others which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages whereas others will have language specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
@@ -68,23 +60,19 @@ This section covers vulnerability types including type juggling, prototype pollu
 | **10.4.7** | [MODIFIED, MOVED FROM 5.1.1, LEVEL L1 > L2] Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | 2 | 235 |
 | **10.4.8** | [ADDED] Verify that where the application back-end makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | 2 | |
 | **10.4.9** | [ADDED] Verify that, if the application (back-end or front-end) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 2 | |
+| **10.4.10** | [MODIFIED, MOVED FROM 10.3.1, LEVEL L1 > L3] Verify that, if the application has an auto-update feature, updates should be digitally signed, with the digital signature being validated before installing or executing the update. | 3 | 16 |
 
 ## V10.5 Security Architecture
 
-This section considers architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation which can help protect applications from "risky" operations or libraries.
+## V10.6 Security Architecture and Dependencies
 
-| # | Description | Level | CWE |
-| :---: | :--- | :---: | :---: |
-| **10.5.1** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | |
-
-## V10.6 Code Dependencies
-
-Dependency management is critical to the safe operation of any application of any type. Failure to keep up to date with outdated or insecure dependencies is the root cause of the largest and most expensive attacks to date. While being up-to-date with patches is essential, relying solely on updates for publicly disclosed vulnerabilities introduces risk, as vendors may fix security issues without public announcements.
+This section includes requirements for handling risky, outdated or insecure dependencies and components through dependency management and using architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **10.6.1** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that the application only contains components which have not breached the documented update and remediation time frames. | 1 | |
 | **10.6.2** | [MODIFIED, MOVED FROM 10.3.2] Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | 1 | 427 |
+| **10.6.3** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | |
 
 ## V10.7 Concurrency
 
