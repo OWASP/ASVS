@@ -52,7 +52,7 @@ Although this section is not easily penetration tested, developers should consid
 | **6.2.1** | [MODIFIED] Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | 1 | 310 |
 | **6.2.2** | [MODIFIED, SPLIT TO 6.5.1, 6.5.2, 6.5.4, 6.6.1, 6.7.2] Verify that industry-validated implementations (including libraries and hardware-accelerated implementations) are used for cryptographic operations. | 2 | 327 |
 | **6.2.3** | [DELETED, COVERED BY 6.5.1, 6.5.2, 6.6.1] | | |
-| **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC,  or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 | 320 |
+| **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC, or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 | 320 |
 | **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.1] | | |
 | **6.2.6** | [MOVED TO 6.5.3] | | |
 | **6.2.7** | [MOVED TO 6.5.4] | | |
@@ -111,7 +111,7 @@ As part of this, there exists a need for approved key exchange mechanisms, such 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This should prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 2 | |
-| **6.7.2** | [ADDED, SPLIT FROM 6.2.2, MERGED FROM 2.9.3] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | 327 |
+| **6.7.2** | [MODIFIED, MOVED FROM 2.9.3, SPLIT FROM 6.2.2] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | 327 |
 
 ## V6.8 In-Use Data Cryptography
 
