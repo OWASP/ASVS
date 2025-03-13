@@ -33,7 +33,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.3** | [MODIFIED] Verify that configuration hardening is performed on all third-party products, libraries, frameworks and services as per their individual recommendations. | 2 | 16 |
 | **14.1.4** | [DELETED, NOT IN SCOPE] | | |
 | **14.1.5** | [MODIFIED] Verify that deployed environments are short lived and frequently redeployed to a "known good" but updated state. Alternatively, long lived environments should use some form of "drift prevention" to ensure that deployed configurations are not changed to an insecure state. | 3 | |
-| **14.1.6** | [MOVED FROM 14.2.2, SPLIT FROM 4.3.2] Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 1 | 1002 |
+| **14.1.6** | [MODIFIED, MOVED FROM 14.2.2, SPLIT FROM 4.3.2] Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 1 | 1002 |
 | **14.1.7** | [ADDED] Verify that production environment does not include test code. | 2 | 489 |
 | **14.1.8** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | 3 | |
 | **14.1.9** | [ADDED] Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | |
