@@ -123,7 +123,7 @@ Note that if using the id-token flow (not the code flow), no access tokens are i
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **51.6.1** | [ADDED] Verify that the OpenID Provider only allows values 'code', 'ciba', 'id-token', or 'id-token code' for response mode. Note that 'code' is preferred over 'id-token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 |
+| **51.6.1** | [ADDED] Verify that the OpenID Provider only allows values 'code', 'ciba', 'id_token', or 'id_token code' for response mode. Note that 'code' is preferred over 'id_token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 |
 
 ## V51.7 Consent Management
 
