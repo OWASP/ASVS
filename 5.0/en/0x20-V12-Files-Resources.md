@@ -29,7 +29,7 @@ Upload functionality is a key source of untrusted files. This section details th
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **12.2.1** | [DELETED, MOVED TO 12.1.5] | | |
+| **12.2.1** | [MOVED TO 12.1.5] | | |
 
 ## V12.3 File Execution
 
