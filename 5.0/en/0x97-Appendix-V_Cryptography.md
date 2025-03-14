@@ -213,13 +213,13 @@ Due to insufficient collision resistance, the following hash functions MUST NOT 
 
 ### Approved KEX Schemes
 
-A security strength of 112 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the next table.
+A security strength of 128 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the next table:
 
 | Scheme | Domain Parameters |
 |--|--|
-| RSA | k >= 2048 |
-| Diffie-Hellman (DH) | L >= 2048 & N >= 224 |
-| Elliptic Curve Diffie-Hellman (ECDH) | f >= 224 |
+| RSA | k >= 3072 |
+| Diffie-Hellman (DH) | L >= 3072 & N >= 256 |
+| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 |
 
 Where the following parameters are:
 
