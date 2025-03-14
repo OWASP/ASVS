@@ -55,11 +55,17 @@ In this context, "input" could come from a wide variety of sources including HTM
 
 Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
 
+Whilst we no longer explicitly mandate schema validation, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML. Please note the following on Schema Validation:
+
+* As at this time, there is a "published version" of the JSON schema validation specification, which is considered production ready. However, there is not yet a version which is considered strictly "stable". As such, when considering using JSON schema validation, be sure there are no gaps with the guidance in the requirements below.
+* Due to the lack of a formal stable version of the JSON schema validation specification, carefully monitor any JSON schema validation libraries in use, as they may need to be updated once the standard is formalized and bugs are ironed out of reference implementations.
+* Due to issues with XXE attacks against DTDs, DTD validation should not be used, and framework DTD evaluation should be disabled.
+
 Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, parameterization or sanitization when using the data in another component or for presenting it for output.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **11.3.1** | [MODIFIED, MOVED FROM 5.1.3, SPLIT FROM 5.1.4, MERGED FROM 11.1.5] Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allowed list of values, patterns or ranges or alternatively be based on comparing to an expected structure or logical limit, according to pre-defined rules. For L1 this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input. | 1 | 20 |
+| **11.3.1** | [MODIFIED, MOVED FROM 5.1.3, SPLIT FROM 5.1.4, MERGED FROM 11.1.5, COVERS 13.2.2, 13.3.1] Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allowed list of values, patterns or ranges or alternatively be based on comparing to an expected structure or logical limit, according to pre-defined rules. For L1 this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input. | 1 | 20 |
 | **11.3.2** | [MODIFIED, MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability, it must not be relied upon as a security control. | 1 | 602 |
 | **11.3.3** | [ADDED, SPLIT FROM 5.1.4, LEVEL L1 > L2] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | 2 | 20 |
 
@@ -71,3 +77,4 @@ For more information, see also:
 * Anti-automation can be achieved in many ways, including the use of the [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
 * [OWASP Testing Guide 4.0: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
 * [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+* [JSON Schema](https://json-schema.org/specification.html)
