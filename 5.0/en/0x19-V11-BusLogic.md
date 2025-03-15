@@ -29,7 +29,7 @@ This section considers key requirements to ensure that the application enforces 
 | :---: | :--- | :---: | :---: |
 | **11.1.1** | Verify that the application will only process business logic flows for the same user in sequential step order and without skipping steps. | 1 | 841 |
 | **11.1.2** | [MOVED TO 11.2.1] | | |
-| **11.1.3** | [MODIFIED] Verify that business logic limits are implemented as per the application's documentation, to avoid business logic flaws being exploited. | 1 | |
+| **11.1.3** | [MODIFIED] Verify that business logic limits are implemented as per the application's documentation, to avoid business logic flaws being exploited. | 2 | |
 | **11.1.4** | [MOVED TO 11.2.2] | | |
 | **11.1.5** | [DELETED, MERGED TO 11.3.1] | | |
 | **11.1.6** | [MOVED TO 10.7.3] | | |
