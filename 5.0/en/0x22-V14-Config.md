@@ -30,11 +30,11 @@ Compliance with this section requires an automated build system, and access to b
 | :---: | :--- | :---: | :---: |
 | **14.1.1** | [DELETED, NOT IN SCOPE] | | |
 | **14.1.2** | [LEVEL L2 > L3] Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | 3 | 120 |
-| **14.1.3** | [MODIFIED] Verify that configuration hardening is performed on all third-party products, libraries, frameworks and services as per their individual recommendations. | 2 | 16 |
+| **14.1.3** | [MODIFIED] Verify that configuration hardening is performed on all third-party products, libraries, frameworks and services as per their individual recommendations. | 3 | 16 |
 | **14.1.4** | [DELETED, NOT IN SCOPE] | | |
 | **14.1.5** | [MODIFIED] Verify that deployed environments are short lived and frequently redeployed to a "known good" but updated state. Alternatively, long lived environments should use some form of "drift prevention" to ensure that deployed configurations are not changed to an insecure state. | 3 | |
-| **14.1.6** | [MODIFIED, MOVED FROM 14.2.2, SPLIT FROM 4.3.2] Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 1 | 1002 |
-| **14.1.7** | [ADDED] Verify that production environment does not include test code. | 2 | 489 |
+| **14.1.6** | [MODIFIED, MOVED FROM 14.2.2, SPLIT FROM 4.3.2] Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | 1002 |
+| **14.1.7** | [ADDED] Verify that production environment does not include test code. | 3 | 489 |
 | **14.1.8** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | 3 | |
 | **14.1.9** | [ADDED] Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | |
 | **14.1.10** | [MODIFIED, MOVED FROM 2.5.4] Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 | 798 |
@@ -60,11 +60,11 @@ For example, hiding the version of server-side components does not fix the need 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **14.3.1** | [DELETED] | | |
-| **14.3.2** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | 1 | 497 |
-| **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | 1 | 200 |
-| **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | 1 | 548 |
-| **14.3.5** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors should be blocked unless required. | 1 | 552 |
-| **14.3.6** | [ADDED, SPLIT FROM 14.5.1] Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 1 | 749 |
+| **14.3.2** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | 2 | 497 |
+| **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | 3 | 200 |
+| **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | 2 | 548 |
+| **14.3.5** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors should be blocked unless required. | 3 | 552 |
+| **14.3.6** | [ADDED, SPLIT FROM 14.5.1] Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 2 | 749 |
 
 ## V14.4 HTTP Security Headers
 
@@ -98,7 +98,7 @@ Applications need to interact with multiple services including APIs, databases o
 | **14.7.1** | [MODIFIED, MOVED FROM 2.10.1, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | 2 | 287 |
 | **14.7.2** | [GRAMMAR, MOVED FROM 2.10.2] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin are default in some services during installation). | 2 | 255 |
 | **14.7.3** | [MODIFIED, MOVED FROM 4.3.3] Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | 2 | 732 |
-| **14.7.4** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 1 | 918 |
+| **14.7.4** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 2 | 918 |
 | **14.7.5** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between back-end application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | 272 |
 
 ## V14.8 Secret Management
@@ -108,8 +108,8 @@ Secret Management is a configuration task that is essential to ensure the protec
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **14.8.1** | [MODIFIED, MOVED FROM 6.4.1, MERGED FROM 1.6.2, 2.10.4, SPLIT FROM 2.9.1, COVERS 2.10.3, 2.8.2] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy back-end secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this should involve a hardware-backed solution such as an HSM. | 2 | 798 |
-| **14.8.2** | [MODIFIED, MOVED FROM 6.4.2] Verify that key material is not exposed to the application (neither the front-end nor the back-end) but instead uses an isolated security module like a vault for cryptographic operations. | 2 | 320 |
-| **14.8.3** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization’s threat model and business requirements. | 2 | 320 |
+| **14.8.2** | [MODIFIED, MOVED FROM 6.4.2] Verify that key material is not exposed to the application (neither the front-end nor the back-end) but instead uses an isolated security module like a vault for cryptographic operations. | 3 | 320 |
+| **14.8.3** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization’s threat model and business requirements. | 3 | 320 |
 | **14.8.4** | [ADDED] Verify that access to secret assets adheres to the principle of least privilege. | 2 | 320 |
 
 ## References
