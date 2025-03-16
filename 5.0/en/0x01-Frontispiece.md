@@ -2,7 +2,7 @@
 
 ## About the Standard
 
-The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.
+The Application Security Verification Standard is a list of application security requirements that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.
 
 ## Copyright and License
 
