@@ -20,9 +20,9 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **1.3.1** | [ADDED] Verify that the user's session inactivity period and maximum session lifetime before reauthentication are documented, appropriate in combination with other controls, and that documentation includes justification for any deviations from NIST SP 800-63B reauthentication requirements. | 1 | |
-| **1.3.2** | [ADDED] Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviours and actions to be taken when the maximum number of active sessions is reached. | 1 | |
-| **1.3.3** | [ADDED] Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other condition that should require re-authentication. | 1 | |
+| **1.3.1** | [ADDED] Verify that the user's session inactivity period and maximum session lifetime before reauthentication are documented, appropriate in combination with other controls, and that documentation includes justification for any deviations from NIST SP 800-63B reauthentication requirements. | 2 | |
+| **1.3.2** | [ADDED] Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviours and actions to be taken when the maximum number of active sessions is reached. | 2 | |
+| **1.3.3** | [ADDED] Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other condition that should require re-authentication. | 2 | |
 
 ## V3.1 Fundamental Session Management Security
 
@@ -52,10 +52,10 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **3.3.1** | [MOVED TO 3.8.1] | | |
-| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 1 | |
+| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | |
 | **3.3.3** | [MOVED TO 3.8.2] | | |
 | **3.3.4** | [MOVED TO 3.7.2] | | |
-| **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 1 | 613 |
+| **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | 613 |
 
 ## V3.4 Cookie-based Session Management
 
@@ -81,7 +81,7 @@ This section relates to those writing Relying Party (RP) or Identity Provider (I
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 3 | 613 |
+| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 | 613 |
 | **3.6.2** | [DELETED, MERGED TO 3.6.1] | | |
 | **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 | |
 
@@ -106,10 +106,10 @@ For stateful session mechanisms, termination typically involves invalidating the
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **3.8.1** | [MODIFIED, MOVED FROM 3.3.1] Verify that logout and expiration terminate the user's session, such that the back button or a downstream relying party cannot resume an authenticated session. | 1 | 613 |
-| **3.8.2** | [MODIFIED, MOVED FROM 3.3.3, LEVEL L2 > L1] Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 1 | 613 |
+| **3.8.2** | [MODIFIED, MOVED FROM 3.3.3, LEVEL L2 > L1] Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 | 613 |
 | **3.8.3** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 | |
 | **3.8.4** | [ADDED] Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 | 613 |
-| **3.8.5** | [ADDED] Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 1 | 613 |
+| **3.8.5** | [ADDED] Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 2 | 613 |
 
 ## References
 
