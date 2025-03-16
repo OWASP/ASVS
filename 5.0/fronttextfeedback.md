@@ -2,11 +2,14 @@
 
 > The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.
 
-* remove "or tests"?
+* [x] remove "or tests"?
 * the main focus is security verification from the end-product - the main audience is security professionals and testers
+  * **JG**: I disagree with this, all the way through we are balancing two key perspectives, building and checking. I know what the project name says but in practice I don't want to break that balance by the promoting the dev side as just being in order to test.
 * to achieve that - it must be taken into account by architects, analysts, developers
 * tool vendors - in what role?
+  * **JG**: Use as a guide for structuring security tests in a tool.
 * "to define, build, test and verify secure applications."
+  * **JG**: What is the problem here?
 
 # https://asvs.dev/v5.0.draft/0x02-Preface/
 
