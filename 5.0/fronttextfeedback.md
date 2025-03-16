@@ -13,7 +13,8 @@
 
 # https://asvs.dev/v5.0.draft/0x02-Preface/
 
-Outdated.
+* [x] Outdated.
+  * Done some updates 
 
 # https://asvs.dev/v5.0.draft/0x03-Using-ASVS/
 
