@@ -145,19 +145,31 @@ I really don't like the word "Certifying" here, as the section before just kind 
 
 By content entire section duplicates the content below ("How to Verify ASVS Compliance")
 
+**JG**:  I don't think it is fully duplicated but I have tried to integrate it in.
+
 ---
 
 > The Application Security Verification Standard (ASVS) requires open access to resources, such as architects, developers, documentation, source code, and authenticated test systems, especially for L2 and L3 verifications.
 
 The message should be - "to be able to verify security, many requirements from ASVS require open access to resources. "
 
+**JG**:  I think the updated wording is clearer.
+
+---
+
 > such as architects, developers,
 
 ???
 
+**JG**:  I think the updated wording is clearer.
+
+---
+
 > However, certifying reports should include scope, summaries of passed and failed tests, and guidance on resolving issues. Some requirements may be non-applicable (e.g., session management in stateless APIs), and this must be noted in the report.
 
 "list of passed tests" is seriously naive way of thinking. A security test-report can only say, that certain vulnerabilities were not found during this scope focus/priority, during that testing time-window, but can rarely say "this problem does not exists there".
+
+**JG**: Clarified.
 
 ---
 
@@ -165,9 +177,13 @@ The message should be - "to be able to verify security, many requirements from A
 
 Worth a separate line to say, that most likely the testing scope must be defined based on the functionality. The scoping should also be "white-list" to describe, what was in the scope and not a "black-list" to describe, what was not in the scope.
 
+**JG**: Clarified.
+
 ---
 
 If to keep this situation, it must require also "reaching to the issue bust be repeatable or risks analyzed based on code review"
+
+**JG**: Tried to clarify although I was not 100% sure what you meant.
 
 ---
 
@@ -175,25 +191,39 @@ If to keep this situation, it must require also "reaching to the issue bust be r
 
 maybe to add "on the testing guide level".
 
+**JG**: Is that clarification better?
+
 ---
 
 > After version 5.0 is released, we would like to prepare a testing guide
 
 really? I prefer to go without this statement/promise.
 
+**JG**: Do I want it to happen? Yes. Do I want to commit to it? Maybe not :)
+
 ---
 
 About the automation. It is worth to describe a warning about naive automation - for example, investigating the HTTP response from the landing page and making analysis for the HTTP response header fields based on that is not clearly enough. Requests to different "paths" on for the same application may respond from different end-points using different configurations.
 
+**JG**: Feels like a rabbit hole I don't want to get into.
+
+---
+
 > Automated security testing tools such as DAST and SAST tools
 
 Acronyms must be written out on the first usage.
+
+**JG**: Improved that sentance
 
 ---
 
 > We strongly encourage including replacing penetration tests with documentation or source code-led (hybrid) penetration testing, with full access to developers and documentation throughout the development process, and this will be necessary in order to verify many of the ASVS requirements.
 
 developers?
+
+**JG**: Improved that sentance
+
+---
 
 # https://asvs.dev/v5.0.draft/0x05-For-Users-Of-4.0/
 
