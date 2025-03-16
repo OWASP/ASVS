@@ -229,9 +229,15 @@ developers?
 
 todo: scope changes/clarification.
 
+---
+
 # https://asvs.dev/v5.0.draft/0x10-V1-Architecture/#control-objective
 
 should we move some references to recommendations section? or we just delete them.
+
+**JG**: Handled through PR [#2719](https://github.com/OWASP/ASVS/pull/2719)
+
+---
 
 # https://asvs.dev/v5.0.draft/0x98-Appendix-W_LLM_Security/
 
