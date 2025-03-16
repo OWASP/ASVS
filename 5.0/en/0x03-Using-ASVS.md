@@ -1,22 +1,16 @@
 # Using the ASVS
 
-The ASVS defines functional and non-functional security requirements for modern web applications and services, focusing on aspects that are in the control of the application developers.
+The Application Security Verification Standard (ASVS) defines security requirements for modern web applications and services, focusing on aspects that are in the control of the application developers.
 
-The ASVS is useful for anyone aiming to develop and maintain secure applications, or evaluate the security of applications. This chapter covers key aspects of using the ASVS, including priority-based levels and various use cases for the standard
+The ASVS is useful for anyone aiming to develop and maintain secure applications, or evaluate the security of applications. This chapter covers key aspects of using the ASVS, including priority-based levels and various use cases for the standard.
 
 ## Application Security Verification Levels
 
-The Application Security Verification Standard defines three security verification levels, with each level increasing in depth and complexity. Each ASVS level indicates the security requirements that are required to achieve that level (with the others remaining as recommendations). The general aim is that organizations will start with L1 and then move up the levels from there.
-
-### Approach to levels for v5.0
-
-The approach to level definition for version 5.0, was decided after much discussion within the Working Group based on feedback from ASVS users and the considerations above.
-
-Whilst, the consensus was to stay with three levels, the number of requirements in Level 1 has been significantly reduced to lower the barrier to entry. The criteria which are used to define the level which a requirement goes into have been changed and this therefore reframes the definition of the levels.
+The ASVS defines three security verification levels, with each level increasing in depth and complexity. Each ASVS level indicates the security requirements that are required to achieve that level (with the others remaining as recommendations). The general aim is that organizations will start with the lowest level and then move up to the higher levels from there.
 
 ### Level evaluation criteria
 
-Version 5.0 makes a priority-based evaluation of each requirement based on experience implementing security requirements. In this approach, each requirement was evaluated using the following criteria.
+The approach to level definition for version 5.0, was decided after much discussion within the Working Group based on feedback from ASVS users and guided by the version 5.0 principles discussed in the previous chapter. Version 5.0 makes a priority-based evaluation of each requirement based on experience implementing security requirements. Taking this approach, each requirement was evaluated using the following criteria.
 
 #### Risk Reduction
 
@@ -32,9 +26,9 @@ Whilst there will still be some harder to implement controls that provide a larg
 
 #### Low barrier to entry
 
-From feedback on the use (or non-use) of the ASVS in industry, the single greatest problem that has been identified is the double-edged sword of Level 1 having a large number of requirements (~120) but at the same time being considered the "minimum" level that is not good enough for most applications. This seems to lead to organizations either giving up before they start or trying to implement a subset of the requirements without actually achieving Level 1, therefore reducing the sense of achievement and progress.
+From feedback on the use (or non-use) of previous ASVS versions in industry, the single greatest problem that was identified was the double-edged sword of Level 1 having a large number of requirements (~120) but at the same time being considered the "minimum" level that is not good enough for most applications. This seemed to lead to organizations either giving up before they start or trying to implement a subset of the requirements without actually achieving Level 1, therefore reducing the sense of achievement and progress.
 
-To this end, it was decided that Level 1 would have a maximum of around 60 of the highest priority requirements and others would get pushed into Level 2 or Level 3. To achieve this, some hard decisions were made about what would make it into Level 1 and what would not. The goal was to have a good Level 1 that is achievable instead of a perfect Level 1 that is not.
+To this end, it was decided that Level 1 would have a maximum of around 70 of the highest priority requirements. This seemed to be a good compromise between being achievable and providing a solid level of security and other requirements would get pushed into Level 2 or Level 3. To achieve this, some hard decisions were made about what would make it into Level 1 and what would not. The goal was to have a good Level 1 that is achievable instead of a perfect Level 1 that is not.
 
 #### Better level balance
 
@@ -42,25 +36,25 @@ In version 4.0, Levels 1 and 2 both had around 120 requirements and Level 3 had 
 
 ### Definition of the Levels
 
-Based on the above criteria, the requirements for version 5.0 were allocated into one of the 3 levels. Moving from a prescriptive level definition to a comparative analysis based on various factors means that there was an element of judgement in the allocation.
+Based on the above criteria, the requirements for version 5.0 were allocated into one of the 3 levels. Whilst comparative analysis based on the above factors means that there was an element of judgement in the allocation, the rigorous discussions around both the criteria and the leveling decisions has resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation.
 
-Nevertheless, the rigorous discussions around both the criteria and the leveling decisions has resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
 
 The types of requirements in each level could be characterised as follows.
 
 #### Level 1 requirements
 
-These will generally be critical or basic, first layer of defense requirements for preventing common attacks that are either relatively straightforward to implement or important enough to be worth the effort.
+These are generally critical or basic, first layer of defense requirements for preventing common attacks that do not require other vulnerabilities or pre-conditions. The requirements are either relatively straightforward to implement or important enough to be worth the effort.
 
 Level 1 is not necessarily penetration testable using humans, although the lower number of requirements should make it easier to verify.
 
 #### Level 2 requirements
 
-These requirements will generally relate to either less common attacks, or more complicated protections against common attacks. They will generally still be a first layer of defense.
+These requirements generally relate to either less common attacks, or more complicated protections against common attacks. They may still be a first layer of defense or they may require certain preconditions for the attack to be successful.
 
 #### Level 3 requirements
 
-These requirements will generally relate to attacks which are a lot more niche or only relevant in certain circumstances. Requirements in this section may also be defense in depth mechanisms or other useful but hard to implement controls.
+Requirements in this section are generally either defense in depth mechanisms or other useful but hard to implement controls. They may also relate to attacks which are a lot more niche or only relevant in certain circumstances. 
 
 ### Which level to achieve
 
@@ -106,7 +100,7 @@ The ASVS can be used as a secure coding checklist for secure application develop
 
 ### As a Guide for Automated Unit and Integration Tests
 
-The ASVS is designed to be highly testable, with the sole exception of architectural and malicious code requirements. By building unit and integration tests that test for specific and relevant fuzz and abuse cases, the application becomes nearly self-verifying with each and every build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
+The ASVS is designed to be highly testable, with the sole exception of architectural and documentation requirements. By building unit and integration tests that test and fuzz for specific and relevant abuse cases, it should be easier to verify the controls that have been implemented on each build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
 
 ### For Secure Development Training
 
