@@ -229,6 +229,8 @@ developers?
 
 todo: scope changes/clarification.
 
+**JG**: I have done a bit but I'd like some more specific ideas here, which I can then flesh out into full text.
+
 ---
 
 # https://asvs.dev/v5.0.draft/0x10-V1-Architecture/#control-objective
