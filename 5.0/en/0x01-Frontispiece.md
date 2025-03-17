@@ -2,7 +2,7 @@
 
 ## About the Standard
 
-The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.
+The Application Security Verification Standard is a list of application security requirements that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test, and verify secure applications.
 
 ## Copyright and License
 
@@ -10,7 +10,9 @@ Version 5.0 (Bleeding Edge version), 2025
 
 ![license](../images/license.png)
 
-Copyright © 2008-2025 The OWASP Foundation. This document is released under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
+Copyright © 2008-2025 The OWASP Foundation. This document is released under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+
+For any reuse or distribution, you must make clear to others the license terms of this work.
 
 ## Project Leads
 
@@ -19,7 +21,14 @@ Copyright © 2008-2025 The OWASP Foundation. This document is released under the
 | Jim Manico   | Daniel Cuthbert  |
 | Josh C Grossman       | Elar Lang      |
 
-## Major Contributors
+## Working Group
+
+|                 |                   |                    |                  |
+|---------------- |------------------ |------------------- |----------------- |
+| Tobias Ahnoff   | Ralph Andalis     | Ryan Armstrong     | Gabriel Corona   |
+| Meghan Jacquot  | Shanni Prutchi    | Iman Sharafaldin   | Eden Yardeni     |
+
+## Other Major Contributors
 
 |                 |                 |
 |---------------- |---------------- |
