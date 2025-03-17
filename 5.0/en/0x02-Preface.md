@@ -31,10 +31,10 @@ The guidelines for this were:
 
 * Ensuring that all requirements are within the scope of a web application or service.
 * Checking that requirements are worded in line with the ASVS name, specifically:
-  * Application - Requirements are at the application level and are the responsibility of application developers.
-  * Security - Requirements are clearly necessary for the application to be secure.
-  * Verification - Requirements are worded to have a clear and verifiable goal.
-  * Standard - Clear consistency and structure to requirements, as would be expected from a standard.
+    * Application - Requirements are at the application level and are the responsibility of application developers.
+    * Security - Requirements are clearly necessary for the application to be secure.
+    * Verification - Requirements are worded to have a clear and verifiable goal.
+    * Standard - Clear consistency and structure to requirements, as would be expected from a standard.
 
 ### Better level definitions
 

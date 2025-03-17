@@ -54,7 +54,7 @@ These requirements generally relate to either less common attacks, or more compl
 
 #### Level 3 requirements
 
-Requirements in this section are generally either defense in depth mechanisms or other useful but hard to implement controls. They may also relate to attacks which are a lot more niche or only relevant in certain circumstances. 
+Requirements in this section are generally either defense in depth mechanisms or other useful but hard to implement controls. They may also relate to attacks which are a lot more niche or only relevant in certain circumstances.
 
 ### Which level to achieve
 

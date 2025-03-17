@@ -14,7 +14,7 @@ The provided mappings should help trace if and where requirements from version 4
 
 ### Less coupling with NIST Digital Identity Guidelines
 
-The NIST's [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) has been and continues to be an excellent, evidence driven standard for key controls around authentication and authorization. Certain chapters in version 4.0 were very closely coupled with these guidelines including structure and terminology. 
+The NIST's [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) has been and continues to be an excellent, evidence driven standard for key controls around authentication and authorization. Certain chapters in version 4.0 were very closely coupled with these guidelines including structure and terminology.
 
 Whilst these guidelines and their upcoming improvements have continued to be an important reference and the basis for many requirements, the strict coupling caused challenges which led to the decision to move away from this approach. These challenges included terminology which was less widely recognised, duplication of very similar requirements in very slightly different situations, and the fact that the mapping was incomplete based on what was perceived to be relevant for ASVS.
 
@@ -32,7 +32,7 @@ In version 4.0, there were many requirements that were focused around a particul
 
 For certain requirements, implementation will be complicated and very specific to an application's needs. Common examples include permissions, input validation, and the protective controls around different levels of sensitive data. To account for this, rather than sweeping statements like "all data must be encrypted" or trying to cover every possible use case in a requirement, we have certain requirements which mandate that the application developer's approach and configuration to these sorts of controls must be documented so that this can be reviewed for appropriateness and then the actual implementation can be compared to the documentation to assess whether the implementation matches expectations.
 
-### TODO: add more items....
+### TODO: add more items
 
 <!--
 We set out to ensure that the ASVS 4.0 Level 1 is a comprehensive superset of PCI DSS 3.2.1 Sections 6.5, for application design, coding, testing, secure code reviews, and penetration tests. This necessitated covering buffer overflow and unsafe memory operations in V5, and unsafe memory-related compilation flags in V14, in addition to existing industry-leading application and web service verification requirements.
@@ -50,7 +50,7 @@ As of version 4.0, the ASVS will focus solely on being the leading web apps and 
 
 Version 4.0 of the ASVS describes the levels as L1 - "Minimum", L2 - "Standard", and L3 - "Advanced" with the implication that all applications processing sensitive data should be at least L2.
 
-We found a few challenges with this approach and users of version 4.0 might find the following context on the change to levels approach informative in addition to the rationale in the previous chapter. 
+We found a few challenges with this approach and users of version 4.0 might find the following context on the change to levels approach informative in addition to the rationale in the previous chapter.
 
 ### High barrier to entry
 
