@@ -151,7 +151,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. | 1 | 287 |
+| **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 | 287 |
 | **2.7.2** | [MOVED TO 2.6.5] | | |
 | **2.7.3** | [MODIFIED, SPLIT TO 2.6.1] Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request for which they were generated and not a previous or subsequent one. | 1 | 287 |
 | **2.7.4** | [DELETED, NOT IN SCOPE] | | |
