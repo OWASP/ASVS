@@ -36,8 +36,8 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | 1 | 521 |
-| **2.1.2** | [MODIFIED] Verify that passwords of at least 64 characters are permitted. | 1 | 521 |
-| **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 1 | |
+| **2.1.2** | [MODIFIED] Verify that passwords of at least 64 characters are permitted. | 2 | 521 |
+| **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 2 | |
 | **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **2.1.5** | [GRAMMAR] Verify that users can change their password. | 1 | 620 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | 1 | 620 |
@@ -66,15 +66,15 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **2.2.1** | [MODIFIED, SPLIT TO 1.2.6] Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | 1 | 307 |
-| **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 1 | 304 |
-| **2.2.3** | [MODIFIED, SPLIT TO 2.2.10, COVERS 2.5.5] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 1 | 778 |
+| **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 | 304 |
+| **2.2.3** | [MODIFIED, SPLIT TO 2.2.10, COVERS 2.5.5] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 3 | 778 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | 3 | 308 |
 | **2.2.5** | [MOVED TO 9.3.3] | | |
 | **2.2.6** | [DELETED, COVERED BY 2.6.1] | | |
 | **2.2.7** | [DELETED, MERGED TO 2.2.4] | | |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | 3 | |
 | **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms. | 2 | 308 |
-| **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | 2 | 778 |
+| **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | 3 | 778 |
 | **2.2.11** | [ADDED, SPLIT FROM 1.2.4] Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 | 306 |
 
 ## V2.3 Authentication Factor Lifecycle
@@ -108,11 +108,11 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **2.5.3** | [DELETED, COVERED BY 6.6.2] | | |
 | **2.5.4** | [MOVED TO 14.1.10] | | |
 | **2.5.5** | [DELETED, COVERED BY 2.2.3] | | |
-| **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 1 | 640 |
-| **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | 1 | 308 |
+| **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 2 | 640 |
+| **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | 2 | 308 |
 | **2.5.8** | [MODIFIED, MOVED FROM 2.3.1] Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 | 330 |
-| **2.5.9** | [MODIFIED, MOVED FROM 2.3.3] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 2 | 287 |
-| **2.5.10** | [ADDED] Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 1 | 620 |
+| **2.5.9** | [MODIFIED, MOVED FROM 2.3.3] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 3 | 287 |
+| **2.5.10** | [ADDED] Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 3 | 620 |
 
 ## V2.6 General Multi-factor authentication requirements
 
@@ -138,7 +138,7 @@ The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages
 | **2.6.2** | [MODIFIED, SPLIT TO 2.6.4] Verify that, when being stored in the application's back-end, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 | 330 |
 | **2.6.3** | [MODIFIED, MERGED FROM 2.8.3, SPLIT FROM 2.7.6] Verify that lookup secrets, out-of-band authentication code, and time-based, one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | 310 |
 | **2.6.4** | [ADDED, SPLIT FROM 2.6.2, 2.7.6] Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | 330 |
-| **2.6.5** | [MODIFIED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. For out of band this should be 10 minutes and for TOTP this should be as short as possible, usually 30 seconds. | 1 | 287 |
+| **2.6.5** | [MODIFIED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. For out of band this should be 10 minutes and for TOTP this should be as short as possible, usually 30 seconds. | 2 | 287 |
 | **2.6.6** | [MODIFIED, MOVED FROM 2.8.6, LEVEL L2 > L3] Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 | 613 |
 | **2.6.7** | [MODIFIED, MOVED FROM 2.8.7, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | 308 |
 | **2.6.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | 367 |
@@ -153,7 +153,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | :---: | :--- | :---: | :---: |
 | **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 | 287 |
 | **2.7.2** | [MOVED TO 2.6.5] | | |
-| **2.7.3** | [MODIFIED, SPLIT TO 2.6.1] Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request for which they were generated and not a previous or subsequent one. | 1 | 287 |
+| **2.7.3** | [MODIFIED, SPLIT TO 2.6.1] Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request for which they were generated and not a previous or subsequent one. | 2 | 287 |
 | **2.7.4** | [DELETED, NOT IN SCOPE] | | |
 | **2.7.5** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **2.7.6** | [SPLIT TO 2.6.3, 2.6.4] | | |
