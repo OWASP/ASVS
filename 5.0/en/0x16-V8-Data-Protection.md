@@ -31,7 +31,7 @@ This section contains various practical requirements related to the protection o
 | **8.1.4** | [DELETED, MERGED TO 7.2.4] | | |
 | **8.1.5** | [DELETED, NOT IN SCOPE] | | |
 | **8.1.6** | [DELETED, NOT IN SCOPE] | | |
-| **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 2 | 444 |
+| **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | 444 |
 | **8.1.8** | [ADDED] Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 | 200 |
 | **8.1.9** | [ADDED, SPLIT FROM 1.8.2] Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 | |
 | **8.1.10** | [ADDED] Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the full data is absolutely required, it should be masked in the user interface unless the user specifically views it. | 3 | |
@@ -43,8 +43,8 @@ This section contains requirements related to specific ways in which data can le
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 1 | 525 |
-| **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session identifiers. | 1 | 922 |
+| **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 2 | 525 |
+| **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session identifiers. | 2 | 922 |
 | **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | 1 | 922 |
 
 ## V8.3 Sensitive Private Data
@@ -63,7 +63,7 @@ This section no longer tries to duplicate these types of data protection or priv
 | **8.3.6** | [DELETED, NOT PRACTICAL] | | |
 | **8.3.7** | [DELETED, COVERED BY 1.8.2] | | |
 | **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | |
-| **8.3.9** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 2 | 212 |
+| **8.3.9** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 | 212 |
 
 ## References
 
