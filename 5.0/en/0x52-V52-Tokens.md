@@ -25,8 +25,8 @@ Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
 | **52.2.1** | [ADDED] Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs the claims 'nbf' and 'exp' must be verified. | 1 | 613 |
-| **52.2.2** | [ADDED] Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID tokens can be used for proving user authentication. | 1 | |
-| **52.2.3** | [ADDED] Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | 1 | |
+| **52.2.2** | [ADDED] Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID tokens can be used for proving user authentication. | 2 | |
+| **52.2.3** | [ADDED] Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | 2 | |
 
 ## References
 
