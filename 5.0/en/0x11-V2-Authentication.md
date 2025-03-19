@@ -41,7 +41,7 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **2.1.5** | [GRAMMAR] Verify that users can change their password. | 1 | 620 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | 1 | 620 |
-| **2.1.7** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords. | 1 | 521 |
+| **2.1.7** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords which match the application's password policy, e.g. minimum length. | 1 | 521 |
 | **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | |
 | **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | 1 | 521 |
 | **2.1.10** | [MODIFIED, LEVEL L1 > L2] Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | 2 | |
