@@ -19,6 +19,9 @@ This includes topics such as preventing data leakage, securely managing communic
 | **1.14.5** | [SPLIT TO 1.10.4, 10.6.3] | | |
 | **1.14.6** | [MOVED TO 50.8.2] | | |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 | 1059 |
+| **1.14.8** | [ADDED] Verify that where the application connects to separate services, the application's documentation indicates the maximum possible parallel connections (connection pool) to each service and how the application responds when this maximum is reached, to avoid a denial of service condition. | 3 | |
+| **1.14.9** | [ADDED] Verify that where the application connects to separate services, each has a documented connection failure strategy which includes how fast the connection times-out and whether there is a retry strategy. External connections in synchronous HTTP request-response scenarios should fail fast without any retry, to avoid reaching the maximum possible connections. | 3 | |
+| **1.14.10** | [ADDED] Verify that the application documentation identifies functionality which is time-consuming or resource-demanding. This should include how to prevent a loss of availability due to overusing this functionality and how to avoid a situation where building a response takes longer than the consumer's timeout. Potential defenses may include asynchronous processing, using queues, and limiting parallel processes per user and per application. | 2 | |
 
 ## V14.1 Build and Deploy
 
@@ -100,6 +103,8 @@ Applications need to interact with multiple services including APIs, databases o
 | **14.7.3** | [MODIFIED, MOVED FROM 4.3.3] Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | 2 | 732 |
 | **14.7.4** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 2 | 918 |
 | **14.7.5** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between back-end application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | 272 |
+| **14.7.6** | [ADDED] Verify that where the application connects to separate services, it follows the documented configuration for each connection, such as maximum parallel connections, behavior when maximum allowed connections is reached, connection timeouts, and retry strategies. | 3 | |
+| **14.7.7** | [ADDED] Verify that the application has implemented defences against loss of availability loss due to functionality which is time-consuming or resource-demanding, based on the documented security decisions and strategies for this. | 2 | |
 
 ## V14.8 Secret Management
 
