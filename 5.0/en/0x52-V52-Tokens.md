@@ -8,7 +8,7 @@ The use of self-contained tokens has become very widespread, even outside of OID
 
 ## V52.1 Token source and integrity
 
-Before inspecting the contents of a self-contained token, it is necessary to ensure that the token has been produced by a trusted party and that it has not been tampered with.
+This section describes requirements about the content of the token both for the issuer and for the consumer of the token in order to prevent unintended consumption of the token (e.g., by the wrong service, for the wrong usage). Before making security decisions based on the content of a self-contained token, the consumer must validate that the token is intended to be consumed by this consumer and was issued for the purpose for which it was presented. On the other hand, the issuer must associate claims to the token in order to make this validation possible and ensure that a malicious actor may not deceive it into including malicious claims in the token.
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
