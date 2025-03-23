@@ -34,10 +34,10 @@ HTTP responses must include security headers to set rules to how browsers can se
 
 | # | Description | Level | CWE |
 | :---: | :--- | :---: | :---: |
-| **50.3.1** | [MODIFIED, MOVED FROM 14.4.3, LEVEL L1 > L2] Verify that every HTTP response includes a Content-Security-Policy header to reduce the risk of malicious JavaScript. The directives object-src 'none' and base-uri 'none' must be defined. For an L3 application, a per-response policy with nonces or hashes must be defined. | 2 | |
+| **50.3.1** | [MODIFIED, MOVED FROM 14.4.3, LEVEL L1 > L2] Verify that every HTTP response includes a Content-Security-Policy header field to reduce the risk of malicious JavaScript. The directives object-src 'none' and base-uri 'none' must be defined. For an L3 application, a per-response policy with nonces or hashes must be defined. | 2 | |
 | **50.3.2** | [GRAMMAR, MOVED FROM 14.4.4] Verify that all responses contain a X-Content-Type-Options: nosniff header field. | 2 | 116 |
 | **50.3.3** | [MODIFIED, MOVED FROM 14.4.5] Verify that a Strict-Transport-Security header field is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=31536000; includeSubdomains. | 1 | 523 |
-| **50.3.4** | [MODIFIED, MOVED FROM 14.4.6] Verify that an suitable Referrer-Policy header is included to prevent sensitive information in the URL from being exposed to untrusted parties via the Referer header. | 2 | 116 |
+| **50.3.4** | [MODIFIED, MOVED FROM 14.4.6] Verify that an suitable Referrer-Policy header field is included to prevent sensitive information in the URL from being exposed to untrusted parties via the Referer header. | 2 | 116 |
 | **50.3.5** | [MODIFIED, MOVED FROM 14.4.7] Verify that the content of the web application cannot be embedded in a third-party site by default, and that embedding of specific resources is allowed only when necessary, using the Content-Security-Policy frame-ancestors directive. Note that X-Frame-Options is now obsolete. | 2 | 1021 |
 | **50.3.6** | [ADDED, SPLIT FROM 14.5.3] Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field is validated against an allowlist of trusted origins. When "Access-Control-Allow-Origin: *" needs to be used, verify that the responses do not include any sensitive information. | 1 | 183 |
 | **50.3.7** | [ADDED] Verify that the Content-Security-Policy header field specifies a location to report violations. | 3 | |
