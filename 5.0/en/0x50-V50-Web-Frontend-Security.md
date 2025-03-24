@@ -32,7 +32,7 @@ This section provides requirements for how to securely configure sensitive cooki
 
 ## V50.3 Browser Security Mechanism Headers
 
-This section indicates the security headers which should be set on HTTP HTTP requests/responses to prevent various types of attack that could disclose sensitive data.
+This section indicates which security headers should be set on HTTP responses to prevent various types of attack that could disclose sensitive data.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
