@@ -14,12 +14,6 @@ This section provides documentation requriements around how the application comm
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.14.1** | [DELETED, NOT IN SCOPE] | | v5.0.be-1.14.1 |
-| **1.14.2** | [DELETED, NOT IN SCOPE] | | v5.0.be-1.14.2 |
-| **1.14.3** | [DELETED, COVERED BY 1.10.5, 10.6.1] | | v5.0.be-1.14.3 |
-| **1.14.4** | [DELETED, NOT IN SCOPE] | | v5.0.be-1.14.4 |
-| **1.14.5** | [SPLIT TO 1.10.4, 10.6.3] | | v5.0.be-1.14.5 |
-| **1.14.6** | [MOVED TO 50.8.2] | | v5.0.be-1.14.6 |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 | v5.0.be-1.14.7 |
 | **1.14.8** | [ADDED] Verify that where the application connects to separate services, the application's documentation indicates the maximum possible parallel connections (connection pool) to each service and how the application responds when this maximum is reached, to avoid a denial of service condition. | 3 | v5.0.be-1.14.8 |
 | **1.14.9** | [ADDED] Verify that where the application connects to separate system resources or services (such as database connections, open files and threads), each has a documented resource release and connection failure strategy which includes how fast the connection times-out and whether there is a retry strategy. This is to prevent resource exhaustion. External connections in synchronous HTTP request-response scenarios should fail fast without any retry, to avoid reaching the maximum possible connections. | 3 | v5.0.be-1.14.9 |
@@ -32,10 +26,8 @@ Compliance with this section requires an automated build system, and access to b
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **14.1.1** | [DELETED, NOT IN SCOPE] | | v5.0.be-14.1.1 |
 | **14.1.2** | [LEVEL L2 > L3] Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | 3 | v5.0.be-14.1.2 |
 | **14.1.3** | [MODIFIED] Verify that configuration hardening is performed on all third-party products, libraries, frameworks and services as per their individual recommendations. | 3 | v5.0.be-14.1.3 |
-| **14.1.4** | [DELETED, NOT IN SCOPE] | | v5.0.be-14.1.4 |
 | **14.1.5** | [MODIFIED] Verify that deployed environments are short lived and frequently redeployed to a "known good" but updated state. Alternatively, long lived environments should use some form of "drift prevention" to ensure that deployed configurations are not changed to an insecure state. | 3 | v5.0.be-14.1.5 |
 | **14.1.6** | [MODIFIED, MOVED FROM 14.2.2, SPLIT FROM 4.3.2] Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
 | **14.1.7** | [ADDED] Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
@@ -43,17 +35,6 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.9** | [ADDED] Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | v5.0.be-14.1.9 |
 | **14.1.10** | [MODIFIED, MOVED FROM 2.5.4] Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 | v5.0.be-14.1.10 |
 | **14.1.11** | [ADDED, SPLIT FROM 4.3.2] Verify that the application is deployed either without any source control metadata including the .git or .svn folders or in a way that these folders are inaccessible both externally and to the application itself. | 1 | v5.0.be-14.1.11 |
-
-## V14.2 Dependency
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **14.2.1** | [SPLIT TO 1.10.5, 10.6.1] | | v5.0.be-14.2.1 |
-| **14.2.2** | [MOVED TO 14.1.6] | | v5.0.be-14.2.2 |
-| **14.2.3** | [MOVED TO 50.7.1] | | v5.0.be-14.2.3 |
-| **14.2.4** | [DELETED, MERGED TO 1.10.2] | | v5.0.be-14.2.4 |
-| **14.2.5** | [MOVED TO 1.10.2] | | v5.0.be-14.2.5 |
-| **14.2.6** | [SPLIT TO 1.10.3, 10.6.3] | | v5.0.be-14.2.6 |
 
 ## V14.3 Unintended Information Leakage
 
@@ -63,35 +44,11 @@ For example, hiding the version of server-side components does not fix the need 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **14.3.1** | [DELETED] | | v5.0.be-14.3.1 |
 | **14.3.2** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | 2 | v5.0.be-14.3.2 |
 | **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
 | **14.3.4** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | 2 | v5.0.be-14.3.4 |
 | **14.3.5** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors should be blocked unless required. | 3 | v5.0.be-14.3.5 |
 | **14.3.6** | [ADDED, SPLIT FROM 14.5.1] Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 2 | v5.0.be-14.3.6 |
-
-## V14.4 HTTP Security Headers
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **14.4.1** | [MOVED TO 13.1.7] | | v5.0.be-14.4.1 |
-| **14.4.2** | [DELETED, MERGED TO 50.6.1] | | v5.0.be-14.4.2 |
-| **14.4.3** | [MOVED TO 50.3.1] | | v5.0.be-14.4.3 |
-| **14.4.4** | [MOVED TO 50.3.2] | | v5.0.be-14.4.4 |
-| **14.4.5** | [MOVED TO 50.3.3] | | v5.0.be-14.4.5 |
-| **14.4.6** | [MOVED TO 50.3.4] | | v5.0.be-14.4.6 |
-| **14.4.7** | [MOVED TO 50.3.5] | | v5.0.be-14.4.7 |
-
-## V14.5 HTTP Request Header Validation
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **14.5.1** | [SPLIT TO 13.6.1, 14.3.6] | | v5.0.be-14.5.1 |
-| **14.5.2** | [DELETED, COVERED BY 4.2.3] | | v5.0.be-14.5.2 |
-| **14.5.3** | [SPLIT TO 50.3.6, 50.4.3] | | v5.0.be-14.5.3 |
-| **14.5.4** | [DELETED, INCORRECT] | | v5.0.be-14.5.4 |
-
-## V14.6 Web or Application Server Configuration
 
 ## V14.7 Back-end Communication Configuration
 

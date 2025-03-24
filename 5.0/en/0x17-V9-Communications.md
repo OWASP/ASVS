@@ -21,13 +21,6 @@ Within these requirements:
 
 In addition to outlining general principles and best practices, this document also provides more in-depth technical information about cryptographic strength in [Appendix V](./0x97-Appendix-V_Cryptography.md).
 
-## V1.9 Communications Documentation
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **1.9.1** | [DELETED, COVERED BY 9.1.1, 9.2.2, 9.3.1] | | v5.0.be-1.9.1 |
-| **1.9.2** | [DELETED, COVERED BY 9.3.2] | | v5.0.be-1.9.2 |
-
 ## V9.1 HTTPS Communication with External Facing Services
 
 Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publicly trusted certificates.
@@ -35,8 +28,6 @@ Ensure all HTTP traffic to external-facing services which the application expose
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **9.1.1** | [MODIFIED, COVERS 1.9.1] Verify that TLS is used for all connectivity between a client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. | 1 | v5.0.be-9.1.1 |
-| **9.1.2** | [MOVED TO 9.4.1] | | v5.0.be-9.1.2 |
-| **9.1.3** | [MOVED TO 9.4.2] | | v5.0.be-9.1.3 |
 | **9.1.4** | [ADDED] Verify that external facing services use publicly trusted TLS certificates. | 1 | v5.0.be-9.1.4 |
 
 ## V9.2 General Service to Service Communication Security
@@ -45,11 +36,7 @@ Server communications involve more than just HTTP. Connections to and from other
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **9.2.1** | [MOVED TO 9.3.2] | | v5.0.be-9.2.1 |
 | **9.2.2** | [MODIFIED, COVERS 1.9.1] Verify that an encrypted protocol such as TLS is used for all inbound and outbound connections to and from the application, including monitoring systems, management tools, remote access and SSH, middleware, databases, mainframes, partner systems, or external APIs. The server must not fall back to insecure or unencrypted protocols. | 2 | v5.0.be-9.2.2 |
-| **9.2.3** | [DELETED, NOT IN SCOPE] | | v5.0.be-9.2.3 |
-| **9.2.4** | [MOVED TO 9.4.3] | | v5.0.be-9.2.4 |
-| **9.2.5** | [MOVED TO 7.2.6] | | v5.0.be-9.2.5 |
 | **9.2.6** | [ADDED] Verify that TLS clients validate certificates received before communicating with a TLS server. | 2 | v5.0.be-9.2.6 |
 
 ## V9.3 HTTPS Communication between Internal Services

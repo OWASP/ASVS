@@ -8,25 +8,6 @@ With modern web applications, it will always be best to use safer APIs such as p
 
 Input Validation can act as a defense in depth mechanism for protecting against unexpected, dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements around this can be found in the "Business Logic" chapter.
 
-## V1.5 Input and Output Documentation
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **1.5.1** | [SPLIT TO 1.11.5, 1.11.6] | | v5.0.be-1.5.1 |
-| **1.5.2** | [DELETED, MERGED TO 5.5.3] | | v5.0.be-1.5.2 |
-| **1.5.3** | [MOVED TO 11.3.2] | | v5.0.be-1.5.3 |
-| **1.5.4** | [MOVED TO 5.6.2] | | v5.0.be-1.5.4 |
-
-## V5.1 Input Validation
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **5.1.1** | [MOVED TO 10.4.7] | | v5.0.be-5.1.1 |
-| **5.1.2** | [MOVED TO 10.4.4] | | v5.0.be-5.1.2 |
-| **5.1.3** | [MOVED TO 11.3.1] | | v5.0.be-5.1.3 |
-| **5.1.4** | [SPLIT TO 11.3.1, 11.3.3] | | v5.0.be-5.1.4 |
-| **5.1.5** | [SPLIT TO 50.8.1, 50.8.5] | | v5.0.be-5.1.5 |
-
 ## V5.2 Sanitization and Sandboxing
 
 The ideal protection against using untrusted content in an unsafe context is using context specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context. This is discussed in more detail in the next section.
@@ -60,14 +41,10 @@ In many cases, software libraries will include safe or safer functions which wil
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **5.3.1** | [MODIFIED, SPLIT TO 5.3.13] Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP header fields, to avoid changing the message or document structure. | 1 | v5.0.be-5.3.1 |
-| **5.3.2** | [DELETED, COVERED BY 13.1.7] | | v5.0.be-5.3.2 |
 | **5.3.3** | [MODIFIED, SPLIT TO 50.6.2, COVERS 5.3.6] Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | 1 | v5.0.be-5.3.3 |
 | **5.3.4** | [MODIFIED, COVERS 5.3.5] Verify that data selection or database queries (e.g., SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This should also be considered when writing stored procedures. | 1 | v5.0.be-5.3.4 |
-| **5.3.5** | [DELETED, COVERED BY 5.3.4] | | v5.0.be-5.3.5 |
-| **5.3.6** | [DELETED, COVERED BY 5.3.3] | | v5.0.be-5.3.6 |
 | **5.3.7** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | 2 | v5.0.be-5.3.7 |
 | **5.3.8** | [COVERS 12.3.5] Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | 1 | v5.0.be-5.3.8 |
-| **5.3.9** | [DELETED, MERGED TO 12.4.3] | | v5.0.be-5.3.9 |
 | **5.3.10** | [MODIFIED] Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 2 | v5.0.be-5.3.10 |
 | **5.3.11** | [ADDED] Verify that the application is protected against CSV and Formula Injection. The application should follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV files. The application should escape special characters including '=', '+', '-', '@' '\t' (tab) and '\00' (null character) using a single quote, if they are the first character in a field, when exporting CSV files and other spreadsheet formats such as xls, xlsx, odf. | 3 | v5.0.be-5.3.11 |
 | **5.3.12** | [ADDED] Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 | v5.0.be-5.3.12 |
@@ -82,7 +59,6 @@ The following requirements cover risks around unsafe memory use and will general
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **5.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 | v5.0.be-5.4.1 |
-| **5.4.2** | [MOVED TO 5.2.13] | | v5.0.be-5.4.2 |
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | 2 | v5.0.be-5.4.3 |
 | **5.4.4** | [ADDED] Verify that dynamically allocated memory and resources are released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | 2 | v5.0.be-5.4.4 |
 
@@ -92,10 +68,8 @@ Conversion of data from some sort of stored or transmitted representation into a
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **5.5.1** | [DELETED, INCORRECT] | | v5.0.be-5.5.1 |
 | **5.5.2** | [GRAMMAR] Verify that the application configures XML parsers to use a restrictive configuration and that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | 1 | v5.0.be-5.5.2 |
 | **5.5.3** | [MODIFIED, MERGED FROM 1.5.2] Verify that deserialization with untrusted clients enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure (such as BinaryFormatter) must not be used with untrusted input. | 2 | v5.0.be-5.5.3 |
-| **5.5.4** | [DELETED, COVERED BY 5.2.4] | | v5.0.be-5.5.4 |
 | **5.5.5** | [MODIFIED, MOVED FROM 13.1.1, LEVEL L1 > L2] Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 3 | v5.0.be-5.5.5 |
 
 ## V5.6 Validation and Sanitization Architecture
