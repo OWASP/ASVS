@@ -14,37 +14,11 @@ Many of the requirements needed for a secure and defendable architecture require
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.10.1** | [DELETED, NOT IN SCOPE] | | v5.0.be-1.10.1 |
 | **1.10.2** | [MODIFIED, MOVED FROM 14.2.5, MERGED FROM 14.2.4, COVERS 12.3.6] Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | 2 | v5.0.be-1.10.2 |
 | **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life and libraries which have historically had several significant vulnerabilities. | 3 | v5.0.be-1.10.3 |
 | **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing or direct memory manipulation. | 3 | v5.0.be-1.10.4 |
 | **1.10.5** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | 1 | v5.0.be-1.10.5 |
 | **1.10.6** | [ADDED] Verify that the application documentation identifies functionality which is time-consuming or resource-demanding. This should include how to prevent a loss of availability due to overusing this functionality and how to avoid a situation where building a response takes longer than the consumer's timeout. Potential defenses may include asynchronous processing, using queues, and limiting parallel processes per user and per application. | 2 | v5.0.be-1.10.6 |
-
-## V10.1 Code Integrity
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.1.1** | [DELETED, NOT IN SCOPE] | | v5.0.be-10.1.1 |
-
-## V10.2 Malicious Code Search
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.2.1** | [DELETED, NOT PRACTICAL] | | v5.0.be-10.2.1 |
-| **10.2.2** | [DELETED, NOT PRACTICAL] | | v5.0.be-10.2.2 |
-| **10.2.3** | [DELETED, NOT PRACTICAL] | | v5.0.be-10.2.3 |
-| **10.2.4** | [DELETED, NOT PRACTICAL] | | v5.0.be-10.2.4 |
-| **10.2.5** | [DELETED, NOT PRACTICAL] | | v5.0.be-10.2.5 |
-| **10.2.6** | [DELETED, NOT PRACTICAL] | | v5.0.be-10.2.6 |
-
-## V10.3 Application Integrity
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.3.1** | [MOVED TO 10.4.10] | | v5.0.be-10.3.1 |
-| **10.3.2** | [MOVED TO 10.6.2] | | v5.0.be-10.3.2 |
-| **10.3.3** | [DELETED, NOT IN SCOPE] | | v5.0.be-10.3.3 |
 
 ## V10.4 Defensive Coding
 
@@ -62,8 +36,6 @@ This section covers vulnerability types including type juggling, prototype pollu
 | **10.4.8** | [ADDED] Verify that where the application back-end makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | 2 | v5.0.be-10.4.8 |
 | **10.4.9** | [ADDED] Verify that, if the application (back-end or front-end) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 3 | v5.0.be-10.4.9 |
 | **10.4.10** | [MODIFIED, MOVED FROM 10.3.1, LEVEL L1 > L3] Verify that, if the application has an auto-update feature, updates should be digitally signed, with the digital signature being validated before installing or executing the update. | 3 | v5.0.be-10.4.10 |
-
-## V10.5 Security Architecture
 
 ## V10.6 Security Architecture and Dependencies
 

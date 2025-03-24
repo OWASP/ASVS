@@ -28,18 +28,8 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.6.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | 2 | v5.0.be-1.6.1 |
-| **1.6.2** | [DELETED, MERGED TO 14.8.1] | | v5.0.be-1.6.2 |
-| **1.6.3** | [DELETED, MERGED TO 6.2.4] | | v5.0.be-1.6.3 |
 | **1.6.4** | [MODIFIED] Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It should also document where keys can and cannot be used in the system and also the types of data which can and cannot be protected using the keys. | 2 | v5.0.be-1.6.4 |
 | **1.6.5** | [ADDED] Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | 3 | v5.0.be-1.6.5 |
-
-## V6.1 Data Classification
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **6.1.1** | [DELETED, MERGED TO 1.8.1] | | v5.0.be-6.1.1 |
-| **6.1.2** | [DELETED, MERGED TO 1.8.1] | | v5.0.be-6.1.2 |
-| **6.1.3** | [DELETED, COVERED BY 1.8.1] | | v5.0.be-6.1.3 |
 
 ## V6.2 Algorithms
 
@@ -51,11 +41,7 @@ Although this section is not easily penetration tested, developers should consid
 | :---: | :--- | :---: | :---: |
 | **6.2.1** | [MODIFIED] Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | 3 | v5.0.be-6.2.1 |
 | **6.2.2** | [MODIFIED, SPLIT TO 6.5.1, 6.5.2, 6.5.4, 6.6.1, 6.7.2] Verify that industry-validated implementations (including libraries and hardware-accelerated implementations) are used for cryptographic operations. | 2 | v5.0.be-6.2.2 |
-| **6.2.3** | [DELETED, COVERED BY 6.5.1, 6.5.2, 6.6.1] | | v5.0.be-6.2.3 |
 | **6.2.4** | [MODIFIED, MERGED FROM 1.6.3] Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC, or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This should allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 | v5.0.be-6.2.4 |
-| **6.2.5** | [SPLIT TO 6.5.1, 6.5.2, 6.6.1] | | v5.0.be-6.2.5 |
-| **6.2.6** | [MOVED TO 6.5.3] | | v5.0.be-6.2.6 |
-| **6.2.7** | [MOVED TO 6.5.4] | | v5.0.be-6.2.7 |
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | 3 | v5.0.be-6.2.8 |
 | **6.2.9** | [ADDED] Verify that all cryptographic primitives utilize a minimum of 128-bits of security based on the algorithm, key size, and configuration. For example, a 256-bit ECC key provides roughly 128 bits of security where RSA requires a 3072-bit key to achieve 128 bits of security. | 2 | v5.0.be-6.2.9 |
 
@@ -66,17 +52,7 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **6.3.1** | [GRAMMAR, COVERS 6.3.2, LEVEL L2 > L1] Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | 2 | v5.0.be-6.3.1 |
-| **6.3.2** | [DELETED, COVERED BY 6.3.1] | | v5.0.be-6.3.2 |
 | **6.3.3** | [GRAMMAR, LEVEL L3 > L1] Verify that random number generation continues to work securely, even under heavy system load, or that the system degrades gracefully. | 3 | v5.0.be-6.3.3 |
-
-## V6.4 Secret Management
-
-Although this section is not easily penetration tested, developers should consider this entire section as mandatory even though L1 is missing from most of the items.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **6.4.1** | [MOVED TO 14.8.1] | | v5.0.be-6.4.1 |
-| **6.4.2** | [MOVED TO 14.8.2] | | v5.0.be-6.4.2 |
 
 ## V6.5 Encryption Algorithms
 

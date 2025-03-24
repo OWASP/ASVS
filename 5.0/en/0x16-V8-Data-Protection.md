@@ -26,11 +26,6 @@ This section contains various practical requirements related to the protection o
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **8.1.1** | [MODIFIED, MERGED FROM 8.1.2] Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | 2 | v5.0.be-8.1.1 |
-| **8.1.2** | [DELETED, MERGED TO 8.1.1] | | v5.0.be-8.1.2 |
-| **8.1.3** | [DELETED, INSUFFICIENT IMPACT] | | v5.0.be-8.1.3 |
-| **8.1.4** | [DELETED, MERGED TO 7.2.4] | | v5.0.be-8.1.4 |
-| **8.1.5** | [DELETED, NOT IN SCOPE] | | v5.0.be-8.1.5 |
-| **8.1.6** | [DELETED, NOT IN SCOPE] | | v5.0.be-8.1.6 |
 | **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
 | **8.1.8** | [ADDED] Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 | v5.0.be-8.1.8 |
 | **8.1.9** | [ADDED, SPLIT FROM 1.8.2] Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 | v5.0.be-8.1.9 |
@@ -55,13 +50,6 @@ This section no longer tries to duplicate these types of data protection or priv
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **8.3.1** | [MOVED TO 8.1.11] | | v5.0.be-8.3.1 |
-| **8.3.2** | [DELETED, NOT IN SCOPE] | | v5.0.be-8.3.2 |
-| **8.3.3** | [DELETED, NOT IN SCOPE] | | v5.0.be-8.3.3 |
-| **8.3.4** | [DELETED, MERGED TO 1.8.1] | | v5.0.be-8.3.4 |
-| **8.3.5** | [MOVED TO 7.2.5] | | v5.0.be-8.3.5 |
-| **8.3.6** | [DELETED, NOT PRACTICAL] | | v5.0.be-8.3.6 |
-| **8.3.7** | [DELETED, COVERED BY 1.8.2] | | v5.0.be-8.3.7 |
 | **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | v5.0.be-8.3.8 |
 | **8.3.9** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 | v5.0.be-8.3.9 |
 

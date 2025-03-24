@@ -18,9 +18,6 @@ This section contains requirements detailing the authentication documentation th
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.2.1** | [MOVED TO 14.7.5] | | v5.0.be-1.2.1 |
-| **1.2.2** | [DELETED, MERGED TO 14.7.1] | | v5.0.be-1.2.2 |
-| **1.2.3** | [DELETED, COVERED BY 1.2.4] | | v5.0.be-1.2.3 |
 | **1.2.4** | [MODIFIED, SPLIT TO 2.2.11, COVERS 1.2.3] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | 2 | v5.0.be-1.2.4 |
 | **1.2.5** | [ADDED] Verify that a list of context specific words are documented in order to prevent their use in passwords. | 2 | v5.0.be-1.2.5 |
 | **1.2.6** | [ADDED, SPLIT FROM 2.2.1] Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation should make clear how these controls are configured and prevent malicious account lockout. | 1 | v5.0.be-1.2.6 |
@@ -38,11 +35,9 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **2.1.1** | [MODIFIED] Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | 1 | v5.0.be-2.1.1 |
 | **2.1.2** | [MODIFIED] Verify that passwords of at least 64 characters are permitted. | 2 | v5.0.be-2.1.2 |
 | **2.1.3** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 2 | v5.0.be-2.1.3 |
-| **2.1.4** | [DELETED, INSUFFICIENT IMPACT] | | v5.0.be-2.1.4 |
 | **2.1.5** | [GRAMMAR] Verify that users can change their password. | 1 | v5.0.be-2.1.5 |
 | **2.1.6** | Verify that password change functionality requires the user's current and new password. | 1 | v5.0.be-2.1.6 |
 | **2.1.7** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords which match the application's password policy, e.g. minimum length. | 1 | v5.0.be-2.1.7 |
-| **2.1.8** | [DELETED, INSUFFICIENT IMPACT] | | v5.0.be-2.1.8 |
 | **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | 1 | v5.0.be-2.1.9 |
 | **2.1.10** | [MODIFIED, LEVEL L1 > L2] Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | 2 | v5.0.be-2.1.10 |
 | **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | 1 | v5.0.be-2.1.11 |
@@ -69,31 +64,10 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **2.2.2** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 | v5.0.be-2.2.2 |
 | **2.2.3** | [MODIFIED, SPLIT TO 2.2.10, COVERS 2.5.5] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 3 | v5.0.be-2.2.3 |
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | 3 | v5.0.be-2.2.4 |
-| **2.2.5** | [MOVED TO 9.3.3] | | v5.0.be-2.2.5 |
-| **2.2.6** | [DELETED, COVERED BY 2.6.1] | | v5.0.be-2.2.6 |
-| **2.2.7** | [DELETED, MERGED TO 2.2.4] | | v5.0.be-2.2.7 |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | 3 | v5.0.be-2.2.8 |
 | **2.2.9** | [ADDED, SPLIT FROM 2.2.4] Verify that the application requires users to either use a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms. | 2 | v5.0.be-2.2.9 |
 | **2.2.10** | [ADDED, SPLIT FROM 2.2.3] Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | 3 | v5.0.be-2.2.10 |
 | **2.2.11** | [ADDED, SPLIT FROM 1.2.4] Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 | v5.0.be-2.2.11 |
-
-## V2.3 Authentication Factor Lifecycle
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.3.1** | [MOVED TO 2.5.8] | | v5.0.be-2.3.1 |
-| **2.3.2** | [DELETED, MERGED TO 2.2.4] | | v5.0.be-2.3.2 |
-| **2.3.3** | [MOVED TO 2.5.9] | | v5.0.be-2.3.3 |
-
-## V2.4 Credential Storage
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.4.1** | [MOVED TO 6.6.2] | | v5.0.be-2.4.1 |
-| **2.4.2** | [DELETED, INCORRECT] | | v5.0.be-2.4.2 |
-| **2.4.3** | [DELETED, MERGED TO 6.6.2] | | v5.0.be-2.4.3 |
-| **2.4.4** | [DELETED, MERGED TO 6.6.2] | | v5.0.be-2.4.4 |
-| **2.4.5** | [DELETED, INCORRECT] | | v5.0.be-2.4.5 |
 
 ## V2.5 Authentication Factor Lifecycle and Recovery
 
@@ -103,11 +77,7 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **2.5.1** | [DELETED, INCORRECT] | | v5.0.be-2.5.1 |
 | **2.5.2** | [GRAMMAR] Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | 1 | v5.0.be-2.5.2 |
-| **2.5.3** | [DELETED, COVERED BY 6.6.2] | | v5.0.be-2.5.3 |
-| **2.5.4** | [MOVED TO 14.1.10] | | v5.0.be-2.5.4 |
-| **2.5.5** | [DELETED, COVERED BY 2.2.3] | | v5.0.be-2.5.5 |
 | **2.5.6** | [MODIFIED] Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 2 | v5.0.be-2.5.6 |
 | **2.5.7** | [GRAMMAR, LEVEL L2 > L1] Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | 2 | v5.0.be-2.5.7 |
 | **2.5.8** | [MODIFIED, MOVED FROM 2.3.1] Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 | v5.0.be-2.5.8 |
@@ -152,25 +122,9 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **2.7.1** | [MODIFIED] Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 | v5.0.be-2.7.1 |
-| **2.7.2** | [MOVED TO 2.6.5] | | v5.0.be-2.7.2 |
 | **2.7.3** | [MODIFIED, SPLIT TO 2.6.1] Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request for which they were generated and not a previous or subsequent one. | 2 | v5.0.be-2.7.3 |
-| **2.7.4** | [DELETED, NOT IN SCOPE] | | v5.0.be-2.7.4 |
-| **2.7.5** | [DELETED, INSUFFICIENT IMPACT] | | v5.0.be-2.7.5 |
-| **2.7.6** | [SPLIT TO 2.6.3, 2.6.4] | | v5.0.be-2.7.6 |
 | **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | 2 | v5.0.be-2.7.7 |
 | **2.7.8** | [ADDED] Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | 3 | v5.0.be-2.7.8 |
-
-## V2.8 Time based One-time Passwords
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.8.1** | [DELETED, MERGED TO 2.6.5] | | v5.0.be-2.8.1 |
-| **2.8.2** | [DELETED, COVERED BY 14.8.1] | | v5.0.be-2.8.2 |
-| **2.8.3** | [DELETED, MERGED TO 2.6.3] | | v5.0.be-2.8.3 |
-| **2.8.4** | [DELETED, MERGED TO 2.6.1] | | v5.0.be-2.8.4 |
-| **2.8.5** | [DELETED, INSUFFICIENT IMPACT] | | v5.0.be-2.8.5 |
-| **2.8.6** | [MOVED TO 2.6.6] | | v5.0.be-2.8.6 |
-| **2.8.7** | [MOVED TO 2.6.7] | | v5.0.be-2.8.7 |
 
 ## V2.9 Cryptographic authentication mechanism
 
@@ -184,16 +138,6 @@ The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages
 | :---: | :--- | :---: | :---: |
 | **2.9.1** | [MODIFIED, SPLIT TO 14.8.1, LEVEL L2 > L3] Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 | v5.0.be-2.9.1 |
 | **2.9.2** | [LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 | v5.0.be-2.9.2 |
-| **2.9.3** | [MOVED TO 6.7.2] | | v5.0.be-2.9.3 |
-
-## V2.10 Service Authentication
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.10.1** | [MOVED TO 14.7.1] | | v5.0.be-2.10.1 |
-| **2.10.2** | [MOVED TO 14.7.2] | | v5.0.be-2.10.2 |
-| **2.10.3** | [DELETED, COVERED BY 14.8.1] | | v5.0.be-2.10.3 |
-| **2.10.4** | [DELETED, MERGED TO 14.8.1] | | v5.0.be-2.10.4 |
 
 ## V2.11 Authentication with an Identity Provider
 

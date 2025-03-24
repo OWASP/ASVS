@@ -14,9 +14,6 @@ Business logic documentation should clearly define business logic limits, valida
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.11.1** | [DELETED, NOT IN SCOPE] | | v5.0.be-1.11.1 |
-| **1.11.2** | [MOVED TO 10.7.2] | | v5.0.be-1.11.2 |
-| **1.11.3** | [MOVED TO 10.7.1] | | v5.0.be-1.11.3 |
 | **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are documented including both per-user and also globally across the application. | 2 | v5.0.be-1.11.4 |
 | **1.11.5** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | 1 | v5.0.be-1.11.5 |
 | **1.11.6** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | 1 | v5.0.be-1.11.6 |
@@ -28,13 +25,7 @@ This section considers key requirements to ensure that the application enforces 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **11.1.1** | Verify that the application will only process business logic flows for the same user in sequential step order and without skipping steps. | 1 | v5.0.be-11.1.1 |
-| **11.1.2** | [MOVED TO 11.2.1] | | v5.0.be-11.1.2 |
 | **11.1.3** | [MODIFIED] Verify that business logic limits are implemented as per the application's documentation, to avoid business logic flaws being exploited. | 2 | v5.0.be-11.1.3 |
-| **11.1.4** | [MOVED TO 11.2.2] | | v5.0.be-11.1.4 |
-| **11.1.5** | [DELETED, MERGED TO 11.3.1] | | v5.0.be-11.1.5 |
-| **11.1.6** | [MOVED TO 10.7.3] | | v5.0.be-11.1.6 |
-| **11.1.7** | [MOVED TO 7.2.4] | | v5.0.be-11.1.7 |
-| **11.1.8** | [DELETED, NOT IN SCOPE] | | v5.0.be-11.1.8 |
 | **11.1.9** | [ADDED] Verify that transactions are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | 2 | v5.0.be-11.1.9 |
 | **11.1.10** | [ADDED] Verify that high-value business logic flows are restricted with multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to critical nuclear facility operations, healthcare record modifications, access to classified information, or safety overrides in manufacturing. | 3 | v5.0.be-11.1.10 |
 

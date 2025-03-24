@@ -30,20 +30,10 @@ This section satisfies the essential requirements of secure sessions by verifyin
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **3.1.1** | [DELETED, MERGED TO 8.1.11] | | v5.0.be-3.1.1 |
 | **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | 1 | v5.0.be-3.1.2 |
 | **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either self-contained or reference tokens for session management. Static API secrets and keys should be avoided. | 1 | v5.0.be-3.1.3 |
 | **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 | v5.0.be-3.1.4 |
 | **3.1.5** | [MODIFIED, MOVED FROM 3.2.1] Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | 1 | v5.0.be-3.1.5 |
-
-## V3.2 Session Binding
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.2.1** | [MOVED TO 3.1.5] | | v5.0.be-3.2.1 |
-| **3.2.2** | [MOVED TO 3.1.4] | | v5.0.be-3.2.2 |
-| **3.2.3** | [DELETED, MERGED TO 8.2.2] | | v5.0.be-3.2.3 |
-| **3.2.4** | [DELETED, MERGED TO 3.1.4] | | v5.0.be-3.2.4 |
 
 ## V3.3 Session Timeout
 
@@ -51,29 +41,8 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **3.3.1** | [MOVED TO 3.8.1] | | v5.0.be-3.3.1 |
 | **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.2 |
-| **3.3.3** | [MOVED TO 3.8.2] | | v5.0.be-3.3.3 |
-| **3.3.4** | [MOVED TO 3.7.2] | | v5.0.be-3.3.4 |
 | **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.5 |
-
-## V3.4 Cookie-based Session Management
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.4.1** | [MOVED TO 50.2.1] | | v5.0.be-3.4.1 |
-| **3.4.2** | [MOVED TO 50.2.2] | | v5.0.be-3.4.2 |
-| **3.4.3** | [MOVED TO 50.2.3] | | v5.0.be-3.4.3 |
-| **3.4.4** | [MOVED TO 50.2.4] | | v5.0.be-3.4.4 |
-| **3.4.5** | [DELETED, DEPRECATED BY 50.1.1] | | v5.0.be-3.4.5 |
-
-## V3.5 Token-based Session Management
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.5.1** | [MOVED TO 51.4.14] | | v5.0.be-3.5.1 |
-| **3.5.2** | [MOVED TO 3.1.3] | | v5.0.be-3.5.2 |
-| **3.5.3** | [MOVED TO 52.1.1] | | v5.0.be-3.5.3 |
 
 ## V3.6 Federated Re-authentication
 
@@ -82,7 +51,6 @@ This section relates to those writing Relying Party (RP) or Identity Provider (I
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 | v5.0.be-3.6.1 |
-| **3.6.2** | [DELETED, MERGED TO 3.6.1] | | v5.0.be-3.6.2 |
 | **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 | v5.0.be-3.6.3 |
 
 ## V3.7 Defenses Against Session Abuse
