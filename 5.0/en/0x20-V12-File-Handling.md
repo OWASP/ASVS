@@ -1,8 +1,8 @@
-# V12 File and Resources
+# V12 File Handling
 
 ## Control Objective
 
-The use of files and other resources can present a variety of risks for the application including denial of service, unauthorized access, and resource exhaustion. This chapter includes requirements to address these risks.
+The use of files can present a variety of risks for the application including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
 
 ## V1.12 Secure File Upload Documentation
 
@@ -76,6 +76,5 @@ This section contains requirements to mitigate risks when serving files to be do
 For more information, see also:
 
 * [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
-* [OWASP Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html)
 * [Example of using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)
 * [Explanation of "Magic Bytes" from Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
