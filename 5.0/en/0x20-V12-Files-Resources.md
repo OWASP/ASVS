@@ -71,14 +71,6 @@ This section contains requirements to mitigate risks when serving files to be do
 | :---: | :--- | :---: |
 | **12.6.1** | [MOVED TO 14.7.4] | |
 
-## V12.7 Application Resources
-
-This section covers the need for applications to release system resources like database connections, open files, and threads after use to prevent resource exhaustion.
-
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **12.7.1** | [ADDED] Verify that the application proactively releases system resources, such as database connections, open files and threads when it finishes using them to prevent resource exhaustion. | 3 |
-
 ## References
 
 For more information, see also:
