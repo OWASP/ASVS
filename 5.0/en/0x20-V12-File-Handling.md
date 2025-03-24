@@ -6,70 +6,70 @@ The use of files can present a variety of risks for the application including de
 
 ## V1.12 Secure File Upload Documentation
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **1.12.1** | [DELETED] | |
-| **1.12.2** | [DELETED, MERGED TO 50.6.1] | |
-| **1.12.3** | [ADDED] Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | 2 |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **1.12.1** | [DELETED] | | v5.0.be-1.12.1 |
+| **1.12.2** | [DELETED, MERGED TO 50.6.1] | | v5.0.be-1.12.2 |
+| **1.12.3** | [ADDED] Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | 2 | v5.0.be-1.12.3 |
 
 ## V12.1 File Upload and Content
 
 Upload functionality is a key source of untrusted files. This section details the requirements for ensuring that the presence, volume, or content of these files cannot harm the application.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **12.1.1** | [MODIFIED] Verify that the application will only accept files of a size which it can process without causing a loss of performance or denial of service attack. | 1 |
-| **12.1.2** | [GRAMMAR] Verify that the application checks compressed files (e.g., zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | 2 |
-| **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | 3 |
-| **12.1.4** | [ADDED] Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | 3 |
-| **12.1.5** | [MODIFIED, MOVED FROM 12.2.1] Verify that when the application accepts a file, either on its own or within an archive such as a zip file, it checks if the file extension matches an expected file extension and validates that the contents correspond to the type represented by the extension. This includes, but is not limited to, checking the initial 'magic bytes', performing image re-writing, and using specialized libraries for file content validation. For L1 this can focus just on files which are used to make specific business or security decisions. For L2 and up, this should apply to all files being accepted. | 1 |
-| **12.1.6** | [ADDED] Verify that the application blocks uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 3 |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **12.1.1** | [MODIFIED] Verify that the application will only accept files of a size which it can process without causing a loss of performance or denial of service attack. | 1 | v5.0.be-12.1.1 |
+| **12.1.2** | [GRAMMAR] Verify that the application checks compressed files (e.g., zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | 2 | v5.0.be-12.1.2 |
+| **12.1.3** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | 3 | v5.0.be-12.1.3 |
+| **12.1.4** | [ADDED] Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | 3 | v5.0.be-12.1.4 |
+| **12.1.5** | [MODIFIED, MOVED FROM 12.2.1] Verify that when the application accepts a file, either on its own or within an archive such as a zip file, it checks if the file extension matches an expected file extension and validates that the contents correspond to the type represented by the extension. This includes, but is not limited to, checking the initial 'magic bytes', performing image re-writing, and using specialized libraries for file content validation. For L1 this can focus just on files which are used to make specific business or security decisions. For L2 and up, this should apply to all files being accepted. | 1 | v5.0.be-12.1.5 |
+| **12.1.6** | [ADDED] Verify that the application blocks uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 3 | v5.0.be-12.1.6 |
 
 ## V12.2 File Integrity and Content
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **12.2.1** | [MOVED TO 12.1.5] | |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **12.2.1** | [MOVED TO 12.1.5] | | v5.0.be-12.2.1 |
 
 ## V12.3 File Execution
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **12.3.1** | [MOVED TO 12.4.3] | |
-| **12.3.2** | [DELETED, MERGED TO 12.4.3] | |
-| **12.3.3** | [DELETED, MERGED TO 12.4.3] | |
-| **12.3.4** | [MOVED TO 12.5.3] | |
-| **12.3.5** | [DELETED, COVERED BY 5.3.8] | |
-| **12.3.6** | [DELETED, COVERED BY 1.10.2] | |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **12.3.1** | [MOVED TO 12.4.3] | | v5.0.be-12.3.1 |
+| **12.3.2** | [DELETED, MERGED TO 12.4.3] | | v5.0.be-12.3.2 |
+| **12.3.3** | [DELETED, MERGED TO 12.4.3] | | v5.0.be-12.3.3 |
+| **12.3.4** | [MOVED TO 12.5.3] | | v5.0.be-12.3.4 |
+| **12.3.5** | [DELETED, COVERED BY 5.3.8] | | v5.0.be-12.3.5 |
+| **12.3.6** | [DELETED, COVERED BY 1.10.2] | | v5.0.be-12.3.6 |
 
 ## V12.4 File Storage
 
 This section includes requirements to prevent files being inappropriately executed after upload, to detect dangerous content, and avoid untrusted data being used to control where files are being stored.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **12.4.1** | [MODIFIED] Verify that files uploaded or generated by untrusted input which are stored in a public folder are not executable as server-side program code when accessed directly by an end user. | 1 |
-| **12.4.2** | [MOVED TO 12.5.5] | |
-| **12.4.3** | [MODIFIED, MOVED FROM 12.3.1, MERGED FROM 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use either internally generated or trusted data for file I/O operations. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | 1 |
-| **12.4.4** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | 3 |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **12.4.1** | [MODIFIED] Verify that files uploaded or generated by untrusted input which are stored in a public folder are not executable as server-side program code when accessed directly by an end user. | 1 | v5.0.be-12.4.1 |
+| **12.4.2** | [MOVED TO 12.5.5] | | v5.0.be-12.4.2 |
+| **12.4.3** | [MODIFIED, MOVED FROM 12.3.1, MERGED FROM 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use either internally generated or trusted data for file I/O operations. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | 1 | v5.0.be-12.4.3 |
+| **12.4.4** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | 3 | v5.0.be-12.4.4 |
 
 ## V12.5 File Download
 
 This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This also includes making sure they don't contain dangerous content.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **12.5.1** | [MOVED TO 14.3.5] | |
-| **12.5.2** | [MOVED TO 50.6.1] | |
-| **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header field in the response. | 2 |
-| **12.5.4** | [ADDED] Verify that file names served (e.g., in HTTP response header fields or email attachments) are encoded or sanitized (e.g., following RFC 6266) to preserve document structure and prevent injection attacks. | 2 |
-| **12.5.5** | [MODIFIED, MOVED FROM 12.4.2] Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent serving of known malicious content. | 2 |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **12.5.1** | [MOVED TO 14.3.5] | | v5.0.be-12.5.1 |
+| **12.5.2** | [MOVED TO 50.6.1] | | v5.0.be-12.5.2 |
+| **12.5.3** | [MODIFIED, MOVED FROM 12.3.4] Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header field in the response. | 2 | v5.0.be-12.5.3 |
+| **12.5.4** | [ADDED] Verify that file names served (e.g., in HTTP response header fields or email attachments) are encoded or sanitized (e.g., following RFC 6266) to preserve document structure and prevent injection attacks. | 2 | v5.0.be-12.5.4 |
+| **12.5.5** | [MODIFIED, MOVED FROM 12.4.2] Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent serving of known malicious content. | 2 | v5.0.be-12.5.5 |
 
 ## V12.6 SSRF Protection
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **12.6.1** | [MOVED TO 14.7.4] | |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **12.6.1** | [MOVED TO 14.7.4] | | v5.0.be-12.6.1 |
 
 ## References
 
