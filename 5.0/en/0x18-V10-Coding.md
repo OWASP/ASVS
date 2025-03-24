@@ -19,6 +19,7 @@ Many of the requirements needed for a secure and defendable architecture require
 | **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life and libraries which have historically had several significant vulnerabilities. | 3 |
 | **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing or direct memory manipulation. | 3 |
 | **1.10.5** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | 1 |
+| **1.10.6** | [ADDED] Verify that the application documentation identifies functionality which is time-consuming or resource-demanding. This should include how to prevent a loss of availability due to overusing this functionality and how to avoid a situation where building a response takes longer than the consumer's timeout. Potential defenses may include asynchronous processing, using queues, and limiting parallel processes per user and per application. | 2 |
 
 ## V10.1 Code Integrity
 
@@ -73,6 +74,7 @@ This section includes requirements for handling risky, outdated or insecure depe
 | **10.6.1** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that the application only contains components which have not breached the documented update and remediation time frames. | 1 |
 | **10.6.2** | [MODIFIED, MOVED FROM 10.3.2] Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | 3 |
 | **10.6.3** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 |
+| **10.6.4** | [ADDED] Verify that the application has implemented defences against loss of availability loss due to functionality which is time-consuming or resource-demanding, based on the documented security decisions and strategies for this. | 2 |
 
 ## V10.7 Concurrency
 
