@@ -20,6 +20,7 @@
 * **Dynamic Verification** – The use of automated tools that use vulnerability signatures to find problems during the execution of an application.
 * **Fast IDentity Online** (FIDO) - A set of authentication standards that allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
 * **Universally Unique Identifier** (UUID) – a unique reference number used as an identifier in software.
+* **HTTP Strict Transport Security** (HSTS) - An HTTP response header field which instructs the browser to only connect to the domain returning the header via TLS and when a valid certificate is presented.
 * **HyperText Transfer Protocol** (HTTPS) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
 * **Hardcoded keys** – Cryptographic keys that are stored on the filesystem, be it in code, comments or files.
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
