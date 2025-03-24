@@ -10,6 +10,8 @@ This includes topics such as preventing data leakage, securely managing communic
 
 ## V1.14 Configuration Documentation
 
+This section provides documentation requriements around how the application communicates with external services and how techniques which should be employed to prevent loss of availability due to these services not being accessible.
+
 | # | Description | Level |
 | :---: | :--- | :---: |
 | **1.14.1** | [DELETED, NOT IN SCOPE] | |
@@ -20,7 +22,7 @@ This includes topics such as preventing data leakage, securely managing communic
 | **1.14.6** | [MOVED TO 50.8.2] | |
 | **1.14.7** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This should include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 |
 | **1.14.8** | [ADDED] Verify that where the application connects to separate services, the application's documentation indicates the maximum possible parallel connections (connection pool) to each service and how the application responds when this maximum is reached, to avoid a denial of service condition. | 3 |
-| **1.14.9** | [ADDED] Verify that where the application connects to separate services, each has a documented connection failure strategy which includes how fast the connection times-out and whether there is a retry strategy. External connections in synchronous HTTP request-response scenarios should fail fast without any retry, to avoid reaching the maximum possible connections. | 3 |
+| **1.14.9** | [ADDED] Verify that where the application connects to separate system resources or services (such as database connections, open files and threads), each has a documented resource release and connection failure strategy which includes how fast the connection times-out and whether there is a retry strategy. This is to prevent resource exhaustion. External connections in synchronous HTTP request-response scenarios should fail fast without any retry, to avoid reaching the maximum possible connections. | 3 |
 
 ## V14.1 Build and Deploy
 
