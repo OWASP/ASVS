@@ -67,7 +67,7 @@ This section covers vulnerability types including type juggling, prototype pollu
 
 ## V10.6 Security Architecture and Dependencies
 
-This section includes requirements for handling risky, outdated or insecure dependencies and components through dependency management and using architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation.
+This section includes requirements for handling risky, outdated or insecure dependencies and components through dependency management. It also includes using architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of risky operations or libaries and preventing loss of availability due to overusing resource-demanding functionality.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
