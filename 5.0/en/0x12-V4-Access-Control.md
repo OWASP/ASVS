@@ -13,9 +13,9 @@ Comprehensive access control documentation is essential to ensure that security 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.4.6** | [ADDED] Verify that access control documentation defines controls that incorporate changes to a consumer's environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. These changes should be detected both when the consumer tries to start a new session or during an existing session. | 3 | v5.0.be-1.4.6 |
 | **1.4.7** | [ADDED] Verify that access control documentation defines rules for restricting function-level and data-specific access based on consumer permissions and resource attributes. | 1 | v5.0.be-1.4.7 |
 | **1.4.8** | [ADDED] Verify that access control documentation defines rules for field-level access restrictions based on consumer permissions and resource attributes. | 2 | v5.0.be-1.4.8 |
+| **1.4.6** | [ADDED] Verify that access control documentation defines controls that incorporate changes to a consumer's environmental and contextual attributes (such as time of day, location, IP address, or device) to make security decisions, including those pertaining to authentication and authorization. These changes should be detected both when the consumer tries to start a new session or during an existing session. | 3 | v5.0.be-1.4.6 |
 | **1.4.9** | [ADDED] Verify that access control documentation considers environmental and contextual factors in decision-making, in addition to function-level, data-specific, and field-level access controls. | 3 | v5.0.be-1.4.9 |
 
 ## V4.1 General Access Control Design
@@ -45,8 +45,8 @@ Additional considerations for access control, particularly for administrative in
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **4.3.1** | [MODIFIED, LEVEL L1 > L3] Verify that access to administrative interfaces incorporates multiple layers of security, including continuous consumer identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they may reduce the likelihood of unauthorized access. | 3 | v5.0.be-4.3.1 |
 | **4.3.4** | [ADDED] Verify that multi-tenant applications use cross-tenant controls to ensure consumer operations will never affect tenants with which they do not have permissions to interact. | 2 | v5.0.be-4.3.4 |
+| **4.3.1** | [MODIFIED, LEVEL L1 > L3] Verify that access to administrative interfaces incorporates multiple layers of security, including continuous consumer identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they may reduce the likelihood of unauthorized access. | 3 | v5.0.be-4.3.1 |
 
 ## References
 
