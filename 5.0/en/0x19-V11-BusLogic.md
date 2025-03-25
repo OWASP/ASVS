@@ -14,9 +14,9 @@ Business logic documentation should clearly define business logic limits, valida
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are documented including both per-user and also globally across the application. | 2 | v5.0.be-1.11.4 |
-| **1.11.5** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | 1 | v5.0.be-1.11.5 |
 | **1.11.6** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | 1 | v5.0.be-1.11.6 |
+| **1.11.5** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | 1 | v5.0.be-1.11.5 |
+| **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are documented including both per-user and also globally across the application. | 2 | v5.0.be-1.11.4 |
 
 ## V11.1 Business Logic Security
 
@@ -35,8 +35,8 @@ This section includes anti-automation controls to ensure that human-like interac
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.2.1** | [MODIFIED, MOVED FROM 11.1.2, LEVEL L1 > L3] Verify that business logic processes require realistic human timing, preventing excessively rapid transaction submissions. | 3 | v5.0.be-11.2.1 |
 | **11.2.2** | [MODIFIED, MOVED FROM 11.1.4, LEVEL L1 > L2] Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, garbage data creation, quota exhaustion, rate limit breaches, denial of service, or overuse of costly resources. | 2 | v5.0.be-11.2.2 |
+| **11.2.1** | [MODIFIED, MOVED FROM 11.1.2, LEVEL L1 > L3] Verify that business logic processes require realistic human timing, preventing excessively rapid transaction submissions. | 3 | v5.0.be-11.2.1 |
 
 ## V11.3 Input Validation
 

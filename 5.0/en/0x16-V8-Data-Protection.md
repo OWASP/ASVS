@@ -25,12 +25,12 @@ This section contains various practical requirements related to the protection o
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
+| **8.1.11** | [MODIFIED, MOVED FROM 8.3.1, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or header fields and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 | v5.0.be-8.1.11 |
 | **8.1.1** | [MODIFIED, MERGED FROM 8.1.2] Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | 2 | v5.0.be-8.1.1 |
-| **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
 | **8.1.8** | [ADDED] Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 | v5.0.be-8.1.8 |
 | **8.1.9** | [ADDED, SPLIT FROM 1.8.2] Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 | v5.0.be-8.1.9 |
+| **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
 | **8.1.10** | [ADDED] Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the full data is absolutely required, it should be masked in the user interface unless the user specifically views it. | 3 | v5.0.be-8.1.10 |
-| **8.1.11** | [MODIFIED, MOVED FROM 8.3.1, MERGED FROM 3.1.1, 13.1.3] Verify that sensitive data is only sent to the server in the HTTP message body or header fields and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 | v5.0.be-8.1.11 |
 
 ## V8.2 Client-side Data Protection
 
@@ -38,9 +38,9 @@ This section contains requirements related to specific ways in which data can le
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
+| **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | 1 | v5.0.be-8.2.3 |
 | **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 2 | v5.0.be-8.2.1 |
 | **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session identifiers. | 2 | v5.0.be-8.2.2 |
-| **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | 1 | v5.0.be-8.2.3 |
 
 ## V8.3 Sensitive Private Data
 

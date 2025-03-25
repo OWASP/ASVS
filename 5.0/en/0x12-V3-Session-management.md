@@ -41,8 +41,8 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.2 |
 | **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.5 |
+| **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.2 |
 
 ## V3.6 Federated Re-authentication
 
@@ -74,9 +74,9 @@ For stateful session mechanisms, termination typically involves invalidating the
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **3.8.1** | [MODIFIED, MOVED FROM 3.3.1] Verify that logout and expiration terminate the user's session, such that the back button or a downstream relying party cannot resume an authenticated session. | 1 | v5.0.be-3.8.1 |
+| **3.8.4** | [ADDED] Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 | v5.0.be-3.8.4 |
 | **3.8.2** | [MODIFIED, MOVED FROM 3.3.3, LEVEL L2 > L1] Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 | v5.0.be-3.8.2 |
 | **3.8.3** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 | v5.0.be-3.8.3 |
-| **3.8.4** | [ADDED] Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 | v5.0.be-3.8.4 |
 | **3.8.5** | [ADDED] Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 2 | v5.0.be-3.8.5 |
 
 ## References
