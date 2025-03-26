@@ -10,14 +10,6 @@ This section defines the browser security features that should be specified in t
 | :---: | :--- | :---: | :---: |
 | **1.50.1** | [ADDED] Verify that application documentation states the expected security features that browsers using the application should support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It should also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | 3 | v5.0.be-1.50.1 |
 
-## V50.1 Site Isolation Architecture
-
-This section provides guidance on how to leverage the benefits of same-origin isolation provided by browsers.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **50.1.1** | [ADDED, DEPRECATES 3.4.5] Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | 2 | v5.0.be-50.1.1 |
-
 ## V50.2 Cookie Setup
 
 This section provides requirements for how to securely configure sensitive cookies to reduce the risk of them being stolen or used inappropriately.
@@ -52,24 +44,13 @@ Sensitive functionality in this context could include accepting form posts for a
 
 The key protections here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies. Another common protection is the CORS preflight mechanism. This mechanism will be critical for endpoints designed to be called from a different origin, but it can also be a useful request forgery prevention mechanism for endpoints which are not designed to be called from a different origin.
 
-The category should contain requirements with ideas:
-
-* Verify that the request was initiated by a trusted party (CSRF, CORS misconfiguration)
-* Verify that the response is readable only for trusted parties (CORS misconfiguration)
-
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **50.4.1** | [MODIFIED, MOVED FROM 4.2.2, COVERS 13.2.3] Verify that CORS-safelisted requests to sensitive functionality are checked to ensure that they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP headers that are not CORS-safelisted request-headers. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 1 | v5.0.be-50.4.1 |
 | **50.4.3** | [MODIFIED, MOVED FROM 13.2.5, SPLIT FROM 14.5.3, COVERS 13.2.3] Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a CORS-safelisted request. This may require checking the values of the 'Origin' and 'Content-Type' request headers or using an extra header field that is not CORS-safelisted. | 1 | v5.0.be-50.4.3 |
 | **50.4.4** | [MODIFIED, MOVED FROM 13.2.1] Verify that calls to sensitive functionality use appropriate HTTP methods such as POST, PUT, PATCH or DELETE, and not methods defined by the HTTP specification as "safe" such as HEAD, OPTIONS, or GET. Alternatively, strict validation of the Sec-Fetch-* request header fields can be used to ensure that the request did not originate from an inappropriate cross-origin call, a navigation request, or a resource load (such as an image source) where this is not expected. This is particularly important if the application does not distinguish between URL parameters and message body parameters. | 1 | v5.0.be-50.4.4 |
+| **50.1.1** | [ADDED, DEPRECATES 3.4.5] Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | 2 | v5.0.be-50.1.1 |
 | **50.4.2** | [ADDED] Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | 2 | v5.0.be-50.4.2 |
-
-## V50.5 Cross-Site Script Inclusion
-
-JSONP is an anti-pattern that can lead to data theft. Poor authorization in scripts that include sensitive data can lead to Cross-Site Script Inclusion (XSSI) attacks.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
 | **50.5.1** | [ADDED] Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.1 |
 | **50.5.2** | [ADDED] Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.2 |
 
