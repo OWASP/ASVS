@@ -10,6 +10,8 @@ This chapter includes requirements related to defining what data needs to be pro
 
 Another consideration for data protection, could be around bulk extraction or modification or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euro of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the Security Logging and Error Handling chapter and setting limits is handed in the Business Logic chapter.
 
+There are various privacy regulations and laws, such as the Australian Privacy Principles APP-11 or GDPR, which affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation but rather focuses on key technical considerations for protecting sensitive data. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
+
 ## V1.8 Data Protection and Privacy Documentation
 
 A key pre-requisite for being able to protect data is to be able to categorize what data should be considered sensitive. There are likely to be a few different levels of sensitivity, and for each level of sensitivity, the controls required to protect data at that level will be different.
@@ -31,6 +33,8 @@ This section contains various practical requirements related to the protection o
 | **8.1.9** | [ADDED, SPLIT FROM 1.8.2] Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data should be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 | v5.0.be-8.1.9 |
 | **8.1.7** | [ADDED] Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
 | **8.1.10** | [ADDED] Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the full data is absolutely required, it should be masked in the user interface unless the user specifically views it. | 3 | v5.0.be-8.1.10 |
+| **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | v5.0.be-8.3.8 |
+| **8.3.9** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 | v5.0.be-8.3.9 |
 
 ## V8.2 Client-side Data Protection
 
@@ -41,17 +45,6 @@ This section contains requirements related to specific ways in which data can le
 | **8.2.3** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | 1 | v5.0.be-8.2.3 |
 | **8.2.1** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 2 | v5.0.be-8.2.1 |
 | **8.2.2** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session identifiers. | 2 | v5.0.be-8.2.2 |
-
-## V8.3 Sensitive Private Data
-
-Privacy regulations and laws, such as the Australian Privacy Principles APP-11 or GDPR, directly affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This ranges from severe penalties to simple advice. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
-
-This section no longer tries to duplicate these types of data protection or privacy legislation but instead focuses on some key additional technical considerations for protecting sensitive data.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **8.3.8** | [LEVEL L2 > L3] Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | v5.0.be-8.3.8 |
-| **8.3.9** | [ADDED] Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 | v5.0.be-8.3.9 |
 
 ## References
 
