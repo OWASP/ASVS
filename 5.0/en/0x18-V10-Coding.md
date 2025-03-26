@@ -20,6 +20,17 @@ Many of the requirements needed for a secure and defendable architecture require
 | **1.10.3** | [ADDED, SPLIT FROM 14.2.6] Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life and libraries which have historically had several significant vulnerabilities. | 3 | v5.0.be-1.10.3 |
 | **1.10.4** | [ADDED, SPLIT FROM 1.14.5] Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing or direct memory manipulation. | 3 | v5.0.be-1.10.4 |
 
+## V10.6 Security Architecture and Dependencies
+
+This section includes requirements for handling risky, outdated or insecure dependencies and components through dependency management. It also includes using architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of risky operations or libaries and preventing loss of availability due to overusing resource-demanding functionality.
+
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **10.6.1** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that the application only contains components which have not breached the documented update and remediation time frames. | 1 | v5.0.be-10.6.1 |
+| **10.6.4** | [ADDED] Verify that the application has implemented defences against loss of availability loss due to functionality which is time-consuming or resource-demanding, based on the documented security decisions and strategies for this. | 2 | v5.0.be-10.6.4 |
+| **10.6.2** | [MODIFIED, MOVED FROM 10.3.2] Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | 3 | v5.0.be-10.6.2 |
+| **10.6.3** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | v5.0.be-10.6.3 |
+
 ## V10.4 Defensive Coding
 
 This section covers vulnerability types including type juggling, prototype pollution, mass assignment, and others which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages whereas others will have language specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
@@ -36,17 +47,6 @@ This section covers vulnerability types including type juggling, prototype pollu
 | **10.4.2** | [ADDED] Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | 3 | v5.0.be-10.4.2 |
 | **10.4.9** | [ADDED] Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 3 | v5.0.be-10.4.9 |
 | **10.4.10** | [MODIFIED, MOVED FROM 10.3.1, LEVEL L1 > L3] Verify that, if the application has an auto-update feature, updates should be digitally signed, with the digital signature being validated before installing or executing the update. | 3 | v5.0.be-10.4.10 |
-
-## V10.6 Security Architecture and Dependencies
-
-This section includes requirements for handling risky, outdated or insecure dependencies and components through dependency management. It also includes using architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of risky operations or libaries and preventing loss of availability due to overusing resource-demanding functionality.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.6.1** | [ADDED, SPLIT FROM 14.2.1, COVERS 1.14.3] Verify that the application only contains components which have not breached the documented update and remediation time frames. | 1 | v5.0.be-10.6.1 |
-| **10.6.4** | [ADDED] Verify that the application has implemented defences against loss of availability loss due to functionality which is time-consuming or resource-demanding, based on the documented security decisions and strategies for this. | 2 | v5.0.be-10.6.4 |
-| **10.6.2** | [MODIFIED, MOVED FROM 10.3.2] Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | 3 | v5.0.be-10.6.2 |
-| **10.6.3** | [ADDED, SPLIT FROM 1.14.5, 14.2.6] Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | v5.0.be-10.6.3 |
 
 ## V10.7 Concurrency
 

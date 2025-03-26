@@ -44,25 +44,6 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 | **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.5 |
 | **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.2 |
 
-## V3.6 Federated Re-authentication
-
-This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 | v5.0.be-3.6.1 |
-| **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 | v5.0.be-3.6.3 |
-
-## V3.7 Defenses Against Session Abuse
-
-This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors such as cross-site request forgery (CSRF) and other cross-site attacks, which rely on the existence and capabilities of active user sessions.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.7.1** | [MODIFIED, SPLIT TO 3.7.3, LEVEL L1 > L2] Verify that the application requires re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | v5.0.be-3.7.1 |
-| **3.7.2** | [MODIFIED, MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | 2 | v5.0.be-3.7.2 |
-| **3.7.3** | [ADDED, SPLIT FROM 3.7.1] Verify that the application requires re-authentication or secondary verification before performing highly sensitive transactions or operations. | 3 | v5.0.be-3.7.3 |
-
 ## V3.8 Session Termination
 
 Session termination may be handled either by the application itself or by the SSO provider if the SSO provider is handling session management instead of the application. It may be necessary to decide whether the SSO provider is in scope when considering the requirements in this section as some may be controlled by the provider.
@@ -78,6 +59,25 @@ For stateful session mechanisms, termination typically involves invalidating the
 | **3.8.2** | [MODIFIED, MOVED FROM 3.3.3, LEVEL L2 > L1] Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 | v5.0.be-3.8.2 |
 | **3.8.3** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 | v5.0.be-3.8.3 |
 | **3.8.5** | [ADDED] Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 2 | v5.0.be-3.8.5 |
+
+## V3.7 Defenses Against Session Abuse
+
+This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors such as cross-site request forgery (CSRF) and other cross-site attacks, which rely on the existence and capabilities of active user sessions.
+
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **3.7.1** | [MODIFIED, SPLIT TO 3.7.3, LEVEL L1 > L2] Verify that the application requires re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | v5.0.be-3.7.1 |
+| **3.7.2** | [MODIFIED, MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | 2 | v5.0.be-3.7.2 |
+| **3.7.3** | [ADDED, SPLIT FROM 3.7.1] Verify that the application requires re-authentication or secondary verification before performing highly sensitive transactions or operations. | 3 | v5.0.be-3.7.3 |
+
+## V3.6 Federated Re-authentication
+
+This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
+
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **3.6.1** | [MODIFIED, MERGED FROM 3.6.2] Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 | v5.0.be-3.6.1 |
+| **3.6.3** | [ADDED] Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 | v5.0.be-3.6.3 |
 
 ## References
 
