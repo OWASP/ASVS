@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end user client and a back-end service but also between internal and back-end services.
+This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end user client and a backend service but also between internal and backend services.
 
 The general concepts promoted by this chapter include:
 
