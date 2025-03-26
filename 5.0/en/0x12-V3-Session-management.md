@@ -30,7 +30,7 @@ This section satisfies the essential requirements of secure sessions by verifyin
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, back-end service. | 1 | v5.0.be-3.1.2 |
+| **3.1.2** | [ADDED] Verify that the application performs all session token verification using a trusted, backend service. | 1 | v5.0.be-3.1.2 |
 | **3.1.3** | [MODIFIED, MOVED FROM 3.5.2, LEVEL L2 > L1] Verify that the application uses either self-contained or reference tokens for session management. Static API secrets and keys should be avoided. | 1 | v5.0.be-3.1.3 |
 | **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 | v5.0.be-3.1.4 |
 | **3.1.5** | [MODIFIED, MOVED FROM 3.2.1] Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | 1 | v5.0.be-3.1.5 |

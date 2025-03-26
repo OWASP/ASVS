@@ -50,17 +50,17 @@ For example, hiding the version of server-side components does not fix the need 
 | **14.3.3** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
 | **14.3.5** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors should be blocked unless required. | 3 | v5.0.be-14.3.5 |
 
-## V14.7 Back-end Communication Configuration
+## V14.7 Backend Communication Configuration
 
 Applications need to interact with multiple services including APIs, databases or other components. These might be considered internal to the application but not be included in the application's standard access control mechanisms or might be entirely external. In either case, it will be necessary to configure the application to interact securely with these components and, if necessary protect that configuration.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **14.7.1** | [MODIFIED, MOVED FROM 2.10.1, MERGED FROM 1.2.2] Verify that communications between back-end application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | 2 | v5.0.be-14.7.1 |
+| **14.7.1** | [MODIFIED, MOVED FROM 2.10.1, MERGED FROM 1.2.2] Verify that communications between backend application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication should use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | 2 | v5.0.be-14.7.1 |
 | **14.7.2** | [GRAMMAR, MOVED FROM 2.10.2] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin are default in some services during installation). | 2 | v5.0.be-14.7.2 |
 | **14.7.3** | [MODIFIED, MOVED FROM 4.3.3] Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | 2 | v5.0.be-14.7.3 |
 | **14.7.4** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 2 | v5.0.be-14.7.4 |
-| **14.7.5** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between back-end application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | v5.0.be-14.7.5 |
+| **14.7.5** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between backend application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | v5.0.be-14.7.5 |
 | **14.7.6** | [ADDED] Verify that where the application connects to separate services, it follows the documented configuration for each connection, such as maximum parallel connections, behavior when maximum allowed connections is reached, connection timeouts, and retry strategies. | 3 | v5.0.be-14.7.6 |
 
 ## V14.8 Secret Management
@@ -69,9 +69,9 @@ Secret Management is a configuration task that is essential to ensure the protec
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **14.8.1** | [MODIFIED, MOVED FROM 6.4.1, MERGED FROM 1.6.2, 2.10.4, SPLIT FROM 2.9.1, COVERS 2.10.3, 2.8.2] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy back-end secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this should involve a hardware-backed solution such as an HSM. | 2 | v5.0.be-14.8.1 |
+| **14.8.1** | [MODIFIED, MOVED FROM 6.4.1, MERGED FROM 1.6.2, 2.10.4, SPLIT FROM 2.9.1, COVERS 2.10.3, 2.8.2] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy backend secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this should involve a hardware-backed solution such as an HSM. | 2 | v5.0.be-14.8.1 |
 | **14.8.4** | [ADDED] Verify that access to secret assets adheres to the principle of least privilege. | 2 | v5.0.be-14.8.4 |
-| **14.8.2** | [MODIFIED, MOVED FROM 6.4.2] Verify that key material is not exposed to the application (neither the front-end nor the back-end) but instead uses an isolated security module like a vault for cryptographic operations. | 3 | v5.0.be-14.8.2 |
+| **14.8.2** | [MODIFIED, MOVED FROM 6.4.2] Verify that key material is not exposed to the application (neither the frontend nor the backend) but instead uses an isolated security module like a vault for cryptographic operations. | 3 | v5.0.be-14.8.2 |
 | **14.8.3** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization’s threat model and business requirements. | 3 | v5.0.be-14.8.3 |
 
 ## References
