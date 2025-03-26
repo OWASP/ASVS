@@ -10,6 +10,15 @@ This section defines the browser security features that should be specified in t
 | :---: | :--- | :---: | :---: |
 | **1.50.1** | [ADDED] Verify that application documentation states the expected security features that browsers using the application should support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It should also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | 3 | v5.0.be-1.50.1 |
 
+## V50.6 Unintended Content Interpretation
+
+Rendering content or functionality in an incorrect context can lead to a wide variety of security issues.
+
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **50.6.1** | [MODIFIED, MOVED FROM 12.5.2, MERGED FROM 1.12.2, 14.4.2] Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field. | 1 | v5.0.be-50.6.1 |
+| **50.6.2** | [ADDED, SPLIT FROM 5.3.3] Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 | v5.0.be-50.6.2 |
+
 ## V50.2 Cookie Setup
 
 This section provides requirements for how to securely configure sensitive cookies to reduce the risk of them being stolen or used inappropriately.
@@ -53,15 +62,6 @@ The key protections here are browser security policies like Same Origin Policy f
 | **50.4.2** | [ADDED] Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | 2 | v5.0.be-50.4.2 |
 | **50.5.1** | [ADDED] Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.1 |
 | **50.5.2** | [ADDED] Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.2 |
-
-## V50.6 Unintended Content Interpretation
-
-Rendering content or functionality in an incorrect context can lead to a wide variety of security issues.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **50.6.1** | [MODIFIED, MOVED FROM 12.5.2, MERGED FROM 1.12.2, 14.4.2] Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field. | 1 | v5.0.be-50.6.1 |
-| **50.6.2** | [ADDED, SPLIT FROM 5.3.3] Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 | v5.0.be-50.6.2 |
 
 ## V50.7 External Resource Integrity
 
