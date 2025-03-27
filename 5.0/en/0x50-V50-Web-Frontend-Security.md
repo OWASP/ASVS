@@ -1,5 +1,7 @@
 # V50 Web Frontend Security
 
+## Control Objective
+
 The category focuses on requirements that protect against attacks that are executed via a web frontend for an application. These requirements will not be relevant for machine-to-machine solutions.
 
 ## V1.50 Web Frontend Security Documentation
