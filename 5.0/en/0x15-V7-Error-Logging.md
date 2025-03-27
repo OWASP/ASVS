@@ -41,7 +41,7 @@ Note also that alerting is likely to be a separate process and system. As such, 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **7.2.1** | [MODIFIED] Verify that all authentication operations are logged including both successful and unsuccessful attempts. Additional metadata such as type of authentication or factors used should also be collected. | 2 | v5.0.be-7.2.1 |
-| **7.2.2** | [MODIFIED] Verify that failed access control attempts are logged. For L3 this must include logging all access control decisions. | 2 | v5.0.be-7.2.2 |
+| **7.2.2** | [MODIFIED] Verify that failed authorization attempts are logged. For L3 this must include logging all authorization decisions. | 2 | v5.0.be-7.2.2 |
 | **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs attempts to bypass the security controls defined in the design documentation such as input validation. | 2 | v5.0.be-7.2.3 |
 | **7.2.4** | [MODIFIED, MOVED FROM 11.1.7, MERGED FROM 8.1.4] Verify that the application can detect and log unusual activity, including business logic anomalies and abnormal or excessive request patterns, such as by IP, user, total per hour or day, based on documented limits. | 3 | v5.0.be-7.2.4 |
 | **7.2.5** | [MODIFIED, MOVED FROM 8.3.5] Verify that accessing sensitive data is logged (without logging the sensitive data itself) if this is required by relevant data protection requirements. | 3 | v5.0.be-7.2.5 |

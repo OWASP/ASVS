@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Many ASVS requirements either relate to a particular area of security like authentication or access control or relate to a particular type of application functionality such as logging or file handling.
+Many ASVS requirements either relate to a particular area of security like authentication or authorization or relate to a particular type of application functionality such as logging or file handling.
 
 However, this chapter provides more general guidance on how to build applications and how to write secure code correctly. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
 
