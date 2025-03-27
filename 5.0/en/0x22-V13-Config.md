@@ -1,4 +1,4 @@
-# V14 Configuration
+# V13 Configuration
 
 ## Control Objective
 
@@ -8,7 +8,7 @@ This chapter provides guidance on the various configurations that will be necess
 
 This includes topics such as preventing data leakage, securely managing communications between different components and how secrets are protected.
 
-## V1.14 Configuration Documentation
+## V13.1 Configuration Documentation
 
 This section provides documentation requriements around how the application communicates with external services and how techniques which should be employed to prevent loss of availability due to these services not being accessible.
 
@@ -18,7 +18,7 @@ This section provides documentation requriements around how the application comm
 | **1.14.8** | [ADDED] Verify that where the application connects to separate services, the application's documentation indicates the maximum possible parallel connections (connection pool) to each service and how the application responds when this maximum is reached, to avoid a denial of service condition. | 3 | v5.0.be-1.14.8 |
 | **1.14.9** | [ADDED] Verify that where the application connects to separate system resources or services (such as database connections, open files and threads), each has a documented resource release and connection failure strategy which includes how fast the connection times-out and whether there is a retry strategy. This is to prevent resource exhaustion. External connections in synchronous HTTP request-response scenarios should fail fast without any retry, to avoid reaching the maximum possible connections. | 3 | v5.0.be-1.14.9 |
 
-## V14.7 Backend Communication Configuration
+## V13.2 Backend Communication Configuration
 
 Applications need to interact with multiple services including APIs, databases or other components. These might be considered internal to the application but not be included in the application's standard access control mechanisms or might be entirely external. In either case, it will be necessary to configure the application to interact securely with these components and, if necessary protect that configuration.
 
@@ -31,7 +31,7 @@ Applications need to interact with multiple services including APIs, databases o
 | **14.7.5** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between backend application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | v5.0.be-14.7.5 |
 | **14.7.6** | [ADDED] Verify that where the application connects to separate services, it follows the documented configuration for each connection, such as maximum parallel connections, behavior when maximum allowed connections is reached, connection timeouts, and retry strategies. | 3 | v5.0.be-14.7.6 |
 
-## V14.8 Secret Management
+## V13.3 Secret Management
 
 Secret Management is a configuration task that is essential to ensure the protection of data being used in the application. Specific requirements on cryptography can be found in chapter V6 but this section focuses on the management and handling aspects of secrets.
 
@@ -42,7 +42,7 @@ Secret Management is a configuration task that is essential to ensure the protec
 | **14.8.2** | [MODIFIED, MOVED FROM 6.4.2] Verify that key material is not exposed to the application (neither the frontend nor the backend) but instead uses an isolated security module like a vault for cryptographic operations. | 3 | v5.0.be-14.8.2 |
 | **14.8.3** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization’s threat model and business requirements. | 3 | v5.0.be-14.8.3 |
 
-## V14.1 Build and Deploy
+## V13.4 Build and Deploy
 
 Whilst the security of build processes and the DevSecOps aspects involved are generally not in scope for ASVS, this section captures security controls for the application itself which are applied at the build and deploy process such as how the application is compiled and avoiding unnecessary content when the application is deployed.
 
@@ -60,7 +60,7 @@ Compliance with this section requires an automated build system, and access to b
 | **14.1.7** | [ADDED] Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
 | **14.1.8** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | 3 | v5.0.be-14.1.8 |
 
-## V14.3 Unintended Information Leakage
+## V13.5 Unintended Information Leakage
 
 Configurations for production should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application and it may encourage the attacker to look for easier targets.
 

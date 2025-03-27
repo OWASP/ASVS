@@ -1,4 +1,4 @@
-# V51 OAuth and OIDC
+# V10 OAuth and OIDC
 
 ## Control Objective
 
@@ -42,7 +42,7 @@ Other kinds of tokens, like logout tokens, are not in the scope for this chapter
 
 The risk levels for some of the requirements in this chapter depend on whether the client is a confidential client or regarded as a public client. Since using strong client authentication mitigates many attack vectors, a few requirements might be relaxed when using a confidential client for L1 applications.
 
-## V51.1 Generic OAuth and OIDC security
+## V10.1 Generic OAuth and OIDC security
 
 These requirements cover generic architectural requirements that apply to all applications using OAuth or OIDC, such as key architectural patterns available when building browser-based JavaScript applications that rely on OAuth or OIDC for accessing protected resources.
 
@@ -51,7 +51,7 @@ These requirements cover generic architectural requirements that apply to all ap
 | **51.1.1** | [ADDED] Verify that tokens are only sent to components that strictly need them. For example, when using a backend-for-frontend pattern for browser-based JavaScript applications, access and refresh tokens shall only be accessible for the backend. | 2 | v5.0.be-51.1.1 |
 | **51.1.2** | [ADDED] Verify that the client only accepts values from the authorization server (such as the authorization code or ID token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce' are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | 2 | v5.0.be-51.1.2 |
 
-## V51.2 OAuth Client
+## V10.2 OAuth Client
 
 These requirements detail the responsibilities for OAuth client applications. The client can be, for example, a web server backend (often acting as a Backend For Frontend, BFF), a backend service integration, or a frontend Single Page Application (SPA, aka browser-based application).
 
@@ -63,7 +63,7 @@ In general, backend clients are regarded as confidential clients and frontend cl
 | **51.2.1** | [ADDED] Verify that, if the OAuth Client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server returns the 'iss' parameter value and validate it in the authorization response and the token response. | 2 | v5.0.be-51.2.1 |
 | **51.2.3** | [ADDED] Verify that the OAuth Client only requests the required scopes (or other authorization parameters) in requests to the authorization server. | 3 | v5.0.be-51.2.3 |
 
-## V51.3 OAuth Resource Server
+## V10.3 OAuth Resource Server
 
 In the context of ASVS and this chapter, the resource server is an API. To provide secure access the resource server must:
 
@@ -80,7 +80,7 @@ Therefore, the requirements listed here are OAuth or OIDC specific and should be
 | **51.3.5** | [ADDED] Verify that, if the resource server requires specific authentication strength, methods or recentness, it verifies that the presented access token satisfies these constraints. For example, if present, using the OIDC 'acr', 'amr' and 'auth_time' claims respectively. | 2 | v5.0.be-51.3.5 |
 | **51.3.1** | [ADDED] Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 | v5.0.be-51.3.1 |
 
-## V51.4 OAuth Authorization Server
+## V10.4 OAuth Authorization Server
 
 These requirements detail the responsibilities for OAuth authorization servers, including OpenID providers.
 
@@ -103,7 +103,7 @@ These requirements detail the responsibilities for OAuth authorization servers, 
 | **51.4.15** | [ADDED] Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example, by requiring the usage of pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 | v5.0.be-51.4.15 |
 | **51.4.10** | [ADDED] Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), i.e., 'mTLS' or 'private-key-jwt'. | 3 | v5.0.be-51.4.10 |
 
-## V51.5 OIDC Client
+## V10.5 OIDC Client
 
 As the OIDC Relying Party acts as an OAuth client, the requirements from the section "OAuth Client" apply as well.
 
@@ -115,7 +115,7 @@ As the OIDC Relying Party acts as an OAuth client, the requirements from the sec
 | **51.5.4** | [ADDED] Verify that the client validates that the ID token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 2 | v5.0.be-51.5.4 |
 | **51.5.5** | [ADDED] Verify that, if specific authentication strength, methods or recentness is required, the relying party (RP) verifies that the presented ID-token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 | v5.0.be-51.5.5 |
 
-## V51.6 OpenID Provider
+## V10.6 OpenID Provider
 
 As OpenID Providers act as OAuth Authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
 
@@ -125,7 +125,7 @@ Note that if using the id-token flow (not the code flow), no access tokens are i
 | :---: | :--- | :---: | :---: |
 | **51.6.1** | [ADDED] Verify that the OpenID Provider only allows values 'code', 'ciba', 'id_token', or 'id_token code' for response mode. Note that 'code' is preferred over 'id_token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 | v5.0.be-51.6.1 |
 
-## V51.7 Consent Management
+## V10.7 Consent Management
 
 These requirements cover the verification of the user's consent by the authorization server. Without proper user consent verification, a malicious actor may obtain permissions on the user's behalf through spoofing or social-engineering.
 

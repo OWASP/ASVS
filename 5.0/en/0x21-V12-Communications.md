@@ -1,4 +1,4 @@
-# V9 Secure Communication
+# V12 Secure Communication
 
 ## Control Objective
 
@@ -21,7 +21,7 @@ Within these requirements:
 
 In addition to outlining general principles and best practices, this document also provides more in-depth technical information about cryptographic strength in [Appendix V](./0x97-Appendix-V_Cryptography.md).
 
-## V9.4 General TLS Security Guidance
+## V12.1 General TLS Security Guidance
 
 Use secure TLS configuration and up-to-date tools to review the configuration on a regular basis. While usage of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible.
 
@@ -33,7 +33,7 @@ Use secure TLS configuration and up-to-date tools to review the configuration on
 | **9.4.3** | [MOVED FROM 9.2.4] Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | 3 | v5.0.be-9.4.3 |
 | **9.4.4** | [ADDED] Verify that Encrypted Client Hello (ECH) is supported and is securely configured within the application’s TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | 3 | v5.0.be-9.4.4 |
 
-## V9.1 HTTPS Communication with External Facing Services
+## V12.2 HTTPS Communication with External Facing Services
 
 Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publicly trusted certificates.
 
@@ -42,7 +42,7 @@ Ensure all HTTP traffic to external-facing services which the application expose
 | **9.1.1** | [MODIFIED, COVERS 1.9.1] Verify that TLS is used for all connectivity between a client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. | 1 | v5.0.be-9.1.1 |
 | **9.1.4** | [ADDED] Verify that external facing services use publicly trusted TLS certificates. | 1 | v5.0.be-9.1.4 |
 
-## V9.2 General Service to Service Communication Security
+## V12.3 General Service to Service Communication Security
 
 Server communications involve more than just HTTP. Connections to and from other systems must also be secure.
 
@@ -51,7 +51,7 @@ Server communications involve more than just HTTP. Connections to and from other
 | **9.2.2** | [MODIFIED, COVERS 1.9.1] Verify that an encrypted protocol such as TLS is used for all inbound and outbound connections to and from the application, including monitoring systems, management tools, remote access and SSH, middleware, databases, mainframes, partner systems, or external APIs. The server must not fall back to insecure or unencrypted protocols. | 2 | v5.0.be-9.2.2 |
 | **9.2.6** | [ADDED] Verify that TLS clients validate certificates received before communicating with a TLS server. | 2 | v5.0.be-9.2.6 |
 
-## V9.3 HTTPS Communication between Internal Services
+## V12.4 HTTPS Communication between Internal Services
 
 HTTP traffic between internal-facing services should also be encrypted, ideally using TLS.
 

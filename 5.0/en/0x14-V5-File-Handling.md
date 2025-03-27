@@ -1,16 +1,16 @@
-# V12 File Handling
+# V5 File Handling
 
 ## Control Objective
 
 The use of files can present a variety of risks for the application including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
 
-## V1.12 Secure File Upload Documentation
+## V5.1 Secure File Upload Documentation
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.12.3** | [ADDED] Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | 2 | v5.0.be-1.12.3 |
 
-## V12.1 File Upload and Content
+## V5.2 File Upload and Content
 
 Upload functionality is a key source of untrusted files. This section details the requirements for ensuring that the presence, volume, or content of these files cannot harm the application.
 
@@ -23,7 +23,7 @@ Upload functionality is a key source of untrusted files. This section details th
 | **12.1.4** | [ADDED] Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | 3 | v5.0.be-12.1.4 |
 | **12.1.6** | [ADDED] Verify that the application blocks uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 3 | v5.0.be-12.1.6 |
 
-## V12.4 File Storage
+## V5.3 File Storage
 
 This section includes requirements to prevent files being inappropriately executed after upload, to detect dangerous content, and avoid untrusted data being used to control where files are being stored.
 
@@ -33,7 +33,7 @@ This section includes requirements to prevent files being inappropriately execut
 | **12.4.3** | [MODIFIED, MOVED FROM 12.3.1, MERGED FROM 12.3.2, 12.3.3, 5.3.9] Verify that file operations avoid using user-submitted filenames or file metadata when creating file paths to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. Instead, use either internally generated or trusted data for file I/O operations. If user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. | 1 | v5.0.be-12.4.3 |
 | **12.4.4** | [ADDED] Verify that server-side file processing such as file decompression ignores user-provided path information to prevent vulnerabilities such as zip slip. | 3 | v5.0.be-12.4.4 |
 
-## V12.5 File Download
+## V5.4 File Download
 
 This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This also includes making sure they don't contain dangerous content.
 

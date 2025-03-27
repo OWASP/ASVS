@@ -1,4 +1,4 @@
-# V3 Session Management
+# V7 Session Management
 
 ## Control Objective
 
@@ -14,7 +14,7 @@ Note that requirements for specific implementation details of certain session ma
 * HTTP Cookies are a common mechanism for securing session identifiers. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
 * Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
 
-## V1.3 Session Management Documentation
+## V7.1 Session Management Documentation
 
 There is no single pattern that suits all applications. Therefore, it is infeasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application. Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements.
 
@@ -24,7 +24,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 | **1.3.2** | [ADDED] Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviours and actions to be taken when the maximum number of active sessions is reached. | 2 | v5.0.be-1.3.2 |
 | **1.3.3** | [ADDED] Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other condition that should require re-authentication. | 2 | v5.0.be-1.3.3 |
 
-## V3.1 Fundamental Session Management Security
+## V7.2 Fundamental Session Management Security
 
 This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated, managed, and validated.
 
@@ -35,7 +35,7 @@ This section satisfies the essential requirements of secure sessions by verifyin
 | **3.1.4** | [MODIFIED, MOVED FROM 3.2.2, MERGED FROM 3.2.4] Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 | v5.0.be-3.1.4 |
 | **3.1.5** | [MODIFIED, MOVED FROM 3.2.1] Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | 1 | v5.0.be-3.1.5 |
 
-## V3.3 Session Timeout
+## V7.3 Session Timeout
 
 Session timeout mechanisms serve to minimize the window of opportunity for session hijacking and other forms of session abuse. Timeouts must satisfy documented requirements.
 
@@ -44,7 +44,7 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 | **3.3.5** | [ADDED, SPLIT FROM 3.3.2] Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.5 |
 | **3.3.2** | [MODIFIED, SPLIT TO 3.3.5] Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 | v5.0.be-3.3.2 |
 
-## V3.8 Session Termination
+## V7.4 Session Termination
 
 Session termination may be handled either by the application itself or by the SSO provider if the SSO provider is handling session management instead of the application. It may be necessary to decide whether the SSO provider is in scope when considering the requirements in this section as some may be controlled by the provider.
 
@@ -60,7 +60,7 @@ For stateful session mechanisms, termination typically involves invalidating the
 | **3.8.3** | [ADDED] Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 | v5.0.be-3.8.3 |
 | **3.8.5** | [ADDED] Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 2 | v5.0.be-3.8.5 |
 
-## V3.7 Defenses Against Session Abuse
+## V7.5 Defenses Against Session Abuse
 
 This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors such as cross-site request forgery (CSRF) and other cross-site attacks, which rely on the existence and capabilities of active user sessions.
 
@@ -70,7 +70,7 @@ This section provides requirements to mitigate the risk posed by active sessions
 | **3.7.2** | [MODIFIED, MOVED FROM 3.3.4] Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | 2 | v5.0.be-3.7.2 |
 | **3.7.3** | [ADDED, SPLIT FROM 3.7.1] Verify that the application requires re-authentication or secondary verification before performing highly sensitive transactions or operations. | 3 | v5.0.be-3.7.3 |
 
-## V3.6 Federated Re-authentication
+## V7.6 Federated Re-authentication
 
 This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
 

@@ -1,4 +1,4 @@
-# V53 WebRTC
+# V17 WebRTC
 
 ## Control Objective
 
@@ -20,7 +20,7 @@ The security requirements outlined here are primarily focused on Product Develop
 
 It is important to note that these security requirements **do not apply to developers who exclusively use SDKs and APIs provided by CPaaS vendors**. For such developers, the CPaaS providers are typically responsible for most of the underlying security concerns within their platforms, and a generic security standard like ASVS may not fully address their needs.
 
-## V53.1 TURN Server
+## V17.1 TURN Server
 
 Traversal Using Relays around NAT (TURN) servers play a crucial role in WebRTC applications by facilitating peer-to-peer connections in challenging network environments. However, they can also introduce security risks if not properly configured and secured.
 
@@ -31,7 +31,7 @@ These requirements only apply to systems that host TURN servers as part of their
 | **53.1.1** | [ADDED] Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | 2 | v5.0.be-53.1.1 |
 | **53.1.2** | [ADDED] Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. | 3 | v5.0.be-53.1.2 |
 
-## V53.2 Media
+## V17.2 Media
 
 Media security is paramount in WebRTC applications, as it directly impacts the confidentiality, integrity and availability of audio and video communications. By addressing these security concerns, developers can safeguard the media streams in WebRTC applications, preventing eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
 
@@ -52,7 +52,7 @@ Systems that rely solely on peer-to-peer media communication between web browser
 | **53.2.6** | [ADDED] Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.6 |
 | **53.2.8** | [ADDED] Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 | v5.0.be-53.2.8 |
 
-## V53.3 Signalling
+## V17.3 Signalling
 
 Signalling is a critical component of WebRTC applications, responsible for coordinating communication sessions between peers. The security of the signalling process is essential to prevent unauthorized access, eavesdropping, and service disruptions. It is important to protect the system by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
 
