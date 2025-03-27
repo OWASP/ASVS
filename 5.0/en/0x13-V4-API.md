@@ -1,4 +1,4 @@
-# V13 API and Web Service
+# V4 API and Web Service
 
 ## Control Objective
 
@@ -6,7 +6,7 @@ A number of considerations apply specifically for applications that exposes APIs
 
 Please read this chapter in combination with all other chapters at this same level; we do not duplicate authentication, session management, or general input validation concerns. Rather, the general requirements from those chapters always apply and therefore this chapter can not be taken out of context and be tested separately.
 
-## V13.1 Generic Web Service Security
+## V4.1 Generic Web Service Security
 
 This section promotes generic web service security considerations and consequently basic web service hygiene practices in general.
 
@@ -16,7 +16,7 @@ This section promotes generic web service security considerations and consequent
 | **13.1.8** | [ADDED] Verify that only user-facing endpoints (intended for manual web-browser access) automatically redirect from HTTP to HTTPS, while other services or endpoints do not implement transparent redirects. This is to avoid a situation where a client is erroneously sending unencrypted HTTP requests but, since the requests are being automatically redirected to HTTPS, the leakage of sensitive data goes undiscovered. | 2 | v5.0.be-13.1.8 |
 | **13.1.6** | [MODIFIED, MOVED FROM 13.2.6, COVERS 13.3.2, LEVEL L2 > L3] Verify that per-message digital signatures are used to provide additional assurance on top of transport protections for requests or transactions which are highly sensitive or which traverse a number of systems. | 3 | v5.0.be-13.1.6 |
 
-## V13.6 HTTP Request Header Validation
+## V4.2 HTTP Request Header Validation
 
 This section detatils HTTP request headers validations that can prevent attacks such as HTTP Request Smuggling or source spoofing.
 
@@ -26,7 +26,7 @@ This section detatils HTTP request headers validations that can prevent attacks 
 | **13.6.3** | [ADDED] Verify that any HTTP header field used by the application and defined by intermediary devices like load balancers or proxies, such as X-Real-IP and X-Forwarded-*, cannot be overridden by the end-user. | 2 | v5.0.be-13.6.3 |
 | **13.6.1** | [ADDED, SPLIT FROM 14.5.1] Verify that only HTTP methods that are explicitly supported by the application or its API (including OPTIONS during preflight requests) can be used and that unused methods are blocked. | 3 | v5.0.be-13.6.1 |
 
-## V13.7 HTTP/2
+## V4.3 HTTP/2
 
 This section focuses on specific security considerations related to HTTP/2. Note that the requirements below may also apply to HTTP/3.
 
@@ -36,7 +36,7 @@ This section focuses on specific security considerations related to HTTP/2. Note
 | **13.7.2** | [ADDED] Verify that all Transfer-Encoding header fields are stripped from HTTP/2 messages or that HTTP/2 requests containing them are rejected to prevent response splitting and header injection attacks. | 3 | v5.0.be-13.7.2 |
 | **13.7.3** | [ADDED] Verify that any full CRLF (\r\n) sequence within a HTTP/2 header field is either removed or rejected to prevent header injection attacks. | 3 | v5.0.be-13.7.3 |
 
-## V13.4 GraphQL
+## V4.4 GraphQL
 
 GraphQL is becoming more common as a way of creating data rich clients which are not coupled to a variety of different backend services. This section covers security considerations for GraphQL.
 
@@ -45,7 +45,7 @@ GraphQL is becoming more common as a way of creating data rich clients which are
 | **13.4.1** | [GRAMMAR] Verify that a query allowlist, depth limiting, amount limiting or query cost analysis is used to prevent GraphQL or data layer expression Denial of Service (DoS) as a result of expensive, nested queries. | 2 | v5.0.be-13.4.1 |
 | **13.4.3** | [ADDED] Verify that GraphQL introspection queries are disabled in the production environment unless the GraphQL API is meant to be used by other parties. | 2 | v5.0.be-13.4.3 |
 
-## V13.5 WebSocket
+## V4.5 WebSocket
 
 WebSocket is a communications protocol, providing a simultaneous two-way communication channel over a single TCP connection. It was standardized by the IETF as RFC 6455 in 2011 and is distinct from HTTP, even though it is designed to work over HTTP ports 443 and 80.
 

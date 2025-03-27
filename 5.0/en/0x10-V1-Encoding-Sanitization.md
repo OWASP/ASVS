@@ -1,4 +1,4 @@
-# V5 Encoding and Sanitization
+# V1 Encoding and Sanitization
 
 ## Control Objective
 
@@ -8,7 +8,7 @@ With modern web applications, it will always be best to use safer APIs such as p
 
 Input Validation can act as a defense in depth mechanism for protecting against unexpected, dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements around this can be found in the "Business Logic" chapter.
 
-## V5.6 Validation and Sanitization Architecture
+## V1.1 Validation and Sanitization Architecture
 
 In the sections below, we provided syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g., HTML encoding) to prevent double encoding issues.
 
@@ -17,7 +17,7 @@ In the sections below, we provided syntax-specific or interpreter-specific requi
 | **5.6.1** | [ADDED] Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | 2 | v5.0.be-5.6.1 |
 | **5.6.2** | [MODIFIED, MOVED FROM 1.5.4] Verify that the application performs output encoding and escaping either as a final step before being used by the interpreter for which it is intended or by the interpreter itself. | 2 | v5.0.be-5.6.2 |
 
-## V5.3 Injection Prevention
+## V1.2 Injection Prevention
 
 Output encoding or escaping close or adjacent to a potentially dangerous context is critical to the security of any application. Typically, output encoding and escaping is not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. Trying to do this too early may lead to malformed content or even render the encoding or escaping ineffective.
 
@@ -37,7 +37,7 @@ In many cases, software libraries will include safe or safer functions which wil
 
 Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
-## V5.2 Sanitization and Sandboxing
+## V1.3 Sanitization and Sandboxing
 
 The ideal protection against using untrusted content in an unsafe context is using context specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context. This is discussed in more detail in the next section.
 
@@ -59,7 +59,7 @@ Where it is not possible to do this, other options include sanitization and sand
 | **5.2.3** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | 2 | v5.0.be-5.2.3 |
 | **5.2.10** | [ADDED] Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | 3 | v5.0.be-5.2.10 |
 
-## V5.4 Memory, String, and Unmanaged Code
+## V1.4 Memory, String, and Unmanaged Code
 
 The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a systems language or unmanaged code.
 
@@ -69,7 +69,7 @@ The following requirements cover risks around unsafe memory use and will general
 | **5.4.3** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | 2 | v5.0.be-5.4.3 |
 | **5.4.4** | [ADDED] Verify that dynamically allocated memory and resources are released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | 2 | v5.0.be-5.4.4 |
 
-## V5.5 Safe Deserialization
+## V1.5 Safe Deserialization
 
 Conversion of data from some sort of stored or transmitted representation into actual application objects (deserialization) has historically been the cause of a variety of code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
 

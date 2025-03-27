@@ -1,4 +1,4 @@
-# V6 Cryptography
+# V11 Cryptography
 
 ## Control Objective
 
@@ -14,7 +14,7 @@ In addition to outlining general principles and best practices, this document al
 
 Requirements which use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
 
-## V1.6 Cryptographic Inventory and Documentation
+## V11.1 Cryptographic Inventory and Documentation
 
 Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high-level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
 
@@ -31,7 +31,7 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 | **1.6.4** | [MODIFIED] Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It should also document where keys can and cannot be used in the system and also the types of data which can and cannot be protected using the keys. | 2 | v5.0.be-1.6.4 |
 | **1.6.5** | [ADDED] Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | 3 | v5.0.be-1.6.5 |
 
-## V6.2 Secure Cryptography Implementation
+## V11.2 Secure Cryptography Implementation
 
 This section defines the requirements for the selection, implementation, and ongoing management of core cryptographic algorithms for an application. The objective is to ensure that only robust, industry-accepted cryptographic primitives are deployed, in alignment with current standards (e.g., NIST, ISO/IEC) and best practices. Organizations must ensure that each cryptographic component is selected based on peer-reviewed evidence and practical security testing.
 
@@ -43,7 +43,7 @@ This section defines the requirements for the selection, implementation, and ong
 | **6.2.8** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | 3 | v5.0.be-6.2.8 |
 | **6.2.1** | [MODIFIED] Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | 3 | v5.0.be-6.2.1 |
 
-## V6.5 Encryption Algorithms
+## V11.3 Encryption Algorithms
 
 Authenticated encryption algorithms built on AES and CHACHA20 form the backbone of modern cryptographic practice.
 
@@ -55,7 +55,7 @@ Authenticated encryption algorithms built on AES and CHACHA20 form the backbone 
 | **6.5.3** | [MODIFIED, MOVED FROM 6.2.6, LEVEL L2 > L3] Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key and data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 | v5.0.be-6.5.3 |
 | **6.5.5** | [ADDED] Verify that any combination of an encryption algorithm and a MAC algorithm is operating in encrypt-then-MAC mode. | 3 | v5.0.be-6.5.5 |
 
-## V6.6 Hashing and Hash-based Functions
+## V11.4 Hashing and Hash-based Functions
 
 Cryptographic hashes are used in a wide variety of cryptographic protocols, such as digital signatures, HMAC, key derivation functions (KDF), random bit generation, and password storage. The security of the cryptographic system is only as strong as the underlying hash functions used. This section outlines the requirements for using secure hash functions in cryptographic operations.
 
@@ -67,7 +67,7 @@ For password storage, as well as the cryptography appendix, the [OWASP Password 
 | **6.6.2** | [MODIFIED, MOVED FROM 2.4.1, MERGED FROM 2.4.3, 2.4.4, COVERS 2.5.3] Verify that passwords are stored using an approved, computationally intensive, hashing algorithm with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks more challenging. | 2 | v5.0.be-6.6.2 |
 | **6.6.3** | [ADDED] Verify that hash functions used in digital signatures, as part of data authentication or data integrity are collision resistant and have appropriate bit-lengths. If collision resistance is required, the output length must be at least 256 bits. If only resistance to second pre-image attacks is required, the output length must be at least 128 bits. | 2 | v5.0.be-6.6.3 |
 
-## V6.3 Random Values
+## V11.5 Random Values
 
 Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets.
 
@@ -76,7 +76,7 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 | **6.3.1** | [GRAMMAR, COVERS 6.3.2, LEVEL L2 > L1] Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | 2 | v5.0.be-6.3.1 |
 | **6.3.3** | [GRAMMAR, LEVEL L3 > L1] Verify that random number generation continues to work securely, even under heavy system load, or that the system degrades gracefully. | 3 | v5.0.be-6.3.3 |
 
-## V6.7 Public Key Cryptography
+## V11.6 Public Key Cryptography
 
 Public Key Cryptography will be used where it is not possible or not desirable to share a secret key between multiple parties.
 
@@ -87,7 +87,7 @@ As part of this, there exists a need for approved key exchange mechanisms, such 
 | **6.7.2** | [MODIFIED, MOVED FROM 2.9.3, SPLIT FROM 6.2.2] Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | v5.0.be-6.7.2 |
 | **6.7.1** | [ADDED] Verify that industry-proven cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This should prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 3 | v5.0.be-6.7.1 |
 
-## V6.8 In-Use Data Cryptography
+## V11.7 In-Use Data Cryptography
 
 Protecting data while it is being processed is paramount. Techniques such as full memory encryption, encryption of data in transit, and ensuring data is encrypted as quickly as possible after use is recommended.
 
@@ -96,7 +96,7 @@ Protecting data while it is being processed is paramount. Techniques such as ful
 | **6.8.1** | [ADDED] Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | 3 | v5.0.be-6.8.1 |
 | **6.8.2** | [ADDED] Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | 3 | v5.0.be-6.8.2 |
 
-## V6.9 Post-Quantum Cryptography (PQC)
+## V11.8 Post-Quantum Cryptography (PQC)
 
 The need to future-proof cryptographic systems in preparation for the eventual rise of quantum computing is critical. Post-Quantum Cryptography (PQC) focuses on developing cryptographic systems that are resistant to quantum attacks, which could break current encryption methods such as RSA and ECC. Please see the Appendix for the latest information on available PQC primitives.
 

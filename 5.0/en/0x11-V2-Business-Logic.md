@@ -1,4 +1,4 @@
-# V11 Business Logic
+# V2 Business Logic
 
 ## Control Objective
 
@@ -8,7 +8,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 * Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers and adding a million friends one at a time.
 * High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
 
-## V1.11 Business Logic Documentation
+## V2.1 Business Logic Documentation
 
 Business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items so that it is clear what needs to be implemented in the application.
 
@@ -18,7 +18,7 @@ Business logic documentation should clearly define business logic limits, valida
 | **1.11.5** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | 1 | v5.0.be-1.11.5 |
 | **1.11.4** | [ADDED] Verify that expectations for business logic limits and validations are documented including both per-user and also globally across the application. | 2 | v5.0.be-1.11.4 |
 
-## V11.3 Input Validation
+## V2.2 Input Validation
 
 Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive.
 
@@ -40,7 +40,7 @@ Input validation provides valuable hygiene for the application in making sure th
 | **11.3.2** | [MODIFIED, MOVED FROM 1.5.3, LEVEL L2 > L1] Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability, it must not be relied upon as a security control. | 1 | v5.0.be-11.3.2 |
 | **11.3.3** | [ADDED, SPLIT FROM 5.1.4, LEVEL L1 > L2] Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | 2 | v5.0.be-11.3.3 |
 
-## V11.1 Business Logic Security
+## V2.3 Business Logic Security
 
 This section considers key requirements to ensure that the application enforces business logic processes in the correct way and is not vulnerable to attacks that exploit the logic and flow of the application.
 
@@ -51,7 +51,7 @@ This section considers key requirements to ensure that the application enforces 
 | **11.1.9** | [ADDED] Verify that transactions are being used at the business logic level such that either a business logic operation succeeds in its entirety, or it is rolled back to the previous correct state. | 2 | v5.0.be-11.1.9 |
 | **11.1.10** | [ADDED] Verify that high-value business logic flows are restricted with multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to critical nuclear facility operations, healthcare record modifications, access to classified information, or safety overrides in manufacturing. | 3 | v5.0.be-11.1.10 |
 
-## V11.2 Anti-automation
+## V2.4 Anti-automation
 
 This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
 

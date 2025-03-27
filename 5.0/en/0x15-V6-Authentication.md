@@ -1,4 +1,4 @@
-# V2 Authentication
+# V6 Authentication
 
 ## Control Objective
 
@@ -12,7 +12,7 @@ However, NIST SP 800-63 terminology can sometimes be different and we have there
 
 This means that whilst this chapter aligns to a subset of selected NIST SP 800-63B controls, we have focused on common threats and frequently exploited authentication weaknesses. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
 
-## V1.2 Authentication Documentation
+## V6.1 Authentication Documentation
 
 This section contains requirements detailing the authentication documentation that should be maintained for an application. This will be crucial to implement and assess how the relevant authentication controls should be configured.
 
@@ -22,7 +22,7 @@ This section contains requirements detailing the authentication documentation th
 | **1.2.5** | [ADDED] Verify that a list of context specific words are documented in order to prevent their use in passwords. | 2 | v5.0.be-1.2.5 |
 | **1.2.4** | [MODIFIED, SPLIT TO 2.2.11, COVERS 1.2.3] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | 2 | v5.0.be-1.2.4 |
 
-## V2.1 Password Security
+## V6.2 Password Security
 
 Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authentication mechanism. From L2 onwards, multi-factor authentication mechanisms are required, where passwords may be one of those factors.
 
@@ -50,7 +50,7 @@ Possible sources of frequently used passwords for requirement 2.1.7 include:
 * <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
 * <https://www.ncsc.gov.uk/static-assets/documents/PwnedPasswordsTop100k.txt>
 
-## V2.2 General Authentication Security
+## V6.3 General Authentication Security
 
 This section contains general requirements for the security of authentication mechanisms as well as setting out the different expectations for levels including requiring multi-factor for L2 and supporting hardware-based mechanisms for L3.
 
@@ -69,7 +69,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **2.2.4** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | 3 | v5.0.be-2.2.4 |
 | **2.2.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | 3 | v5.0.be-2.2.8 |
 
-## V2.5 Authentication Factor Lifecycle and Recovery
+## V6.4 Authentication Factor Lifecycle and Recovery
 
 Authentication factors may include passwords, soft tokens, hardware tokens, and biometric devices. Securely handling the lifecycle of these mechanisms is critical to the security of an application and this section includes requirements related to this.
 
@@ -84,7 +84,7 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **2.5.9** | [MODIFIED, MOVED FROM 2.3.3] Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 3 | v5.0.be-2.5.9 |
 | **2.5.10** | [ADDED] Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 3 | v5.0.be-2.5.10 |
 
-## V2.6 General Multi-factor authentication requirements
+## V6.5 General Multi-factor authentication requirements
 
 This section provides general guidance that will be relevant to various different multi-factor authentication methods.
 
@@ -113,7 +113,7 @@ The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages
 | **2.6.7** | [MODIFIED, MOVED FROM 2.8.7, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | v5.0.be-2.6.7 |
 | **2.6.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | v5.0.be-2.6.8 |
 
-## V2.7 Out-of-Band authentication mechanisms
+## V6.6 Out-of-Band authentication mechanisms
 
 This will generally involve the authentication server communicating with a physical device over a secure secondary channel. Examples include push notifications to mobile devices and One-time Passwords (OTPs) sent to a user via SMS. This type of authentication mechanism is considered "something you have".
 
@@ -126,7 +126,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | **2.7.7** | [ADDED] Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | 2 | v5.0.be-2.7.7 |
 | **2.7.8** | [ADDED] Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | 3 | v5.0.be-2.7.8 |
 
-## V2.9 Cryptographic authentication mechanism
+## V6.7 Cryptographic authentication mechanism
 
 Cryptographic authentication mechanisms include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authentication server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key. The requirements in this section provide implementation specific guidance for these mechanisms with guidance on cryptographic algorithms being covered in the "Cryptography" chapter.
 
@@ -139,7 +139,7 @@ The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages
 | **2.9.1** | [MODIFIED, SPLIT TO 14.8.1, LEVEL L2 > L3] Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 | v5.0.be-2.9.1 |
 | **2.9.2** | [LEVEL L2 > L3] Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 | v5.0.be-2.9.2 |
 
-## V2.11 Authentication with an Identity Provider
+## V6.8 Authentication with an Identity Provider
 
 Identity Providers (IdPs) provide federated identity for users. Users will often have more than one identity with multiple IdPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name just a few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the IdPs's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
 

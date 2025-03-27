@@ -1,10 +1,10 @@
-# V50 Web Frontend Security
+# V3 Web Frontend Security
 
 ## Control Objective
 
 The category focuses on requirements that protect against attacks that are executed via a web frontend for an application. These requirements will not be relevant for machine-to-machine solutions.
 
-## V1.50 Web Frontend Security Documentation
+## V3.1 Web Frontend Security Documentation
 
 This section defines the browser security features that should be specified in the application's documentation.
 
@@ -12,7 +12,7 @@ This section defines the browser security features that should be specified in t
 | :---: | :--- | :---: | :---: |
 | **1.50.1** | [ADDED] Verify that application documentation states the expected security features that browsers using the application should support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It should also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | 3 | v5.0.be-1.50.1 |
 
-## V50.6 Unintended Content Interpretation
+## V3.2 Unintended Content Interpretation
 
 Rendering content or functionality in an incorrect context can lead to a wide variety of security issues.
 
@@ -21,7 +21,7 @@ Rendering content or functionality in an incorrect context can lead to a wide va
 | **50.6.1** | [MODIFIED, MOVED FROM 12.5.2, MERGED FROM 1.12.2, 14.4.2] Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field. | 1 | v5.0.be-50.6.1 |
 | **50.6.2** | [ADDED, SPLIT FROM 5.3.3] Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 | v5.0.be-50.6.2 |
 
-## V50.2 Cookie Setup
+## V3.3 Cookie Setup
 
 This section provides requirements for how to securely configure sensitive cookies to reduce the risk of them being stolen or used inappropriately.
 
@@ -33,7 +33,7 @@ This section provides requirements for how to securely configure sensitive cooki
 | **50.2.2** | [MODIFIED, MOVED FROM 3.4.2, LEVEL L1 > L2] Verify that if the value of a cookie is not meant to be accessible to client-side scripts (such as a session token), the cookie must have the 'HttpOnly' attribute set and the same value (e. g. session token) must only be transferred to the client via the 'Set-Cookie' header field. | 2 | v5.0.be-50.2.2 |
 | **50.2.5** | [ADDED] Verify that when the application writes a cookie the cookie name and value length combined are not over 4096 bytes. Overly large cookies will not be stored by the browser and therefore not sent with requests, preventing the user from using application functionality which relies on that cookie. | 3 | v5.0.be-50.2.5 |
 
-## V50.3 Browser Security Mechanism Headers
+## V3.4 Browser Security Mechanism Headers
 
 This section indicates which security headers should be set on HTTP responses to prevent various types of attack that could disclose sensitive data.
 
@@ -47,7 +47,7 @@ This section indicates which security headers should be set on HTTP responses to
 | **50.3.5** | [MODIFIED, MOVED FROM 14.4.7] Verify that the web application uses the frame-ancestors directive of the Content-Security-Policy header field for every HTTP response to ensure that it cannot be embedded by default and that embedding of specific resources is allowed only when necessary. Note that the X-Frame-Options header field, although supported by browsers, is obsolete and may not be relied upon. | 2 | v5.0.be-50.3.5 |
 | **50.3.7** | [ADDED] Verify that the Content-Security-Policy header field specifies a location to report violations. | 3 | v5.0.be-50.3.7 |
 
-## V50.4 Browser Origin Separation
+## V3.5 Browser Origin Separation
 
 When accepting a request to sensitive functionality on the server side, we need to be sure it is initiated by the application itself or by a trusted party and has not been forged by an attacker.
 
@@ -65,7 +65,7 @@ The key protections here are browser security policies like Same Origin Policy f
 | **50.5.1** | [ADDED] Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.1 |
 | **50.5.2** | [ADDED] Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.2 |
 
-## V50.7 External Resource Integrity
+## V3.6 External Resource Integrity
 
 This section provides guidance for the safe hosting of content on third-party sites.
 
@@ -73,7 +73,7 @@ This section provides guidance for the safe hosting of content on third-party si
 | :---: | :--- | :---: | :---: |
 | **50.7.1** | [MODIFIED, MOVED FROM 14.2.3] Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | 3 | v5.0.be-50.7.1 |
 
-## V50.8 Other Browser Security Considerations
+## V3.7 Other Browser Security Considerations
 
 This section includes various other security controls and modern browser security features which are required for client-side browser security.
 

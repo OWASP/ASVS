@@ -1,4 +1,4 @@
-# V52 Self-contained Tokens
+# V9 Self-contained Tokens
 
 ## Control Objective
 
@@ -6,7 +6,7 @@ The concept of a self-contained token is mentioned in the original RFC 6749 OAut
 
 The use of self-contained tokens has become very widespread, even outside of OIDC/OAuth. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process and this chapter will provide specific details of the mechanisms that applications should have in place to prevent them.
 
-## V52.1 Token source and integrity
+## V9.1 Token source and integrity
 
 This section includes requirements that ensure that the token has been produced by a trusted party and that it has not been tampered with.
 
@@ -16,7 +16,7 @@ This section includes requirements that ensure that the token has been produced 
 | **52.1.2** | [ADDED] Verify that only algorithms on an allowlist can be used to create and verify self-contained tokens, for a given context. The allowlist should include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and should not include the 'None' algorithm. If both symmetric and asymmetric are needed, additional controls should prevent key confusion. | 1 | v5.0.be-52.1.2 |
 | **52.1.3** | [ADDED] Verify that key material that is used to validate self-contained tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | 1 | v5.0.be-52.1.3 |
 
-## V52.2 Token content
+## V9.2 Token content
 
 Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within it's validity period and that it is meant for use by the receiving service and for the purpose for which it was presented. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
 
