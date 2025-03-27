@@ -14,7 +14,7 @@ Aside from this, it is also important to ensure that the application fails secur
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.7.3** | [ADDED] Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled and how long logs are kept for. | 2 | v5.0.be-1.7.3 |
+| **16.1.1** | [ADDED] Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled and how long logs are kept for. | 2 | v5.0.be-1.7.3 |
 
 ## V16.2 General Logging
 
@@ -24,11 +24,11 @@ For the specific information which should be included in a log entry, refer to e
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.1.4** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. | 2 | v5.0.be-7.1.4 |
-| **7.1.5** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. | 2 | v5.0.be-7.1.5 |
-| **7.1.6** | [ADDED] Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | 2 | v5.0.be-7.1.6 |
-| **7.1.7** | [MODIFIED, MOVED FROM 1.7.1] Verify that logs can be read and correlated by the log processor which is in use, preferably by using a common logging format. | 2 | v5.0.be-7.1.7 |
-| **7.1.1** | [MODIFIED, MERGED FROM 7.1.2] Verify that when logging sensitive data, the application considers the protection level of the data. For example, it may not be allowed to log certain data such as credentials or payment details. Other data such as session tokens may only be logged having been hashed or masked, either in full or partially. | 2 | v5.0.be-7.1.1 |
+| **16.2.1** | [MODIFIED] Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. | 2 | v5.0.be-7.1.4 |
+| **16.2.2** | [MOVED FROM 7.3.4] Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. | 2 | v5.0.be-7.1.5 |
+| **16.2.3** | [ADDED] Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | 2 | v5.0.be-7.1.6 |
+| **16.2.4** | [MODIFIED, MOVED FROM 1.7.1] Verify that logs can be read and correlated by the log processor which is in use, preferably by using a common logging format. | 2 | v5.0.be-7.1.7 |
+| **16.2.5** | [MODIFIED, MERGED FROM 7.1.2] Verify that when logging sensitive data, the application considers the protection level of the data. For example, it may not be allowed to log certain data such as credentials or payment details. Other data such as session tokens may only be logged having been hashed or masked, either in full or partially. | 2 | v5.0.be-7.1.1 |
 
 ## V16.3 Security Events
 
@@ -40,12 +40,12 @@ Note also that alerting is likely to be a separate process and system. As such, 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.2.1** | [MODIFIED] Verify that all authentication operations are logged including both successful and unsuccessful attempts. Additional metadata such as type of authentication or factors used should also be collected. | 2 | v5.0.be-7.2.1 |
-| **7.2.2** | [MODIFIED] Verify that failed authorization attempts are logged. For L3 this must include logging all authorization decisions. | 2 | v5.0.be-7.2.2 |
-| **7.2.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs attempts to bypass the security controls defined in the design documentation such as input validation. | 2 | v5.0.be-7.2.3 |
-| **7.2.4** | [MODIFIED, MOVED FROM 11.1.7, MERGED FROM 8.1.4] Verify that the application can detect and log unusual activity, including business logic anomalies and abnormal or excessive request patterns, such as by IP, user, total per hour or day, based on documented limits. | 3 | v5.0.be-7.2.4 |
-| **7.2.5** | [MODIFIED, MOVED FROM 8.3.5] Verify that accessing sensitive data is logged (without logging the sensitive data itself) if this is required by relevant data protection requirements. | 3 | v5.0.be-7.2.5 |
-| **7.2.6** | [MODIFIED, MOVED FROM 9.2.5] Verify that the application logs security control failures such as backend TLS failures. | 3 | v5.0.be-7.2.6 |
+| **16.3.1** | [MODIFIED] Verify that all authentication operations are logged including both successful and unsuccessful attempts. Additional metadata such as type of authentication or factors used should also be collected. | 2 | v5.0.be-7.2.1 |
+| **16.3.2** | [MODIFIED] Verify that failed authorization attempts are logged. For L3 this must include logging all authorization decisions. | 2 | v5.0.be-7.2.2 |
+| **16.3.3** | [MODIFIED, MOVED FROM 7.1.3] Verify that the application logs attempts to bypass the security controls defined in the design documentation such as input validation. | 2 | v5.0.be-7.2.3 |
+| **16.3.4** | [MODIFIED, MOVED FROM 11.1.7, MERGED FROM 8.1.4] Verify that the application can detect and log unusual activity, including business logic anomalies and abnormal or excessive request patterns, such as by IP, user, total per hour or day, based on documented limits. | 3 | v5.0.be-7.2.4 |
+| **16.3.5** | [MODIFIED, MOVED FROM 8.3.5] Verify that accessing sensitive data is logged (without logging the sensitive data itself) if this is required by relevant data protection requirements. | 3 | v5.0.be-7.2.5 |
+| **16.3.6** | [MODIFIED, MOVED FROM 9.2.5] Verify that the application logs security control failures such as backend TLS failures. | 3 | v5.0.be-7.2.6 |
 
 ## V16.4 Log Protection
 
@@ -53,9 +53,9 @@ Logs that can be trivially modified or deleted are useless for investigations an
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.3.1** | Verify that all logging components appropriately encode data to prevent log injection. | 2 | v5.0.be-7.3.1 |
-| **7.3.3** | [MODIFIED] Verify that logs are protected from unauthorized access and cannot be modified. | 2 | v5.0.be-7.3.3 |
-| **7.3.5** | [MOVED FROM 1.7.2] Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. | 2 | v5.0.be-7.3.5 |
+| **16.4.1** | Verify that all logging components appropriately encode data to prevent log injection. | 2 | v5.0.be-7.3.1 |
+| **16.4.2** | [MODIFIED] Verify that logs are protected from unauthorized access and cannot be modified. | 2 | v5.0.be-7.3.3 |
+| **16.4.3** | [MOVED FROM 1.7.2] Verify that logs are securely transmitted to a preferably remote system for analysis, detection, alerting, and escalation. | 2 | v5.0.be-7.3.5 |
 
 ## V16.5 Error Handling
 
@@ -63,10 +63,10 @@ The purpose of error handling is to ensure the application fails gracefully and 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.4.1** | [MODIFIED] Verify that a generic message is shown when an unexpected or security sensitive error occurs, which does not expose sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 | v5.0.be-7.4.1 |
-| **7.4.4** | [ADDED] Verify that the application is designed in a way that a failure to access external resources does not result in the entire application failing, for example using the circuit breaker pattern. | 2 | v5.0.be-7.4.4 |
-| **7.4.5** | [MODIFIED, MOVED FROM 4.1.5, LEVEL L1 > L2] Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions such as processing a transaction despite errors resulting from validation logic. | 2 | v5.0.be-7.4.5 |
-| **7.4.3** | [MODIFIED] Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that should go to log files and also to ensure that an error does not take down the entire application process, leading to a loss of availability. | 3 | v5.0.be-7.4.3 |
+| **16.5.1** | [MODIFIED] Verify that a generic message is shown when an unexpected or security sensitive error occurs, which does not expose sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 | v5.0.be-7.4.1 |
+| **16.5.2** | [ADDED] Verify that the application is designed in a way that a failure to access external resources does not result in the entire application failing, for example using the circuit breaker pattern. | 2 | v5.0.be-7.4.4 |
+| **16.5.3** | [MODIFIED, MOVED FROM 4.1.5, LEVEL L1 > L2] Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions such as processing a transaction despite errors resulting from validation logic. | 2 | v5.0.be-7.4.5 |
+| **16.5.4** | [MODIFIED] Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that should go to log files and also to ensure that an error does not take down the entire application process, leading to a loss of availability. | 3 | v5.0.be-7.4.3 |
 
 Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last-resort event handlers. In this case, architects and developers should use a pattern, language, or framework-friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
 
