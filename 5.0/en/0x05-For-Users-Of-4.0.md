@@ -32,9 +32,10 @@ In version 4.0, there were many requirements that were focused around a particul
 
 For certain requirements, implementation will be complicated and very specific to an application's needs. Common examples include permissions, input validation, and the protective controls around different levels of sensitive data. To account for this, rather than sweeping statements like "all data must be encrypted" or trying to cover every possible use case in a requirement, we have certain requirements which mandate that the application developer's approach and configuration to these sorts of controls must be documented so that this can be reviewed for appropriateness and then the actual implementation can be compared to the documentation to assess whether the implementation matches expectations.
 
+<!--
+
 ### TODO: add more items
 
-<!--
 We set out to ensure that the ASVS 4.0 Level 1 is a comprehensive superset of PCI DSS 3.2.1 Sections 6.5, for application design, coding, testing, secure code reviews, and penetration tests. This necessitated covering buffer overflow and unsafe memory operations in V5, and unsafe memory-related compilation flags in V14, in addition to existing industry-leading application and web service verification requirements.
 
 We have completed the shift of the ASVS from monolithic server-side-only controls, to providing security controls for all modern applications and APIs. In the days of functional programming, server-less API, mobile, cloud, containers, CI/CD and DevSecOps, federation and more, we cannot continue to ignore modern application architecture. Modern applications are designed very differently from those built when the original ASVS was released in 2009. The ASVS must always look far into the future so that we provide sound advice for our primary audience - developers. We have clarified or dropped any requirement that assumes that applications are executed on systems owned by a single organization.
