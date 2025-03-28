@@ -31,7 +31,7 @@ Use secure TLS configuration and up-to-date tools to review the configuration on
 | **12.1.2** | [MODIFIED, MOVED FROM 9.1.2] Verify that only the latest recommended cipher suites are enabled, with the strongest cipher suites set as preferred. L3 applications must only support cipher suites which provide forward secrecy. | 2 | v5.0.be-9.4.1 |
 | **12.1.3** | [ADDED] Verify that the application validates that mTLS client certificates are trusted before using the certificate identity for authentication or authorization. | 2 | v5.0.be-9.4.5 |
 | **12.1.4** | [MOVED FROM 9.2.4] Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | 3 | v5.0.be-9.4.3 |
-| **12.1.5** | [ADDED] Verify that Encrypted Client Hello (ECH) is supported and is securely configured within the application’s TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | 3 | v5.0.be-9.4.4 |
+| **12.1.5** | [ADDED] Verify that Encrypted Client Hello (ECH) is supported and is securely configured within the application's TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | 3 | v5.0.be-9.4.4 |
 
 ## V12.2 HTTPS Communication with External Facing Services
 
