@@ -45,7 +45,7 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **6.2.11** | [ADDED] Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | 2 | v5.0.be-2.1.14 |
 | **6.2.12** | [ADDED, SPLIT FROM 2.1.7, LEVEL L1 > L3] Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | 3 | v5.0.be-2.1.13 |
 
-Possible sources of frequently used passwords for requirement 2.1.7 include:
+Possible sources of frequently used passwords for requirement 6.2.4 include:
 
 * <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
 * <https://www.ncsc.gov.uk/static-assets/documents/PwnedPasswordsTop100k.txt>

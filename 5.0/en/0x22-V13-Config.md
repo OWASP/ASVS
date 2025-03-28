@@ -33,7 +33,7 @@ Applications need to interact with multiple services including APIs, databases o
 
 ## V13.3 Secret Management
 
-Secret Management is a configuration task that is essential to ensure the protection of data being used in the application. Specific requirements on cryptography can be found in chapter V6 but this section focuses on the management and handling aspects of secrets.
+Secret Management is a configuration task that is essential to ensure the protection of data being used in the application. Specific requirements on cryptography can be found in the "Cryptography" chapter but this section focuses on the management and handling aspects of secrets.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |

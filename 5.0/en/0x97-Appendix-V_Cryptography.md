@@ -1,8 +1,8 @@
 # Appendix V: Cryptography
 
-V6 goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in V6
+The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
 
-## Algorithms (V6.2)
+## Algorithms (V11.2)
 
 ### Equivalent Strengths of Cryptographic Parameters
 
@@ -18,7 +18,7 @@ The relative security strengths for various cryptographic systems are in this ta
 
 Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
 
-## Random Values (V6.3)
+## Random Values (V11.5)
 
 ### Approved RNG Methods and Algorithms
 
@@ -42,7 +42,7 @@ The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](h
 | SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
 | KMAC128 | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
 
-## Cipher Algorithms (V6.5)
+## Cipher Algorithms (V11.3)
 
 ### Approved Ciphers
 
@@ -154,7 +154,7 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |Encrypt-then-MAC | | approved
 |MAC-then-encrypt | | legacy
 
-## Hash Functions (V6.6)
+## Hash Functions (V11.4)
 
 ### Approved Hash Functions for General Use Cases
 
@@ -209,7 +209,7 @@ Due to insufficient collision resistance, the following hash functions MUST NOT 
 | SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
 | SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) |
 
-## Key Exchange Mechanisms (V6.7)
+## Key Exchange Mechanisms (V11.6)
 
 ### Approved KEX Schemes
 
