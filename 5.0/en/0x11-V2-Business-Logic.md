@@ -14,8 +14,8 @@ Business logic documentation should clearly define business logic limits, valida
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **2.1.1** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | 1 | v5.0.be-1.11.6 |
-| **2.1.2** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | 1 | v5.0.be-1.11.5 |
+| **2.1.1** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules define how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, e-mail addresses, telephone numbers, or it could be an internal data format. | 1 | v5.0.be-1.11.5 |
+| **2.1.2** | [ADDED, SPLIT FROM 1.5.1, LEVEL L2 > L1] Verify that input validation rules are documented and define how to ensure the logical and contextual consistency of combined data items, such as checking that suburb and zip code match. | 1 | v5.0.be-1.11.6 |
 | **2.1.3** | [ADDED] Verify that expectations for business logic limits and validations are documented including both per-user and also globally across the application. | 2 | v5.0.be-1.11.4 |
 
 ## V2.2 Input Validation
