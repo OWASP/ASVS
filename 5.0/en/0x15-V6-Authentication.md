@@ -18,9 +18,9 @@ This section contains requirements detailing the authentication documentation th
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **6.1.1** | [ADDED, SPLIT FROM 2.2.1] Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation should make clear how these controls are configured and prevent malicious account lockout. | 1 | v5.0.be-1.2.6 |
+| **6.1.1** | [ADDED, SPLIT FROM 2.2.1] Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation must make clear how these controls are configured and prevent malicious account lockout. | 1 | v5.0.be-1.2.6 |
 | **6.1.2** | [ADDED] Verify that a list of context specific words are documented in order to prevent their use in passwords. | 2 | v5.0.be-1.2.5 |
-| **6.1.3** | [MODIFIED, SPLIT TO 2.2.11, COVERS 1.2.3] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which should be consistently enforced across them. | 2 | v5.0.be-1.2.4 |
+| **6.1.3** | [MODIFIED, SPLIT TO 2.2.11, COVERS 1.2.3] Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which must be consistently enforced across them. | 2 | v5.0.be-1.2.4 |
 
 ## V6.2 Password Security
 
@@ -36,7 +36,7 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **6.2.2** | [GRAMMAR] Verify that users can change their password. | 1 | v5.0.be-2.1.5 |
 | **6.2.3** | Verify that password change functionality requires the user's current and new password. | 1 | v5.0.be-2.1.6 |
 | **6.2.4** | [MODIFIED, SPLIT TO 2.1.13] Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords which match the application's password policy, e.g. minimum length. | 1 | v5.0.be-2.1.7 |
-| **6.2.5** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. | 1 | v5.0.be-2.1.9 |
+| **6.2.5** | [GRAMMAR] Verify that passwords of any composition can be used, without rules limiting the type of characters permitted. There must be no requirement for a minimum number of upper or lower case characters, numbers, or special characters. | 1 | v5.0.be-2.1.9 |
 | **6.2.6** | [MODIFIED] Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | 1 | v5.0.be-2.1.12 |
 | **6.2.7** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | 1 | v5.0.be-2.1.11 |
 | **6.2.8** | [MODIFIED] Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 2 | v5.0.be-2.1.3 |
@@ -67,7 +67,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **6.3.5** | [MODIFIED] Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 | v5.0.be-2.2.2 |
 | **6.3.6** | [MODIFIED, SPLIT TO 2.2.10, COVERS 2.5.5] Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 3 | v5.0.be-2.2.3 |
 | **6.3.7** | [MODIFIED, SPLIT TO 2.2.9, MERGED FROM 2.2.7, 2.3.2] Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | 3 | v5.0.be-2.2.4 |
-| **6.3.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality should also have this protection. | 3 | v5.0.be-2.2.8 |
+| **6.3.8** | [ADDED] Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality must also have this protection. | 3 | v5.0.be-2.2.8 |
 
 ## V6.4 Authentication Factor Lifecycle and Recovery
 
@@ -108,7 +108,7 @@ The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages
 | **6.5.2** | [MODIFIED, SPLIT TO 2.6.4] Verify that, when being stored in the application's backend, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 | v5.0.be-2.6.2 |
 | **6.5.3** | [MODIFIED, MERGED FROM 2.8.3, SPLIT FROM 2.7.6] Verify that lookup secrets, out-of-band authentication code, and time-based, one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | v5.0.be-2.6.3 |
 | **6.5.4** | [ADDED, SPLIT FROM 2.6.2, 2.7.6] Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | v5.0.be-2.6.4 |
-| **6.5.5** | [MODIFIED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. For out of band this should be 10 minutes and for TOTP this should be as short as possible, usually 30 seconds. | 2 | v5.0.be-2.6.5 |
+| **6.5.5** | [MODIFIED, MOVED FROM 2.7.2, MERGED FROM 2.8.1] Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. Out of band requests must have a limit of 10 minutes and for TOTP a limit of 30 seconds. | 2 | v5.0.be-2.6.5 |
 | **6.5.6** | [MODIFIED, MOVED FROM 2.8.6, LEVEL L2 > L3] Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 | v5.0.be-2.6.6 |
 | **6.5.7** | [MODIFIED, MOVED FROM 2.8.7, LEVEL L2 > L3] Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | v5.0.be-2.6.7 |
 | **6.5.8** | [ADDED] Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | v5.0.be-2.6.8 |
@@ -147,7 +147,7 @@ Secure use of external identity providers requires careful configuration and ver
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **6.8.1** | [ADDED] Verify that, if the application supports multiple identity providers (IdPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). Usually, the application should register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IdP. | 2 | v5.0.be-2.11.1 |
+| **6.8.1** | [ADDED] Verify that, if the application supports multiple identity providers (IdPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). The standard mitigation would be for the application to register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IdP. | 2 | v5.0.be-2.11.1 |
 | **6.8.2** | [ADDED] Verify that the presence and integrity of digital signatures on authentication assertions (for example on JWTs or SAML assertions) are always validated, rejecting any assertions that are unsigned or have invalid signatures. | 2 | v5.0.be-2.11.2 |
 | **6.8.3** | [ADDED] Verify that SAML assertions are uniquely processed and used only once within the validity period to prevent replay attacks. | 2 | v5.0.be-2.11.3 |
 
