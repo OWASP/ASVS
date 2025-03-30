@@ -40,7 +40,6 @@ The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](h
 | SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) |
 | SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
 | SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| KMAC128 | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
 
 ## Cipher Algorithms (V11.3)
 
@@ -169,8 +168,6 @@ The following hash functions are approved for use in general cryptographic use c
 | SHA3-256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
 | SHA-512/256 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
 | SHA-256 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | ✓ | ✓ | ✓ |
-| KMAC256 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
-| KMAC128 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
 | SHAKE256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | ✓ | ✓ | ✓ |
 | BLAKE2s | Y | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | ✓ | ✓ | ✓ |
 | BLAKE2b | Y | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | ✓ | ✓ | ✓ |
