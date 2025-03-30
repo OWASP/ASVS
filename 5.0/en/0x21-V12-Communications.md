@@ -27,7 +27,7 @@ Use secure TLS configuration and up-to-date tools to review the configuration on
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **12.1.1** | [MOVED FROM 9.1.3] Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol should be the preferred option. | 1 | v5.0.be-9.4.2 |
+| **12.1.1** | [MOVED FROM 9.1.3] Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol must be the preferred option. | 1 | v5.0.be-9.4.2 |
 | **12.1.2** | [MODIFIED, MOVED FROM 9.1.2] Verify that only the latest recommended cipher suites are enabled, with the strongest cipher suites set as preferred. L3 applications must only support cipher suites which provide forward secrecy. | 2 | v5.0.be-9.4.1 |
 | **12.1.3** | [ADDED] Verify that the application validates that mTLS client certificates are trusted before using the certificate identity for authentication or authorization. | 2 | v5.0.be-9.4.5 |
 | **12.1.4** | [MOVED FROM 9.2.4] Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | 3 | v5.0.be-9.4.3 |
@@ -58,8 +58,8 @@ HTTP traffic between internal-facing services should also be encrypted, ideally 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **12.4.1** | [ADDED, COVERS 1.9.1] Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services within the application, and does not fall back to insecure or unencrypted communications. | 2 | v5.0.be-9.3.1 |
-| **12.4.2** | [MODIFIED, MOVED FROM 9.2.1, COVERS 1.9.2] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others should be rejected. | 2 | v5.0.be-9.3.2 |
-| **12.4.3** | [MODIFIED, MOVED FROM 2.2.5] Verify that services communicating internally within a system (intra-service communications) use strong authentication to ensure that each endpoint is verified. Strong authentication methods, such as mTLS, should be employed to ensure identity, using public-key infrastructure and mechanisms that are resistant to replay attacks. For microservice architectures, consider using a service mesh to simplify certificate management and enhance security. | 3 | v5.0.be-9.3.3 |
+| **12.4.2** | [MODIFIED, MOVED FROM 9.2.1, COVERS 1.9.2] Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. All others must be rejected. | 2 | v5.0.be-9.3.2 |
+| **12.4.3** | [MODIFIED, MOVED FROM 2.2.5] Verify that services communicating internally within a system (intra-service communications) use strong authentication to ensure that each endpoint is verified. Strong authentication methods, such as mTLS, must be employed to ensure identity, using public-key infrastructure and mechanisms that are resistant to replay attacks. For microservice architectures, consider using a service mesh to simplify certificate management and enhance security. | 3 | v5.0.be-9.3.3 |
 
 ## References
 
