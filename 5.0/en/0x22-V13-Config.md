@@ -72,7 +72,7 @@ For example, hiding the version of server-side components does not fix the need 
 | **13.5.2** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | 2 | v5.0.be-14.3.4 |
 | **13.5.3** | [ADDED, SPLIT FROM 14.5.1] Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 2 | v5.0.be-14.3.6 |
 | **13.5.4** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
-| **13.5.5** | [GRAMMAR, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors must be blocked unless required. | 3 | v5.0.be-14.3.5 |
+| **13.5.5** | [MODIFIED, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors must be blocked unless required. | 3 | v5.0.be-14.3.5 |
 
 ## References
 
