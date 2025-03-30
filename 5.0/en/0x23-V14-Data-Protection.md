@@ -42,7 +42,7 @@ This section contains requirements related to specific ways in which data can le
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **14.3.1** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The "Clear-Site-Data header" may be able to help with this but the client-side should also be able to clear up if the server connection is lost. | 1 | v5.0.be-8.2.3 |
+| **14.3.1** | [MODIFIED] Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The 'Clear-Site-Data' HTTP response header field may be able to help with this but the client-side should also be able to clear up if the server connection is not available when the session is terminated. | 1 | v5.0.be-8.2.3 |
 | **14.3.2** | [MODIFIED] Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 2 | v5.0.be-8.2.1 |
 | **14.3.3** | [MODIFIED, MERGED FROM 3.2.3] Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session identifiers. | 2 | v5.0.be-8.2.2 |
 
