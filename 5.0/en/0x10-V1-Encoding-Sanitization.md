@@ -90,6 +90,7 @@ For more information, see also:
 * [OWASP Java Encoding Project](https://owasp.org/owasp-java-encoder/)
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
 * [XML External Entity (XXE) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
+* [RFC4180 - Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
 
 For more information on auto-escaping, please see:
 
