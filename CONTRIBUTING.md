@@ -55,7 +55,7 @@ Note that since there was a major renumbering recently, a lot of the requirement
 
 1) Each requirement has a column at the end called "#v5.0.be". This contains the number before the numbering.
 2) If you are looking for how a requirement was numbered in v4.0.3 (which may also be used in the issues), there is a [mapping page](https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html) which maps between the current number and the number from v4.0.3.
-    -  There are also other mappings in the [`5.0/mappings/`](5.0/mappings/) folder but these may not be kept up to date.
+    -  There are also other mappings in the [`5.0/mappings/`](https://github.com/OWASP/ASVS/tree/master/5.0/mappings/) folder but these may not be kept up to date.
 
 If you are comfortable that your query has  has not been previously discussed, you can open an issue. Please try and include the ASVS text you are talking about in the issue (or at least the value of the "#v5.0.be" column) to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
 
@@ -67,7 +67,7 @@ To help those who are using the "bleeding edge" version for their tests and in o
 
 ### Tags in the mapping files
 
-The mappings in the [`5.0/mappings/`](5.0/mappings/) folder use tags to explain how requirements changed between different versions. This will be useful if you are trying to trace the rationale of a particular requirement.
+The mappings in the [`5.0/mappings/`](https://github.com/OWASP/ASVS/tree/master/5.0/mappings/) folder use tags to explain how requirements changed between different versions. This will be useful if you are trying to trace the rationale of a particular requirement.
 
 These mappings use tags to explain how the requirements have changed between the versions.
 
@@ -88,7 +88,10 @@ These mappings use tags to explain how the requirements have changed between the
 * `[DELETED, NOT PRACTICAL]` - Placeholder to keep number, requirement was not practical (enough) to implement in reality.
 * `[DELETED, INSUFFICIENT IMPACT]` - Placeholder to keep number, requirement was valid and in scope but provided insufficient benefit to be worthwhile.
 * `[SPLIT TO x.y.z, i.j.f]` - Placeholder to keep number, requirement has been split into 2 or more requirements to other categories.
+
+<!--
 * `[LEVEL L1 > L2]` - Requirement level has changed. Level change label may exist also for `[MODIFIED]`, `[MOVED FROM]` and `[SPLIT FROM]`
+-->
 
 `SPLIT TO`, `MOVED TO`, `MERGED TO` labels must have matching labels with `SPLIT FROM`, `MOVED FROM`, `MERGED FROM`.
 
