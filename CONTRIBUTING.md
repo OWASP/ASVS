@@ -43,7 +43,7 @@ After familiarizing yourself with the current version and if you don't have addi
 
 The issues to focus on for RC1 are listed here:
 
-- ![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3AOWASP%2FASVS%20label%3A%22_5.0%20-%20rc1%22%20state%3Aopen&label=_5.0%20-%20rc1&labelColor=%2399F2D1&color=grey&link=https%3A%2F%2Fgithub.com%2FOWASP%2FASVS%2Fissues%3Fq%3Dis%253Aissue%2520state%253Aopen%2520label%253A%2522_5.0%2520-%2520rc1%2522)
+- [![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3AOWASP%2FASVS%20label%3A%22_5.0%20-%20rc1%22%20state%3Aopen&label=_5.0%20-%20rc1&labelColor=%2399F2D1&color=grey)](https://github.com/OWASP/ASVS/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22_5.0%20-%20rc1%22)
 
 ## Additional Details for Helping
 
