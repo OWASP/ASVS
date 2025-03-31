@@ -35,9 +35,9 @@ A few questions to ask yourself as you review the document:
 * If I was a developer or a security tester, would this requirement understandable to me?
 * Can I think of a way of improving front / chapter / section text to add clarity without adding unnecessary content.
 
-Please first log ideas, issues or questions here: https://github.com/OWASP/ASVS/issues. It’s helpful to share if you have any ideas or if you find any bugs or typos (but see the extra guidance below).
+Please first log ideas, issues or questions here: <https://github.com/OWASP/ASVS/issues>. It’s helpful to share if you have any ideas or if you find any bugs or typos (but see the extra guidance below).
 
-We may subsequently ask you to open a pull request, https://github.com/OWASP/ASVS/pulls, based on the discussion in the issue. 
+We may subsequently ask you to open a pull request, <https://github.com/OWASP/ASVS/pulls>, based on the discussion in the issue. 
 
 After familiarizing yourself with the current version and if you don't have additional questions or feedback, the next area to focus on is the "Issues" section. 
 
@@ -135,4 +135,4 @@ If you are interested in creating a translation, here are some pointers for how 
 * Finally, the leader will back port the translation into the branch containing the ASVS version which was targeted (at this point, presumably v4.0.3).
 
 Thank you for your help!!
-->
+-->
