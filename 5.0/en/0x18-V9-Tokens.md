@@ -18,7 +18,7 @@ This section includes requirements that ensure that the token has been produced 
 
 ## V9.2 Token content
 
-Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within it's validity period and that it is meant for use by the receiving service and for the purpose for which it was presented. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
+Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within its validity period and that it is meant for use by the receiving service and for the purpose for which it was presented. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
 
 Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
 
