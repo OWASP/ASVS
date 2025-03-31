@@ -24,7 +24,7 @@ For the specific information which should be included in a log entry, refer to e
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **16.2.1** | Verify that each log entry includes necessary metadata that would allow for a detailed investigation of the timeline when an event happens. | 2 | v5.0.be-7.1.4 |
+| **16.2.1** | Verify that each log entry includes necessary metadata (such as when, where, who, what) that would allow for a detailed investigation of the timeline when an event happens. | 2 | v5.0.be-7.1.4 |
 | **16.2.2** | Verify that time sources are synchronized to the correct time and time zone. Strongly consider logging only in UTC if systems are global to assist with post-incident forensic analysis. | 2 | v5.0.be-7.1.5 |
 | **16.2.3** | Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | 2 | v5.0.be-7.1.6 |
 | **16.2.4** | Verify that logs can be read and correlated by the log processor which is in use, preferably by using a common logging format. | 2 | v5.0.be-7.1.7 |
