@@ -20,9 +20,9 @@ The primary aim of the OWASP Application Security Verification Standard (ASVS) P
 
 🎉🎉🎉 **We are now at the RC1 stage of ASVS version 5.0!** 🎉🎉🎉
 
-The ASVS project will release a 5.0 version during May 2025 which will be a significant modification, similar to the scale of changes which happened during 4.0.
+The ASVS project will release a 5.0 version during May 2025 which is a complete revamp compared to the previous version 4.0.3.
 
-We are now accepting feedback on a release candidate version of 5.0! You can see this version on the master branch within the 5.0 folder. This branch will continue to be updated during the review process so we recommend always working from the latest version
+We are waiting for your feedback on a release candidate version of 5.0! You can see this version on the master branch within the 5.0 folder. This branch will continue to be updated during the review process so we recommend always working from the latest version
 
 We will no longer be accepting changes to the 4.0 folder which is now fixed at the 4.0.3 release.
 
@@ -32,8 +32,7 @@ Reading through the release candidate version of ASVS is a great place to start.
 
 A few questions to ask yourself as you review the document:
 
-* If I was a developer, would this requirement understandable to me?
-* Do I think that a requirement urgently needs to be elsewhere? (Bear in mind that we have already done significant rearranging within the standard)
+* If I was a developer or a security tester, would this requirement understandable to me?
 * Can I think of a way of improving front / chapter / section text to add clarity without adding unnecessary content.
 
 Please first log ideas, issues or questions here: https://github.com/OWASP/ASVS/issues. It’s helpful to share if you have any ideas or if you find any bugs or typos (but see the extra guidance below).
@@ -55,7 +54,8 @@ Please do not open a pull request without first opening an associated issue. Ple
 Note that since there was a major renumbering recently, a lot of the requirement numbers in the issues may be different. You should also therefore search in the issues for the requirements based on two other sources of requirment numbers:
 
 1) Each requirement has a column at the end called "#v5.0.be". This contains the number before the numbering.
-2) There is then a [mapping file](https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v5.0.be_to_v4.0.3.yml) which can help identify what the requirement number was at v4.0.3 which may also be used in the issues.
+2) If you are looking for how a requirement was numbered in v4.0.3 (which may also be used in the issues), there is a [mapping page](https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html) which maps between the current number and the number from v4.0.3.
+    -  There are also other mappings in the [`5.0/mappings/`](5.0/mappings/) folder but these may not be kept up to date.
 
 If you are comfortable that your query has  has not been previously discussed, you can open an issue. Please try and include the ASVS text you are talking about in the issue (or at least the value of the "#v5.0.be" column) to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
 
@@ -65,14 +65,11 @@ Note that review and changes should always be made based on the raw .md files. T
 
 To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. The current bleeding edge working directory can be found here <https://github.com/OWASP/ASVS/tree/master/5.0/en>.
 
-
 ### Tags in the mapping files
 
-The mappings in the [`5.0/mappings/`](5.0/mappings/) folder use tags to explain how requirments changed between different versions.
+The mappings in the [`5.0/mappings/`](5.0/mappings/) folder use tags to explain how requirements changed between different versions. This will be useful if you are trying to trace the rationale of a particular requirement.
 
-These tags are intended explain how the requirements have changed between the versions explained in the mapping filename.
-
-The following tags should be added to any modified requirement as appropriate.
+These mappings use tags to explain how the requirements have changed between the versions.
 
 * `[ADDED]` - New requirement (should only be added at the end of a sub-section.).
 * `[MODIFIED]` - Requirement description has been modified.
