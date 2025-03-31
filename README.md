@@ -33,7 +33,7 @@ They are supported by the ASVS Working Group which consists of [Shanni Prutchi](
 
 🎉🎉🎉 **We are now at the RC1 stage of ASVS version 5.0!** 🎉🎉🎉
 
-See the [Contribution Guide](CONTRIBUTING.md) for more details!
+See the [Contribution Guide](CONTRIBUTING.md#what-is-the-current-status-of-asvs-development) for more details!
 
 ## Latest Stable Version - 4.0.3
 
