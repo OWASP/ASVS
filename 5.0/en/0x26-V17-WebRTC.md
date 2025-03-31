@@ -28,8 +28,8 @@ These requirements only apply to systems that host TURN servers as part of their
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.1.1** | [ADDED] Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | 2 | v5.0.be-53.1.1 |
-| **17.1.2** | [ADDED] Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. | 3 | v5.0.be-53.1.2 |
+| **17.1.1** | Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | 2 | v5.0.be-53.1.1 |
+| **17.1.2** | Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. | 3 | v5.0.be-53.1.2 |
 
 ## V17.2 Media
 
@@ -43,14 +43,14 @@ Systems that rely solely on peer-to-peer media communication between web browser
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.2.1** | [ADDED] Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | 2 | v5.0.be-53.2.1 |
-| **17.2.2** | [ADDED] Verify that the media server is configured to use and support strong and secure DTLS cipher suites and DTLS-SRTP protection profiles. | 2 | v5.0.be-53.2.2 |
-| **17.2.3** | [ADDED] Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | 2 | v5.0.be-53.2.4 |
-| **17.2.4** | [ADDED] Verify that the media server is able to continue processing incoming media traffic when encountering malformed SRTP packets. | 2 | v5.0.be-53.2.7 |
-| **17.2.5** | [ADDED] Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.5 |
-| **17.2.6** | [ADDED] Verify that the media server is not susceptible to the "WebRTC DTLS ClientHello Race Condition" vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | 3 | v5.0.be-53.2.3 |
-| **17.2.7** | [ADDED] Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.6 |
-| **17.2.8** | [ADDED] Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 | v5.0.be-53.2.8 |
+| **17.2.1** | Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | 2 | v5.0.be-53.2.1 |
+| **17.2.2** | Verify that the media server is configured to use and support strong and secure DTLS cipher suites and DTLS-SRTP protection profiles. | 2 | v5.0.be-53.2.2 |
+| **17.2.3** | Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | 2 | v5.0.be-53.2.4 |
+| **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed SRTP packets. | 2 | v5.0.be-53.2.7 |
+| **17.2.5** | Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.5 |
+| **17.2.6** | Verify that the media server is not susceptible to the "WebRTC DTLS ClientHello Race Condition" vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | 3 | v5.0.be-53.2.3 |
+| **17.2.7** | Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.6 |
+| **17.2.8** | Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 | v5.0.be-53.2.8 |
 
 ## V17.3 Signalling
 
@@ -60,8 +60,8 @@ These requirements only apply to systems that host signalling servers as part of
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.3.1** | [ADDED] Verify that the signalling server is able to continue processing incoming signalling messages during a flood attack. This should be achieved by implementing rate limiting at the signalling level. | 2 | v5.0.be-53.3.1 |
-| **17.3.2** | [ADDED] Verify that the signalling server is able to is able to continue processing signalling messages when encountering malformed signalling messages. | 2 | v5.0.be-53.3.2 |
+| **17.3.1** | Verify that the signalling server is able to continue processing incoming signalling messages during a flood attack. This should be achieved by implementing rate limiting at the signalling level. | 2 | v5.0.be-53.3.1 |
+| **17.3.2** | Verify that the signalling server is able to is able to continue processing signalling messages when encountering malformed signalling messages. | 2 | v5.0.be-53.3.2 |
 
 ## References
 

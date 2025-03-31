@@ -14,9 +14,9 @@ This section provides documentation requriements around how the application comm
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **13.1.1** | [MODIFIED, MOVED FROM 1.1.5] Verify that all communication needs for the application are documented. This must include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 | v5.0.be-1.14.7 |
-| **13.1.2** | [ADDED] Verify that where the application connects to separate services, the application's documentation indicates the maximum possible parallel connections (connection pool) to each service and how the application responds when this maximum is reached, to avoid a denial of service condition. | 3 | v5.0.be-1.14.8 |
-| **13.1.3** | [ADDED] Verify that where the application connects to separate system resources or services (such as database connections, open files and threads), each has a documented resource release and connection failure strategy which includes how fast the connection times-out and whether there is a retry strategy. This is to prevent resource exhaustion. External connections in synchronous HTTP request-response scenarios should fail fast without any retry, to avoid reaching the maximum possible connections. | 3 | v5.0.be-1.14.9 |
+| **13.1.1** | Verify that all communication needs for the application are documented. This must include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 | v5.0.be-1.14.7 |
+| **13.1.2** | Verify that where the application connects to separate services, the application's documentation indicates the maximum possible parallel connections (connection pool) to each service and how the application responds when this maximum is reached, to avoid a denial of service condition. | 3 | v5.0.be-1.14.8 |
+| **13.1.3** | Verify that where the application connects to separate system resources or services (such as database connections, open files and threads), each has a documented resource release and connection failure strategy which includes how fast the connection times-out and whether there is a retry strategy. This is to prevent resource exhaustion. External connections in synchronous HTTP request-response scenarios should fail fast without any retry, to avoid reaching the maximum possible connections. | 3 | v5.0.be-1.14.9 |
 
 ## V13.2 Backend Communication Configuration
 
@@ -24,12 +24,12 @@ Applications need to interact with multiple services including APIs, databases o
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **13.2.1** | [MODIFIED, MOVED FROM 2.10.1, MERGED FROM 1.2.2] Verify that communications between backend application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication must use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | 2 | v5.0.be-14.7.1 |
-| **13.2.2** | [GRAMMAR, MOVED FROM 2.10.2] Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin are default in some services during installation). | 2 | v5.0.be-14.7.2 |
-| **13.2.3** | [MODIFIED, MOVED FROM 4.3.3] Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | 2 | v5.0.be-14.7.3 |
-| **13.2.4** | [GRAMMAR, MOVED FROM 12.6.1] Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 2 | v5.0.be-14.7.4 |
-| **13.2.5** | [MODIFIED, MOVED FROM 1.2.1] Verify that communications between backend application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | v5.0.be-14.7.5 |
-| **13.2.6** | [ADDED] Verify that where the application connects to separate services, it follows the documented configuration for each connection, such as maximum parallel connections, behavior when maximum allowed connections is reached, connection timeouts, and retry strategies. | 3 | v5.0.be-14.7.6 |
+| **13.2.1** | Verify that communications between backend application components which don't support the application's standard user session mechanism, including APIs, middleware and data layers, are authenticated. Authentication must use individual service accounts, short-term tokens or certificate based authentication and not unchanging credentials such as passwords, API keys or shared accounts with privileged access. | 2 | v5.0.be-14.7.1 |
+| **13.2.2** | Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin are default in some services during installation). | 2 | v5.0.be-14.7.2 |
+| **13.2.3** | Verify that, if the application allows changing configurations around passwords or connection parameters for integrations with external databases and services, they are protected by extra controls such as re-authentication or multi-user approval. | 2 | v5.0.be-14.7.3 |
+| **13.2.4** | Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 2 | v5.0.be-14.7.4 |
+| **13.2.5** | Verify that communications between backend application components, including local or operating system services, APIs, middleware and data layers, are performed with accounts assigned the least necessary privileges. | 2 | v5.0.be-14.7.5 |
+| **13.2.6** | Verify that where the application connects to separate services, it follows the documented configuration for each connection, such as maximum parallel connections, behavior when maximum allowed connections is reached, connection timeouts, and retry strategies. | 3 | v5.0.be-14.7.6 |
 
 ## V13.3 Secret Management
 
@@ -37,10 +37,10 @@ Secret Management is a configuration task that is essential to ensure the protec
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **13.3.1** | [MODIFIED, MOVED FROM 6.4.1, MERGED FROM 1.6.2, 2.10.4, SPLIT FROM 2.9.1, COVERS 2.10.3, 2.8.2] Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy backend secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this must involve a hardware-backed solution such as an HSM. | 2 | v5.0.be-14.8.1 |
-| **13.3.2** | [ADDED] Verify that access to secret assets adheres to the principle of least privilege. | 2 | v5.0.be-14.8.4 |
-| **13.3.3** | [MODIFIED, MOVED FROM 6.4.2] Verify that key material is not exposed to the application (neither the frontend nor the backend) but instead uses an isolated security module like a vault for cryptographic operations. | 3 | v5.0.be-14.8.2 |
-| **13.3.4** | [ADDED] Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization's threat model and business requirements. | 3 | v5.0.be-14.8.3 |
+| **13.3.1** | Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy backend secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this must involve a hardware-backed solution such as an HSM. | 2 | v5.0.be-14.8.1 |
+| **13.3.2** | Verify that access to secret assets adheres to the principle of least privilege. | 2 | v5.0.be-14.8.4 |
+| **13.3.3** | Verify that key material is not exposed to the application (neither the frontend nor the backend) but instead uses an isolated security module like a vault for cryptographic operations. | 3 | v5.0.be-14.8.2 |
+| **13.3.4** | Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization's threat model and business requirements. | 3 | v5.0.be-14.8.3 |
 
 ## V13.4 Build and Deploy
 
@@ -50,15 +50,15 @@ Compliance with this section requires an automated build system, and access to b
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **13.4.1** | [MODIFIED, MOVED FROM 2.5.4] Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 | v5.0.be-14.1.10 |
-| **13.4.2** | [ADDED, SPLIT FROM 4.3.2] Verify that the application is deployed either without any source control metadata including the .git or .svn folders or in a way that these folders are inaccessible both externally and to the application itself. | 1 | v5.0.be-14.1.11 |
-| **13.4.3** | [ADDED] Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | v5.0.be-14.1.9 |
-| **13.4.4** | [LEVEL L2 > L3] Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | 3 | v5.0.be-14.1.2 |
-| **13.4.5** | [MODIFIED] Verify that configuration hardening is performed on all third-party products, libraries, frameworks and services as per their individual recommendations. | 3 | v5.0.be-14.1.3 |
-| **13.4.6** | [MODIFIED] Verify that deployed environments are short lived and frequently redeployed to a "known good" but updated state. Alternatively, long lived environments must have a "drift prevention" mechanism to ensure that deployed configurations are not changed to an insecure state. | 3 | v5.0.be-14.1.5 |
-| **13.4.7** | [MODIFIED, MOVED FROM 14.2.2, SPLIT FROM 4.3.2] Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
-| **13.4.8** | [ADDED] Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
-| **13.4.9** | [ADDED] Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | 3 | v5.0.be-14.1.8 |
+| **13.4.1** | Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 | v5.0.be-14.1.10 |
+| **13.4.2** | Verify that the application is deployed either without any source control metadata including the .git or .svn folders or in a way that these folders are inaccessible both externally and to the application itself. | 1 | v5.0.be-14.1.11 |
+| **13.4.3** | Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | v5.0.be-14.1.9 |
+| **13.4.4** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. | 3 | v5.0.be-14.1.2 |
+| **13.4.5** | Verify that configuration hardening is performed on all third-party products, libraries, frameworks and services as per their individual recommendations. | 3 | v5.0.be-14.1.3 |
+| **13.4.6** | Verify that deployed environments are short lived and frequently redeployed to a "known good" but updated state. Alternatively, long lived environments must have a "drift prevention" mechanism to ensure that deployed configurations are not changed to an insecure state. | 3 | v5.0.be-14.1.5 |
+| **13.4.7** | Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
+| **13.4.8** | Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
+| **13.4.9** | Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | 3 | v5.0.be-14.1.8 |
 
 ## V13.5 Unintended Information Leakage
 
@@ -68,11 +68,11 @@ For example, hiding the version of server-side components does not fix the need 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **13.5.1** | [MODIFIED] Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | 2 | v5.0.be-14.3.2 |
-| **13.5.2** | [ADDED, SPLIT FROM 4.3.2] Verify that directory browsing is disabled unless deliberately desired. | 2 | v5.0.be-14.3.4 |
-| **13.5.3** | [ADDED, SPLIT FROM 14.5.1] Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 2 | v5.0.be-14.3.6 |
-| **13.5.4** | [MODIFIED] Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
-| **13.5.5** | [MODIFIED, MOVED FROM 12.5.1] Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors must be blocked unless required. | 3 | v5.0.be-14.3.5 |
+| **13.5.1** | Verify that debug modes are disabled in production environments for every component to prevent exposure of debug features and unintended information leakage. | 2 | v5.0.be-14.3.2 |
+| **13.5.2** | Verify that directory browsing is disabled unless deliberately desired. | 2 | v5.0.be-14.3.4 |
+| **13.5.3** | Verify that the HTTP TRACE method is disabled to avoid potential information leakage. | 2 | v5.0.be-14.3.6 |
+| **13.5.4** | Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
+| **13.5.5** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information and source code leakage. For example, backup files (.bak), temporary working files (.swp), compressed files (.zip, .tar.gz) and other extensions commonly used by editors must be blocked unless required. | 3 | v5.0.be-14.3.5 |
 
 ## References
 
