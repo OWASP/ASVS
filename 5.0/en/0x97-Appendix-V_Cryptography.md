@@ -160,6 +160,8 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 
 The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications. Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
 
+Warning: SHA-256, and SHA-512 are vulnerable to length extension attacks if used as plain hash functions for authentication or integrity checks. An attacker can compute h(x || y) from h(x) and y without knowing x. To avoid this, use a keyed construction such as HMAC or KMAC when message authentication is required.
+
 | Hash functions | Suitable for HMAC/KDF/RBG? | Reference | L1 | L2 | L3 |
 | -------------- | ----------------------------- |-------------------------------------------------------------- |--|--|--|
 | SHA3-512 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
