@@ -39,7 +39,7 @@ Note: Using parameterized queries or escaping SQL is not always sufficient; tabl
 
 ## V1.3 Sanitization and Sandboxing
 
-The ideal protection against using untrusted content in an unsafe context is using context-specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context as was discussed in more detail in the previos section.
+The ideal protection against using untrusted content in an unsafe context is using context-specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context as was discussed in more detail in the previous section.
 
 Where it is not possible to do this, other options include sanitization and sandboxing. Sanitization will involve removing potentially dangerous characters or content which in some cases could change the semantic meaning of the input, but for security reasons, there may be no choice. Sandboxing may involve ensuring that a potentially dangerous operation is contained such that even if it suffers a security vulnerability, that will not endanger the wider application.
 
@@ -92,7 +92,7 @@ For more information, see also:
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
 * [RFC4180 - Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
 
-<!-- outdated and/or vencor specific
+<!-- outdated and/or vendor specific
 For more information on auto-escaping, please see:
 
 * [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
