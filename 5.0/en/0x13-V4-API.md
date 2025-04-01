@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-A number of considerations apply specifically for applications that exposes APIs for use by a web browser or other consumers (commonly using JSON, XML or GraphQL). This chapter covers relevant security configurations and mechanisms to be applied.
+A number of considerations apply specifically for applications that expose APIs for use by a web browser or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers relevant security configurations and mechanisms to be applied.
 
 Please read this chapter in combination with all other chapters at this same level; we do not duplicate authentication, session management, or general input validation concerns. Rather, the general requirements from those chapters always apply and therefore this chapter can not be taken out of context and be tested separately.
 

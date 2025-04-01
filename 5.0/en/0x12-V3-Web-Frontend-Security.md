@@ -49,9 +49,9 @@ This section indicates which security headers should be set on HTTP responses to
 
 ## V3.5 Browser Origin Separation
 
-When accepting a request to sensitive functionality on the server side, we need to be sure it is initiated by the application itself or by a trusted party and has not been forged by an attacker.
+When accepting a request to sensitive functionality on the server side, the application needs to be sure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
 
-Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state changing operations or resource-demanding functionality (such as data export).
+Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state-changing operations, or resource-demanding functionality (such as data export).
 
 The key protections here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies. Another common protection is the CORS preflight mechanism. This mechanism will be critical for endpoints designed to be called from a different origin, but it can also be a useful request forgery prevention mechanism for endpoints which are not designed to be called from a different origin.
 
