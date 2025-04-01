@@ -1,6 +1,6 @@
 # Appendix V: Cryptography
 
-The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
+In this appendix, ASVS version 5.0 goes beyond simply defining best practices for Cryptography but rather aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. The appendix provides detailed technical information, complementing the overarching standards outlined in each requirement in the main ASVS chapter
 
 ## Algorithms (V11.2)
 
