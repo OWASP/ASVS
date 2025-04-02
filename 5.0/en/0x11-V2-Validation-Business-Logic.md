@@ -8,9 +8,9 @@ Ensure that a verified application satisfies the following high-level requiremen
 * Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers and adding a million friends one at a time.
 * High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
 
-## V2.1 Business Logic Documentation
+## V2.1 Validation and Business Documentation
 
-Business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items so that it is clear what needs to be implemented in the application.
+Validation and business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items so that it is clear what needs to be implemented in the application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -22,13 +22,13 @@ Business logic documentation should clearly define business logic limits, valida
 
 Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive.
 
-In this context, "input" could come from a wide variety of sources including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases and external APIs.
+In this context, "input" could come from a wide variety of sources, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, and external APIs.
 
-Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold as the number governs how many times a particular loop should take place and a high number could lead to excessive processing and a potential denial of service condition.
+Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold, as the number governs how many times a particular loop should take place, and a high number could lead to excessive processing and a potential denial of service condition.
 
 Whilst we no longer explicitly mandate schema validation, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML. Please note the following on Schema Validation:
 
-* As at this time, there is a "published version" of the JSON schema validation specification, which is considered production ready. However, there is not yet a version which is considered strictly "stable". As such, when considering using JSON schema validation, be sure there are no gaps with the guidance in the requirements below.
+* As at this time, there is a "published version" of the JSON schema validation specification, which is considered production-ready. However, there is not yet a version which is considered strictly "stable". As such, when considering using JSON schema validation, be sure there are no gaps with the guidance in the requirements below.
 * Due to the lack of a formal stable version of the JSON schema validation specification, carefully monitor any JSON schema validation libraries in use, as they may need to be updated once the standard is formalized and bugs are ironed out of reference implementations.
 * Due to issues with XXE attacks against DTDs, DTD validation should not be used, and framework DTD evaluation should be disabled.
 
@@ -64,8 +64,8 @@ This section includes anti-automation controls to ensure that human-like interac
 
 For more information, see also:
 
+* [OWASP Web Security Testing Guide 4.2: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
 * [OWASP Web Security Testing Guide 4.2: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README)
 * Anti-automation can be achieved in many ways, including the use of the [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
-* [OWASP Testing Guide 4.0: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
-* [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+* [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [JSON Schema](https://json-schema.org/specification.html)

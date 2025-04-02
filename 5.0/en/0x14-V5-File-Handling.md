@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The use of files can present a variety of risks for the application including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
+The use of files can present a variety of risks for the application, including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
 
 ## V5.1 Secure File Upload Documentation
 
@@ -25,7 +25,7 @@ Upload functionality is a key source of untrusted files. This section details th
 
 ## V5.3 File Storage
 
-This section includes requirements to prevent files being inappropriately executed after upload, to detect dangerous content, and avoid untrusted data being used to control where files are being stored.
+This section includes requirements to prevent files from being inappropriately executed after upload, to detect dangerous content, and to avoid untrusted data being used to control where files are being stored.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
