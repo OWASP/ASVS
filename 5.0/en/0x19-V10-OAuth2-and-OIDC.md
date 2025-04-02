@@ -113,13 +113,13 @@ As the OIDC Relying Party acts as an OAuth client, the requirements from the sec
 | **10.5.2** | Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 2 | v5.0.be-51.5.2 |
 | **10.5.3** | Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by client. | 2 | v5.0.be-51.5.3 |
 | **10.5.4** | Verify that the client validates that the ID token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 2 | v5.0.be-51.5.4 |
-| **10.5.5** | Verify that, if specific authentication strength, methods or recentness is required, the relying party (RP) verifies that the presented ID-token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 | v5.0.be-51.5.5 |
+| **10.5.5** | Verify that, if specific authentication strength, methods or recentness is required, the relying party (RP) verifies that the presented ID Token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 | v5.0.be-51.5.5 |
 
 ## V10.6 OpenID Provider
 
 As OpenID Providers act as OAuth Authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
 
-Note that if using the id-token flow (not the code flow), no access tokens are issued and many of the requirements for OAuth AS are not applicable.
+Note that if using the ID Token flow (not the code flow), no access tokens are issued and many of the requirements for OAuth AS are not applicable.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
