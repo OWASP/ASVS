@@ -35,7 +35,7 @@ In many cases, software libraries will include safe or safer functions which wil
 | **1.2.8** | Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 | v5.0.be-5.3.12 |
 | **1.2.9** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as xls, xlsx, or odf), special characters (including '=', '+', '-', '@' '\t' (tab) and '\00' (null character)) must be escaped using a single quote, if they are the first character in a field value. | 3 | v5.0.be-5.3.11 |
 
-Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY, and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
+Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
 ## V1.3 Sanitization and Sandboxing
 
