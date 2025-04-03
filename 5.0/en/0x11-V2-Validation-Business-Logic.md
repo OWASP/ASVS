@@ -27,7 +27,7 @@ In this context, "input" could come from a wide variety of sources, including HT
 
 A business logic control might check that a particular input is a number less than 100. a functional expectation might check that particular numberis  below a certain threshold, as the number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
 
-Whilst chema validation is not explicitly mandated, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML. 
+Whilst chema validation is not explicitly mandated, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML.
 
 Please note the following points on Schema Validation:
 
