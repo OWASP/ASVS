@@ -4,11 +4,11 @@
 
 A number of considerations apply specifically for applications that expose APIs for use by a web browser or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers relevant security configurations and mechanisms to be applied.
 
-Please read this chapter in combination with all other chapters at this same level; we do not duplicate authentication, session management, or general input validation concerns. Rather, the general requirements from those chapters always apply and therefore this chapter can not be taken out of context and be tested separately.
+Note that the general authentication, session management, or general input validation concerns from other chapters also apply to APIs so this chapter can not be taken out of context or tested separately.
 
 ## V4.1 Generic Web Service Security
 
-This section promotes generic web service security considerations and consequently basic web service hygiene practices in general.
+This section promotes generic web service security considerations and consequently basic web service hygiene practices.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -18,7 +18,7 @@ This section promotes generic web service security considerations and consequent
 
 ## V4.2 HTTP Request Header Validation
 
-This section detatils HTTP request headers validations that can prevent attacks such as HTTP Request Smuggling or source spoofing.
+This section details how HTTP request header fields should be validated to prevent attacks such as HTTP Request Smuggling or source spoofing.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -28,7 +28,7 @@ This section detatils HTTP request headers validations that can prevent attacks 
 
 ## V4.3 HTTP/2
 
-This section focuses on specific security considerations related to HTTP/2. Note that the requirements below may also apply to HTTP/3.
+This section focuses on specific security considerations related to HTTP/2 and may also apply to HTTP/3.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
