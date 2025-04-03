@@ -65,35 +65,47 @@ Note that review and changes should always be made based on the raw .md files. T
 
 To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. The current bleeding edge working directory can be found here <https://github.com/OWASP/ASVS/tree/master/5.0/en>.
 
-### Tags in the mapping files
+# Mapping between v4.0.3 and v5.0.0
 
-The mappings in the [`5.0/mappings/`](https://github.com/OWASP/ASVS/tree/master/5.0/mappings/) folder use tags to explain how requirements changed between different versions. This will be useful if you are trying to trace the rationale of a particular requirement.
+For a smooth transfer from ASVS v4.0.3 to v5.0.0, it is good to know:
 
-These mappings use tags to explain how the requirements have changed between the versions.
+  * What happened with the requirement from v4.0.3?
+  * Is the requirement in v5.0.0 originating from any requirement from v4.0.3, or is it completely new?
 
-* `[ADDED]` - New requirement (should only be added at the end of a sub-section.).
-* `[MODIFIED]` - Requirement description has been modified.
-* `[GRAMMAR]` - Requirement description has been corrected from a language or grammar perspective, but the wording or meaning of the description is not modified.
-* `[MOVED TO x.y.z]` - Placeholder to keep number, requirement has been moved to another category.
-* `[MOVED FROM a.b.c]` - Requirement has been moved to a different sub-section but **not** modified. (should only be added at the end of a sub-section.).
-* `[MODIFIED, MOVED FROM a.b.c]` - Requirement description has been modified **and** requirement has been moved to a different sub-section.
-* `[MODIFIED, SPLIT TO x.y.z]` - Requirement description has been modified **and** part of the requirement is split into a new separate requirement.
-* `[ADDED, SPLIT FROM a.b.c]` - New requirement which was previously part of another requirement.
-* `[DELETED]` - Placeholder to keep number, requirement has been deleted.
-* `[DELETED, MERGED TO x.y.z]` - Placeholder to keep number, requirement has been merged into another requirement.
-* `[DELETED, COVERED BY x.y.z]` - Placeholder to keep number, requirement has been deleted because of clear duplicate to referenced requirement (referenced requirement do not have changes because of that).
-* `[COVERS a.b.c]` - new requirement that covers old requirement marked by `COVERED BY x.y.z`
-* `[DELETED, NOT IN SCOPE]` - Placeholder to keep number, requirement has been decided to be out of ASVS scope.
-* `[DELETED, INCORRECT]` - Placeholder to keep number, requirement was invalid or provided inadvisable advice.
-* `[DELETED, NOT PRACTICAL]` - Placeholder to keep number, requirement was not practical (enough) to implement in reality.
-* `[DELETED, INSUFFICIENT IMPACT]` - Placeholder to keep number, requirement was valid and in scope but provided insufficient benefit to be worthwhile.
-* `[SPLIT TO x.y.z, i.j.f]` - Placeholder to keep number, requirement has been split into 2 or more requirements to other categories.
+Through the 5.5 years from the last release, the changes are tracked and tagged and give the possibility to provide 2-way mapping now.
 
-<!--
-* `[LEVEL L1 > L2]` - Requirement level has changed. Level change label may exist also for `[MODIFIED]`, `[MOVED FROM]` and `[SPLIT FROM]`
--->
+Note that requirement numbers for v5.0.0 may change till it is released (it is too early to make "a final copy" of the mapping).
 
-`SPLIT TO`, `MOVED TO`, `MERGED TO` labels must have matching labels with `SPLIT FROM`, `MOVED FROM`, `MERGED FROM`.
+Mappings are presented in a separate `yml` file. How those mapping files can be used, a sample output is also provided on asvs.dev:
+
+  * Mapping from v4.0.3 to v5.0.0:
+    * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v4.0.3_to_v5.0.0.yml> - mapping file
+    * <https://asvs.dev/mapping_v4.0.3_to_v5.0.0.html> - visual overview of changes
+  * Mapping from v5.0.0 to v4.0.3:
+    * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v5.0.0_to_v4.0.3.yml> - mapping file
+    * <https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html> - visual overview of changes
+
+Tags in new (v5.0.0) mapping file:
+
+  * `ADDED` - new requirement
+  * `MOVED FROM x.y.z` - reference to the requirement in the old version. Must have a matching `MOVE TO` tag in the old version.
+    * `MODIFIED` - marks, was the moved requirement also modified (more than just a language or grammar change)
+    * `GRAMMAR` - marks, was the moved requirement modified only on the language or grammar correction level
+  * `SPLIT FROM x.y.z` - In the old version requirement was split. Must have matching `SPLIT TO` in old version.
+  * `MERGED FROM x.y.z` - requirement has been merged from another requirement from the old version. Must have a matching `MERGED TO` tag in the old version.
+  * `COVERS x.y.z` - covers the requirement in the old version. Must have a matching `COVERED BY x.y.z` tag in the old version.
+
+Tags in old (v4.0.3) mapping file:
+
+  * `DELETED` - the requirement is deleted in the new version, with a reason
+    * `DELETED, NOT IN SCOPE` - requirement has been decided to be out of the redefined scope of ASVS
+    * `DELETED, INCORRECT` - requirement was invalid or provided inadvisable advice
+    * `DELETED, NOT PRACTICAL` - the requirement was not practical (enough) to implement in reality
+    * `DELETED, INSUFFICIENT IMPACT` - requirement provided insufficient benefit to be worthwhile
+    * `DELETED, MERGED TO x.y.z` - requirement was merged to another requirement, reference to the new requirement. Must have matching `MERGED FROM` tag in new version
+    * `DELETED, COVERED BY x.y.z` - The requirement was a duplicate of or is covered by another requirement in the new version. Must have matching `COVERS` tag in new version
+  * `MOVED TO x.y.z` - reference to the requirement in the new version. Must have a matching `MOVED FROM` tag in the new version
+  * `SPLIT TO x.y.z, i.j.k` - requirement is divided into many requirements, references to requirements in now version presenting separate parts. Must have matching `SPLIT FROM` tag in new version
 
 ### Translations
 
