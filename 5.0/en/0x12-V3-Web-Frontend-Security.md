@@ -71,7 +71,7 @@ This section provides guidance for the safe hosting of content on third-party si
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **3.6.1** | Verify that if client-side assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | 3 | v5.0.be-50.7.1 |
+| **3.6.1** | Verify that client-side assets, such as JavaScript libraries, CSS, or web fonts, are only hosted externally (e.g., on a Content Delivery Network) if the resource is static and versioned and Subresource Integrity (SRI) is used to validate the integrity of the asset. If this is not possible, there should be a documented security decision to justify this for each resource. | 3 | v5.0.be-50.7.1 |
 
 ## V3.7 Other Browser Security Considerations
 
