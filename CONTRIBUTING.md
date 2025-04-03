@@ -65,47 +65,47 @@ Note that review and changes should always be made based on the raw .md files. T
 
 To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. The current bleeding edge working directory can be found here <https://github.com/OWASP/ASVS/tree/master/5.0/en>.
 
-# Mapping between v4.0.3 and v5.0.0
+### Mapping between v4.0.3 and v5.0.0
 
 For a smooth transfer from ASVS v4.0.3 to v5.0.0, it is good to know:
 
-  * What happened with the requirement from v4.0.3?
-  * Is the requirement in v5.0.0 originating from any requirement from v4.0.3, or is it completely new?
+  * What happened with a particular requirement since v4.0.3?
+  * Does a requirement in v5.0.0 originate from requirement/s from v4.0.3, or is it completely new?
 
-Through the 5.5 years from the last release, the changes are tracked and tagged and give the possibility to provide 2-way mapping now.
+Through the 3.5 years since the last release (v4.0.3), changes have been tracked and tagged to make it possible to provide a 2-way mapping now.
 
-Note that requirement numbers for v5.0.0 may change till it is released (it is too early to make "a final copy" of the mapping).
+(Note that requirement numbers for v5.0.0 may change until it is released. Although we are continuing to update the mapping as we go. It is therefore too early to make "a final copy" of the mapping.)
 
-Mappings are presented in a separate `yml` file. How those mapping files can be used, a sample output is also provided on asvs.dev:
+Mappings are presented in separate `yml` files. However, a formatted output is also provided on <asvs.dev>:
 
   * Mapping from v4.0.3 to v5.0.0:
     * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v4.0.3_to_v5.0.0.yml> - mapping file
-    * <https://asvs.dev/mapping_v4.0.3_to_v5.0.0.html> - visual overview of changes
+    * <https://asvs.dev/mapping_v4.0.3_to_v5.0.0.html> - formatted output
   * Mapping from v5.0.0 to v4.0.3:
     * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v5.0.0_to_v4.0.3.yml> - mapping file
-    * <https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html> - visual overview of changes
+    * <https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html> - formatted output
 
 Tags in new (v5.0.0) mapping file:
 
   * `ADDED` - new requirement
-  * `MOVED FROM x.y.z` - reference to the requirement in the old version. Must have a matching `MOVE TO` tag in the old version.
-    * `MODIFIED` - marks, was the moved requirement also modified (more than just a language or grammar change)
-    * `GRAMMAR` - marks, was the moved requirement modified only on the language or grammar correction level
-  * `SPLIT FROM x.y.z` - In the old version requirement was split. Must have matching `SPLIT TO` in old version.
-  * `MERGED FROM x.y.z` - requirement has been merged from another requirement from the old version. Must have a matching `MERGED TO` tag in the old version.
-  * `COVERS x.y.z` - covers the requirement in the old version. Must have a matching `COVERED BY x.y.z` tag in the old version.
+  * `MOVED FROM x.y.z` - reference to the requirement number from v4.0.3. Must have a matching `MOVE TO` tag in the old mapping file.
+    * `GRAMMAR` - indicates that there are grammar or language corrections in the moved requirement, which don't change the requirement's meaning.
+    * `MODIFIED` - indicates that the meaning of the moved requirement was changed (more than just a language or grammar change).
+  * `SPLIT FROM x.y.z` - the v4.0.3 requirement was split to multiple requirements in v5.0.0. Must have a matching `SPLIT TO` in the old mapping file.
+  * `MERGED FROM x.y.z` - the v4.0.3 requirement has been merged with another requirement for v5.0.0. Must have a matching `MERGED TO` tag in the old mapping file.
+  * `COVERS x.y.z` - the v5.0.0 requirement covers the content of this v4.0.3 requirement. Must have a matching `COVERED BY x.y.z` tag in the old mapping file.
 
 Tags in old (v4.0.3) mapping file:
 
-  * `DELETED` - the requirement is deleted in the new version, with a reason
-    * `DELETED, NOT IN SCOPE` - requirement has been decided to be out of the redefined scope of ASVS
-    * `DELETED, INCORRECT` - requirement was invalid or provided inadvisable advice
-    * `DELETED, NOT PRACTICAL` - the requirement was not practical (enough) to implement in reality
-    * `DELETED, INSUFFICIENT IMPACT` - requirement provided insufficient benefit to be worthwhile
-    * `DELETED, MERGED TO x.y.z` - requirement was merged to another requirement, reference to the new requirement. Must have matching `MERGED FROM` tag in new version
-    * `DELETED, COVERED BY x.y.z` - The requirement was a duplicate of or is covered by another requirement in the new version. Must have matching `COVERS` tag in new version
-  * `MOVED TO x.y.z` - reference to the requirement in the new version. Must have a matching `MOVED FROM` tag in the new version
-  * `SPLIT TO x.y.z, i.j.k` - requirement is divided into many requirements, references to requirements in now version presenting separate parts. Must have matching `SPLIT FROM` tag in new version
+  * `DELETED` - the v4.0.3 requirement is deleted in the new version, with a reason.
+    * `DELETED, NOT IN SCOPE` - requirement has been decided to be out of the redefined scope of ASVS.
+    * `DELETED, INCORRECT` - requirement was invalid or provided inadvisable advice.
+    * `DELETED, NOT PRACTICAL` - the requirement was not practical (enough) to implement in reality.
+    * `DELETED, INSUFFICIENT IMPACT` - the requirement provided insufficient benefit to be worthwhile.
+    * `DELETED, MERGED TO x.y.z` - the requirement was merged to another requirement for v5.0.0. Must have a matching `MERGED FROM` tag in the new mapping file.
+    * `DELETED, COVERED BY x.y.z` - the requirement was a duplicate of or is covered by another requirement in v5.0.0. Must have a matching `COVERS` tag in the new mapping file.
+  * `MOVED TO x.y.z` - reference to the requirement number from v5.0.0. Must have a matching `MOVED FROM` tag in the new version
+  * `SPLIT TO x.y.z, i.j.k` - the v4.0.3 requirement is divided into multiple requirements in v5.0.0. Must have matching `SPLIT FROM` tags in the new mapping file.
 
 ### Translations
 
