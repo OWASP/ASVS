@@ -2,13 +2,24 @@
 
 The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
 
+This appendix defines the level of approval for different cryptographic mechanisms:
+
+* **Approved** (A) mechanisms can be used in applications.
+* **Legacy** mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
+* **Disallowed** mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
+
+This list may be overloaded in the context of a given applications for different reasons including:
+
+* new evolutions in the field of cryptography;
+* compliance with some regulation.
+
 ## Algorithms (V11.2)
 
-### Equivalent Strengths of Cryptographic Parameters
+## Equivalent Strengths of Cryptographic Parameters
 
 The relative security strengths for various cryptographic systems are in this table (from [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final), p.71):
 
-| Security Strength | Symmetric Key Algorithms | Finite Field Cryptography (DSA, DH, MQV) | Integer Factorisation Cryptography (RSA) | Elliptic Curve Cryptography (ECDSA, EdDSA, DH, MQV) |
+| Security Strength | Symmetric Key Algorithms | Finite Field | Integer Factorisation | Elliptic Curve |
 |--|--|--|--|--|
 | <= 80 | 2TDEA | L = 1024 <br> N = 160 | k = 1024 | f = 160-223 |
 | 112 | 3TDEA   | L = 2048 <br> N = 224 | k = 2048 | f = 224-255 |
@@ -16,111 +27,72 @@ The relative security strengths for various cryptographic systems are in this ta
 | 192 | AES-192 | L = 7680 <br> N = 384 | k = 7680 | f = 384-511 |
 | 256 | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
 
+Example of applications:
+
+* Finite Field Cryptography: DSA, FFDH, MQV
+* Integer Factorisation Cryptography: RSA
+* Elliptic Curve Cryptography: ECDSA, EdDSA, ECDH, MQV
+
 Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
 
 ## Random Values (V11.5)
 
-### Approved RNG Methods and Algorithms
+| Name | Version/Reference | Notes | Status |
+|:-:|:-:|:-:|:-:|
+| `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), also found in iOS, Android, and other Linux-based POSIX operating systems. Based on [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | Utilizing ChaCha20 stream. Found in iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) and Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) with the correct settings provided to each. | A |
+| `/dev/urandom` | Linux kernel's special file for providing random data | Provides high-quality, entropy sources from hardware randomness | A |
+| `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | As used in common implementations, such as [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) set by [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers). | A |
+| `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
+| `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
+| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2), available in [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) and [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | Provides secure random bytes directly from the kernel's entropy source with a straightforward and minimal API. It’s more modern and avoids pitfalls associated with older APIs. | A |
 
-| Name | Version/Reference | Notes | L1 | L2 | L3 |
-|:-:|:-:|:-:|:-:|:-:|:-:|
-| `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), also found in iOS, Android, and other Linux-based POSIX operating systems. Based on [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | Utilizing ChaCha20 stream. Found in iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) and Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) with the correct settings provided to each. | ✓ | ✓ | ✓ |
-| `/dev/urandom` | Linux kernel's special file for providing random data | Provides high-quality, entropy sources from hardware randomness | ✓ | ✓ | ✓ |
-| `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | As used in common implementations, such as [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) set by [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers). | ✓ | ✓ | ✓ |
-| `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | ✓ | ✓ | ✓ |
-| `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | ✓ | ✓ | ✓ |
-| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2), available in [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) and [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | Provides secure random bytes directly from the kernel's entropy source with a straightforward and minimal API. It’s more modern and avoids pitfalls associated with older APIs. | ✓ | ✓ | ✓ |
-
-### Disallowed Hashes for RBG
-
-The following SHOULD NOT be used for RBG (according to [NIST SP-800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)):
-
-| Hash functions | Reference |
-|--|--|
-| SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) |
-| SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| KMAC128 | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) |
+The underlying hash function used with HMAC-DRBG or Hash-DRBG must be approved for this usage.
 
 ## Cipher Algorithms (V11.3)
 
-### Approved Ciphers
+Approved cipher algorithms are listed in order of preference.
 
-The following ciphers are approved:
-
-| Symmetric Key Algorithms | Reference | L1 | L2 | L3 |
-|--|--|--|--|--|
-| AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | | ✓ | ✓ |
-| Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | | ✓ | ✓ |
-| XChaCha20 | [XChaCha20 Draft](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-xchacha-03) | ✓ | ✓ | ✓ |
-| XSalsa20 | [Extending the Salsa20 nonce](https://cr.yp.to/snuffle/xsalsa-20110204.pdf) | ✓ | ✓ | ✓ |
-| ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | ✓ | ✓ | ✓ |
-| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
-| AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | ✓ | ✓ | ✓ |
-
-### Disallowed Ciphers
-
-The following is a list of _explicitly unauthorized_ ciphers. Whilst anything not on the above list must be approved with documented reasons, the following are explicitly banned and MUST NOT be used:
-
-| Symmetric Key Algorithms |
-|--|
-| 2TDEA |
-| TDEA (3DES/3DEA) |
-| IDEA |
-| RC4 |
-| Blowfish|
-| ARC4 |
-| DES |
+| Symmetric Key Algorithms | Reference | Status |
+|--|--|--|
+| AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | A |
+| Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | A |
+| XChaCha20 | [XChaCha20 Draft](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-xchacha-03) | A |
+| XSalsa20 | [Extending the Salsa20 nonce](https://cr.yp.to/snuffle/xsalsa-20110204.pdf) | A |
+| ChaCha20 | [RFC 8439](https://www.rfc-editor.org/info/rfc8439) | A |
+| AES-192 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | A |
+| AES-128 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | L |
+| 2TDEA | | D |
+| TDEA (3DES/3DEA) | | D |
+| IDEA | | D |
+| RC4 | | D |
+| Blowfish| | D |
+| ARC4 | | D |
+| DES | | D |
 
 ### AES Cipher Modes
 
-Modern ciphers make use of various modes, particularly AES for various purposes. We describe the requirements on AES Cipher Modes here.
+Modern ciphers make use of various modes, particularly AES for various purposes. We describe the requirements on AES Cipher Modes here. Some AES modes are only approved for disk-level block encryption.
 
-#### Approved Cipher Modes for General Use Cases
-
-The following modes are approved except where the function is encrypted data storage (see next subsection):
-
-| AES Encryption Mode | Authenticated | Reference | L1 | L2 | L3 |
-|--|--|--|--|--|--|
-| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | ✓ | ✓ | ✓ |
-| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | ✓ | ✓ | ✓ |
-| CBC* | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | ✓ | ✓ | ✓ |
-
-\* All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used.
-
-#### Recommendations for Approved Cipher Modes for General Use Cases
-
-Out of the given approved block modes, implementations SHOULD use the ciphers in this list, in order of preference:
-
-| AES Encryption Mode | Reference | L1 | L2 | L3 |
+| Mode | Authenticated | Reference | Status | Restriction |
 |--|--|--|--|--|
-| GCM | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | ✓ | ✓ | ✓ |
-| CCM | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | ✓ | ✓ | ✓ |
+| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
+| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
+| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | A | |
+| XTS | No | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) | A | For disk-level block encryption only. |
+| XEX | No | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) | A | For disk-level block encryption only. |
+| LRW | No | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | A | Fir disk-level block encryption only. |
+| ECB | No | | D | |
+| CFB | No | | D | |
+| OFB | No | | D | |
+| CTR | No | | D | |
+| CCM-8 | Yes | | D | |
 
-#### Approved Cipher Modes ONLY for Data Storage (block encryption on disk)
+Approved modes are listed in order of preference.
 
-The following disk-level block encryption modes are approved and are listed in order of preference:
+Notes:
 
-| AES Disk Encryption Mode | Reference | L1 | L2 | L3 |
-|--|--|--|--|--|
-| XTS | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) | ✓ | ✓ | ✓ |
-| XEX | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) | ✓ | ✓ | ✓ |
-| LRW | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | ✓ | ✓ | ✓ |
-
-#### Disallowed Cipher Modes
-
-The following cipher modes MUST NOT be used for any use case:
-
-| Encryption Mode |
-|--|
-| ECB |
-| CFB |
-| OFB |
-| CTR |
-| CCM-8** |
-
-\** When using CCM-8, the MAC tag only has 64 bits of security.
-This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
+* All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used.
+* When using CCM-8, the MAC tag only has 64 bits of security. This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
 
 ### Key Wrapping
 
@@ -131,10 +103,10 @@ However, serious consideration should be given to understanding the nature (e.g.
 
 Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) and considering forward-looking provisions against the quantum threat. Cipher modes using AES are the following, in order of preference:
 
-| Key Wrapping | Reference | L1 | L2 | L3 |
-|--|--|--|--|--|
-| KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | ✓ | ✓ | ✓ |
-| KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | ✓ | ✓ | ✓ |
+| Key Wrapping | Reference | Status |
+|--|--|--|
+| KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
+| KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
 
@@ -148,78 +120,67 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 
 | AEAD mechanism | Reference | Status
 |--------------------------|---------|-----|
-|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | approved
-|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | approved
-|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | approved
-|Encrypt-then-MAC | | approved
-|MAC-then-encrypt | | legacy
+|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
+|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
+|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
+|Encrypt-then-MAC | | A
+|MAC-then-encrypt | | L
 
 ## Hash Functions (V11.4)
 
-### Approved Hash Functions for General Use Cases
+### Hash Functions for General Use Cases
 
-The following hash functions are approved for use in general cryptographic use cases such as digital signatures, HMAC, key derivation functions (KDF), and random bit generation (RBG). These functions provide strong collision resistance and are suitable for high-security applications. Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
+The following table lists hash functions approved in general cryptographic use cases such as digital signatures:
 
-| Hash functions | Suitable for HMAC/KDF/RBG? | Reference | L1 | L2 | L3 |
-| -------------- | ----------------------------- |-------------------------------------------------------------- |--|--|--|
-| SHA3-512 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
-| SHA-512 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
-| SHA3-384 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
-| SHA-384 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
-| SHA3-256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | | ✓ | ✓ |
-| SHA-512/256 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | | ✓ | ✓ |
-| SHA-256 | Y |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | ✓ | ✓ | ✓ |
-| KMAC256 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
-| KMAC128 | N |[NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final) | ✓ | ✓ | ✓ |
-| SHAKE256 | Y |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | ✓ | ✓ | ✓ |
-| BLAKE2s | Y | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | ✓ | ✓ | ✓ |
-| BLAKE2b | Y | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | ✓ | ✓ | ✓ |
-| BLAKE3 | Y | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf) | ✓ | ✓ | ✓ |
+* Approved hash functions provide strong collision resistance and are suitable for high-security applications.
+* Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
+* Hash function with less than 254 bit of output have insufficient collision resistancea and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
 
-### Approved Hash Functions for Password Storage
+| Hash function | Reference | Status | Restrictions |
+| -------------- | ------------------------------------------------------------- |--|--|
+| SHA3-512 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
+| SHA-512 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
+| SHA3-384 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
+| SHA-384 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
+| SHA3-256 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
+| SHA-512/256 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
+| SHA-256 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
+| SHAKE256 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
+| BLAKE2s | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | A | |
+| BLAKE2b | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | A | |
+| BLAKE3 | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf) | A | |
+| SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
+| SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
+| SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
+| SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
+| CRC (any length) |  | D |  |
+| MD4 | [RFC 1320](https://www.rfc-editor.org/info/rfc1320) | D | |
+| MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321) | D | |
 
-The following hash functions are specifically recommended for secure password storage. These slow-hashing algorithms mitigate brute-force and dictionary attacks by increasing the computational difficulty of password cracking.
+### Hash Functions for Password Storage
 
-| Hash Function | Reference | Required Parameter Sets | L1 | L2 | L3 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --|--|--|
-| argon2 | RFC 9106 | Argon2ID: Memory Cost 19MB, Time Cost 2, Parallelism 1 | | ✓ | ✓ |
-| scrypt | RFC 7914 | 2^15 r = 8 p = 1 | | ✓ | ✓ |
-| bcrypt |[A Future-Adaptable Password Scheme](https://www.usenix.org/legacy/events/usenix99/provos/provos.pdf) | At least 10 rounds. | | ✓ | ✓ |
-| PBKDF2_SHA512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations | ✓ | ✓ | ✓ |
-| PBKDF2_SHA256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations | ✓ | ✓ | ✓ |
+For secure password hashing, dedicated hash functions must be used. These slow-hashing algorithms mitigate brute-force and dictionary attacks by increasing the computational difficulty of password cracking.
 
-### Disallowed Hash Functions
-
-The following hash functions MUST NOT be used in any cryptographic operation generating new material due to known weaknesses and vulnerabilities, they MAY only be used for verification of existing material.
-
-| Hash functions | Reference |
-| ---------------- | --------------------------------------------------------------------------------------------------------- |
-| CRC (any length) | -- |
-| MD4 | [RFC 1320](https://www.rfc-editor.org/info/rfc1320) |
-| MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321) |
-| SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
-
-### Disallowed Hash Functions for Digital Signatures
-
-Due to insufficient collision resistance, the following hash functions MUST NOT be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
-
-| Hash functions | Reference |
-| -------------- | -------------------------------------------------------------- |
-| SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) |
-| SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) |
+| Hash function | Reference | Required Parameter Sets | Status |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --|
+| argon2 | RFC 9106 | Argon2ID: Memory Cost 19MB, Time Cost 2, Parallelism 1 | A |
+| scrypt | RFC 7914 | 2^15 r = 8 p = 1 | A |
+| bcrypt |[A Future-Adaptable Password Scheme](https://www.usenix.org/legacy/events/usenix99/provos/provos.pdf) | At least 10 rounds. | A |
+| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations | A |
+| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations | A |
+| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 1,300,000 iterations | L |
 
 ## Key Exchange Mechanisms (V11.6)
 
-### Approved KEX Schemes
+### KEX Schemes
 
-A security strength of 128 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the next table:
+A security strength of 112 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the following table.
 
-| Scheme | Domain Parameters |
-|--|--|
-| RSA | k >= 3072 |
-| Diffie-Hellman (DH) | L >= 3072 & N >= 256 |
-| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 |
+| Scheme | Domain Parameters | Status |
+|--|--|--|
+| RSA | k >= 3072 | A |
+| Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | A |
+| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | A |
 
 Where the following parameters are:
 
@@ -227,100 +188,66 @@ Where the following parameters are:
 * L is the size of the public key and N is the size of the private key for finite field cryptography.
 * f is the range of key sizes for ECC.
 
-### Approved DH groups
+Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) and [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final). Specifically, IKEv1 MUST NOT be used in production.
 
-The following groups are approved and MUST be used for implementations of Diffie-Hellman KEX. IKEv2 groups are provided for reference ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Equivalent groups might be used in other protocols. This list is ordered STRONGEST to WEAKEST. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+### Diffie-Hellman groups
 
-| Group | Scheme | Parameters | Security bits | L1 | L2 | L3 |
-|--|--|--|--|--|--|--|
-| 21 | ECC | 521-bit random ECP group | 260 | | | ✓ |
-| 32 | ECC | Curve448 | 224 | | | ✓ |
-| 18 | MODP | 8192-bit MODP Group | 192 < 200 | | ✓ | ✓ |
-| 20 | ECC | 384-bit random ECP group | 192 | | ✓ | ✓ |
-| 17 | MODP | 6144-bit MODP Group | 128 < 176 | ✓ | ✓ | ✓ |
-| 16 | MODP | 4096-bit MODP Group | 128 < 152 | ✓ | ✓ | ✓ |
-| 31 | ECC | Curve25519 | 128 | ✓ | ✓ | ✓ |
-| 19 | ECC | 256-bit random ECP group | 128 | ✓ | ✓ | ✓ |
-| 15 | MODP | 3072-bit MODP Group | 128 | ✓ | ✓ | ✓ |
-| 14 | MODP | 2048-bit MODP Group | 112 | ✓ | ✓ | ✓ |
+The following groups are approved and MUST be used for implementations of Diffie-Hellman KEX. IKEv2 groups are provided for reference ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Equivalent groups might be used in other protocols. This list is ordered strongest to weakest. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-### Disallowed KEX Schemes
-
-Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) and [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final).
-
-Specifically, IKEv1 MUST NOT be used in production.
+| Group | Scheme | Parameters | Security bits | Status |
+|--|--|--|--|--|
+| 21 | ECC | 521-bit random ECP group | 260 | A |
+| 32 | ECC | Curve448 | 224 | A |
+| 18 | MODP | 8192-bit MODP Group | 192 < 200 | A |
+| 20 | ECC | 384-bit random ECP group | 192 | A |
+| 17 | MODP | 6144-bit MODP Group | 128 < 176 | A |
+| 16 | MODP | 4096-bit MODP Group | 128 < 152 | A |
+| 31 | ECC | Curve25519 | 128 | A |
+| 19 | ECC | 256-bit random ECP group | 128 | A |
+| 15 | MODP | 3072-bit MODP Group | 128 | A |
+| 14 | MODP | 2048-bit MODP Group | 112 | A |
 
 ## Message Authentication Codes (MAC)
 
 Message Authentication Codes (MACs) are cryptographic constructs used to verify the integrity and authenticity of a message. A MAC takes a message and a secret key as inputs and produces a fixed-size tag (the MAC value). MACs are widely used in secure communication protocols (e.g., TLS/SSL) to ensure that messages exchanged between parties are authentic and intact.
 
-### Approved MAC Algorithms
-
-The following MAC algorithms are approved for use in securing messages by providing integrity and authenticity guarantees. Implementations MUST use only authenticated encryption modes or separately applied HMAC to ensure the security of messages:
-
-| MAC Algorithm     | Reference                                                                                 | Suitable for General Use? | L1 | L2 | L3 |
-| ----------------- | ----------------------------------------------------------------------------------------- | ------------------------- |----|----|----|
-| HMAC-SHA-256      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       | ✓  | ✓  | ✓  |
-| HMAC-SHA-384      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
-| HMAC-SHA-512      | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | ✓                       |    | ✓  | ✓  |
-| KMAC128           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
-| KMAC256           | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | ✓                       | ✓  | ✓  | ✓  |
-| BLAKE3            |  [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | ✓                       | ✓  | ✓  | ✓  |
-| AES-CMAC          | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | ✓ | ✓  | ✓  | ✓  |
-| AES-GMAC          | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | ✓ | ✓  | ✓  | ✓  |
-| Poly1305-AES      | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | ✓ | ✓  | ✓  | ✓  |
-
-### Disallowed MAC Algorithms
-
-The following algorithms are explicitly banned and MUST NOT be used due to known vulnerabilities or insufficient security strength:
-
-| MAC Algorithm    | Reference                                                                          |
-| ---------------- | ---------------------------------------------------------------------------------- |
-| HMAC-MD5         | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
+| MAC Algorithm | Reference                                                                                 | Status | Restrictions |
+| --------------| ----------------------------------------------------------------------------------------- | -------| ------------ |
+| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
+| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
+| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
+| KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
+| KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
+| BLAKE3        | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
+| AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
+| AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
+| Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
+| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L | |
+| HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      | |
 
 ## Digital Signatures
 
-### Approved Digital Signature Algorithms
+Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-The following digital signature algorithms are approved for use in ensuring data authenticity and integrity. Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final):
-
-| Signature Algorithm            | Reference                                                  | Suitable for General Use? | L1 | L2 | L3 |
-| ------------------------------ | ---------------------------------------------------------- | ------------------------- |----|----|----|
-| EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | ✓                         | ✓  | ✓  | ✓  |
-| XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | ✓                         | ✓  | ✓  | ✓  |
-| ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | ✓                         | ✓  | ✓  | ✓  |
-| RSA-RSSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | ✓                         | ✓  | ✓  | ✓  |
-
-### Disallowed Digital Signature Algorithms
-
-The following digital signature algorithms MUST NOT be used due to known weaknesses or insufficient security strength:
-
-| Signature Algorithm | Reference                                                                          |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| RSA-SSA-PKCS#1 v1.5 | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)                                |
-| DSA (any key size)  | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)                          |
+| Signature Algorithm            | Reference                                                  | Status |
+| ------------------------------ | ---------------------------------------------------------- | ------ |
+| EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | A      |
+| XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | A      |
+| ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
+| RSA-RSSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | A      |
+| RSA-SSA-PKCS#1 v1.5            | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | D      |
+| DSA (any key size)             | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
 
 ## Key Derivation Functions (KDFs)
 
-### Approved KDFs
-
-Key derivation functions transform a keying material into keys suitable for specific cryptographic operations. The following KDFs are approved and MUST be used based on the application’s needs and security context:
-
-| KDF         | Reference                                                                                     | Suitable for General Use? | L1 | L2 | L3 |
-| ----------- | --------------------------------------------------------------------------------------------- | ------------------------- |----|----|----|
-| argon2id    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                          | ✓                       |    | ✓  | ✓  |
-| scrypt      | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                          | ✓                       |    | ✓  | ✓  |
-| PBKDF2      | [RFC 8018](https://www.rfc-editor.org/info/rfc8018) & [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final) | ✓                       | ✓  | ✓  | ✓  |
-| HKDF        | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                          | ✓                       | ✓  | ✓  | ✓  |
-
-### Disallowed KDFs
-
-The following KDFs are explicitly banned and MUST NOT be used due to insufficient security properties or known weaknesses:
-
-| KDF            | Reference                                                                          |
-| -------------- | ---------------------------------------------------------------------------------- |
-| MD5-based KDFs | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                |
-| SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) |
+| KDF         | Reference                                                                                     | Status |
+| ----------- | --------------------------------------------------------------------------------------------- | ------ |
+| argon2id    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                          | A |
+| scrypt      | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                          | A |
+| PBKDF2      | [RFC 8018](https://www.rfc-editor.org/info/rfc8018) & [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final) | A |
+| HKDF        | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                          | A |
+| MD5-based KDFs | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
+| SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
 
 ### Post-Quantum Encryption Standards
 
