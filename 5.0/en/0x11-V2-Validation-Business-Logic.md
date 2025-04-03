@@ -4,6 +4,7 @@
 
 Ensure that a verified application satisfies the following high-level requirements:
 
+* Input received by the application matches business or functional expectations
 * The business logic flow is sequential, processed in order, and cannot be bypassed.
 * Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers and adding a million friends one at a time.
 * High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
@@ -20,19 +21,19 @@ Validation and business logic documentation should clearly define business logic
 
 ## V2.2 Input Validation
 
-Properly implemented input validation controls, using positive allowlists and strong data typing, provide an important enforcement of business logic controls or functional expectations around the type of data that the app expects to receive.
+Effective input validation controls will enforce business or functional expectations around the type of data that the app expects to receive. This will ensure good data quality and reduce attack surface. However, it does not remove or replace the need to use correct encoding, parameterization or sanitization when using the data in another component or for presenting it for output.
 
 In this context, "input" could come from a wide variety of sources, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, and external APIs.
 
-Business logic controls could be that a particular input should be a number which is less than 100. Functional expectations might be that a certain number should be below a certain threshold, as the number governs how many times a particular loop should take place, and a high number could lead to excessive processing and a potential denial of service condition.
+A business logic control might check that a particular input is a number less than 100. A functional expectation might check that particular number is below a certain threshold, as the number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
 
-Whilst we no longer explicitly mandate schema validation, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML. Please note the following on Schema Validation:
+Whilst schema validation is not explicitly mandated, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML.
 
-* As at this time, there is a "published version" of the JSON schema validation specification, which is considered production-ready. However, there is not yet a version which is considered strictly "stable". As such, when considering using JSON schema validation, be sure there are no gaps with the guidance in the requirements below.
-* Due to the lack of a formal stable version of the JSON schema validation specification, carefully monitor any JSON schema validation libraries in use, as they may need to be updated once the standard is formalized and bugs are ironed out of reference implementations.
-* Due to issues with XXE attacks against DTDs, DTD validation should not be used, and framework DTD evaluation should be disabled.
+Please note the following points on Schema Validation:
 
-Input validation provides valuable hygiene for the application in making sure that data is received in the correct format and should be applied to all inputs where possible. However, it does not remove or replace the need to use correct encoding, parameterization or sanitization when using the data in another component or for presenting it for output.
+* The "published version" of the JSON schema validation specification is considered production-ready, not strictly speaking "stable". When using JSON schema validation, be sure there are no gaps with the guidance in the requirements below.
+* Any JSON schema validation libraries in use should also be monitored and updated if necessary  once the standard is formalized.
+* DTD validation should not be used, and framework DTD evaluation should be disabled, to avoid issues with XXE attacks against DTDs.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
