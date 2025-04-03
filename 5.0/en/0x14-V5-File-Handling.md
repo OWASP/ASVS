@@ -6,6 +6,8 @@ The use of files can present a variety of risks for the application, including d
 
 ## V5.1 Secure File Upload Documentation
 
+This section provides a requirement to document the expected characteristics for files being accepted into application, as a necessary pre-condition to develop and verify relevant security checks.
+
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **5.1.1** | Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | 2 | v5.0.be-1.12.3 |
