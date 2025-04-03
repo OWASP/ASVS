@@ -37,19 +37,19 @@ In many cases, software libraries will include safe or safer functions which wil
 
 Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
-## V1.3 Sanitization and Sandboxing
+## V1.3 Sanitization
 
 The ideal protection against using untrusted content in an unsafe context is using context-specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context as was discussed in more detail in the previous section.
 
-Where it is not possible to do this, other options include sanitization and sandboxing. Sanitization will involve removing potentially dangerous characters or content which in some cases could change the semantic meaning of the input, but for security reasons, there may be no choice. Sandboxing may involve ensuring that a potentially dangerous operation is contained such that even if it suffers a security vulnerability, that will not endanger the wider application.
+Where it is not possible to do this, sanitization will be necessary where potentially dangerous characters or content are removed. In some cases, this could change the semantic meaning of the input, but for security reasons, there may be no choice.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.3.1** | Verify that all untrusted HTML input from WYSIWYG editors or similar is sanitized using a well-known and secure HTML sanitization library or framework feature. | 1 | v5.0.be-5.2.1 |
-| **1.3.2** | Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | 1 | v5.0.be-5.2.4 |
+| **1.3.2** | Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized before being executed. | 1 | v5.0.be-5.2.4 |
 | **1.3.3** | Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | 2 | v5.0.be-5.2.2 |
 | **1.3.4** | Verify that user-supplied Scalable Vector Graphics (SVG) scriptable content is validated or sanitized to contain only tags and attributes (such as draw graphics) that are safe for the application, e.g., do not contain scripts and foreignObject. | 2 | v5.0.be-5.2.7 |
-| **1.3.5** | Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | 2 | v5.0.be-5.2.8 |
+| **1.3.5** | Verify that the application sanitizes or disables user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | 2 | v5.0.be-5.2.8 |
 | **1.3.6** | Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | 2 | v5.0.be-5.2.6 |
 | **1.3.7** | Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | 2 | v5.0.be-5.2.5 |
 | **1.3.8** | Verify that the application escapes special characters in regular expressions (typically using a backslash) to prevent them from being misinterpreted as metacharacters. | 2 | v5.0.be-5.2.9 |
