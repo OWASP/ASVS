@@ -35,7 +35,7 @@ This section provides requirements for how to securely configure a sensitive coo
 
 ## V3.4 Browser Security Mechanism Headers
 
-This section indicates which security headers should be set on HTTP responses to enable browser  security features and restrictions when handling the response from the application.
+This section indicates which security headers should be set on HTTP responses to enable browser security features and restrictions when handling the response from the application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
