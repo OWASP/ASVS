@@ -33,8 +33,8 @@ In many cases, software libraries will include safe or safer functions which wil
 | **1.2.6** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | 2 | v5.0.be-5.3.7 |
 | **1.2.7** | Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 2 | v5.0.be-5.3.10 |
 | **1.2.8** | Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 | v5.0.be-5.3.12 |
-| **1.3.8** | Verify that the application escapes special characters in regular expressions (typically using a backslash) to prevent them from being misinterpreted as metacharacters. | 2 | v5.0.be-5.2.9 |
-| **1.2.9** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as xls, xlsx, or odf), special characters (including '=', '+', '-', '@' '\t' (tab) and '\00' (null character)) must be escaped using a single quote, if they are the first character in a field value. | 3 | v5.0.be-5.3.11 |
+| **1.2.9** | Verify that the application escapes special characters in regular expressions (typically using a backslash) to prevent them from being misinterpreted as metacharacters. | 2 | v5.0.be-5.2.9 |
+| **1.2.10** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as xls, xlsx, or odf), special characters (including '=', '+', '-', '@' '\t' (tab) and '\00' (null character)) must be escaped using a single quote, if they are the first character in a field value. | 3 | v5.0.be-5.3.11 |
 
 Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
@@ -53,11 +53,11 @@ Where it is not possible to do this, sanitization will be necessary where potent
 | **1.3.5** | Verify that the application sanitizes or disables user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | 2 | v5.0.be-5.2.8 |
 | **1.3.6** | Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | 2 | v5.0.be-5.2.6 |
 | **1.3.7** | Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | 2 | v5.0.be-5.2.5 |
-| **1.3.9** | Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured securely to prevent JNDI injection attacks. | 2 | v5.0.be-5.2.11 |
-| **1.3.10** | Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | 2 | v5.0.be-5.2.12 |
-| **1.3.11** | Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | 2 | v5.0.be-5.2.13 |
-| **1.3.12** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | 2 | v5.0.be-5.2.3 |
-| **1.3.13** | Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | 3 | v5.0.be-5.2.10 |
+| **1.3.8** | Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured securely to prevent JNDI injection attacks. | 2 | v5.0.be-5.2.11 |
+| **1.3.9** | Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | 2 | v5.0.be-5.2.12 |
+| **1.3.10** | Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | 2 | v5.0.be-5.2.13 |
+| **1.3.11** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | 2 | v5.0.be-5.2.3 |
+| **1.3.12** | Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | 3 | v5.0.be-5.2.10 |
 
 ## V1.4 Memory, String, and Unmanaged Code
 
