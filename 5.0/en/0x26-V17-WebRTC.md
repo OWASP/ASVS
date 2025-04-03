@@ -1,4 +1,4 @@
-# V53 WebRTC
+# V17 WebRTC
 
 ## Control Objective
 
@@ -20,18 +20,18 @@ The security requirements outlined here are primarily focused on Product Develop
 
 It is important to note that these security requirements **do not apply to developers who exclusively use SDKs and APIs provided by CPaaS vendors**. For such developers, the CPaaS providers are typically responsible for most of the underlying security concerns within their platforms, and a generic security standard like ASVS may not fully address their needs.
 
-## V53.1 TURN Server
+## V17.1 TURN Server
 
 Traversal Using Relays around NAT (TURN) servers play a crucial role in WebRTC applications by facilitating peer-to-peer connections in challenging network environments. However, they can also introduce security risks if not properly configured and secured.
 
 These requirements only apply to systems that host TURN servers as part of their WebRTC infrastructure.
 
-| # | Description | L1 | L2 | L3 |
-| :---: | :--- | :---: | :---: | :---: |
-| **53.1.1** | [ADDED] Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | ✓ | ✓ | ✓ |
-| **53.1.2** | [ADDED] Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. | | ✓ | ✓ |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **17.1.1** | Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | 2 | v5.0.be-53.1.1 |
+| **17.1.2** | Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. | 3 | v5.0.be-53.1.2 |
 
-## V53.2 Media
+## V17.2 Media
 
 Media security is paramount in WebRTC applications, as it directly impacts the confidentiality, integrity and availability of audio and video communications. By addressing these security concerns, developers can safeguard the media streams in WebRTC applications, preventing eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
 
@@ -41,27 +41,27 @@ In particular, it will be necessary to implement protections against flood attac
 
 Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements. However, such systems should still adhere to the other requirements outlined in this chapter to ensure the overall security of their communications.
 
-| # | Description | L1 | L2 | L3 |
-| :---: | :--- | :---: | :---: | :---: |
-| **53.2.1** | [ADDED] Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | ✓ | ✓ | ✓ |
-| **53.2.2** | [ADDED] Verify that the media server is configured to use and support strong cipher suites for the Datagram Transport Layer Security (DTLS) exchange, ensuring that the selected cipher suites are considered strong and secure. | ✓ | ✓ | ✓ |
-| **53.2.3** | [ADDED] Verify that the media server is not susceptible to the "WebRTC DTLS ClientHello Race Condition" vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | | ✓ | ✓ |
-| **53.2.4** | [ADDED] Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | ✓ | ✓ | ✓ |
-| **53.2.5** | [ADDED] Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | | ✓ | ✓ |
-| **53.2.6** | [ADDED] Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | | ✓ | ✓ |
-| **53.2.7** | [ADDED] Verify that the media server is able to continue processing incoming media traffic when encountering malformed SRTP packets. | | ✓ | ✓ |
-| **53.2.8** | [ADDED] Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | ✓ | ✓ | ✓ |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **17.2.1** | Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | 2 | v5.0.be-53.2.1 |
+| **17.2.2** | Verify that the media server is configured to use and support strong and secure DTLS cipher suites and DTLS-SRTP protection profiles. | 2 | v5.0.be-53.2.2 |
+| **17.2.3** | Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | 2 | v5.0.be-53.2.4 |
+| **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed SRTP packets. | 2 | v5.0.be-53.2.7 |
+| **17.2.5** | Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.5 |
+| **17.2.6** | Verify that the media server is not susceptible to the "WebRTC DTLS ClientHello Race Condition" vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | 3 | v5.0.be-53.2.3 |
+| **17.2.7** | Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.6 |
+| **17.2.8** | Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 | v5.0.be-53.2.8 |
 
-## V53.3 Signalling
+## V17.3 Signalling
 
 Signalling is a critical component of WebRTC applications, responsible for coordinating communication sessions between peers. The security of the signalling process is essential to prevent unauthorized access, eavesdropping, and service disruptions. It is important to protect the system by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
 
 These requirements only apply to systems that host signalling servers as part of their WebRTC infrastructure.
 
-| # | Description | L1 | L2 | L3 |
-| :---: | :--- | :---: | :---: | :---: |
-| **53.3.1** | [ADDED] Verify that the signalling server is able to continue processing incoming signalling messages during a flood attack. This should be achieved by implementing rate limiting at the signalling level. | | ✓ | ✓ |
-| **53.3.2** | [ADDED] Verify that the signalling server is able to is able to continue processing signalling messages when encountering malformed signalling messages. | | ✓ | ✓ |
+| # | Description | Level | #v5.0.be |
+| :---: | :--- | :---: | :---: |
+| **17.3.1** | Verify that the signalling server is able to continue processing incoming signalling messages during a flood attack. This should be achieved by implementing rate limiting at the signalling level. | 2 | v5.0.be-53.3.1 |
+| **17.3.2** | Verify that the signalling server is able to is able to continue processing signalling messages when encountering malformed signalling messages. | 2 | v5.0.be-53.3.2 |
 
 ## References
 
@@ -70,4 +70,5 @@ For more information, see also:
 * [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
 * [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
 * [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
-* WebRTC DTLS ClientHello DoS: [A Novel DoS Vulnerability affecting WebRTC Media Servers, Enable Security](https://www.rtcsec.com/article/novel-dos-vulnerability-affecting-webrtc-media-servers/)
+* The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+* [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)

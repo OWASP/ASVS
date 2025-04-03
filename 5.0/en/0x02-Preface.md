@@ -1,33 +1,63 @@
 # Preface
 
-Welcome to the Application Security Verification Standard (ASVS) version 4.0. The ASVS is a community-driven effort to establish a standard that defines the functional and non-functional security requirements to consider when designing, developing and testing modern web applications and web services.
+Welcome to the Application Security Verification Standard (ASVS) version 5.0!
 
-Version 4.0.2 was the second minor patch to v4.0 intended to fix spelling errors and make requirements clearer without making breaking changes such as materially changing requirements or adding/removing requirements.
+## Introduction
 
-This version is a "Bleeding Edge" version which is constantly being updated and should not be used for testing against a standard.
+The ASVS is a community-driven effort to establish a standard that defines the security requirements to consider when designing, developing and testing modern web applications and web services.
 
-ASVS v4.0 is the culmination of community effort and industry feedback over the last decade. We have attempted to make it easier to adopt the ASVS for a variety of different use cases throughout any secure software development lifecycle.
+ASVS Version 5.0 is the culmination of a huge amount of effort from the leaders, working group and other community members to update and improve this important standard.
 
-We expect that there will most likely never be 100% agreement on the contents of any web application standard, including the ASVS. Risk analysis is always subjective to some extent, which creates a challenge when attempting to generalize in a one-size-fits-all standard. However, we hope that the latest updates made in this version are a step in the right direction, and enhance the concepts introduced in this critical industry standard.
+Our goal for this version has been to make the ASVS easier to use whilst also making it more clearly focused on a particular scope and covering new, important areas of application developement.
 
-## What's new in 4.0
+## Key Objectives from ASVS Version 5.0
 
-The most significant change in this version is the adoption of the NIST SP 800-63-3 Digital Identity Guidelines, introducing modern, evidence-based, and advanced authentication controls. Although we expect some pushback on aligning with an advanced authentication standard, we feel that it is essential for standards to be aligned, mainly when another well-regarded application security standard is evidence-based.
+Version 5.0 has been developed with a number of key principles in mind.
 
-Information security standards should try to minimize the number of unique requirements so that complying organizations do not have to decide on competing or incompatible controls. The OWASP Top 10 2017 and now the OWASP Application Security Verification Standard have aligned with NIST SP 800-63 for authentication and session management. We encourage other standards-setting bodies to collaborate with us, NIST, and others in establishing a generally accepted set of application security controls. This approach will maximize security while minimizing compliance costs.
+### Clear set of requirements
 
-ASVS 4.0 has been wholly renumbered from start to finish. The new numbering scheme allowed us to close up gaps from long-vanished chapters, and to allow us to segment longer chapters to minimize the number of controls that a developer or team has to comply with. For example, if an application does not use JWT, the entire section on JWT in session management is not applicable.
+The set of requirements for version 5.0 was prepared based on the following considerations.
 
-New in 4.0 is a comprehensive mapping to the Common Weakness Enumeration (CWE), one of the most commonly desired feature requests we've had over the last decade. CWE mapping allows tool manufacturers and those using vulnerability management software to match up results from other tools and previous ASVS versions to 4.0 and later. To make room for the CWE entry, we've had to retire the "Since" column, which as we completely renumbered, makes less sense than in previous versions of the ASVS. Not every item in the ASVS has an associated CWE, and as CWE has a great deal of duplication, we've attempted to use the most commonly used rather than necessarily the closest match. Verification controls are not always mappable to equivalent weaknesses. We welcome ongoing discussions with the CWE community and information security field more generally on closing this gap.
+* Aggressively deduplicating requirements to avoid controls or concepts being split into multiple places.
+* Clarifying unclear or non-actionable requirement text.
+* Adding new requirements to cover areas of particular concern such as permissions, tokens, and cryptography.
+* Adding new chapters and sections for areas which might not apply to all applications but are still security sensitive such as OAuth and WebSockets.
 
-We have worked to comprehensively meet and exceed the requirements for addressing the OWASP Top 10 2017 and the OWASP Proactive Controls 2018. As the OWASP Top 10 2017 is the bare minimum to avoid negligence, we have deliberately made all but specific logging Top 10 requirements Level 1 controls, making it easier for OWASP Top 10 adopters to step up to an actual security standard.
+### Clarifying the scope of the standard
 
-We set out to ensure that the ASVS 4.0 Level 1 is a comprehensive superset of PCI DSS 3.2.1 Sections 6.5, for application design, coding, testing, secure code reviews, and penetration tests. This necessitated covering buffer overflow and unsafe memory operations in V5, and unsafe memory-related compilation flags in V14, in addition to existing industry-leading application and web service verification requirements.
+It is important that all requirments are relevant to the defined scope of the standard and that they are worded in a way that is consistent with the goal of the standard.
 
-We have completed the shift of the ASVS from monolithic server-side-only controls, to providing security controls for all modern applications and APIs. In the days of functional programming, server-less API, mobile, cloud, containers, CI/CD and DevSecOps, federation and more, we cannot continue to ignore modern application architecture. Modern applications are designed very differently from those built when the original ASVS was released in 2009. The ASVS must always look far into the future so that we provide sound advice for our primary audience - developers. We have clarified or dropped any requirement that assumes that applications are executed on systems owned by a single organization.
+The guidelines for this were:
 
-Due to the size of the ASVS 4.0, as well as our desire to become the baseline ASVS for all other ASVS efforts, we have retired the mobile chapter, in favor of the Mobile Application Security Verification Standard (MASVS). We have also retired the Internet of Things appendix, in favor of the IoT Security Verification Standard (ISVS). We thank both the OWASP Mobile Team and OWASP IoT Project Team for their support of the ASVS, and look forward to working with them in the future to provide complementary standards.
+* Ensuring that all requirements are within the scope of a web application or service.
+* Checking that requirements are worded in line with the ASVS name, specifically:
+    * Application - Requirements are at the application level and are the responsibility of application developers.
+    * Security - Requirements are clearly necessary for the application to be secure.
+    * Verification - Requirements are worded to have a clear and verifiable goal.
+    * Standard - Clear consistency and structure to requirements, as would be expected from a standard.
 
-Lastly, we have de-duped and retired less impactful controls. Over time, the ASVS started being a comprehensive set of controls, but not all controls equally contribute to producing secure software. This effort to eliminate low-impact items could go further. In a future edition of the ASVS, the Common Weakness Scoring System (CWSS) will help prioritize further those controls that are truly important and those that should be retired.
+### Better level definitions
 
-As of version 4.0, the ASVS will focus solely on being the leading web apps and service standard, covering traditional and modern application architecture, agile security practices and DevSecOps culture.
+The levels in version 5.0 aim to make the ASVS easier to adopt whilst also being clear about why requirements were allocated to specific levels.
+
+This includes:
+
+* Making level rationale clearer and with the primary focus on priority (considering risk reduction and effort to implement).
+* Having a realistic number of Level 1 requirements so as to have a lower barrier to entry.
+* Balancing better between the number of requirments in Level 2 and Level 3 to allow smoother progression.
+
+### Streamlining the document
+
+Part of making the document easier to use is keeping the actual requirements front and centre and avoiding unnecessary narrative content, whilst keeping key explanations.
+
+This includes:
+
+* Avoiding too much explanatory or supplementary text around the requirements except where this is specifically necessary.
+* Instead of overly verbose requirements, keeping them abstract and refering to relevant cheat-sheets or other materials in the explanatory text.
+* Keeping mappings away from the core requirements but rather separating them to be managed and maintained separately.
+
+## Usability to drive adoption
+
+We hope that this increase in usability drives a corresponding increase in adoption by organizations who want to improve the security of their application or the consistency and rigour of their security assessments.
+
+More detail on using the standard can be found in subsequent chapters.

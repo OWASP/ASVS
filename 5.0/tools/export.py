@@ -37,7 +37,6 @@ parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv', 'cdx
 parser.add_argument('--language', default='en')
 parser.add_argument('--verify-only', action='store_true')
 parser.add_argument('--raw-folder', default='')
-#parser.add_argument('--verify-only', default=False)
 
 args = parser.parse_args()
 

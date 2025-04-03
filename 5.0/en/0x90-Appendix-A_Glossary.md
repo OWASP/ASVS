@@ -3,6 +3,7 @@
 * **Absolute Maximum Session Lifetime** - Also referred to as "Overall Timeout" by NIST, this is the maximal amount of time a session can remain active following authentication regardless of user interaction. This is a component of session expiration.
 * **Address Space Layout Randomization** (ASLR) – A technique to make exploiting memory corruption bugs more difficult.
 * **Allowlist** – A list of permitted data or operations, for example, a list of characters that are allowed to perform input validation.
+* **Anti-forgery token** - A mechanism by which one or more tokens are passed in a request and validated by the application server to ensure that the request has come from an expected endpoint.
 * **Application Security** – Application-level security focuses on the analysis of components that comprise the application layer of the Open Systems Interconnection Reference Model (OSI Model), rather than focusing on for example the underlying operating system or connected networks.
 * **Application Security Verification** – The technical assessment of an application against the OWASP ASVS.
 * **Application Security Verification Report** – A report that documents the overall results and supporting analysis produced by the verifier for a particular application.
@@ -23,6 +24,8 @@
 * **Hardcoded keys** – Cryptographic keys that are stored on the filesystem, be it in code, comments or files.
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
 * **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library.
+* **HTTP Strict Transport Security** (HSTS) - An policy which instructs the browser to only connect to the domain returning the header via TLS and when a valid certificate is presented. It is activated using the Strict-Transport-Security response header field.
+* **Identity Provider** (IdP) - Also called a Credential Service Provider (CSP) in NIST references. An entity that provides an authentication source for other applications.
 * **Inactivity Timeout** - This is the length of time a session can remain active in the absence of user interaction with the application. This is a component of session expiration.
 * **Input Validation** – The canonicalization and validation of untrusted user input.
 * **JSON Web Token** (JWT) - RFC 7519 defines a standard for a JSON data object made up of a header section which explains how to validate the object, a body section containing a set of claims, and a signature section which contains a digital signature which can be used to validate the contents of the body section. It is a type of self-contained token.
@@ -44,14 +47,14 @@
 * **Software development lifecycle** (SDLC) - The step-by-step process by which software is developed going from the initial requirements to deployment and maintenance.
 * **Security Architecture** – An abstraction of an application's design that identifies and describes where and how security controls are used, and also identifies and describes the location and sensitivity of both user and application data.
 * **Security Configuration** – The runtime configuration of an application that affects how security controls are used.
-* **Security Control** – A function or component that performs a security check (e.g. an access control check) or when called results in a security effect (e.g. generating an audit record).
+* **Security Control** – A function or component that performs a security check (e.g., an authorization check) or when called results in a security effect (e.g., generating an audit record).
 * **Self-Contained Token** - A token that encapsulates one or more attributes that do not rely on server-side state or other external storage. These tokens ensure the authenticity and integrity of their contained attributes, enabling secure, "stateless" information exchange across systems. Self-contained tokens are generally secured using cryptographic techniques, such as digital signatures or message authentication codes (MACs), to ensure the authenticity, integrity, and in some cases the confidentiality of its data. Common examples include SAML Assertions and JWTs.
 * **Server-side Request Forgery** (SSRF) - An attack that abuses functionality on the server to read or update internal resources. The attacker supplies or modifies a URL, which the code running on the server will read or submit data to.
 * **Single-factor authenticator** - A mechanism to check that a user is authenticated. It should either be something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card).
 * **Single Sign-on Authentication** (SSO) - This occurs when a user logs into one application and is then automatically logged into other applications without having to re-authenticate. For example, when you log into Google, you will be automatically logged into other Google services such as YouTube, Google Docs, and Gmail.
 * **Software Composition Analysis** (SCA) - A set of technologies designed to analyze application composition, dependencies, libraries and packages for security vulnerabilities of specific component versions in use. This is not to be confused with source-code analysis which is now commonly referred to as SAST.
 * **SQL Injection** (SQLi) – A code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry point.
-* **Stateful Session Mechanism** - In a stateful session mechanism, the application retains session state at the back end which typically corresponds to a random session identifier which is issued to the end user.
+* **Stateful Session Mechanism** - In a stateful session mechanism, the application retains session state at the backend which typically corresponds to a random session identifier which is issued to the end user.
 * **Stateless Session Mechanism** - A stateless session mechanism will use a self-contained token which is passed to clients, and contains session information that is not necessarily stored within the service which then receives and validates the token. In reality, a service will need to have access to some session information (such as a JWT revocation list) in order to be able to enforce required security controls.
 * **SVG** - Scalable Vector Graphics.
 * **Time-based OTP** - A method of generating an OTP where the current time acts as part of the algorithm to generate the password.

@@ -29,9 +29,11 @@ The project is led by the four project leaders [Daniel Cuthbert](https://github.
 
 They are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), [Iman Sharafaldin](https://github.com/ImanSharaf), and [Ryan Armstrong](https://github.com/ryarmst).
 
-## Roadmap to ASVS 5.0
+## ASVS 5.0 Release Candidate is ready for review
 
-We have now published our roadmap and objectives for version 5.0 of the ASVS in [this wiki page](https://github.com/OWASP/ASVS/wiki/Roadmap-to-version-5.0).
+🎉🎉🎉 **We are now at the RC1 stage of ASVS version 5.0!** 🎉🎉🎉
+
+See the [Contribution Guide](CONTRIBUTING.md#what-is-the-current-status-of-asvs-development) for more details!
 
 ## Latest Stable Version - 4.0.3
 

@@ -143,8 +143,11 @@ class ASVS:
 
                 # This regex matches requirement lines with the format:
                 # **number** | text | text | text | text | numbers, separated by commas | text, separated by slashes
-                req_regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|(.*?)\|"
-                                        "(.*?)\|(.*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9/\s,.]*)\|{0,1}")
+                # req_regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|(.*?)\|"
+                #                        "(.*?)\|(.*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9/\s,.]*)\|{0,1}")
+
+                req_regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|"
+                                "([1-3 ]*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9\s,.]*)\|{0,1}")
 
                 before_reqs = True
                 matched_already = False
@@ -183,7 +186,7 @@ class ASVS:
                         has_cwe = True
 
                         matched_already = True
-
+  
                     m = re.search(req_regex, line)
                     if m:
                         before_reqs = False
@@ -206,29 +209,36 @@ class ASVS:
                         level2 = {}
                         level3 = {}
 
-                        req_flat['level1'] = m.group(3).strip(' ')
-                        req_flat['level2'] = m.group(4).strip(' ')
-                        req_flat['level3'] = m.group(5).strip(' ')
+                        int_level = int(m.group(3)) if m.group(3) != ' ' else 99
                         
-                        level1['Required'] = m.group(3).strip() != ''
+                        str_l1 = '✓' if int_level <= 1 else '' # m.group(3)
+                        str_l2 = '✓' if int_level <= 2 else ''  # m.group(4)
+                        str_l3 = '✓' if int_level <= 3 else ''  # m.group(5)
+
+
+                        req_flat['level1'] = str_l1.strip(' ')
+                        req_flat['level2'] = str_l2.strip(' ')
+                        req_flat['level3'] = str_l3.strip(' ')
+                        
+                        level1['Required'] = str_l1.strip() != ''
                         req_flat2['L1'] = ('X' if level1['Required'] else '')
-                        level2['Required'] = m.group(4).strip() != ''
+                        level2['Required'] = str_l2.strip() != ''
                         req_flat2['L2'] = ('X' if level2['Required'] else '')
-                        level3['Required'] = m.group(5).strip() != ''
+                        level3['Required'] = str_l3.strip() != ''
                         req_flat2['L3'] = ('X' if level3['Required'] else '')
 
-                        level1['Requirement'] = ("Optional" if m.group(3).strip('✓ ') == "o" else m.group(3).strip(' '))
-                        level2['Requirement'] = ("Optional" if m.group(4).strip('✓ ') == "o" else m.group(4).strip(' '))
-                        level3['Requirement'] = ("Optional" if m.group(5).strip('✓ ') == "o" else m.group(5).strip(' '))
+                        level1['Requirement'] = ("Optional" if str_l1.strip('✓ ') == "o" else str_l1.strip(' '))
+                        level2['Requirement'] = ("Optional" if str_l2.strip('✓ ') == "o" else str_l2.strip(' '))
+                        level3['Requirement'] = ("Optional" if str_l3.strip('✓ ') == "o" else str_l3.strip(' '))
 
                         req['L1'] = level1
                         req['L2'] = level2
                         req['L3'] = level3
 
-                        req['CWE'] = [int(i.strip()) for i in filter(None, m.group(6).strip().split(','))]
-                        req_flat2['CWE'] = req_flat['cwe'] = m.group(6).strip()
-                        req['NIST'] = [str(i.strip()) for i in filter(None,m.group(7).strip().split('/'))]
-                        req_flat2['NIST'] = req_flat['nist'] = m.group(7).strip()
+                        req['CWE'] = [int(i.strip()) for i in filter(None, m.group(4).strip().split(','))]
+                        req_flat2['CWE'] = req_flat['cwe'] = m.group(4).strip()
+                        req['NIST'] = [str(i.strip()) for i in filter(None,m.group(5).strip().split('/'))]
+                        req_flat2['NIST'] = req_flat['nist'] = m.group(5).strip()
                         
                         section['Items'].append(req)
                         self.asvs_flat['requirements'].append(req_flat)
