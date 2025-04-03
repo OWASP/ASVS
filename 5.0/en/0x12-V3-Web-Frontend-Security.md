@@ -14,7 +14,7 @@ This section defines the browser security features that should be specified in t
 
 ## V3.2 Unintended Content Interpretation
 
-Rendering content or functionality in an incorrect context can lead to a malicious content being executed or shown.
+Rendering content or functionality in an incorrect context can lead to malicious content being executed or shown.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
