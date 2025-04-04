@@ -23,7 +23,7 @@ Upload functionality is a key source of untrusted files. This section details th
 | **5.2.3** | Verify that the application checks compressed files (e.g., zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | 2 | v5.0.be-12.1.2 |
 | **5.2.4** | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | 3 | v5.0.be-12.1.3 |
 | **5.2.5** | Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | 3 | v5.0.be-12.1.4 |
-| **5.2.6** | Verify that the application blocks uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 3 | v5.0.be-12.1.6 |
+| **5.2.6** | Verify that the application rejects uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 3 | v5.0.be-12.1.6 |
 
 ## V5.3 File Storage
 
