@@ -80,7 +80,7 @@ Modern ciphers make use of various modes, particularly AES for various purposes.
 | CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | A | |
 | XTS | No | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) | A | For disk-level block encryption only. |
 | XEX | No | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) | A | For disk-level block encryption only. |
-| LRW | No | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | A | Fir disk-level block encryption only. |
+| LRW | No | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | A | For disk-level block encryption only. |
 | ECB | No | | D | |
 | CFB | No | | D | |
 | OFB | No | | D | |
