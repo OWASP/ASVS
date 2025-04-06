@@ -23,7 +23,7 @@ Rendering content or functionality in an incorrect context can lead to malicious
 
 ## V3.3 Cookie Setup
 
-This section provides requirements for how to securely configure a sensitive cookie to avoid its contents leaking or being inappropriately modified.
+This section provides requirements for how to securely configure a sensitive cookie to provide a higher level of assurance that it was created by the application itself and to avoid its contents leaking or being inappropriately modified.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
