@@ -14,7 +14,7 @@ This section defines the browser security features that should be specified in t
 
 ## V3.2 Unintended Content Interpretation
 
-Rendering content or functionality in an incorrect context can lead to a wide variety of security issues.
+Rendering content or functionality in an incorrect context can lead to malicious content being executed or shown.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -23,7 +23,7 @@ Rendering content or functionality in an incorrect context can lead to a wide va
 
 ## V3.3 Cookie Setup
 
-This section provides requirements for how to securely configure sensitive cookies to reduce the risk of them being stolen or used inappropriately.
+This section provides requirements for how to securely configure a sensitive cookie to provide a higher level of assurance that it was created by the application itself and to avoid its contents leaking or being inappropriately modified.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -35,7 +35,7 @@ This section provides requirements for how to securely configure sensitive cooki
 
 ## V3.4 Browser Security Mechanism Headers
 
-This section indicates which security headers should be set on HTTP responses to prevent various types of attack that could disclose sensitive data.
+This section indicates which security headers should be set on HTTP responses to enable browser security features and restrictions when handling the response from the application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
