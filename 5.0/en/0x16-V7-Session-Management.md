@@ -16,7 +16,9 @@ Note that requirements for specific implementation details of certain session ma
 
 ## V7.1 Session Management Documentation
 
-There is no single pattern that suits all applications. Therefore, it is infeasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application. Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements.
+There is no single pattern that suits all applications. Therefore, it is infeasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application.
+
+Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements. Interaction with any Single Sign-on (SSO) mechanisms in use should also be considered.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -26,7 +28,7 @@ There is no single pattern that suits all applications. Therefore, it is infeasi
 
 ## V7.2 Fundamental Session Management Security
 
-This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated, managed, and validated.
+This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated and validated.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -37,7 +39,7 @@ This section satisfies the essential requirements of secure sessions by verifyin
 
 ## V7.3 Session Timeout
 
-Session timeout mechanisms serve to minimize the window of opportunity for session hijacking and other forms of session abuse. Timeouts must satisfy documented requirements.
+Session timeout mechanisms serve to minimize the window of opportunity for session hijacking and other forms of session abuse. Timeouts must satisfy documented security decisions.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -62,7 +64,7 @@ For stateful session mechanisms, termination typically involves invalidating the
 
 ## V7.5 Defenses Against Session Abuse
 
-This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors such as cross-site request forgery (CSRF) and other cross-site attacks, which rely on the existence and capabilities of active user sessions.
+This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors that rely on the existence and capabilities of active user sessions. For example, using malicious content execution to force an authenticated victim browser to perform an action using the victim's session.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
