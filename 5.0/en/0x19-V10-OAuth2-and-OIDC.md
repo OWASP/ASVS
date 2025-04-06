@@ -4,7 +4,7 @@
 
 OAuth2 (referred to as OAuth in this chapter) is an industry standard framework for delegated authorization. For example, using OAuth, a client application can obtain access to APIs (server resources) on a user's behalf, where the user has authorized the client application to do so.
 
-By itself, OAuth is not designed for user authentication. The OpenID Connect (OIDC) framework extends OAuth by adding a user identity layer on top of OAuth. OIDC provides support for functionality including standardized user information, Single-Sign On (SSO) and session management. As OIDC is an extension of OAuth, the OAuth requirements in this chapter also apply to OIDC.
+By itself, OAuth is not designed for user authentication. The OpenID Connect (OIDC) framework extends OAuth by adding a user identity layer on top of OAuth. OIDC provides support for functionality including standardized user information, Single-Sign On (SSO), and session management. As OIDC is an extension of OAuth, the OAuth requirements in this chapter also apply to OIDC.
 
 The following roles are defined in OAuth:
 
@@ -18,19 +18,19 @@ The following roles are defined in OAuth:
 The following roles are defined in OIDC:
 
 * The relying party (RP) is the client application requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
-* The OpenID provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to a RP. The OP may be the identity provider (IdP) but, in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
+* The OpenID provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to an RP. The OP may be the identity provider (IdP), but in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
 
-OAuth and OIDC were initially designed for third-party applications. Nowadays, they are often used by first-party applications as well. However, when used in first-party scenarios e. g. authentication and session management, the protocol adds some complexity which may introduce new security challenges.
+OAuth and OIDC were initially designed for third-party applications. Nowadays, they are often used by first-party applications as well. However, when used in first-party scenarios, e.g., authentication and session management, the protocol adds some complexity, which may introduce new security challenges.
 
 OAuth and OIDC can be used for many kinds of applications, but the focus for ASVS and the requirements in this chapter is on web applications and APIs.
 
-Since OAuth and OIDC can be considered to be logic on top of web technologies, general requirements from other chapters always apply and this chapter can not be taken out of context.
+Since OAuth and OIDC can be considered to be logic on top of web technologies, general requirements from other chapters always apply, and this chapter can not be taken out of context.
 
-This chapter addresses best current practices for OAuth2 and OIDC aligned with specifications found at <https://oauth.net/2/> and <https://openid.net/developers/specs/>. Even if RFCs are considered to be mature, they are being updated frequently. Thus, it is important to align with the latest versions when applying the requirements in this chapter. See the references sections for more details.
+This chapter addresses best current practices for OAuth2 and OIDC aligned with specifications found at <https://oauth.net/2/> and <https://openid.net/developers/specs/>. Even if RFCs are considered to be mature, they are being updated frequently. Thus, it is important to align with the latest versions when applying the requirements in this chapter. See the references section for more details.
 
 Given the complexity of the area, it is vitally important for a secure OAuth or OIDC solution to use well-known industry standard authorization servers and apply the recommended security configuration.
 
-Terminology is defined in Appendix A - Glossary and aligns with OAuth RFCs and OIDC specifications. Note that in this chapter OIDC terminology is only used for OIDC-specific requirements, otherwise OAuth terminology is used.
+Terminology is defined in Appendix A - Glossary and aligns with OAuth RFCs and OIDC specifications. Note that in this chapter, OIDC terminology is only used for OIDC-specific requirements, otherwise, OAuth terminology is used.
 
 In the context of OAuth and OIDC, the term "token" in this chapter refers to:
 
@@ -38,18 +38,18 @@ In the context of OAuth and OIDC, the term "token" in this chapter refers to:
 * Refresh tokens, which shall only be consumed by the authorization server which issued the token.
 * OIDC ID Tokens, which shall only be consumed by the client which triggered the authorization flow.
 
-Other kinds of tokens, like logout tokens, are not in the scope for this chapter.
+Other kinds of tokens, like logout tokens, are not in the scope of this chapter.
 
 The risk levels for some of the requirements in this chapter depend on whether the client is a confidential client or regarded as a public client. Since using strong client authentication mitigates many attack vectors, a few requirements might be relaxed when using a confidential client for L1 applications.
 
 ## V10.1 Generic OAuth and OIDC security
 
-These requirements cover generic architectural requirements that apply to all applications using OAuth or OIDC, such as key architectural patterns available when building browser-based JavaScript applications that rely on OAuth or OIDC for accessing protected resources.
+This section covers generic architectural requirements that apply to all applications using OAuth or OIDC, such as key architectural patterns available when building browser-based JavaScript applications that rely on OAuth or OIDC for accessing protected resources.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **10.1.1** | Verify that tokens are only sent to components that strictly need them. For example, when using a backend-for-frontend pattern for browser-based JavaScript applications, access and refresh tokens shall only be accessible for the backend. | 2 | v5.0.be-51.1.1 |
-| **10.1.2** | Verify that the client only accepts values from the authorization server (such as the authorization code or ID token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce' are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | 2 | v5.0.be-51.1.2 |
+| **10.1.2** | Verify that the client only accepts values from the authorization server (such as the authorization code or ID token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce', are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | 2 | v5.0.be-51.1.2 |
 
 ## V10.2 OAuth Client
 
@@ -60,24 +60,24 @@ In general, backend clients are regarded as confidential clients and frontend cl
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **10.2.1** | Verify that, if the code flow is used, the OAuth Client has protection against cross-site request forgery (CSRF) attacks which trigger token requests, either by using proof key for code exchange (PKCE) functionality or checking the 'state' parameter that was sent in the authorization request. | 2 | v5.0.be-51.2.2 |
-| **10.2.2** | Verify that, if the OAuth Client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server returns the 'iss' parameter value and validate it in the authorization response and the token response. | 2 | v5.0.be-51.2.1 |
+| **10.2.2** | Verify that, if the OAuth Client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server return the 'iss' parameter value and validate it in the authorization response and the token response. | 2 | v5.0.be-51.2.1 |
 | **10.2.3** | Verify that the OAuth Client only requests the required scopes (or other authorization parameters) in requests to the authorization server. | 3 | v5.0.be-51.2.3 |
 
 ## V10.3 OAuth Resource Server
 
-In the context of ASVS and this chapter, the resource server is an API. To provide secure access the resource server must:
+In the context of ASVS and this chapter, the resource server is an API. To provide secure access, the resource server must:
 
-* Validate the access token, according to the token format and relevant protocol specifications, e.g. JWT-validation or OAuth token introspection.
+* Validate the access token, according to the token format and relevant protocol specifications, e.g., JWT-validation or OAuth token introspection.
 * If valid, enforce authorization decisions based on the information from the access token and permissions which have been granted. For example, the resource server needs to verify that the client (acting on behalf of RO) is authorized to access the requested resource.
 
 Therefore, the requirements listed here are OAuth or OIDC specific and should be performed after token validation and before performing authorization based on information from the token.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **10.3.1** | Verify that the resource server only accepts access tokens that are intended for use with that service (audience). The audience may be included in a structured access token (such as the 'aud' claim in JWT) or it can be checked using the token introspection endpoint. | 2 | v5.0.be-51.3.2 |
+| **10.3.1** | Verify that the resource server only accepts access tokens that are intended for use with that service (audience). The audience may be included in a structured access token (such as the 'aud' claim in JWT), or it can be checked using the token introspection endpoint. | 2 | v5.0.be-51.3.2 |
 | **10.3.2** | Verify that the resource server enforces authorization decisions based on claims from the access token that define delegated authorization. If claims such as 'sub', 'scope', and 'authorization_details' are present, they must be part of the decision. | 2 | v5.0.be-51.3.3 |
-| **10.3.3** | Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that cannot be reassigned to other users. Typically it means using a combination of 'iss' and 'sub' claims. | 2 | v5.0.be-51.3.4 |
-| **10.3.4** | Verify that, if the resource server requires specific authentication strength, methods or recentness, it verifies that the presented access token satisfies these constraints. For example, if present, using the OIDC 'acr', 'amr' and 'auth_time' claims respectively. | 2 | v5.0.be-51.3.5 |
+| **10.3.3** | Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that cannot be reassigned to other users. Typically, it means using a combination of 'iss' and 'sub' claims. | 2 | v5.0.be-51.3.4 |
+| **10.3.4** | Verify that, if the resource server requires specific authentication strength, methods, or recentness, it verifies that the presented access token satisfies these constraints. For example, if present, using the OIDC 'acr', 'amr' and 'auth_time' claims respectively. | 2 | v5.0.be-51.3.5 |
 | **10.3.5** | Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 | v5.0.be-51.3.1 |
 
 ## V10.4 OAuth Authorization Server
@@ -90,13 +90,13 @@ These requirements detail the responsibilities for OAuth authorization servers, 
 | **10.4.2** | Verify that, if the authorization server returns the authorization code in the authorization response, it can be used only once for a token request. For the second valid request with an authorization code that has already been used to issue an access token, the authorization server must reject a token request and revoke any issued tokens related to the authorization code. | 1 | v5.0.be-51.4.1 |
 | **10.4.3** | Verify that the authorization code is short-lived. The maximum lifetime can be up to 10 minutes for L1 and L2 applications and up to 1 minute for L3 applications. | 1 | v5.0.be-51.4.2 |
 | **10.4.4** | Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) must no longer be used. | 1 | v5.0.be-51.4.5 |
-| **10.4.5** | Verify that the authorization server mitigates refresh token replay attacks for public clients, preferably using sender-constrained refresh tokens (i.e., Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens (mTLS)). For L1 and L2 applications refresh token rotation may be used. If refresh token rotation is used, the authorization server must invalidate the refresh token after usage, and revoke all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | 1 | v5.0.be-51.4.4 |
-| **10.4.6** | Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring proof key for code exchange (PKCE). For authorization requests, the authorization server must require a valid 'code_challenge' value and must not accept 'code_challenge_method' value 'plain'. For a token request, it must require validation of the 'code_verifier' parameter. | 2 | v5.0.be-51.4.3 |
-| **10.4.7** | Verify that if the authorization server supports unauthenticated dynamic client registration, it mitigates the risk of malicious client applications. It must validate client metadata such as any registered URIs, ensure the user's consent and warn the user before processing an authorization request with an untrusted client application. | 2 | v5.0.be-51.4.16 |
+| **10.4.5** | Verify that the authorization server mitigates refresh token replay attacks for public clients, preferably using sender-constrained refresh tokens (i.e., Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens (mTLS)). For L1 and L2 applications, refresh token rotation may be used. If refresh token rotation is used, the authorization server must invalidate the refresh token after usage, and revoke all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | 1 | v5.0.be-51.4.4 |
+| **10.4.6** | Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring proof key for code exchange (PKCE). For authorization requests, the authorization server must require a valid 'code_challenge' value and must not accept a 'code_challenge_method' value of 'plain'. For a token request, it must require validation of the 'code_verifier' parameter. | 2 | v5.0.be-51.4.3 |
+| **10.4.7** | Verify that if the authorization server supports unauthenticated dynamic client registration, it mitigates the risk of malicious client applications. It must validate client metadata such as any registered URIs, ensure the user's consent, and warn the user before processing an authorization request with an untrusted client application. | 2 | v5.0.be-51.4.16 |
 | **10.4.8** | Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | 2 | v5.0.be-51.4.13 |
 | **10.4.9** | Verify that refresh tokens and reference access tokens can be revoked by an authorized user using the authorization server user interface, to mitigate the risk of malicious clients or stolen tokens. | 2 | v5.0.be-51.4.14 |
 | **10.4.10** | Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, pushed authorization requests (PAR), and token revocation requests. | 2 | v5.0.be-51.4.7 |
-| **10.4.11** | Verify that the authorization server configuration only assigns the required scopes to the OAuth Client. | 2 | v5.0.be-51.4.8 |
+| **10.4.11** | Verify that the authorization server configuration only assigns the required scopes to the OAuth client. | 2 | v5.0.be-51.4.8 |
 | **10.4.12** | Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. For example, by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 | v5.0.be-51.4.12 |
 | **10.4.13** | Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | 3 | v5.0.be-51.4.9 |
 | **10.4.14** | Verify that the authorization server issues only sender-constrained (Proof-of-Possession) access tokens, either using mTLS certificate binding or Demonstration of Proof of Possession (DPoP). | 3 | v5.0.be-51.4.11 |
@@ -109,17 +109,17 @@ As the OIDC Relying Party acts as an OAuth client, the requirements from the sec
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **10.5.1** | Verify that the Client (as the relying party) mitigates ID token replay attacks. For example, by ensuring that the 'nonce' claim in the ID token matches the 'nonce' value sent in the authentication request to the OpenID provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | 2 | v5.0.be-51.5.1 |
-| **10.5.2** | Verify that the Client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 2 | v5.0.be-51.5.2 |
-| **10.5.3** | Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by client. | 2 | v5.0.be-51.5.3 |
+| **10.5.1** | Verify that the client (as the relying party) mitigates ID token replay attacks. For example, by ensuring that the 'nonce' claim in the ID token matches the 'nonce' value sent in the authentication request to the OpenID provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | 2 | v5.0.be-51.5.1 |
+| **10.5.2** | Verify that the client uniquely identifies the user from ID token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 2 | v5.0.be-51.5.2 |
+| **10.5.3** | Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by the client. | 2 | v5.0.be-51.5.3 |
 | **10.5.4** | Verify that the client validates that the ID token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 2 | v5.0.be-51.5.4 |
-| **10.5.5** | Verify that, if specific authentication strength, methods or recentness is required, the relying party (RP) verifies that the presented ID Token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 | v5.0.be-51.5.5 |
+| **10.5.5** | Verify that, if specific authentication strength, methods, or recentness is required, the relying party (RP) verifies that the presented ID Token satisfies these constraints (using the 'acr', 'amr' and 'auth_time' claims respectively). | 2 | v5.0.be-51.5.5 |
 
 ## V10.6 OpenID Provider
 
 As OpenID Providers act as OAuth Authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
 
-Note that if using the ID Token flow (not the code flow), no access tokens are issued and many of the requirements for OAuth AS are not applicable.
+Note that if using the ID Token flow (not the code flow), no access tokens are issued, and many of the requirements for OAuth AS are not applicable.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -132,8 +132,8 @@ These requirements cover the verification of the user's consent by the authoriza
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **10.7.1** | Verify that the authorization server ensures that the user consents to each authorization request. If the identity of the client cannot be assured, the authorization server must always explicitly prompt the user for consent. | 2 | v5.0.be-51.7.1 |
-| **10.7.2** | Verify that when the authorization server prompts for user consent, it presents sufficient and clear information about what is being consented to. When applicable this should include the nature of the requested authorizations (typically based on scope, resource server, Rich Authorization Requests (RAR) authorization details), the identity of the authorized application and the lifetime of these authorizations. | 2 | v5.0.be-51.7.2 |
-| **10.7.3** | Verify that the user can review, modify and revoke consents which the user has granted through the authorization server. | 2 | v5.0.be-51.7.3 |
+| **10.7.2** | Verify that when the authorization server prompts for user consent, it presents sufficient and clear information about what is being consented to. When applicable, this should include the nature of the requested authorizations (typically based on scope, resource server, Rich Authorization Requests (RAR) authorization details), the identity of the authorized application, and the lifetime of these authorizations. | 2 | v5.0.be-51.7.2 |
+| **10.7.3** | Verify that the user can review, modify, and revoke consents which the user has granted through the authorization server. | 2 | v5.0.be-51.7.3 |
 
 ## References
 

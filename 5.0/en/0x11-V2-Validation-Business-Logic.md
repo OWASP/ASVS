@@ -32,7 +32,7 @@ Whilst schema validation is not explicitly mandated, this may be the most effect
 Please note the following points on Schema Validation:
 
 * The "published version" of the JSON schema validation specification is considered production-ready, not strictly speaking "stable". When using JSON schema validation, be sure there are no gaps with the guidance in the requirements below.
-* Any JSON schema validation libraries in use should also be monitored and updated if necessary  once the standard is formalized.
+* Any JSON schema validation libraries in use should also be monitored and updated if necessary once the standard is formalized.
 * DTD validation should not be used, and framework DTD evaluation should be disabled, to avoid issues with XXE attacks against DTDs.
 
 | # | Description | Level | #v5.0.be |
