@@ -4,7 +4,7 @@
 
 The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It effectively refers to a token which contains data or claims which a receiving service will rely upon to make security decisions. This is to be differentiated from a token which is just an identifier which a receiving service will use to lookup data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
 
-The use of self-contained tokens has become very widespread, even outside of OIDC/OAuth. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process and this chapter will provide specific details of the mechanisms that applications should have in place to prevent them.
+The use of self-contained tokens has become very widespread, even outside of OAuth and OIDC. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process and this chapter will provide specific details of the mechanisms that applications should have in place to prevent them.
 
 ## V9.1 Token source and integrity
 
@@ -24,10 +24,10 @@ Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **9.2.1** | Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs the claims 'nbf' and 'exp' must be verified. | 1 | v5.0.be-52.2.1 |
+| **9.2.1** | Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs, the claims 'nbf' and 'exp' must be verified. | 1 | v5.0.be-52.2.1 |
 | **9.2.2** | Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID tokens can be used for proving user authentication. | 2 | v5.0.be-52.2.2 |
 | **9.2.3** | Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | 2 | v5.0.be-52.2.3 |
-| **9.2.4** | Verify that, if a token issuer uses the same private key for issuing tokens to different audiences, the issued tokens contain an audience restriction that uniquely identifies the intended audiences. This will prevent a token being reused with an unintended audience. If the audience identifier is dynamically provisioned, the token issuer must validate these audiences in order to make sure that they do not result in audience impersonation. | 2 | v5.0.be-52.2.4 |
+| **9.2.4** | Verify that, if a token issuer uses the same private key for issuing tokens to different audiences, the issued tokens contain an audience restriction that uniquely identifies the intended audiences. This will prevent a token from being reused with an unintended audience. If the audience identifier is dynamically provisioned, the token issuer must validate these audiences in order to make sure that they do not result in audience impersonation. | 2 | v5.0.be-52.2.4 |
 
 ## References
 

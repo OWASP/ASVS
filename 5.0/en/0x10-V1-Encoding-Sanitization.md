@@ -98,18 +98,6 @@ For more information, see also:
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
 * [RFC4180 - Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
 
-<!-- outdated and/or vendor specific
-For more information on auto-escaping, please see:
-
-* [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
-* [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
-* [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
-* [Angular Sanitization](https://angular.io/guide/security#sanitization-and-security-contexts)
-* [Angular Security](https://angular.io/guide/security)
-* [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
-* [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
--->
-
 For more information on deserialization or parsing issues, please see:
 
 * [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
