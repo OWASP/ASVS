@@ -104,7 +104,7 @@ The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages
 | **6.5.5** | Verify that out-of-band authentication requests, codes, or tokens, as well as time-based, one-time passwords (TOTPs) have a defined lifetime. Out of band requests must have a maximum lifetime of 10 minutes and for TOTP a maximum lifetime of 30 seconds. | 2 | v5.0.be-2.6.5 |
 | **6.5.6** | Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 | v5.0.be-2.6.6 |
 | **6.5.7** | Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 | v5.0.be-2.6.7 |
-| **6.5.8** | Verify that time-based OTPs are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | v5.0.be-2.6.8 |
+| **6.5.8** | Verify that time-based, one-time passwords (TOTPs) are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 | v5.0.be-2.6.8 |
 
 ## V6.6 Out-of-Band authentication mechanisms
 
