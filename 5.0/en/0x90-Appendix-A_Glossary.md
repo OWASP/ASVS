@@ -58,6 +58,7 @@
 * **Stateless Session Mechanism** - A stateless session mechanism will use a self-contained token which is passed to clients, and contains session information that is not necessarily stored within the service which then receives and validates the token. In reality, a service will need to have access to some session information (such as a JWT revocation list) in order to be able to enforce required security controls.
 * **SVG** - Scalable Vector Graphics.
 * **Time-based OTP** - A method of generating an OTP where the current time acts as part of the algorithm to generate the password.
+* **Time-of-check to time-of-use** (TOCTOU) - The product checks the state of a resource before using that resource, but the resource's state can change between the check and the use in a way that invalidates the results of the check. This can cause the product to perform invalid actions when the resource is in an unexpected state. See: (CWE-367)[https://cwe.mitre.org/data/definitions/367].
 * **Threat Modeling** - A technique consisting of developing increasingly refined security architectures to identify threat agents, security zones, security controls, and important technical and business assets.
 * **Transport Layer Security** (TLS) – Cryptographic protocols that provide communication security over a network connection.
 * **Trusted Platform Module** (TPM) - A type of HSM that is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
