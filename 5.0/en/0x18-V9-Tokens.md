@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It effectively refers to a token which contains data or claims which a receiving service will rely upon to make security decisions. This is to be differentiated from a token which is just an identifier which a receiving service will use to lookup data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
+The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It refers to a token containing data or claims which a receiving service will rely upon to make security decisions. This is to be differentiated from a simple token containing an identifier which a receiving service will use to lookup data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
 
 The use of self-contained tokens has become very widespread, even outside of OIDC/OAuth. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process and this chapter will provide specific details of the mechanisms that applications should have in place to prevent them.
 
