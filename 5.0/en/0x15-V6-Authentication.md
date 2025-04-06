@@ -56,7 +56,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | **6.3.1** | Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | 1 | v5.0.be-2.2.1 |
 | **6.3.2** | Verify that the application requires users to either use a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms. | 2 | v5.0.be-2.2.9 |
 | **6.3.3** | Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 | v5.0.be-2.2.11 |
-| **6.3.4** | Verify that users are notified of suspicious authentication attempts. This may include successful or unsuccessful authentication from an unusual location or client, partially successful authentication with only one of multiple factors, successful or unsuccessful authentication after a long period of inactivity or successful authentication after several unsuccessful attempts. | 3 | v5.0.be-2.2.10 |
+| **6.3.4** | Verify that users are notified of suspicious authentication attempts (successful or unsuccessful). This may include authentication attempts from an unusual location or client, partially successful authentication (only one of multiple factors), an authentication attempt after a long period of inactivity or a successful authentication after several unsuccessful attempts. | 3 | v5.0.be-2.2.10 |
 | **6.3.5** | Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 | v5.0.be-2.2.2 |
 | **6.3.6** | Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 3 | v5.0.be-2.2.3 |
 | **6.3.7** | Verify that a hardware-based authentication mechanism is supported that provides impersonation resistance against phishing attacks (such as WebAuthn) and verifies intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key). | 3 | v5.0.be-2.2.4 |
@@ -73,7 +73,7 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **6.4.1** | Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 | v5.0.be-2.5.8 |
 | **6.4.2** | Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | 1 | v5.0.be-2.5.2 |
 | **6.4.3** | Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 2 | v5.0.be-2.5.6 |
-| **6.4.4** | Verify that if OTP or other multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. | 2 | v5.0.be-2.5.7 |
+| **6.4.4** | Verify that if a multi-factor authentication factor is lost, evidence of identity proofing is performed at the same level as during enrollment. | 2 | v5.0.be-2.5.7 |
 | **6.4.5** | Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 3 | v5.0.be-2.5.9 |
 | **6.4.6** | Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 3 | v5.0.be-2.5.10 |
 
@@ -89,7 +89,7 @@ The mechanisms include:
 
 Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. This type of authentication mechanism is considered "something you have" because the codes are deliberately not memorable so will need to be stored somewhere.
 
-Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have". Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final OTP.
+Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have". Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing or some additional value (such as transaction signing calculators) to be entered to create the final One-time Password (OTP).
 
 Details on out-of-band mechanisms will be provided in the next section.
 
@@ -97,7 +97,7 @@ The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **6.5.1** | Verify that lookup secrets, out-of-band authentication requests or codes, and time-based, one-time passwords (TOTPs) are only usable once. | 2 | v5.0.be-2.6.1 |
+| **6.5.1** | Verify that lookup secrets, out-of-band authentication requests or codes, and time-based, one-time passwords (TOTPs) are only successfully usable once. | 2 | v5.0.be-2.6.1 |
 | **6.5.2** | Verify that, when being stored in the application's backend, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 | v5.0.be-2.6.2 |
 | **6.5.3** | Verify that lookup secrets, out-of-band authentication code, and time-based, one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 | v5.0.be-2.6.3 |
 | **6.5.4** | Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 | v5.0.be-2.6.4 |
@@ -115,7 +115,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **6.6.1** | Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 | v5.0.be-2.7.1 |
-| **6.6.2** | Verify that out-of-band authentication requests, codes, or tokens are only usable for the original authentication request for which they were generated and not a previous or subsequent one. | 2 | v5.0.be-2.7.3 |
+| **6.6.2** | Verify that out-of-band authentication requests, codes, or tokens are bound to the original authentication request for which they were generated and are not usable for a previous or subsequent one. | 2 | v5.0.be-2.7.3 |
 | **6.6.3** | Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using either rate limiting or a code with at least 64 bits of entropy. | 2 | v5.0.be-2.7.7 |
 | **6.6.4** | Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | 3 | v5.0.be-2.7.8 |
 
