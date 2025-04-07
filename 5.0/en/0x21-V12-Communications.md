@@ -44,7 +44,7 @@ Ensure all HTTP traffic to external-facing services which the application expose
 
 ## V12.3 General Service to Service Communication Security
 
-Server communications (both internal and external) involve more than just HTTP. Connections to and from other systems must also be secure, ideally using TLS..
+Server communications (both internal and external) involve more than just HTTP. Connections to and from other systems must also be secure, ideally using TLS.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
