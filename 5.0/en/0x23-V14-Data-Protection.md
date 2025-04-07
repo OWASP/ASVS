@@ -2,19 +2,19 @@
 
 ## Control Objective
 
-There are three key elements to sound data protection: Confidentiality, Integrity and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.
+There are three key elements to sound data protection: Confidentiality, Integrity, and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.
 
-Applications have to assume that all user devices are compromised in some way. Where an application transmits or stores sensitive information on insecure devices, such as shared computers, phones and tablets, the application is responsible for ensuring data stored on these devices is protected and cannot be easily illicitly obtained, altered or disclosed. Possible solutions including making sure it is not persisted or making sure it is stored in an encrypted form.
+Applications have to assume that all user devices are compromised in some way. Where an application transmits or stores sensitive information on insecure devices, such as shared computers, phones, and tablets, the application is responsible for ensuring data stored on these devices is protected and cannot be easily illicitly obtained, altered, or disclosed. Possible solutions include making sure it is not persisted or making sure it is stored in an encrypted form.
 
 This chapter includes requirements related to defining what data needs to be protected, how it should be protected, and specific mechanisms to implement or pitfalls to avoid.
 
-Another consideration for data protection, could be around bulk extraction or modification or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euro of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter and setting limits is handed in the "Business Logic" chapter.
+Another consideration for data protection could be around bulk extraction, modification, or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euros of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Business Logic" chapter.
 
 There are various privacy regulations and laws, such as the Australian Privacy Principles APP-11 or GDPR, which affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation but rather focuses on key technical considerations for protecting sensitive data. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
 
 ## V14.1 Data Protection and Privacy Documentation
 
-A key pre-requisite for being able to protect data is to be able to categorize what data should be considered sensitive. There are likely to be a few different levels of sensitivity, and for each level of sensitivity, the controls required to protect data at that level will be different.
+A key prerequisite for being able to protect data is to be able to categorize what data should be considered sensitive. There are likely to be a few different levels of sensitivity, and for each level of sensitivity, the controls required to protect data at that level will be different.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -23,7 +23,7 @@ A key pre-requisite for being able to protect data is to be able to categorize w
 
 ## V14.2 General Data Protection
 
-This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leaking but there is also a general requirment to implement protection controls based on the protection level required for each data item.
+This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leaking, but there is also a general requirement to implement protection controls based on the protection level required for each data item.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -31,14 +31,14 @@ This section contains various practical requirements related to the protection o
 | **14.2.2** | Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | 2 | v5.0.be-8.1.1 |
 | **14.2.3** | Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 | v5.0.be-8.1.8 |
 | **14.2.4** | Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 | v5.0.be-8.1.9 |
-| **14.2.5** | Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when an non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
+| **14.2.5** | Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when a non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
 | **14.2.6** | Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the full data is absolutely required, it should be masked in the user interface unless the user specifically views it. | 3 | v5.0.be-8.1.10 |
-| **14.2.7** | Verify that sensitive personal information is subject to data retention classification, such that old or out of date data is deleted automatically, on a schedule, or as the situation requires. | 3 | v5.0.be-8.3.8 |
+| **14.2.7** | Verify that sensitive personal information is subject to data retention classification, such that old or out-of-date data is deleted automatically, on a schedule, or as the situation requires. | 3 | v5.0.be-8.3.8 |
 | **14.2.8** | Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 | v5.0.be-8.3.9 |
 
 ## V14.3 Client-side Data Protection
 
-This section contains requirements related to specific ways in which data can leak at the client or user agebt side of an application.
+This section contains requirements related to specific ways in which data can leak at the client or user agent side of an application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
