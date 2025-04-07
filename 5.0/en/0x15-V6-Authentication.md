@@ -117,7 +117,7 @@ Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not per
 | **6.6.1** | Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when alternate stronger methods (such as push notifications) are also offered and when the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 | v5.0.be-2.7.1 |
 | **6.6.2** | Verify that out-of-band authentication requests, codes, or tokens are bound to the original authentication request for which they were generated and are not usable for a previous or subsequent one. | 2 | v5.0.be-2.7.3 |
 | **6.6.3** | Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using rate limiting. Consider also using a code with at least 64 bits of entropy. | 2 | v5.0.be-2.7.7 |
-| **6.6.4** | Verify that, where push notifications are used for multi-factor authentication, rate limiting or number matching is used to prevent push bombing attacks. | 3 | v5.0.be-2.7.8 |
+| **6.6.4** | Verify that, where push notifications are used for multi-factor authentication, rate limiting is used to prevent push bombing attacks. Number matching may also mitigate this risk. | 3 | v5.0.be-2.7.8 |
 
 ## V6.7 Cryptographic authentication mechanism
 
