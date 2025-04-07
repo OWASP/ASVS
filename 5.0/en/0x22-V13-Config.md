@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The configuration of the application out of the box should be safe to be on the Internet, which means a safe out-of-the-box configuration.
+The configuration of the application out of the box should be safe to be on the Internet.
 
 This chapter provides guidance on the various configurations that will be necessary to achieve this including both configurations to apply whilst developing the application and also those that are applied at build and deploy time.
 
@@ -10,7 +10,7 @@ This includes topics such as preventing data leakage, securely managing communic
 
 ## V13.1 Configuration Documentation
 
-This section provides documentation requirements around how the application communicates with external services and how techniques should be employed to prevent loss of availability due to these services not being accessible.
+This section provides documentation requirements around how the application communicates with external services and the techniques to employ to prevent loss of availability due to these services not being accessible.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
