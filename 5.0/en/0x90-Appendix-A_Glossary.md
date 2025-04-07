@@ -32,7 +32,7 @@
 * **Malicious Code** – Code introduced into an application during its development unbeknownst to the application owner, which circumvents the application's intended security policy. Not the same as malware such as a virus or worm!
 * **Malware** – Executable code that is introduced into an application during runtime without the knowledge of the application user or administrator.
 * **Multi-factor authentication** (MFA) - Authentication which includes two or more of the single factors.
-* **Mutual TLS** (mTLS) - In a standard TLS connection, a client can use the certificate provided by the server to validate the server's identity. Where mTLS is used, the client will its own private key and certificate to allow the server to also authenticate its identity. 
+* **Mutual TLS** (mTLS) - In a standard TLS connection, a client can use the certificate provided by the server to validate the server's identity. Where mTLS is used, the client will its own private key and certificate to allow the server to also authenticate its identity.
 * **Open Worldwide Application Security Project** (OWASP) – The Open Worldwide Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible," so that people and organizations can make informed decisions about application security risks. See: [https://www.owasp.org/](https://www.owasp.org/).
 * **One-time Password** (OTP) - A password that is uniquely generated to be used on a single occasion.
 * **Object-relational Mapping** (ORM) - A system used to allow a relational/table-based database to be referenced and queried within an application program using an application-compatible object model.
