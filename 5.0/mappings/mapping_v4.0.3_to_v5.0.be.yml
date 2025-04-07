@@ -399,7 +399,7 @@ v4.0.3-8.3.6:
 v4.0.3-8.3.7:
   tag-v5.0.be: DELETED, COVERED BY v5.0.be-1.8.2
 v4.0.3-8.3.8:
-  tag-v5.0.be: MOVED TO v5.0.be-8.3.8
+  tag-v5.0.be: GRAMMAR, MOVED TO v5.0.be-8.3.8
 v4.0.3-9.1.1:
   tag-v5.0.be: MODIFIED, MOVED TO v5.0.be-9.1.1
 v4.0.3-9.1.2:
