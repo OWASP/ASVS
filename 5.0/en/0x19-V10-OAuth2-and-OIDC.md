@@ -17,8 +17,8 @@ The following roles are defined in OAuth:
 
 The following roles are defined in OIDC:
 
-* The relying party (RP) is the client application requesting end-user authentication through the OpenID provider. It assumes the role of an OAuth client.
-* The OpenID provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to an RP. The OP may be the identity provider (IdP), but in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
+* The relying party (RP) is the client application requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
+* The OpenID Provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to an RP. The OP may be the identity provider (IdP), but in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
 
 OAuth and OIDC were initially designed for third-party applications. Nowadays, they are often used by first-party applications as well. However, when used in first-party scenarios, e.g., authentication and session management, the protocol adds some complexity, which may introduce new security challenges.
 
@@ -82,7 +82,7 @@ Therefore, the requirements listed here are OAuth or OIDC specific and should be
 
 ## V10.4 OAuth Authorization Server
 
-These requirements detail the responsibilities for OAuth authorization servers, including OpenID providers.
+These requirements detail the responsibilities for OAuth authorization servers, including OpenID Providers.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -109,7 +109,7 @@ As the OIDC relying party acts as an OAuth client, the requirements from the sec
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **10.5.1** | Verify that the client (as the relying party) mitigates ID Token replay attacks. For example, by ensuring that the 'nonce' claim in the ID Token matches the 'nonce' value sent in the authentication request to the OpenID provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | 2 | v5.0.be-51.5.1 |
+| **10.5.1** | Verify that the client (as the relying party) mitigates ID Token replay attacks. For example, by ensuring that the 'nonce' claim in the ID Token matches the 'nonce' value sent in the authentication request to the OpenID Provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | 2 | v5.0.be-51.5.1 |
 | **10.5.2** | Verify that the client uniquely identifies the user from ID Token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 2 | v5.0.be-51.5.2 |
 | **10.5.3** | Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by the client. | 2 | v5.0.be-51.5.3 |
 | **10.5.4** | Verify that the client validates that the ID Token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 2 | v5.0.be-51.5.4 |
@@ -117,13 +117,13 @@ As the OIDC relying party acts as an OAuth client, the requirements from the sec
 
 ## V10.6 OpenID Provider
 
-As OpenID providers act as OAuth authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
+As OpenID Providers act as OAuth authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
 
 Note that if using the ID Token flow (not the code flow), no access tokens are issued, and many of the requirements for OAuth AS are not applicable.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **10.6.1** | Verify that the OpenID provider only allows values 'code', 'ciba', 'id_token', or 'id_token code' for response mode. Note that 'code' is preferred over 'id_token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 | v5.0.be-51.6.1 |
+| **10.6.1** | Verify that the OpenID Provider only allows values 'code', 'ciba', 'id_token', or 'id_token code' for response mode. Note that 'code' is preferred over 'id_token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 | v5.0.be-51.6.1 |
 
 ## V10.7 Consent Management
 
