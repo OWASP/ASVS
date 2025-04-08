@@ -27,7 +27,7 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.1.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | 2 | v5.0.be-1.6.1 |
+| **11.1.1** | Verify that there is a documented policy for management of cryptographic keys and a cryptographic key lifecycle that follows a key management standard such as NIST SP 800-57. | 2 | v5.0.be-1.6.1 |
 | **11.1.2** | Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It must also document where keys can and cannot be used in the system and also the types of data which can and cannot be protected using the keys. | 2 | v5.0.be-1.6.4 |
 | **11.1.3** | Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | 3 | v5.0.be-1.6.5 |
 
