@@ -10,7 +10,7 @@ This includes topics such as preventing data leakage, securely managing communic
 
 ## V13.1 Configuration Documentation
 
-This section provides documentation requirements around how the application communicates with external services and the techniques to employ to prevent loss of availability due to these services not being accessible.
+This section provides documentation requirements around how the application communicates with internal and external services and the techniques to employ to prevent loss of availability due to these services not being accessible.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -21,6 +21,8 @@ This section provides documentation requirements around how the application comm
 ## V13.2 Backend Communication Configuration
 
 Applications need to interact with multiple services, including APIs, databases, or other components. These might be considered internal to the application but not be included in the application's standard access control mechanisms, or might be entirely external. In either case, it will be necessary to configure the application to interact securely with these components and, if necessary, protect that configuration.
+
+Note that the "Secure Communication" chapter provides guidance for encryption in transit.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -44,9 +46,7 @@ Secret management is a configuration task that is essential to ensure the protec
 
 ## V13.4 Build and Deploy
 
-Whilst the security of build processes and the DevSecOps aspects involved are generally not in scope for ASVS, this section captures security controls for the application itself, which are applied at the build and deploy process, such as how the application is compiled and avoiding unnecessary content when the application is deployed.
-
-Compliance with this section requires an automated build system, and access to build and deployment scripts.
+Whilst the security of build processes and the DevSecOps aspects involved are generally not in scope for ASVS, this section captures security controls for the application itself, which can be applied at the build and deploy process, such as how the application is compiled and avoiding unnecessary content when the application is deployed.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
