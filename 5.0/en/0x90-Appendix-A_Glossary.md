@@ -32,7 +32,7 @@
 * **Malicious Code** – Code introduced into an application during its development unbeknownst to the application owner, which circumvents the application's intended security policy. Not the same as malware such as a virus or worm!
 * **Malware** – Executable code that is introduced into an application during runtime without the knowledge of the application user or administrator.
 * **Multi-factor authentication** (MFA) - Authentication which includes two or more of the single factors.
-* **Mutual TLS** (mTLS) - In a standard TLS connection, a client can use the certificate provided by the server to validate the server's identity. Where mTLS is used, the client will its own private key and certificate to allow the server to also authenticate its identity.
+* **Mutual TLS** (mTLS) - See TLS client authentication.
 * **Open Worldwide Application Security Project** (OWASP) – The Open Worldwide Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible," so that people and organizations can make informed decisions about application security risks. See: [https://www.owasp.org/](https://www.owasp.org/).
 * **One-time Password** (OTP) - A password that is uniquely generated to be used on a single occasion.
 * **Object-relational Mapping** (ORM) - A system used to allow a relational/table-based database to be referenced and queried within an application program using an application-compatible object model.
@@ -61,6 +61,7 @@
 * **Time-based OTP** - A method of generating an OTP where the current time acts as part of the algorithm to generate the password.
 * **Time-of-check to time-of-use** (TOCTOU) - A situation where an application checks the state of a resource before using that resource, but the resource's state can be changed between the check and the use. This can invalidate the results of the check and cause a situation where the application performs invalid actions due to this state mismatch.
 * **Threat Modeling** - A technique consisting of developing increasingly refined security architectures to identify threat agents, security zones, security controls, and important technical and business assets.
+* **TLS client authentication**, also called **Mutual TLS** (mTLS) - In a standard TLS connection, a client can use the certificate provided by the server to validate the server's identity. Where TLS client authentication is used, the client also uses its own private key and certificate to allow the server to also validate the client's identity.
 * **Transport Layer Security** (TLS) – Cryptographic protocols that provide communication security over a network connection.
 * **Trusted Platform Module** (TPM) - A type of HSM that is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
 * **Trusted Service Layer** - Any trusted control enforcement point, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. Trusted means that we are not concerned that an untrusted user will be able to bypass or skip the layer or controls implemented at that layer.
