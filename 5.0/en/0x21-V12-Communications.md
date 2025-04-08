@@ -7,8 +7,8 @@ This chapter includes requirements related to the specific mechanisms that shoul
 The general concepts promoted by this chapter include:
 
 * Ensuring that communications are encrypted externally, and ideally internally as well.
-* Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers
-* Checking that communications are not being intercepted by an unauthorized party using signed certificates
+* Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
+* Checking that communications are not being intercepted by an unauthorized party using signed certificates.
 
 In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in [Appendix V](./0x97-Appendix-V_Cryptography.md).
 
@@ -16,7 +16,7 @@ In addition to outlining general principles and best practices, the ASVS also pr
 
 This section provides initial guidance on how to secure TLS communications. Up-to-date tools should be used to review TLS configuration on an ongoing basis.
 
-While usage of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible.
+While usage of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development, and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -51,7 +51,7 @@ Server communications (both internal and external) involve more than just HTTP. 
 
 For more information, see also:
 
-* [OWASP – TLS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
+* [OWASP - Transport Layer Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
 * [Mozilla's Server Side TLS configuration guide](https://wiki.mozilla.org/Security/Server_Side_TLS)
 * [Mozilla's tool to generate known good TLS configurations](https://mozilla.github.io/server-side-tls/ssl-config-generator/).
 * [O-Saft - OWASP Project to validate TLS configuration](https://owasp.org/www-project-o-saft/)
