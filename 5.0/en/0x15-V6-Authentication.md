@@ -37,11 +37,11 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 | **6.2.5** | Verify that passwords of any composition can be used, without rules limiting the type of characters permitted. There must be no requirement for a minimum number of upper or lower case characters, numbers, or special characters. | 1 | v5.0.be-2.1.9 |
 | **6.2.6** | Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | 1 | v5.0.be-2.1.12 |
 | **6.2.7** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | 1 | v5.0.be-2.1.11 |
-| **6.2.8** | Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 2 | v5.0.be-2.1.3 |
+| **6.2.8** | Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 1 | v5.0.be-2.1.3 |
 | **6.2.9** | Verify that passwords of at least 64 characters are permitted. | 2 | v5.0.be-2.1.2 |
 | **6.2.10** | Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | 2 | v5.0.be-2.1.10 |
 | **6.2.11** | Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | 2 | v5.0.be-2.1.14 |
-| **6.2.12** | Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | 3 | v5.0.be-2.1.13 |
+| **6.2.12** | Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | 2 | v5.0.be-2.1.13 |
 
 ## V6.3 General Authentication Security
 
