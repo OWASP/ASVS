@@ -56,7 +56,7 @@ For stateful session mechanisms, termination typically involves invalidating the
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.4.1** | Verify that when session termination is triggered (such as logout or expiration), the application disallows any further use of the session token. For reference tokens or server-side sessions, this means invalidating the session data on the server side. Applications using self-contained tokens will need a solution such as maintaining a list of terminated tokens, disallowing tokens produced before a per-user date and time or rotating a per-user signing key. | 1 | v5.0.be-3.8.1 |
+| **7.4.1** | Verify that when session termination is triggered (such as logout or expiration), the application disallows any further use of the session. For reference tokens or stateful sessions, this means invalidating the session data at the application backend. Applications using self-contained tokens will need a solution such as maintaining a list of terminated tokens, disallowing tokens produced before a per-user date and time or rotating a per-user signing key. | 1 | v5.0.be-3.8.1 |
 | **7.4.2** | Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 | v5.0.be-3.8.4 |
 | **7.4.3** | Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 | v5.0.be-3.8.2 |
 | **7.4.4** | Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 | v5.0.be-3.8.3 |
