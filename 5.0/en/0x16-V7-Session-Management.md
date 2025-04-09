@@ -68,9 +68,9 @@ This section provides requirements to mitigate the risk posed by active sessions
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.5.1** | Verify that the application requires re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | v5.0.be-3.7.1 |
-| **7.5.2** | Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | 2 | v5.0.be-3.7.2 |
-| **7.5.3** | Verify that the application requires re-authentication or secondary verification before performing highly sensitive transactions or operations. | 3 | v5.0.be-3.7.3 |
+| **7.5.1** | Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | v5.0.be-3.7.1 |
+| **7.5.2** | Verify that users are able to view and (having authenticated again with at least one factor) terminate any or all currently active sessions. | 2 | v5.0.be-3.7.2 |
+| **7.5.3** | Verify that the application requires further authentication with at least one factor or secondary verification before performing highly sensitive transactions or operations. | 3 | v5.0.be-3.7.3 |
 
 ## V7.6 Federated Re-authentication
 
