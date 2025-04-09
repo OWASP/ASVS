@@ -80,7 +80,7 @@ This section includes various other security controls and modern browser securit
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **3.7.1** | Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | 2 | v5.0.be-50.8.2 |
-| **3.7.2** | Verify that the application will only automatically redirect the user to a different URL directly from an application URL where the destination appears on an allowlist. | 2 | v5.0.be-50.8.5 |
+| **3.7.2** | Verify that the application will only automatically redirect the user to a different hostname or domain (which is not controlled by the application) where the destination appears on an allowlist. | 2 | v5.0.be-50.8.5 |
 | **3.7.3** | Verify that the application's top-level domain (e.g., site.tld) is added to the public preload list for HTTP Strict Transport Security (HSTS). This ensures that the use of TLS for the application is built directly into the main browsers, rather than relying only on the Strict-Transport-Security response header field. | 3 | v5.0.be-50.8.4 |
 | **3.7.4** | Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | 3 | v5.0.be-50.8.1 |
 | **3.7.5** | Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features. | 3 | v5.0.be-50.8.3 |
