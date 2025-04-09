@@ -34,7 +34,7 @@ This section focuses on specific security considerations related to HTTP/2 and m
 | :---: | :--- | :---: | :---: |
 | **4.3.1** | Verify that when downgrading from HTTP/2 to an older HTTP version, the standard mechanism for calculating request length is used. Ensure that conflicting Content-Length and Transfer-Encoding header fields are not introduced, as they may lead to request smuggling vulnerabilities. | 3 | v5.0.be-13.7.1 |
 | **4.3.2** | Verify that all Transfer-Encoding header fields are stripped from HTTP/2 messages or that HTTP/2 requests containing them are rejected to prevent response splitting and header injection attacks. | 3 | v5.0.be-13.7.2 |
-| **4.3.3** | Verify that any full CRLF (\r\n) sequence within an HTTP/2 header field is either removed or rejected to prevent header injection attacks. | 3 | v5.0.be-13.7.3 |
+| **4.3.3** | Verify that the application only accepts HTTP/2 and HTTP/3 requests where the header fields and values do not contain any CR (\r), LF (\n), or CRLF (\r\n) sequences, to prevent header injection attacks. | 3 | v5.0.be-13.7.3 |
 
 ## V4.4 GraphQL
 
