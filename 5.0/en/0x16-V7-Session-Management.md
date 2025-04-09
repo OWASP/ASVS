@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are satisfied:
+Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are satisfied:
 
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and timed out during periods of inactivity.
@@ -11,7 +11,7 @@ Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digi
 
 Note that requirements for specific implementation details of certain session management mechanisms can be elsewhere:
 
-* HTTP Cookies are a common mechanism for securing session identifiers. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
+* HTTP Cookies are a common mechanism for securing session tokens. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
 * Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
 
 ## V7.1 Session Management Documentation
