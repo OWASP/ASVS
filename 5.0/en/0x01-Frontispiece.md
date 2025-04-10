@@ -10,7 +10,7 @@ Version 5.0 (Bleeding Edge version), 2025
 
 ![license](../images/license.png)
 
-Copyright © 2008-2025 The OWASP Foundation. 
+Copyright © 2008-2025 The OWASP Foundation.
 
 This document is released under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
@@ -20,8 +20,8 @@ For any reuse or distribution, you must clearly communicate the license terms of
 
 |                       |                  |
 |---------------------- |----------------- |
-| Elar Lang   			| Josh C Grossman  |
-| Jim Manico       		| Daniel Cuthbert  |
+| Elar Lang             | Josh C Grossman  |
+| Jim Manico            | Daniel Cuthbert  |
 
 ## Working Group
 
