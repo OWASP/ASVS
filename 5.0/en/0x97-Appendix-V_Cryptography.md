@@ -176,11 +176,11 @@ For secure password hashing, dedicated hash functions must be used. These slow-h
 
 A security strength of 112 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the following table.
 
-| Scheme | Domain Parameters | Status |
+| Scheme | Domain Parameters | Forward Secrecy |Status |
 |--|--|--|
-| RSA | k >= 3072 | A |
-| Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | A |
-| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | A |
+| Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Yes | A |
+| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Yes | A |
+| Encrypted key transport with RSA-PKCS#1 v1.5 | k >= 3072 | No | L |
 
 Where the following parameters are:
 
