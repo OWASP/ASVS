@@ -10,7 +10,7 @@ This section includes a requirement to document the expected characteristics for
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **5.1.1** | Verify that, if the application allows uploading files, the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process. | 2 | v5.0.be-1.12.3 |
+| **5.1.1** | Verify that the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process, such as how the application behaves when a malicious file is detected. | 2 | v5.0.be-1.12.3 |
 
 ## V5.2 File Upload and Content
 
