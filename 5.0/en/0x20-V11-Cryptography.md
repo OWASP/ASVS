@@ -25,7 +25,9 @@ It is also important to ensure that all cryptographic assets, such as algorithms
 * [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
 * [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
 
-The need to future-proof cryptographic systems in preparation for the eventual rise of quantum computing is critical. Post-Quantum Cryptography (PQC) focuses on developing cryptographic systems that are resistant to quantum attacks, which could break current encryption methods such as RSA and ECC. Please see the Appendix for the latest information on available PQC primitives.
+The need to future-proof cryptographic systems against the eventual rise of quantum computing is critical. Post-Quantum Cryptography (PQC) refers to cryptographic algorithms designed to remain secure against attacks by quantum computers, which are expected to break widely used algorithms such as RSA and elliptic curve cryptography (ECC).
+
+Please see the Appendix for current guidance on vetted PQC primitives and standards.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
