@@ -2,19 +2,17 @@
 
 ## Control Objective
 
-There are three key elements to sound data protection: Confidentiality, Integrity, and Availability (CIA). This standard assumes that data protection is enforced on a trusted system, such as a server, which has been hardened and has sufficient protections.
-
-Applications have to assume that all user devices are compromised in some way. Where an application transmits or stores sensitive information on insecure devices, such as shared computers, phones, and tablets, the application is responsible for ensuring data stored on these devices is protected and cannot be easily illicitly obtained, altered, or disclosed. Possible solutions include making sure it is not persisted or making sure it is stored in an encrypted form.
+Applications cannot account for all usage patterns and user behaviors and should therefore implement controls to limit unauthorized access to sensitive data on client devices.
 
 This chapter includes requirements related to defining what data needs to be protected, how it should be protected, and specific mechanisms to implement or pitfalls to avoid.
 
-Another consideration for data protection could be around bulk extraction, modification, or excessive usage. For example, many social media systems only allow users to add 100 new friends per day, but which system these requests came from is not important. A banking platform might wish to block more than 5 transactions per hour transferring more than 1000 euros of funds to external institutions. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Business Logic" chapter.
-
-There are various privacy regulations and laws, such as the Australian Privacy Principles APP-11 or GDPR, which affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation but rather focuses on key technical considerations for protecting sensitive data. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
+Another consideration for data protection could be around bulk extraction, modification, or excessive usage. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Business Logic" chapter.
 
 ## V14.1 Data Protection and Privacy Documentation
 
 A key prerequisite for being able to protect data is to be able to categorize what data should be considered sensitive. There are likely to be a few different levels of sensitivity, and for each level of sensitivity, the controls required to protect data at that level will be different.
+
+There are various privacy regulations and laws which affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation but rather focuses on key technical considerations for protecting sensitive data. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -38,7 +36,7 @@ This section contains various practical requirements related to the protection o
 
 ## V14.3 Client-side Data Protection
 
-This section contains requirements related to specific ways in which data can leak at the client or user agent side of an application.
+This section contains requirements preventing data from leaking in specific ways at the client or user agent side of an application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
