@@ -39,7 +39,7 @@ Secret Management is a configuration task that is essential to ensure the protec
 | :---: | :--- | :---: | :---: |
 | **13.3.1** | Verify that a secrets management solution such as a key vault is used to securely create, store, control access to, and destroy backend secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For a L3 application, this must involve a hardware-backed solution such as an HSM. | 2 | v5.0.be-14.8.1 |
 | **13.3.2** | Verify that access to secret assets adheres to the principle of least privilege. | 2 | v5.0.be-14.8.4 |
-| **13.3.3** | Verify that key material is not exposed to the application (neither the frontend nor the backend) but instead uses an isolated security module like a vault for cryptographic operations. | 3 | v5.0.be-14.8.2 |
+| **13.3.3** | Verify that all cryptographic operations are performed using an isolated security module (such as a vault or hardware security module) to securely manage and protect key material from exposure outside of the security module. | 3 | v5.0.be-14.8.2 |
 | **13.3.4** | Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization's threat model and business requirements. | 3 | v5.0.be-14.8.3 |
 
 ## V13.4 Build and Deploy
