@@ -4,7 +4,7 @@
 
 Many ASVS requirements either relate to a particular area of security, such as authentication or authorization, or relate to a particular type of application functionality, such as logging or file handling.
 
-However, this chapter provides more general guidance on how to develop secure applications and how to write secure code correctly. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
+However, this chapter provides more general security requirements to be taken into account when designing and developing applications. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
 
 ## V15.1 Secure Coding Documentation
 
