@@ -12,7 +12,7 @@ Many of the requirements for establishing a secure and defensible architecture d
 
 This section outlines the documentation requirements for this, including the identification of components considered to contain "dangerous functionality" or to be a "risky component".
 
-A component with "dangerous functionality" may perform operations such as deserialization of untrusted data, raw file or binary data parsing, dynamic code execution, or direct memory manipulation. There is a high risk that a vulnerability in these types of operations would lead to the compromise of the application using the functionality and possibly expose the application's underlying infrastructure. 
+A component with "dangerous functionality" may perform operations such as deserialization of untrusted data, raw file or binary data parsing, dynamic code execution, or direct memory manipulation. There is a high risk that a vulnerability in these types of operations would lead to the compromise of the application using the functionality and possibly expose the application's underlying infrastructure.
 
 A "risky component" is one that is poorly maintained, unsupported, end-of-life, has a history of significant vulnerabilities or includes "dangerous functionality".
 
