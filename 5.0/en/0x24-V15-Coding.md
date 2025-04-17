@@ -10,7 +10,11 @@ However, this chapter provides more general guidance on how to develop secure ap
 
 Many of the requirements for establishing a secure and defensible architecture depend on clear documentation of the decisions made regarding the implementation of specific security controls and the components used within the application.
 
-This section outlines the documentation requirements for this, including the identification of components considered "risky" due to their origin or functionality. A component may be deemed risky if it is poorly maintained, unsupported, end-of-life, or has a history of significant vulnerabilities. Additionally, a component may be classified as risky if it performs operations such as deserialization of untrusted data, raw file parsing, or direct memory manipulation.
+This section outlines the documentation requirements for this, including the identification of components considered to contain "dangerous functionality" or to be a "risky component".
+
+A component with "dangerous functionality" may perform operations such as deserialization of untrusted data, raw file or binary data parsing, dynamic code execution, or direct memory manipulation. There is a high risk that a vulnerability in these types of operations would lead to the compromise of the application using the functionality and possibly expose the application's underlying infrastructure. 
+
+A "risky component" is one that is poorly maintained, unsupported, end-of-life, has a history of significant vulnerabilities or includes "dangerous functionality".
 
 This section also emphasizes the importance of defining appropriate timeframes for addressing vulnerabilities in third-party components.
 
@@ -19,19 +23,21 @@ This section also emphasizes the importance of defining appropriate timeframes f
 | **15.1.1** | Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | 1 | v5.0.be-1.10.5 |
 | **15.1.2** | Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | 2 | v5.0.be-1.10.2 |
 | **15.1.3** | Verify that the application documentation identifies functionality which is time-consuming or resource-demanding. This must include how to prevent a loss of availability due to overusing this functionality and how to avoid a situation where building a response takes longer than the consumer's timeout. Potential defenses may include asynchronous processing, using queues, and limiting parallel processes per user and per application. | 2 | v5.0.be-1.10.6 |
-| **15.1.4** | Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life and libraries which have historically had several significant vulnerabilities. | 3 | v5.0.be-1.10.3 |
-| **15.1.5** | Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing or direct memory manipulation. | 3 | v5.0.be-1.10.4 |
+| **15.1.4** | Verify that application documentation highlights third-party libraries which are considered to be "risky components". | 3 | v5.0.be-1.10.3 |
+| **15.1.5** | Verify that application documentation highlights parts of the application where "dangerous functionality" is being used. | 3 | v5.0.be-1.10.4 |
 
 ## V15.2 Security Architecture and Dependencies
 
-This section includes requirements for handling risky, outdated, or insecure dependencies and components through dependency management. It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of risky operations or libraries and prevent loss of availability due to overusing resource-demanding functionality.
+This section includes requirements for handling risky, outdated, or insecure dependencies and components through dependency management.
+
+It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of the use of "dangerous operations| or "risky components" (as defined in the previous section) and prevent loss of availability due to overusing resource-demanding functionality.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **15.2.1** | Verify that the application only contains components which have not breached the documented update and remediation time frames. | 1 | v5.0.be-10.6.1 |
 | **15.2.2** | Verify that the application has implemented defences against loss of availability due to functionality which is time-consuming or resource-demanding, based on the documented security decisions and strategies for this. | 2 | v5.0.be-10.6.4 |
 | **15.2.3** | Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | 3 | v5.0.be-10.6.2 |
-| **15.2.4** | Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | v5.0.be-10.6.3 |
+| **15.2.4** | Verify that the application implements additional protections around parts of the application which are documented as containing "dangerous functionality" or using third-party libraries considered to be "risky components". This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | v5.0.be-10.6.3 |
 
 ## V15.3 Defensive Coding
 
