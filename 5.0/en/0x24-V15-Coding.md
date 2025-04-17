@@ -2,15 +2,17 @@
 
 ## Control Objective
 
-Many ASVS requirements either relate to a particular area of security like authentication or authorization or relate to a particular type of application functionality such as logging or file handling.
+Many ASVS requirements either relate to a particular area of security, such as authentication or authorization, or relate to a particular type of application functionality, such as logging or file handling.
 
-However, this chapter provides more general guidance on how to build applications and how to write secure code correctly. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
-
-This chapter also contains requirements to prevent the introduction of malicious code into the application.
+However, this chapter provides more general guidance on how to develop secure applications and how to write secure code correctly. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
 
 ## V15.1 Secure Coding Documentation
 
-Many of the requirements needed for a secure and defendable architecture require having clear documentation around what components are used in the application. This section provides the requirements for this documentation including which of these components are risky due to being poorly maintained, unsupported, end of life, or with a history of significant vulnerabilities and which components perform risky operations such as deserialization of untrusted data, raw file parsing or direct memory manipulation. It also includes mandates defining appropriate timescales for addressing vulnerabilities in 3rd party components.
+Many of the requirements for establishing a secure and defensible architecture depend on clear documentation of the decisions made regarding the implementation of specific security controls and the components used within the application.
+
+This section outlines the documentation requirements for this, including the identification of components considered "risky" due to their origin or functionality. A component may be deemed risky if it is poorly maintained, unsupported, end-of-life, or has a history of significant vulnerabilities. Additionally, a component may be classified as risky if it performs operations such as deserialization of untrusted data, raw file parsing, or direct memory manipulation.
+
+This section also emphasizes the importance of defining appropriate timeframes for addressing vulnerabilities in third-party components.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -22,7 +24,7 @@ Many of the requirements needed for a secure and defendable architecture require
 
 ## V15.2 Security Architecture and Dependencies
 
-This section includes requirements for handling risky, outdated or insecure dependencies and components through dependency management. It also includes using architectural level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of risky operations or libaries and preventing loss of availability due to overusing resource-demanding functionality.
+This section includes requirements for handling risky, outdated, or insecure dependencies and components through dependency management. It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of risky operations or libraries and prevent loss of availability due to overusing resource-demanding functionality.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -33,7 +35,7 @@ This section includes requirements for handling risky, outdated or insecure depe
 
 ## V15.3 Defensive Coding
 
-This section covers vulnerability types including type juggling, prototype pollution, mass assignment, and others which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages whereas others will have language specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
+This section covers vulnerability types, including type juggling, prototype pollution, mass assignment, and others, which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages, whereas others will have language-specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
