@@ -123,6 +123,8 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
+|AEGIS-128L | [The AEGIS Family of Authenticated Encryption Algorithms](https://datatracker.ietf.org/doc/draft-irtf-cfrg-aegis-aead/) | A
+|AEGIS-256 | [The AEGIS Family of Authenticated Encryption Algorithms](https://datatracker.ietf.org/doc/draft-irtf-cfrg-aegis-aead/) | A
 |Encrypt-then-MAC | | A
 |MAC-then-encrypt | | L
 
