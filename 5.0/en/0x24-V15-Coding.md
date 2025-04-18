@@ -30,7 +30,7 @@ This section also emphasizes the importance of defining appropriate timeframes f
 
 This section includes requirements for handling risky, outdated, or insecure dependencies and components through dependency management.
 
-It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of the use of "dangerous operations| or "risky components" (as defined in the previous section) and prevent loss of availability due to overusing resource-demanding functionality.
+It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of the use of "dangerous operations" or "risky components" (as defined in the previous section) and prevent loss of availability due to overusing resource-demanding functionality.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
