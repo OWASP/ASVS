@@ -55,7 +55,7 @@ Logs that can be trivially modified or deleted are useless for investigations an
 | :---: | :--- | :---: | :---: |
 | **16.4.1** | Verify that all logging components appropriately encode data to prevent log injection. | 2 | v5.0.be-7.3.1 |
 | **16.4.2** | Verify that logs are protected from unauthorized access and cannot be modified. | 2 | v5.0.be-7.3.3 |
-| **16.4.3** | Verify that logs are securely transmitted to a logically separate system for analysis, detection, alerting, and escalation. The aim is to ensure that if the application is breached, the logs are not also compromised. | 2 | v5.0.be-7.3.5 |
+| **16.4.3** | Verify that logs are securely transmitted to a logically separate system for analysis, detection, alerting, and escalation. The aim is to ensure that if the application is breached, the logs are not compromised. | 2 | v5.0.be-7.3.5 |
 
 ## V16.5 Error Handling
 
@@ -64,7 +64,7 @@ The purpose of error handling is to ensure the application fails gracefully and 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **16.5.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, which does not expose sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 | v5.0.be-7.4.1 |
-| **16.5.2** | Verify that the application is designed in a way that a failure to access external resources does not result in the entire application failing, for example using the circuit breaker pattern. | 2 | v5.0.be-7.4.4 |
+| **16.5.2** | Verify that the application continues to operate securely when external resource access fails, for example, by using patterns such as circuit breakers or graceful degradation. | 2 | v5.0.be-7.4.4 |
 | **16.5.3** | Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions such as processing a transaction despite errors resulting from validation logic. | 2 | v5.0.be-7.4.5 |
 | **16.5.4** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that must go to log files and to ensure that an error does not take down the entire application process, leading to a loss of availability. | 3 | v5.0.be-7.4.3 |
 
