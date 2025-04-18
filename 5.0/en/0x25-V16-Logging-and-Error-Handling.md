@@ -28,7 +28,7 @@ For the specific information which should be included in a log entry, refer to e
 | **16.2.2** | Verify that time sources for all logging components are synchronized, and that timestamps in security event metadata use UTC or include an explicit timezone offset. UTC is recommended to ensure consistency across distributed systems and to prevent confusion during daylight saving time transitions. | 2 | v5.0.be-7.1.5 |
 | **16.2.3** | Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | 2 | v5.0.be-7.1.6 |
 | **16.2.4** | Verify that logs can be read and correlated by the log processor which is in use, preferably by using a common logging format. | 2 | v5.0.be-7.1.7 |
-| **16.2.5** | Verify that when logging sensitive data, the application considers the protection level of the data. For example, it may not be allowed to log certain data such as credentials or payment details. Other data such as session tokens may only be logged having been hashed or masked, either in full or partially. | 2 | v5.0.be-7.1.1 |
+| **16.2.5** | Verify that when logging sensitive data, the application enforces logging based on the data's protection level. For example, it may not be allowed to log certain data, such as credentials or payment details. Other data, such as session tokens, may only be logged by being hashed or masked, either in full or partially. | 2 | v5.0.be-7.1.1 |
 
 ## V16.3 Security Events
 
