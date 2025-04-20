@@ -57,7 +57,6 @@ Whilst the security of build processes and the DevSecOps aspects involved are ge
 | **13.4.5** | Verify that mechanisms are in place to detect and respond to configuration drift in deployed environments. This may include using immutable infrastructure, automated redeployment from a secure baseline, or drift detection tools that compare current state against approved configurations. | 3 | v5.0.be-14.1.5 |
 | **13.4.6** | Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
 | **13.4.7** | Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
-| **13.4.8** | Verify that data, state information, and server instances related to the build and deployment process do not persist after the process has ended. (Ephemerality). | 3 | v5.0.be-14.1.8 |
 
 ## V13.5 Unintended Information Leakage
 
