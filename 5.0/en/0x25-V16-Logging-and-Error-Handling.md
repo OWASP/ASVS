@@ -62,7 +62,7 @@ The purpose of error handling is to ensure the application fails gracefully and 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **16.5.1** | Verify that a generic message is shown when an unexpected or security sensitive error occurs, which does not expose sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 | v5.0.be-7.4.1 |
+| **16.5.1** | Verify that a generic message is returned to the consumer when an unexpected or security-sensitive error occurs, ensuring no exposure of sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 | v5.0.be-7.4.1 |
 | **16.5.2** | Verify that the application continues to operate securely when external resource access fails, for example, by using patterns such as circuit breakers or graceful degradation. | 2 | v5.0.be-7.4.4 |
 | **16.5.3** | Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions such as processing a transaction despite errors resulting from validation logic. | 2 | v5.0.be-7.4.5 |
 | **16.5.4** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that must go to log files and to ensure that an error does not take down the entire application process, leading to a loss of availability. | 3 | v5.0.be-7.4.3 |
