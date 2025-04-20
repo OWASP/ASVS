@@ -16,8 +16,8 @@ There are various privacy regulations and laws which affect how applications mus
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **14.1.1** | Verify that all sensitive data created and processed by the application has been identified and classified into protection levels, and ensure that a policy is in place on how to deal with sensitive data. Note that this includes sensitive data that is being encoded in a recoverable form such as Base64 and JWT. Protection levels need to take into account any data protection and privacy regulations and standards which the application is required to comply with. | 2 | v5.0.be-1.8.1 |
-| **14.1.2** | Verify that all protection levels have a documented set of protection requirements. This must include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | 2 | v5.0.be-1.8.2 |
+| **14.1.1** | Verify that all sensitive data created and processed by the application has been identified and classified into protection levels. This includes data that is only encoded and therefore easily decoded, such as Base64 strings or the plaintext payload inside a JWT. Protection levels need to take into account any data protection and privacy regulations and standards which the application is required to comply with. | 2 | v5.0.be-1.8.1 |
+| **14.1.2** | Verify that all sensitive data protection levels have a documented set of protection requirements. This must include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | 2 | v5.0.be-1.8.2 |
 
 ## V14.2 General Data Protection
 
@@ -25,13 +25,13 @@ This section contains various practical requirements related to the protection o
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **14.2.1** | Verify that sensitive data is only sent to the server in the HTTP message body or header fields and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 | v5.0.be-8.1.11 |
-| **14.2.2** | Verify that the application prevents sensitive data from being cached in server components such as load balancers and application caches or ensures that the data is securely purged after use. | 2 | v5.0.be-8.1.1 |
+| **14.2.1** | Verify that sensitive data is only sent to the server in the HTTP message body or header fields, and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 | v5.0.be-8.1.11 |
+| **14.2.2** | Verify that the application prevents sensitive data from being cached in server components, such as load balancers and application caches, or ensures that the data is securely purged after use. | 2 | v5.0.be-8.1.1 |
 | **14.2.3** | Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 | v5.0.be-8.1.8 |
 | **14.2.4** | Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 | v5.0.be-8.1.9 |
-| **14.2.5** | Verify that caching mechanisms are configured to only cache responses which have the correct content type and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when a non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
-| **14.2.6** | Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the full data is absolutely required, it should be masked in the user interface unless the user specifically views it. | 3 | v5.0.be-8.1.10 |
-| **14.2.7** | Verify that sensitive personal information is subject to data retention classification, such that old or out-of-date data is deleted automatically, on a schedule, or as the situation requires. | 3 | v5.0.be-8.3.8 |
+| **14.2.5** | Verify that caching mechanisms are configured to only cache responses which have the expected content type for that resource and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when a non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 | v5.0.be-8.1.7 |
+| **14.2.6** | Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the complete data is required, it should be masked in the user interface unless the user specifically views it. | 3 | v5.0.be-8.1.10 |
+| **14.2.7** | Verify that sensitive information is subject to data retention classification, ensuring that outdated or unnecessary data is deleted automatically, on a defined schedule, or as the situation requires. | 3 | v5.0.be-8.3.8 |
 | **14.2.8** | Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 | v5.0.be-8.3.9 |
 
 ## V14.3 Client-side Data Protection
