@@ -10,13 +10,14 @@ This includes topics such as preventing data leakage, securely managing communic
 
 ## V13.1 Configuration Documentation
 
-This section provides documentation requirements around how the application communicates with internal and external services and the techniques to employ to prevent loss of availability due to these services not being accessible.
+This section provides documentation requirements around how the application communicates with internal and external services and the techniques to employ to prevent loss of availability due to these services not being accessible. It also considers documentation around secrets.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **13.1.1** | Verify that all communication needs for the application are documented. This must include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 | v5.0.be-1.14.7 |
 | **13.1.2** | Verify that for each service the application uses, the documentation defines the maximum number of concurrent connections (e.g., connection pool limits) and how the application behaves when that limit is reached, including any fallback or recovery mechanisms, to prevent denial of service conditions. | 3 | v5.0.be-1.14.8 |
 | **13.1.3** | Verify that the application documentation defines resource‑management strategies for every external system or service it uses (e.g., databases, file handles, threads, HTTP connections). This should include resource‑release procedures, timeout settings, failure handling, and where retry logic is implemented, specifying retry limits, delays, and back‑off algorithms. For synchronous HTTP request–response operations it should mandate short timeouts and either disable retries or strictly limit retries to prevent cascading delays and resource exhaustion. | 3 | v5.0.be-1.14.9 |
+| **13.1.4** | Verify that the application's documentation defines the secrets that are critical for the security of the application and a schedule for rotating them, based on the organization's threat model and business requirements. | 3 | v5.0.be-1.14.10 |
 
 ## V13.2 Backend Communication Configuration
 
@@ -35,14 +36,14 @@ Note that the "Secure Communication" chapter provides guidance for encryption in
 
 ## V13.3 Secret Management
 
-Secret management is a configuration task that is essential to ensure the protection of data being used in the application. Specific requirements on cryptography can be found in the "Cryptography" chapter but this section focuses on the management and handling aspects of secrets.
+Secret management is a configuration task that is essential to ensure the protection of data being used in the application. Specific requirements on cryptography can be found in the "Cryptography" chapter, but this section focuses on the management and handling aspects of secrets.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **13.3.1** | Verify that a secrets management solution, such as a key vault, is used to securely create, store, control access to, and destroy backend secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For an L3 application, this must involve a hardware-backed solution such as an HSM. | 2 | v5.0.be-14.8.1 |
 | **13.3.2** | Verify that access to secret assets adheres to the principle of least privilege. | 2 | v5.0.be-14.8.4 |
 | **13.3.3** | Verify that all cryptographic operations are performed using an isolated security module (such as a vault or hardware security module) to securely manage and protect key material from exposure outside of the security module. | 3 | v5.0.be-14.8.2 |
-| **13.3.4** | Verify that key secrets have defined expiration dates and are rotated on a schedule based on the organization's threat model and business requirements. | 3 | v5.0.be-14.8.3 |
+| **13.3.4** | Verify that secrets are configured to expire and be rotated based on the application's documentation. | 3 | v5.0.be-14.8.3 |
 
 ## V13.4 Build and Deploy
 
