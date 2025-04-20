@@ -16,7 +16,6 @@ A component with "dangerous functionality" may an internally developed or 3rd pa
 
 A "risky component" is a 3rd party library (i.e. not internally developed) that has missing or poorly implemented security controls around its development processes or functionality. For example components that are poorly maintained, unsupported, in the end-of-life, has a history of significant vulnerabilities.
 
-
 This section also emphasizes the importance of defining appropriate timeframes for addressing vulnerabilities in third-party components.
 
 | # | Description | Level | #v5.0.be |
