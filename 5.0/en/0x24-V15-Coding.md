@@ -12,9 +12,10 @@ Many of the requirements for establishing a secure and defensible architecture d
 
 This section outlines the documentation requirements for this, including the identification of components considered to contain "dangerous functionality" or to be a "risky component".
 
-A component with "dangerous functionality" may perform operations such as deserialization of untrusted data, raw file or binary data parsing, dynamic code execution, or direct memory manipulation. There is a high risk that a vulnerability in these types of operations would lead to the compromise of the application using the functionality and possibly expose the application's underlying infrastructure.
+A component with "dangerous functionality" may an internally developed or 3rd party component which performs operations such as deserialization of untrusted data, raw file or binary data parsing, dynamic code execution, or direct memory manipulation. There is a high risk that a vulnerability in these types of operations would lead to the compromise of the application using the functionality and possibly expose the application's underlying infrastructure.
 
-A "risky component" is one that is poorly maintained, unsupported, end-of-life, has a history of significant vulnerabilities or includes "dangerous functionality".
+A "risky component" is a 3rd party library (i.e. not internally developed) that has missing or poorly implemented security controls around its development processes or functionality. For example components that are poorly maintained, unsupported, in the end-of-life, has a history of significant vulnerabilities.
+
 
 This section also emphasizes the importance of defining appropriate timeframes for addressing vulnerabilities in third-party components.
 
@@ -53,8 +54,7 @@ This section covers vulnerability types, including type juggling, prototype poll
 | **15.3.6** | Verify that JavaScript code is written in a way that prevents prototype pollution, for example, by using Set() or Map() instead of object literals. | 2 | v5.0.be-10.4.3 |
 | **15.3.7** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | 2 | v5.0.be-10.4.7 |
 | **15.3.8** | Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | 3 | v5.0.be-10.4.2 |
-| **15.3.9** | Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 3 | v5.0.be-10.4.9 |
-| **15.3.10** | Verify that, if the application has an auto-update feature, updates must be digitally signed, with the digital signature being validated before installing or executing the update. | 3 | v5.0.be-10.4.10 |
+| **15.3.9** | Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 3 | v5.0.be-10
 
 ## V15.4 Concurrency
 
