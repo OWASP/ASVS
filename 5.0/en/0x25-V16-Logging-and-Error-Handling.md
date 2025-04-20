@@ -20,7 +20,7 @@ This section ensures a clear and complete inventory of logging across the applic
 
 This section provides requirements to ensure that security logs are consistently structured and contain the expected metadata. The goal is to make logs machine-readable and analyzable across distributed systems and tools.
 
-Naturally, security events often involve sensitive data. If such data is logged without consideration, the logs themselves become classified and therefore subject to encryption requirements, stricter retention policies, and potential disclosure during audits. 
+Naturally, security events often involve sensitive data. If such data is logged without consideration, the logs themselves become classified and therefore subject to encryption requirements, stricter retention policies, and potential disclosure during audits.
 
 Therefore, it is critical to log only what is necessary and to treat log data with the same care as other sensitive assets.
 
