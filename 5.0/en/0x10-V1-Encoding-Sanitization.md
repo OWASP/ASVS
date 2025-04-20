@@ -63,6 +63,8 @@ Where it is not possible to do this, sanitization will be necessary where potent
 
 The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a systems language or unmanaged code.
 
+In some cases, it may be possible to achieve this by setting compiler flags which enable buffer overflow protections and warnings, including stack randomization, data execution prevention, and will break the build if an unsafe pointer, memory, format string, integer, or string operations are found.
+
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 | v5.0.be-5.4.1 |
