@@ -10,7 +10,11 @@ However, this chapter provides more general security requirements to be taken in
 
 Many of the requirements for establishing a secure and defensible architecture depend on clear documentation of the decisions made regarding the implementation of specific security controls and the components used within the application.
 
-This section outlines the documentation requirements for this, including the identification of components considered "risky" due to their origin or functionality. A component may be deemed risky if it is poorly maintained, unsupported, end-of-life, or has a history of significant vulnerabilities. Additionally, a component may be classified as risky if it performs operations such as deserialization of untrusted data, raw file parsing, or direct memory manipulation.
+This section outlines the documentation requirements for this, including the identification of components considered to contain "dangerous functionality" or to be a "risky component".
+
+A component with "dangerous functionality" may an internally developed or 3rd party component which performs operations such as deserialization of untrusted data, raw file or binary data parsing, dynamic code execution, or direct memory manipulation. There is a high risk that a vulnerability in these types of operations would lead to the compromise of the application using the functionality and possibly expose the application's underlying infrastructure.
+
+A "risky component" is a 3rd party library (i.e. not internally developed) that has missing or poorly implemented security controls around its development processes or functionality. For example components that are poorly maintained, unsupported, in the end-of-life, has a history of significant vulnerabilities.
 
 This section also emphasizes the importance of defining appropriate timeframes for addressing vulnerabilities in third-party components.
 
@@ -19,19 +23,21 @@ This section also emphasizes the importance of defining appropriate timeframes f
 | **15.1.1** | Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | 1 | v5.0.be-1.10.5 |
 | **15.1.2** | Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | 2 | v5.0.be-1.10.2 |
 | **15.1.3** | Verify that the application documentation identifies functionality which is time-consuming or resource-demanding. This must include how to prevent a loss of availability due to overusing this functionality and how to avoid a situation where building a response takes longer than the consumer's timeout. Potential defenses may include asynchronous processing, using queues, and limiting parallel processes per user and per application. | 2 | v5.0.be-1.10.6 |
-| **15.1.4** | Verify that application documentation highlights "risky" third party libraries which should include: libraries which perform operations which are dangerous from a security perspective, libraries which are poorly maintained, unsupported, or end of life and libraries which have historically had several significant vulnerabilities. | 3 | v5.0.be-1.10.3 |
-| **15.1.5** | Verify that application documentation highlights parts of the application where "risky" operations are being performed. "Risky" in this context means those with a high likelihood of being dangerously exploited such as: deserialization of untrusted data, raw file parsing or direct memory manipulation. | 3 | v5.0.be-1.10.4 |
+| **15.1.4** | Verify that application documentation highlights third-party libraries which are considered to be "risky components". | 3 | v5.0.be-1.10.3 |
+| **15.1.5** | Verify that application documentation highlights parts of the application where "dangerous functionality" is being used. | 3 | v5.0.be-1.10.4 |
 
 ## V15.2 Security Architecture and Dependencies
 
-This section includes requirements for handling risky, outdated, or insecure dependencies and components through dependency management. It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of risky operations or libraries and prevent loss of availability due to overusing resource-demanding functionality.
+This section includes requirements for handling risky, outdated, or insecure dependencies and components through dependency management.
+
+It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of the use of "dangerous operations" or "risky components" (as defined in the previous section) and prevent loss of availability due to overusing resource-demanding functionality.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **15.2.1** | Verify that the application only contains components which have not breached the documented update and remediation time frames. | 1 | v5.0.be-10.6.1 |
 | **15.2.2** | Verify that the application has implemented defences against loss of availability due to functionality which is time-consuming or resource-demanding, based on the documented security decisions and strategies for this. | 2 | v5.0.be-10.6.4 |
 | **15.2.3** | Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | 3 | v5.0.be-10.6.2 |
-| **15.2.4** | Verify that the application implements additional protections around parts of the application which are documented as performing "risky" operations or using "risky" third-party libraries. This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | v5.0.be-10.6.3 |
+| **15.2.4** | Verify that the application implements additional protections around parts of the application which are documented as containing "dangerous functionality" or using third-party libraries considered to be "risky components". This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 | v5.0.be-10.6.3 |
 
 ## V15.3 Defensive Coding
 
@@ -47,8 +53,7 @@ This section covers vulnerability types, including type juggling, prototype poll
 | **15.3.6** | Verify that JavaScript code is written in a way that prevents prototype pollution, for example, by using Set() or Map() instead of object literals. | 2 | v5.0.be-10.4.3 |
 | **15.3.7** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | 2 | v5.0.be-10.4.7 |
 | **15.3.8** | Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | 3 | v5.0.be-10.4.2 |
-| **15.3.9** | Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 3 | v5.0.be-10.4.9 |
-| **15.3.10** | Verify that, if the application has an auto-update feature, updates must be digitally signed, with the digital signature being validated before installing or executing the update. | 3 | v5.0.be-10.4.10 |
+| **15.3.9** | Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g. a long cookie header field) results in the server always responding with an error status. | 3 | v5.0.be-10
 
 ## V15.4 Concurrency
 
