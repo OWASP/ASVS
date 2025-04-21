@@ -38,7 +38,7 @@ This section defines the requirements for the selection, implementation, and ong
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **11.2.1** | Verify that industry-validated implementations (including libraries and hardware-accelerated implementations) are used for cryptographic operations. | 2 | v5.0.be-6.2.2 |
-| **11.2.2** | Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC, or hashing algorithms, key lengths, rounds, ciphers or modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This will allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 | v5.0.be-6.2.4 |
+| **11.2.2** | Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC, or hashing algorithms, key lengths, rounds, ciphers, modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This will allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 | v5.0.be-6.2.4 |
 | **11.2.3** | Verify that all cryptographic primitives utilize a minimum of 128-bits of security based on the algorithm, key size, and configuration. For example, a 256-bit ECC key provides roughly 128 bits of security where RSA requires a 3072-bit key to achieve 128 bits of security. | 2 | v5.0.be-6.2.9 |
 | **11.2.4** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | 3 | v5.0.be-6.2.8 |
 | **11.2.5** | Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | 3 | v5.0.be-6.2.1 |
@@ -50,7 +50,7 @@ Authenticated encryption algorithms built on AES and CHACHA20 form the backbone 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **11.3.1** | Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | 1 | v5.0.be-6.5.1 |
-| **11.3.2** | Verify that only secure, authenticated ciphers and modes such as AES with GCM are used. | 1 | v5.0.be-6.5.2 |
+| **11.3.2** | Verify that only approved ciphers, modes are used. | 1 | v5.0.be-6.5.2 |
 | **11.3.3** | Verify that encrypted data is protected against unauthorized modification preferably by using an approved authenticated encryption method or by combining an approved encryption method with an approved MAC algorithm. | 2 | v5.0.be-6.5.4 |
 | **11.3.4** | Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key and data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 | v5.0.be-6.5.3 |
 | **11.3.5** | Verify that any combination of an encryption algorithm and a MAC algorithm is operating in encrypt-then-MAC mode. | 3 | v5.0.be-6.5.5 |
@@ -84,8 +84,8 @@ As part of this, there exists a need for approved key exchange mechanisms, such 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.6.1** | Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | v5.0.be-6.7.2 |
-| **11.6.2** | Verify that industry-proven cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This will prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 3 | v5.0.be-6.7.1 |
+| **11.6.1** | Verify that only approved cryptographic algorithms, modes of operation are used for key generation and seeding, and digital signature generation and verification. | 2 | v5.0.be-6.7.2 |
+| **11.6.2** | Verify that approved cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This will prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 3 | v5.0.be-6.7.1 |
 
 ## V11.7 In-Use Data Cryptography
 
