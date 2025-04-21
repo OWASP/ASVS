@@ -17,7 +17,7 @@ This section contains requirements detailing the authentication documentation th
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **6.1.1** | Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation must make clear how these controls are configured and prevent malicious account lockout. | 1 | v5.0.be-1.2.6 |
-| **6.1.2** | Verify that a list of context specific words are documented in order to prevent their use in passwords. | 2 | v5.0.be-1.2.5 |
+| **6.1.2** | Verify that a list of context-specific words is documented in order to prevent their use in passwords. The list could include permutations of organization names, product names, system identifiers, project codenames, department or role names, and similar. | 2 | v5.0.be-1.2.5 |
 | **6.1.3** | Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which must be consistently enforced across them. | 2 | v5.0.be-1.2.4 |
 
 ## V6.2 Password Security
