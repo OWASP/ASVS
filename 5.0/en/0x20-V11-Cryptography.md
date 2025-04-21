@@ -18,18 +18,18 @@ Requirements which use cryptography to solve a separate problem, such as secrets
 
 Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high-level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
 
-Architectural requirements are intrinsic to the entire code base, and thus difficult to unit or integration test. Architectural requirements require consideration in coding standards, throughout the coding phase, and should be reviewed during security architecture, peer or code reviews, or retrospectives.
+It is important to ensure that all cryptographic assets are regularly discovered, inventoried, and assessed. Please see the appendix for more information on how this can be done.
 
-It is also important to ensure that all cryptographic assets, such as algorithms, keys, and certificates, are regularly discovered, inventoried, and assessed. For Level 3, this should include the use of static and dynamic scanning to discover the use of cryptography in an application. Tools such as SAST and DAST may help with this but it is possible that dedicated tools would be needed to get more comprehensive coverage. Freeware examples of tools include:
+The need to future-proof cryptographic systems against the eventual rise of quantum computing is also critical. Post-Quantum Cryptography (PQC) refers to cryptographic algorithms designed to remain secure against attacks by quantum computers, which are expected to break widely used algorithms such as RSA and elliptic curve cryptography (ECC).
 
-* [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
-* [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
+Please see the Appendix for current guidance on vetted PQC primitives and standards.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.1.1** | Verify that there is an explicit policy for management of cryptographic keys and that a cryptographic key lifecycle follows a key management standard such as NIST SP 800-57. | 2 | v5.0.be-1.6.1 |
-| **11.1.2** | Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It must also document where keys can and cannot be used in the system and also the types of data which can and cannot be protected using the keys. | 2 | v5.0.be-1.6.4 |
+| **11.1.1** | Verify that there is a documented policy for management of cryptographic keys and a cryptographic key lifecycle that follows a key management standard such as NIST SP 800-57. | 2 | v5.0.be-1.6.1 |
+| **11.1.2** | Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It must also document where keys can and cannot be used in the system, and the types of data that can and cannot be protected using the keys. | 2 | v5.0.be-1.6.4 |
 | **11.1.3** | Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | 3 | v5.0.be-1.6.5 |
+| **11.1.4** | Verify that a cryptographic inventory is maintained. This must include a documented plan that outlines the migration path to new cryptographic standards, such as post-quantum cryptography, in order to react to future threats. | 3 | v5.0.be-6.9.1 |
 
 ## V11.2 Secure Cryptography Implementation
 
@@ -73,8 +73,8 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.5.1** | Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically-secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | 2 | v5.0.be-6.3.1 |
-| **11.5.2** | Verify that random number generation continues to work securely, even under heavy system load, or that the system degrades gracefully. | 3 | v5.0.be-6.3.3 |
+| **11.5.1** | Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | 2 | v5.0.be-6.3.1 |
+| **11.5.2** | Verify that the random number generation mechanism in use is designed to work securely, even under heavy demand. | 3 | v5.0.be-6.3.3 |
 
 ## V11.6 Public Key Cryptography
 
@@ -95,15 +95,6 @@ Protecting data while it is being processed is paramount. Techniques such as ful
 | :---: | :--- | :---: | :---: |
 | **11.7.1** | Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | 3 | v5.0.be-6.8.1 |
 | **11.7.2** | Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | 3 | v5.0.be-6.8.2 |
-
-## V11.8 Post-Quantum Cryptography (PQC)
-
-The need to future-proof cryptographic systems in preparation for the eventual rise of quantum computing is critical. Post-Quantum Cryptography (PQC) focuses on developing cryptographic systems that are resistant to quantum attacks, which could break current encryption methods such as RSA and ECC. Please see the Appendix for the latest information on available PQC primitives.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **11.8.1** | Verify that a cryptographic inventory is maintained and includes a documented transformation plan or mapping that outlines the migration path from current cryptographic algorithms and systems to those that use post-quantum cryptography. | 3 | v5.0.be-6.9.1 |
-| **11.8.2** | Verify that advancements in the field of post-quantum cryptography are being monitored in order to ensure that the application is aligned with emerging industry standards, and remains prepared for quantum threats. | 3 | v5.0.be-6.9.2 |
 
 ## References
 

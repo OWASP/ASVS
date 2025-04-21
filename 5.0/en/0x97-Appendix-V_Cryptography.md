@@ -13,6 +13,13 @@ This list may be overloaded in the context of a given applications for different
 * new evolutions in the field of cryptography;
 * compliance with some regulation.
 
+## Cryptographic Inventory and Documentation (V11.1)
+
+It is important to ensure that all cryptographic assets, such as algorithms, keys, and certificates, are regularly discovered, inventoried, and assessed. For Level 3, this should include the use of static and dynamic scanning to discover the use of cryptography in an application. Tools such as SAST and DAST may help with this but it is possible that dedicated tools would be needed to get more comprehensive coverage. Freeware examples of tools include:
+
+* [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
+* [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
+
 ## Algorithms (V11.2)
 
 ## Equivalent Strengths of Cryptographic Parameters
@@ -165,7 +172,7 @@ For secure password hashing, dedicated hash functions must be used. These slow-h
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --|
 | argon2 | RFC 9106 | Argon2ID: Memory Cost 19MB, Time Cost 2, Parallelism 1 | A |
 | scrypt | RFC 7914 | 2^15 r = 8 p = 1 | A |
-| bcrypt |[A Future-Adaptable Password Scheme](https://www.usenix.org/legacy/events/usenix99/provos/provos.pdf) | At least 10 rounds. | A |
+| bcrypt |[A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | At least 10 rounds. | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210,000 iterations | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 iterations | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 1,300,000 iterations | L |
@@ -176,11 +183,11 @@ For secure password hashing, dedicated hash functions must be used. These slow-h
 
 A security strength of 112 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the following table.
 
-| Scheme | Domain Parameters | Status |
-|--|--|--|
-| RSA | k >= 3072 | A |
-| Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | A |
-| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | A |
+| Scheme | Domain Parameters | Forward Secrecy |Status |
+|--|--|--|--|
+| Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Yes | A |
+| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Yes | A |
+| Encrypted key transport with RSA-PKCS#1 v1.5 | k >= 3072 | No | L |
 
 Where the following parameters are:
 
@@ -249,7 +256,7 @@ Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57
 | MD5-based KDFs | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
 | SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
 
-### Post-Quantum Encryption Standards
+## Post-Quantum Encryption Standards
 
 PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there is minimal hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 

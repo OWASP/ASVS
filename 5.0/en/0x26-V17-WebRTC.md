@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Web Real-Time Communication (WebRTC) has become a cornerstone technology for enabling real-time voice, video, and data communication in web applications. As the adoption of WebRTC grows across various sectors, it is imperative to ensure that security measures are integrated into these implementations. Here we aim to provide comprehensive security requirements tailored to the needs of different stakeholders involved in the WebRTC ecosystem.
+Web Real-Time Communication (WebRTC) enables real-time voice, video, and data exchange in modern applications. As its adoption increases, securing WebRTC infrastructure becomes critical. This section provides security requirements for stakeholders who develop, host, or integrate WebRTC systems.
 
 The WebRTC market can be broadly categorized into three segments:
 
@@ -18,13 +18,11 @@ The security requirements outlined here are primarily focused on Product Develop
 * Use commercial WebRTC products as part of their infrastructure.
 * Use internally developed WebRTC solutions or integrate various components into a cohesive service offering.
 
-It is important to note that these security requirements **do not apply to developers who exclusively use SDKs and APIs provided by CPaaS vendors**. For such developers, the CPaaS providers are typically responsible for most of the underlying security concerns within their platforms, and a generic security standard like ASVS may not fully address their needs.
+It is important to note that these security requirements do not apply to developers who exclusively use SDKs and APIs provided by CPaaS vendors. For such developers, the CPaaS providers are typically responsible for most of the underlying security concerns within their platforms, and a generic security standard like ASVS may not fully address their needs.
 
 ## V17.1 TURN Server
 
-Traversal Using Relays around NAT (TURN) servers play a crucial role in WebRTC applications by facilitating peer-to-peer connections in challenging network environments. However, they can also introduce security risks if not properly configured and secured.
-
-These requirements only apply to systems that host TURN servers as part of their WebRTC infrastructure.
+This section defines security requirements for systems that operate their own TURN (Traversal Using Relays around NAT) servers. TURN servers assist in relaying media in restrictive network environments but can pose risks if misconfigured. These controls focus on secure address filtering and protection against resource exhaustion.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -33,13 +31,11 @@ These requirements only apply to systems that host TURN servers as part of their
 
 ## V17.2 Media
 
-Media security is paramount in WebRTC applications, as it directly impacts the confidentiality, integrity and availability of audio and video communications. By addressing these security concerns, developers can safeguard the media streams in WebRTC applications, preventing eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
-
-These requirements only apply to systems that host their own WebRTC media servers, such as Selective Forwarding Units (SFUs), Multipoint Control Units (MCUs), recording servers, or gateway servers. These servers are responsible for handling, routing, processing, or storing media streams within the application. The security of these media servers is crucial because they manage and distribute media between peers, and improper security could lead to unauthorized access, interception, or manipulation of media streams.
+These requirements only apply to systems that host their own WebRTC media servers, such as Selective Forwarding Units (SFUs), Multipoint Control Units (MCUs), recording servers, or gateway servers. Media servers handle and distribute media streams, making their security critical to protect communication between peers. Safeguarding media streams is paramount in WebRTC applications to prevent eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
 
 In particular, it will be necessary to implement protections against flood attacks such as rate limiting, validating timestamps, using synchronized clocks to match real-time intervals, and managing buffers to prevent overflow and maintain proper timing. If packets for a particular media session arrive too quickly, excess packets should be dropped. It is also important to protect the system from malformed packets by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
 
-Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements. However, such systems should still adhere to the other requirements outlined in this chapter to ensure the overall security of their communications.
+Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -52,16 +48,16 @@ Systems that rely solely on peer-to-peer media communication between web browser
 | **17.2.7** | Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.6 |
 | **17.2.8** | Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 | v5.0.be-53.2.8 |
 
-## V17.3 Signalling
+## V17.3 Signaling
 
-Signalling is a critical component of WebRTC applications, responsible for coordinating communication sessions between peers. The security of the signalling process is essential to prevent unauthorized access, eavesdropping, and service disruptions. It is important to protect the system by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
+This section defines requirements for systems that operate their own WebRTC signaling servers. Signaling coordinates peer-to-peer communication and must be resilient against attacks that could disrupt session establishment or control.
 
-These requirements only apply to systems that host signalling servers as part of their WebRTC infrastructure.
+To ensure secure signaling, systems must handle malformed inputs gracefully and remain available under load.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.3.1** | Verify that the signalling server is able to continue processing incoming signalling messages during a flood attack. This should be achieved by implementing rate limiting at the signalling level. | 2 | v5.0.be-53.3.1 |
-| **17.3.2** | Verify that the signalling server is able to is able to continue processing signalling messages when encountering malformed signalling messages. | 2 | v5.0.be-53.3.2 |
+| **17.3.1** | Verify that the signaling server is able to continue processing incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level. | 2 | v5.0.be-53.3.1 |
+| **17.3.2** | Verify that the signaling server is able to continue processing signaling messages when encountering malformed signaling message by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques. | 2 | v5.0.be-53.3.2 |
 
 ## References
 

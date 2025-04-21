@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session identifiers or tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are satisfied:
+Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are satisfied:
 
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and timed out during periods of inactivity.
@@ -11,7 +11,7 @@ Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digi
 
 Note that requirements for specific implementation details of certain session management mechanisms can be elsewhere:
 
-* HTTP Cookies are a common mechanism for securing session identifiers. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
+* HTTP Cookies are a common mechanism for securing session tokens. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
 * Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
 
 ## V7.1 Session Management Documentation
@@ -56,7 +56,7 @@ For stateful session mechanisms, termination typically involves invalidating the
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.4.1** | Verify that logout and expiration terminate the user's session, such that the back button or a downstream relying party cannot resume an authenticated session. | 1 | v5.0.be-3.8.1 |
+| **7.4.1** | Verify that when session termination is triggered (such as logout or expiration), the application disallows any further use of the session. For reference tokens or stateful sessions, this means invalidating the session data at the application backend. Applications using self-contained tokens will need a solution such as maintaining a list of terminated tokens, disallowing tokens produced before a per-user date and time or rotating a per-user signing key. | 1 | v5.0.be-3.8.1 |
 | **7.4.2** | Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 | v5.0.be-3.8.4 |
 | **7.4.3** | Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 | v5.0.be-3.8.2 |
 | **7.4.4** | Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 | v5.0.be-3.8.3 |
@@ -68,9 +68,9 @@ This section provides requirements to mitigate the risk posed by active sessions
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **7.5.1** | Verify that the application requires re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | v5.0.be-3.7.1 |
-| **7.5.2** | Verify that users are able to view and (having re-entered login credentials) terminate any or all currently active sessions. | 2 | v5.0.be-3.7.2 |
-| **7.5.3** | Verify that the application requires re-authentication or secondary verification before performing highly sensitive transactions or operations. | 3 | v5.0.be-3.7.3 |
+| **7.5.1** | Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | v5.0.be-3.7.1 |
+| **7.5.2** | Verify that users are able to view and (having authenticated again with at least one factor) terminate any or all currently active sessions. | 2 | v5.0.be-3.7.2 |
+| **7.5.3** | Verify that the application requires further authentication with at least one factor or secondary verification before performing highly sensitive transactions or operations. | 3 | v5.0.be-3.7.3 |
 
 ## V7.6 Federated Re-authentication
 

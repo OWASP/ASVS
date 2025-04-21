@@ -20,7 +20,7 @@ Whilst these guidelines and their upcoming improvements have continued to be an 
 
 ### Moving away from Common Weakness Enumeration (CWE)
 
-The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) from Mitre is a useful way to map out different security weaknesses in software. There are some difficulties in using it including certain CWEs which are categories only and shouldn't be used for mapping, the difficulties in mapping certain existing requirements to a single CWE, and also the fact that there were some loose or inexact mappings in version 4.0 of ASVS.
+The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) from MITRE is a useful way to map out different security weaknesses in software. There are some difficulties in using it including certain CWEs which are categories only and shouldn't be used for mapping, the difficulties in mapping certain existing requirements to a single CWE, and also the fact that there were some loose or inexact mappings in version 4.0 of ASVS.
 
 The solution was to remove CWE (and any other mappings) with the aim of instead mapping to the OWASP Common Requirement Enumeration (CRE) project which will map ASVS to a variety of other OWASP projects and external standards.
 

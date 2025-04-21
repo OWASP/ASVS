@@ -63,6 +63,8 @@ Where it is not possible to do this, sanitization will be necessary where potent
 
 The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a systems language or unmanaged code.
 
+In some cases, it may be possible to achieve this by setting compiler flags which enable buffer overflow protections and warnings, including stack randomization, data execution prevention, and will break the build if an unsafe pointer, memory, format string, integer, or string operations are found.
+
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 | v5.0.be-5.4.1 |
@@ -73,16 +75,12 @@ The following requirements cover risks around unsafe memory use and will general
 
 Conversion of data from some sort of stored or transmitted representation into actual application objects (deserialization) has historically been the cause of a variety of code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
 
-In particular, there are certain methods of deserialization where it has been made clear by the programming language or framework documentation that they are insecure and cannot be made safe with untrusted data. One example of this is .NET's BinaryFormatter which has significant warnings attached to it:
-
-* <https://learn.microsoft.com/en-gb/dotnet/standard/serialization/binaryformatter-security-guide>
-
-This is just one example and for each mechanism in each language in use, careful due diligence of the mechanism should be performed.
+In particular, there are certain methods of deserialization where it has been made clear by the programming language or framework documentation that they are insecure and cannot be made safe with untrusted data. For each mechanism in each language in use, careful due diligence of the mechanism should be performed.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.5.1** | Verify that the application configures XML parsers to use a restrictive configuration and that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | 1 | v5.0.be-5.5.2 |
-| **1.5.2** | Verify that deserialization of data from untrusted clients enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure (for example, .NET BinaryFormatter) must not be used with untrusted input. | 2 | v5.0.be-5.5.3 |
+| **1.5.2** | Verify that deserialization of data from untrusted clients enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure must not be used with untrusted input. | 2 | v5.0.be-5.5.3 |
 | **1.5.3** | Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 3 | v5.0.be-5.5.5 |
 
 ## References
