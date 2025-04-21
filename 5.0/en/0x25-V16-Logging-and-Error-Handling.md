@@ -14,7 +14,7 @@ This section ensures a clear and complete inventory of logging across the applic
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **16.1.1** | Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled and how long logs are kept for. | 2 | v5.0.be-1.7.3 |
+| **16.1.1** | Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled, and for how long logs are kept. | 2 | v5.0.be-1.7.3 |
 
 ## V16.2 General Logging
 
@@ -29,9 +29,9 @@ The requirements below establish foundational requirements for logging metadata,
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **16.2.1** | Verify that each log entry includes necessary metadata (such as when, where, who, what) that would allow for a detailed investigation of the timeline when an event happens. | 2 | v5.0.be-7.1.4 |
-| **16.2.2** | Verify that time sources for all logging components are synchronized, and that timestamps in security event metadata use UTC or include an explicit timezone offset. UTC is recommended to ensure consistency across distributed systems and to prevent confusion during daylight saving time transitions. | 2 | v5.0.be-7.1.5 |
+| **16.2.2** | Verify that time sources for all logging components are synchronized, and that timestamps in security event metadata use UTC or include an explicit time zone offset. UTC is recommended to ensure consistency across distributed systems and to prevent confusion during daylight saving time transitions. | 2 | v5.0.be-7.1.5 |
 | **16.2.3** | Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | 2 | v5.0.be-7.1.6 |
-| **16.2.4** | Verify that logs can be read and correlated by the log processor which is in use, preferably by using a common logging format. | 2 | v5.0.be-7.1.7 |
+| **16.2.4** | Verify that logs can be read and correlated by the log processor that is in use, preferably by using a common logging format. | 2 | v5.0.be-7.1.7 |
 | **16.2.5** | Verify that when logging sensitive data, the application enforces logging based on the data's protection level. For example, it may not be allowed to log certain data, such as credentials or payment details. Other data, such as session tokens, may only be logged by being hashed or masked, either in full or partially. | 2 | v5.0.be-7.1.1 |
 
 ## V16.3 Security Events
@@ -46,7 +46,7 @@ Note that while ASVS includes logging of security events in scope, alerting and 
 | :---: | :--- | :---: | :---: |
 | **16.3.1** | Verify that all authentication operations are logged, including successful and unsuccessful attempts. Additional metadata, such as the type of authentication or factors used, should also be collected. | 2 | v5.0.be-7.2.1 |
 | **16.3.2** | Verify that failed authorization attempts are logged. For L3, this must include logging all authorization decisions, including logging when sensitive data is accessed (without logging the sensitive data itself). | 2 | v5.0.be-7.2.2 |
-| **16.3.3** | Verify that the application logs attempts to bypass the security controls defined in the design documentation such as input validation. | 2 | v5.0.be-7.2.3 |
+| **16.3.3** | Verify that the application logs attempts to bypass the security controls defined in the design documentation, such as input validation. | 2 | v5.0.be-7.2.3 |
 | **16.3.4** | Verify that the application can detect and log unusual activity, including business logic anomalies and abnormal or excessive request patterns, such as by IP, user, total per hour or day, based on documented limits. | 3 | v5.0.be-7.2.4 |
 | **16.3.5** | Verify that the application logs security control failures such as backend TLS failures. | 3 | v5.0.be-7.2.6 |
 
@@ -70,7 +70,7 @@ This section defines requirements to ensure that applications fail gracefully an
 | :---: | :--- | :---: | :---: |
 | **16.5.1** | Verify that a generic message is returned to the consumer when an unexpected or security-sensitive error occurs, ensuring no exposure of sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 | v5.0.be-7.4.1 |
 | **16.5.2** | Verify that the application continues to operate securely when external resource access fails, for example, by using patterns such as circuit breakers or graceful degradation. | 2 | v5.0.be-7.4.4 |
-| **16.5.3** | Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail open conditions such as processing a transaction despite errors resulting from validation logic. | 2 | v5.0.be-7.4.5 |
+| **16.5.3** | Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail-open conditions such as processing a transaction despite errors resulting from validation logic. | 2 | v5.0.be-7.4.5 |
 | **16.5.4** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that must go to log files and to ensure that an error does not take down the entire application process, leading to a loss of availability. | 3 | v5.0.be-7.4.3 |
 
 Note: Certain languages, such as Swift and Go - and through common design practice - many functional languages, do not support exceptions or last-resort event handlers. In this case, architects and developers should use a pattern, language, or framework-friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
