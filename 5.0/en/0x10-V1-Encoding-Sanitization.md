@@ -48,10 +48,10 @@ Where it is not possible to do this, sanitization will be necessary where potent
 | :---: | :--- | :---: | :---: |
 | **1.3.1** | Verify that all untrusted HTML input from WYSIWYG editors or similar is sanitized using a well-known and secure HTML sanitization library or framework feature. | 1 | v5.0.be-5.2.1 |
 | **1.3.2** | Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized before being executed. | 1 | v5.0.be-5.2.4 |
-| **1.3.3** | Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | 2 | v5.0.be-5.2.2 |
+| **1.3.3** | Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input that is too long. | 2 | v5.0.be-5.2.2 |
 | **1.3.4** | Verify that user-supplied Scalable Vector Graphics (SVG) scriptable content is validated or sanitized to contain only tags and attributes (such as draw graphics) that are safe for the application, e.g., do not contain scripts and foreignObject. | 2 | v5.0.be-5.2.7 |
 | **1.3.5** | Verify that the application sanitizes or disables user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | 2 | v5.0.be-5.2.8 |
-| **1.3.6** | Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | 2 | v5.0.be-5.2.6 |
+| **1.3.6** | Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths, and ports and sanitizing potentially dangerous characters before using the data to call another service. | 2 | v5.0.be-5.2.6 |
 | **1.3.7** | Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | 2 | v5.0.be-5.2.5 |
 | **1.3.8** | Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured securely to prevent JNDI injection attacks. | 2 | v5.0.be-5.2.11 |
 | **1.3.9** | Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | 2 | v5.0.be-5.2.12 |
@@ -61,15 +61,19 @@ Where it is not possible to do this, sanitization will be necessary where potent
 
 ## V1.4 Memory, String, and Unmanaged Code
 
-The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a systems language or unmanaged code.
+The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a system's language or unmanaged code.
 
 In some cases, it may be possible to achieve this by setting compiler flags which enable buffer overflow protections and warnings, including stack randomization, data execution prevention, and will break the build if an unsafe pointer, memory, format string, integer, or string operations are found.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 | v5.0.be-5.4.1 |
+| **1.4.1** | Verify that the application uses memory-safe string, safer memory copy, and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 | v5.0.be-5.4.1 |
 | **1.4.2** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | 2 | v5.0.be-5.4.3 |
-| **1.4.3** | Verify that dynamically allocated memory and resources are released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | 2 | v5.0.be-5.4.4 |
+| **1.4.3** | Verify that dynamically allocated memory and resources are released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | 3 | v5.0.be-5.4.4 |
+| **1.4.4** | Consider using immutable string objects when the application's logic allows. Immutable strings inherently prevent in-place modification, reducing the risk of certain string-related vulnerabilities and simplifying reasoning about string state across different parts of the application. | 4 | v5.0.be-5.4.4 |
+| **1.4.5** | When working with pointers (especially in unmanaged contexts), restrict their scope as much as possible and ensure their lifetime is well-defined and short. This reduces the window of opportunity for dangling pointer issues and makes it easier to track pointer usage and ownership. | 5 | v5.0.be-5.4.4 |
+| **1.4.6** | Pay close attention to implicit type conversions, especially when dealing with sizes, lengths, and pointer arithmetic. These conversions can sometimes lead to unexpected truncation or sign extension issues, potentially contributing to vulnerabilities like buffer overflows or integer overflows. | 6 | v5.0.be-5.4.4 |
+| **1.4.7** | When processing data from external sources (files, network, user input) that is loaded into memory, ensure robust validation and sanitization occur before this data is used in critical operations. Treat all external data in memory as potentially hostile. | 7 | v5.0.be-5.4.4 |
 
 ## V1.5 Safe Deserialization
 
