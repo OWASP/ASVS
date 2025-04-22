@@ -8,7 +8,7 @@ This appendix defines the level of approval for different cryptographic mechanis
 * **Legacy** mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
 * **Disallowed** mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
 
-This list may be overloaded in the context of a given applications for different reasons including:
+This list may be overridden in the context of a given applications for different reasons including:
 
 * new evolutions in the field of cryptography;
 * compliance with some regulation.
