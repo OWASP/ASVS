@@ -25,7 +25,7 @@ Effective input validation controls will enforce business or functional expectat
 
 In this context, "input" could come from a wide variety of sources, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, and external APIs.
 
-A business logic control might check that a particular input is a number less than 100. A functional expectation might check that the number is below a certain threshold, as the number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
+A business logic control might check that a particular input is a number less than 100. A functional expectation might check that a number is below a certain threshold, as that number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
 
 While schema validation is not explicitly mandated, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML.
 
@@ -37,7 +37,7 @@ Please note the following points on Schema Validation:
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **2.2.1** | Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allow list of values, patterns, and ranges, or be based on comparing data to an expected structure and logical limits according to predefined rules. For L1, this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input. | 1 | v5.0.be-11.3.1 |
+| **2.2.1** | Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allow list of values, patterns, and ranges, or be based on comparing the input to an expected structure and logical limits according to predefined rules. For L1, this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input. | 1 | v5.0.be-11.3.1 |
 | **2.2.2** | Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability and should be encouraged, it must not be relied upon as a security control. | 1 | v5.0.be-11.3.2 |
 | **2.2.3** | Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | 2 | v5.0.be-11.3.3 |
 
