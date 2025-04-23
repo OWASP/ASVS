@@ -55,9 +55,8 @@ Whilst the security of build processes and the DevSecOps aspects involved are ge
 | **13.4.2** | Verify that the application is deployed either without any source control metadata, including the .git or .svn folders, or in a way that these folders are inaccessible both externally and to the application itself. | 1 | v5.0.be-14.1.11 |
 | **13.4.3** | Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | v5.0.be-14.1.9 |
 | **13.4.4** | Verify that configuration hardening is performed on all third-party products, libraries, frameworks, and services as per their individual recommendations. | 3 | v5.0.be-14.1.3 |
-| **13.4.5** | Verify that mechanisms are in place to detect and respond to configuration drift in deployed environments. This may include using immutable infrastructure, automated redeployment from a secure baseline, or drift detection tools that compare current state against approved configurations. | 3 | v5.0.be-14.1.5 |
-| **13.4.6** | Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
-| **13.4.7** | Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
+| **13.4.5** | Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
+| **13.4.6** | Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
 
 ## V13.5 Unintended Information Leakage
 
