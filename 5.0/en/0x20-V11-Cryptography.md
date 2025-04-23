@@ -50,7 +50,7 @@ Authenticated encryption algorithms built on AES and CHACHA20 form the backbone 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **11.3.1** | Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | 1 | v5.0.be-6.5.1 |
-| **11.3.2** | Verify that only approved ciphers, modes are used. | 1 | v5.0.be-6.5.2 |
+| **11.3.2** | Verify that only approved ciphers and modes such as AES with GCM are used. | 1 | v5.0.be-6.5.2 |
 | **11.3.3** | Verify that encrypted data is protected against unauthorized modification preferably by using an approved authenticated encryption method or by combining an approved encryption method with an approved MAC algorithm. | 2 | v5.0.be-6.5.4 |
 | **11.3.4** | Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key and data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 | v5.0.be-6.5.3 |
 | **11.3.5** | Verify that any combination of an encryption algorithm and a MAC algorithm is operating in encrypt-then-MAC mode. | 3 | v5.0.be-6.5.5 |
