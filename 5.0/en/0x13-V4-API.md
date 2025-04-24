@@ -18,7 +18,7 @@ This section promotes generic web service security considerations and, consequen
 
 ## V4.2 HTTP Message Structure Validation
 
-This section details how HTTP messages should be validated to prevent attacks such as HTTP request smuggling or source spoofing.
+This section details how HTTP messages should be validated to prevent attacks such as HTTP Request Smuggling or source spoofing.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
