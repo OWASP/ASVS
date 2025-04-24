@@ -49,7 +49,7 @@ This section provides key security requirements to prevent attacks related to co
 | **4.4.1** | Verify that WebSocket over TLS (WSS) is used for all WebSocket connections. | 1 | v5.0.be-13.5.1 |
 | **4.4.2** | Verify that, during the initial HTTP WebSocket handshake, the Origin header field is checked against a list of origins allowed for the application. | 2 | v5.0.be-13.5.2 |
 | **4.4.3** | Verify that, if the application's standard session management cannot be used, dedicated tokens are being used for this, which comply with the relevant Session Management security requirements. | 2 | v5.0.be-13.5.3 |
-| **4.4.4** | Verify that dedicated WebSocket session management tokens are initially obtained or validated through the previously authenticated HTTPS session when transitioning an existing HTTPS session to a WebSocket channel. | 2 | v5.0.be-13.5.4
+| **4.4.4** | Verify that dedicated WebSocket session management tokens are initially obtained or validated through the previously authenticated HTTPS session when transitioning an existing HTTPS session to a WebSocket channel. | 2 | v5.0.be-13.5.4 |
 
 ## References
 
