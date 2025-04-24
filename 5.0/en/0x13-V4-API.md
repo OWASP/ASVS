@@ -4,7 +4,7 @@
 
 A number of considerations apply specifically to applications that expose APIs for use by a web browser or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers relevant security configurations and mechanisms to be applied.
 
-Note that the general authentication, session management, and input validation concerns from other chapters also apply to APIs, so this chapter cannot be taken out of context or tested separately.
+Note that authentication, session management, and input validation concerns from other chapters also apply to APIs, so this chapter cannot be taken out of context or tested separately.
 
 ## V4.1 Generic Web Service Security
 
@@ -12,9 +12,9 @@ This section promotes generic web service security considerations and, consequen
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **4.1.1** | Verify that every HTTP response with a message body contains a `Content-Type` header field that matches the actual content of the response, including the `charset` parameter to specify safe character encoding (e.g., UTF-8, ISO-8859-1) according to IANA Media Types, such as "text/", "/+xml", and "/xml". | 1 | v5.0.be-13.1.7 |
-| **4.1.2** | Verify that only user-facing endpoints (intended for manual web browser access) automatically redirect from HTTP to HTTPS, while other services or endpoints do not implement transparent redirects. This is to avoid a situation where a client erroneously sends unencrypted HTTP requests, but since the requests are automatically redirected to HTTPS, the leakage of sensitive data goes undiscovered. | 2 | v5.0.be-13.1.8 |
-| **4.1.3** | Verify that per-message digital signatures are used to provide additional assurance on top of transport protections for requests or transactions that are highly sensitive or traverse multiple systems. | 3 | v5.0.be-13.1.6 |
+| **4.1.1** | Verify that every HTTP response with a message body contains a Content-Type header field that matches the actual content of the response, including the charset parameter to specify safe character encoding (e.g., UTF-8, ISO-8859-1) according to IANA Media Types, such as "text/", "/+xml" and "/xml". | 1 | v5.0.be-13.1.7 |
+| **4.1.2** | Verify that only user-facing endpoints (intended for manual web-browser access) automatically redirect from HTTP to HTTPS, while other services or endpoints do not implement transparent redirects. This is to avoid a situation where a client is erroneously sending unencrypted HTTP requests, but since the requests are being automatically redirected to HTTPS, the leakage of sensitive data goes undiscovered. | 2 | v5.0.be-13.1.8 |
+| **4.1.3** | Verify that per-message digital signatures are used to provide additional assurance on top of transport protections for requests or transactions which are highly sensitive or which traverse a number of systems. | 3 | v5.0.be-13.1.6 |
 
 ## V4.2 HTTP Message Structure Validation
 
