@@ -2,11 +2,11 @@
 
 ## Control Objective
 
-The category focuses on requirements that protect against attacks that are executed via a web frontend for an application. These requirements will not be relevant for machine-to-machine solutions.
+This category focuses on requirements that protect against attacks executed via a web frontend. These requirements are not relevant for machine-to-machine solutions.
 
 ## V3.1 Web Frontend Security Documentation
 
-This section defines the browser security features that should be specified in the application's documentation.
+This section defines the browser security features that should be specified in the application’s documentation.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -14,7 +14,7 @@ This section defines the browser security features that should be specified in t
 
 ## V3.2 Unintended Content Interpretation
 
-Rendering content or functionality in an incorrect context can lead to malicious content being executed or shown.
+Rendering content or functionality in an incorrect context can lead to malicious content being executed or displayed.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -23,7 +23,7 @@ Rendering content or functionality in an incorrect context can lead to malicious
 
 ## V3.3 Cookie Setup
 
-This section provides requirements for how to securely configure a sensitive cookie to provide a higher level of assurance that it was created by the application itself and to avoid its contents leaking or being inappropriately modified.
+This section provides requirements for how to securely configure a sensitive cookie to provide a higher level of assurance that it was created by the application itself and to prevent its contents from leaking or being inappropriately modified.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -76,7 +76,7 @@ This section provides guidance for the safe hosting of content on third-party si
 
 ## V3.7 Other Browser Security Considerations
 
-This section includes various other security controls and modern browser security features which are required for client-side browser security.
+This section includes various other security controls and modern browser security features required for client-side browser security.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
