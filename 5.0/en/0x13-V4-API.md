@@ -2,13 +2,13 @@
 
 ## Control Objective
 
-A number of considerations apply specifically for applications that expose APIs for use by a web browser or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers relevant security configurations and mechanisms to be applied.
+A number of considerations apply specifically to applications that expose APIs for use by a web browser or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers relevant security configurations and mechanisms to be applied.
 
-Note that the general authentication, session management, or general input validation concerns from other chapters also apply to APIs so this chapter can not be taken out of context or tested separately.
+Note that authentication, session management, and input validation concerns from other chapters also apply to APIs, so this chapter cannot be taken out of context or tested separately.
 
 ## V4.1 Generic Web Service Security
 
-This section promotes generic web service security considerations and consequently basic web service hygiene practices.
+This section promotes generic web service security considerations and, consequently, basic web service hygiene practices.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -31,7 +31,7 @@ This section details how HTTP messages should be validated to prevent attacks su
 
 ## V4.3 GraphQL
 
-GraphQL is becoming more common as a way of creating data rich clients which are not coupled to a variety of different backend services. This section covers security considerations for GraphQL.
+GraphQL is becoming more common as a way of creating data-rich clients that are not tightly coupled to a variety of backend services. This section covers security considerations for GraphQL.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -40,7 +40,7 @@ GraphQL is becoming more common as a way of creating data rich clients which are
 
 ## V4.4 WebSocket
 
-WebSocket is a communications protocol, providing a simultaneous two-way communication channel over a single TCP connection. It was standardized by the IETF as RFC 6455 in 2011 and is distinct from HTTP, even though it is designed to work over HTTP ports 443 and 80.
+WebSocket is a communications protocol that provides a simultaneous two-way communication channel over a single TCP connection. It was standardized by the IETF as RFC 6455 in 2011 and is distinct from HTTP, even though it is designed to work over HTTP ports 443 and 80.
 
 This section provides key security requirements to prevent attacks related to communication security and session management that specifically exploit this real-time communication channel.
 
