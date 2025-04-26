@@ -47,6 +47,7 @@ This section indicates which security headers should be set on HTTP responses to
 | **3.4.5** | Verify that the application sets a referrer policy to prevent leakage of technically sensitive data to third-party services via the 'Referer' HTTP request header field. This can be done using the Referrer-Policy HTTP response header field or via HTML element attributes. Sensitive data could include path and query data in the URL, and for internal non-public applications also the hostname. | 2 | v5.0.be-50.3.4 |
 | **3.4.6** | Verify that the web application uses the frame-ancestors directive of the Content-Security-Policy header field for every HTTP response to ensure that it cannot be embedded by default and that embedding of specific resources is allowed only when necessary. Note that the X-Frame-Options header field, although supported by browsers, is obsolete and may not be relied upon. | 2 | v5.0.be-50.3.5 |
 | **3.4.7** | Verify that the Content-Security-Policy header field specifies a location to report violations. | 3 | v5.0.be-50.3.7 |
+| **3.4.8** | Verify that all HTTP responses that initiate a document rendering (such as responses with Content-Type text/html), include the Cross‑Origin‑Opener‑Policy header field with the same-origin directive or the same-origin-allow-popups directive as required. This prevents attacks that abuse shared access to Window objects, such as tabnabbing and frame counting. | 3 | v5.0.be-50.3.8 |
 
 ## V3.5 Browser Origin Separation
 
