@@ -66,6 +66,7 @@ For password storage, as well as the cryptography appendix, the [OWASP Password 
 | **11.4.1** | Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Disallowed hash functions, such as MD5, must not be used for any cryptographic purpose. | 1 | v5.0.be-6.6.1 |
 | **11.4.2** | Verify that passwords are stored using an approved, computationally intensive, key derivation function (also known as a "password hashing function"), with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks sufficiently challenging for the required level of security. | 2 | v5.0.be-6.6.2 |
 | **11.4.3** | Verify that hash functions used in digital signatures, as part of data authentication or data integrity are collision resistant and have appropriate bit-lengths. If collision resistance is required, the output length must be at least 256 bits. If only resistance to second pre-image attacks is required, the output length must be at least 128 bits. | 2 | v5.0.be-6.6.3 |
+| **11.4.4** | Verify that the application uses approved key derivation functions with key stretching parameters when deriving secret keys from passwords. Ensure the settings balance security and performance to prevent brute-force attacks from compromising the resulting cryptographic key. | 2 | |
 
 ## V11.5 Random Values
 
