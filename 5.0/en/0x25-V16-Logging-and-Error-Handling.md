@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-Security logs are distinct from error or performance logs and are used to record security-relevant events such as authentication, access control, and privilege escalation. Their purpose is to support detection, response, and investigation by providing high-signal, structured data for analysis tools like SIEMs.
+Security logs are distinct from error or performance logs and are used to record security-relevant events such as authentication decisions, access control decisions, and attempts to bypass security controls, such as input validation or business logic validation. Their purpose is to support detection, response, and investigation by providing high-signal, structured data for analysis tools like SIEMs.
 
 Logs should not include sensitive personal data unless legally required, and any logged data must be protected as a high-value asset. Logging must not compromise privacy or system security. Applications must also fail securely, avoiding unnecessary disclosure or disruption.
 
