@@ -80,7 +80,7 @@ Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly 
 
 Public Key Cryptography will be used where it is not possible or not desirable to share a secret key between multiple parties.
 
-As part of this, there exists a need for approved key exchange mechanisms, such as Diffie-Hellman and Elliptic Curve Diffie-Hellman (ECDH) to ensure that the cryptosystem remains secure against modern threats.
+As part of this, there exists a need for approved key exchange mechanisms, such as Diffie-Hellman and Elliptic Curve Diffie-Hellman (ECDH) to ensure that the cryptosystem remains secure against modern threats. The "Secure Communication" chapter provides requirements for TLS so the requirements in this section are intended for situations where Public Key Cryptography is being used in use cases other than TLS.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
