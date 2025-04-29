@@ -40,13 +40,13 @@ Systems that rely solely on peer-to-peer media communication between web browser
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **17.2.1** | Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | 2 | v5.0.be-53.2.1 |
-| **17.2.2** | Verify that the media server is configured to use and support strong and secure DTLS cipher suites and DTLS-SRTP protection profiles. | 2 | v5.0.be-53.2.2 |
+| **17.2.2** | Verify that the media server is configured to use and support strong and secure Datagram Transport Layer Security (DTLS) cipher suites and the protection profiles defined for the DTLS Extension to Establish Keys for the Secure Real-time Transport Protocol (DTLS-SRTP). | 2 | v5.0.be-53.2.2 |
 | **17.2.3** | Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | 2 | v5.0.be-53.2.4 |
-| **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed SRTP packets. | 2 | v5.0.be-53.2.7 |
+| **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed Secure Real-time Transport Protocol (SRTP) packets. | 2 | v5.0.be-53.2.7 |
 | **17.2.5** | Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.5 |
-| **17.2.6** | Verify that the media server is not susceptible to the "WebRTC DTLS ClientHello Race Condition" vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | 3 | v5.0.be-53.2.3 |
+| **17.2.6** | Verify that the media server is not susceptible to the WebRTC Datagram Transport Layer Security (DTLS) ClientHello Race Condition vulnerability by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | 3 | v5.0.be-53.2.3 |
 | **17.2.7** | Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.6 |
-| **17.2.8** | Verify that the DTLS certificate is checked against the SDP fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 | v5.0.be-53.2.8 |
+| **17.2.8** | Verify that the Datagram Transport Layer Security (DTLS) certificate is checked against the Session Description Protocol (SDP) fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 | v5.0.be-53.2.8 |
 
 ## V17.3 Signaling
 
@@ -63,8 +63,11 @@ To ensure secure signaling, systems must handle malformed inputs gracefully and 
 
 For more information, see also:
 
+* The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+* [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
+* [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
+* [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)
 * [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
 * [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
 * [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
-* The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
 * [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)
