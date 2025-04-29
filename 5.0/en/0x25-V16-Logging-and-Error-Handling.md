@@ -46,7 +46,7 @@ Note that while ASVS includes logging of security events in scope, alerting and 
 | :---: | :--- | :---: | :---: |
 | **16.3.1** | Verify that all authentication operations are logged, including successful and unsuccessful attempts. Additional metadata, such as the type of authentication or factors used, should also be collected. | 2 | v5.0.be-7.2.1 |
 | **16.3.2** | Verify that failed authorization attempts are logged. For L3, this must include logging all authorization decisions, including logging when sensitive data is accessed (without logging the sensitive data itself). | 2 | v5.0.be-7.2.2 |
-| **16.3.3** | Verify that the application logs attempts to bypass the security controls defined in the design documentation, such as input validation. | 2 | v5.0.be-7.2.3 |
+| **16.3.3** | Verify that the application logs the security events that are defined in the documentation and also logs attempts to bypass the security controls, such as input validation, business logic, and anti-automation. | 2 | v5.0.be-7.2.3 |
 | **16.3.4** | Verify that the application logs security control failures such as backend TLS failures. | 3 | v5.0.be-7.2.6 |
 
 ## V16.4 Log Protection
