@@ -52,7 +52,7 @@ Whilst the security of build processes and the DevSecOps aspects involved are ge
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **13.4.1** | Verify that the application is deployed either without any source control metadata, including the .git or .svn folders, or in a way that these folders are inaccessible both externally and to the application itself. | 1 | v5.0.be-14.1.11 |
-| **13.4.2** | Verify that application code or functionality can only be changed via the standard update or build process and not directly in production through application functionality or some other direct modification mechanism. | 2 | v5.0.be-14.1.9 |
+| **13.4.2** | Verify that the production environment only includes functionality that is required for the application to function, and does not expose extraneous functionality such as test code, sample snippets, and development functionality. | 2 | v5.0.be-14.1.9 |
 | **13.4.3** | Verify that all unneeded features, documentation, sample applications, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
 | **13.4.4** | Verify that production environment does not include test code. | 3 | v5.0.be-14.1.7 |
 
