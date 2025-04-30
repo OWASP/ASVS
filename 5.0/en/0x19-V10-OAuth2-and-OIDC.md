@@ -103,7 +103,7 @@ For client authentication, the 'self_signed_tls_client_auth' method is allowed w
 | **10.4.13** | Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | 3 | v5.0.be-51.4.9 |
 | **10.4.14** | Verify that the authorization server issues only sender-constrained (Proof-of-Possession) access tokens, either with certificate-bound access tokens using mutual TLS (mTLS) or DPoP-bound access tokens (Demonstration of Proof of Possession). | 3 | v5.0.be-51.4.11 |
 | **10.4.15** | Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example, by requiring the usage of pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 | v5.0.be-51.4.15 |
-| **10.4.16** | Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), such mutual TLS ('tls_client_auth', 'self_signed_tls_client_auth') or private key JWT ('private_key_jwt'). | 3 | v5.0.be-51.4.10 |
+| **10.4.16** | Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), such as mutual TLS ('tls_client_auth', 'self_signed_tls_client_auth') or private key JWT ('private_key_jwt'). | 3 | v5.0.be-51.4.10 |
 
 ## V10.5 OIDC Client
 
