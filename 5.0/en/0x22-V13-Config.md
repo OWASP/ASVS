@@ -45,16 +45,7 @@ Secret management is a configuration task that is essential to ensure the protec
 | **13.3.3** | Verify that all cryptographic operations are performed using an isolated security module (such as a vault or hardware security module) to securely manage and protect key material from exposure outside of the security module. | 3 | v5.0.be-14.8.2 |
 | **13.3.4** | Verify that secrets are configured to expire and be rotated based on the application's documentation. | 3 | v5.0.be-14.8.3 |
 
-## V13.4 Build and Deploy
-
-Whilst the security of build processes and the DevSecOps aspects involved are generally not in scope for ASVS, this section captures security controls for the application itself, which can be applied at the build and deploy process, such as how the application is compiled and avoiding unnecessary content when the application is deployed.
-
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **13.4.1** | Verify that the application is deployed either without any source control metadata, including the .git or .svn folders, or in a way that these folders are inaccessible both externally and to the application itself. | 1 | v5.0.be-14.1.11 |
-| **13.4.2** | Verify that all documentation, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
-
-## V13.5 Unintended Information Leakage
+## V13.4 Unintended Information Leakage
 
 Configurations for production should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application.
 
@@ -62,11 +53,13 @@ For example, hiding the version of server-side components does not fix the need 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **13.5.1** | Verify that debug modes are disabled for all components in production environments to prevent exposure of debugging features and information leakage. | 2 | v5.0.be-14.3.2 |
-| **13.5.2** | Verify that web servers do not expose directory listings to clients unless explicitly intended. | 2 | v5.0.be-14.3.4 |
-| **13.5.3** | Verify that using the HTTP TRACE method is not supported in production environments, to avoid potential information leakage. | 2 | v5.0.be-14.3.6 |
-| **13.5.4** | Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
-| **13.5.5** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information, configuration, and source code leakage. | 3 | v5.0.be-14.3.5 |
+| **13.4.1** | Verify that the application is deployed either without any source control metadata, including the .git or .svn folders, or in a way that these folders are inaccessible both externally and to the application itself. | 1 | v5.0.be-14.1.11 |
+| **13.4.2** | Verify that debug modes are disabled for all components in production environments to prevent exposure of debugging features and information leakage. | 2 | v5.0.be-14.3.2 |
+| **13.4.3** | Verify that web servers do not expose directory listings to clients unless explicitly intended. | 2 | v5.0.be-14.3.4 |
+| **13.4.4** | Verify that using the HTTP TRACE method is not supported in production environments, to avoid potential information leakage. | 2 | v5.0.be-14.3.6 |
+| **13.4.5** | Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
+| **13.4.6** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information, configuration, and source code leakage. | 3 | v5.0.be-14.3.5 |
+| **13.4.7** | Verify that all documentation, configurations, and file or directory metadata (such as Thumbs.db, .DS_Store) are removed. | 3 | v5.0.be-14.1.6 |
 
 ## References
 
