@@ -57,9 +57,9 @@ For example, hiding the version of server-side components does not fix the need 
 | **13.4.2** | Verify that debug modes are disabled for all components in production environments to prevent exposure of debugging features and information leakage. | 2 | v5.0.be-14.3.2 |
 | **13.4.3** | Verify that web servers do not expose directory listings to clients unless explicitly intended. | 2 | v5.0.be-14.3.4 |
 | **13.4.4** | Verify that using the HTTP TRACE method is not supported in production environments, to avoid potential information leakage. | 2 | v5.0.be-14.3.6 |
-| **13.4.5** | Verify that documentation (such as for internal API) and monitoring endpoints are not exposed unless explicitly intended. | 2 | v5.0.be-14.1.6 |
-| **13.4.6** | Verify that the application does not expose detailed version information of server-side components. | 3 | v5.0.be-14.3.3 |
-| **13.4.7** | Verify that the web tier is configured to serve only files with specific file extensions to prevent unintentional information, configuration, and source code leakage. | 3 | v5.0.be-14.3.5 |
+| **13.4.5** | Verify that documentation (such as for internal APIs) and monitoring endpoints are not exposed unless explicitly intended. | 2 | v5.0.be-14.1.6 |
+| **13.4.6** | Verify that the application does not expose detailed version information of backend components. | 3 | v5.0.be-14.3.3 |
+| **13.4.7** | Verify that the web tier is configured to only serve files with specific file extensions to prevent unintentional information, configuration, and source code leakage. | 3 | v5.0.be-14.3.5 |
 
 ## References
 
