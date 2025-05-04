@@ -45,7 +45,9 @@ The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages
 
 ## V6.3 General Authentication Security
 
-This section contains general requirements for the security of authentication mechanisms as well as setting out the different expectations for levels including requiring multi-factor for L2 and supporting hardware-based mechanisms for L3, such as standards provided by the Fast IDentity Online (FIDO) Alliance.
+This section contains general requirements for the security of authentication mechanisms as well as setting out the different expectations for levels. In particular, enforcing the use of multi-factor authentication (MFA) is required for L2 and supporting hardware-based mechanisms (such as standards provided by the Fast IDentity Online (FIDO) Alliance) is required for L3.
+
+Whilst this is a relatively aggressive stance on MFA, it is critical to raise the bar around this to protect users and any attempt to relax these requirements should be accompanied by a clear plan on how the risks around authentication will be mitigated, taking into account NIST's guidance and research on the topic.
 
 Note that at time of release, NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism ([archived copy](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
 
@@ -55,7 +57,7 @@ The requirements in this section relate to a variety of sections of [NIST's Guid
 | :---: | :--- | :---: | :---: |
 | **6.3.1** | Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | 1 | v5.0.be-2.2.1 |
 | **6.3.2** | Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 | v5.0.be-14.1.10 |
-| **6.3.3** | Verify that the application requires users to either use a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms. | 2 | v5.0.be-2.2.9 |
+| **6.3.3** | Verify that either a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms, must be used in order to access the application. Relaxing this requirement requires a fully documented rationale and a comprehensive set of mitigating controls. | 2 | v5.0.be-2.2.9 |
 | **6.3.4** | Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 | v5.0.be-2.2.11 |
 | **6.3.5** | Verify that users are notified of suspicious authentication attempts (successful or unsuccessful). This may include authentication attempts from an unusual location or client, partially successful authentication (only one of multiple factors), an authentication attempt after a long period of inactivity or a successful authentication after several unsuccessful attempts. | 3 | v5.0.be-2.2.10 |
 | **6.3.6** | Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 | v5.0.be-2.2.2 |
