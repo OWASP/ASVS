@@ -107,7 +107,7 @@ For client authentication, the 'self_signed_tls_client_auth' method is allowed w
 
 As the OIDC relying party acts as an OAuth client, the requirements from the section "OAuth Client" apply as well.
 
-Note that the "Authentication with an Identity Provider" section in the "Authentication" chapter also contains requirements that are relevant but not OIDC/OAuth specific.
+Note that the "Authentication with an Identity Provider" section in the "Authentication" chapter also contains relevant general requirements.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
