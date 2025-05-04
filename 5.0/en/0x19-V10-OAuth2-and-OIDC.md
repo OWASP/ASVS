@@ -107,6 +107,8 @@ For client authentication, the 'self_signed_tls_client_auth' method is allowed w
 
 As the OIDC relying party acts as an OAuth client, the requirements from the section "OAuth Client" apply as well.
 
+Note that the "Authentication with an Identity Provider" section in the "Authentication" chapter also contains requirements that are relevant but not OIDC/OAuth specific.
+
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **10.5.1** | Verify that the client (as the relying party) mitigates ID Token replay attacks. For example, by ensuring that the 'nonce' claim in the ID Token matches the 'nonce' value sent in the authentication request to the OpenID Provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | 2 | v5.0.be-51.5.1 |
