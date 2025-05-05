@@ -1,0 +1,16 @@
+---
+    title: "Référentiel de vérification de la sécurité des applications 5.x"
+    subtitle: "Version Bleeding Edge"
+    date: 2025
+    titlepage: true
+    titlepage-rule-height: 0
+    titlepage-logo: "images/owasp_logo_1c_notext.png"
+    table-use-row-colors: true
+    toc: true
+    toc-own-page: true
+    geometry: "left=2cm,right=2cm,top=3cm,bottom=3cm"
+    CJKmainfont: "Noto Sans CJK JP"
+    mainfont: "Source Serif 4"
+    sansfont: "Source Sans 3"
+---
+
