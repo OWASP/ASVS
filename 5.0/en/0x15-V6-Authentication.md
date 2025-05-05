@@ -10,6 +10,8 @@ Whilst of the requirments in this chapter are based on the second section of the
 
 Also, NIST SP 800-63 terminology can sometimes be different and the chapter often uses more commonly understood terminology, to increase clarity.
 
+One common feature of more advanced applications is the ability to adapt the authentication stages required based on various risk factors. This feature is covered in the "Authorization" chapter since these mechanisms also need to be considered for authorization decisions.
+
 ## V6.1 Authentication Documentation
 
 This section contains requirements detailing the authentication documentation that should be maintained for an application. This is crucial to implement and assess how the relevant authentication controls should be configured.
