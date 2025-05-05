@@ -115,6 +115,7 @@ Note that the "Authentication with an Identity Provider" section in the "Authent
 | **10.5.2** | Verify that the client uniquely identifies the user from ID Token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 2 | v5.0.be-51.5.2 |
 | **10.5.3** | Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by the client. | 2 | v5.0.be-51.5.3 |
 | **10.5.4** | Verify that the client validates that the ID Token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 2 | v5.0.be-51.5.4 |
+| **10.5.5** | Verify that, when using OIDC back-channel logout, the relying party mitigates denial of service through forced logout and cross-JWT confusion in the logout flow. The client must verify that the logout token is correctly typed with a value of 'logout+jwt', contains the 'event' claim with the correct member name, and does not contain a 'nonce' claim. Note that it is also recommended to have a short expiration (e.g., 2 minutes). | 2 | v5.0.be-51.5.5 |
 
 ## V10.6 OpenID Provider
 
@@ -125,6 +126,7 @@ Note that if using the ID Token flow (not the code flow), no access tokens are i
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **10.6.1** | Verify that the OpenID Provider only allows values 'code', 'ciba', 'id_token', or 'id_token code' for response mode. Note that 'code' is preferred over 'id_token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 | v5.0.be-51.6.1 |
+| **10.6.2** | Verify that the OpenID Provider mitigates denial of service through forced logout. By obtaining explicit confirmation from the end-user or, if present, validating parameters in the logout request (initiated by the relying party), such as the 'id_token_hint'. | 2 | v5.0.be-51.6.2 |
 
 ## V10.7 Consent Management
 
