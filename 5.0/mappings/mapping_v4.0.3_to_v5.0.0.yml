@@ -108,17 +108,17 @@ v4.0.3-2.2.2:
 v4.0.3-2.2.3:
   tag-v5.0.0: MODIFIED, MOVED TO v5.0.0-6.3.7, SPLIT TO v5.0.0-6.3.5
 v4.0.3-2.2.4:
-  tag-v5.0.0: MODIFIED, MOVED TO v5.0.0-6.3.8, SPLIT TO v5.0.0-6.3.3
+  tag-v5.0.0: MODIFIED, MOVED TO v5.0.0-6.3.3
 v4.0.3-2.2.5:
   tag-v5.0.0: MOVED TO v5.0.0-12.3.5
 v4.0.3-2.2.6:
   tag-v5.0.0: DELETED, COVERED BY v5.0.0-6.5.1
 v4.0.3-2.2.7:
-  tag-v5.0.0: DELETED, MERGED TO v5.0.0-6.3.8
+  tag-v5.0.0: DELETED, MERGED TO v5.0.0-6.3.3
 v4.0.3-2.3.1:
   tag-v5.0.0: MOVED TO v5.0.0-6.4.1
 v4.0.3-2.3.2:
-  tag-v5.0.0: DELETED, MERGED TO v5.0.0-6.3.8
+  tag-v5.0.0: DELETED, MERGED TO v5.0.0-6.3.3
 v4.0.3-2.3.3:
   tag-v5.0.0: MOVED TO v5.0.0-6.4.5
 v4.0.3-2.4.1:
