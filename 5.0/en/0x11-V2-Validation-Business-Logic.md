@@ -1,17 +1,17 @@
 # V2 Validation and Business Logic
 
-## Control Objective
+## Goals of Requirements
 
-Ensure that a verified application satisfies the following high-level requirements:
+In this section, applications that adhere to these high-level requirements should have the following capabilities:
 
-* Input received by the application matches business or functional expectations.
-* The business logic flow is sequential, processed in order, and cannot be bypassed.
-* Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers and adding a million friends one at a time.
-* High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
+* Application input is verified to match business or functional expectations.
+* Business logic flow is sequential, processed in order, and cannot be bypassed.
+* All business logic includes limits and controls to detect and prevent automated attacks (i.e.continuous small funds transfers and adding a million friends one at a time).
+* High-value business logic flows take into account abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
 
 ## V2.1 Validation and Business Documentation
 
-Validation and business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items, so that it is clear what needs to be implemented in the application.
+Business logic limits, validation rules, and contextual consistency of combined data items should be clearly defined in the application's documentation. It should be clear to developers what needs to be implemented in the target application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -21,19 +21,19 @@ Validation and business logic documentation should clearly define business logic
 
 ## V2.2 Input Validation
 
-Effective input validation controls will enforce business or functional expectations around the type of data that the app expects to receive. This will ensure good data quality and reduce the attack surface. However, it does not remove or replace the need to use correct encoding, parameterization, or sanitization when using the data in another component or for presenting it for output.
+It is important that effective input validation controls enforce business or functional expectations around the type of data that the app expects to receive. This approach ensures good data quality and reduces all attack surfaces. However, developers must also use correct encoding, parameterization, or sanitization when using the data in another component or for presenting it for output.
 
 In this context, "input" could come from a wide variety of sources, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, and external APIs.
 
-A business logic control might check that a particular input is a number less than 100. A functional expectation might check that a number is below a certain threshold, as that number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
+For example, a business logic control could check that a particular input is a number less than 100. In contrast, a functional expectation might check that a number is below a certain threshold, as that number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
 
-While schema validation is not explicitly mandated, this may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML.
+ Though schema validation is not explicitly mandated in these requirements, it may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces which use JSON or XML.
 
-Please note the following points on Schema Validation:
+Please note the following points on schema validation:
 
-* The "published version" of the JSON Schema validation specification is considered production-ready, not strictly speaking "stable." When using JSON Schema validation, be sure there are no gaps with the guidance in the requirements below.
-* Any JSON Schema validation libraries in use should also be monitored and updated if necessary once the standard is formalized.
-* DTD validation should not be used, and framework DTD evaluation should be disabled, to avoid issues with XXE attacks against DTDs.
+* The "published version" of the JSON schema validation specification is only said to be production-ready and not said to be strictly "stable." If you are using JSON Schema validation, be sure there are no gaps with the guidance in the requirements below.
+* Any JSON schema validation libraries in use should also be monitored and updated if necessary once the standard is formalized.
+* To avoid issues with XXE attacks against DTDs, DTD validation should not be used and framework DTD evaluation should be disabled. 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -43,7 +43,7 @@ Please note the following points on Schema Validation:
 
 ## V2.3 Business Logic Security
 
-This section considers key requirements to ensure that the application enforces business logic processes in the correct way and is not vulnerable to attacks that exploit the logic and flow of the application.
+These requirements ensure that the application enforces business logic processes in the correct way and prevents the application from being vulnerable to attacks that exploit the logic and flow of the application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -54,7 +54,7 @@ This section considers key requirements to ensure that the application enforces 
 
 ## V2.4 Anti-automation
 
-This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
+These requirements mandate anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
