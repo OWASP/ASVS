@@ -2,16 +2,15 @@
 
 ## Control Objective
 
-This chapter focuses on the most common web application security weaknesses that are related to unsafe processing of untrusted data. This leads to a variety of technical vulnerabilities where the untrusted data gets interpreted using the syntax rules of the relevant interpreter.
+This chapter provides requirements that help developers avoid unsafe processing of untrusted data, which can lead to common web application security weaknesses where untrusted data becomes interpreted by the syntax rules of a relevant interpreter.
 
-With modern web applications, it will always be best to use safer APIs such as parameterized queries, auto-escaping or templating frameworks. Otherwise, or carefully performed output encoding, escaping, or sanitization will be critical to the security of the application.
+If you are using modern web application technologies, you can avoid these problems by using safer APIs such as parameterized queries, employing auto-escaping, or using templating frameworks. If these solutions are not available, it is critical to application security that developers should carefully perform output encoding, escaping, or sanitization on all data.
 
-Input validation can act as a defense in depth mechanism for protecting against unexpected, dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements around this can be found in the "Validation and Business Logic" chapter.
+You may also use input validation as an in-depth defense mechanism for protecting against unexpected, or dangerous content. However, since validation matches incoming content with functional and business expectations, requirements around validation can be found in the "Validation and Business Logic" chapter.
 
 ## V1.1 Validation and Sanitization Architecture
 
-In the sections below, syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities are provided. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g., HTML encoding) to prevent double encoding issues.
-
+This section includes syntax-specific or interpreter-specific requirements that allow developers to safely process unsafe content and avoid security vulnerabilities. They specify the order in which unsafe data should be processed and where the processing should take place. Also, these requirements prevent double encoding issues by indicating that data should be stored in its original state and not in an encoded or escaped state (e.g., HTML encoding). 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.1.1** | Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | 2 | v5.0.be-5.6.1 |
@@ -19,9 +18,9 @@ In the sections below, syntax-specific or interpreter-specific requirements for 
 
 ## V1.2 Injection Prevention
 
-Output encoding or escaping close or adjacent to a potentially dangerous context is critical to the security of any application. Typically, output encoding and escaping is not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. Trying to do this too early may lead to malformed content or even render the encoding or escaping ineffective.
+It is critical to the security of any application that output is encoded or escaped close or adjacent to any potentially dangerous contexts. Typically, these techniques are not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. If they are used too early, you may cause malformed content to occur or even render your output encoding or escaping ineffective.
 
-In many cases, software libraries will include safe or safer functions which will do this automatically although it will be necessary to be sure that they are correct for the current context.
+In many situations, software libraries will include safe or safer functions which will automatically perfrom output encoding or escaping, although it will be necessary to be sure that these functions are correctly used for the current context.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -34,15 +33,15 @@ In many cases, software libraries will include safe or safer functions which wil
 | **1.2.7** | Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 2 | v5.0.be-5.3.10 |
 | **1.2.8** | Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 | v5.0.be-5.3.12 |
 | **1.2.9** | Verify that the application escapes special characters in regular expressions (typically using a backslash) to prevent them from being misinterpreted as metacharacters. | 2 | v5.0.be-5.2.9 |
-| **1.2.10** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC 4180 sections 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as XLS, XLSX, or ODF), special characters (including '=', '+', '-', '@', '\t' (tab), and '\0' (null character)) must be escaped with a single quote if they appear as the first character in a field value. | 3 | v5.0.be-5.3.11 |
+| **1.2.10** | Verify that the application is protected against CSV and formula injection. The application must follow the escaping rules defined in RFC 4180 sections 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as XLS, XLSX, or ODF), special characters (including '=', '+', '-', '@', '\t' (tab), and '\0' (null character)) must be escaped with a single quote if they appear as the first character in a field value. | 3 | v5.0.be-5.3.11 |
 
 Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
 ## V1.3 Sanitization
 
-The ideal protection against using untrusted content in an unsafe context is using context-specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context as was discussed in more detail in the previous section.
+To protect against untrusted content being used in an unsafe context, developers should use context-specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context (see previous section).
 
-Where it is not possible to do this, sanitization will be necessary where potentially dangerous characters or content are removed. In some cases, this could change the semantic meaning of the input, but for security reasons, there may be no choice.
+If it is not possible to do this, sanitization will be necessary to remove potentially dangerous characters or content. In some cases, the semantic meaning of the input may be changed, but for security reasons, there may be no choice.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -61,9 +60,9 @@ Where it is not possible to do this, sanitization will be necessary where potent
 
 ## V1.4 Memory, String, and Unmanaged Code
 
-The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a systems language or unmanaged code.
+The following requirements discusses how unsafe memory use can lead to security risks and generally they will only apply when the application uses a system language or unmanaged code.
 
-In some cases, it may be possible to achieve this by setting compiler flags which enable buffer overflow protections and warnings, including stack randomization, data execution prevention, and will break the build if an unsafe pointer, memory, format string, integer, or string operations are found.
+In some cases, you may be able to set compiler flags which enable buffer overflow protections and warnings, including stack randomization data execution prevention. They will break the build if an unsafe pointer, memory, format string, integer, or string operations are found.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -73,15 +72,15 @@ In some cases, it may be possible to achieve this by setting compiler flags whic
 
 ## V1.5 Safe Deserialization
 
-Conversion of data from some sort of stored or transmitted representation into actual application objects (deserialization) has historically been the cause of a variety of code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
+Many code injection vulnerabilities occr when data is converted from some sort of stored or transmitted representation into actual application objects (deserialization). To avoid these risks, it is important to perform deserialization carefully and safely.
 
-In particular, there are certain methods of deserialization where it has been made clear by the programming language or framework documentation that they are insecure and cannot be made safe with untrusted data. For each mechanism in each language in use, careful due diligence of the mechanism should be performed.
+In particular, programming languages or framework documentation can state that certain methods of deserialization are insecure and cannot be made safe with untrusted data. Careful due diligence of your deserialization mechanisms should be performed.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **1.5.1** | Verify that the application configures XML parsers to use a restrictive configuration and that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | 1 | v5.0.be-5.5.2 |
-| **1.5.2** | Verify that deserialization of untrusted data enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure must not be used with untrusted input. | 2 | v5.0.be-5.5.3 |
-| **1.5.3** | Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 3 | v5.0.be-5.5.5 |
+| **1.5.1** | Verify that the application will configure XML parsers to use restrictive configurations and that unsafe features such as resolving external entities have been disabled to prevent XML eXternal Entity (XXE) attacks. | 1 | v5.0.be-5.5.2 |
+| **1.5.2** | Verify that deserialization of untrusted data enforces safe input handling to prevent deserialization attacks, such as employing an allowlist of object types or restricting client-defined object types. If a deserialization mechanism is explicitly defined as insecure, it must not be used with untrusted input. | 2 | v5.0.be-5.5.3 |
+| **1.5.3** | Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), will perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 3 | v5.0.be-5.5.5 |
 
 ## References
 
