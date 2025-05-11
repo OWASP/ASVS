@@ -1,4 +1,4 @@
-# V15 Secure Coding Architecture and Implementation
+# V15 Secure Coding and Architecture
 
 ## Control Objective
 
@@ -6,7 +6,7 @@ Many ASVS requirements either relate to a particular area of security, such as a
 
 However, this chapter provides more general security requirements to be taken into account when designing and developing applications. Not just from the perspective of clean architecture and code quality, but rather specific architecture and coding practices that need to be followed in order for the application to be secure.
 
-## V15.1 Secure Coding Documentation
+## V15.1 Secure Coding and Architecture Documentation
 
 Many of the requirements for establishing a secure and defensible architecture depend on clear documentation of the decisions made regarding the implementation of specific security controls and the components used within the application.
 
@@ -54,7 +54,7 @@ This section covers vulnerability types, including type juggling, prototype poll
 | **15.3.6** | Verify that JavaScript code is written in a way that prevents prototype pollution, for example, by using Set() or Map() instead of object literals. | 2 | v5.0.be-10.4.3 |
 | **15.3.7** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | 2 | v5.0.be-10.4.7 |
 
-## V15.4 Concurrency
+## V15.4 Safe Concurrency
 
 Concurrency issues such as race conditions, time-of-check to time-of-use (TOCTOU) vulnerabilities, deadlocks, livelocks, thread starvation, and improper synchronization can lead to unpredictable behavior and security risks. This section includes various techniques and strategies to help mitigate these risks.
 
