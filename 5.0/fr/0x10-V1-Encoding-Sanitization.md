@@ -8,7 +8,7 @@ Avec les applications web modernes, il est toujours préférable d'utiliser des 
 
 La validation des entrées peut servir de mécanisme de défense en profondeur contre les contenus inattendus et dangereux. Cependant, son objectif principal étant de garantir que le contenu entrant répond aux attentes fonctionnelles et métier, les exigences à ce sujet sont décrites dans le chapitre « Validation et logique métier ».
 
-## V1.1 Architecture de validation et de désinfection
+## V1.1 Architecture d'encodage et de nettoyage
 
 Les sections ci-dessous présentent les exigences spécifiques à la syntaxe ou à l'interpréteur pour le traitement sécurisé du contenu non sécurisé et éviter les failles de sécurité. Ces exigences précisent l'ordre et le lieu de ce traitement. Elles visent également à garantir que les données stockées le soient dans leur état d'origine et non dans un état codé ou échappé (par exemple, encodage HTML), afin d'éviter les problèmes de double codage.
 

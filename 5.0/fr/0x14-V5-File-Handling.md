@@ -4,7 +4,7 @@
 
 L'utilisation de fichiers peut présenter divers risques pour l'application, notamment le déni de service, l'accès non autorisé et l'épuisement de l'espace de stockage. Ce chapitre présente les exigences pour gérer ces risques.
 
-## V5.1 Documentation sur le téléchargement sécurisé de fichiers
+## V5.1 Documentation sur la gestion des fichiers
 
 Cette section comprend l’obligation de documenter les caractéristiques attendues des fichiers acceptés dans l’application, comme condition préalable nécessaire pour développer et vérifier les contrôles de sécurité pertinents.
 

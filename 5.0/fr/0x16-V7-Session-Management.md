@@ -66,6 +66,8 @@ Pour les mécanismes de session avec état, la terminaison implique généraleme
 
 Cette section décrit les exigences visant à atténuer le risque posé par les sessions actives détournées ou utilisées abusivement par des vecteurs s'appuyant sur l'existence et les capacités des sessions utilisateur actives. Par exemple, l'exécution de contenu malveillant pour forcer un navigateur authentifié à effectuer une action en utilisant la session de la victime.
 
+Veuillez noter que les instructions spécifiques au niveau dans le chapitre « Authentification » doivent être prises en compte lors de l'examen des exigences de cette section.
+
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **7.5.1** | Vérifiez que l'application nécessite une réauthentification complète avant d'autoriser les modifications des attributs de compte sensibles qui peuvent affecter l'authentification, tels que l'adresse e-mail, le numéro de téléphone, la configuration MFA ou d'autres informations utilisées dans la récupération de compte. | 2 | v5.0.be-3.7.1 |

@@ -9,14 +9,14 @@ Assurez-vous qu'une application vérifiée satisfait aux exigences de haut nivea
 * La logique métier inclut des limites et des contrôles pour détecter et prévenir les attaques automatisées, telles que les transferts continus de petits fonds et l'ajout d'un million d'amis un par un.
 * Les flux logiques métier à haute valeur ajoutée ont pris en compte les cas d'abus et les acteurs malveillants, et disposent de protections contre l'usurpation d'identité, la falsification, la divulgation d'informations et les attaques par élévation de privilèges.
 
-## V2.1 Validation et documentation commerciale
+## V2.1 Validation et documentation de la logique métier
 
 La documentation de validation et de logique métier doit définir clairement les limites de la logique métier, les règles de validation et la cohérence contextuelle des éléments de données combinés, afin qu'il soit clair ce qui doit être implémenté dans l'application.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **2.1.1** | Vérifiez que les règles de validation des entrées définissent comment vérifier la validité des éléments de données par rapport à une structure attendue. Il peut s'agir de formats de données courants tels que des numéros de carte de crédit, des adresses e-mail, des numéros de téléphone, ou d'un format de données interne. | 1 | v5.0.be-1.11.5 |
-| **2.1.2** | Vérifiez que les règles de validation des entrées sont documentées et définissez comment garantir la cohérence logique et contextuelle des éléments de données combinés, par exemple en vérifiant que la banlieue et le code postal correspondent. | 1 | v5.0.be-1.11.6 |
+| **2.1.1** | Vérifiez que la documentation de l'application définit des règles de validation des entrées pour vérifier la validité des éléments de données par rapport à une structure attendue. Il peut s'agir de formats de données courants tels que des numéros de carte de crédit, des adresses e-mail ou des numéros de téléphone, ou d'un format de données interne. | 1 | v5.0.be-1.11.5 |
+| **2.1.2** | Vérifiez que la documentation de l'application définit comment valider la cohérence logique et contextuelle des éléments de données combinés, par exemple en vérifiant que la banlieue et le code postal correspondent. | 2 | v5.0.be-1.11.6 |
 | **2.1.3** | Vérifiez que les attentes en matière de limites et de validations de la logique métier sont documentées, y compris par utilisateur et globalement dans l'application. | 2 | v5.0.be-1.11.4 |
 
 ## V2.2 Validation des entrées

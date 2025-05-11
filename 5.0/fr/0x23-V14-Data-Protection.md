@@ -8,7 +8,7 @@ Ce chapitre comprend les exigences relatives à la définition des données à p
 
 Un autre élément à prendre en compte pour la protection des données pourrait concerner l'extraction massive, la modification ou l'utilisation excessive. Les exigences de chaque système étant susceptibles d'être très différentes, la définition d'un comportement « anormal » doit tenir compte du modèle de menace et du risque métier. Du point de vue d'ASVS, la détection de ces problèmes est traitée dans le chapitre « Journalisation de sécurité et gestion des erreurs », et la définition de limites dans le chapitre « Logique métier ».
 
-## V14.1 Documentation sur la protection des données et la confidentialité
+## V14.1 Documentation sur la protection des données
 
 Une condition préalable essentielle à la protection des données est de pouvoir catégoriser les données considérées comme sensibles. Il existe probablement plusieurs niveaux de sensibilité, et pour chaque niveau, les contrôles requis pour protéger les données seront différents.
 
