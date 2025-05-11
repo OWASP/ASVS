@@ -8,7 +8,7 @@ Logs should not include sensitive personal data unless legally required, and any
 
 For detailed implementation guidance, refer to the OWASP Cheat Sheets in the references section.
 
-## V16.1 Errors, Logging and Auditing Documentation
+## V16.1 Security Logging Documentation
 
 This section ensures a clear and complete inventory of logging across the application stack. This is essential for effective security monitoring, incident response, and compliance.
 

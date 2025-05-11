@@ -4,7 +4,7 @@
 
 The use of files can present a variety of risks for the application, including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
 
-## V5.1 Secure File Upload Documentation
+## V5.1 File Handling Documentation
 
 This section includes a requirement to document the expected characteristics for files being accepted into the application, as a necessary pre-condition to develop and verify relevant security checks.
 

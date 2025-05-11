@@ -40,7 +40,7 @@ In the context of OAuth and OIDC, the term "token" in this chapter refers to:
 
 The risk levels for some of the requirements in this chapter depend on whether the client is a confidential client or regarded as a public client. Since using strong client authentication mitigates many attack vectors, a few requirements might be relaxed when using a confidential client for L1 applications.
 
-## V10.1 Generic OAuth and OIDC security
+## V10.1 Generic OAuth and OIDC Security
 
 This section covers generic architectural requirements that apply to all applications using OAuth or OIDC.
 
