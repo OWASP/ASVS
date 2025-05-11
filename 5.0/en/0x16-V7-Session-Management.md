@@ -66,6 +66,8 @@ For stateful session mechanisms, termination typically involves invalidating the
 
 This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors that rely on the existence and capabilities of active user sessions. For example, using malicious content execution to force an authenticated victim browser to perform an action using the victim's session.
 
+Note that the level-specific guidance in the "Authentication" chapter should be taken into account when considering requirements in this section.
+
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **7.5.1** | Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 | v5.0.be-3.7.1 |
