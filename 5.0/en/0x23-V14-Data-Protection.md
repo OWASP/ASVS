@@ -8,7 +8,7 @@ This chapter includes requirements related to defining what data needs to be pro
 
 Another consideration for data protection could be around bulk extraction, modification, or excessive usage. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Business Logic" chapter.
 
-## V14.1 Data Protection and Privacy Documentation
+## V14.1 Data Protection Documentation
 
 A key prerequisite for being able to protect data is to be able to categorize what data should be considered sensitive. There are likely to be a few different levels of sensitivity, and for each level of sensitivity, the controls required to protect data at that level will be different.
 

@@ -9,7 +9,7 @@ Ensure that a verified application satisfies the following high-level requiremen
 * Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers and adding a million friends one at a time.
 * High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
 
-## V2.1 Validation and Business Documentation
+## V2.1 Validation and Business Logic Documentation
 
 Validation and business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items, so that it is clear what needs to be implemented in the application.
 

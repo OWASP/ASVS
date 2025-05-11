@@ -8,7 +8,7 @@ With modern web applications, it will always be best to use safer APIs such as p
 
 Input validation can act as a defense in depth mechanism for protecting against unexpected, dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements around this can be found in the "Validation and Business Logic" chapter.
 
-## V1.1 Validation and Sanitization Architecture
+## V1.1 Encoding and Sanitization Architecture
 
 In the sections below, syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities are provided. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g., HTML encoding) to prevent double encoding issues.
 
