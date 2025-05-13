@@ -21,7 +21,7 @@ La documentation de validation et de logique métier doit définir clairement le
 
 ## V2.2 Validation des entrées
 
-Des contrôles de validation des entrées efficaces permettront de respecter les attentes métier ou fonctionnelles concernant le type de données que l'application s'attend à recevoir. Cela garantira une bonne qualité des données et réduira la surface d'attaque. Cependant, cela ne supprime ni ne remplace la nécessité d'utiliser un codage, un paramétrage ou un nettoyage corrects lors de l'utilisation des données dans un autre composant ou pour leur présentation en sortie.
+Des contrôles de validation des entrées efficaces permettront de respecter les attentes métier ou fonctionnelles concernant le type de données que l'application s'attend à recevoir. Cela garantira une bonne qualité des données et réduira la surface d'attaque. Cependant, cela ne supprime ni ne remplace la nécessité d'utiliser un encodage, un paramétrage ou un nettoyage corrects lors de l'utilisation des données dans un autre composant ou pour leur présentation en sortie.
 
 Dans ce contexte, les « entrées » peuvent provenir d'une grande variété de sources, notamment des champs de formulaire HTML, des requêtes REST, des paramètres d'URL, des champs d'en-tête HTTP, des cookies, des fichiers sur disque, des bases de données et des API externes.
 
@@ -38,7 +38,7 @@ Veuillez noter les points suivants concernant la validation du schéma :
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **2.2.1** | Vérifier que les entrées sont validées afin de respecter les attentes métier ou fonctionnelles. Cette validation doit être basée sur une liste de valeurs, de modèles et de plages autorisées, ou sur la comparaison des entrées avec une structure attendue et des limites logiques selon des règles prédéfinies. Pour le niveau 1, cette validation peut se concentrer sur les entrées utilisées pour prendre des décisions métier ou de sécurité spécifiques. À partir du niveau 2, elle doit s'appliquer à toutes les entrées. | 1 | v5.0.be-11.3.1 |
-| **2.2.2** | Vérifiez que l'application est conçue pour appliquer la validation des entrées au niveau d'une couche de service de confiance. Bien que la validation côté client améliore la convivialité et doive être encouragée, elle ne doit pas être considérée comme un contrôle de sécurité. | 1 | v5.0.be-11.3.2 |
+| **2.2.2** | Vérifiez que l'application est conçue pour appliquer la validation des entrées au niveau d'une couche de service de confiance. Bien que la validation côté client améliore la convivialité et doit être encouragée, elle ne doit pas être considérée comme un contrôle de sécurité. | 1 | v5.0.be-11.3.2 |
 | **2.2.3** | Vérifiez que l’application garantit que les combinaisons d’éléments de données associés sont raisonnables selon les règles prédéfinies. | 2 | v5.0.be-11.3.3 |
 
 ## V2.3 Sécurité de la logique métier
@@ -48,13 +48,13 @@ Cette section examine les exigences clés pour garantir que l’application appl
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **2.3.1** | Vérifiez que l’application traitera uniquement les flux de logique métier pour le même utilisateur dans l’ordre séquentiel attendu et sans sauter d’étapes. | 1 | v5.0.be-11.1.1 |
-| **2.3.2** | Vérifiez que les limites de la logique métier sont implémentées conformément à la documentation de l'application, afin d'éviter que des failles de la logique métier ne soient exploitées. | 2 | v5.0.be-11.1.3 |
+| **2.3.2** | Vérifiez que les limites de la logique métier sont implémentées conformément à la documentation de l'application, afin d'éviter que des failles de la logique métier ne soient pas exploitées. | 2 | v5.0.be-11.1.3 |
 | **2.3.3** | Vérifiez que les transactions sont utilisées au niveau de la logique métier de telle sorte qu'une opération de logique métier réussisse dans son intégralité ou qu'elle soit restaurée à l'état correct précédent. | 2 | v5.0.be-11.1.9 |
 | **2.3.4** | Vérifiez que les flux logiques métier à forte valeur ajoutée nécessitent l'approbation de plusieurs utilisateurs afin d'éviter toute action non autorisée ou accidentelle. Cela peut inclure, sans s'y limiter, les transferts monétaires importants, les approbations de contrats, l'accès à des informations classifiées ou les contournements de sécurité dans le secteur manufacturier. | 3 | v5.0.be-11.1.10 |
 
 ## V2.4 Anti-automatisation
 
-Cette section comprend des contrôles anti-automatisation pour garantir que les interactions de type humain sont requises et que les demandes automatisées excessives sont évitées.
+Cette section comprend des contrôles anti-automatisation pour garantir que les interactions de type humaine sont requises et que les demandes automatisées excessives sont évitées.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
