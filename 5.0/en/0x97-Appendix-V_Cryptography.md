@@ -85,16 +85,13 @@ Approved cipher algorithms are listed in order of preference.
 
 ### AES Cipher Modes
 
-Modern ciphers make use of various modes, particularly AES for various purposes. The requirements on AES Cipher Modes are described here. Some AES modes are only approved for disk-level block encryption.
+Modern ciphers make use of various modes, particularly AES for various purposes. We describe the requirements on AES Cipher Modes here.
 
 | Mode | Authenticated | Reference | Status | Restriction |
 |--|--|--|--|--|
 | GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
 | CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
 | CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | L | |
-| XTS | No | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) | A | For disk-level block encryption only. |
-| XEX | No | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) | A | For disk-level block encryption only. |
-| LRW | No | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | A | For disk-level block encryption only. |
 | ECB | No | | D | |
 | CFB | No | | D | |
 | OFB | No | | D | |
@@ -108,6 +105,7 @@ Notes:
 * All encrypted messages must be authenticated. For ANY use of CBC mode there MUST be an associated hashing MAC algorithm to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used. The only application where encryption without a MAC algorithm is allowed is disk encryption.
 * If CBC is used, it shall be guaranteed that the verification of the padding is performed in constant time.
 * When using CCM-8, the MAC tag only has 64 bits of security. This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
+* Disk encryption is considered out of scope for the ASVS. Therefore this appendix does not list any approved method for disk encryption. For this usage, encryption without authentication is usually accepted and the XTS, XEX and LRW modes are typically used.
 
 ### Key Wrapping
 
