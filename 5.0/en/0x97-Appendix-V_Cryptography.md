@@ -85,7 +85,9 @@ Approved cipher algorithms are listed in order of preference.
 
 ### AES Cipher Modes
 
-Modern ciphers make use of various modes, particularly AES for various purposes. We describe the requirements on AES Cipher Modes here.
+Block ciphers, such as AES, can be used with different modes of operations. Many modes of operations, such as Electronic codebook (ECB), are insecure and must not be used. The Galois/Counter Mode (GCM) and Counter with cipher block chaining message authentication code (CCM) modes of operations provide authenticated encryption and should be used in modern applications.
+
+Approved modes are listed in order of preference.
 
 | Mode | Authenticated | Reference | Status | Restriction |
 |--|--|--|--|--|
@@ -97,8 +99,6 @@ Modern ciphers make use of various modes, particularly AES for various purposes.
 | OFB | No | | D | |
 | CTR | No | | D | |
 | CCM-8 | Yes | | D | |
-
-Approved modes are listed in order of preference.
 
 Notes:
 
