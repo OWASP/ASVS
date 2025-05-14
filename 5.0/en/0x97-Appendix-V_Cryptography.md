@@ -94,11 +94,11 @@ Approved modes are listed in order of preference.
 | GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
 | CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
 | CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | L | |
+| CCM-8 | Yes | | D | |
 | ECB | No | | D | |
 | CFB | No | | D | |
 | OFB | No | | D | |
 | CTR | No | | D | |
-| CCM-8 | Yes | | D | |
 
 Notes:
 
