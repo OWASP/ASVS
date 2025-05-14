@@ -6,11 +6,11 @@ Web Real-Time Communication (WebRTC) enables real-time voice, video, and data ex
 
 The WebRTC market can be broadly categorized into three segments:
 
-1. **Product Developers**: These are proprietary and open-source vendors that create and supply WebRTC products and solutions. Their focus is on developing robust and secure WebRTC technologies that can be used by others.
+1. Product Developers: These are proprietary and open-source vendors that create and supply WebRTC products and solutions. Their focus is on developing robust and secure WebRTC technologies that can be used by others.
 
-2. **Communication Platforms as a Service (CPaaS)**: They offer APIs, SDKs, and the necessary infrastructure or platforms to enable WebRTC functionalities. CPaaS providers may use products from the first category or develop their own WebRTC software to offer these services.
+2. Communication Platforms as a Service (CPaaS): They offer APIs, SDKs, and the necessary infrastructure or platforms to enable WebRTC functionalities. CPaaS providers may use products from the first category or develop their own WebRTC software to offer these services.
 
-3. **Service Providers**: These organizations leverage products from product developers or CPaaS providers, or develop their own WebRTC solutions. They create and implement applications for online conferencing, healthcare, e-learning, and other domains where real-time communication is crucial.
+3. Service Providers: These organizations leverage products from product developers or CPaaS providers, or develop their own WebRTC solutions. They create and implement applications for online conferencing, healthcare, e-learning, and other domains where real-time communication is crucial.
 
 The security requirements outlined here are primarily focused on Product Developers, CPaaS and Service Providers who:
 
@@ -37,10 +37,12 @@ In particular, it will be necessary to implement protections against flood attac
 
 Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements.
 
+This section refers to the use of Datagram Transport Layer Security (DTLS). A requirement related to having a documented policy for management of cryptographic keys can be found in the "Cryptography" chapter. Information on approved cryptographic methods can be found either in the Cryptography Appendix of the ASVS or in documents such as NIST SP 800‑52 Rev. 2 or BSI TR‑02102‑2 (Version 2025‑01).
+
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.2.1** | Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is private by ensuring it is not reused in existing products or open-source projects and confirming it is not distributed or leaked. | 2 | v5.0.be-53.2.1 |
-| **17.2.2** | Verify that the media server is configured to use and support strong and secure Datagram Transport Layer Security (DTLS) cipher suites and a secure protection profile for the DTLS Extension for establishing keys for the Secure Real-time Transport Protocol (DTLS-SRTP). | 2 | v5.0.be-53.2.2 |
+| **17.2.1** | Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is managed and protected based on the documented policy for management of cryptographic keys. | 2 | v5.0.be-53.2.1 |
+| **17.2.2** | Verify that the media server is configured to use and support approved Datagram Transport Layer Security (DTLS) cipher suites and a secure protection profile for the DTLS Extension for establishing keys for the Secure Real-time Transport Protocol (DTLS-SRTP). | 2 | v5.0.be-53.2.2 |
 | **17.2.3** | Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | 2 | v5.0.be-53.2.4 |
 | **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed Secure Real-time Transport Protocol (SRTP) packets. | 2 | v5.0.be-53.2.7 |
 | **17.2.5** | Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 | v5.0.be-53.2.5 |
@@ -56,8 +58,8 @@ To ensure secure signaling, systems must handle malformed inputs gracefully and 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.3.1** | Verify that the signaling server is able to continue processing incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level. | 2 | v5.0.be-53.3.1 |
-| **17.3.2** | Verify that the signaling server is able to continue processing signaling messages when encountering malformed signaling message by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques. | 2 | v5.0.be-53.3.2 |
+| **17.3.1** | Verify that the signaling server is able to continue processing legitimate incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level. | 2 | v5.0.be-53.3.1 |
+| **17.3.2** | Verify that the signaling server is able to continue processing legitimate signaling messages when encountering malformed signaling message that could cause a denial of service condition. This could include implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques. | 2 | v5.0.be-53.3.2 |
 
 ## References
 
