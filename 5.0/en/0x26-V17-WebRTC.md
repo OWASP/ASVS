@@ -6,11 +6,11 @@ Web Real-Time Communication (WebRTC) enables real-time voice, video, and data ex
 
 The WebRTC market can be broadly categorized into three segments:
 
-1. **Product Developers**: These are proprietary and open-source vendors that create and supply WebRTC products and solutions. Their focus is on developing robust and secure WebRTC technologies that can be used by others.
+1. Product Developers: These are proprietary and open-source vendors that create and supply WebRTC products and solutions. Their focus is on developing robust and secure WebRTC technologies that can be used by others.
 
-2. **Communication Platforms as a Service (CPaaS)**: They offer APIs, SDKs, and the necessary infrastructure or platforms to enable WebRTC functionalities. CPaaS providers may use products from the first category or develop their own WebRTC software to offer these services.
+2. Communication Platforms as a Service (CPaaS): They offer APIs, SDKs, and the necessary infrastructure or platforms to enable WebRTC functionalities. CPaaS providers may use products from the first category or develop their own WebRTC software to offer these services.
 
-3. **Service Providers**: These organizations leverage products from product developers or CPaaS providers, or develop their own WebRTC solutions. They create and implement applications for online conferencing, healthcare, e-learning, and other domains where real-time communication is crucial.
+3. Service Providers: These organizations leverage products from product developers or CPaaS providers, or develop their own WebRTC solutions. They create and implement applications for online conferencing, healthcare, e-learning, and other domains where real-time communication is crucial.
 
 The security requirements outlined here are primarily focused on Product Developers, CPaaS and Service Providers who:
 
