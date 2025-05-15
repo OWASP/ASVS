@@ -60,12 +60,10 @@ Concurrency issues such as race conditions, time-of-check to time-of-use (TOCTOU
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **15.4.1** | Verify that only thread-safe types are used in multi-threaded contexts, or that non-thread-safe types are synchronized to prevent race conditions. | 3 | v5.0.be-10.7.1 |
-| **15.4.2** | Verify that concurrent access to shared resources is controlled using synchronization primitives (e.g., locks, mutexes, semaphores) to prevent race conditions and ensure atomic operations on these resources. | 3 | v5.0.be-10.7.2 |
-| **15.4.3** | Verify that all access to shared resources is consistently checked and accessed in a single atomic operation to prevent time-of-check to time-of-use (TOCTOU) race conditions, ensuring resource state consistency between check and use. | 3 | v5.0.be-10.7.3 |
-| **15.4.4** | Verify that resource acquisition uses a consistent locking strategy to avoid circular dependencies and ensure forward progress, preventing both deadlocks and livelock scenarios. | 3 | v5.0.be-10.7.4 |
-| **15.4.5** | Verify that resource allocation policies prevent thread starvation by ensuring fair access to resources, such as by leveraging thread pools, allowing lower-priority threads to proceed within a reasonable timeframe. | 3 | v5.0.be-10.7.5 |
-| **15.4.6** | Verify that locking primitives are only accessible to the owning class or module and are not publicly modifiable, ensuring that locks cannot be inadvertently or maliciously modified by external classes or code. | 3 | v5.0.be-10.7.6 |
+| **15.4.1** | Verify that shared objects in multi-threaded code (such as caches, files, or in-memory objects accessed by multiple threads) are accessed safely by using thread-safe types and synchronization mechanisms like locks or semaphores to avoid race conditions and data corruption. | 3 | v5.0.be-10.7.1, v5.0.be-10.7.2 |
+| **15.4.2** | Verify that checks on a resource's state, such as its existence or permissions, and the actions that depend on them are performed as a single atomic operation to prevent time-of-check to time-of-use (TOCTOU) race conditions. For example, checking if a file exists before opening it, or verifying a user’s access before granting it. | 3 | v5.0.be-10.7.3 |
+| **15.4.3** | Verify that locks are used consistently to avoid threads getting stuck, whether by waiting on each other or retrying endlessly, and that locking logic stays within the code responsible for managing the resource to ensure locks cannot be inadvertently or maliciously modified by external classes or code. | 3 | v5.0.be-10.7.4, v5.0.be-10.7.6  |
+| **15.4.4** | Verify that resource allocation policies prevent thread starvation by ensuring fair access to resources, such as by leveraging thread pools, allowing lower-priority threads to proceed within a reasonable timeframe. | 3 | v5.0.be-10.7.5 |
 
 ## References
 
