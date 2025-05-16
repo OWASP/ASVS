@@ -6,11 +6,11 @@ La communication Web en temps réel (WebRTC) permet l'échange de voix, de vidé
 
 Le marché du WebRTC peut être classé en trois segments :
 
-1. **Développeurs de produits** : Ce sont des fournisseurs propriétaires et open source qui créent et fournissent des produits et solutions WebRTC. Leur objectif est de développer des technologies WebRTC robustes et sécurisées, utilisables par d'autres.
+1. Développeurs de produits : Ce sont des fournisseurs propriétaires et open source qui créent et fournissent des produits et solutions WebRTC. Leur objectif est de développer des technologies WebRTC robustes et sécurisées, utilisables par d'autres.
 
-2. **Plateformes de communication en tant que service (CPaaS)** : Elles proposent des API, des SDK et l'infrastructure ou les plateformes nécessaires pour activer les fonctionnalités WebRTC. Les fournisseurs CPaaS peuvent utiliser les produits de la première catégorie ou développer leurs propres logiciels WebRTC pour offrir ces services.
+2. Plateformes de communication en tant que service (CPaaS) : Elles proposent des API, des SDK et l'infrastructure ou les plateformes nécessaires pour activer les fonctionnalités WebRTC. Les fournisseurs CPaaS peuvent utiliser les produits de la première catégorie ou développer leurs propres logiciels WebRTC pour offrir ces services.
 
-3. **Fournisseurs de services** : Ces organisations exploitent les produits des développeurs de produits ou des fournisseurs CPaaS, ou développent leurs propres solutions WebRTC. Elles créent et implémentent des applications pour les conférences en ligne, la santé, l'apprentissage en ligne et d'autres domaines où la communication en temps réel est essentielle.
+3. Fournisseurs de services : Ces organisations exploitent les produits des développeurs de produits ou des fournisseurs CPaaS, ou développent leurs propres solutions WebRTC. Elles créent et implémentent des applications pour les conférences en ligne, la santé, l'apprentissage en ligne et d'autres domaines où la communication en temps réel est essentielle.
 
 Les exigences de sécurité décrites ici s'adressent principalement aux développeurs de produits, aux fournisseurs CPaaS et aux fournisseurs de services qui :
 
@@ -37,10 +37,12 @@ En particulier, il sera nécessaire de mettre en œuvre des protections contre l
 
 Les systèmes qui s'appuient uniquement sur la communication multimédia peer-to-peer entre navigateurs Web, sans l'intervention de serveurs multimédias intermédiaires, sont exclus de ces exigences de sécurité spécifiques liées aux médias.
 
+Cette section traite de l'utilisation de la sécurité de la couche de transport des datagrammes (DTLS) dans le contexte de WebRTC. L'exigence relative à la mise en place d'une politique documentée de gestion des clés cryptographiques est décrite dans le chapitre « Cryptographie ». Des informations sur les méthodes cryptographiques approuvées sont disponibles dans l'annexe Cryptographie de l'ASVS ou dans des documents tels que NIST SP 800-52 Rev. 2 ou BSI TR-02102-2 (version 2025-01).
+
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.2.1** | Vérifiez que la clé du certificat Datagram Transport Layer Security (DTLS) est privée en vous assurant qu'elle n'est pas réutilisée dans des produits existants ou des projets open source et en confirmant qu'elle n'est pas distribuée ou divulguée. | 2 | v5.0.be-53.2.1 |
-| **17.2.2** | Vérifiez que le serveur multimédia est configuré pour utiliser et prendre en charge des suites de chiffrement DTLS (Datagram Transport Layer Security) robustes et sécurisées et un profil de protection sécurisé pour l'extension DTLS pour l'établissement de clés pour le protocole de transport en temps réel sécurisé (DTLS-SRTP). | 2 | v5.0.be-53.2.2 |
+| **17.2.1** | Vérifiez que la clé du certificat Datagram Transport Layer Security (DTLS) est gérée et protégée conformément à la politique documentée de gestion des clés cryptographiques. | 2 | v5.0.be-53.2.1 |
+| **17.2.2** | Vérifiez que le serveur multimédia est configuré pour utiliser et prendre en charge les suites de chiffrement DTLS (Datagram Transport Layer Security) approuvées et un profil de protection sécurisé pour l'extension DTLS pour l'établissement de clés pour le protocole de transport en temps réel sécurisé (DTLS-SRTP). | 2 | v5.0.be-53.2.2 |
 | **17.2.3** | Vérifiez que l'authentification SRTP (Secure Real-time Transport Protocol) est vérifiée sur le serveur multimédia pour empêcher les attaques par injection RTP (Real-time Transport Protocol) d'entraîner une condition de déni de service ou l'insertion de médias audio ou vidéo dans les flux multimédias. | 2 | v5.0.be-53.2.4 |
 | **17.2.4** | Vérifiez que le serveur multimédia est en mesure de continuer à traiter le trafic multimédia entrant lorsqu'il rencontre des paquets SRTP (Secure Real-time Transport Protocol) mal formés. | 2 | v5.0.be-53.2.7 |
 | **17.2.5** | Vérifiez que le serveur multimédia est en mesure de continuer à traiter le trafic multimédia entrant pendant un flot de paquets SRTP (Secure Real-time Transport Protocol) provenant d'utilisateurs légitimes. | 3 | v5.0.be-53.2.5 |
@@ -56,8 +58,8 @@ Pour garantir une signalisation sécurisée, les systèmes doivent gérer correc
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **17.3.1** | Vérifiez que le serveur de signalisation est capable de continuer à traiter les messages de signalisation entrants lors d'une attaque par inondation. Cela peut être réalisé en implémentant une limitation de débit au niveau de la signalisation. | 2 | v5.0.be-53.3.1 |
-| **17.3.2** | Vérifiez que le serveur de signalisation est capable de continuer à traiter les messages de signalisation lorsqu'il rencontre un message de signalisation mal formé en implémentant la validation d'entrée, en gérant en toute sécurité les dépassements d'entiers, en empêchant les dépassements de mémoire tampon et en utilisant d'autres techniques robustes de gestion des erreurs. | 2 | v5.0.be-53.3.2 |
+| **17.3.1** | Verify that the signaling server is able to continue processing legitimate incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level. | 2 | v5.0.be-53.3.1 |
+| **17.3.2** | Vérifiez que le serveur de signalisation est capable de continuer à traiter les messages de signalisation légitimes en cas de message mal formé susceptible de provoquer un déni de service. Cela peut inclure la validation des entrées, la gestion sécurisée des dépassements d'entiers, la prévention des dépassements de tampon et l'utilisation d'autres techniques robustes de gestion des erreurs. | 2 | v5.0.be-53.3.2 |
 
 ## Références
 
