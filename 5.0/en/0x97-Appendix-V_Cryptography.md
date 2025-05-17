@@ -187,7 +187,7 @@ A security strength of 112 bits or above MUST be ensured for all Key Exchange sc
 |--|--|--|--|
 | Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Yes | A |
 | Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Yes | A |
-| Encrypted key transport with RSA-PKCS#1 v1.5 | k >= 3072 | No | L |
+| Encrypted key transport with RSA-PKCS#1 v1.5 | | No | D |
 
 Where the following parameters are:
 
