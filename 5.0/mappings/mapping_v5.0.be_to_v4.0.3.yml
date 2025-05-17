@@ -389,16 +389,12 @@ v5.0.be-10.6.3:
 v5.0.be-10.6.4:
   tag-v4.0.3: ADDED
 v5.0.be-10.7.1:
-  tag-v4.0.3: MODIFIED, MOVED FROM v4.0.3-1.11.3
-v5.0.be-10.7.2:
-  tag-v4.0.3: MODIFIED, MOVED FROM v4.0.3-1.11.2
+  tag-v4.0.3: MODIFIED, MOVED FROM v4.0.3-1.11.3, MERGED FROM v4.0.3-1.11.2
 v5.0.be-10.7.3:
   tag-v4.0.3: MODIFIED, MOVED FROM v4.0.3-11.1.6
 v5.0.be-10.7.4:
   tag-v4.0.3: ADDED
 v5.0.be-10.7.5:
-  tag-v4.0.3: ADDED
-v5.0.be-10.7.6:
   tag-v4.0.3: ADDED
 v5.0.be-1.11.4:
   tag-v4.0.3: ADDED
