@@ -60,7 +60,7 @@ v4.0.3-1.10.1:
 v4.0.3-1.11.1:
   tag-v5.0.0: DELETED, NOT IN SCOPE
 v4.0.3-1.11.2:
-  tag-v5.0.0: MOVED TO v5.0.0-15.4.2
+  tag-v5.0.0: DELETED, MERGED TO v5.0.0-15.4.1
 v4.0.3-1.11.3:
   tag-v5.0.0: MOVED TO v5.0.0-15.4.1
 v4.0.3-1.12.2:
@@ -447,7 +447,7 @@ v4.0.3-11.1.4:
 v4.0.3-11.1.5:
   tag-v5.0.0: DELETED, MERGED TO v5.0.0-2.2.1
 v4.0.3-11.1.6:
-  tag-v5.0.0: MOVED TO v5.0.0-15.4.3
+  tag-v5.0.0: MOVED TO v5.0.0-15.4.2
 v4.0.3-11.1.7:
   tag-v5.0.0: DELETED, NOT IN SCOPE
 v4.0.3-11.1.8:
