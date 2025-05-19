@@ -14,7 +14,7 @@ Comprehensive authorization documentation is essential to ensure that security d
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **8.1.1** | Verify that authorization documentation defines rules for restricting function-level and data-specific access based on consumer permissions and resource attributes. | 1 | v5.0.be-1.4.7 |
-| **8.1.2** | Verify that authorization documentation defines rules for field-level access restrictions based on consumer permissions and resource attributes. | 2 | v5.0.be-1.4.8 |
+| **8.1.2** | Verify that authorization documentation defines rules for field-level access restrictions (both read and write) based on consumer permissions and resource attributes. Note that these rules might depend on the state of the relevant data object. | 2 | v5.0.be-1.4.8 |
 | **8.1.3** | Verify that the application's documentation defines the environmental and contextual attributes (including but not limited to, time of day, user location, IP address, or device) that are used in the application to make security decisions, including those pertaining to authentication and authorization. | 3 | v5.0.be-1.4.6 |
 | **8.1.4** | Verify that authentication and authorization documentation defines how environmental and contextual factors are used in decision-making, in addition to function-level, data-specific, and field-level authorization. This should include the attributes evaluated, thresholds for risk, and actions taken (e.g., allow, challenge, deny, step-up authentication). | 3 | v5.0.be-1.4.9 |
 
