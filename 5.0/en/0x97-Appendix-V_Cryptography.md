@@ -4,23 +4,24 @@ The "Cryptography" chapter goes beyond simply defining best practices. It aims t
 
 This appendix defines the level of approval for different cryptographic mechanisms:
 
-* **Approved** (A) mechanisms can be used in applications.
-* **Legacy** mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
-* **Disallowed** mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
+* Approved (A) mechanisms can be used in applications.
+* Legacy mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
+* Disallowed mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
 
 This list may be overridden in the context of a given application for various reasons including:
 
 * new evolutions in the field of cryptography;
 * compliance with regulation.
 
-## Cryptographic Inventory and Documentation (V11.1)
+## Cryptographic Inventory and Documentation
+
+This section provides additional information
+for V11.1 Cryptographic Inventory and Documentation.
 
 It is important to ensure that all cryptographic assets, such as algorithms, keys, and certificates, are regularly discovered, inventoried, and assessed. For Level 3, this should include the use of static and dynamic scanning to discover the use of cryptography in an application. Tools such as SAST and DAST may help with this but it is possible that dedicated tools would be needed to get more comprehensive coverage. Freeware examples of tools include:
 
 * [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
 * [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
-
-## Algorithms (V11.2)
 
 ## Equivalent Strengths of Cryptographic Parameters
 
@@ -42,7 +43,10 @@ Example of applications:
 
 Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
 
-## Random Values (V11.5)
+## Random Values
+
+This section provides additional information
+for V11.5 Random Values.
 
 | Name | Version/Reference | Notes | Status |
 |:-:|:-:|:-:|:-:|
@@ -55,7 +59,10 @@ Note: that this section assumes that no quantum computer exists; if such a compu
 
 The underlying hash function used with HMAC-DRBG or Hash-DRBG must be approved for this usage.
 
-## Cipher Algorithms (V11.3)
+## Cipher Algorithms
+
+This section provides additional information
+for V11.3 Encryption Algorithms.
 
 Approved cipher algorithms are listed in order of preference.
 
@@ -133,7 +140,10 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |Encrypt-then-MAC | | A
 |MAC-then-encrypt | | L
 
-## Hash Functions (V11.4)
+## Hash Functions
+
+This section provides additional information
+for V11.4 Hashing and Hash-based Functions.
 
 ### Hash Functions for General Use Cases
 
@@ -200,7 +210,10 @@ Approved password-based key derivations functions can be used for password stora
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
 
-## Key Exchange Mechanisms (V11.6)
+## Key Exchange Mechanisms
+
+This section provides additional information
+for V11.6 Public Key Cryptography.
 
 ### KEX Schemes
 
