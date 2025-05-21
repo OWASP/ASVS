@@ -18,7 +18,7 @@ This major revision has been developed with several key principles in mind:
 
 * Support for Documented Security Decisions: ASVS 5.0 introduces requirements for documenting key security decisions. This enhances traceability and supports context-sensitive implementations, allowing organizations to tailor their security posture to their specific needs and risks.
 
-* Updated Levels: While ASVS retains its three-tier model, the level definitions have evolved to make the ASVS easier to adopt. Level 1 serves as a foundational entry point focused on primary defenses. Level 2 represents a comprehensive view of standard security practices, and Level 3 addresses advanced, high-assurance requirements.
+* Updated Levels: While ASVS retains its three-tier model, the level definitions have evolved to make the ASVS easier to adopt. Level 1 is designed as the initial step to adopting the ASVS, providing the first layer of defense. Level 2 represents a comprehensive view of standard security practices, and Level 3 addresses advanced, high-assurance requirements.
 
 * Restructured and Expanded Content: ASVS 5.0 includes approximately 350 requirements across 17 chapters. Chapters have been reorganized for clarity and usability. A two-way mapping between v4.0 and v5.0 is provided to facilitate migration.
 
