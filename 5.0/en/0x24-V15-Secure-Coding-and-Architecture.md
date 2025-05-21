@@ -46,7 +46,7 @@ This section covers vulnerability types, including type juggling, prototype poll
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **15.3.1** | Verify that the application only returns data which the user has permission to access. For example, the API response does not return a full object with attributes that contain values the user has no permission to access, despite having permission to access the data object itself. | 1 | v5.0.be-10.4.5 |
+| **15.3.1** | Verify that the application only returns data which users should be able to access via application. For example, the API response does not return a full object which includes data attributes that no user should be able to see, despite having permission to access the data object itself. | 1 | v5.0.be-10.4.5 |
 | **15.3.2** | Verify that where the application backend makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | 2 | v5.0.be-10.4.8 |
 | **15.3.3** | Verify that the application has countermeasures to protect against mass assignment attacks by limiting allowed fields per controller and action, e.g., it is not possible to insert or update a field value when it was not intended to be part of that action. | 2 | v5.0.be-10.4.4 |
 | **15.3.4** | Verify that all proxying and middleware components transfer the user's original IP address correctly using trusted data fields that cannot be manipulated by the end user and the application and web server use this correct value for logging and security decisions such as rate limiting, taking into account that even the original IP address may not be reliable due to dynamic IPs, VPNs, or corporate firewalls. | 2 | v5.0.be-10.4.6 |
