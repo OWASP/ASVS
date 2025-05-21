@@ -18,15 +18,19 @@ for lang in ${LANGS}; do
 
     python3 tools/export.py --format json --language $lang > "$verslong.json"
     python3 tools/export.py --format cdx_json --language $lang > "$verslong.cdx.json"
+    python3 tools/export.py --format json_v5 --language $lang > "$verslong.v5.json"
     python3 tools/export.py --format json --language $lang --verify-only
 
     python3 tools/export.py --format json_flat --language $lang > "$verslong.flat.json"
+    python3 tools/export.py --format json_flat_v5 --language $lang > "$verslong.flat.v5.json"
     python3 tools/export.py --format json_flat --language $lang --verify-only
 
     python3 tools/export.py --format xml --language $lang > "$verslong.xml"
+    python3 tools/export.py --format xml_v5 --language $lang > "$verslong.v5.xml"
     python3 tools/export.py --format xml --language $lang --verify-only
 
     python3 tools/export.py --format csv --language $lang > "$verslong.csv"
+    python3 tools/export.py --format csv_v5 --language $lang > "$verslong.v5.csv"
     python3 tools/export.py --format csv --language $lang --verify-only
 
     tools/generate_document.sh $lang $vers
