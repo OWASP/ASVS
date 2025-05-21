@@ -110,7 +110,7 @@ These requirements generally relate to either less common attacks or more compli
 
 This level should be the goal for applications looking to demonstrate the highest levels of security and contains the final ~30% of requirements.
 
-Requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls. 
+Requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls.
 
 ### Which level to achieve
 
@@ -128,7 +128,7 @@ The aim is to make it clearer when different chapters and sections are and are n
 
 The intention for ASVS 5.0 onwards is that releases will only be based on the requirements content. Surrounding text and other content such as the appendices, may be updated on an ongoing basis. This provides more flexibility and makes it easier to use the most up to date content whilst also being sure that the requirements have not changed in a way that would alter compliance with the standard.
 
-ASVS release follows the pattern "Major.Minor.Patch" and numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change. 
+ASVS release follows the pattern "Major.Minor.Patch" and numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
 - Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (For example, 4.0.3 -> 5.0.0).
 - Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (For example, 5.0.0 -> 5.1.0).
