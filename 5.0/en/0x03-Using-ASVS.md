@@ -1,66 +1,147 @@
-# Using the ASVS
+# What is the ASVS?
 
-The Application Security Verification Standard (ASVS) defines security requirements for modern web applications and services, focusing on aspects that are in the control of the application developers.
+The Application Security Verification Standard (ASVS) defines security requirements for web applications and services, with an emphasis on aspects that are the responsibility of the application developers.
 
-The ASVS is useful for anyone aiming to develop and maintain secure applications, or evaluate the security of applications. This chapter covers key aspects of using the ASVS, including priority-based levels and various use cases for the standard.
+The ASVS is useful for anyone aiming to design, develop, and maintain secure applications or evaluate the security of applications.
+
+This chapter covers key aspects of using the ASVS, including understanding the scope of the document, defining priority-based levels, and various use cases for the standard.
+
+## The scope of the ASVS
+
+The scope for ASVS is based around its name: Application, Security, Verification, and Standard. It defines which requirements will and will not be included in the standard, with the overall aim being "what are the security principles to be achieved". The scope also takes into account"documentation" type requirements, which provide the input for "implementation" requirements.
+
+Clearly, there is no such thing as scope for attackers so the ASVS requirements should be considered alongside guidance for other aspects that make up an application lifecycle, including CI/CD processes, hosting, and other operational activities.
+
+### Application
+
+ASVS defines the scope for an "application" as the software product that is being produced, which security controls must be built into. For example, ASVS does not define development life-cycle activities or how the application should be built via a CI/CD pipeline, but rather defines what must be achieved within the product itself.
+
+With that being said, components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application, for those specific purposes, as some security controls rely directly on them or can be built on them. They should therefore be taken into account for requirements related to cached responses, rate-limits, or limiting incoming and outgoing connections based on source and destination.
+
+On the other hand, where the ASVS generally excludes requirements that have no direct application relevant and where the configuration is not within the application developer's responsibility. For example, DNS problems are usually handled by a separate team or function.
+
+Similarly, whilst the application is responsible for how it consumes the input and how it produces the output, if an external process is doing something with the application or its data, it is considered out of scope for ASVS. For example, making a backup of the application or its data is usually the responsibility of an external process and is not controlled by the application or the application developer.
+
+### Security
+
+For every requirement, there must be an impact on security. The application must be less secure if the requirement is not in place and implementing the requirement must decrease either the likelihood or the impact component of the security risk.
+
+Everything else, such as functional aspects, code style, or policy requirements, is out of scope.
+
+### Verification
+
+The requirement must be verifiable, and the verification must result in a "fail" or "pass" decision.
+
+### Standard
+
+The ASVS is designed to be a standard. Specifically, it is a collection of security requirements to be implemented to comply with the standard.
+
+This means that requirements are limited to defining the security goal to achieve for the standard. Other related information can be built on top of ASVS or linked via mappings.
+
+Specifically, OWASP has many projects, and the ASVS deliberately avoids overlapping with the content in other projects. For example, developers may have a question, "how do I implement a particular requirement in my particular technology or environment," and this should be covered by the Cheat Sheet Series project. Verifiers may have a question "how do I test this requirement in this environment", and this should be covered by the Web Security Testing Guide project.
+
+Whilst the ASVS is not just intended for security experts to use, it does expect the reader to have technical knowledge to understand the content or the ability to research particular concepts.
+
+### Requirement
+
+The word requirement is used specifically in the ASVS as it describes what must be achieved to satisfy it. The ASVS only contains requirements (must) and does not contain recommendations (should) as the main condition.
+
+In other words, recommendations, whether they are just one of many possible options to solve a problem or code style considerations, do not satisfy the definition to be a requirement.
+
+ASVS requirements are intended to address specific security principles without being too implementation or technology-specific, at the same time, being self-explanatory as to why they exist. This also means that requirements are not built around a particular verification method or implementation.
+
+### Documented security decisions
+
+In software security, planning security design and the mechanisms to be used early on will lead to a more consistent and reliable implementation in the finished product or feature.
+
+Additionally, for certain requirements, implementation will be complicated and very specific to an application's needs. Common examples include permissions, input validation, and protective controls around different levels of sensitive data.
+
+To account for this, rather than sweeping statements like "all data must be encrypted" or trying to cover every possible use case in a requirement, documentation requirements were included which mandate that the application developer's approach and configuration to these sorts of controls must be documented. This can then be reviewed for appropriateness and then the actual implementation can be compared to the documentation to assess whether the implementation matches expectations.
+
+These requirements are intended to document the decisions which the application developer has taken regarding how to implement certain security requirements.
+
+Documentation requirements are always in the first section of a chapter (although not every chapter has them) and always have a related implementation requirement where the decisions that are documented should actually be put into place. The point here is that verifying that the documentation is in place and that the actual implementation are two separate activities.
+
+There are two key drivers for including these requirements. The first is that often a security requirement will involve enforcing rules e.g., what kind of file types are allowed to be uploaded, what business controls should be enforced, what are the allowed characters for a particular field. These rules will differ for every application, and therefore, the ASVS cannot prescriptively define what they should be, nor will a cheat sheet or more detailed response help in this case. Similarly, without these decisions being documented, it will not be possible to perform verification of the requirements that implement these decisions.
+
+The second driver is that for certain requirements, it is important to provide an application development with flexibility regarding how to address particular security challenges. For example, in previous ASVS versions, session timeout rules were very prescriptive. Practically speaking, many applications, especially those that are consumer-facing, have much more relaxed rules and prefer to implement other mitigation controls instead. Documentation requirements, therefore, explicitly allow for flexibility around this.
+
+Clearly, it is not expected that individual developers will be making and documenting these decisions but rather the organization as a whole will be taking those decisions and making sure that they are communicated to developers who then make sure to follow them.
+
+Providing developers with specifications and designs for new features and functionality is a standard part of software development. Similarly, developers are expected to use common components and user interface mechanisms rather than just making their own decisions each time. As such, extending this to security should not be seen as surprising or controversial.
+
+There is also flexibility around how to achieve this. Security decisions might be documented in a literal document, which developers are expected to refer to. Alternatively, security decisions could be documented and implemented in a common code library that all developers are mandated to use. In both cases, the desired result is achieved.
 
 ## Application Security Verification Levels
 
-The ASVS defines three security verification levels, with each level increasing in depth and complexity. Each ASVS level indicates the security requirements that are required to achieve that level (with the others remaining as recommendations). The general aim is that organizations will start with the lowest level and then move up to the higher levels from there.
+The ASVS defines three security verification levels, with each level increasing in depth and complexity. The general aim is for organizations to start with the first level to address the most critical security concerns, and then move up to the higher levels according to the organization and application needs.
 
-### Level evaluation criteria
+Each ASVS level indicates the security requirements that are required to achieve from that level, with the higher remaining level requirements as recommendations.
 
-The approach to level definition for version 5.0, was decided after much discussion within the Working Group based on feedback from ASVS users and guided by the version 5.0 principles discussed in the previous chapter. Version 5.0 makes a priority-based evaluation of each requirement based on experience implementing security requirements. Taking this approach, each requirement was evaluated using the following criteria.
+In order to avoid duplicate requirements or requirements that are no longer relevant at higher levels, some requirements apply to a particular level but have more stringent conditions for higher levels.
 
-#### Risk Reduction
+### Level evaluation
 
-To what extent does the requirement reduce security risk within the application? This takes into account the classic Confidentiality, Integrity, and Availability impact factors as well as considering whether this is a first layer of defense or would be considered defense in depth.
+Levels are defined by priority-based evaluation of each requirement based on experience implementing and testing security requirements. The main focus is on comparing risk reduction with the effort to implement the requirement. Another key factor is to keep a low barrier to entry.
 
-In general, the requirements which bring the greatest risk reduction would be in Level 1 or Level 2 and requirements which are still valuable but are either defense in depth or relate to a more niche area or issue are in Level 3.
+Risk reduction considers the extent to which the requirement reduces the level of security risk within the application, taking into account the classic Confidentiality, Integrity, and Availability impact factors as well as considering whether this is a primary layer of defense or whether it would be considered defense in depth.
 
-#### Effort to implement
+The rigorous discussions around both the criteria and the leveling decisions have resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
 
-Whilst the ASVS is named as a verification standard, there is nothing to verify unless the requirement has been implemented in the application. There are clearly some requirements which are far more complicated to implement and maintain than others and it is important that this is taken into account when deciding the relative priority of a requirement.
+The types of requirements in each level could be characterized as follows.
 
-Whilst there will still be some harder to implement controls that provide a large enough risk reduction to be in Level 1, the more complex requirements will be in Level 2 or Level 3.
+### Level 1
 
-#### Low barrier to entry
+This level contains the minimum requirements to consider when securing an application and represents a critical starting point. This level contains around 20% of the ASVS requirements. The goal for this level is to have as few requirements as possible, to decrease the barrier to entry.
 
-From feedback on the use (or non-use) of previous ASVS versions in industry, the single greatest problem that was identified was the double-edged sword of Level 1 having a large number of requirements (~120) but at the same time being considered the "minimum" level that is not good enough for most applications. This seemed to lead to organizations either giving up before they start or trying to implement a subset of the requirements without actually achieving Level 1, therefore reducing the sense of achievement and progress.
+These requirements are generally critical or basic, first-layer of defense requirements for preventing common attacks that do not require other vulnerabilities or preconditions to be exploitable.
 
-To this end, it was decided that Level 1 would have a maximum of around 70 of the highest priority requirements. This seemed to be a good compromise between being achievable and providing a solid level of security and other requirements would get pushed into Level 2 or Level 3. To achieve this, some hard decisions were made about what would make it into Level 1 and what would not. The goal was to have a good Level 1 that is achievable instead of a perfect Level 1 that is not.
+In addition to the first layer of defense requirements, some requirements have less of an impact at higher levels, such as requirements related to passwords. Those are more important for Level 1, as from higher levels, the multi-factor authentication requirements become relevant.
 
-#### Better level balance
+Level 1 is not necessarily penetration testable by an external tester without internal access to documentation or code (such as "black box" testing), although the lower number of requirements should make it easier to verify.
 
-In version 4.0, Levels 1 and 2 both had around 120 requirements and Level 3 had around 30. Version 5.0 balances the requirements more evenly across the levels, trying to distribute Level 2 and Level 3 requirements more evenly. Again, the aim is to make Level 2 more achievable and realistic whilst leaving Level 3 for applications that want to demonstrate the highest level of security.
+### Level 2
 
-### Definition of the Levels
+Most applications should be striving to achieve this level of security. It contains around 50% of the requirements in the ASVS.
 
-Based on the above criteria, the requirements for version 5.0 were allocated into one of the 3 levels. Whilst comparative analysis based on the above factors means that there was an element of judgement in the allocation, the rigorous discussions around both the criteria and the leveling decisions has resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation.
+These requirements generally relate to either less common attacks or more complicated protections against common attacks. They may still be a first layer of defense, or they may require certain preconditions for the attack to be successful.
 
-This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+### Level 3
 
-The types of requirements in each level could be characterised as follows.
+This level should be the goal for applications looking to demonstrate the highest levels of security and contains the final ~30% of requirements.
 
-#### Level 1 requirements
-
-These are generally critical or basic, first layer of defense requirements for preventing common attacks that do not require other vulnerabilities or pre-conditions. The requirements are either relatively straightforward to implement or important enough to be worth the effort.
-
-Level 1 is not necessarily penetration testable using humans, although the lower number of requirements should make it easier to verify.
-
-#### Level 2 requirements
-
-These requirements generally relate to either less common attacks, or more complicated protections against common attacks. They may still be a first layer of defense or they may require certain preconditions for the attack to be successful.
-
-#### Level 3 requirements
-
-Requirements in this section are generally either defense in depth mechanisms or other useful but hard to implement controls. They may also relate to attacks which are a lot more niche or only relevant in certain circumstances.
+Requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls. 
 
 ### Which level to achieve
 
-By moving to a priority based evaluation of each requirement, the levels become more of a reflection of the application security maturity of the organization and the application. Rather than the ASVS prescriptively stating what level an application should be at, an organization should decide what level it believes it should be at, depending on the sensitivity of the application and of course the expectations of the application's users.
+The priority-based levels are intended to provide a reflection of the application security maturity of the organization and the application. Rather than the ASVS prescriptively stating what level an application should be at, an organization should analyze its risks and decide what level it believes it should be at, depending on the sensitivity of the application and of course, the expectations of the application's users.
 
-For example, an early stage startup which is only collecting limited sensitive data may decide that Level 1 is sufficient but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
+For example, an early-stage startup that is only collecting limited sensitive data may decide that Level 1 is sufficient, but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
+
+## The structure of the ASVS
+
+The ASVS is made up of a total of around 350 requirements which are divided into 17 chapters, each of which is further divided into sections.
+
+The aim is to make it clearer when different chapters and sections are and are not relevant. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
+
+## Release strategy
+
+The intention for ASVS 5.0 onwards is that releases will only be based on the requirements content. Surrounding text and other content such as the appendices, may be updated on an ongoing basis. This provides more flexibility and makes it easier to use the most up to date content whilst also being sure that the requirements have not changed in a way that would alter compliance with the standard.
+
+ASVS release follows the pattern "Major.Minor.Patch" and numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change. 
+
+- Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (For example, 4.0.3 -> 5.0.0).
+- Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (For example, 5.0.0 -> 5.1.0).
+- Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (For example, 5.0.0 -> 5.0.1).
+
+## Flexibility with the ASVS
+
+A number of the points described above, such as documentation requirements and the levels mechanism, provide the ability to use the ASVS in a more flexible and organization-specific way.
+
+As well as this, organizations are strongly recommended to create an organization or domain-specific fork that adjusts requirements based on the specific characteristics and risk levels of their applications. With that being said, it is important to maintain traceability so that passing requirement 4.1.1 means the same across all versions.
+
+Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, WebSockets, SOAP, if unused).
+An organization-specific ASVS version is also a good place to provide organization-specific implementation guidance, which details libraries or resources to use when complying with requirements.
 
 ## How to Reference ASVS Requirements
 
