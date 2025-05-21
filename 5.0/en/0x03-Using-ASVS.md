@@ -118,13 +118,15 @@ The priority-based levels are intended to provide a reflection of the applicatio
 
 For example, an early-stage startup that is only collecting limited sensitive data may decide that Level 1 is sufficient, but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
 
-## The structure of the ASVS
+## How to use the ASVS
+
+### The structure of the ASVS
 
 The ASVS is made up of a total of around 350 requirements which are divided into 17 chapters, each of which is further divided into sections.
 
 The aim is to make it clearer when different chapters and sections are and are not relevant. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
 
-## Release strategy
+### Release strategy
 
 The intention for ASVS 5.0 onwards is that releases will only be based on the requirements content. Surrounding text and other content such as the appendices, may be updated on an ongoing basis. This provides more flexibility and makes it easier to use the most up to date content whilst also being sure that the requirements have not changed in a way that would alter compliance with the standard.
 
@@ -134,7 +136,7 @@ ASVS release follows the pattern "Major.Minor.Patch" and numbers provide informa
 * Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (For example, 5.0.0 -> 5.1.0).
 * Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (For example, 5.0.0 -> 5.0.1).
 
-## Flexibility with the ASVS
+### Flexibility with the ASVS
 
 A number of the points described above, such as documentation requirements and the levels mechanism, provide the ability to use the ASVS in a more flexible and organization-specific way.
 
@@ -143,7 +145,7 @@ As well as this, organizations are strongly recommended to create an organizatio
 Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, WebSockets, SOAP, if unused).
 An organization-specific ASVS version is also a good place to provide organization-specific implementation guidance, which details libraries or resources to use when complying with requirements.
 
-## How to Reference ASVS Requirements
+### How to Reference ASVS Requirements
 
 Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example, `1.11.3`.
 
@@ -161,13 +163,13 @@ If identifiers are used without including the `v<version>` element then they sho
 
 ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
 
-## Forking the ASVS
+### Forking the ASVS
 
 Organizations can benefit from adopting ASVS by choosing one of the three levels or by creating a domain-specific fork that adjusts requirements per application risk level. We encourage such forking, provided it maintains traceability so that passing requirement 4.1.1 means the same across all versions.
 
 Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, Websockets, SOAP, if unused). Forking should start with ASVS Level 1 as a baseline, advancing to Levels 2 or 3 based on the application’s risk.
 
-## Uses for the ASVS
+## Use cases for the ASVS
 
 The ASVS can be used to assess the security of an application and this is explored in more depth in the next chapter. However, we have identified several other potential uses for the ASVS (or a forked version).
 
