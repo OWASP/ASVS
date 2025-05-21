@@ -4,7 +4,7 @@
 
 Users familiar with version 4.x of the standard may find it helpful to review the key changes introduced in version 5.0, including updates in content, scope, and underlying philosophy.
 
-Of the 286 requirements in version 4.0.3, only 11 remain unchanged, while 15 have undergone minor grammatical adjustments without altering their meaning. The majority have been revised in some way. Even requirements that were not substantively modified may have new numbering due to reordering or restructuring.
+Of the 286 requirements in version 4.0.3, only 11 remain unchanged, while 15 have undergone minor grammatical adjustments without altering their meaning. In total 109 requirements or 38% are no longer separate requirements in verion 5.0 with 50 simply being deleted, 28 removed as duplicates and 31 merged into other requirements. The rest have been revised in some way. Even requirements that were not substantively modified will have new numbering due to reordering or restructuring.
 
 To facilitate adoption of version 5.0, mapping documents are provided to help users trace how requirements from version 4.x correspond to those in version 5.0. These mappings are not tied to release versioning and may be updated or clarified as needed.
 
@@ -39,7 +39,7 @@ Efforts have also been made to ensure that chapters and sections are organized a
 
 This restructuring has led to the creation of additional chapters:
 
-* **Self-contained Tokens** – Previously included under session management, the expanded use cases and associated security risks of self-contained tokens warranted a dedicated chapter, with many requirements newly introduced in version 5.x.
+* **Self-contained Tokens** – Formerly grouped under session management, self-contained tokens are now recognized as a distinct mechanism and a foundational element for stateless communication (such as in OAuth and OIDC). Due to their unique security implications, they are addressed in a dedicated chapter, with many new requirements introduced in version 5.x.
 * **Web Frontend Security** – With the increasing complexity of browser-based applications and the rise of API-only architectures, frontend security requirements have been separated into their own chapter.
 * **Secure Coding and Architecture** – New requirements addressing general security practices that did not fit within existing chapters have been grouped here.
 
@@ -49,7 +49,7 @@ The former V1 Architecture chapter has been removed. Its initial section contain
 
 ## Removal of Direct Mappings to Other Standards
 
-Direct mappings to other standards have been removed from the main body of the standard. Version 5.0 now maps primarily to the OWASP Common Requirement Enumeration (CRE) project, which in turn links ASVS to a range of OWASP projects and external standards.
+Direct mappings to other standards have been removed from the main body of the standard. The aim is to prepare a mapping with the OWASP Common Requirement Enumeration (CRE) project, which in turn will link ASVS to a range of OWASP projects and external standards.
 
 Direct mappings to CWE and NIST are no longer maintained, as explained below.
 
@@ -69,9 +69,9 @@ Version 4.x described the levels as L1 ("Minimum"), L2 ("Standard"), and L3 ("Ad
 
 Version 5.0 addresses several issues with this approach:
 
-### Improved Entry Level
+### Easier Entry Level
 
-Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level, discouraged adoption. Organizations often either abandoned the standard or implemented only a subset of requirements, undermining the sense of progress and achievement.
+Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. This high barrier to entry made it harder to push adoption of the standard within organizations.
 
 ### The Fallacy of Testability
 
@@ -79,6 +79,10 @@ A key factor in selecting controls for Level 1 in version 4.x was their suitabil
 
 Relying on testability as a criterion is both relative and, at times, misleading. The fact that a requirement is testable does not guarantee that it can be tested in an automated or straightforward manner. Moreover, the most easily testable requirements are not always those with the greatest security impact or the simplest to implement.
 
+As such, in version 5.0 we primarilly made this decision based on risk reduction and effort to implement.
+
 ### Not Just About Risk
 
 The use of prescriptive, risk-based levels that mandate a specific level for certain applications has proven to be overly rigid. In practice, the prioritization and implementation of security controls depend on multiple factors, including both risk reduction and the effort required for implementation.
+
+We therefore encourage organizations to achieve the level that they feel like they should be achieving based on their maturity and the message they want to send to their users.
