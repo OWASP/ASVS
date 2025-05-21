@@ -34,8 +34,8 @@ To have expected information available for implementation and verification steps
 
 There are some chapters containing brand new content for version 5.0:
 
-- OAuth and OIDC - These have become pervasive as mechanisms for access delegation and single sign-on over the last several years and it was seen as important to call out some specific requirements in this area, covering different areas which an application developer might find themselves implementing. It is possible this could become its own standard in the future in the same way that the requirements for Mobile and IoT grew to their own projects.
-- WebRTC - This is another technology which is growing in popularity and has its own security considerations and challenges.
+* OAuth and OIDC - These have become pervasive as mechanisms for access delegation and single sign-on over the last several years and it was seen as important to call out some specific requirements in this area, covering different areas which an application developer might find themselves implementing. It is possible this could become its own standard in the future in the same way that the requirements for Mobile and IoT grew to their own projects.
+* WebRTC - This is another technology which is growing in popularity and has its own security considerations and challenges.
 
 Additionally, an effort was made to ensure that chapters and sections are focused on a particular set of requirements that go together.
 
