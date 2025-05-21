@@ -42,11 +42,13 @@ It also includes using architectural-level techniques such as sandboxing, encaps
 
 ## V15.3 Defensive Coding
 
-This section covers vulnerability types, including type juggling, prototype pollution, mass assignment, and others, which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages, whereas others will have language-specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
+This section covers vulnerability types, including type juggling, prototype pollution, and others, which result from the use of insecure coding patterns in a particular language. Some may not be relevant to all languages, whereas others will have language-specific fixes or may relate to the way that a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
+
+It also considers the risks associated when using objects to represent data items and accepting and returning these via external APIs. In this case, the application has to ensure that data fields which should not be writable are not modified by user input (mass assignment) and that the API is selective about what data fields get returned. Where field access depends on a user's permissions, this should be considered in the context of the field-level access control requirement in the Authorization chapter.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **15.3.1** | Verify that the application only returns data which users should be able to access. For example, the API response does not return a full object which includes data attributes that no user should be able to see, despite having permission to access the data object itself. | 1 | v5.0.be-10.4.5 |
+| **15.3.1** | Verify that the application only returns the required subset of fields from a data object. For example, it should not return an entire data object, as some individual fields should not be accessible to users. | 1 | v5.0.be-10.4.5 |
 | **15.3.2** | Verify that where the application backend makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | 2 | v5.0.be-10.4.8 |
 | **15.3.3** | Verify that the application has countermeasures to protect against mass assignment attacks by limiting allowed fields per controller and action, e.g., it is not possible to insert or update a field value when it was not intended to be part of that action. | 2 | v5.0.be-10.4.4 |
 | **15.3.4** | Verify that all proxying and middleware components transfer the user's original IP address correctly using trusted data fields that cannot be manipulated by the end user and the application and web server use this correct value for logging and security decisions such as rate limiting, taking into account that even the original IP address may not be reliable due to dynamic IPs, VPNs, or corporate firewalls. | 2 | v5.0.be-10.4.6 |
