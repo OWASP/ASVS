@@ -145,7 +145,7 @@ Pour plus d'informations, voir également :
 * [oauth.net](https://oauth.net/)
 * [OWASP Cheat Sheet: OAuth 2.0 Protocol Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
 
-For OAuth-related requirements in ASVS following published and in draft status RFC-s are used:
+Pour les exigences liées à OAuth dans ASVS, les RFC publiées et à l'état de projet suivantes sont utilisées :
 
 * [RFC6749 The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
 * [RFC6750 The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
@@ -163,7 +163,7 @@ For OAuth-related requirements in ASVS following published and in draft status R
 * [draft OAuth 2.0 for Browser-Based Applications](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)<!-- recheck on release -->
 * [draft The OAuth 2.1 Authorization Framework](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)<!-- recheck on release -->
 
-For more information on OpenID Connect, please see:
+Pour plus d'informations sur OpenID Connect, veuillez consulter :
 
 * [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 * [FAPI 2.0 Security Profile](https://openid.net/specs/fapi-security-profile-2_0-final.html)
