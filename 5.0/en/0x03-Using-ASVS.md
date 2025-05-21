@@ -34,9 +34,7 @@ The requirement must be verifiable, and the verification must result in a "fail"
 
 ### Standard
 
-The ASVS is designed to be a standard. Specifically, it is a collection of security requirements to be implemented to comply with the standard.
-
-This means that requirements are limited to defining the security goal to achieve for the standard. Other related information can be built on top of ASVS or linked via mappings.
+The ASVS is designed to be a collection of security requirements to be implemented to comply with the standard. This means that requirements are limited to defining the security goal to achieve that. Other related information can be built on top of ASVS or linked via mappings.
 
 Specifically, OWASP has many projects, and the ASVS deliberately avoids overlapping with the content in other projects. For example, developers may have a question, "how do I implement a particular requirement in my particular technology or environment," and this should be covered by the Cheat Sheet Series project. Verifiers may have a question "how do I test this requirement in this environment", and this should be covered by the Web Security Testing Guide project.
 
@@ -102,13 +100,13 @@ Level 1 is not necessarily penetration testable by an external tester without in
 
 ### Level 2
 
-Most applications should be striving to achieve this level of security. It contains around 50% of the requirements in the ASVS.
+Most applications should be striving to achieve this level of security. Around 50% of the requirements in the ASVS are L2 meaning that an application needs to implement around 70% of the requirements in the ASVS in order to comply with L2.
 
 These requirements generally relate to either less common attacks or more complicated protections against common attacks. They may still be a first layer of defense, or they may require certain preconditions for the attack to be successful.
 
 ### Level 3
 
-This level should be the goal for applications looking to demonstrate the highest levels of security and contains the final ~30% of requirements.
+This level should be the goal for applications looking to demonstrate the highest levels of security and provides the final ~30% of requirements to comply with.
 
 Requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls.
 
@@ -124,17 +122,17 @@ For example, an early-stage startup that is only collecting limited sensitive da
 
 The ASVS is made up of a total of around 350 requirements which are divided into 17 chapters, each of which is further divided into sections.
 
-The aim is to make it clearer when different chapters and sections are and are not relevant. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
+The aim of the chapter and section division is to simplify choosing or filtering out chapters and sections based on the what is relevant for the application. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
 
 ### Release strategy
 
-The intention for ASVS 5.0 onwards is that releases will only be based on the requirements content. Surrounding text and other content such as the appendices, may be updated on an ongoing basis. This provides more flexibility and makes it easier to use the most up-to-date content whilst also being sure that the requirements have not changed in a way that would alter compliance with the standard.
-
-ASVS release follows the pattern "Major.Minor.Patch" and numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
+ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
 * Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
 * Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
 * Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
+
+The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
 
 ### Flexibility with the ASVS
 
