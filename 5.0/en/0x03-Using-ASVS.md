@@ -4,7 +4,7 @@ The Application Security Verification Standard (ASVS) defines security requireme
 
 The ASVS is a valuable resource for anyone aiming to design, develop, and maintain secure applications or evaluate their security.
 
-This chapter covers key aspects of using the ASVS, including understanding its scope, defining priority-based levels, and exploring various use cases for the standard.
+This chapter outlines the essential aspects of using the ASVS, including its scope, the structure of its priority-based levels, and the primary use cases for the standard.
 
 ## The Scope of the ASVS
 
