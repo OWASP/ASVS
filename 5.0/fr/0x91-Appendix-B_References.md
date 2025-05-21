@@ -12,9 +12,9 @@ Les projets OWASP suivants sont les plus susceptibles d’être utiles aux utili
 
 ## Projet de la série de fiches de triche de l'OWASP
 
-[This project](https://owasp.org/www-project-cheat-sheets/) has several cheat sheets that will be relevant to different topics in the ASVS.
+[Ce projet](https://owasp.org/www-project-cheat-sheets/) contient plusieurs aide-mémoire qui seront pertinents pour différents sujets de l'ASVS.
 
-There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
+Il existe un mappage vers l'ASVS qui peut être trouvé ici : [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
 
 ## Projets liés à la sécurité mobile
 
