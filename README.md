@@ -29,9 +29,11 @@ The project is led by the four project leaders [Daniel Cuthbert](https://github.
 
 They are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), [Iman Sharafaldin](https://github.com/ImanSharaf), and [Ryan Armstrong](https://github.com/ryarmst).
 
-## Roadmap to ASVS 5.0
+## ASVS 5.0 Release Candidate is ready for review
 
-We have now published our roadmap and objectives for version 5.0 of the ASVS in [this wiki page](https://github.com/OWASP/ASVS/wiki/Roadmap-to-version-5.0).
+🎉🎉🎉 **We are now at the RC1 stage of ASVS version 5.0!** 🎉🎉🎉
+
+See the [Contribution Guide](CONTRIBUTING.md#what-is-the-current-status-of-asvs-development) for more details!
 
 ## Latest Stable Version - 4.0.3
 
@@ -68,20 +70,6 @@ If you think you can help with translations, or indeed ensuring the current list
     * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fa.pdf) (Thanks to CERT of Ferdowsi University of Mashhad / [Ardalan Foroughipour](https://github.com/ardalanForoughipour))
     * [OWASP Application Security Verification Standard 4.0.1 Japanese (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
     * [OWASP Application Security Verification Standard 4.0.1 Turkish (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim))
-
-## Standard Objectives
-
-The requirements were developed with the following objectives in mind:
-
-* Help organizations adopt or adapt a high quality secure coding standard
-* Help architects and developers build secure software by designing and building security in, and verifying that they are in place and effective by the use of unit and integration tests that implement ASVS tests
-* Help deploy secure software via the use of repeatable, secured builds
-* Help security reviewers use a comprehensive, consistent, high quality standard for hybrid code reviews, secure code reviews, peer code reviews, retrospectives, and work with developers to build security unit and integration tests. It is even possible to use this standard for penetration testing at Level 1
-* Assist tool vendors by ensuring there is an easily generatable machine readable version, with CWE mappings
-* Assist organizations to benchmark application security tools by the percentage of coverage of the ASVS for dynamic, interactive, and static analysis tools
-* Minimize overlapping and competing requirements from other standards, by either aligning strongly with them (NIST 800-63), or being strict supersets (OWASP Top 10 2021, PCI DSS 3.2.1), which will help reduce compliance costs, effort, and time wasted in accepting unnecessary differences as risks.
-
-ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
 
 ## How To Reference ASVS Requirements
 
