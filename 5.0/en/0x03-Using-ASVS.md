@@ -1,32 +1,32 @@
 # What is the ASVS?
 
-The Application Security Verification Standard (ASVS) defines security requirements for web applications and services, with an emphasis on aspects that are the responsibility of the application developers.
+The Application Security Verification Standard (ASVS) defines security requirements for web applications and services, emphasizing aspects that are the responsibility of application developers.
 
-The ASVS is useful for anyone aiming to design, develop, and maintain secure applications or evaluate the security of applications.
+The ASVS is a valuable resource for anyone aiming to design, develop, and maintain secure applications or evaluate their security.
 
-This chapter covers key aspects of using the ASVS, including understanding the scope of the document, defining priority-based levels, and various use cases for the standard.
+This chapter covers key aspects of using the ASVS, including understanding its scope, defining priority-based levels, and exploring various use cases for the standard.
 
-## The scope of the ASVS
+## The Scope of the ASVS
 
-The scope for ASVS is based around its name: Application, Security, Verification, and Standard. It defines which requirements will and will not be included in the standard, with the overall aim being "what are the security principles to be achieved". The scope also takes into account"documentation" type requirements, which provide the input for "implementation" requirements.
+The scope of the ASVS is defined by its name: Application, Security, Verification, and Standard. It establishes which requirements are included or excluded, with the overarching goal of identifying the security principles that must be achieved. The scope also considers documentation requirements, which serve as the foundation for implementation requirements.
 
-Clearly, there is no such thing as scope for attackers so the ASVS requirements should be considered alongside guidance for other aspects that make up an application lifecycle, including CI/CD processes, hosting, and other operational activities.
+There is no such thing as scope for attackers. Therefore, ASVS requirements should be evaluated alongside guidance for other aspects of the application lifecycle, including CI/CD processes, hosting, and operational activities.
 
 ### Application
 
-ASVS defines the scope for an "application" as the software product that is being produced, which security controls must be built into. For example, ASVS does not define development life-cycle activities or how the application should be built via a CI/CD pipeline, but rather defines what must be achieved within the product itself.
+ASVS defines an "application" as the software product being developed, into which security controls must be integrated. ASVS does not prescribe development lifecycle activities or dictate how the application should be built via a CI/CD pipeline; instead, it specifies the security outcomes that must be achieved within the product itself.
 
-With that being said, components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application, for those specific purposes, as some security controls rely directly on them or can be built on them. They should therefore be taken into account for requirements related to cached responses, rate-limits, or limiting incoming and outgoing connections based on source and destination.
+Components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application for those specific purposes, as some security controls depend directly on them or can be implemented through them. These components should be considered for requirements related to cached responses, rate limiting, or restricting incoming and outgoing connections based on source and destination.
 
-On the other hand, where the ASVS generally excludes requirements that have no direct application relevant and where the configuration is not within the application developer's responsibility. For example, DNS problems are usually handled by a separate team or function.
+Conversely, ASVS generally excludes requirements that are not directly relevant to the application or where configuration is outside the application developer's responsibility. For example, DNS issues are typically managed by a separate team or function.
 
-Similarly, whilst the application is responsible for how it consumes the input and how it produces the output, if an external process is doing something with the application or its data, it is considered out of scope for ASVS. For example, making a backup of the application or its data is usually the responsibility of an external process and is not controlled by the application or the application developer.
+Similarly, while the application is responsible for how it consumes input and produces output, if an external process interacts with the application or its data, it is considered out of scope for ASVS. For instance, backing up the application or its data is usually the responsibility of an external process and is not controlled by the application or its developers.
 
 ### Security
 
-For every requirement, there must be an impact on security. The application must be less secure if the requirement is not in place and implementing the requirement must decrease either the likelihood or the impact component of the security risk.
+Every requirement must have a demonstrable impact on security. The absence of a requirement must result in a less secure application, and implementing the requirement must reduce either the likelihood or the impact of a security risk.
 
-Everything else, such as functional aspects, code style, or policy requirements, is out of scope.
+All other considerations, such as functional aspects, code style, or policy requirements, are out of scope.
 
 ### Verification
 
@@ -128,28 +128,27 @@ The aim is to make it clearer when different chapters and sections are and are n
 
 ### Release strategy
 
-The intention for ASVS 5.0 onwards is that releases will only be based on the requirements content. Surrounding text and other content such as the appendices, may be updated on an ongoing basis. This provides more flexibility and makes it easier to use the most up to date content whilst also being sure that the requirements have not changed in a way that would alter compliance with the standard.
+The intention for ASVS 5.0 onwards is that releases will only be based on the requirements content. Surrounding text and other content such as the appendices, may be updated on an ongoing basis. This provides more flexibility and makes it easier to use the most up-to-date content whilst also being sure that the requirements have not changed in a way that would alter compliance with the standard.
 
 ASVS release follows the pattern "Major.Minor.Patch" and numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
-* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (For example, 4.0.3 -> 5.0.0).
-* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (For example, 5.0.0 -> 5.1.0).
-* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (For example, 5.0.0 -> 5.0.1).
+* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
+* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
+* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
 
 ### Flexibility with the ASVS
 
-A number of the points described above, such as documentation requirements and the levels mechanism, provide the ability to use the ASVS in a more flexible and organization-specific way.
+Several of the points described above, such as documentation requirements and the levels mechanism, provide the ability to use the ASVS in a more flexible and organization-specific way.
 
-As well as this, organizations are strongly recommended to create an organization or domain-specific fork that adjusts requirements based on the specific characteristics and risk levels of their applications. With that being said, it is important to maintain traceability so that passing requirement 4.1.1 means the same across all versions.
+Additionally, organizations are strongly encouraged to create an organization- or domain-specific fork that adjusts requirements based on the specific characteristics and risk levels of their applications. However, it is important to maintain traceability so that passing requirement 4.1.1 means the same across all versions.
 
-Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, WebSockets, SOAP, if unused).
-An organization-specific ASVS version is also a good place to provide organization-specific implementation guidance, which details libraries or resources to use when complying with requirements.
+Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, WebSockets, SOAP, if unused). An organization-specific ASVS version is also a good place to provide organization-specific implementation guidance, detailing libraries or resources to use when complying with requirements.
 
 ### How to Reference ASVS Requirements
 
-Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example, `1.11.3`.
+Each requirement has an identifier in the format `<chapter>.<section>.<requirement>`, where each element is a number. For example, `1.11.3`.
 
-* The `<chapter>` value corresponds to the chapter from which the requirement comes, for example, all `1.#.#` requirements are from the `Architecture` chapter.
+* The `<chapter>` value corresponds to the chapter from which the requirement comes; for example, all `1.#.#` requirements are from the `Architecture` chapter.
 * The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architectural Requirements` section of the `Architecture` chapter.
 * The `<requirement>` value identifies the specific requirement within the chapter and section, for example, `1.11.3` which as of version 4.0.2 of this standard is:
 
