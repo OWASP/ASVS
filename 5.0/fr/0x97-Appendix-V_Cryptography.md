@@ -1,26 +1,26 @@
-# Annexe V : Cryptographie
+# Annexe V : Standards cryptographiques
 
 Le chapitre « Cryptographie » va au-delà de la simple définition des bonnes pratiques. Il vise à améliorer la compréhension des principes de cryptographie et à encourager l'adoption de méthodes de sécurité plus résilientes et modernes. Cette annexe fournit des informations techniques détaillées sur chaque exigence, en complément des normes générales décrites dans le chapitre « Cryptographie ».
 
 Cette annexe définit le niveau d'approbation des différents mécanismes cryptographiques :
 
-* Les mécanismes **Approuvés** (A) peuvent être utilisés dans les applications.
-* Les mécanismes **Hérités** (L) ne doivent pas être utilisés dans les applications, mais peuvent néanmoins être utilisés uniquement pour assurer la compatibilité avec les applications ou le code existants. Bien que l'utilisation de ces mécanismes ne soit pas actuellement considérée comme une vulnérabilité en soi, ils doivent être remplacés par des mécanismes plus sûrs et évolutifs dès que possible.
-* Les mécanismes **Interdits** (D) ne doivent pas être utilisés car ils sont actuellement considérés comme défectueux ou n'offrent pas une sécurité suffisante.
+* Les mécanismes *Approuvés* (A) peuvent être utilisés dans les applications.
+* Les mécanismes *Hérités* (L) ne doivent pas être utilisés dans les applications, mais peuvent néanmoins être utilisés uniquement pour assurer la compatibilité avec les applications ou le code existants. Bien que l'utilisation de ces mécanismes ne soit pas actuellement considérée comme une vulnérabilité en soi, ils doivent être remplacés par des mécanismes plus sûrs et évolutifs dès que possible.
+* Les mécanismes *Interdits* (D) ne doivent pas être utilisés car ils sont actuellement considérés comme défectueux ou n'offrent pas une sécurité suffisante.
 
 Cette liste peut être modifiée dans le contexte d'une application donnée pour diverses raisons, notamment :
 
 * nouvelles évolutions dans le domaine de la cryptographie ;
 * conformité à la réglementation.
 
-## Inventaire et documentation cryptographiques (V11.1)
+## Inventaire et documentation cryptographiques
+
+Cette section fournit des informations complémentaires sur l'inventaire et la documentation cryptographiques V11.1.
 
 Il est important de s'assurer que tous les actifs cryptographiques, tels que les algorithmes, les clés et les certificats, sont régulièrement découverts, inventoriés et évalués. Pour le niveau 3, cela devrait inclure l'utilisation d'analyses statiques et dynamiques pour découvrir l'utilisation de la cryptographie dans une application. Des outils tels que SAST et DAST peuvent être utiles, mais des outils dédiés pourraient être nécessaires pour une couverture plus complète. Voici quelques exemples d'outils gratuits :
 
 * [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
 * [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
-
-## Algorithmes (V11.2)
 
 ## Forces équivalentes des paramètres cryptographiques
 
@@ -42,7 +42,9 @@ Exemples d'applications :
 
 Remarque : cette section suppose qu'aucun ordinateur quantique n'existe ; si un tel ordinateur existait, les estimations des trois dernières colonnes ne seraient plus valides.
 
-## Valeurs aléatoires (V11.5)
+## Valeurs aléatoires
+
+Cette section fournit des informations supplémentaires sur les valeurs aléatoires de la version 11.5.
 
 | Nom | Version/Référence | Notes | Statut |
 |:-:|:-:|:-:|:-:|
@@ -55,7 +57,9 @@ Remarque : cette section suppose qu'aucun ordinateur quantique n'existe ; si u
 
 La fonction de hachage sous-jacente utilisée avec HMAC-DRBG ou Hash-DRBG doit être approuvée pour cette utilisation.
 
-## Cipher Algorithms (V11.3)
+## Cipher Algorithms
+
+Cette section fournit des informations supplémentaires sur les algorithmes de chiffrement V11.3.
 
 Les algorithmes de chiffrement approuvés sont classés par ordre de préférence.
 
@@ -134,7 +138,9 @@ La méthode « MAC puis chiffrer » est toujours autorisée pour des raisons d
 |Encrypt-then-MAC | | A |
 |MAC-then-encrypt | | L -
 
-## Fonctions de hachage (V11.4)
+## Fonctions de hachage
+
+Cette section fournit des informations supplémentaires sur le hachage V11.4 et les fonctions basées sur le hachage.
 
 ### Fonctions de hachage pour les cas d'utilisation généraux
 
@@ -169,16 +175,20 @@ Le tableau suivant répertorie les fonctions de hachage approuvées pour les cas
 
 Pour un hachage sécurisé des mots de passe, des fonctions de hachage dédiées doivent être utilisées. Ces algorithmes de hachage lent atténuent les attaques par force brute et par dictionnaire en augmentant la difficulté de calcul du craquage des mots de passe.
 
-| Fonction de hachage | Référence | Ensembles de paramètres requis | Statut |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --|
-| argon2 | RFC 9106 | Argon2ID : coût mémoire 19 Mo, coût temps 2, parallélisme 1 | A |
-| scrypt | RFC 7914 | 2^15 r = 8 p = 1 | A |
-| bcrypt |[A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | Au moins 10 tours. | A |
-| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 210 000 itérations | A |
-| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 600,000 itérations | A |
-| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | 1,300,000 itérations | L |
+| KDF | Référence | Paramètres requis | Statut |
+| --- | --------- | ------------------- | ------ |
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
+| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
+| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
+| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
 
-## Mécanismes d'échange de clés (V11.6)
+Les fonctions de dérivation de clés basées sur des mots de passe approuvées peuvent être utilisées pour le stockage des mots de passe.
+
+## Mécanismes d'échange de clés
+
+Cette section fournit des informations complémentaires sur la cryptographie à clé publique V11.6.
 
 ### KEX Schemes
 
@@ -244,18 +254,7 @@ Les schémas de signature DOIVENT utiliser des tailles de clés et des paramètr
 | ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
 | RSA-RSSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | A      |
 | RSA-SSA-PKCS#1 v1.5            | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | D      |
-| DSA (any key size)             | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
-
-## Fonctions de dérivation de clés (KDF)
-
-| KDF         | Référence                                                                                    | Statut |
-| ----------- | -------------------------------------------------------------------------------------------- | ------ |
-| argon2id    | [RFC 9106](https://www.rfc-editor.org/info/rfc9106)                                          | A |
-| scrypt      | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)                                          | A |
-| PBKDF2      | [RFC 8018](https://www.rfc-editor.org/info/rfc8018) et [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final) | A |
-| HKDF        | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                          | A |
-| MD5-based KDFs | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
-| SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) et [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
+| DSA (n'importe quelle taille de clé)             | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
 
 ## Normes de chiffrement post-quantique
 

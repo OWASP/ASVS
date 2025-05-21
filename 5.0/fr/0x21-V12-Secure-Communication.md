@@ -10,7 +10,7 @@ Les concepts généraux promus par ce chapitre comprennent :
 * Configurer les mécanismes de chiffrement selon les dernières directives, y compris les algorithmes et chiffrements préférés.
 * Vérifier que les communications ne sont pas interceptées par une partie non autorisée à l'aide de certificats signés.
 
-En plus de décrire les principes généraux et les meilleures pratiques, l'ASVS fournit également des informations techniques plus approfondies sur la force cryptographique dans [Annexe V](./0x97-Appendix-V_Cryptography.md).
+En plus de décrire les principes généraux et les meilleures pratiques, l'ASVS fournit également des informations techniques plus approfondies sur la force cryptographique dans l'annexe V - Normes de cryptographie.
 
 ## V12.1 Conseils généraux de sécurité TLS
 

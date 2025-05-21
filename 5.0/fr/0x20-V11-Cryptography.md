@@ -10,7 +10,7 @@ L'objectif de ce chapitre est de définir les meilleures pratiques pour l'utilis
 * Évaluation régulière du paysage cryptographique pour identifier les nouveaux risques et adapter les algorithmes en conséquence.
 * Identification et gestion des cas d'utilisation cryptographiques tout au long du cycle de vie de l'application afin de garantir la prise en compte et la sécurité de tous les actifs cryptographiques.
 
-Outre les principes généraux et les bonnes pratiques, ce document fournit également des informations techniques plus détaillées sur les exigences de l'[Annexe V](./0x97-Appendix-V_Cryptography.md). Cela inclut les algorithmes et les modes considérés comme « approuvés » aux fins des exigences de ce chapitre.
+Outre les principes généraux et les bonnes pratiques, ce document fournit également des informations techniques plus détaillées sur les exigences de l'annexe V – Normes de cryptographie. Cela inclut les algorithmes et les modes considérés comme « approuvés » aux fins des exigences de ce chapitre.
 
 Les exigences qui utilisent la cryptographie pour résoudre un problème distinct, comme la gestion des secrets ou la sécurité des communications, figureront dans différentes parties de la norme.
 
@@ -26,7 +26,7 @@ Veuillez consulter l'annexe pour obtenir des conseils actualisés sur les primit
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.1.1** | Vérifiez qu’il existe une politique documentée pour la gestion des clés cryptographiques et un cycle de vie des clés cryptographiques qui suit une norme de gestion des clés telle que NIST SP 800-57. | 2 | v5.0.be-1.6.1 |
+| **11.1.1** | Vérifiez qu’il existe une politique documentée pour la gestion des clés cryptographiques et un cycle de vie des clés cryptographiques qui suit une norme de gestion des clés telle que NIST SP 800-57.Cela devrait inclure la garantie que les clés ne sont pas trop partagées (par exemple, avec plus de deux entités pour les secrets partagés et plus d’une entité pour les clés privées). | 2 | v5.0.be-1.6.1 |
 | **11.1.2** | Vérifiez qu'un inventaire cryptographique est réalisé, maintenu et régulièrement mis à jour, et qu'il inclut toutes les clés, algorithmes et certificats cryptographiques utilisés par l'application. Il doit également documenter les emplacements du système où les clés peuvent ou non être utilisées, ainsi que les types de données qui peuvent ou non être protégées par ces clés. | 2 | v5.0.be-1.6.4 |
 | **11.1.3** | Vérifiez que les mécanismes de découverte cryptographique sont utilisés pour identifier toutes les instances de cryptographie dans le système, y compris les opérations de chiffrement, de hachage et de signature. | 3 | v5.0.be-1.6.5 |
 | **11.1.4** | Vérifier la tenue d'un inventaire cryptographique. Celui-ci doit inclure un plan documenté décrivant la migration vers de nouvelles normes cryptographiques, telles que la cryptographie post-quantique, afin de réagir aux menaces futures. | 3 | v5.0.be-6.9.1 |

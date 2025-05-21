@@ -50,7 +50,8 @@ Cette section examine les exigences clés pour garantir que l’application appl
 | **2.3.1** | Vérifiez que l’application traitera uniquement les flux de logique métier pour le même utilisateur dans l’ordre séquentiel attendu et sans sauter d’étapes. | 1 | v5.0.be-11.1.1 |
 | **2.3.2** | Vérifiez que les limites de la logique métier sont implémentées conformément à la documentation de l'application, afin d'éviter que des failles de la logique métier ne soient exploitées. | 2 | v5.0.be-11.1.3 |
 | **2.3.3** | Vérifiez que les transactions sont utilisées au niveau de la logique métier de telle sorte qu'une opération de logique métier réussisse dans son intégralité ou qu'elle soit restaurée à l'état correct précédent. | 2 | v5.0.be-11.1.9 |
-| **2.3.4** | Vérifiez que les flux logiques métier à forte valeur ajoutée nécessitent l'approbation de plusieurs utilisateurs afin d'éviter toute action non autorisée ou accidentelle. Cela peut inclure, sans s'y limiter, les transferts monétaires importants, les approbations de contrats, l'accès à des informations classifiées ou les contournements de sécurité dans le secteur manufacturier. | 3 | v5.0.be-11.1.10 |
+| **2.3.4** | Vérifiez que les mécanismes de verrouillage au niveau de la logique métier sont utilisés pour garantir que les ressources en quantité limitée (telles que les sièges de théâtre ou les créneaux de livraison) ne peuvent pas être réservées deux fois en manipulant la logique de l'application. | 2 | v5.0.be-11.1.11 |
+| **2.3.5** | Vérifiez que les flux logiques métier à forte valeur ajoutée nécessitent l'approbation de plusieurs utilisateurs afin d'éviter toute action non autorisée ou accidentelle. Cela peut inclure, sans s'y limiter, les transferts monétaires importants, les approbations de contrats, l'accès à des informations classifiées ou les contournements de sécurité dans le secteur manufacturier. | 3 | v5.0.be-11.1.10 |
 
 ## V2.4 Anti-automatisation
 
