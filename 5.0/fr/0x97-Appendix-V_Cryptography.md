@@ -57,7 +57,7 @@ Cette section fournit des informations supplémentaires sur les valeurs aléatoi
 
 La fonction de hachage sous-jacente utilisée avec HMAC-DRBG ou Hash-DRBG doit être approuvée pour cette utilisation.
 
-## Cipher Algorithms
+## Algorithmes de chiffrement
 
 Cette section fournit des informations supplémentaires sur les algorithmes de chiffrement V11.3.
 
@@ -107,11 +107,11 @@ Remarques :
 
 ### Enveloppement de clé
 
-L'encapsulation (et le décryptage) d'une clé cryptographique est une méthode de protection d'une clé existante par encapsulation (c'est-à-dire par encapsulation) grâce à un mécanisme de chiffrement supplémentaire, afin que la clé d'origine ne soit pas exposée de manière visible, par exemple lors d'un transfert. Cette clé supplémentaire, utilisée pour protéger la clé d'origine, est appelée clé d'encapsulation.
+L'encapsulation (et le déchiffrement) d'une clé cryptographique est une méthode de protection d'une clé existante par encapsulation (c'est-à-dire par encapsulation) grâce à un mécanisme de chiffrement supplémentaire, afin que la clé d'origine ne soit pas exposée de manière visible, par exemple lors d'un transfert. Cette clé supplémentaire, utilisée pour protéger la clé d'origine, est appelée clé d'encapsulation.
 
 Cette opération peut être effectuée lorsqu'il est souhaitable de protéger des clés dans des emplacements jugés non fiables, ou d'envoyer des clés sensibles sur des réseaux non fiables ou au sein d'applications.
 
-Cependant, il est important de bien comprendre la nature (par exemple, l'identité et la finalité) de la clé d'origine avant de s'engager dans une procédure d'encapsulation/décryptage, car cela peut avoir des répercussions sur les systèmes/applications sources et cibles en termes de sécurité, et notamment de conformité, ce qui peut inclure des pistes d'audit de la fonction d'une clé (par exemple, la signature) ainsi qu'un stockage approprié des clés.
+Cependant, il est important de bien comprendre la nature (par exemple, l'identité et la finalité) de la clé d'origine avant de s'engager dans une procédure d'encapsulation/déchiffrement, car cela peut avoir des répercussions sur les systèmes/applications sources et cibles en termes de sécurité, et notamment de conformité, ce qui peut inclure des pistes d'audit de la fonction d'une clé (par exemple, la signature) ainsi qu'un stockage approprié des clés.
 
 Plus précisément, AES-256 doit être utilisé pour l'encapsulation des clés, conformément à la norme NIST SP 800-38F (https://csrc.nist.gov/pubs/sp/800/38/f/final) et en tenant compte des dispositions prospectives contre la menace quantique. Les modes de chiffrement utilisant AES sont les suivants, par ordre de préférence :
 
@@ -122,7 +122,7 @@ Plus précisément, AES-256 doit être utilisé pour l'encapsulation des clés, 
 
 AES-192 et AES-128 PEUVENT être utilisés si le cas d'utilisation l'exige, mais leur motivation DOIT être documentée dans l'inventaire cryptographique de l'entité.
 
-### Cryptage authentifié
+### Chiffrement authentifié
 
 À l'exception du chiffrement du disque, les données chiffrées doivent être protégées contre toute modification non autorisée à l'aide d'un schéma de chiffrement authentifié (AE), généralement un schéma de chiffrement authentifié avec données associées (AEAD).
 
@@ -208,7 +208,7 @@ Où les paramètres suivants sont :
 
 Toute nouvelle implémentation NE DOIT PAS utiliser de schéma non conforme aux normes [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) et [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) et [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final). Plus précisément, IKEv1 NE DOIT PAS être utilisé en production.
 
-### groupes Diffie-Hellman
+### Groupes Diffie-Hellman
 
 Les groupes suivants sont approuvés et DOIVENT être utilisés pour les implémentations de Diffie-Hellman KEX. Les groupes IKEv2 sont fournis à titre de référence ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Des groupes équivalents peuvent être utilisés dans d'autres protocoles. Cette liste est classée par ordre décroissant de sécurité. Les niveaux de sécurité sont décrits dans [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), l'annexe D et [NIST SP 800-57 Partie 1 Rév. 5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
@@ -258,6 +258,6 @@ Les schémas de signature DOIVENT utiliser des tailles de clés et des paramètr
 
 ## Normes de chiffrement post-quantique
 
-Les implémentations PQC doivent être conformes à la norme [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) car il existe encore un code renforcé minimal et une référence d'implémentation minimale. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
+Les implémentations PQC doivent être conformes à la norme [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd), car il existe encore un code renforcé minimal et une référence d'implémentation minimale. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
 Les groupes d'échange de clés TLS hybrides proposés qui sont spécifiés dans [draft-tls-westerbaan-xyber768x00-03](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) et pris en charge par les principaux navigateurs tels que [Firefox version 132](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) et [Chrome version 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) PEUVENT être utilisés dans des environnements de test cryptographique et/ou lorsqu'ils sont disponibles dans des bibliothèques approuvées par l'industrie ou le gouvernement.
