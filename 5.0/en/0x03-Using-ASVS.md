@@ -130,9 +130,9 @@ The intention for ASVS 5.0 onwards is that releases will only be based on the re
 
 ASVS release follows the pattern "Major.Minor.Patch" and numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
-- Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (For example, 4.0.3 -> 5.0.0).
-- Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (For example, 5.0.0 -> 5.1.0).
-- Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (For example, 5.0.0 -> 5.0.1).
+* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (For example, 4.0.3 -> 5.0.0).
+* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (For example, 5.0.0 -> 5.1.0).
+* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (For example, 5.0.0 -> 5.0.1).
 
 ## Flexibility with the ASVS
 
