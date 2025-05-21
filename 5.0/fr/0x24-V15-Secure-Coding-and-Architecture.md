@@ -1,12 +1,12 @@
-# V15 Codage et architecture sécurisés
+# V15 Développement et architecture sécurisés
 
 ## Objectif du contrôle
 
 De nombreuses exigences ASVS concernent soit un domaine de sécurité particulier, comme l'authentification ou l'autorisation, soit un type de fonctionnalité applicative spécifique, comme la journalisation ou la gestion de fichiers.
 
-Ce chapitre présente toutefois des exigences de sécurité plus générales à prendre en compte lors de la conception et du développement d'applications. Il ne s'agit pas seulement d'une architecture propre et de la qualité du code, mais plutôt des pratiques d'architecture et de codage spécifiques à suivre pour sécuriser l'application.
+Ce chapitre présente toutefois des exigences de sécurité plus générales à prendre en compte lors de la conception et du développement d'applications. Il ne s'agit pas seulement d'une architecture propre et de la qualité du code, mais plutôt des pratiques d'architecture et de développement spécifiques à suivre pour sécuriser l'application.
 
-## V15.1 Documentation sur le codage et l'architecture sécurisés
+## V15.1 Documentation sur le développement et l'architecture sécurisés
 
 De nombreuses exigences pour établir une architecture sécurisée et défendable dépendent d'une documentation claire des décisions prises concernant la mise en œuvre de contrôles de sécurité spécifiques et des composants utilisés dans l'application.
 
@@ -40,9 +40,9 @@ Elle inclut également l'utilisation de techniques architecturales telles que le
 | **15.2.4** | Vérifiez que les composants tiers et toutes leurs dépendances transitives sont inclus à partir du référentiel attendu, qu'il soit détenu en interne ou qu'il s'agisse d'une source externe, et qu'il n'y a aucun risque d'attaque par confusion de dépendances. | 3 | v5.0.be-10.6.2 |
 | **15.2.5** | Vérifiez que l'application implémente des protections supplémentaires autour des parties documentées comme contenant des « fonctionnalités dangereuses » ou utilisant des bibliothèques tierces considérées comme des « composants à risque ». Cela peut inclure des techniques telles que le sandboxing, l'encapsulation, la conteneurisation ou l'isolation au niveau du réseau pour retarder et dissuader les attaquants qui compromettent une partie de l'application de se propager ailleurs. | 3 | v5.0.be-10.6.3 |
 
-## V15.3 Codage défensif
+## V15.3 Développement défensif
 
-Cette section aborde les types de vulnérabilités, notamment le jonglage de types, la pollution de prototypes et d'autres, résultant de l'utilisation de modèles de codage non sécurisés dans un langage spécifique. Certaines peuvent ne pas être pertinentes pour tous les langages, tandis que d'autres bénéficieront de correctifs spécifiques à chaque langage ou peuvent être liées à la façon dont un langage ou un framework particulier gère une fonctionnalité telle que les paramètres HTTP. Elle aborde également le risque lié à l'absence de validation cryptographique des mises à jour d'applications.
+Cette section aborde les types de vulnérabilités, notamment le jonglage de types, la pollution de prototypes et d'autres, résultant de l'utilisation de modèles de développement non sécurisés dans un langage spécifique. Certaines peuvent ne pas être pertinentes pour tous les langages, tandis que d'autres bénéficieront de correctifs spécifiques à chaque langage ou peuvent être liées à la façon dont un langage ou un framework particulier gère une fonctionnalité telle que les paramètres HTTP. Elle aborde également le risque lié à l'absence de validation cryptographique des mises à jour d'applications.
 
 Elle aborde également les risques associés à l'utilisation d'objets pour représenter des éléments de données, ainsi qu'à leur acceptation et leur renvoi via des API externes. Dans ce cas, l'application doit s'assurer que les champs de données non accessibles en écriture ne sont pas modifiés par l'utilisateur (affectation de masse) et que l'API sélectionne les champs de données renvoyés. Lorsque l'accès aux champs dépend des autorisations d'un utilisateur, cela doit être pris en compte dans le contexte de l'exigence de contrôle d'accès au niveau des champs décrite dans le chapitre « Autorisation ».
 
@@ -65,7 +65,7 @@ Les problèmes de concurrence tels que les situations de concurrence, les vulné
 | **15.4.1** | Vérifiez que les objets partagés dans le code multithread (tels que les caches, les fichiers ou les objets en mémoire accessibles par plusieurs threads) sont accessibles en toute sécurité à l'aide de types thread-safe et de mécanismes de synchronisation tels que des verrous ou des sémaphores pour éviter les conditions de concurrence et la corruption des données. | 3 | v5.0.be-10.7.1, v5.0.be-10.7.2 |
 | **15.4.2** | Vérifiez que les vérifications de l'état d'une ressource, comme son existence ou ses autorisations, et des actions qui en dépendent, sont effectuées en une seule opération atomique afin d'éviter les situations de concurrence entre le moment de la vérification et le moment de l'utilisation (TOCTOU). Par exemple, vérifier l'existence d'un fichier avant de l'ouvrir ou l'accès d'un utilisateur avant de l'accorder. | 3 | v5.0.be-10.7.3 |
 | **15.4.3** | Vérifiez que les verrous sont utilisés de manière cohérente pour éviter que les threads ne se bloquent, que ce soit en s'attendant les uns les autres ou en réessayant sans fin, et que la logique de verrouillage reste dans le code responsable de la gestion de la ressource pour garantir que les verrous ne peuvent pas être modifiés par inadvertance ou de manière malveillante par des classes ou du code externes. | 3 | v5.0.be-10.7.4, v5.0.be-10.7.6  |
-| **15.4.4** | Vérifiez que les politiques d'allocation des ressources empêchent la famine de threads en garantissant un accès équitable aux ressources, par exemple en exploitant les pools de threads, permettant aux threads de priorité inférieure de continuer dans un délai raisonnable. | 3 | v5.0.be-10.7.5 |
+| **15.4.4** | Vérifiez que les politiques d'allocation des ressources empêchent la saturation de threads en garantissant un accès équitable aux ressources, par exemple en exploitant les pools de threads, permettant aux threads de priorité inférieure de continuer dans un délai raisonnable. | 3 | v5.0.be-10.7.5 |
 
 ## Références
 
