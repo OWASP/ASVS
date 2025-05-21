@@ -10,7 +10,7 @@ The objective of this chapter is to define best practices for the general use of
 * Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
 * Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
 
-In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in [Appendix V](./0x97-Appendix-V_Cryptography.md). This includes algorithms and modes that are considered "approved" for the purposes of the requirements in this chapter.
+In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in Appendix V - Cryptography Standards. This includes algorithms and modes that are considered "approved" for the purposes of the requirements in this chapter.
 
 Requirements which use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
 
