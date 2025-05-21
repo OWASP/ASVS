@@ -29,10 +29,10 @@ JSON_FLAT_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)
 CSV_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).csv)
 XML_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).xml)
 
-JSON_V5_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).v5.json)
-JSON_FLAT_V5_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).flat.v5.json)
-CSV_V5_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).v5.csv)
-XML_V5_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).v5.xml)
+JSON_LEGACY_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).legacy.json)
+JSON_FLAT_LEGACY_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).flat.legacy.json)
+CSV_LEGACY_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).legacy.csv)
+XML_LEGACY_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME)$(lang).legacy.xml)
 
 #TARGETS=$(addprefix $(DISTDIR)/,$(wildcard $(SOURCES)))
 TARGETS=$(addprefix $(BUILDDIRS)/,$(wildcard $(SOURCE_FILES)))
@@ -59,9 +59,9 @@ PANDOC_ODT_FLAGS= -s \
 				  --columns 10000 \
 				  --reference-doc=./templates/reference.odt
 
-.PHONY: md pdf docx json json_flat cdx_json csv xml odt tex clean rm-build rm-dist json_v5 json_flat_v5 csv_v5 xml_v5
+.PHONY: md pdf docx json json_flat cdx_json csv xml odt tex clean rm-build rm-dist json_legacy json_flat_legacy csv_legacy xml_legacy
 
-all: $(TARGETS)	pdf docx json json_flat cdx_json csv xml json_v5 json_flat_v5 csv_v5 xml_v5 rm-build
+all: $(TARGETS)	pdf docx json json_flat cdx_json csv xml json_legacy json_flat_legacy csv_legacy xml_legacy rm-build
 
 $(BUILDDIR):
 	mkdir -p $@
@@ -124,21 +124,21 @@ $(XML_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
 	python3 $(EXPORT_TOOL) --format xml --language "$(subst dist,,$(@D))" > $@
 xml: $(XML_FILES)
 
-$(JSON_V5_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format json_v5 --language "$(subst dist,,$(@D))" > $@
-json_v5: $(JSON_V5_FILES)
+$(JSON_LEGACY_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format json_legacy --language "$(subst dist,,$(@D))" > $@
+json_legacy: $(JSON_LEGACY_FILES)
 
-$(JSON_FLAT_V5_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format json_flat_v5 --language "$(subst dist,,$(@D))" > $@
-json_flat_v5: $(JSON_FLAT_V5_FILES)
+$(JSON_FLAT_LEGACY_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format json_flat_legacy --language "$(subst dist,,$(@D))" > $@
+json_flat_legacy: $(JSON_FLAT_LEGACY_FILES)
 
-$(CSV_V5_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format csv_v5 --language "$(subst dist,,$(@D))" > $@
-csv_v5: $(CSV_V5_FILES)
+$(CSV_LEGACY_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format csv_legacy --language "$(subst dist,,$(@D))" > $@
+csv_legacy: $(CSV_LEGACY_FILES)
 
-$(XML_V5_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
-	python3 $(EXPORT_TOOL) --format xml_v5 --language "$(subst dist,,$(@D))" > $@
-xml_v5: $(XML_V5_FILES)
+$(XML_LEGACY_FILES): $(SOURCE_FOLDERS) $(DIST_FOLDERS)
+	python3 $(EXPORT_TOOL) --format xml_legacy --language "$(subst dist,,$(@D))" > $@
+xml_legacy: $(XML_LEGACY_FILES)
 
 rm-build: $(BUILDDIR)
 	rm -rf $(BUILDDIR)

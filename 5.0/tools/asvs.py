@@ -295,7 +295,7 @@ class ASVS:
                 level = 2
             elif 'level3' in req and req['level3'] == '✓':
                 level = 3
-            req['L'] = level
+            req['L'] = str(level)
             req.pop('level1', None)
             req.pop('level2', None)
             req.pop('level3', None)
@@ -317,7 +317,7 @@ class ASVS:
                         level = 2
                     elif 'L3' in req and req['L3'].get('Required'):
                         level = 3
-                    req['L'] = level
+                    req['L'] = str(level)
                     req.pop('L1', None)
                     req.pop('L2', None)
                     req.pop('L3', None)
@@ -685,7 +685,7 @@ class ASVS:
 
         return si.getvalue()
 
-    def to_json(self):
+    def to_json_legacy(self):
         ''' Returns a JSON-formatted string '''
         return json.dumps(self.asvs, indent = 2, sort_keys = False, ensure_ascii=False).strip()
     
@@ -693,16 +693,17 @@ class ASVS:
         ''' Returns a JSON-formatted string '''
         return json.dumps(self.asvs_raw['Chapters'], indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
-    def to_json_flat(self):
+    def to_json_flat_legacy(self):
         ''' Returns a JSON-formatted string which is flattened and simpler '''
         return json.dumps(self.asvs_flat, indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
-    def to_json_v5(self):
-        ''' Returns a JSON-formatted string for v5 (single L) '''
+    def to_json(self):
+        ''' Returns a JSON-formatted string (new default)  '''
         return json.dumps(self.asvs_v5, indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
-    def to_json_flat_v5(self):
-        ''' Returns a JSON-formatted string for v5 (single L) '''
+
+    def to_json_flat(self):
+        ''' Returns a JSON-formatted string which is flattened and simpler (new default)  '''
         return json.dumps(self.asvs_flat_v5, indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
     def to_xmlOLD(self):
@@ -714,14 +715,14 @@ class ASVS:
             xml += "<requirement id = \"" + escape(r['id']) + "\">" + escape(r['text']) + "</requirement>\n"
 
         return xml
-    def to_xml(self):
+    def to_xml_legacy(self):
         return dicttoxml(self.asvs, attr_type=False).decode('utf-8')
         
-    def to_xml_v5(self):
+    def to_xml(self):
         ''' Returns XML for v5 (single L) '''
         return dicttoxml(self.asvs_v5, attr_type=False).decode('utf-8')
 
-    def to_csv(self):
+    def to_csv_legacy(self):
         ''' Returns CSV '''
         si = StringIO()
 
@@ -731,8 +732,8 @@ class ASVS:
 
         return si.getvalue()
 
-    def to_csv_v5(self):
-        ''' Returns CSV for v5 (single L) '''
+    def to_csv(self):
+        ''' Returns CSV for v5 (single L) (new default) '''
         si = StringIO()
         writer = csv.DictWriter(si, ['chapter_id', 'chapter_name', 'section_id', 'section_name', 'req_id', 'req_description', 'L', 'cwe', 'nist'])
         writer.writeheader()
