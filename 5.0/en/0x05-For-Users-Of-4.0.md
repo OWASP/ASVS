@@ -75,7 +75,6 @@ As a practical matter, whereas version 4.x used tick marks for level indicators,
 
 Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier by having fewer Level 1 requirements which are better focused and primarilly relate to the first layer of defense for an application.
 
-
 ### The Fallacy of Testability
 
 A key factor in selecting controls for Level 1 in version 4.x was their suitability for assessment through "black box" external penetration testing. However, this approach was not fully aligned with the intent of Level 1 as the minimum set of security controls. Some users argued that Level 1 was insufficient for securing applications, while others found it too difficult to test.
