@@ -73,7 +73,7 @@
 * **Transport Layer Security** (TLS) – Cryptographic protocols that provide communication security over a network connection.
 * **Traversal Using Relays around NAT** (TURN) – An extension of the STUN protocol using a TURN server as a relay when direct peer-to-peer connections cannot be established. Defined in RFC 8656.
 * **Trusted Platform Module** (TPM) - A type of HSM that is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
-* **Trusted Service Layer** - Any trusted control enforcement point, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. Trusted means that we are not concerned that an untrusted user will be able to bypass or skip the layer or controls implemented at that layer.
+* **Trusted Service Layer** - Any trusted control enforcement point, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. Trusted means that there is no concern that an untrusted user will be able to bypass or skip the layer or controls implemented at that layer.
 * **Universal 2nd Factor** (U2F) - One of the standards created by FIDO specifically for allowing a USB or NFC security key to be used as a 2nd authentication factor.
 * **URI/URL/URL fragments** – A Uniform Resource Identifier is a string of characters used to identify a name or a web resource. A Uniform Resource Locator is often used as a reference to a resource.
 * **Verifier** – The person or team that is reviewing an application against the OWASP ASVS requirements.

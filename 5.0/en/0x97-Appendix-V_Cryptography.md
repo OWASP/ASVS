@@ -85,7 +85,7 @@ Approved cipher algorithms are listed in order of preference.
 
 ### AES Cipher Modes
 
-Modern ciphers make use of various modes, particularly AES for various purposes. We describe the requirements on AES Cipher Modes here. Some AES modes are only approved for disk-level block encryption.
+Modern ciphers make use of various modes, particularly AES for various purposes. The requirements on AES Cipher Modes are described here. Some AES modes are only approved for disk-level block encryption.
 
 | Mode | Authenticated | Reference | Status | Restriction |
 |--|--|--|--|--|
