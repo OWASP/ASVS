@@ -2,11 +2,11 @@
 
 ## Control Objective
 
-The use of files can present a variety of risks for the application, including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
+The use of files can present a variety of risks to the application, including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
 
 ## V5.1 File Handling Documentation
 
-This section includes a requirement to document the expected characteristics for files being accepted into the application, as a necessary pre-condition to develop and verify relevant security checks.
+This section includes a requirement to document the expected characteristics of files accepted by the application, as a necessary precondition for developing and verifying relevant security checks.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -14,7 +14,7 @@ This section includes a requirement to document the expected characteristics for
 
 ## V5.2 File Upload and Content
 
-Upload functionality is a key source of untrusted files. This section details the requirements for ensuring that the presence, volume, or content of these files cannot harm the application.
+File upload functionality is a primary source of untrusted files. This section outlines the requirements for ensuring that the presence, volume, or content of these files cannot harm the application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |

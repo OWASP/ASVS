@@ -85,7 +85,7 @@ Approved cipher algorithms are listed in order of preference.
 
 ### AES Cipher Modes
 
-Modern ciphers make use of various modes, particularly AES for various purposes. We describe the requirements on AES Cipher Modes here. Some AES modes are only approved for disk-level block encryption.
+Modern ciphers make use of various modes, particularly AES for various purposes. The requirements on AES Cipher Modes are described here. Some AES modes are only approved for disk-level block encryption.
 
 | Mode | Authenticated | Reference | Status | Restriction |
 |--|--|--|--|--|
@@ -223,7 +223,7 @@ A security strength of 112 bits or above MUST be ensured for all Key Exchange sc
 |--|--|--|--|
 | Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Yes | A |
 | Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Yes | A |
-| Encrypted key transport with RSA-PKCS#1 v1.5 | k >= 3072 | No | L |
+| Encrypted key transport with RSA-PKCS#1 v1.5 | | No | D |
 
 Where the following parameters are:
 
@@ -235,20 +235,34 @@ Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST 
 
 ### Diffie-Hellman groups
 
-The following groups are approved and MUST be used for implementations of Diffie-Hellman KEX. IKEv2 groups are provided for reference ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Equivalent groups might be used in other protocols. This list is ordered strongest to weakest. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+The following groups are approved for implementations of Diffie-Hellman key exchange. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-| Group | Scheme | Parameters | Security bits | Status |
-|--|--|--|--|--|
-| 21 | ECC | 521-bit random ECP group | 260 | A |
-| 32 | ECC | Curve448 | 224 | A |
-| 18 | MODP | 8192-bit MODP Group | 192 < 200 | A |
-| 20 | ECC | 384-bit random ECP group | 192 | A |
-| 17 | MODP | 6144-bit MODP Group | 128 < 176 | A |
-| 16 | MODP | 4096-bit MODP Group | 128 < 152 | A |
-| 31 | ECC | Curve25519 | 128 | A |
-| 19 | ECC | 256-bit random ECP group | 128 | A |
-| 15 | MODP | 3072-bit MODP Group | 128 | A |
-| 14 | MODP | 2048-bit MODP Group | 112 | A |
+| Group            | Status |
+|------------------|--------|
+| P-224, secp224r1 | A      |
+| P-256, secp256r1 | A      |
+| P-384, secp384r1 | A      |
+| P-521, secp521r1 | A      |
+| K-233, sect233k1 | A      |
+| K-283, sect283k1 | A      |
+| K-409, sect409k1 | A      |
+| K-571, sect571k1 | A      |
+| B-233, sect233r1 | A      |
+| B-283, sect283r1 | A      |
+| B-409, sect409r1 | A      |
+| B-571, sect571r1 | A      |
+| Curve448         | A      |
+| Curve25519       | A      |
+| MODP-2048        | A      |
+| MODP-3072        | A      |
+| MODP-4096        | A      |
+| MODP-6144        | A      |
+| MODP-8192        | A      |
+| ffdhe2048        | A      |
+| ffdhe3072        | A      |
+| ffdhe4096        | A      |
+| ffdhe6144        | A      |
+| ffdhe8192        | A      |
 
 ## Message Authentication Codes (MAC)
 
