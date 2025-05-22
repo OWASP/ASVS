@@ -1,6 +1,6 @@
 # Conseils aux utilisateurs de la version 4.0
 
-Les utilisateurs de la version 4.0 de la norme peuvent trouver utile de voir certains des changements clés dans le contenu de la version 5.0 ainsi que certains changements dans la portée et la philosophie qui ont eu lieu pendant le développement de cette der,ière version.
+Les utilisateurs de la version 4.0 de la norme peuvent trouver utile de voir certains des changements clés dans le contenu de la version 5.0 ainsi que certains changements dans la portée et la philosophie qui ont eu lieu pendant le développement de cette dernière version.
 
 ##  Quoi de neuf dans la version 5.0
 
