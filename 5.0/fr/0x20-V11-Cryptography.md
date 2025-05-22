@@ -45,7 +45,7 @@ Cette section définit les exigences relatives à la sélection, à la mise en �
 
 ## V11.3 Algorithmes de chiffrement
 
-Les algorithmes de cryptage authentifiés basés sur AES et CHACHA20 constituent l’épine dorsale de la pratique cryptographique moderne.
+Les algorithmes de chiffrement authentifiés basés sur AES et CHACHA20 constituent l’épine dorsale de la pratique cryptographique moderne.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -94,8 +94,8 @@ La protection des données pendant leur traitement est primordiale. Des techniqu
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.7.1** | Vérifiez que le cryptage complet de la mémoire est utilisé pour protéger les données sensibles pendant leur utilisation, empêchant ainsi l'accès par des utilisateurs ou des processus non autorisés. | 3 | v5.0.be-6.8.1 |
-| **11.7.2** | Vérifiez que la minimisation des données garantit que la quantité minimale de données est exposée pendant le traitement et assurez-vous que les données sont cryptées immédiatement après utilisation ou dès que possible. | 3 | v5.0.be-6.8.2 |
+| **11.7.1** | Vérifiez que le chiffrement complet de la mémoire est utilisé pour protéger les données sensibles pendant leur utilisation, empêchant ainsi l'accès par des utilisateurs ou des processus non autorisés. | 3 | v5.0.be-6.8.1 |
+| **11.7.2** | Vérifiez que la minimisation des données garantit que la quantité minimale de données est exposée pendant le traitement et assurez-vous que les données sont chiffrées immédiatement après utilisation ou dès que possible. | 3 | v5.0.be-6.8.2 |
 
 ## Références
 
