@@ -2,15 +2,15 @@
 
 ## Control Objective
 
-The application's default configuration should be secure for use on the Internet.
+The application's default configuration must be secure for use on the Internet.
 
-This chapter provides guidance on the various configurations necessary to achieve this, including those applied during development and at build and deployment time.
+This chapter provides guidance on the various configurations necessary to achieve this, including those applied during development, build, and deployment.
 
-Topics covered include preventing data leakage, securely managing communications between components, and protecting secrets.
+Topics covered include preventing data leakage, securely managing communication between components, and protecting secrets.
 
 ## V13.1 Configuration Documentation
 
-This section outlines documentation requirements for how the application communicates with internal and external services and techniques to prevent loss of availability due to service inaccessibility. It also addresses documentation related to secrets.
+This section outlines documentation requirements for how the application communicates with internal and external services, as well as techniques to prevent loss of availability due to service inaccessibility. It also addresses documentation related to secrets.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -36,7 +36,7 @@ Note: The "Secure Communication" chapter provides guidance for encryption in tra
 
 ## V13.3 Secret Management
 
-Secret management is an essential configuration task to ensure the protection of data used in the application. Specific requirements on cryptography can be found in the "Cryptography" chapter, but this section focuses on the management and handling aspects of secrets.
+Secret management is an essential configuration task to ensure the protection of data used in the application. Specific requirements for cryptography can be found in the "Cryptography" chapter, but this section focuses on the management and handling aspects of secrets.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
