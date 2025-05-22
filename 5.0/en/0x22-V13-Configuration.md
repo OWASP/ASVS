@@ -2,15 +2,15 @@
 
 ## Control Objective
 
-The configuration of the application out of the box should be safe to be on the Internet.
+The application's default configuration should be secure for use on the Internet.
 
-This chapter provides guidance on the various configurations that will be necessary to achieve this including both configurations to apply whilst developing the application and also those that are applied at build and deploy time.
+This chapter provides guidance on the various configurations necessary to achieve this, including those applied during development and at build and deployment time.
 
-This includes topics such as preventing data leakage, securely managing communications between different components, and how secrets are protected.
+Topics covered include preventing data leakage, securely managing communications between components, and protecting secrets.
 
 ## V13.1 Configuration Documentation
 
-This section provides documentation requirements around how the application communicates with internal and external services and the techniques to employ to prevent loss of availability due to these services not being accessible. It also considers documentation around secrets.
+This section outlines documentation requirements for how the application communicates with internal and external services and techniques to prevent loss of availability due to service inaccessibility. It also addresses documentation related to secrets.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -21,9 +21,9 @@ This section provides documentation requirements around how the application comm
 
 ## V13.2 Backend Communication Configuration
 
-Applications need to interact with multiple services, including APIs, databases, or other components. These might be considered internal to the application but not be included in the application's standard access control mechanisms, or might be entirely external. In either case, it will be necessary to configure the application to interact securely with these components and, if necessary, protect that configuration.
+Applications interact with multiple services, including APIs, databases, or other components. These may be considered internal to the application but not included in the application's standard access control mechanisms, or they may be entirely external. In either case, it is necessary to configure the application to interact securely with these components and, if required, protect that configuration.
 
-Note that the "Secure Communication" chapter provides guidance for encryption in transit.
+Note: The "Secure Communication" chapter provides guidance for encryption in transit.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -36,7 +36,7 @@ Note that the "Secure Communication" chapter provides guidance for encryption in
 
 ## V13.3 Secret Management
 
-Secret management is a configuration task that is essential to ensure the protection of data being used in the application. Specific requirements on cryptography can be found in the "Cryptography" chapter, but this section focuses on the management and handling aspects of secrets.
+Secret management is an essential configuration task to ensure the protection of data used in the application. Specific requirements on cryptography can be found in the "Cryptography" chapter, but this section focuses on the management and handling aspects of secrets.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -47,9 +47,9 @@ Secret management is a configuration task that is essential to ensure the protec
 
 ## V13.4 Unintended Information Leakage
 
-Configurations for production should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as a significant risk, but they are chained together with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application.
+Production configurations should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as significant risks but are often chained with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application.
 
-For example, hiding the version of server-side components does not fix the need to patch all components, and disabling the folder listing does not eliminate the need to use authorization controls or keep files away from the public folder, but it raises the bar.
+For example, hiding the version of server-side components does not eliminate the need to patch all components, and disabling folder listing does not remove the need to use authorization controls or keep files away from the public folder, but it raises the bar.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
