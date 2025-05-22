@@ -46,7 +46,7 @@ Les types d’exigences à chaque niveau peuvent être caractérisés comme suit
 
 Il s'agit généralement d'exigences critiques ou élémentaires de première couche de défense pour prévenir les attaques courantes, qui ne nécessitent pas d'autres vulnérabilités ou conditions préalables. Ces exigences sont soit relativement simples à mettre en œuvre, soit suffisamment importantes pour justifier l'effort.
 
-Le niveau 1 n’est pas nécessairement testable par pénétration à l’aide d’humains, bien que le nombre réduit d’exigences devrait faciliter la vérification.
+Le niveau 1 n’est pas nécessairement testable par pénétration pour des humains, bien que le nombre réduit d’exigences devrait faciliter la vérification.
 
 #### Exigences de niveau 2
 
@@ -100,11 +100,11 @@ L'ASVS peut servir de liste de contrôle pour le développement d'applications s
 
 ### En tant que guide pour les tests unitaires et d'intégration automatisés
 
-L'ASVS est conçu pour être hautement testable, à l'exception des exigences d'architecture et de documentation. En créant des tests unitaires et d'intégration qui testent et analysent les cas d'abus spécifiques et pertinents, il devrait être plus facile de vérifier les contrôles mis en œuvre à chaque build. Par exemple, des tests supplémentaires peuvent être créés pour la suite de tests d'un contrôleur de connexion, testant le paramètre username pour les noms d'utilisateur par défaut courants, l'énumération des comptes, le forçage brut, l'injection LDAP et SQL, et les attaques XSS. De même, un test sur le paramètre password doit inclure les mots de passe courants, la longueur des mots de passe, l'injection d'octets nuls, la suppression du paramètre, les attaques XSS, etc.
+L'ASVS est conçu pour être hautement testable, à l'exception des exigences d'architecture et de documentation. En créant des tests unitaires et d'intégration qui testent et analysent les cas d'abus spécifiques et pertinents, il devrait être plus facile de vérifier les contrôles mis en œuvre à chaque build. Par exemple, des tests supplémentaires peuvent être créés pour la suite de tests d'un contrôleur de connexion, testant le paramètre username pour les noms d'utilisateur par défaut courants, l'énumération des comptes, les attaques par force brute, l'injection LDAP et SQL, et les attaques XSS. De même, un test sur le paramètre password doit inclure les mots de passe courants, la longueur des mots de passe, l'injection d'octets nuls, la suppression du paramètre, les attaques XSS, etc.
 
 ### Pour une formation au développement sécurisé
 
-L'ASVS peut également servir à définir les caractéristiques d'un logiciel sécurisé. De nombreux cours de « codage sécurisé » se résument à des formations de piratage éthique, avec quelques conseils de codage. Cela n'aide pas forcément les développeurs à écrire du code plus sécurisé. Les cours de développement sécurisé peuvent plutôt utiliser l'ASVS en mettant l'accent sur les contrôles proactifs qu'il contient, plutôt que sur les 10 principes négatifs à éviter.
+L'ASVS peut également servir à définir les caractéristiques d'un logiciel sécurisé. De nombreux cours de « développement sécurisé » se résument à des formations de piratage éthique, avec quelques conseils de programmation. Cela n'aide pas forcément les développeurs à écrire du code plus sécurisé. Les cours de développement sécurisé peuvent plutôt utiliser l'ASVS en mettant l'accent sur les contrôles proactifs qu'il contient, plutôt que sur les 10 principes négatifs à éviter.
 
 ### En tant que moteur de la sécurité des applications agiles
 
