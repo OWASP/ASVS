@@ -2,13 +2,13 @@
 
 ## Control Objective
 
-A number of considerations apply specifically to applications that expose APIs for use by a web browser or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers relevant security configurations and mechanisms to be applied.
+Several considerations apply specifically to applications that expose APIs for use by web browsers or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers the relevant security configurations and mechanisms that should be applied.
 
-Note that authentication, session management, and input validation concerns from other chapters also apply to APIs, so this chapter cannot be taken out of context or tested separately.
+Note that authentication, session management, and input validation concerns from other chapters also apply to APIs, so this chapter cannot be taken out of context or tested in isolation.
 
 ## V4.1 Generic Web Service Security
 
-This section promotes generic web service security considerations and, consequently, basic web service hygiene practices.
+This section addresses general web service security considerations and, consequently, basic web service hygiene practices.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -20,9 +20,9 @@ This section promotes generic web service security considerations and, consequen
 
 ## V4.2 HTTP Message Structure Validation
 
-This section details how the structure and header fields of an HTTP message should be validated to prevent attacks such as request smuggling, response splitting, header injection, and denial of service via overly long HTTP messages.
+This section explains how the structure and header fields of an HTTP message should be validated to prevent attacks such as request smuggling, response splitting, header injection, and denial of service via overly long HTTP messages.
 
-These requirements will be relevant for general HTTP message processing and generation but also in particular when converting HTTP messages between different HTTP versions.
+These requirements are relevant for general HTTP message processing and generation, but are especially important when converting HTTP messages between different HTTP versions.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
