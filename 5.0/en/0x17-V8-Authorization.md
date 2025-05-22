@@ -9,7 +9,7 @@ Authorization ensures that access is granted only to permitted consumers (users,
 
 ## V8.1 Authorization Documentation
 
-Comprehensive authorization documentation is essential to ensure that security decisions are consistently applied, auditable, and aligned with organizational policies, reducing the risk of unauthorized access by making security requirements clear and actionable for developers, administrators, and testers.
+Comprehensive authorization documentation is essential to ensure that security decisions are consistently applied, auditable, and aligned with organizational policies. This reduces the risk of unauthorized access by making security requirements clear and actionable for developers, administrators, and testers.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -20,7 +20,7 @@ Comprehensive authorization documentation is essential to ensure that security d
 
 ## V8.2 General Authorization Design
 
-Implementing granular authorization controls at the function, data, and field levels will ensure that consumers can only access what has been explicitly granted to them.
+Implementing granular authorization controls at the function, data, and field levels ensures that consumers can access only what has been explicitly granted to them.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -41,7 +41,7 @@ The immediate application of authorization changes in the appropriate tier of an
 
 ## V8.4 Other Authorization Considerations
 
-Additional considerations for authorization, particularly for administrative interfaces and multi-tenant environments, will help prevent unauthorized access.
+Additional considerations for authorization, particularly for administrative interfaces and multi-tenant environments, help prevent unauthorized access.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -50,7 +50,7 @@ Additional considerations for authorization, particularly for administrative int
 
 ## References
 
-For more information, see also:
+For more information, see:
 
 * [OWASP Testing Guide 4.0: Authorization](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/05-Authorization_Testing/README.html)
 * [OWASP Cheat Sheet: Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
