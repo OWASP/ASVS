@@ -1,68 +1,90 @@
-# Guidance for users of version 4.0
+# Changes Compared to v4.x
 
-Existing users of the 4.0 version of the standard may find it useful to see some of the key changes in the content of version 5.0 as well some changes in scope and philosophy that took place during the developement of version 5.0.
+## Introduction
 
-## What's new in 5.0
+Users familiar with version 4.x of the standard may find it helpful to review the key changes introduced in version 5.0, including updates in content, scope, and underlying philosophy.
 
-The following sections try and cover the most major changes
+Of the 286 requirements in version 4.0.3, only 11 remain unchanged, while 15 have undergone minor grammatical adjustments without altering their meaning. In total 109 requirements (38%) are no longer separate requirements in verion 5.0 with 50 simply being deleted, 28 removed as duplicates and 31 merged into other requirements. The rest have been revised in some way. Even requirements that were not substantively modified have different identifiers due to reordering or restructuring.
 
-### Complete renumbering and reordering
+To facilitate adoption of version 5.0, mapping documents are provided to help users trace how requirements from version 4.x correspond to those in version 5.0. These mappings are not tied to release versioning and may be updated or clarified as needed.
 
-Almost every single requirement has been modified in some way and even those that were not modified or moved will have numbering changes as a result of reordering or other requirements moving around.
+## Requirement Philosophy
 
-The provided mappings should help trace if and where requirements from version 4.0 made it into version 5.0.
+### Scope and Focus
 
-### Less coupling with NIST Digital Identity Guidelines
+Version 4.x included requirements that did not align with the intended scope of the standard; these have been removed. Requirements that did not meet the scope criteria for 5.0 or were not verifiable have also been excluded.
 
-The NIST's [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) has been and continues to be an excellent, evidence driven standard for key controls around authentication and authorization. Certain chapters in version 4.0 were very closely coupled with these guidelines including structure and terminology.
+### Emphasis on Security Goals Over Mechanisms
 
-Whilst these guidelines and their upcoming improvements have continued to be an important reference and the basis for many requirements, the strict coupling caused challenges which led to the decision to move away from this approach. These challenges included terminology which was less widely recognised, duplication of very similar requirements in very slightly different situations, and the fact that the mapping was incomplete based on what was perceived to be relevant for ASVS.
+In version 4.x, many requirements focused on specific mechanisms rather than the underlying security objectives. In version 5.0, requirements are centered on security goals, referencing particular mechanisms only when they are the sole practical solution, or providing them as examples or supplementary guidance.
 
-### Moving away from Common Weakness Enumeration (CWE)
+This approach recognizes that multiple methods may exist to achieve a given security objective, and avoids unnecessary prescriptiveness that could limit organizational flexibility.
 
-The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) from MITRE is a useful way to map out different security weaknesses in software. There are some difficulties in using it including certain CWEs which are categories only and shouldn't be used for mapping, the difficulties in mapping certain existing requirements to a single CWE, and also the fact that there were some loose or inexact mappings in version 4.0 of ASVS.
+Additionally, requirements addressing the same security concern have been consolidated where appropriate.
 
-The solution was to remove CWE (and any other mappings) with the aim of instead mapping to the OWASP Common Requirement Enumeration (CRE) project which will map ASVS to a variety of other OWASP projects and external standards.
+### Documented Security Decisions
 
-### Focus on the goal, not the mechanism
+While the concept of documented security decisions may appear new in version 5.0, it is an evolution of earlier requirements related to policy application and threat modeling in version 4.0. Previously, some requirements implicitly demanded analysis to inform the implementation of security controls, such as determining permitted network connections.
 
-In version 4.0, there were many requirements that were focused around a particular mechanism rather than focusing on the security goal to achieve. In version 5.0, unless there is only one realistic mechanism to achieve the goal. requirements focus on the security goal and either include specific mechanism as examples or link to other guidance.
+To ensure that necessary information is available for implementation and verification, these expectations are now explicitly defined as documentation requirements, making them clear, actionable, and verifiable.
 
-### Documenting Security Decisions
+## Structural Changes and New Chapters
 
-For certain requirements, implementation will be complicated and very specific to an application's needs. Common examples include permissions, input validation, and the protective controls around different levels of sensitive data. To account for this, rather than sweeping statements like "all data must be encrypted" or trying to cover every possible use case in a requirement, we have certain requirements which mandate that the application developer's approach and configuration to these sorts of controls must be documented so that this can be reviewed for appropriateness and then the actual implementation can be compared to the documentation to assess whether the implementation matches expectations.
+Several chapters in version 5.0 introduce entirely new content:
 
-<!--
+* **OAuth and OIDC** – Given the widespread adoption of these protocols for access delegation and single sign-on, dedicated requirements have been added to address the diverse scenarios developers may encounter. This area may eventually evolve into a standalone standard, similar to the treatment of Mobile and IoT requirements in previous versions.
+* **WebRTC** – As this technology gains popularity, its unique security considerations and challenges are now addressed in a dedicated section.
 
-### TODO: add more items
+Efforts have also been made to ensure that chapters and sections are organized around coherent sets of related requirements.
 
-We set out to ensure that the ASVS 4.0 Level 1 is a comprehensive superset of PCI DSS 3.2.1 Sections 6.5, for application design, coding, testing, secure code reviews, and penetration tests. This necessitated covering buffer overflow and unsafe memory operations in V5, and unsafe memory-related compilation flags in V14, in addition to existing industry-leading application and web service verification requirements.
+This restructuring has led to the creation of additional chapters:
 
-We have completed the shift of the ASVS from monolithic server-side-only controls, to providing security controls for all modern applications and APIs. In the days of functional programming, server-less API, mobile, cloud, containers, CI/CD and DevSecOps, federation and more, we cannot continue to ignore modern application architecture. Modern applications are designed very differently from those built when the original ASVS was released in 2009. The ASVS must always look far into the future so that we provide sound advice for our primary audience - developers. We have clarified or dropped any requirement that assumes that applications are executed on systems owned by a single organization.
+* **Self-contained Tokens** – Formerly grouped under session management, self-contained tokens are now recognized as a distinct mechanism and a foundational element for stateless communication (such as in OAuth and OIDC). Due to their unique security implications, they are addressed in a dedicated chapter, with some new requirements introduced in version 5.x.
+* **Web Frontend Security** – With the increasing complexity of browser-based applications and the rise of API-only architectures, frontend security requirements have been separated into their own chapter.
+* **Secure Coding and Architecture** – New requirements addressing general security practices that did not fit within existing chapters have been grouped here.
 
-Due to the size of the ASVS 4.0, as well as our desire to become the baseline ASVS for all other ASVS efforts, we have retired the mobile chapter, in favor of the Mobile Application Security Verification Standard (MASVS). We have also retired the Internet of Things appendix, in favor of the IoT Security Verification Standard (ISVS). We thank both the OWASP Mobile Team and OWASP IoT Project Team for their support of the ASVS, and look forward to working with them in the future to provide complementary standards.
+Other organizational changes in version 5.0 were made to clarify intent. For example, input validation requirements were moved alongside business logic, reflecting their role in enforcing business rules, rather than being grouped with sanitization and encoding.
 
-Lastly, we have de-duped and retired less impactful controls. Over time, the ASVS started being a comprehensive set of controls, but not all controls equally contribute to producing secure software. This effort to eliminate low-impact items could go further. In a future edition of the ASVS, the Common Weakness Scoring System (CWSS) will help prioritize further those controls that are truly important and those that should be retired.
+The former V1 Architecture chapter has been removed. Its initial section contained requirements that were out of scope, while subsequent sections have been redistributed to relevant chapters, with requirements deduplicated and clarified as necessary.
 
-As of version 4.0, the ASVS will focus solely on being the leading web apps and service standard, covering traditional and modern application architecture, agile security practices and DevSecOps culture.
--->
+## Removal of Direct Mappings to Other Standards
 
-## Additional rationale for the change in levels approach
+Direct mappings to other standards have been removed from the main body of the standard. The aim is to prepare a mapping with the OWASP Common Requirement Enumeration (CRE) project, which in turn will link ASVS to a range of OWASP projects and external standards.
 
-Version 4.0 of the ASVS describes the levels as L1 - "Minimum", L2 - "Standard", and L3 - "Advanced" with the implication that all applications processing sensitive data should be at least L2.
+Direct mappings to CWE and NIST are no longer maintained, as explained below.
 
-We found a few challenges with this approach and users of version 4.0 might find the following context on the change to levels approach informative in addition to the rationale in the previous chapter.
+### Reduced Coupling with NIST Digital Identity Guidelines
 
-### High barrier to entry
+The NIST [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) have long served as a reference for authentication and authorization controls. In version 4.x, certain chapters were closely aligned with NIST’s structure and terminology.
 
-L1 in version 4.0 had over 100 requirements as did L2 with only a few requirements left in L3. This meant that a high level of effort required to achieve even L1 at which point the user is told that this is the "minimum" level and that to achieve a "standard" level of security, another 100 requirements are required. Based on feedback from ASVS users and community it became clear that this acted as a disincentive and made it harder for applications to start adopting the ASVS.
+While these guidelines remain an important reference, strict alignment introduced challenges, including less widely recognized terminology, duplication of similar requirements, and incomplete mappings. Version 5.0 moves away from this approach to improve clarity and relevance.
 
-### The fallacy of testability
+### Moving Away from Common Weakness Enumeration (CWE)
 
-A primary motivator behind putting controls in L1 version 4.0 was whether they could be checked using "black box" style testing which was not entirely in line with the concept of L1 being the minimum security controls. On the one hand, ASVS users would say that L1 was not sufficient for a secure application whilst on the other hand user would complain that ASVS was too difficult to test.
+The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) provides a useful taxonomy of software security weaknesses. However, challenges such as category-only CWEs, difficulties in mapping requirements to a single CWE, and the presence of imprecise mappings in version 4.x have led to the decision to discontinue direct CWE mappings in version 5.0.
 
-Additionally, testability is relative and in some cases misleading. Just because something is testable does not mean that it is testable in an automated or trivial way. Finally, the most testable requirements are not necessarily those that have the most important security impact or are the easiest to implement.
+## Rethinking Level Definitions
 
-### Not just about risk
+Version 4.x described the levels as L1 ("Minimum"), L2 ("Standard"), and L3 ("Advanced"), with the implication that all applications handling sensitive data should meet at least L2.
 
-The use of prescriptive, risk based levels which mandate that a certain application has to be at a certain level seems overly opinionated in hind-sight. In reality, the order of implementing security controls will depend on factors including both risk reduction and also effort to implement.
+Version 5.0 addresses several issues with this approach which are described in the following paragraphs.
+
+As a practical matter, whereas version 4.x used tick marks for level indicators, 5.x uses a simple number on all formats of the standard including markdown, PDF, DOCX, CSV, JSON and XML. For backwards compatibility, we also generate legacy versions of the CSV, JSON and XML outputs which still use tick marks.
+
+### Easier Entry Level
+
+Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier by defining Level 1 primarily around first-layer defense requirements, resulting in clearer and fewer requirements at that level.
+
+### The Fallacy of Testability
+
+A key factor in selecting controls for Level 1 in version 4.x was their suitability for assessment through "black box" external penetration testing. However, this approach was not fully aligned with the intent of Level 1 as the minimum set of security controls. Some users argued that Level 1 was insufficient for securing applications, while others found it too difficult to test.
+
+Relying on testability as a criterion is both relative and, at times, misleading. The fact that a requirement is testable does not guarantee that it can be tested in an automated or straightforward manner. Moreover, the most easily testable requirements are not always those with the greatest security impact or the simplest to implement.
+
+As such, in version 5.0, the level decisions were made primarily based on risk reduction and also keeping in mind the effort to implement.
+
+### Not Just About Risk
+
+The use of prescriptive, risk-based levels that mandate a specific level for certain applications has proven to be overly rigid. In practice, the prioritization and implementation of security controls depend on multiple factors, including both risk reduction and the effort required for implementation.
+
+Therefore, organizations are encouraged to achieve the level that they feel like they should be achieving based on their maturity and the message they want to send to their users.

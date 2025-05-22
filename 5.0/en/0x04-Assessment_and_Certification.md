@@ -40,8 +40,8 @@ In summary, testable using automation != running an off the shelf tool.
 
 #### The Role of Penetration Testing
 
-Whilst L1 in version 4.0 was optimized for "black box" (no documentation and no source) testing to occur, even then we were clear that it is not an effective assurance activity and should be actively discouraged.
+Whilst L1 in version 4.0 was optimized for "black box" (no documentation and no source) testing to occur, even then the standard was clear that it is not an effective assurance activity and should be actively discouraged.
 
 Testing without access to necessary additional information is an inefficient and ineffective mechanism for security verification, as it misses out on the possibility of reviewing the source, identifying threats and missing controls, and performing a far more thorough test in a shorter timeframe.
 
-We strongly encourage replacing traditional penetration tests with documentation or source code-led (hybrid) penetration testing, with full access to the application developers and the application's documentation. This will certainly be necessary in order to verify many of the ASVS requirements.
+It is strongly encouraged to perform documentation or source code-led (hybrid) penetration testing, which have full access to the application developers and the application's documentation, rather than traditional penetration tests. This will certainly be necessary in order to verify many of the ASVS requirements.
