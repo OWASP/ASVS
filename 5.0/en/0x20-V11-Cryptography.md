@@ -85,7 +85,7 @@ As part of this, there exists a need for approved key exchange mechanisms, such 
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.6.1** | Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. Key generation algorithms must not generate insecure keys vulenrable to knwon attacks, for example RSA keys which are vulnerable to Fermat factorization. | 2 | v5.0.be-6.7.2 |
+| **11.6.1** | Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. Key generation algorithms must not generate insecure keys vulnerable to known attacks, for example RSA keys which are vulnerable to Fermat factorization. | 2 | v5.0.be-6.7.2 |
 | **11.6.2** | Verify that approved cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This will prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 3 | v5.0.be-6.7.1 |
 
 ## V11.7 In-Use Data Cryptography
