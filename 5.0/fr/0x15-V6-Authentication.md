@@ -133,7 +133,7 @@ Les exigences de cette section concernent principalement le chapitre [&sect; 5.1
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **6.7.1** | Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 | v5.0.be-2.9.1 |
+| **6.7.1** | Vérifiez que les certificats utilisés pour vérifier les assertions d’authentification cryptographique sont stockés de manière à les protéger contre toute modification. | 3 | v5.0.be-2.9.1 |
 | **6.7.2** | Vérifiez que le nonce de défi a une longueur d'au moins 64 bits et qu'il est statistiquement unique ou unique sur toute la durée de vie du périphérique cryptographique. | 3 | v5.0.be-2.9.2 |
 
 ## V6.8 Authentification avec un fournisseur d'identité
