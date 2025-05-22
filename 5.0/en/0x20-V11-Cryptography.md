@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-The objective of this chapter is to define best practices for the general use of cryptography but also to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches. It encourages doing the following:
+The objective of this chapter is to define best practices for the general use of cryptography, as well as to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches. It encourages the following:
 
 * Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
 * Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
@@ -12,17 +12,17 @@ The objective of this chapter is to define best practices for the general use of
 
 In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in Appendix V - Cryptography Standards. This includes algorithms and modes that are considered "approved" for the purposes of the requirements in this chapter.
 
-Requirements which use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
+Requirements that use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
 
 ## V11.1 Cryptographic Inventory and Documentation
 
-Applications need to be designed with strong cryptographic architecture to protect data assets as per their classification. Encrypting everything is wasteful, not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high-level design, design sprints or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
+Applications need to be designed with strong cryptographic architecture to protect data assets according to their classification. Encrypting everything is wasteful; not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high-level design, design sprints, or architectural spikes. Designing cryptography as you go or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
 
 It is important to ensure that all cryptographic assets are regularly discovered, inventoried, and assessed. Please see the appendix for more information on how this can be done.
 
 The need to future-proof cryptographic systems against the eventual rise of quantum computing is also critical. Post-Quantum Cryptography (PQC) refers to cryptographic algorithms designed to remain secure against attacks by quantum computers, which are expected to break widely used algorithms such as RSA and elliptic curve cryptography (ECC).
 
-Please see the Appendix for current guidance on vetted PQC primitives and standards.
+Please see the appendix for current guidance on vetted PQC primitives and standards.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
