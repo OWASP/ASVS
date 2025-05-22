@@ -34,6 +34,7 @@ from xml.sax.saxutils import escape
 import csv
 from dicttoxml2 import dicttoxml
 import xml.etree.ElementTree as ET
+import copy
 
 try:
     from StringIO import StringIO
@@ -275,6 +276,51 @@ class ASVS:
         self.mapping_v4 = dict(sorted(self.mapping_v4.items(), key=lambda x: [int(part) for part in x[0].split('.')]))
         self.mapping_v5 = dict(sorted(self.mapping_v5.items(), key=lambda x: [int(part) for part in x[0].split('.')]))
 
+        # --- Begin v5 export structure creation ---
+        self.asvs_v5 = copy.deepcopy(self.asvs)
+        self.asvs_flat_v5 = copy.deepcopy(self.asvs_flat)
+        self.asvs_flat2_v5 = copy.deepcopy(self.asvs_flat2)
+        self._convert_flat_to_single_level(self.asvs_flat_v5['requirements'])
+        self._convert_flat_to_single_level(self.asvs_flat2_v5['requirements'])
+        self._convert_asvs_to_single_level(self.asvs_v5)
+        # --- End v5 export structure creation ---
+
+    def _convert_flat_to_single_level(self, reqs):
+        for req in reqs:
+            # Remove L1/L2/L3, add L
+            level = 3
+            if 'level1' in req and req['level1'] == '✓':
+                level = 1
+            elif 'level2' in req and req['level2'] == '✓':
+                level = 2
+            elif 'level3' in req and req['level3'] == '✓':
+                level = 3
+            req['L'] = str(level)
+            req.pop('level1', None)
+            req.pop('level2', None)
+            req.pop('level3', None)
+            # For asvs_flat2, also remove L1/L2/L3 if present
+            req.pop('L1', None)
+            req.pop('L2', None)
+            req.pop('L3', None)
+
+    def _convert_asvs_to_single_level(self, asvs_obj):
+        # asvs_obj['Requirements'] is a list of chapters
+        for chapter in asvs_obj.get('Requirements', []):
+            for section in chapter.get('Items', []):
+                for req in section.get('Items', []):
+                    # Remove L1/L2/L3, add L
+                    level = 3
+                    if 'L1' in req and req['L1'].get('Required'):
+                        level = 1
+                    elif 'L2' in req and req['L2'].get('Required'):
+                        level = 2
+                    elif 'L3' in req and req['L3'].get('Required'):
+                        level = 3
+                    req['L'] = str(level)
+                    req.pop('L1', None)
+                    req.pop('L2', None)
+                    req.pop('L3', None)
 
     def get_new_modification(self):
         new_modification = {}
@@ -639,7 +685,7 @@ class ASVS:
 
         return si.getvalue()
 
-    def to_json(self):
+    def to_json_legacy(self):
         ''' Returns a JSON-formatted string '''
         return json.dumps(self.asvs, indent = 2, sort_keys = False, ensure_ascii=False).strip()
     
@@ -647,9 +693,18 @@ class ASVS:
         ''' Returns a JSON-formatted string '''
         return json.dumps(self.asvs_raw['Chapters'], indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
-    def to_json_flat(self):
+    def to_json_flat_legacy(self):
         ''' Returns a JSON-formatted string which is flattened and simpler '''
         return json.dumps(self.asvs_flat, indent = 2, sort_keys = False, ensure_ascii=False).strip()
+
+    def to_json(self):
+        ''' Returns a JSON-formatted string (new default)  '''
+        return json.dumps(self.asvs_v5, indent = 2, sort_keys = False, ensure_ascii=False).strip()
+
+
+    def to_json_flat(self):
+        ''' Returns a JSON-formatted string which is flattened and simpler (new default)  '''
+        return json.dumps(self.asvs_flat_v5, indent = 2, sort_keys = False, ensure_ascii=False).strip()
 
     def to_xmlOLD(self):
         ''' Returns XML '''
@@ -660,10 +715,14 @@ class ASVS:
             xml += "<requirement id = \"" + escape(r['id']) + "\">" + escape(r['text']) + "</requirement>\n"
 
         return xml
-    def to_xml(self):
+    def to_xml_legacy(self):
         return dicttoxml(self.asvs, attr_type=False).decode('utf-8')
         
-    def to_csv(self):
+    def to_xml(self):
+        ''' Returns XML for v5 (single L) '''
+        return dicttoxml(self.asvs_v5, attr_type=False).decode('utf-8')
+
+    def to_csv_legacy(self):
         ''' Returns CSV '''
         si = StringIO()
 
@@ -671,6 +730,14 @@ class ASVS:
         writer.writeheader()
         writer.writerows(self.asvs_flat['requirements'])
 
+        return si.getvalue()
+
+    def to_csv(self):
+        ''' Returns CSV for v5 (single L) (new default) '''
+        si = StringIO()
+        writer = csv.DictWriter(si, ['chapter_id', 'chapter_name', 'section_id', 'section_name', 'req_id', 'req_description', 'L', 'cwe', 'nist'])
+        writer.writeheader()
+        writer.writerows(self.asvs_flat_v5['requirements'])
         return si.getvalue()
 
     def dict_increment(self, dict_obj, dict_key):
