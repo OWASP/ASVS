@@ -73,7 +73,8 @@ As a practical matter, whereas version 4.x used tick marks for level indicators,
 
 ### Easier Entry Level
 
-Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier to entry with less Level 1 requirements.
+Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier by having fewer Level 1 requirements which are better focused and primarilly relate to the first layer of defense for an application.
+
 
 ### The Fallacy of Testability
 
@@ -81,7 +82,7 @@ A key factor in selecting controls for Level 1 in version 4.x was their suitabil
 
 Relying on testability as a criterion is both relative and, at times, misleading. The fact that a requirement is testable does not guarantee that it can be tested in an automated or straightforward manner. Moreover, the most easily testable requirements are not always those with the greatest security impact or the simplest to implement.
 
-As such, in version 5.0 the levels decision is based on risk reduction and effort to implement.
+As such, in version 5.0, the level decisions were made primarily based on risk reduction and also keeping in mind the effort to implement.
 
 ### Not Just About Risk
 
