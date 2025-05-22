@@ -2,17 +2,17 @@
 
 ## Control Objective
 
-Applications cannot account for all usage patterns and user behaviors and should therefore implement controls to limit unauthorized access to sensitive data on client devices.
+Applications cannot account for all usage patterns and user behaviors, and should therefore implement controls to limit unauthorized access to sensitive data on client devices.
 
 This chapter includes requirements related to defining what data needs to be protected, how it should be protected, and specific mechanisms to implement or pitfalls to avoid.
 
-Another consideration for data protection could be around bulk extraction, modification, or excessive usage. Each system's requirements are likely to be very different, so deciding on "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Validation and Business Logic" chapter.
+Another consideration for data protection is bulk extraction, modification, or excessive usage. Each system's requirements are likely to be very different, so determining what is "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Validation and Business Logic" chapter.
 
 ## V14.1 Data Protection Documentation
 
-A key prerequisite for being able to protect data is to be able to categorize what data should be considered sensitive. There are likely to be a few different levels of sensitivity, and for each level of sensitivity, the controls required to protect data at that level will be different.
+A key prerequisite for being able to protect data is to categorize what data should be considered sensitive. There are likely to be several different levels of sensitivity, and for each level, the controls required to protect data at that level will be different.
 
-There are various privacy regulations and laws which affect how applications must approach the implementation of storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation but rather focuses on key technical considerations for protecting sensitive data. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
+There are various privacy regulations and laws that affect how applications must approach the storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation, but rather focuses on key technical considerations for protecting sensitive data. Please consult your local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -21,7 +21,7 @@ There are various privacy regulations and laws which affect how applications mus
 
 ## V14.2 General Data Protection
 
-This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leaking, but there is also a general requirement to implement protection controls based on the protection level required for each data item.
+This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leakage, but there is also a general requirement to implement protection controls based on the protection level required for each data item.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |

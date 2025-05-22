@@ -2,11 +2,11 @@
 
 ## Control Objective
 
-This category focuses on requirements that protect against attacks executed via a web frontend. These requirements are not relevant for machine-to-machine solutions.
+This category focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
 
 ## V3.1 Web Frontend Security Documentation
 
-This section defines the browser security features that should be specified in the application’s documentation.
+This section outlines the browser security features that should be specified in the application's documentation.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -14,7 +14,7 @@ This section defines the browser security features that should be specified in t
 
 ## V3.2 Unintended Content Interpretation
 
-Rendering content or functionality in an incorrect context can lead to malicious content being executed or displayed.
+Rendering content or functionality in an incorrect context can result in malicious content being executed or displayed.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -24,7 +24,7 @@ Rendering content or functionality in an incorrect context can lead to malicious
 
 ## V3.3 Cookie Setup
 
-This section provides requirements for how to securely configure a sensitive cookie to provide a higher level of assurance that it was created by the application itself and to prevent its contents from leaking or being inappropriately modified.
+This section outlines requirements for securely configuring sensitive cookies to provide a higher level of assurance that they were created by the application itself and to prevent their contents from leaking or being inappropriately modified.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -36,7 +36,7 @@ This section provides requirements for how to securely configure a sensitive coo
 
 ## V3.4 Browser Security Mechanism Headers
 
-This section indicates which security headers should be set on HTTP responses to enable browser security features and restrictions when handling the response from the application.
+This section describes which security headers should be set on HTTP responses to enable browser security features and restrictions when handling responses from the application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -51,7 +51,7 @@ This section indicates which security headers should be set on HTTP responses to
 
 ## V3.5 Browser Origin Separation
 
-When accepting a request to sensitive functionality on the server side, the application needs to be sure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
+When accepting a request to sensitive functionality on the server side, the application needs to ensure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
 
 Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state-changing operations, or resource-demanding functionality (such as data export).
 

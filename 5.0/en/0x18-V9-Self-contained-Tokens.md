@@ -2,13 +2,13 @@
 
 ## Control Objective
 
-The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It refers to a token containing data or claims which a receiving service will rely upon to make security decisions. This is to be differentiated from a simple token containing an identifier which a receiving service will use to lookup data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
+The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It refers to a token containing data or claims on which a receiving service will rely to make security decisions. This should be differentiated from a simple token containing only an identifier, which a receiving service uses to look up data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
 
-The use of self-contained tokens has become very widespread, even outside of OAuth and OIDC. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process and this chapter will provide specific details of the mechanisms that applications should have in place to prevent them.
+The use of self-contained tokens has become very widespread, even outside of OAuth and OIDC. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process, and this chapter provides specific details of the mechanisms that applications should have in place to prevent them.
 
 ## V9.1 Token source and integrity
 
-This section includes requirements that ensure that the token has been produced by a trusted party and that it has not been tampered with.
+This section includes requirements to ensure that the token has been produced by a trusted party and has not been tampered with.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -18,7 +18,7 @@ This section includes requirements that ensure that the token has been produced 
 
 ## V9.2 Token content
 
-Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within its validity period and that it is meant for use by the receiving service and for the purpose for which it was presented. This is to avoid insecure cross-usage between different services or with different token types from the same issuer.
+Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within its validity period and that it is intended for use by the receiving service and for the purpose for which it was presented. This helps avoid insecure cross-usage between different services or with different token types from the same issuer.
 
 Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
 
