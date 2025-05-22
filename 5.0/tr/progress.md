@@ -1,42 +1,42 @@
 # 0x00-Header.yaml
-<span style="color:lightgreen">**Tamamlandı.**</span>
+<span style="color:green">**Tamamlandı.**</span>
 
-Logo vs. minor değişiklikler gerekebilir
+21.05.2025
 
 # 0x01-Frontispiece.md
 <span style="color:lightgreen">**Tamamlandı.**</span>
 
-Şimdilik sorun yok.
+Contributor tablosu güncellenecek.
+
+21.05.2025
 
 # 0x02-Preface.md
-<span style="color:orange">**Güncelleme bekleniyor.**</span>
+<span style="color:green">**Tamamlandı.**</span>
 
-Önsöz hala 4.0 ile ilgili, güncelleme bekleniyor.
-
-Yeniilikler hala 4.0 ile ilgili, güncelleme bekleniyor.
+21.05.2025
 
 # 0x03-Using-ASVS.md
-<span style="color:lightgreen">**Tamamlandı.**</span>
+<span style="color:green">**Tamamlandı.**</span>
 
-Son cümleden sonra eklemeler gelebilir diye düşünüyorum.
+22.05.2025
 
 # 0x04-Assessment_and_Certification.md
-<span style="color:lightgreen">**Tamamlandı.**</span>
+<span style="color:green">**Tamamlandı.**</span>
 
-Şimdilik sorun yok.
+22.05.2025
 
 # 0x05-For-Users-Of-4.0.md
+<span style="color:green">**Tamamlandı.**</span>
 
-<span style="color:orange">**Güncelleme bekleniyor.**</span>
+22.05.2025
 
-Büyük ihtimalle eklemeler yapılacak.
+# 0x10-V1-Encoding-and-Sanitization.md
+<span style="color:orange">**Devam ediyor.**</span>
 
-# 0x10-V1-Architecture.md
-<span style="color:lightgreen">**Tamamlandı.**</span>
+22.05.2025
 
-Bu bölümden her şey silinmiş, değişiklik yapılması olası.
 
-# 0x11-V2-Authentication.md
-<span style="color:lightgreen">**Tamamlandı.**</span>
 
-Şimdilik sorun yok.
+
+
+
