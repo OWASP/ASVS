@@ -2,11 +2,11 @@
 
 ## Control Objective
 
-This category focuses on requirements that protect against attacks executed via a web frontend. These requirements are not relevant for machine-to-machine solutions.
+This category focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
 
 ## V3.1 Web Frontend Security Documentation
 
-This section defines the browser security features that should be specified in the application’s documentation.
+This section outlines the browser security features that should be specified in the application's documentation.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -14,7 +14,7 @@ This section defines the browser security features that should be specified in t
 
 ## V3.2 Unintended Content Interpretation
 
-Rendering content or functionality in an incorrect context can lead to malicious content being executed or displayed.
+Rendering content or functionality in an incorrect context can result in malicious content being executed or displayed.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -24,7 +24,7 @@ Rendering content or functionality in an incorrect context can lead to malicious
 
 ## V3.3 Cookie Setup
 
-This section provides requirements for how to securely configure a sensitive cookie to provide a higher level of assurance that it was created by the application itself and to prevent its contents from leaking or being inappropriately modified.
+This section outlines requirements for securely configuring sensitive cookies to provide a higher level of assurance that they were created by the application itself and to prevent their contents from leaking or being inappropriately modified.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -36,7 +36,7 @@ This section provides requirements for how to securely configure a sensitive coo
 
 ## V3.4 Browser Security Mechanism Headers
 
-This section indicates which security headers should be set on HTTP responses to enable browser security features and restrictions when handling the response from the application.
+This section describes which security headers should be set on HTTP responses to enable browser security features and restrictions when handling responses from the application.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -51,7 +51,7 @@ This section indicates which security headers should be set on HTTP responses to
 
 ## V3.5 Browser Origin Separation
 
-When accepting a request to sensitive functionality on the server side, the application needs to be sure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
+When accepting a request to sensitive functionality on the server side, the application needs to ensure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
 
 Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state-changing operations, or resource-demanding functionality (such as data export).
 
@@ -59,8 +59,8 @@ The key protections here are browser security policies like Same Origin Policy f
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **3.5.1** | Verify that CORS-safelisted requests to sensitive functionality are checked to ensure that they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP header fields that are not CORS-safelisted request header fields. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 1 | v5.0.be-50.4.1 |
-| **3.5.2** | Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a CORS-safelisted request. This may require checking the values of the 'Origin' and 'Content-Type' request header fields or using an extra header field that is not CORS-safelisted. | 1 | v5.0.be-50.4.3 |
+| **3.5.1** | Verify that, if the application does not rely on the CORS preflight mechanism to prevent disallowed cross-origin requests to use sensitive functionality, these requests are validated to ensure they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP header fields that are not CORS-safelisted request-header fields. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 1 | v5.0.be-50.4.1 |
+| **3.5.2** | Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a request which does not trigger a CORS-preflight request. This may require checking the values of the 'Origin' and 'Content-Type' request header fields or using an extra header field that is not a CORS-safelisted header-field. | 1 | v5.0.be-50.4.3 |
 | **3.5.3** | Verify that HTTP requests to sensitive functionality use appropriate HTTP methods such as POST, PUT, PATCH, or DELETE, and not methods defined by the HTTP specification as "safe" such as HEAD, OPTIONS, or GET. Alternatively, strict validation of the Sec-Fetch-* request header fields can be used to ensure that the request did not originate from an inappropriate cross-origin call, a navigation request, or a resource load (such as an image source) where this is not expected. | 1 | v5.0.be-50.4.4 |
 | **3.5.4** | Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | 2 | v5.0.be-50.1.1 |
 | **3.5.5** | Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | 2 | v5.0.be-50.4.2 |

@@ -2,13 +2,13 @@
 
 ## Control Objective
 
-This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end user client and a backend service but also between internal and backend services.
+This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end-user client and a backend service, as well as between internal and backend services.
 
 The general concepts promoted by this chapter include:
 
 * Ensuring that communications are encrypted externally, and ideally internally as well.
 * Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
-* Checking that communications are not being intercepted by an unauthorized party using signed certificates.
+* Ensuring that communications are not being intercepted by unauthorized parties through the use of signed certificates.
 
 In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in Appendix V - Cryptography Standards.
 
@@ -16,7 +16,7 @@ In addition to outlining general principles and best practices, the ASVS also pr
 
 This section provides initial guidance on how to secure TLS communications. Up-to-date tools should be used to review TLS configuration on an ongoing basis.
 
-While usage of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development, and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and usage of separate TLS certificates in different environments should be employed if possible.
+While the use of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development, and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and the use of separate TLS certificates in different environments should be employed if possible.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
