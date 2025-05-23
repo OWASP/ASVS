@@ -21,7 +21,7 @@
 * **Fast IDentity Online** (FIDO) - A set of authentication standards that allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
 * **Universally Unique Identifier** (UUID) – A unique reference number used as an identifier in software.
 * **HyperText Transfer Protocol** (HTTP) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
-* ***HyperText Transfer Protocol over TLS** (HTTPS) – A practice of securing HTTP communication by layering HTTP over TLS protocol. Also referred as HTTP/S, HTTP/TLS.
+* ***HyperText Transfer Protocol over TLS** (HTTPS) – A method of securing HTTP communication by layering HTTP over TLS protocol. Also referred as HTTP/S, HTTP/TLS.
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
 * **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library.
 * **HTTP Strict Transport Security** (HSTS) - An policy which instructs the browser to only connect to the domain returning the header via TLS and when a valid certificate is presented. It is activated using the Strict-Transport-Security response header field.
