@@ -2,15 +2,15 @@
 
 ## Control Objective
 
-This chapter focuses on the most common web application security weaknesses that are related to unsafe processing of untrusted data. This leads to a variety of technical vulnerabilities where the untrusted data gets interpreted using the syntax rules of the relevant interpreter.
+This chapter addresses the most common web application security weaknesses related to the unsafe processing of untrusted data. Such weaknesses can result in various technical vulnerabilities, where untrusted data is interpreted according to the syntax rules of the relevant interpreter.
 
-With modern web applications, it will always be best to use safer APIs such as parameterized queries, auto-escaping or templating frameworks. Otherwise, or carefully performed output encoding, escaping, or sanitization will be critical to the security of the application.
+For modern web applications, it is always best to use safer APIs, such as parameterized queries, auto-escaping, or templating frameworks. Otherwise, carefully performed output encoding, escaping, or sanitization becomes critical to the application's security.
 
-Input validation can act as a defense in depth mechanism for protecting against unexpected, dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements around this can be found in the "Validation and Business Logic" chapter.
+Input validation serves as a defense-in-depth mechanism to protect against unexpected or dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements related to this can be found in the "Validation and Business Logic" chapter.
 
-## V1.1 Validation and Sanitization Architecture
+## V1.1 Encoding and Sanitization Architecture
 
-In the sections below, syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities are provided. The requirements in this section cover the order in which this processing should happen and where it should take place. They also aim to ensure that whenever data is being stored, it is stored in its original state and not in an encoded or escaped state (e.g., HTML encoding) to prevent double encoding issues.
+In the sections below, syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities are provided. The requirements in this section cover the order in which this processing should occur and where it should take place. They also aim to ensure that whenever data is stored, it remains in its original state and is not stored in an encoded or escaped form (e.g., HTML encoding), to prevent double encoding issues.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -19,9 +19,9 @@ In the sections below, syntax-specific or interpreter-specific requirements for 
 
 ## V1.2 Injection Prevention
 
-Output encoding or escaping close or adjacent to a potentially dangerous context is critical to the security of any application. Typically, output encoding and escaping is not persisted, but rather used to render output safe to use in the appropriate interpreter for immediate use. Trying to do this too early may lead to malformed content or even render the encoding or escaping ineffective.
+Output encoding or escaping, performed close to or adjacent to a potentially dangerous context, is critical to the security of any application. Typically, output encoding and escaping are not persisted, but are instead used to render output safe for immediate use in the appropriate interpreter. Attempting to perform this too early may result in malformed content or render the encoding or escaping ineffective.
 
-In many cases, software libraries will include safe or safer functions which will do this automatically although it will be necessary to be sure that they are correct for the current context.
+In many cases, software libraries include safe or safer functions that perform this automatically, although it is necessary to ensure that they are correct for the current context.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -34,15 +34,15 @@ In many cases, software libraries will include safe or safer functions which wil
 | **1.2.7** | Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 2 | v5.0.be-5.3.10 |
 | **1.2.8** | Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 | v5.0.be-5.3.12 |
 | **1.2.9** | Verify that the application escapes special characters in regular expressions (typically using a backslash) to prevent them from being misinterpreted as metacharacters. | 2 | v5.0.be-5.2.9 |
-| **1.2.10** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC4180 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as xls, xlsx, or odf), special characters (including '=', '+', '-', '@' '\t' (tab) and '\00' (null character)) must be escaped using a single quote, if they are the first character in a field value. | 3 | v5.0.be-5.3.11 |
+| **1.2.10** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC 4180 sections 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as XLS, XLSX, or ODF), special characters (including '=', '+', '-', '@', '\t' (tab), and '\0' (null character)) must be escaped with a single quote if they appear as the first character in a field value. | 3 | v5.0.be-5.3.11 |
 
-Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
+Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. Including escaped user-supplied data in these fields results in failed queries or SQL injection.
 
 ## V1.3 Sanitization
 
-The ideal protection against using untrusted content in an unsafe context is using context-specific encoding or escaping which maintains the same semantic meaning of the unsafe content but renders it safe for use in this particular context as was discussed in more detail in the previous section.
+The ideal protection against using untrusted content in an unsafe context is to use context-specific encoding or escaping, which maintains the same semantic meaning of the unsafe content but renders it safe for use in that particular context, as discussed in more detail in the previous section.
 
-Where it is not possible to do this, sanitization will be necessary where potentially dangerous characters or content are removed. In some cases, this could change the semantic meaning of the input, but for security reasons, there may be no choice.
+Where this is not possible, sanitization becomes necessary, removing potentially dangerous characters or content. In some cases, this may change the semantic meaning of the input, but for security reasons, there may be no alternative.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -61,7 +61,9 @@ Where it is not possible to do this, sanitization will be necessary where potent
 
 ## V1.4 Memory, String, and Unmanaged Code
 
-The following requirements cover risks around unsafe memory use and will generally only apply when the application uses a systems language or unmanaged code.
+The following requirements address risks associated with unsafe memory use, which generally apply when the application uses a systems language or unmanaged code.
+
+In some cases, it may be possible to achieve this by setting compiler flags that enable buffer overflow protections and warnings, including stack randomization and data execution prevention, and that break the build if unsafe pointer, memory, format string, integer, or string operations are found.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -71,18 +73,14 @@ The following requirements cover risks around unsafe memory use and will general
 
 ## V1.5 Safe Deserialization
 
-Conversion of data from some sort of stored or transmitted representation into actual application objects (deserialization) has historically been the cause of a variety of code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
+The conversion of data from a stored or transmitted representation into actual application objects (deserialization) has historically been the cause of various code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
 
-In particular, there are certain methods of deserialization where it has been made clear by the programming language or framework documentation that they are insecure and cannot be made safe with untrusted data. One example of this is .NET's BinaryFormatter which has significant warnings attached to it:
-
-* <https://learn.microsoft.com/en-gb/dotnet/standard/serialization/binaryformatter-security-guide>
-
-This is just one example and for each mechanism in each language in use, careful due diligence of the mechanism should be performed.
+In particular, certain methods of deserialization have been identified by programming language or framework documentation as insecure and cannot be made safe with untrusted data. For each mechanism in use, careful due diligence should be performed.
 
 | # | Description | Level | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **1.5.1** | Verify that the application configures XML parsers to use a restrictive configuration and that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | 1 | v5.0.be-5.5.2 |
-| **1.5.2** | Verify that deserialization of data from untrusted clients enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure (for example, .NET BinaryFormatter) must not be used with untrusted input. | 2 | v5.0.be-5.5.3 |
+| **1.5.2** | Verify that deserialization of untrusted data enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure must not be used with untrusted input. | 2 | v5.0.be-5.5.3 |
 | **1.5.3** | Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 3 | v5.0.be-5.5.5 |
 
 ## References
@@ -98,19 +96,7 @@ For more information, see also:
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
 * [RFC4180 - Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
 
-<!-- outdated and/or vendor specific
-For more information on auto-escaping, please see:
-
-* [Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://googleonlinesecurity.blogspot.com/2009/03/reducing-xss-by-way-of-automatic.html)
-* [AngularJS Strict Contextual Escaping](https://docs.angularjs.org/api/ng/service/$sce)
-* [AngularJS ngBind](https://docs.angularjs.org/api/ng/directive/ngBind)
-* [Angular Sanitization](https://angular.io/guide/security#sanitization-and-security-contexts)
-* [Angular Security](https://angular.io/guide/security)
-* [ReactJS Escaping](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks)
-* [Improperly Controlled Modification of Dynamically-Determined Object Attributes](https://cwe.mitre.org/data/definitions/915.html)
--->
-
-For more information on deserialization or parsing issues, please see:
+For more information, specifically on deserialization or parsing issues, please see:
 
 * [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 * [OWASP Deserialization of Untrusted Data Guide](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data)

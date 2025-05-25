@@ -1,63 +1,29 @@
 # Preface
 
-Welcome to the Application Security Verification Standard (ASVS) version 5.0!
+Welcome to the Application Security Verification Standard (ASVS) Version 5.0.
 
 ## Introduction
 
-The ASVS is a community-driven effort to establish a standard that defines the security requirements to consider when designing, developing and testing modern web applications and web services.
+Originally launched in 2008 through a global community collaboration, the ASVS defines a comprehensive set of security requirements for designing, developing, and testing modern web applications and services.
 
-ASVS Version 5.0 is the culmination of a huge amount of effort from the leaders, working group and other community members to update and improve this important standard.
+Following the release of ASVS 4.0 in 2019 and its minor update (v4.0.3) in 2021, Version 5.0 represents a significant milestone—modernized to reflect the latest advances in software security.
 
-Our goal for this version has been to make the ASVS easier to use whilst also making it more clearly focused on a particular scope and covering new, important areas of application developement.
+ASVS 5.0 is the result of extensive contributions from project leaders, working group members, and the wider OWASP community to update and improve this important standard.
 
-## Key Objectives from ASVS Version 5.0
+## Principles behind version 5.0
 
-Version 5.0 has been developed with a number of key principles in mind.
+This major revision has been developed with several key principles in mind:
 
-### Clear set of requirements
+* Refined Scope and Focus: This version of the standard has been designed to align more directly with the foundational pillars in its name: Application, Security, Verification, and Standard. Requirements have been rewritten to emphasize the prevention of security flaws rather than mandating specific technical implementations. Requirement texts are intended to be self-explanatory, explaining why they exist.
 
-The set of requirements for version 5.0 was prepared based on the following considerations.
+* Support for Documented Security Decisions: ASVS 5.0 introduces requirements for documenting key security decisions. This enhances traceability and supports context-sensitive implementations, allowing organizations to tailor their security posture to their specific needs and risks.
 
-* Aggressively deduplicating requirements to avoid controls or concepts being split into multiple places.
-* Clarifying unclear or non-actionable requirement text.
-* Adding new requirements to cover areas of particular concern such as permissions, tokens, and cryptography.
-* Adding new chapters and sections for areas which might not apply to all applications but are still security sensitive such as OAuth and WebSockets.
+* Updated Levels: While ASVS retains its three-tier model, the level definitions have evolved to make the ASVS easier to adopt. Level 1 is designed as the initial step to adopting the ASVS, providing the first layer of defense. Level 2 represents a comprehensive view of standard security practices, and Level 3 addresses advanced, high-assurance requirements.
 
-### Clarifying the scope of the standard
+* Restructured and Expanded Content: ASVS 5.0 includes approximately 350 requirements across 17 chapters. Chapters have been reorganized for clarity and usability. A two-way mapping between v4.0 and v5.0 is provided to facilitate migration.
 
-It is important that all requirments are relevant to the defined scope of the standard and that they are worded in a way that is consistent with the goal of the standard.
+## Looking ahead
 
-The guidelines for this were:
+Just as securing an application is never truly finished, neither is the ASVS. Although Version 5.0 is a major release, development continues. This release allows the wider community to benefit from the improvements and additions which have been accumulated but also lays the groundwork for future enhancements. This could include community-driven efforts to create implementation and verification guidance built on top of the core requirement set.
 
-* Ensuring that all requirements are within the scope of a web application or service.
-* Checking that requirements are worded in line with the ASVS name, specifically:
-    * Application - Requirements are at the application level and are the responsibility of application developers.
-    * Security - Requirements are clearly necessary for the application to be secure.
-    * Verification - Requirements are worded to have a clear and verifiable goal.
-    * Standard - Clear consistency and structure to requirements, as would be expected from a standard.
-
-### Better level definitions
-
-The levels in version 5.0 aim to make the ASVS easier to adopt whilst also being clear about why requirements were allocated to specific levels.
-
-This includes:
-
-* Making level rationale clearer and with the primary focus on priority (considering risk reduction and effort to implement).
-* Having a realistic number of Level 1 requirements so as to have a lower barrier to entry.
-* Balancing better between the number of requirments in Level 2 and Level 3 to allow smoother progression.
-
-### Streamlining the document
-
-Part of making the document easier to use is keeping the actual requirements front and centre and avoiding unnecessary narrative content, whilst keeping key explanations.
-
-This includes:
-
-* Avoiding too much explanatory or supplementary text around the requirements except where this is specifically necessary.
-* Instead of overly verbose requirements, keeping them abstract and refering to relevant cheat-sheets or other materials in the explanatory text.
-* Keeping mappings away from the core requirements but rather separating them to be managed and maintained separately.
-
-## Usability to drive adoption
-
-We hope that this increase in usability drives a corresponding increase in adoption by organizations who want to improve the security of their application or the consistency and rigour of their security assessments.
-
-More detail on using the standard can be found in subsequent chapters.
+ASVS 5.0 is designed to serve as a reliable foundation for secure software development. We invite the community to adopt, contribute, and build upon this standard as we collectively advance the state of application security.

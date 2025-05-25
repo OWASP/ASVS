@@ -33,7 +33,7 @@ from asvs import ASVS
 from cyclonedx import CycloneDX
 
 parser = argparse.ArgumentParser(description='Export the ASVS requirements.')
-parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv', 'cdx_json', 'raw', 'json_xl', 'v4_mapping', 'v5_mapping'], default='json')
+parser.add_argument('--format', choices=['json', 'json_flat', 'xml', 'csv', 'cdx_json', 'raw', 'json_xl', 'v4_mapping', 'v5_mapping', 'json_legacy', 'json_flat_legacy', 'csv_legacy', 'xml_legacy'], default='json')
 parser.add_argument('--language', default='en')
 parser.add_argument('--verify-only', action='store_true')
 parser.add_argument('--raw-folder', default='')
@@ -45,29 +45,45 @@ m = ASVS(args.language)
 if bool(args.verify_only):
     if args.format == "csv":
         print(m.verify_csv(m.to_csv()))
+    elif args.format == "csv_legacy":
+        print(m.verify_csv(m.to_csv_legacy()))
     elif args.format == "xml":
         print(m.verify_xml(m.to_xml()))  
+    elif args.format == "xml_legacy":
+        print(m.verify_xml(m.to_xml_legacy()))
     elif args.format == "json_flat":
         print(m.verify_json_flat(m.to_json_flat()))    
+    elif args.format == "json_flat_legacy":
+        print(m.verify_json_flat(m.to_json_flat_legacy()))
+    elif args.format == "json_legacy":
+        print(m.verify_json(m.to_json_legacy()))
     else:
         print(m.verify_json(m.to_json()))    
 else:
     if args.format == "csv":
         print(m.to_csv())
+    elif args.format == "csv_legacy":
+        print(m.to_csv_legacy())
     elif args.format == "xml":
         print(m.to_xml())
+    elif args.format == "xml_legacy":
+        print(m.to_xml_legacy())
     elif args.format == "json_flat":
         print(m.to_json_flat())
+    elif args.format == "json_flat_legacy":
+        print(m.to_json_flat_legacy())
     elif args.format == "json_xl":
         print(m.to_json_xl())
+    elif args.format == "json_legacy":
+        print(m.to_json_legacy())
     elif args.format == "raw":
         print(m.to_raw(args.raw_folder))
     elif args.format == "v4_mapping":
-        print(m.to_v4_mapping())
+        print(m.to_mapping_legacy())
     elif args.format == "v5_mapping":
-        print(m.to_v5_mapping())        
+        print(m.to_mapping())        
     elif args.format == "cdx_json":
         cdx = CycloneDX(m.to_json())
         print(cdx.to_json())
     else:
-        print(m.to_json())   
+        print(m.to_json())

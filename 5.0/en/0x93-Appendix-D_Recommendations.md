@@ -1,4 +1,4 @@
-# Appendix X: Recommendations
+# Appendix D: Recommendations
 
 ## Introduction
 
@@ -38,6 +38,8 @@ There are a number of security processes which were removed from ASVS 5.0 but ar
 * Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile"
 * Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers.
 * Verify that an ongoing process exists to ensure that the application source code is free from backdoors, malicious code (e.g., salami attacks, logic bombs, time bombs), and undocumented or hidden features (e.g., Easter eggs, insecure debugging tools). Complying with this section is not possible without complete access to source code, including third-party libraries, and is therefore probably only suitable for applications requiring the very highest levels of security.
+* Verify that mechanisms are in place to detect and respond to configuration drift in deployed environments. This may include using immutable infrastructure, automated redeployment from a secure baseline, or drift detection tools that compare current state against approved configurations.
+* Verify that configuration hardening is performed on all third-party products, libraries, frameworks, and services as per their individual recommendations.
 
 References:
 
