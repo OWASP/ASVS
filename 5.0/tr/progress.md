@@ -4,7 +4,7 @@
 21.05.2025
 
 # 0x01-Frontispiece.md
-<span style="color:lightgreen">**Tamamlandı.**</span>
+<span style="color:green">**Tamamlandı.**</span>
 
 Contributor tablosu güncellenecek.
 
@@ -31,10 +31,20 @@ Contributor tablosu güncellenecek.
 22.05.2025
 
 # 0x10-V1-Encoding-and-Sanitization.md
+<span style="color:green">**Tamamlandı.**</span>
+
+25.05.2025
+
+# 0x11-V2-Validation-and-Business-Logic.md
+<span style="color:green">**Tamamlandı.**</span>
+
+25.05.2025
+
+# 0x12-V3-Web-Frontend-Security.md
 <span style="color:orange">**Devam ediyor.**</span>
 
-22.05.2025
-
+V3.4'ten itibaren çevrilecek ve dosyaya yazılacak.
+25.05.2025
 
 
 
