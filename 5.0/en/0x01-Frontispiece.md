@@ -6,7 +6,7 @@ The Application Security Verification Standard is a list of application security
 
 ## Copyright and License
 
-Version 5.0 (Bleeding Edge version), 2025
+Version 5.0.0, May 2025
 
 ![license](../images/license.png)
 
@@ -32,9 +32,10 @@ For any reuse or distribution, you must clearly communicate the license terms of
 
 ## Other Major Contributors
 
-|                 |                 |
-|---------------- |---------------- |
-| Sjoerd Langkemper | Isaac Lewis   |
+|                   |                   |
+|-------------------|-------------------|
+| Sjoerd Langkemper | Isaac Lewis       |
+| Mark Carney       | Sandro Gauci      |
 
 ## Other Contributors and Reviewers
 
