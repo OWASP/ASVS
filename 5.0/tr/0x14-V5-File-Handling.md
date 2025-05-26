@@ -37,19 +37,20 @@ Bu bölüm, yüklenen dosyaların uygunsuz şekilde çalıştırılmasını önl
 | **5.3.3** | Sunucu tarafında gerçekleşen dosya işlemlerinin (örneğin dosya açma/decompress işlemi), kullanıcı tarafından sağlanan yol bilgilerini yok saydığı ve zip slip gibi güvenlik açıklarını önlediği doğrulanmalıdır. | 3 |
 
 
-## V5.4 File Download
+## V5.4 Dosya İndirme
 
-This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This also includes making sure they don't contain dangerous content.
+Bu bölüm, indirilebilir dosyaların sunulmasında ortaya çıkabilecek riskleri azaltmaya yönelik gereksinimleri içerir. Bunlar; yol geçişi (path traversal), enjeksiyon saldırıları ve dosyanın tehlikeli içerik barındırıp barındırmadığına ilişkin kontrolleri kapsar.
 
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **5.4.1** | Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header field in the response. | 2 |
-| **5.4.2** | Verify that file names served (e.g., in HTTP response header fields or email attachments) are encoded or sanitized (e.g., following RFC 6266) to preserve document structure and prevent injection attacks. | 2 |
-| **5.4.3** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent serving of known malicious content. | 2 |
+| **5.4.1** | Uygulamanın, kullanıcı tarafından gönderilen dosya adlarını (ör. JSON, JSONP veya URL parametresinde) doğruladığı veya göz ardı ettiği ve yanıtın Content-Disposition başlık alanında bir dosya adı belirttiği doğrulanmalıdır. | 2 |
+| **5.4.2** | Sunulan dosya adlarının (örneğin HTTP yanıt header'larında veya e-posta eklerinde), belge yapısını korumak ve enjeksiyon saldırılarını önlemek için kodlandığı veya temizlendiği (ör. RFC 6266’ya uygun) doğrulanmalıdır. | 2 |
+| **5.4.3** | Güvenilmeyen kaynaklardan elde edilen dosyaların, bilinen kötü amaçlı içeriklerin sunulmasını önlemek amacıyla antivirüs tarayıcılarıyla tarandığı doğrulanmalıdır. | 2 |
 
-## References
 
-For more information, see also:
+## Referanslar
+
+Daha fazla bilgi için:
 
 * [File Extension Handling for Sensitive Information](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)
 * [Example of using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)

@@ -50,6 +50,11 @@ Contributor tablosu güncellenecek.
 
 26.05.2025 14:52
 
+# 0x14-V5-File-Handling.md
+<span style="color:green">**Tamamlandı.**</span>
+
+26.05.2025 21:51
+
 
 
 
