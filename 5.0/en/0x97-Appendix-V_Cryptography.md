@@ -137,6 +137,9 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
+|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
+|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
+|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
 |Encrypt-then-MAC | | A
 |MAC-then-encrypt | | L
 
@@ -275,7 +278,7 @@ Message Authentication Codes (MACs) are cryptographic constructs used to verify 
 | HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
 | KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
 | KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| BLAKE3        | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
+| BLAKE3 (keyed_hash mode) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
 | AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
 | AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
 | Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
@@ -299,4 +302,4 @@ Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57
 
 PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there is minimal hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
-Proposed hybrid TLS key exchange groups that are specified in [draft-tls-westerbaan-xyber768x00-03](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) and supported by major browsers such as [Firefox release 132](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) MAY be used in cryptographic testing environments and/or when available within industry- or government-approved libraries.
+The proposed [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) post-quantum hybrid TLS key agreement method is supported by major browsers such as [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). It may be used in cryptographic testing environments or when available within industry- or government-approved libraries.
