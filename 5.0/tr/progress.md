@@ -41,11 +41,14 @@ Contributor tablosu güncellenecek.
 25.05.2025
 
 # 0x12-V3-Web-Frontend-Security.md
-<span style="color:orange">**Devam ediyor.**</span>
+<span style="color:green">**Tamamlandı.**</span>
 
-V3.4'ten itibaren çevrilecek ve dosyaya yazılacak.
-25.05.2025
+26.05.2025 14:52
 
+# 0x13-V4-API-and-Web-Service.md
+<span style="color:green">**Tamamlandı.**</span>
+
+26.05.2025 14:52
 
 
 

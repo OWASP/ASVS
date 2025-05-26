@@ -8,89 +8,89 @@ Bu kategori, bir web frontend'i üzerinden gerçekleştirilen saldırılara kar�
 
 Bu bölüm, uygulamanın dokümantasyonunda belirtilmesi gereken tarayıcı güvenlik özelliklerini tanımlar.
 
-| # | Açıklama | Seviye | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.1.1** | Uygulama dokümantasyonunda, uygulamayı kullanan tarayıcıların desteklemesi gereken güvenlik özelliklerinin (ör. HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP) ve diğer ilgili HTTP güvenlik mekanizmaları) tanımlandığı doğrulanmalıdır. Ayrıca bu özelliklerin mevcut olmadığı durumlarda uygulamanın nasıl davranması gerektiği (ör. kullanıcıyı uyarmak veya erişimi engellemek) de tanımlanmalıdır. | 3 | v5.0.be-1.50.1 |
+| # | Açıklama | Seviye | 
+| :---: | :---: | :---: |
+| **3.1.1** | Uygulama dokümantasyonunda, uygulamayı kullanan tarayıcıların desteklemesi gereken güvenlik özelliklerinin (ör. HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP) ve diğer ilgili HTTP güvenlik mekanizmaları) tanımlandığı doğrulanmalıdır. Ayrıca bu özelliklerin mevcut olmadığı durumlarda uygulamanın nasıl davranması gerektiği (ör. kullanıcıyı uyarmak veya erişimi engellemek) de tanımlanmalıdır. | 3 |
 
 ## V3.2 İçeriğin Yanlış Yorumlanması
 
 İçerik veya işlevin yanlış bir bağlamda sunulması, kötü amaçlı içeriğin çalıştırılmasına veya görüntülenmesine neden olabilir.
 
-| # | Açıklama | Seviye | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.2.1** | Tarayıcıların HTTP yanıtlarında içerik veya işlevi yanlış bir bağlamda sunmalarını önlemek amacıyla güvenlik kontrollerinin uygulandığı doğrulanmalıdır (ör. API, kullanıcı tarafından yüklenen dosya veya başka bir kaynağın doğrudan çağrılması durumunda). Olası kontroller arasında; yalnızca HTTP istek başlıklarının (ör. Sec-Fetch-\*) doğru bağlamı gösterdiği durumlarda içeriğin sunulması, Content-Security-Policy başlığında "sandbox" yönergesinin kullanılması veya Content-Disposition başlığında "attachment" biçiminin kullanılması yer alabilir. | 1 | v5.0.be-50.6.1 |
-| **3.2.2** | HTML yerine metin olarak görüntülenmesi amaçlanan içeriğin, HTML veya JavaScript gibi içeriklerin istenmeden çalıştırılmasını önleyecek şekilde "createTextNode" veya "textContent" gibi güvenli işleme fonksiyonlarıyla işlendiği doğrulanmalıdır. | 1 | v5.0.be-50.6.2 |
-| **3.2.3** | Uygulamanın istemci tarafı JavaScript kullanırken açık değişken tanımlamaları yaparak, sıkı tür kontrolü uygulayarak, global değişkenleri document nesnesine kaydetmekten kaçınarak ve ad alanı izolasyonu sağlayarak DOM clobbering’den kaçındığı doğrulanmalıdır. | 3 | v5.0.be-10.4.2 |
+| # | Açıklama | Seviye | 
+| :---: | :---: | :---: | 
+| **3.2.1** | Tarayıcıların HTTP yanıtlarında içerik veya işlevi yanlış bir bağlamda sunmalarını önlemek amacıyla güvenlik kontrollerinin uygulandığı doğrulanmalıdır (ör. API, kullanıcı tarafından yüklenen dosya veya başka bir kaynağın doğrudan çağrılması durumunda). Olası kontroller arasında; yalnızca HTTP istek başlıklarının (ör. Sec-Fetch-\*) doğru bağlamı gösterdiği durumlarda içeriğin sunulması, Content-Security-Policy başlığında "sandbox" yönergesinin kullanılması veya Content-Disposition başlığında "attachment" biçiminin kullanılması yer alabilir. | 1 |
+| **3.2.2** | HTML yerine metin olarak görüntülenmesi amaçlanan içeriğin, HTML veya JavaScript gibi içeriklerin istenmeden çalıştırılmasını önleyecek şekilde "createTextNode" veya "textContent" gibi güvenli işleme fonksiyonlarıyla işlendiği doğrulanmalıdır. | 1 |
+| **3.2.3** | Uygulamanın istemci tarafı JavaScript kullanırken açık değişken tanımlamaları yaparak, sıkı tür kontrolü uygulayarak, global değişkenleri document nesnesine kaydetmekten kaçınarak ve ad alanı izolasyonu sağlayarak DOM clobbering’den kaçındığı doğrulanmalıdır. | 3 |
 
 ## V3.3 Çerez Yapılandırması
 
 Bu bölüm, hassas çerezlerin güvenli biçimde yapılandırılması için gereksinimleri tanımlar. Amaç, çerezlerin gerçekten uygulama tarafından oluşturulduğuna dair daha yüksek düzeyde güvence sağlamak ve içeriklerinin sızmasını veya uygunsuz şekilde değiştirilmesini önlemektir.
 
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.3.1** | Çerezlerin 'Secure' niteliğine sahip olduğu ve eğer çerez adı '\__Host-' ön eki ile başlamıyorsa, '__Secure-' ön ekinin kullanıldığı doğrulanmalıdır. | 1 | v5.0.be-50.2.1 |
-| **3.3.2** | Kullanıcı arayüzü kandırma saldırılarına ve tarayıcı tabanlı istek sahteciliği saldırılarına (CSRF) karşı koruma sağlamak amacıyla, her çerezin 'SameSite' niteliğinin kullanım amacına uygun şekilde ayarlandığı doğrulanmalıdır. | 2 | v5.0.be-50.2.3 |
-| **3.3.3** | Çerez adı, diğer sunucularla paylaşılmak üzere açıkça tasarlanmadığı sürece '__Host-' ön eki ile tanımlanmalıdır. | 2 | v5.0.be-50.2.4 |
-| **3.3.4** | Bir çerez değeri istemci tarafı betikleri tarafından erişilememesi gereken bir veri içeriyorsa (ör. oturum token'ı), çerezin 'HttpOnly' niteliğine sahip olduğu ve aynı değerin (ör. oturum token'ı) yalnızca 'Set-Cookie' başlığı ile istemciye iletildiği doğrulanmalıdır. | 2 | v5.0.be-50.2.2 |
-| **3.3.5** | Uygulama bir çerez oluştururken, çerez adı ve değerinin toplam uzunluğunun 4096 baytı aşmadığı doğrulanmalıdır. Çok büyük çerezler tarayıcı tarafından saklanmaz ve isteklerle gönderilmez; bu da çereze bağlı çalışan uygulama işlevlerinin bozulmasına yol açabilir. | 3 | v5.0.be-50.2.5 |
+| # | Açıklama | Seviye |
+| :---: | :---: | :---: | 
+| **3.3.1** | Çerezlerin 'Secure' niteliğine sahip olduğu ve eğer çerez adı '\__Host-' ön eki ile başlamıyorsa, '__Secure-' ön ekinin kullanıldığı doğrulanmalıdır. | 1 |
+| **3.3.2** | Kullanıcı arayüzü kandırma saldırılarına ve tarayıcı tabanlı istek sahteciliği saldırılarına (CSRF) karşı koruma sağlamak amacıyla, her çerezin 'SameSite' niteliğinin kullanım amacına uygun şekilde ayarlandığı doğrulanmalıdır. | 2 | 
+| **3.3.3** | Çerez adı, diğer sunucularla paylaşılmak üzere açıkça tasarlanmadığı sürece '__Host-' ön eki ile tanımlanmalıdır. | 2 | 
+| **3.3.4** | Bir çerez değeri istemci tarafı betikleri tarafından erişilememesi gereken bir veri içeriyorsa (ör. oturum token'ı), çerezin 'HttpOnly' niteliğine sahip olduğu ve aynı değerin (ör. oturum token'ı) yalnızca 'Set-Cookie' başlığı ile istemciye iletildiği doğrulanmalıdır. | 2 |
+| **3.3.5** | Uygulama bir çerez oluştururken, çerez adı ve değerinin toplam uzunluğunun 4096 baytı aşmadığı doğrulanmalıdır. Çok büyük çerezler tarayıcı tarafından saklanmaz ve isteklerle gönderilmez; bu da çereze bağlı çalışan uygulama işlevlerinin bozulmasına yol açabilir. | 3 |
 
-## V3.4 Browser Security Mechanism Headers
+## V3.4 Tarayıcı Güvenlik Mekanizması Başlıkları (Header)
 
-This section describes which security headers should be set on HTTP responses to enable browser security features and restrictions when handling responses from the application.
+Bu bölüm, tarayıcıların uygulamadan gelen yanıtları işlerken güvenlik özelliklerini etkinleştirmesi ve kısıtlamaları uygulaması için HTTP yanıtlarında hangi güvenlik header'larının ayarlanması gerektiğini açıklar.
 
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.4.1** | Verify that a Strict-Transport-Security header field is included on all responses to enforce an HTTP Strict Transport Security (HSTS) policy. A maximum age of at least 1 year must be defined, and for L2 and up, the policy must apply to all subdomains as well. | 1 | v5.0.be-50.3.3 |
-| **3.4.2** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field is a fixed value by the application, or if the Origin HTTP request header field value is used, it is validated against an allowlist of trusted origins. When 'Access-Control-Allow-Origin: *' needs to be used, verify that the response does not include any sensitive information. | 1 | v5.0.be-50.3.6 |
-| **3.4.3** | Verify that HTTP responses include a Content-Security-Policy response header field which defines directives to ensure the browser only loads and executes trusted content or resources, in order to limit execution of malicious JavaScript. As a minimum, a global policy must be used which includes the directives object-src 'none' and base-uri 'none' and defines either an allowlist or uses nonces or hashes. For an L3 application, a per-response policy with nonces or hashes must be defined. | 2 | v5.0.be-50.3.1 |
-| **3.4.4** | Verify that all HTTP responses contain an 'X-Content-Type-Options: nosniff' header field. This instructs browsers not to use content sniffing and MIME type guessing for the given response, and to require the response's Content-Type header field value to match the destination resource. For example, the response to a request for a style is only accepted if the response's Content-Type is 'text/css'. This also enables the use of the Cross-Origin Read Blocking (CORB) functionality by the browser. | 2 | v5.0.be-50.3.2 |
-| **3.4.5** | Verify that the application sets a referrer policy to prevent leakage of technically sensitive data to third-party services via the 'Referer' HTTP request header field. This can be done using the Referrer-Policy HTTP response header field or via HTML element attributes. Sensitive data could include path and query data in the URL, and for internal non-public applications also the hostname. | 2 | v5.0.be-50.3.4 |
-| **3.4.6** | Verify that the web application uses the frame-ancestors directive of the Content-Security-Policy header field for every HTTP response to ensure that it cannot be embedded by default and that embedding of specific resources is allowed only when necessary. Note that the X-Frame-Options header field, although supported by browsers, is obsolete and may not be relied upon. | 2 | v5.0.be-50.3.5 |
-| **3.4.7** | Verify that the Content-Security-Policy header field specifies a location to report violations. | 3 | v5.0.be-50.3.7 |
-| **3.4.8** | Verify that all HTTP responses that initiate a document rendering (such as responses with Content-Type text/html), include the Cross‑Origin‑Opener‑Policy header field with the same-origin directive or the same-origin-allow-popups directive as required. This prevents attacks that abuse shared access to Window objects, such as tabnabbing and frame counting. | 3 | v5.0.be-50.3.8 |
+| # | Açıklama | Seviye |
+| :---: | :---: | :---: |
+| **3.4.1**| Tüm yanıtların, HTTP Strict Transport Security (HSTS) politikasını zorunlu kılmak için Strict-Transport-Security header alanını içerdiği doğrulanmalıdır. En az 1 yıl süreli bir max-age tanımlanmalı ve Seviye 2 ve üzeri için bu politika tüm alt alan adlarını da kapsamalıdır. | 1 |
+| **3.4.2** | Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header'ı, uygulama tarafından sabit bir değer olarak tanımlanmalı veya gelen Origin header değeri güvenilir origin’lerden oluşan bir izinli listeye karşı doğrulanmalıdır. ‘Access-Control-Allow-Origin: *’ kullanılması gerekiyorsa, yanıtın hassas bilgi içermediği doğrulanmalıdır. | 1 |
+| **3.4.3** | HTTP yanıtlarında Content-Security-Policy header'ı bulunduğu ve bu header'ın yalnızca güvenilen içeriklerin veya kaynakların yüklenmesini ve çalıştırılmasını sağlayan yönergeler içerdiği doğrulanmalıdır. Minimum olarak "global policy", object-src 'none', base-uri 'none' yönergelerini içermeli ve izinli liste, nonce veya hash temelli bir yapı içermelidir. Seviye 3 uygulamalarında her yanıt için nonce veya hash içeren özel bir politika tanımlanmalıdır. | 2 |
+| **3.4.4** | Tüm HTTP yanıtlarının 'X-Content-Type-Options: nosniff' header'ını içerdiği doğrulanmalıdır. Bu, tarayıcıya içerik türünü tahmin etmeyi bırakmasını ve yanıtın Content-Type header'ında belirtilen MIME türünün, beklenen kaynak türüyle eşleşmesini zorunlu kılar. Ayrıca bu, tarayıcıda CORB (Cross-Origin Read Blocking) özelliğini etkinleştirir. | 2 |
+| **3.4.5** | Uygulamanın, 'Referer' başlığı yoluyla üçüncü taraflara teknik olarak hassas verilerin sızmasını önlemek için bir 'referrer policy' belirlediği doğrulanmalıdır. Bu, Referrer-Policy HTTP header'ıyla veya HTML öğe nitelikleriyle (element attributes) sağlanabilir. Sızabilecek hassas bilgiler, URL’deki yol ve sorgu parametreleri ile sınırlı uygulamalarda hostname bilgisini içerebilir. | 2 |
+| **3.4.6** | Uygulamanın, Content-Security-Policy header'ı altında 'frame-ancestors' yönergesini her HTTP yanıtında tanımladığı ve bu sayede içeriklerin varsayılan olarak başka sayfalara gömülmesini engellediği doğrulanmalıdır. Gerekli durumlarda özel olarak izin verildiğinden emin olunmalıdır. 'X-Frame-Options' header'ı, tarayıcılar tarafından desteklenmesine rağmen, artık güncel değildir ve güvenlik amacıyla kullanılmamalıdır. | 2 |
+| **3.4.7**| Content-Security-Policy header'ında ihlal bildirimlerinin gönderileceği bir adresin tanımlandığı doğrulanmalıdır. | 3 |
+| **3.4.8** | Bir belgenin işlenmesini ve sunulmasını başlatan tüm HTTP yanıtlarında (örneğin 'text/html' tipi yanıtlar), 'Cross-Origin-Opener-Policy' header'ı 'same-origin' veya 'same-origin-allow-popups' yönergeleriyle birlikte yer almalıdır. Bu, tabnabbing ve frame counting gibi, pencere nesnelerine paylaşımlı erişimi sömüren saldırılara karşı koruma sağlar. | 3 |
 
-## V3.5 Browser Origin Separation
+## V3.5 Tarayıcı Menşei Ayırımı
 
-When accepting a request to sensitive functionality on the server side, the application needs to ensure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
+Sunucu tarafında hassas işlevlere yönelik bir isteği kabul ederken, uygulamanın, isteğin uygulamanın kendisi veya güvenilir bir tarafça başlatıldığından ve bir saldırgan tarafından taklit edilmediğinden emin olması gerekir.
 
-Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state-changing operations, or resource-demanding functionality (such as data export).
+Bu bağlamda hassas işlevsellik, kimliği doğrulanmış ve doğrulanmamış kullanıcılar için form gönderilerinin kabul edilmesini (kimlik doğrulama isteği gibi), durum değiştirme işlemlerini veya kaynak gerektiren işlevselliği (veri dışa aktarma gibi) içerebilir.
 
-The key protections here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies. Another common protection is the CORS preflight mechanism. This mechanism will be critical for endpoints designed to be called from a different origin, but it can also be a useful request forgery prevention mechanism for endpoints which are not designed to be called from a different origin.
+Buradaki temel korumalar, JavaScript için Same Origin Policy ve çerezler için SameSite mantığı gibi tarayıcı güvenlik politikalarıdır. Bir diğer yaygın koruma ise CORS ön kontrol mekanizmasıdır. Bu mekanizma, farklı bir kaynaktan çağrılmak üzere tasarlanmış uç noktalar için kritik olacaktır, ancak farklı bir kaynaktan çağrılmak üzere tasarlanmamış uç noktalar için de yararlı bir istek sahteciliği önleme mekanizması olabilir.
 
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.5.1** | Verify that, if the application does not rely on the CORS preflight mechanism to prevent disallowed cross-origin requests to use sensitive functionality, these requests are validated to ensure they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP header fields that are not CORS-safelisted request-header fields. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 1 | v5.0.be-50.4.1 |
-| **3.5.2** | Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a request which does not trigger a CORS-preflight request. This may require checking the values of the 'Origin' and 'Content-Type' request header fields or using an extra header field that is not a CORS-safelisted header-field. | 1 | v5.0.be-50.4.3 |
-| **3.5.3** | Verify that HTTP requests to sensitive functionality use appropriate HTTP methods such as POST, PUT, PATCH, or DELETE, and not methods defined by the HTTP specification as "safe" such as HEAD, OPTIONS, or GET. Alternatively, strict validation of the Sec-Fetch-* request header fields can be used to ensure that the request did not originate from an inappropriate cross-origin call, a navigation request, or a resource load (such as an image source) where this is not expected. | 1 | v5.0.be-50.4.4 |
-| **3.5.4** | Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | 2 | v5.0.be-50.1.1 |
-| **3.5.5** | Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | 2 | v5.0.be-50.4.2 |
-| **3.5.6** | Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.1 |
-| **3.5.7** | Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | 3 | v5.0.be-50.5.2 |
-| **3.5.8** | Verify that authenticated resources (such as images, videos, scripts, and other documents) can be loaded or embedded on behalf of the user only when intended. This can be accomplished by strict validation of the Sec-Fetch-* HTTP request header fields to ensure that the request did not originate from an inappropriate cross-origin call, or by setting a restrictive Cross-Origin-Resource-Policy HTTP response header field to instruct the browser to block returned content. | 3 | v5.0.be-50.5.3 |
+| # | Açıklama | Seviye |
+| :---: | :---: | :---: |
+| **3.5.1** | Uygulama, hassas işlevselliğe yönelik izinsiz cross-origin istekleri önlemek için CORS preflight mekanizmasına güvenmiyorsa, bu tür isteklerin gerçekten uygulamadan geldiği doğrulanmalıdır. Bu, anti-forgery token kullanımı veya CORS tarafından güvenli kabul edilmeyen özel HTTP header'larının zorunlu kılınmasıyla yapılabilir. Bu, tarayıcı tabanlı istek sahteciliği (CSRF) saldırılarına karşı bir savunmadır. | 1 |
+| **3.5.2** | Uygulama, hassas işlevlerin izinsiz cross-origin çağrılmasını önlemek için CORS preflight mekanizmasına güveniyorsa, bu işlevlerin bir CORS-preflight isteğini tetiklemeden çağrılamadığı doğrulanmalıdır. Bu, 'Origin' ve 'Content-Type' header'larının doğrulanmasını veya CORS-safelisted olmayan bir header'ın ve alanın kullanılmasını gerektirebilir. | 1 |
+| **3.5.3**| Hassas işlevselliğe yönelik HTTP isteklerinin 'POST', 'PUT', 'PATCH' veya 'DELETE' gibi uygun HTTP yöntemlerini kullandığı ve HTTP spesifikasyonuna göre "güvenli" olan 'GET', 'OPTIONS' veya 'HEAD' gibi yöntemlerle çağrılamadığı doğrulanmalıdır. Alternatif olarak 'Sec-Fetch-*' header'larının sıkı şekilde doğrulanması da uygunsuz cross-origin, navigasyon veya medya yükleme isteklerini ayırt etmek için kullanılabilir. | 1 |
+| **3.5.4** | Farklı uygulamaların farklı hostname'lerde barındırıldığı ve böylece Same-Origin Policy tarafından sağlanan kısıtlamalardan (örneğin çerez erişim sınırları, kaynaklar arası etkileşim kontrolleri) faydalanıldığı doğrulanmalıdır. | 2 |
+| **3.5.5**| postMessage arayüzü üzerinden alınan iletilerin, mesajın kökeni güvenilir değilse veya mesaj sözdizimi geçersizse reddedildiği doğrulanmalıdır. | 2 |
+| **3.5.6** | Uygulamanın herhangi bir yerinde JSONP işlevselliğinin etkin olmadığı doğrulanmalıdır. Bu, XSSI (Cross-Site Script Inclusion) saldırılarını önlemek içindir. | 3 |
+| **3.5.7** | Yetkilendirme gerektiren verilerin, JavaScript dosyaları gibi betik kaynaklarının yanıtlarında yer almadığı, XSSI saldırılarını önlemek için doğrulanmalıdır. | 3 |
+| **3.5.8** | Kimliği doğrulanmış kaynakların (örneğin görseller, videolar, betikler ve belgeler) yalnızca gerçekten amaçlandığında kullanıcı adına yüklenebildiği veya gömülebildiği doğrulanmalıdır. Bu, isteğin uygun olmayan bir çapraz kaynak çağrısından kaynaklanmadığından emin olmak için Sec-Fetch-* HTTP istek başlığı alanlarının sıkı bir şekilde doğrulanmasıyla veya tarayıcıya döndürülen içeriği engelleme talimatı vermek için kısıtlayıcı bir Cross-Origin-Resource-Policy HTTP yanıt başlığı alanı ayarlayarak gerçekleştirilebilir. | 3 |
 
-## V3.6 External Resource Integrity
+## V3.6 Harici Kaynak Bütünlüğü
 
-This section provides guidance for the safe hosting of content on third-party sites.
+Bu bölüm, içeriklerin üçüncü taraf sitelerde güvenli şekilde barındırılmasıyla ilgili rehberlik sunar.
 
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.6.1** | Verify that client-side assets, such as JavaScript libraries, CSS, or web fonts, are only hosted externally (e.g., on a Content Delivery Network) if the resource is static and versioned and Subresource Integrity (SRI) is used to validate the integrity of the asset. If this is not possible, there should be a documented security decision to justify this for each resource. | 3 | v5.0.be-50.7.1 |
+| # | Açıklama | Seviye |
+| :---: | :---: | :---: |
+| **3.6.1** | JavaScript kütüphaneleri, CSS veya web fontları gibi istemci tarafı varlıkların yalnızca statik ve sürümlü olması, varlığın bütünlüğünü doğrulamak için Subresource Integrity (SRI) kullanılması durumunda harici olarak (örneğin, bir İçerik Dağıtım Ağı üzerinde) barındırıldığı doğrulanmalıdır. Bu mümkün değilse, her bir kaynak için bunu gerekçelendiren belgelenmiş bir güvenlik kararı bulunmalıdır. | 3 |
 
-## V3.7 Other Browser Security Considerations
+## V3.7 Diğer Tarayıcı Güvenliği Hususları
 
-This section includes various other security controls and modern browser security features required for client-side browser security.
+Bu bölüm, istemci tarafı tarayıcı güvenliği için gerekli olan çeşitli diğer güvenlik kontrolleri ve modern tarayıcı güvenlik özelliklerini içerir.
 
-| # | Description | Level | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **3.7.1** | Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | 2 | v5.0.be-50.8.2 |
-| **3.7.2** | Verify that the application will only automatically redirect the user to a different hostname or domain (which is not controlled by the application) where the destination appears on an allowlist. | 2 | v5.0.be-50.8.5 |
-| **3.7.3** | Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | 3 | v5.0.be-50.8.1 |
-| **3.7.4** | Verify that the application's top-level domain (e.g., site.tld) is added to the public preload list for HTTP Strict Transport Security (HSTS). This ensures that the use of TLS for the application is built directly into the main browsers, rather than relying only on the Strict-Transport-Security response header field. | 3 | v5.0.be-50.8.4 |
-| **3.7.5** | Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features. | 3 | v5.0.be-50.8.3 |
+| # | Açıklama | Seviye |
+| :---: | :--- | :---: |
+| **3.7.1** | Uygulamanın yalnızca hâlâ desteklenen ve güvenli kabul edilen istemci tarafı teknolojileri kullandığı doğrulanmalıdır. Bu gereksinimi karşılamayan teknolojilere örnek olarak NSAPI eklentileri, Flash, Shockwave, ActiveX, Silverlight, NACL veya istemci tarafı Java applet’leri verilebilir. | 2 |
+| **3.7.2** | Uygulamanın, yalnızca hedef adres bir izinli listede yer alıyorsa kullanıcıyı otomatik olarak farklı bir ana makine adına veya uygulamanın kontrolünde olmayan bir etki alanına yönlendirdiği doğrulanmalıdır. | 2 |
+| **3.7.3** | Uygulamanın, kullanıcı uygulamanın kontrolü dışındaki bir URL’ye yönlendirildiğinde, yönlendirme hakkında bir bildirim gösterdiği ve kullanıcının bu gezintiyi iptal edebilmesi için bir seçenek sunduğu doğrulanmalıdır. | 3 |
+| **3.7.4** | Uygulamanın en üst düzey etki alanının (örneğin, site.tld) HTTP Strict Transport Security (HSTS) için genel preload listesine eklendiği doğrulanmalıdır. Bu, uygulamanın TLS kullanımının ana tarayıcılar tarafından doğrudan tanınmasını ve yalnızca Strict-Transport-Security yanıt header'ına bağlı kalınmamasını sağlar. | 3 |
+| **3.7.5** | Uygulamaya erişen tarayıcının beklenen güvenlik özelliklerini desteklememesi durumunda, uygulamanın dokümantasyona uygun şekilde davrandığı (örneğin kullanıcıyı uyarma veya erişimi engelleme) doğrulanmalıdır. | 3 |
 
-## References
+## Referanslar
 
-For more information, see also:
+Daha fazla bilgi için:
 
 * [Set-Cookie __Host- prefix details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes)
 * [OWASP Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
