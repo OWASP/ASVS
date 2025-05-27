@@ -1,4 +1,4 @@
-# Appendix V: Cryptography Standards
+# Appendix C: Cryptography Standards
 
 The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
 
