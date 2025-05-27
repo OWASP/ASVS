@@ -1,7 +1,6 @@
 # Appendix A: Glossary
 
 * **Absolute Maximum Session Lifetime** - Also referred to as "Overall Timeout" by NIST, this is the maximal amount of time a session can remain active following authentication regardless of user interaction. This is a component of session expiration.
-* **Address Space Layout Randomization** (ASLR) – A technique to make exploiting memory corruption bugs more difficult.
 * **Allowlist** – A list of permitted data or operations, for example, a list of characters that are allowed to perform input validation.
 * **Anti-forgery token** - A mechanism by which one or more tokens are passed in a request and validated by the application server to ensure that the request has come from an expected endpoint.
 * **Application Security** – Application-level security focuses on the analysis of components that comprise the application layer of the Open Systems Interconnection Reference Model (OSI Model), rather than focusing on for example the underlying operating system or connected networks.
@@ -9,8 +8,8 @@
 * **Application Security Verification Report** – A report that documents the overall results and supporting analysis produced by the verifier for a particular application.
 * **Authentication** – The verification of the claimed identity of an application user.
 * **Automated Verification** – The use of automated tools (either dynamic analysis tools, static analysis tools, or both) that use vulnerability signatures to find problems.
-* **Black box testing** – It is a method of software testing that examines the functionality of an application without peering into its internal structures or workings.
-* **Component** – a self-contained unit of code, with associated disk and network interfaces that communicates with other components.
+* **Black box testing** – A method of software testing that examines the functionality of an application without peering into its internal structures or workings.
+* **Component** – A self-contained unit of code, with associated disk and network interfaces that communicates with other components.
 * **Credential Service Provider** (CSP) - Also called an Identity Provider (IdP). A source of user data which may be used as an authentication source by other applications.
 * **Cross-Site Scripting** (XSS) – A security vulnerability typically found in web applications allowing the injection of client-side scripts into content.
 * **Cryptographic module** – Hardware, software, and/or firmware that implements cryptographic algorithms and/or generates cryptographic keys.
@@ -21,9 +20,9 @@
 * **Dynamic Application Security Testing** (DAST) - Technologies are designed to detect conditions indicative of a security vulnerability in an application in its running state.
 * **Dynamic Verification** – The use of automated tools that use vulnerability signatures to find problems during the execution of an application.
 * **Fast IDentity Online** (FIDO) - A set of authentication standards that allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
-* **Universally Unique Identifier** (UUID) – a unique reference number used as an identifier in software.
-* **HyperText Transfer Protocol** (HTTPS) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
-* **Hardcoded keys** – Cryptographic keys that are stored on the filesystem, be it in code, comments or files.
+* **Universally Unique Identifier** (UUID) – A unique reference number used as an identifier in software.
+* **HyperText Transfer Protocol** (HTTP) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
+* ***HyperText Transfer Protocol over SSL/TLS** (HTTPS) – A method of securing HTTP communication by encrypting it using Transport Layer Security (TLS).
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
 * **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library.
 * **HTTP Strict Transport Security** (HSTS) - An policy which instructs the browser to only connect to the domain returning the header via TLS and when a valid certificate is presented. It is activated using the Strict-Transport-Security response header field.
@@ -39,8 +38,6 @@
 * **One-time Password** (OTP) - A password that is uniquely generated to be used on a single occasion.
 * **Object-relational Mapping** (ORM) - A system used to allow a relational/table-based database to be referenced and queried within an application program using an application-compatible object model.
 * **Password-Based Key Derivation Function 2** (PBKDF2) - A special one-way algorithm used to create a strong cryptographic key from an input text (such as a password) and an additional random salt value and can therefore be used to make it harder to crack a password offline if the resulting value is stored instead of the original password.
-* **Personally Identifiable Information** (PII) - is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context.
-* **Position-independent executable** (PIE) - A body of machine code that, being placed somewhere in the primary memory, executes properly regardless of its absolute address.
 * **Public Key Infrastructure** (PKI) - An arrangement that binds public keys with respective identities of entities. The binding is established through a process of registration and issuance of certificates at and by a certificate authority (CA).
 * **Public Switched Telephone Network** (PSTN) - The traditional telephone network that includes both fixed-line telephones and mobile telephones.
 * **Real-time Transport Protocol** (RTP) and **Real-time Transport Control Protocol** (RTCP) – Two protocols used in association for transporting multimedia streams. Used by the WebRTC stack. Defined in RFC 3550.
@@ -65,7 +62,7 @@
 * **SQL Injection** (SQLi) – A code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry point.
 * **Stateful Session Mechanism** - In a stateful session mechanism, the application retains session state at the backend which typically corresponds to a session token, generated using a cryptographically secure pseudo-random number generator (CSPRNG), which is issued to the end user.
 * **Stateless Session Mechanism** - A stateless session mechanism will use a self-contained token which is passed to clients, and contains session information that is not necessarily stored within the service which then receives and validates the token. In reality, a service will need to have access to some session information (such as a JWT revocation list) in order to be able to enforce required security controls.
-* **SVG** - Scalable Vector Graphics.
+* **Scalable Vector Graphics** (SVG) - An XML-based markup language for describing two-dimensional based vector graphics.
 * **Time-based OTP** - A method of generating an OTP where the current time acts as part of the algorithm to generate the password.
 * **Time-of-check to time-of-use** (TOCTOU) - A situation where an application checks the state of a resource before using that resource, but the resource's state can be changed between the check and the use. This can invalidate the results of the check and cause a situation where the application performs invalid actions due to this state mismatch.
 * **Threat Modeling** - A technique consisting of developing increasingly refined security architectures to identify threat agents, security zones, security controls, and important technical and business assets.
@@ -74,8 +71,8 @@
 * **Traversal Using Relays around NAT** (TURN) – An extension of the STUN protocol using a TURN server as a relay when direct peer-to-peer connections cannot be established. Defined in RFC 8656.
 * **Trusted Platform Module** (TPM) - A type of HSM that is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
 * **Trusted Service Layer** - Any trusted control enforcement point, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. Trusted means that there is no concern that an untrusted user will be able to bypass or skip the layer or controls implemented at that layer.
-* **Universal 2nd Factor** (U2F) - One of the standards created by FIDO specifically for allowing a USB or NFC security key to be used as a 2nd authentication factor.
-* **URI/URL/URL fragments** – A Uniform Resource Identifier is a string of characters used to identify a name or a web resource. A Uniform Resource Locator is often used as a reference to a resource.
+* **Uniform Resource Identifier** (URI)- A unique string of characters that identifies a resource, such as webpage, mail address, places.
+* **Uniform Resource Locator** (URL) - A string that specifies the location of resource on the Internet.
 * **Verifier** – The person or team that is reviewing an application against the OWASP ASVS requirements.
 * **Web Real-Time Communication** (WebRTC) – A protocol stack and associated web API used for the transport of multimedia streams in web applications, usually in the context of teleconferencing. Based on SRTP, SRTCP, DTLS, SDP and STUN/TURN.
 * **What You See Is What You Get** (WYSIWYG) - A type of rich content editor that shows how the content will actually look when rendered rather than showing the coding used to govern the rendering.
