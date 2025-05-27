@@ -71,8 +71,8 @@
 * **Traversal Using Relays around NAT** (TURN) – An extension of the STUN protocol using a TURN server as a relay when direct peer-to-peer connections cannot be established. Defined in RFC 8656.
 * **Trusted Platform Module** (TPM) - A type of HSM that is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
 * **Trusted Service Layer** - Any trusted control enforcement point, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. Trusted means that there is no concern that an untrusted user will be able to bypass or skip the layer or controls implemented at that layer.
-* **Uniform Resource Identifier** (URI)- A unique string of characters that identifies a resource, such as webpage, mail address, places. 
-* **Uniform Resource Locator** (URL) - A string that specifies the location of resource on the Internet. 
+* **Uniform Resource Identifier** (URI)- A unique string of characters that identifies a resource, such as webpage, mail address, places.
+* **Uniform Resource Locator** (URL) - A string that specifies the location of resource on the Internet.
 * **Verifier** – The person or team that is reviewing an application against the OWASP ASVS requirements.
 * **Web Real-Time Communication** (WebRTC) – A protocol stack and associated web API used for the transport of multimedia streams in web applications, usually in the context of teleconferencing. Based on SRTP, SRTCP, DTLS, SDP and STUN/TURN.
 * **What You See Is What You Get** (WYSIWYG) - A type of rich content editor that shows how the content will actually look when rendered rather than showing the coding used to govern the rendering.
