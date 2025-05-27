@@ -10,6 +10,7 @@
 * **Automated Verification** – The use of automated tools (either dynamic analysis tools, static analysis tools, or both) that use vulnerability signatures to find problems.
 * **Black box testing** – A method of software testing that examines the functionality of an application without peering into its internal structures or workings.
 * **Component** – A self-contained unit of code, with associated disk and network interfaces that communicates with other components.
+* **Credential Service Provider** (CSP) - Also called an Identity Provider (IdP). A source of user data which may be used as an authentication source by other applications.
 * **Cross-Site Scripting** (XSS) – A security vulnerability typically found in web applications allowing the injection of client-side scripts into content.
 * **Cryptographic module** – Hardware, software, and/or firmware that implements cryptographic algorithms and/or generates cryptographic keys.
 * **Common Weakness Enumeration** (CWE) - A community-developed list of common software security weaknesses. It serves as a common language, a measuring stick for software security tools, and a baseline for weakness identification, mitigation, and prevention efforts.
@@ -21,7 +22,7 @@
 * **Fast IDentity Online** (FIDO) - A set of authentication standards that allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
 * **Universally Unique Identifier** (UUID) – A unique reference number used as an identifier in software.
 * **HyperText Transfer Protocol** (HTTP) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
-* ***HyperText Transfer Protocol over TLS** (HTTPS) – A method of securing HTTP communication by layering HTTP over TLS protocol. Also referred as HTTP/S, HTTP/TLS.
+* ***HyperText Transfer Protocol over SSL/TLS** (HTTPS) – A method of securing HTTP communication by encrypting it using Transport Layer Security (TLS).
 * **Hardware Security Module** (HSM) - Hardware component that stores cryptographic keys and other secrets in a protected manner.
 * **Hibernate Query Language** (HQL) - A query language that is similar in appearance to SQL used by the Hibernate ORM library.
 * **HTTP Strict Transport Security** (HSTS) - An policy which instructs the browser to only connect to the domain returning the header via TLS and when a valid certificate is presented. It is activated using the Strict-Transport-Security response header field.
