@@ -61,7 +61,7 @@ Note that since there were major numbering changes between v4.0.3 and the bleedi
 
 The mappings in the [mappings folder](https://github.com/OWASP/ASVS/tree/master/5.0/mappings/) can be used to check what number the requirement was at the point in time it was being discussed:
 
-If you are comfortable that your query has  has not been previously discussed, you can open an issue. Please try and include the ASVS requirement number and text you are talking about in the issue to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
+If you are comfortable that your query has not been previously discussed, you can open an issue. Please try and include the ASVS requirement number and text you are talking about in the issue to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
 
 <!-- DO WE STILL WANT THIS HERE???????
 
