@@ -1,4 +1,4 @@
-# Contributors
+# Appendix E - Contributors
 
 We gratefully acknowledge the contributions of the following people who have commented or opened pull requests since the the release of ASVS 4.0.0.
 
