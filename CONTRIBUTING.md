@@ -63,7 +63,7 @@ The mappings in the [mappings folder](https://github.com/OWASP/ASVS/tree/master/
 
 If you are comfortable that your query has not been previously discussed, you can open an issue. Please try and include the ASVS requirement number and text you are talking about in the issue to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
 
-<!-- DO WE STILL WANT THIS HERE???????
+<!-- COMMENTING OUT FOR FUTURE USE
 
   * Mapping from v4.0.3 to v5.0.0:
     * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v4.0.3_to_v5.0.0.yml> - mapping file
