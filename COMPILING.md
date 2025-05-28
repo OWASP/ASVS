@@ -37,7 +37,7 @@ docker run --rm -v "/Path/to/the/repo/4.0:/data" ghcr.io/owasp/asvs/documentbuil
 ```
 
 To download the docker image from the repository, first create a Personal Access Token with read access to packages.
-Then you can download the docker image from the [asvs package repository](https://github.com/OWASP/ASVS/pkgs/container/asvs%2Fdocumentbuilder):
+Then you can download the docker image from the asvs package repository: `https://github.com/OWASP/ASVS/pkgs/container/asvs%2Fdocumentbuilder`
 
 ```
 $ echo <TOKEN> | docker login ghcr.io -u <USERNAME> --password-stdin
