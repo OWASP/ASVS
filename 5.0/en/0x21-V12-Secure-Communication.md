@@ -10,7 +10,7 @@ The general concepts promoted by this chapter include:
 * Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
 * Ensuring that communications are not being intercepted by unauthorized parties through the use of signed certificates.
 
-In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in Appendix V - Cryptography Standards.
+In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in Appendix C - Cryptography Standards.
 
 ## V12.1 General TLS Security Guidance
 
