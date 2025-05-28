@@ -39,8 +39,8 @@ For any reuse or distribution, you must clearly communicate the license terms of
 
 ## Other Contributors and Reviewers
 
-\<\<TABLE REMOVED PENDING AN UPDATE>>
+We have included a list of the other contributors in Appendix E.
 
-If a credit is missing from the 5.x credit list above, please log a ticket at GitHub to be recognized in future 5.x updates.
+If a credit is missing from the 5.x credit list, please log a ticket at GitHub to be recognized in future 5.x updates.
 
 The Application Security Verification Standard builds on the work of those involved in ASVS 1.0 (2008) through 4.0 (2019). Much of the structure and many of the verification items that remain in ASVS today were originally written by Andrew van der Stock, Mike Boberski, Jeff Williams, and Dave Wichers, among numerous other contributors. Thank you to everyone who has contributed in the past. For a comprehensive list of earlier contributors, please consult each prior version.
