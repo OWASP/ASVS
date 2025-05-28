@@ -69,7 +69,7 @@ Version 4.x described the levels as L1 ("Minimum"), L2 ("Standard"), and L3 ("Ad
 
 Version 5.0 addresses several issues with this approach which are described in the following paragraphs.
 
-As a practical matter, whereas version 4.x used tick marks for level indicators, 5.x uses a simple number on all formats of the standard including markdown, PDF, DOCX, CSV, JSON and XML. For backwards compatibility, we also generate legacy versions of the CSV, JSON and XML outputs which still use tick marks.
+As a practical matter, whereas version 4.x used tick marks for level indicators, 5.x uses a simple number on all formats of the standard including markdown, PDF, DOCX, CSV, JSON and XML. For backwards compatibility, legacy versions of the CSV, JSON and XML outputs which still use tick marks are also generated.
 
 ### Easier Entry Level
 
