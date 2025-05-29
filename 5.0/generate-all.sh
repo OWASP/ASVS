@@ -13,7 +13,7 @@ fi
 for lang in ${LANGS}; do
   if [[ " $ALLOWED_LANGS " =~ " $lang " ]]; then
 
-    vers="5.0"
+    vers="5.0.0"
     verslong="./docs_$lang/OWASP Application Security Verification Standard $vers-$lang"
 
     python3 tools/export.py --format json --language $lang > "$verslong.json"
