@@ -299,6 +299,10 @@ class ASVS:
             req.pop('level1', None)
             req.pop('level2', None)
             req.pop('level3', None)
+            req.pop('nist', None)
+            req.pop('cwe', None)
+            req.pop('NIST', None)
+            req.pop('CWE', None)
             # For asvs_flat2, also remove L1/L2/L3 if present
             req.pop('L1', None)
             req.pop('L2', None)
@@ -321,6 +325,10 @@ class ASVS:
                     req.pop('L1', None)
                     req.pop('L2', None)
                     req.pop('L3', None)
+                    req.pop('nist', None)
+                    req.pop('cwe', None)
+                    req.pop('NIST', None)
+                    req.pop('CWE', None)
 
     def get_new_modification(self):
         new_modification = {}
