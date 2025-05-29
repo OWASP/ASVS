@@ -6,7 +6,7 @@ If you are aware of any mistakes or would like your name to appear differently, 
 
 | | | | |
 |---|---|---|---|
-| Johan Sydseter ([sydseter](https://github.com/sydseter)) | luis servin ([lfservin](https://github.com/lfservin)) | Oleksii ([oleksiidov](https://github.com/oleksiidov)) | IZUKA Masahiro ([maizuka](https://github.com/maizuka))  |
+| Johan Sydseter ([sydseter](https://github.com/sydseter)) | luis servin ([lfservin](https://github.com/lfservin)) | Oleksii Dovydkov ([oleksiidov](https://github.com/oleksiidov)) | IZUKA Masahiro ([maizuka](https://github.com/maizuka))  |
 | James Sulinski ([jsulinski](https://github.com/jsulinski)) | Eli Saad ([ThunderSon](https://github.com/ThunderSon)) | [kkshitish9](https://github.com/kkshitish9) | Andrew van der Stock ([vanderaj](https://github.com/vanderaj))  |
 | Rick M ([kingthorin](https://github.com/kingthorin)) | Bankde Eakasit ([Bankde](https://github.com/Bankde)) | Michael Gargiullo ([mgargiullo](https://github.com/mgargiullo)) | Raphael Dunant ([Racater](https://github.com/Racater))  |
 | Cesar Kohl ([cesarkohl](https://github.com/cesarkohl)) | [inaz0](https://github.com/inaz0) | Joerg Bruenner ([JoergBruenner](https://github.com/JoergBruenner)) | David Deatherage ([securitydave](https://github.com/securitydave))  |
