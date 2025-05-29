@@ -743,7 +743,7 @@ class ASVS:
     def to_csv(self):
         ''' Returns CSV for v5 (single L) (new default) '''
         si = StringIO()
-        writer = csv.DictWriter(si, ['chapter_id', 'chapter_name', 'section_id', 'section_name', 'req_id', 'req_description', 'L', 'cwe', 'nist'])
+        writer = csv.DictWriter(si, ['chapter_id', 'chapter_name', 'section_id', 'section_name', 'req_id', 'req_description', 'L'])
         writer.writeheader()
         writer.writerows(self.asvs_flat_v5['requirements'])
         return si.getvalue()
