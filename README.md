@@ -39,9 +39,9 @@ They are supported by the ASVS Working Group which consists of [Shanni Prutchi](
 
 The latest stable version is version 5.0.0 (dated May 2025), which can be found:
 
-* [OWASP Application Security Verification Standard 5.0.0 English (PDF)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/OWASP%20Application%20Security%20Verification%20Standard%205.0.0-en.pdf)
-* [OWASP Application Security Verification Standard 5.0.0 English (Word)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%205.0.0-en.docx)
-* [OWASP Application Security Verification Standard 5.0.0 English (CSV)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%205.0.0-en.csv)
+* [OWASP Application Security Verification Standard 5.0.0 English (PDF)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/OWASP_Application_Security_Verification_Standard_5.0.0_en.pdf)
+* [OWASP Application Security Verification Standard 5.0.0 English (Word)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.docx)
+* [OWASP Application Security Verification Standard 5.0.0 English (CSV)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.csv)
 * [OWASP Application Security Verification Standard 5.0.0 (GitHub Branch)](https://github.com/OWASP/ASVS/tree/v5.0.0)
 
 The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be a patch release, version **5.0.1**. For details on the ASVS release strategy, see [the release strategy section of CONTRIBUTING.md](CONTRIBUTING.md#release-strategy).
