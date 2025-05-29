@@ -3,7 +3,7 @@ BUILDDIR=build
 DISTDIR=dist
 TOOLSDIR=tools
 TEMPLATEDIR=templates
-TARGETNAME=OWASP_Application_Security_Verification_Standard-5.0.0_
+TARGETNAME=OWASP Application Security Verification Standard-5.0.0-
 
 LANGDIRS=en #fr
 # Add the language directories to the project directory
