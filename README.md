@@ -13,9 +13,9 @@ This work is licensed under a
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg
 
-🎉🎉🎉 Welcome to Version 5.0 of the ASVS! 🎉🎉🎉 
+🎉🎉🎉 **Welcome to Version 5.0 of the ASVS!** 🎉🎉🎉 
 
-Released LIVE on stage at Global AppSec EU Barcelona 2025!
+**Released LIVE on stage at Global AppSec EU Barcelona 2025!**
 
 ## Introduction
 

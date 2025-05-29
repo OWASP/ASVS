@@ -1,14 +1,14 @@
-# Appendix X: Recommendations
+# Appendix D: Recommendations
 
 ## Introduction
 
-Whilst preparing version 5.0 of the Application Security Verification Standard (ASVS), it became clear that there were a number of existing and newly suggested items that we didn't want to include as requirements in 5.0. This may have been because they were not in scope for ASVS as per the definition for 5.0 or alternatively we did not feel we could make them mandatory, even through we felt they were a good idea.
+Whilst preparing version 5.0 of the Application Security Verification Standard (ASVS), it became clear that there were a number of existing and newly suggested items that shouldn't be included as requirements in 5.0. This may have been because they were not in scope for ASVS as per the definition for 5.0 or alternatively it was felt that while they were a good idea, they could not be made mandatory.
 
-We did not want to lose these items entirely so we have tried to capture some of them in this appendix.
+Not wanting to lose all these items entirely, some have been captured in this appendix.
 
 ## Recommended, in-scope mechanisms
 
-The following items are in-scope for ASVS. We don't think they should be made mandatory but we would strongly recommend considering them as part of a secure application.
+The following items are in-scope for ASVS. They should not be made mandatory but it is strongly recommended to consider them as part of a secure application.
 
 * A password strength meter should provided to help users set a stronger password.
 * Create a publicly available security.txt file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues.
@@ -25,7 +25,7 @@ References:
 The following items were previously in ASVS but are not really requirements. Rather they are principles to consider when implementing security controls that when followed will lead to more robust controls. These include:
 
 * Security controls should be centralized, simple (economy of design), verifiably secure, and reusable. This should avoid duplicate, missing, or ineffective controls.
-* Wherever possible, use previously written and well-vetted security control implementations rather than relying on implementing your own.
+* Wherever possible, use previously written and well-vetted security control implementations rather than relying on implementing controls from scratch.
 * Ideally, a single access control mechanism should be used to access protected data and resources. All requests should pass through this single mechanism to avoid copy and paste or insecure alternative paths.
 * Attribute or feature-based access control is a recommended pattern whereby the code checks the user's authorization for a feature or data item rather than just their role. Permissions should still be allocated using roles.
 

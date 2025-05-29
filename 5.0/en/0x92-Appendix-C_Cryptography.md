@@ -1,4 +1,4 @@
-# Appendix V: Cryptography Standards
+# Appendix C: Cryptography Standards
 
 The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
 
@@ -85,28 +85,27 @@ Approved cipher algorithms are listed in order of preference.
 
 ### AES Cipher Modes
 
-Modern ciphers make use of various modes, particularly AES for various purposes. The requirements on AES Cipher Modes are described here. Some AES modes are only approved for disk-level block encryption.
+Block ciphers, such as AES, can be used with different modes of operations. Many modes of operations, such as Electronic codebook (ECB), are insecure and must not be used. The Galois/Counter Mode (GCM) and Counter with cipher block chaining message authentication code (CCM) modes of operations provide authenticated encryption and should be used in modern applications.
+
+Approved modes are listed in order of preference.
 
 | Mode | Authenticated | Reference | Status | Restriction |
 |--|--|--|--|--|
 | GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
 | CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
-| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | A | |
-| XTS | No | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) | A | For disk-level block encryption only. |
-| XEX | No | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) | A | For disk-level block encryption only. |
-| LRW | No | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | A | For disk-level block encryption only. |
+| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | L | |
+| CCM-8 | Yes | | D | |
 | ECB | No | | D | |
 | CFB | No | | D | |
 | OFB | No | | D | |
 | CTR | No | | D | |
-| CCM-8 | Yes | | D | |
-
-Approved modes are listed in order of preference.
 
 Notes:
 
-* All encrypted messages must be authenticated. Given this, for ANY use of CBC mode there MUST be an associated hashing function or MAC to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used.
+* All encrypted messages must be authenticated. For ANY use of CBC mode there MUST be an associated hashing MAC algorithm to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used. The only application where encryption without a MAC algorithm is allowed is disk encryption.
+* If CBC is used, it shall be guaranteed that the verification of the padding is performed in constant time.
 * When using CCM-8, the MAC tag only has 64 bits of security. This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
+* Disk encryption is considered out of scope for the ASVS. Therefore this appendix does not list any approved method for disk encryption. For this usage, encryption without authentication is usually accepted and the XTS, XEX and LRW modes are typically used.
 
 ### Key Wrapping
 
@@ -137,6 +136,9 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
+|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
+|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
+|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
 |Encrypt-then-MAC | | A
 |MAC-then-encrypt | | L
 
@@ -223,7 +225,7 @@ A security strength of 112 bits or above MUST be ensured for all Key Exchange sc
 |--|--|--|--|
 | Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Yes | A |
 | Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Yes | A |
-| Encrypted key transport with RSA-PKCS#1 v1.5 | k >= 3072 | No | L |
+| Encrypted key transport with RSA-PKCS#1 v1.5 | | No | D |
 
 Where the following parameters are:
 
@@ -275,7 +277,7 @@ Message Authentication Codes (MACs) are cryptographic constructs used to verify 
 | HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
 | KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
 | KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| BLAKE3        | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
+| BLAKE3 (keyed_hash mode) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
 | AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
 | AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
 | Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
@@ -299,4 +301,4 @@ Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57
 
 PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there is minimal hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
-Proposed hybrid TLS key exchange groups that are specified in [draft-tls-westerbaan-xyber768x00-03](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) and supported by major browsers such as [Firefox release 132](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) MAY be used in cryptographic testing environments and/or when available within industry- or government-approved libraries.
+The proposed [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) post-quantum hybrid TLS key agreement method is supported by major browsers such as [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). It may be used in cryptographic testing environments or when available within industry- or government-approved libraries.
