@@ -94,19 +94,19 @@ class CycloneDX:
         self.bom['declarations']['standards'][0]['levels'][0] = {}
         self.bom['declarations']['standards'][0]['levels'][0]['bom-ref'] = "level-1"
         self.bom['declarations']['standards'][0]['levels'][0]['identifier'] = "Level 1"
-        self.bom['declarations']['standards'][0]['levels'][0]['description'] = "ASVS Level 1 is for low assurance levels, and is completely penetration testable."
+        self.bom['declarations']['standards'][0]['levels'][0]['description'] = "This level contains the minimum requirements to consider when securing an application and represents a critical starting point."
         self.bom['declarations']['standards'][0]['levels'][0]['requirements'] = l1_requirements
         self.bom['declarations']['standards'][0]['levels'].append({})
         self.bom['declarations']['standards'][0]['levels'][1] = {}
         self.bom['declarations']['standards'][0]['levels'][1]['bom-ref'] = "level-2"
         self.bom['declarations']['standards'][0]['levels'][1]['identifier'] = "Level 2"
-        self.bom['declarations']['standards'][0]['levels'][1]['description'] = "ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps."
+        self.bom['declarations']['standards'][0]['levels'][1]['description'] = "ASVS Level 2 requirements generally relate to either less common attacks or more complicated protections against common attacks. They may still be a first layer of defense, or they may require certain preconditions for the attack to be successful."
         self.bom['declarations']['standards'][0]['levels'][1]['requirements'] = l2_requirements
         self.bom['declarations']['standards'][0]['levels'].append({})
         self.bom['declarations']['standards'][0]['levels'][2] = {}
         self.bom['declarations']['standards'][0]['levels'][2]['bom-ref'] = "level-3"
         self.bom['declarations']['standards'][0]['levels'][2]['identifier'] = "Level 3"
-        self.bom['declarations']['standards'][0]['levels'][2]['description'] = "ASVS Level 3 is for the most critical applications - applications that perform high value transactions, contain sensitive medical data, or any application that requires the highest level of trust."
+        self.bom['declarations']['standards'][0]['levels'][2]['description'] = "ASVS Level 3 should be the goal for applications looking to demonstrate the highest levels of security and requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls."
         self.bom['declarations']['standards'][0]['levels'][2]['requirements'] = l3_requirements
 
         self.bom['declarations']['standards'][0]['externalReferences'] = []
