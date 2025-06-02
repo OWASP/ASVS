@@ -2,13 +2,13 @@
 
 ## Objectif du contrôle
 
-Le concept de jeton autonome est mentionné dans la RFC 6749 OAuth 2.0 originale de 2012. Il désigne un jeton contenant des données ou des revendications sur lesquelles un service récepteur s'appuie pour prendre des décisions de sécurité. Il doit être distingué d'un simple jeton contenant un identifiant qu'un service récepteur utilisera pour rechercher des données localement. Les exemples les plus courants de jetons autonomes sont les jetons Web JSON (JWT) et les assertions SAML.
+Le concept de jeton autonome est mentionné dans la RFC 6749 OAuth 2.0 originale de 2012. Il désigne un jeton contenant des données ou des revendications sur lesquelles un service récepteur s'appuie pour prendre des décisions de sécurité. Il convient de le distinguer d'un simple jeton contenant uniquement un identifiant, qu'un service récepteur utilise pour rechercher des données localement. Les exemples les plus courants de jetons autonomes sont les jetons Web JSON (JWT) et les assertions SAML.
 
 L'utilisation de jetons autonomes est devenue très répandue, même en dehors d'OAuth et d'OIDC. Parallèlement, la sécurité de ce mécanisme repose sur la capacité à valider l'intégrité du jeton et à garantir sa validité dans un contexte particulier. Ce processus présente de nombreux pièges, et ce chapitre détaille les mécanismes que les applications devraient mettre en place pour les éviter.
 
 ## V9.1 Source et intégrité du jeton
 
-Cette section comprend des exigences qui garantissent que le jeton a été produit par une partie de confiance et qu’il n’a pas été falsifié.
+Cette section comprend des exigences visant à garantir que le jeton a été produit par une partie de confiance et n’a pas été falsifié.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |

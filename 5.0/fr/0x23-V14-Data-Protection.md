@@ -6,13 +6,13 @@ Les applications ne peuvent pas prendre en compte tous les modèles d’utilisat
 
 Ce chapitre comprend les exigences relatives à la définition des données à protéger, de la manière dont elles doivent être protégées et des mécanismes spécifiques à mettre en œuvre ou des pièges à éviter.
 
-Un autre élément à prendre en compte pour la protection des données pourrait concerner l'extraction massive, la modification ou l'utilisation excessive. Les exigences de chaque système étant susceptibles d'être très différentes, la définition d'un comportement « anormal » doit tenir compte du modèle de menace et du risque métier. Du point de vue d'ASVS, la détection de ces problèmes est traitée dans le chapitre « Journalisation de sécurité et gestion des erreurs », et la définition de limites dans le chapitre « Validation et logique métier ».
+Un autre élément à prendre en compte pour la protection des données est l'extraction massive, la modification ou l'utilisation excessive. Les exigences de chaque système étant probablement très différentes, déterminer ce qui est « anormal » doit tenir compte du modèle de menace et du risque métier. Du point de vue d'ASVS, la détection de ces problèmes est traitée dans le chapitre « Journalisation de sécurité et gestion des erreurs », et la définition de limites dans le chapitre « Validation et logique métier ».
 
 ## V14.1 Documentation sur la protection des données
 
-Une condition préalable essentielle à la protection des données est de pouvoir catégoriser les données considérées comme sensibles. Il existe probablement plusieurs niveaux de sensibilité, et pour chaque niveau, les contrôles requis pour protéger les données seront différents.
+Une condition préalable essentielle à la protection des données est de catégoriser les données considérées comme sensibles. Il existe probablement plusieurs niveaux de sensibilité, et pour chaque niveau, les contrôles requis pour protéger les données seront différents.
 
-Il existe diverses réglementations et lois sur la protection de la vie privée qui influencent la manière dont les applications doivent gérer le stockage, l'utilisation et la transmission des informations personnelles sensibles. Cette section ne vise plus à reproduire ces types de législation sur la protection des données ou la confidentialité, mais se concentre plutôt sur les considérations techniques clés pour la protection des données sensibles. Veuillez consulter les lois et réglementations locales et, si nécessaire, consulter un spécialiste de la confidentialité ou un avocat qualifié.
+Il existe diverses réglementations et lois sur la confidentialité qui régissent la manière dont les applications doivent gérer le stockage, l'utilisation et la transmission des informations personnelles sensibles. Cette section ne vise plus à reproduire ces types de législation sur la protection des données ou la confidentialité, mais se concentre plutôt sur les considérations techniques clés pour la protection des données sensibles. Veuillez consulter les lois et réglementations locales et, si nécessaire, consulter un spécialiste de la confidentialité ou un avocat qualifié.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -21,7 +21,7 @@ Il existe diverses réglementations et lois sur la protection de la vie privée 
 
 ## V14.2 Protection générale des données
 
-Cette section présente diverses exigences pratiques relatives à la protection des données. La plupart sont spécifiques à des problématiques particulières, telles que la fuite involontaire de données, mais il existe également une exigence générale de mise en œuvre de contrôles de protection en fonction du niveau de protection requis pour chaque donnée.
+Cette section présente diverses exigences pratiques relatives à la protection des données. La plupart sont spécifiques à des problématiques particulières, telles que les fuites involontaires de données, mais il existe également une exigence générale de mise en œuvre de contrôles de protection en fonction du niveau de protection requis pour chaque donnée.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |

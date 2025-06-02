@@ -2,16 +2,16 @@
 
 ## Objectif du contrôle
 
-Assurez-vous qu'une application vérifiée satisfait aux exigences de haut niveau suivantes :
+Ce chapitre vise à garantir qu'une application vérifiée répond aux objectifs de haut niveau suivants :
 
 * Les entrées reçues par l'application correspondent aux attentes métier ou fonctionnelles.
 * Le flux logique métier est séquentiel, traité dans l’ordre et ne peut pas être contourné.
-* La logique métier inclut des limites et des contrôles pour détecter et prévenir les attaques automatisées, telles que les transferts continus de petits fonds et l'ajout d'un million d'amis un par un.
+* La logique métier inclut des limites et des contrôles pour détecter et prévenir les attaques automatisées, telles que les transferts continus de petits fonds ou l'ajout d'un million d'amis un par un.
 * Les flux logiques métier à haute valeur ajoutée ont pris en compte les cas d'abus et les acteurs malveillants, et disposent de protections contre l'usurpation d'identité, la falsification, la divulgation d'informations et les attaques par élévation de privilèges.
 
 ## V2.1 Validation et documentation de la logique métier
 
-La documentation de validation et de logique métier doit définir clairement les limites de la logique métier, les règles de validation et la cohérence contextuelle des éléments de données combinés, afin qu'il soit clair ce qui doit être implémenté dans l'application.
+La documentation de validation et de logique métier doit définir clairement les limites de la logique métier, les règles de validation et la cohérence contextuelle des éléments de données combinés, afin que ce qui doit être implémenté dans l'application soit clair.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -21,17 +21,17 @@ La documentation de validation et de logique métier doit définir clairement le
 
 ## V2.2 Validation des entrées
 
-Des contrôles de validation des entrées efficaces permettront de respecter les attentes métier ou fonctionnelles concernant le type de données que l'application s'attend à recevoir. Cela garantira une bonne qualité des données et réduira la surface d'attaque. Cependant, cela ne supprime ni ne remplace la nécessité d'utiliser un encodage, un paramétrage ou un nettoyage corrects lors de l'utilisation des données dans un autre composant ou pour leur présentation en sortie.
+Des contrôles de validation des entrées efficaces renforcent les attentes métier ou fonctionnelles concernant le type de données que l'application s'attend à recevoir. Cela garantit une bonne qualité des données et réduit la surface d'attaque. Cependant, cela ne supprime ni ne remplace la nécessité d'utiliser un codage, un paramétrage ou un nettoyage corrects lors de l'utilisation des données dans un autre composant ou pour leur présentation en sortie.
 
 Dans ce contexte, les « entrées » peuvent provenir d'une grande variété de sources, notamment des champs de formulaire HTML, des requêtes REST, des paramètres d'URL, des champs d'en-tête HTTP, des cookies, des fichiers sur disque, des bases de données et des API externes.
 
 Un contrôle de logique métier peut vérifier qu'une entrée particulière est un nombre inférieur à 100. Une attente fonctionnelle peut vérifier qu'un nombre est inférieur à un certain seuil, car ce nombre contrôle le nombre de fois qu'une boucle particulière aura lieu, et un nombre élevé pourrait entraîner un traitement excessif et une condition potentielle de déni de service.
 
-Bien que la validation de schéma ne soit pas explicitement obligatoire, cela peut être le mécanisme le plus efficace pour une couverture de validation complète des API HTTP ou d'autres interfaces qui utilisent JSON ou XML.
+Bien que la validation de schéma ne soit pas explicitement obligatoire, elle peut être le mécanisme le plus efficace pour une couverture de validation complète des API HTTP ou d'autres interfaces qui utilisent JSON ou XML.
 
 Veuillez noter les points suivants concernant la validation du schéma :
 
-* La « version publiée » de la spécification de validation du schéma JSON est considérée comme prête pour la production, et non comme « stable » à proprement parler. Lorsque vous utilisez la validation du schéma JSON, assurez-vous qu'il n'y a aucune lacune par rapport aux exigences ci-dessous.
+* La « version publiée » de la spécification de validation du schéma JSON est considérée comme prête pour la production, mais pas à proprement parler « stable ». Lorsque vous utilisez la validation du schéma JSON, assurez-vous qu'il n'y a aucune lacune par rapport aux instructions des exigences ci-dessous.
 * Toutes les bibliothèques de validation de schéma JSON utilisées doivent également être surveillées et mises à jour si nécessaire une fois la norme formalisée.
 * La validation DTD ne doit pas être utilisée et l'évaluation DTD du framework doit être désactivée pour éviter les problèmes liés aux attaques XXE contre les DTD.
 

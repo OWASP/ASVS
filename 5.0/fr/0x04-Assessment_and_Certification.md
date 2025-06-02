@@ -40,8 +40,8 @@ En résumé, testable en utilisant l'automatisation != exécuter un outil standa
 
 #### Le rôle des tests de pénétration
 
-Bien que L1 dans la version 4.0 ait été optimisé pour les tests de « boîte noire » (sans documentation et sans source), même dans ce cas, nous étions clairs sur le fait qu'il ne s'agissait pas d'une activité d'assurance efficace et qu'elle devait être activement découragée.
+Bien que L1 dans la version 4.0 ait été optimisé pour les tests de « boîte noire » (sans documentation et sans source), même dans ce cas, le standard était clair sur le fait qu'il ne s'agissait pas d'une activité d'assurance efficace et qu'elle devait être activement découragée.
 
 Les tests sans accès aux informations supplémentaires nécessaires constituent un mécanisme inefficace et inefficace de vérification de la sécurité, car ils ne permettent pas d’examiner la source, d’identifier les menaces et les contrôles manquants, et d’effectuer un test beaucoup plus approfondi dans un délai plus court.
 
-Nous encourageons fortement le remplacement des tests d'intrusion traditionnels par des tests d'intrusion basés sur la documentation ou le code source (hybrides), avec un accès complet aux développeurs et à la documentation de l'application. Cela sera certainement nécessaire pour vérifier de nombreuses exigences ASVS.
+Il est fortement recommandé d'effectuer des tests d'intrusion basés sur la documentation ou le code source (hybrides), avec un accès complet aux développeurs et à la documentation de l'application, plutôt que des tests d'intrusion traditionnels. Cela sera certainement nécessaire pour vérifier de nombreuses exigences ASVS.

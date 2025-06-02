@@ -2,7 +2,7 @@
 
 ## Objectif du contrôle
 
-L'objectif de ce chapitre est de définir les meilleures pratiques pour l'utilisation générale de la cryptographie, mais aussi d'inculquer une compréhension fondamentale des principes cryptographiques et d'encourager une évolution vers des approches plus résilientes et modernes. Il encourage les actions suivantes :
+L'objectif de ce chapitre est de définir les meilleures pratiques pour l'utilisation générale de la cryptographie, ainsi que d'inculquer une compréhension fondamentale des principes cryptographiques et d'encourager une évolution vers des approches plus résilientes et modernes. Il encourage les actions suivantes :
 
 * Mise en œuvre de systèmes cryptographiques robustes, sécurisés, adaptables à l'évolution des menaces et pérennes.
 * Utilisation de mécanismes cryptographiques sécurisés et conformes aux meilleures pratiques du secteur.
@@ -16,7 +16,7 @@ Les exigences qui utilisent la cryptographie pour résoudre un problème distinc
 
 ## V11.1 Inventaire et documentation cryptographiques
 
-Les applications doivent être conçues avec une architecture cryptographique robuste afin de protéger les données conformément à leur classification. Chiffrer tout est un gaspillage, et ne rien chiffrer est une négligence juridique. Un équilibre doit être trouvé, généralement lors de la conception architecturale ou de haut niveau, des sprints de conception ou des pics d'architecture. Concevoir la cryptographie au fur et à mesure ou la moderniser coûtera inévitablement beaucoup plus cher à mettre en œuvre de manière sécurisée que de l'intégrer dès le départ.
+Les applications doivent être conçues avec une architecture cryptographique robuste afin de protéger les données selon leur classification. Chiffrer tout est un gaspillage ; ne rien chiffrer est une négligence juridique. Un équilibre doit être trouvé, généralement lors de la conception architecturale ou de haut niveau, des sprints de conception ou des pics d'architecture. Concevoir la cryptographie au fur et à mesure ou la moderniser coûtera inévitablement beaucoup plus cher à mettre en œuvre de manière sécurisée que de l'intégrer dès le départ.
 
 Il est important de veiller à ce que tous les actifs cryptographiques soient régulièrement découverts, inventoriés et évalués. Veuillez consulter l'annexe pour plus d'informations sur la procédure à suivre.
 
@@ -85,7 +85,7 @@ Dans ce contexte, des mécanismes d'échange de clés approuvés, tels que Diffi
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **11.6.1** | Vérifiez que seuls des algorithmes et modes opératoires cryptographiques approuvés sont utilisés pour la génération et l'amorçage des clés, ainsi que pour la génération et la vérification des signatures numériques. Les algorithmes de génération de clés ne doivent pas générer de clés non sécurisées, telles que les clés RSA, vulnérables à la factorisation de Fermat. | 2 | v5.0.be-6.7.2 |
+| **11.6.1** | Vérifier que seuls des algorithmes cryptographiques et des modes opératoires approuvés sont utilisés pour la génération et l'amorçage des clés, ainsi que pour la génération et la vérification des signatures numériques. Les algorithmes de génération de clés ne doivent pas générer de clés non sécurisées et vulnérables aux attaques connues, par exemple les clés RSA vulnérables à la factorisation de Fermat. | 2 | v5.0.be-6.7.2 |
 | **11.6.2** | Vérifiez que des algorithmes cryptographiques approuvés sont utilisés pour l'échange de clés (tels que Diffie-Hellman), en veillant à ce que les mécanismes d'échange de clés utilisent des paramètres sécurisés. Cela permettra d'éviter les attaques contre le processus d'établissement des clés, susceptibles de conduire à des attaques de type « adversaire du milieu » ou à des failles cryptographiques. | 3 | v5.0.be-6.7.1 |
 
 ## V11.7 Cryptographie des données en cours d'utilisation

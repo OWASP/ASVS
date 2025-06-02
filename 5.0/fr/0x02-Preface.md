@@ -26,4 +26,4 @@ Cette révision majeure a été élaborée en gardant à l’esprit plusieurs pr
 
 Tout comme la sécurisation d'une application n'est jamais vraiment achevée, l'ASVS ne l'est pas non plus. Bien que la version 5.0 soit une version majeure, le développement se poursuit. Cette version permet à la communauté de bénéficier des améliorations et des ajouts accumulés, et pose également les bases de futures améliorations. Cela pourrait inclure des efforts communautaires pour créer des guides de mise en œuvre et de vérification, basés sur les exigences de base.
 
-ASVS 5.0 est conçu pour servir de base fiable au développement de logiciels sécurisés. Nous invitons la communauté à adopter, contribuer et développer cette norme afin de faire progresser collectivement la sécurité des applications.
+ASVS 5.0 est conçu pour servir de base fiable au développement de logiciels sécurisés. La communauté est invitée à adopter, contribuer et développer cette norme afin de faire progresser collectivement la sécurité des applications.

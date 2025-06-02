@@ -6,7 +6,7 @@ L'utilisation de fichiers peut présenter divers risques pour l'application, not
 
 ## V5.1 Documentation sur la gestion des fichiers
 
-Cette section comprend l’obligation de documenter les caractéristiques attendues des fichiers acceptés dans l’application, comme condition préalable nécessaire pour développer et vérifier les contrôles de sécurité pertinents.
+Cette section comprend l’obligation de documenter les caractéristiques attendues des fichiers acceptés par l’application, comme condition préalable nécessaire au développement et à la vérification des contrôles de sécurité pertinents.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -14,7 +14,7 @@ Cette section comprend l’obligation de documenter les caractéristiques attend
 
 ## V5.2 Téléchargement de fichiers et contenu
 
-La fonctionnalité de téléchargement est une source majeure de fichiers non fiables. Cette section détaille les exigences permettant de garantir que la présence, le volume ou le contenu de ces fichiers ne nuisent pas à l'application.
+La fonctionnalité de téléchargement de fichiers est une source majeure de fichiers non fiables. Cette section décrit les exigences permettant de garantir que la présence, le volume ou le contenu de ces fichiers ne nuisent pas à l'application.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |

@@ -6,7 +6,7 @@ Le référentiel de vérification de la sécurité des applications est une list
 
 ## Copyright et licence
 
-Version 5.0 (Version Bleeding Edge), 2025
+Version 5.0.0, Mai 2025
 
 ![license](../images/license.png)
 
@@ -30,14 +30,15 @@ Pour toute réutilisation ou distribution, vous devez indiquer clairement aux au
 
 ## Autres contributeurs majeurs
 
-|                   |                 |
-|------------------ |---------------- |
-| Sjoerd Langkemper | Isaac Lewis     |
+|                   |                   |
+|------------------ |-------------------|
+| Sjoerd Langkemper | Isaac Lewis       |
+| Mark Carney       | Sandro Gauci      |
 
 ## Contributeurs et relecteurs
 
-\<\<TABLE REMOVED PENDING AN UPDATE>>
+Nous avons inclus une liste des autres contributeurs dans l’annexe E.
 
-S'il manque un crédit dans la liste des crédits 5.0 ci-dessus, veuillez enregistrer un ticket sur GitHub pour être reconnu dans les futures mises à jour.
+S'il manque un crédit dans la liste des crédits 5.0, veuillez enregistrer un ticket sur GitHub pour être reconnu dans les futures mises à jour.
 
 Le référentiel de vérification de la sécurité des applications repose sur les épaules des personnes concernées, de ASVS 1.0 en 2008 à 4.0 en 2019. Une grande partie de la structure et des éléments de vérification qui sont encore dans l'ASVS aujourd'hui ont été écrits à l'origine par Andrew van der Stock, Mike Boberski, Jeff Williams et/ou Dave Wichers, mais il y a beaucoup plus de contributeurs. Merci à tous ceux qui y ont participé précédemment. Pour une liste complète de tous ceux qui ont contribué aux versions précédentes, veuillez consulter chaque version antérieure.

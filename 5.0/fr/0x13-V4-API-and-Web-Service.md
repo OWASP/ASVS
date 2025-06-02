@@ -2,13 +2,13 @@
 
 ## Objectif du contrôle
 
-Plusieurs considérations s'appliquent spécifiquement aux applications exposant des API à l'usage d'un navigateur web ou d'autres consommateurs (généralement via JSON, XML ou GraphQL). Ce chapitre présente les configurations et mécanismes de sécurité pertinents à appliquer.
+Plusieurs considérations s'appliquent spécifiquement aux applications exposant des API destinées aux navigateurs web ou à d'autres consommateurs (généralement via JSON, XML ou GraphQL). Ce chapitre présente les configurations et mécanismes de sécurité pertinents à appliquer.
 
-Notez que les problèmes d'authentification, de gestion de session et de validation des entrées des autres chapitres s'appliquent également aux API. Ce chapitre ne peut donc pas être sorti de son contexte ni testé séparément.
+Notez que les problèmes d’authentification, de gestion de session et de validation des entrées des autres chapitres s’appliquent également aux API. Ce chapitre ne peut donc pas être sorti de son contexte ni testé de manière isolée.
 
 ## V4.1 Sécurité du service Web générique
 
-Cette section promeut les considérations génériques sur la sécurité des services Web et, par conséquent, les pratiques d’hygiène de base des services Web.
+Cette section aborde les considérations générales sur la sécurité des services Web et, par conséquent, les pratiques d’hygiène de base des services Web.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -18,9 +18,9 @@ Cette section promeut les considérations génériques sur la sécurité des ser
 
 ## V4.2 Validation de la structure des messages HTTP
 
-Cette section détaille comment la structure et les champs d'en-tête d'un message HTTP doivent être validés afin de prévenir les attaques telles que la contrebande de requêtes, le fractionnement de réponses, l'injection d'en-têtes et le déni de service via des messages HTTP trop longs.
+Cette section explique comment la structure et les champs d'en-tête d'un message HTTP doivent être validés afin de prévenir les attaques telles que la contrebande de requêtes, le fractionnement de réponses, l'injection d'en-têtes et le déni de service via des messages HTTP trop longs.
 
-Ces exigences s'appliquent au traitement et à la génération de messages HTTP en général, mais aussi en particulier lors de la conversion de messages HTTP entre différentes versions.
+Ces exigences sont pertinentes pour le traitement et la génération de messages HTTP généraux, mais sont particulièrement importantes lors de la conversion de messages HTTP entre différentes versions HTTP.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |

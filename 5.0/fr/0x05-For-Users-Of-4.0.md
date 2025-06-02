@@ -1,68 +1,90 @@
-# Conseils aux utilisateurs de la version 4.0
+# Modifications par rapport à la version 4.x
 
-Les utilisateurs de la version 4.0 de la norme peuvent trouver utile de voir certains des changements clés dans le contenu de la version 5.0 ainsi que certains changements dans la portée et la philosophie qui ont eu lieu pendant le développement de cette dernière version.
+## Introduction
 
-##  Quoi de neuf dans la version 5.0
+Les utilisateurs familiarisés avec la version 4.x de la norme trouveront utile de consulter les principales modifications apportées à la version 5.0, notamment les mises à jour de contenu, de portée et de philosophie sous-jacente.
 
-Les sections suivantes tentent de couvrir les changements les plus importants
+Sur les 286 exigences de la version 4.0.3, seules 11 restent inchangées, tandis que 15 ont subi des ajustements grammaticaux mineurs sans altérer leur sens. Au total, 109 exigences (38 %) ne sont plus des exigences distinctes dans la version 5.0 : 50 ont été simplement supprimées, 28 ont été supprimées car doublons et 31 ont été fusionnées avec d'autres exigences. Les autres ont été révisées. Même les exigences n'ayant pas subi de modifications substantielles ont des identifiants différents suite à une réorganisation ou une restructuration.
 
-### Renumérotation et réorganisation complètes
+Pour faciliter l'adoption de la version 5.0, des documents de correspondance sont fournis pour aider les utilisateurs à identifier les correspondances entre les exigences de la version 4.x et celles de la version 5.0. Ces correspondances ne sont pas liées au numéro de version et peuvent être mises à jour ou clarifiées si nécessaire.
 
-Presque toutes les exigences ont été modifiées d'une manière ou d'une autre et même celles qui n'ont pas été modifiées ou déplacées subiront des changements de numérotation suite à une réorganisation ou à d'autres déplacements d'exigences.
+## Philosophie des exigences
 
-Les mappages fournis devraient aider à déterminer si et où les exigences de la version 4.0 ont été intégrées à la version 5.0.
+### Portée et orientation
 
-### Moins de couplage avec les directives du NIST sur l'identité numérique
+La version 4.x incluait des exigences qui ne correspondaient pas au périmètre prévu de la norme ; celles-ci ont été supprimées. Les exigences qui ne répondaient pas aux critères du périmètre de la version 5.0 ou qui n'étaient pas vérifiables ont également été exclues.
 
-Les [Directives sur l'identité numérique (SP 800-63)](https://pages.nist.gov/800-63-3/) du NIST a été et demeure une excellente norme, fondée sur des données probantes, pour les contrôles clés liés à l'authentification et à l'autorisation. Certains chapitres de la version 4.0 étaient étroitement liés à ces lignes directrices, notamment en termes de structure et de terminologie.
+### Priorité aux objectifs de sécurité plutôt qu'aux mécanismes
 
-Bien que ces lignes directrices et leurs améliorations futures demeurent une référence importante et la base de nombreuses exigences, leur couplage strict a engendré des difficultés qui ont conduit à la décision d'abandonner cette approche. Parmi ces difficultés figuraient une terminologie moins largement reconnue, la duplication d'exigences très similaires dans des situations très légèrement différentes, et le fait que la cartographie était incomplète par rapport à ce qui était perçu comme pertinent pour les ASVS.
+Dans la version 4.x, de nombreuses exigences se concentraient sur des mécanismes spécifiques plutôt que sur les objectifs de sécurité sous-jacents. Dans la version 5.0, les exigences sont centrées sur les objectifs de sécurité, ne référençant des mécanismes particuliers que lorsqu'ils constituent la seule solution pratique, ou les fournissant à titre d'exemple ou de guide complémentaire.
+
+Cette approche reconnaît que plusieurs méthodes peuvent exister pour atteindre un objectif de sécurité donné et évite toute prescription inutile susceptible de limiter la flexibilité organisationnelle.
+
+De plus, les exigences traitant d'une même préoccupation de sécurité ont été consolidées lorsque cela était nécessaire.
+
+### Décisions de sécurité documentées
+
+Bien que le concept de décisions de sécurité documentées puisse paraître nouveau dans la version 5.0, il s'agit d'une évolution des exigences antérieures liées à l'application des politiques et à la modélisation des menaces dans la version 4.0. Auparavant, certaines exigences exigeaient implicitement une analyse pour éclairer la mise en œuvre des contrôles de sécurité, comme la détermination des connexions réseau autorisées.
+
+Afin de garantir la disponibilité des informations nécessaires à la mise en œuvre et à la vérification, ces attentes sont désormais explicitement définies comme des exigences de documentation, ce qui les rend claires, exploitables et vérifiables.
+
+## Modifications structurelles et nouveaux chapitres
+
+Plusieurs chapitres de la version 5.0 introduisent du contenu entièrement nouveau :
+
+* OAuth et OIDC – Compte tenu de l’adoption généralisée de ces protocoles pour la délégation d’accès et l’authentification unique, des exigences spécifiques ont été ajoutées pour répondre aux divers scénarios rencontrés par les développeurs. Ce domaine pourrait à terme évoluer vers une norme autonome, similaire à la gestion des exigences mobiles et IoT dans les versions précédentes.
+* WebRTC – Avec la popularité croissante de cette technologie, ses considérations et défis de sécurité spécifiques sont désormais abordés dans une section dédiée.
+
+Des efforts ont également été déployés pour garantir que les chapitres et sections soient organisés autour d’ensembles cohérents d’exigences connexes.
+
+Cette restructuration a conduit à la création de chapitres supplémentaires :
+
+* Jetons autonomes – Auparavant regroupés sous la rubrique « gestion de session », les jetons autonomes sont désormais reconnus comme un mécanisme distinct et un élément fondamental de la communication sans état (comme dans OAuth et OIDC). En raison de leurs implications spécifiques en matière de sécurité, elles sont traitées dans un chapitre dédié, avec l'introduction de nouvelles exigences dans la version 5.x.
+* Sécurité du frontend web – Avec la complexité croissante des applications basées sur un navigateur et l'essor des architectures exclusivement basées sur des API, les exigences de sécurité du frontend ont été séparées dans un chapitre dédié.
+* Codage et architecture sécurisés – Les nouvelles exigences concernant les pratiques de sécurité générales qui ne cadraient pas avec les chapitres existants ont été regroupées ici.
+
+D'autres modifications organisationnelles ont été apportées à la version 5.0 afin de clarifier l'intention. Par exemple, les exigences de validation des entrées ont été déplacées avec la logique métier, reflétant ainsi leur rôle dans l'application des règles métier, plutôt que d'être regroupées avec le nettoyage et l'encodage.
+
+L'ancien chapitre « Architecture » ​​de la version 1 a été supprimé. Sa section initiale contenait des exigences hors du périmètre, tandis que les sections suivantes ont été redistribuées aux chapitres concernés, les exigences étant dédupliquées et clarifiées si nécessaire.
+
+## Suppression des correspondances directes avec d'autres normes
+
+Les correspondances directes avec d'autres normes ont été supprimées du corps de la norme. L'objectif est de préparer une correspondance avec le projet OWASP Common Requirement Enumeration (CRE), qui reliera ASVS à divers projets OWASP et normes externes.
+
+Les correspondances directes avec CWE et NIST ne sont plus maintenues, comme expliqué ci-dessous.
+
+### Couplage réduit avec les directives du NIST sur l'identité numérique
+
+Les directives du NIST sur l'identité numérique (SP 800-63) (https://pages.nist.gov/800-63-3/) servent depuis longtemps de référence pour les contrôles d'authentification et d'autorisation. Dans la version 4.x, certains chapitres étaient étroitement alignés sur la structure et la terminologie du NIST.
+
+Si ces directives demeurent une référence importante, un alignement strict a engendré des difficultés, notamment une terminologie moins reconnue, la duplication d'exigences similaires et des correspondances incomplètes. La version 5.0 s'éloigne de cette approche pour plus de clarté et de pertinence.
 
 ### S'éloigner de l'énumération des faiblesses communes (CWE)
 
-L'[énumération des faiblesses communes (CWE)](https://cwe.mitre.org/) provenant du MITRE est un moyen utile de cartographier les différentes faiblesses de sécurité des logiciels. Son utilisation présente certaines difficultés, notamment concernant certains CWE qui ne sont que des catégories et ne devraient pas être utilisés pour la cartographie, la difficulté de cartographier certaines exigences existantes vers un seul CWE, et également le fait que certains mappages étaient flous ou inexacts dans la version 4.0 d'ASVS.
+L'[Énumération des Faiblesses Communes (CWE)](https://cwe.mitre.org/) fournit une taxonomie utile des faiblesses de sécurité logicielle. Cependant, des défis tels que les CWE par catégorie, les difficultés de mappage des exigences à une CWE unique et la présence de mappages imprécis dans la version 4.x ont conduit à la décision d'abandonner les mappages CWE directs dans la version 5.0.
 
-La solution a été de supprimer CWE (et tout autre mappage) dans le but de mapper plutôt vers le projet OWASP Énumération des exigences communes (En anglais : CRE pour Common Requirement Enumeration) qui mappera ASVS vers une variété d'autres projets OWASP et normes externes.
+## Repenser les définitions de niveaux
 
-### Concentrez-vous sur l'objectif, pas sur le mécanisme
+La version 4.x décrivait les niveaux comme L1 (« Minimum »), L2 (« Standard ») et L3 (« Avancé »), ce qui implique que toutes les applications manipulant des données sensibles doivent au moins atteindre le niveau L2.
 
-Dans la version 4.0, de nombreuses exigences étaient axées sur un mécanisme particulier plutôt que sur l'objectif de sécurité à atteindre. Dans la version 5.0, à moins qu'il n'existe qu'un seul mécanisme réaliste pour atteindre l'objectif, les exigences se concentrent sur l'objectif de sécurité et incluent des mécanismes spécifiques à titre d'exemple ou renvoient à d'autres directives.
+La version 5.0 corrige plusieurs problèmes liés à cette approche, décrits dans les paragraphes suivants.
 
-### Documenter les décisions de sécurité
+En pratique, alors que la version 4.x utilisait des graduations pour les indicateurs de niveau, la version 5.x utilise un simple numéro pour tous les formats de la norme, notamment Markdown, PDF, DOCX, CSV, JSON et XML. Pour des raisons de rétrocompatibilité, les anciennes versions des sorties CSV, JSON et XML utilisant encore des graduations sont également générées.
 
-Pour certaines exigences, la mise en œuvre sera complexe et très spécifique aux besoins de l'application. Parmi les exemples courants figurent les autorisations, la validation des entrées et les contrôles de protection des différents niveaux de données sensibles. Pour tenir compte de cela, plutôt que de formuler des affirmations générales telles que « toutes les données doivent être chiffrées » ou de tenter de couvrir tous les cas d'utilisation possibles dans une exigence, nous avons des exigences qui imposent que l'approche et la configuration du développeur de l'application concernant ces types de contrôles soient documentées afin de pouvoir en vérifier la pertinence, puis de comparer la mise en œuvre réelle à la documentation pour évaluer si elle répond aux attentes.
+### Niveau d'entrée simplifié
 
-<!--
+Les retours ont indiqué que le nombre important d'exigences de niveau 1 (environ 120), combiné à sa désignation comme niveau « minimum », insuffisant pour la plupart des applications, freinait l'adoption. La version 5.0 vise à lever cet obstacle en définissant le niveau 1 principalement autour des exigences de défense de première couche, ce qui se traduit par des exigences plus claires et moins nombreuses à ce niveau. À titre d'exemple, la version 4.0.3 comptait 128 exigences de niveau 1 sur un total de 278, soit 46 %. La version 5.0.0 compte 70 exigences de niveau 1 sur un total de 345, soit 20 %.
 
-### TODO: add more items
+### L'illusion de la testabilité
 
-We set out to ensure that the ASVS 4.0 Level 1 is a comprehensive superset of PCI DSS 3.2.1 Sections 6.5, for application design, coding, testing, secure code reviews, and penetration tests. This necessitated covering buffer overflow and unsafe memory operations in V5, and unsafe memory-related compilation flags in V14, in addition to existing industry-leading application and web service verification requirements.
+Un facteur clé dans le choix des contrôles de niveau 1 dans la version 4.x était leur aptitude à être évalués par des tests d'intrusion externes de type « boîte noire ». Cependant, cette approche n'était pas totalement conforme à l'objectif du niveau 1 en tant qu'ensemble minimal de contrôles de sécurité. Certains utilisateurs ont fait valoir que le niveau 1 était insuffisant pour sécuriser les applications, tandis que d’autres ont trouvé qu’il était trop difficile à tester.
 
-We have completed the shift of the ASVS from monolithic server-side-only controls, to providing security controls for all modern applications and APIs. In the days of functional programming, server-less API, mobile, cloud, containers, CI/CD and DevSecOps, federation and more, we cannot continue to ignore modern application architecture. Modern applications are designed very differently from those built when the original ASVS was released in 2009. The ASVS must always look far into the future so that we provide sound advice for our primary audience - developers. We have clarified or dropped any requirement that assumes that applications are executed on systems owned by a single organization.
+S'appuyer sur la testabilité comme critère est à la fois relatif et parfois trompeur. Le fait qu'une exigence soit testable ne garantit pas qu'elle puisse être testée de manière automatisée ou simple. De plus, les exigences les plus facilement testables ne sont pas toujours celles qui ont le plus grand impact sur la sécurité ou les plus simples à mettre en œuvre.
 
-Due to the size of the ASVS 4.0, as well as our desire to become the baseline ASVS for all other ASVS efforts, we have retired the mobile chapter, in favor of the Mobile Application Security Verification Standard (MASVS). We have also retired the Internet of Things appendix, in favor of the IoT Security Verification Standard (ISVS). We thank both the OWASP Mobile Team and OWASP IoT Project Team for their support of the ASVS, and look forward to working with them in the future to provide complementary standards.
-
-Lastly, we have de-duped and retired less impactful controls. Over time, the ASVS started being a comprehensive set of controls, but not all controls equally contribute to producing secure software. This effort to eliminate low-impact items could go further. In a future edition of the ASVS, the Common Weakness Scoring System (CWSS) will help prioritize further those controls that are truly important and those that should be retired.
-
-As of version 4.0, the ASVS will focus solely on being the leading web apps and service standard, covering traditional and modern application architecture, agile security practices and DevSecOps culture.
--->
-
-## Justification supplémentaire de l'approche du changement de niveau
-
-La version 4.0 de l'ASVS décrit les niveaux comme L1 - « Minimum », L2 - « Standard » et L3 - « Avancé », ce qui implique que toutes les applications traitant des données sensibles doivent être au moins L2.
-
-Nous avons rencontré quelques difficultés avec cette approche et les utilisateurs de la version 4.0 pourraient trouver le contexte suivant sur le changement d’approche par niveaux informatif en plus de la justification du chapitre précédent.
-
-### Haute barrière à l’entrée
-
-Le niveau 1 de la version 4.0 comportait plus de 100 exigences, tout comme le niveau 2, et il n'en restait que quelques-unes pour le niveau 3. Cela signifiait que même le niveau 1 nécessitait un effort considérable, auquel cas l'utilisateur était informé qu'il s'agissait du niveau « minimum » et que pour atteindre un niveau de sécurité « standard », 100 exigences supplémentaires étaient requises. Les retours des utilisateurs et de la communauté ASVS ont clairement montré que cela constituait un frein à l'adoption d'ASVS par les applications.
-
-### L'erreur de la testabilité
-
-L'une des principales motivations derrière l'intégration des contrôles dans la version 4.0 de L1 était la possibilité de les vérifier à l'aide de tests de type « boîte noire », ce qui n'était pas tout à fait conforme au concept de L1 comme contrôles de sécurité minimaux. D'un côté, les utilisateurs d'ASVS estimaient que L1 n'était pas suffisant pour une application sécurisée, tandis que de l'autre, ils se plaignaient de la difficulté de tester ASVS.
-
-De plus, la testabilité est relative et parfois trompeuse. Ce n'est pas parce qu'une chose est testable qu'elle l'est forcément de manière automatisée ou triviale. Enfin, les exigences les plus testables ne sont pas forcément celles qui ont l'impact le plus important sur la sécurité ou qui sont les plus faciles à mettre en œuvre.
+Par conséquent, dans la version 5.0, les décisions de niveau ont été prises principalement en fonction de la réduction des risques et en tenant compte de l'effort de mise en œuvre.
 
 ### Pas seulement une question de risque
 
-L'utilisation de niveaux prescriptifs, basés sur les risques, imposant qu'une application donnée atteigne un certain niveau, semble rétrospectivement excessivement arbitraire. En réalité, l'ordre de mise en œuvre des contrôles de sécurité dépendra de facteurs tels que la réduction des risques et les efforts de mise en œuvre.
+L'utilisation de niveaux prescriptifs, basés sur les risques, imposant un niveau spécifique à certaines applications s'est avérée trop rigide. En pratique, la priorisation et la mise en œuvre des contrôles de sécurité dépendent de multiples facteurs, notamment la réduction des risques et les efforts nécessaires à leur mise en œuvre.
+
+Par conséquent, les organisations sont encouragées à atteindre le niveau qu'elles estiment devoir atteindre en fonction de leur maturité et du message qu'elles souhaitent transmettre à leurs utilisateurs.

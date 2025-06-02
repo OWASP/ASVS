@@ -82,7 +82,7 @@ Les algorithmes de chiffrement approuvés sont classés par ordre de préférenc
 
 ### Modes de chiffrement AES
 
-Les chiffrements modernes utilisent différents modes, notamment AES, à diverses fins. Nous décrivons ici les exigences relatives aux modes de chiffrement AES. Certains modes AES ne sont approuvés que pour le chiffrement par blocs au niveau du disque.
+Les chiffrements modernes utilisent différents modes, notamment AES, à des fins diverses. Les exigences relatives aux modes de chiffrement AES sont décrites ici. Certains modes AES ne sont approuvés que pour le chiffrement par blocs au niveau du disque.
 
 | Mode | Authentifié | Référence | Statut | Restriction |
 |--|--|--|--|--|
@@ -198,7 +198,7 @@ Une force de sécurité de 112 bits ou plus DOIT être garantie pour tous les sc
 |--|--|--|--|
 | Diffie-Hellman à corps finis (FFDH) | L >= 3072 & N >= 256 | Oui | A |
 | Courbe elliptique Diffie-Hellman (ECDH) | f >= 256-383 | Oui | A |
-| Transport de clés cryptées avec RSA-PKCS#1 v1.5 | k >= 3072 | Non | L |
+| Transport de clés cryptées avec RSA-PKCS#1 v1.5 | | Non | D |
 
 Où les paramètres suivants sont :
 
@@ -210,20 +210,34 @@ Toute nouvelle implémentation NE DOIT PAS utiliser de schéma non conforme aux 
 
 ### Groupes Diffie-Hellman
 
-Les groupes suivants sont approuvés et DOIVENT être utilisés pour les implémentations de Diffie-Hellman KEX. Les groupes IKEv2 sont fournis à titre de référence ([NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final)). Des groupes équivalents peuvent être utilisés dans d'autres protocoles. Cette liste est classée par ordre décroissant de sécurité. Les niveaux de sécurité sont décrits dans [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), l'annexe D et [NIST SP 800-57 Partie 1 Rév. 5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+Les groupes suivants sont approuvés pour la mise en œuvre de l'échange de clés Diffie-Hellman. Les niveaux de sécurité sont décrits dans la norme NIST SP 800-56A (https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), l'annexe D et la norme NIST SP 800-57, partie 1, révision 5 (https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-| Groupe | Schéma | Paramètres | Bits de sécurité | Statut |
-|--|--|--|--|--|
-| 21 | ECC | groupe ECP aléatoire 521-bit | 260 | A |
-| 32 | ECC | Curve448 | 224 | A |
-| 18 | MODP | Groupe MODP 8192-bit | 192 < 200 | A |
-| 20 | ECC | groupe ECP aléatoire 384-bit | 192 | A |
-| 17 | MODP | Groupe MODP 6144-bit | 128 < 176 | A |
-| 16 | MODP | Groupe MODP 4096-bit | 128 < 152 | A |
-| 31 | ECC | Curve25519 | 128 | A |
-| 19 | ECC | groupe ECP aléatoire 256-bit | 128 | A |
-| 15 | MODP | Groupe MODP 3072-bit | 128 | A |
-| 14 | MODP | Groupe MODP 2048-bit | 112 | A |
+| Groupe           | Statut |
+|------------------|--------|
+| P-224, secp224r1 | A      |
+| P-256, secp256r1 | A      |
+| P-384, secp384r1 | A      |
+| P-521, secp521r1 | A      |
+| K-233, sect233k1 | A      |
+| K-283, sect283k1 | A      |
+| K-409, sect409k1 | A      |
+| K-571, sect571k1 | A      |
+| B-233, sect233r1 | A      |
+| B-283, sect283r1 | A      |
+| B-409, sect409r1 | A      |
+| B-571, sect571r1 | A      |
+| Curve448         | A      |
+| Curve25519       | A      |
+| MODP-2048        | A      |
+| MODP-3072        | A      |
+| MODP-4096        | A      |
+| MODP-6144        | A      |
+| MODP-8192        | A      |
+| ffdhe2048        | A      |
+| ffdhe3072        | A      |
+| ffdhe4096        | A      |
+| ffdhe6144        | A      |
+| ffdhe8192        | A      |
 
 ## Codes d'authentification des messages (MAC)
 

@@ -5,18 +5,18 @@
 Les mécanismes de gestion de session permettent aux applications de corréler les interactions entre utilisateurs et appareils au fil du temps, même avec des protocoles de communication sans état (comme HTTP). Les applications modernes peuvent utiliser plusieurs jetons de session aux caractéristiques et objectifs distincts. Un système de gestion de session sécurisé empêche les attaquants d'obtenir, d'utiliser ou d'abuser de la session d'une victime. Les applications gérant des sessions doivent garantir le respect des exigences de gestion de session de haut niveau suivantes :
 
 * Les sessions sont uniques à chaque individu et ne peuvent être ni devinées ni partagées.
-* Les sessions sont invalidées lorsqu'elles ne sont plus nécessaires et expirent en cas d'inactivité.
+* Les sessions sont invalidées lorsqu'elles ne sont plus nécessaires et expirent pendant les périodes d'inactivité.
 
-De nombreuses exigences de ce chapitre concernent des contrôles sélectionnés [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/), axés sur les menaces courantes et les faiblesses d'authentification couramment exploitées.
+De nombreuses exigences de ce chapitre concernent des contrôles sélectionnés [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/), en se concentrant sur les menaces courantes et les faiblesses d'authentification couramment exploitées.
 
-Notez que les exigences relatives aux détails d’implémentation spécifiques de certains mécanismes de gestion de session peuvent être ailleurs :
+Notez que les exigences relatives aux détails d’implémentation spécifiques de certains mécanismes de gestion de session peuvent être trouvées ailleurs :
 
 * Les cookies HTTP sont un mécanisme courant de sécurisation des jetons de session. Les exigences de sécurité spécifiques aux cookies sont décrites dans le chapitre « Sécurité de l'interface web ».
 * Les jetons autonomes sont fréquemment utilisés pour maintenir les sessions. Les exigences de sécurité spécifiques sont décrites dans le chapitre « Jetons autonomes ».
 
 ## V7.1 Documentation sur la gestion des sessions
 
-Il n'existe pas de modèle unique convenant à toutes les applications. Il est donc impossible de définir des limites universelles et applicables à tous les cas. Une analyse des risques, accompagnée de décisions de sécurité documentées relatives à la gestion des sessions, doit être réalisée avant la mise en œuvre et les tests. Cela garantit que le système de gestion des sessions est adapté aux exigences spécifiques de l'application.
+Il n'existe pas de modèle unique convenant à toutes les applications. Il est donc impossible de définir des limites universelles et adaptées à tous les cas. Une analyse des risques, accompagnée de décisions de sécurité documentées relatives à la gestion des sessions, doit être réalisée avant la mise en œuvre et les tests. Cela garantit que le système de gestion des sessions est adapté aux exigences spécifiques de l'application.
 
 Que le mécanisme de session choisi soit avec ou sans état, l'analyse doit être complète et documentée afin de démontrer que la solution sélectionnée est capable de satisfaire à toutes les exigences de sécurité pertinentes. L'interaction avec les mécanismes d'authentification unique (SSO) utilisés doit également être prise en compte.
 

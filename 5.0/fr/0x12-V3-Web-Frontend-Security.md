@@ -2,11 +2,11 @@
 
 ## Objectif du contrôle
 
-Cette catégorie se concentre sur les exigences de protection contre les attaques exécutées via une interface web. Ces exigences ne s'appliquent pas aux solutions machine-to-machine.
+Cette catégorie se concentre sur les exigences visant à protéger contre les attaques exécutées via une interface web. Ces exigences ne s'appliquent pas aux solutions M2M.
 
 ## V3.1 Documentation sur la sécurité du frontend Web
 
-Cette section définit les fonctionnalités de sécurité du navigateur qui doivent être spécifiées dans la documentation de l'application.
+Cette section décrit les fonctionnalités de sécurité du navigateur qui doivent être spécifiées dans la documentation de l'application.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -24,7 +24,7 @@ Le rendu de contenu ou de fonctionnalité dans un contexte incorrect peut entra�
 
 ## V3.3 Configuration des cookies
 
-Cette section fournit des exigences sur la manière de configurer en toute sécurité un cookie sensible afin de fournir un niveau d'assurance plus élevé qu'il a été créé par l'application elle-même et d'empêcher que son contenu ne fuie ou ne soit modifié de manière inappropriée.
+Cette section décrit les exigences de configuration sécurisée des cookies sensibles afin de fournir un niveau d'assurance plus élevé qu'ils ont été créés par l'application elle-même et d'empêcher que leur contenu ne fuie ou ne soit modifié de manière inappropriée.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -36,7 +36,7 @@ Cette section fournit des exigences sur la manière de configurer en toute sécu
 
 ## V3.4 En-têtes du mécanisme de sécurité du navigateur
 
-Cette section indique quels en-têtes de sécurité doivent être définis sur les réponses HTTP pour activer les fonctionnalités et restrictions de sécurité du navigateur lors du traitement de la réponse de l'application.
+Cette section décrit les en-têtes de sécurité qui doivent être définis sur les réponses HTTP pour activer les fonctionnalités et restrictions de sécurité du navigateur lors du traitement des réponses de l'application.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -59,8 +59,8 @@ Les principales protections sont les politiques de sécurité du navigateur, com
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
-| **3.5.1** | Vérifiez que les requêtes CORS Safelist adressées à des fonctionnalités sensibles proviennent bien de l'application elle-même. Cela peut se faire en utilisant et en validant des jetons anti-falsification ou en exigeant des champs d'en-tête HTTP supplémentaires, non CORS Safelist. Ceci permet de se protéger contre les attaques de falsification de requêtes par navigateur, communément appelées falsification de requêtes intersites (CSRF). | 1 | v5.0.be-50.4.1 |
-| **3.5.2** | Vérifiez que, si l'application s'appuie sur le mécanisme de contrôle en amont CORS pour empêcher l'utilisation de fonctionnalités sensibles entre différentes origines, il est impossible d'appeler ces fonctionnalités avec une requête sur liste de sécurité CORS. Cela peut nécessiter de vérifier les valeurs des champs d'en-tête de requête « Origine » et « Type de contenu » ou d'utiliser un champ d'en-tête supplémentaire non sur liste de sécurité CORS. | 1 | v5.0.be-50.4.3 |
+| **3.5.1** | Vérifiez que, si l'application ne s'appuie pas sur le mécanisme de contrôle en amont CORS pour empêcher les requêtes inter-origines non autorisées d'utiliser des fonctionnalités sensibles, ces requêtes sont validées afin de garantir leur origine. Cela peut se faire en utilisant et en validant des jetons anti-falsification ou en exigeant des champs d'en-tête HTTP supplémentaires qui ne sont pas des champs d'en-tête de requête CORS safelist. Ceci permet de se protéger contre les attaques de falsification de requêtes basées sur le navigateur, communément appelées falsification de requêtes intersites (CSRF). | 1 | v5.0.be-50.4.1 |
+| **3.5.2** | Vérifiez que, si l'application s'appuie sur le mécanisme de contrôle en amont CORS pour empêcher l'utilisation inter-origines non autorisée de fonctionnalités sensibles, il est impossible d'appeler la fonctionnalité avec une requête qui ne déclenche pas de requête de contrôle en amont CORS. Cela peut nécessiter de vérifier les valeurs des champs d'en-tête de requête « Origine » et « Type de contenu » ou d'utiliser un champ d'en-tête supplémentaire qui n'est pas un champ d'en-tête de la liste de sécurité CORS. | 1 | v5.0.be-50.4.3 |
 | **3.5.3** | Vérifiez que les requêtes HTTP destinées aux fonctionnalités sensibles utilisent des méthodes HTTP appropriées, telles que POST, PUT, PATCH ou DELETE, et non des méthodes définies comme « sûres » par la spécification HTTP, telles que HEAD, OPTIONS ou GET. Une validation stricte des champs d'en-tête de requête Sec-Fetch-* peut également être utilisée pour garantir que la requête ne provient pas d'un appel inter-origines inapproprié, d'une requête de navigation ou d'un chargement de ressources (comme une source d'image) inattendu. | 1 | v5.0.be-50.4.4 |
 | **3.5.4** | Vérifiez que des applications distinctes sont hébergées sur des noms d'hôte différents pour tirer parti des restrictions fournies par la politique de même origine, y compris la manière dont les documents ou scripts chargés par une origine peuvent interagir avec les ressources d'une autre origine et les restrictions basées sur le nom d'hôte sur les cookies. | 2 | v5.0.be-50.1.1 |
 | **3.5.5** | Vérifiez que les messages reçus par l'interface postMessage sont rejetés si l'origine du message n'est pas fiable ou si la syntaxe du message n'est pas valide. | 2 | v5.0.be-50.4.2 |

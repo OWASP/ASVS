@@ -2,19 +2,19 @@
 
 ## Objectif du contrôle
 
-De nombreuses exigences ASVS concernent soit un domaine de sécurité particulier, comme l'authentification ou l'autorisation, soit un type de fonctionnalité applicative spécifique, comme la journalisation ou la gestion de fichiers.
+De nombreuses exigences pour établir une architecture sécurisée et défendable dépendent d’une documentation claire des décisions prises concernant la mise en œuvre de contrôles de sécurité spécifiques et des composants utilisés dans l’application.
 
-Ce chapitre présente toutefois des exigences de sécurité plus générales à prendre en compte lors de la conception et du développement d'applications. Il ne s'agit pas seulement d'une architecture propre et de la qualité du code, mais plutôt des pratiques d'architecture et de développement spécifiques à suivre pour sécuriser l'application.
+Ce chapitre présente les exigences générales de sécurité à prendre en compte lors de la conception et du développement d'applications. Ces exigences portent non seulement sur une architecture propre et la qualité du code, mais aussi sur les pratiques spécifiques d'architecture et de codage nécessaires à la sécurité des applications.
 
 ## V15.1 Documentation sur le développement et l'architecture sécurisés
 
-De nombreuses exigences pour établir une architecture sécurisée et défendable dépendent d'une documentation claire des décisions prises concernant la mise en œuvre de contrôles de sécurité spécifiques et des composants utilisés dans l'application.
+De nombreuses exigences pour établir une architecture sécurisée et défendable dépendent d’une documentation claire des décisions prises concernant la mise en œuvre de contrôles de sécurité spécifiques et des composants utilisés dans l’application.
 
-Cette section décrit les exigences de documentation à cet égard, notamment l'identification des composants considérés comme contenant des « fonctionnalités dangereuses » ou des « composants à risque ».
+Cette section décrit les exigences en matière de documentation, notamment l’identification des composants considérés comme contenant des « fonctionnalités dangereuses » ou comme des « composants à risque ».
 
-Un composant à « fonctionnalité dangereuse » peut être un composant développé en interne ou un composant tiers effectuant des opérations telles que la désérialisation de données non fiables, l'analyse de fichiers bruts ou binaires, l'exécution de code dynamique ou la manipulation directe de la mémoire. Il existe un risque élevé qu'une vulnérabilité dans ces types d'opérations compromette l'application utilisant la fonctionnalité et expose potentiellement son infrastructure sous-jacente.
+Un composant présentant une « fonctionnalité dangereuse » peut être un composant développé en interne ou par un tiers, effectuant des opérations telles que la désérialisation de données non fiables, l'analyse de fichiers bruts ou binaires, l'exécution de code dynamique ou la manipulation directe de la mémoire. Les vulnérabilités dans ces types d'opérations présentent un risque élevé de compromettre l'application et d'exposer potentiellement son infrastructure sous-jacente.
 
-Un « composant à risque » est une bibliothèque tierce (c'est-à-dire non développée en interne) dont les contrôles de sécurité concernant ses processus de développement ou ses fonctionnalités sont absents ou mal implémentés. Par exemple, les composants mal entretenus, non pris en charge ou en fin de vie présentent un historique de vulnérabilités importantes.
+Un « composant à risque » est une bibliothèque tierce (c'est-à-dire non développée en interne) dont les contrôles de sécurité concernant ses processus de développement ou ses fonctionnalités sont absents ou mal implémentés. Il peut s'agir, par exemple, de composants mal entretenus, non pris en charge, en fin de vie ou présentant des antécédents de vulnérabilités importantes.
 
 Cette section souligne également l’importance de définir des délais appropriés pour traiter les vulnérabilités des composants tiers.
 
@@ -30,7 +30,7 @@ Cette section souligne également l’importance de définir des délais appropr
 
 Cette section inclut les exigences relatives à la gestion des dépendances et des composants risqués, obsolètes ou non sécurisés.
 
-Elle inclut également l'utilisation de techniques architecturales telles que le sandboxing, l'encapsulation, la conteneurisation et l'isolation réseau pour réduire l'impact de l'utilisation d'« opérations dangereuses » ou de « composants risqués » (tels que définis dans la section précédente) et prévenir la perte de disponibilité due à une utilisation excessive de fonctionnalités gourmandes en ressources.
+Elle inclut également l'utilisation de techniques au niveau architectural telles que le sandboxing, l'encapsulation, la conteneurisation et l'isolation du réseau pour réduire l'impact de l'utilisation d'« opérations dangereuses » ou de « composants risqués » (tels que définis dans la section précédente) et éviter la perte de disponibilité due à une utilisation excessive de fonctionnalités exigeantes en ressources.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -42,16 +42,16 @@ Elle inclut également l'utilisation de techniques architecturales telles que le
 
 ## V15.3 Développement défensif
 
-Cette section aborde les types de vulnérabilités, notamment le jonglage de types, la pollution de prototypes et d'autres, résultant de l'utilisation de modèles de développement non sécurisés dans un langage spécifique. Certaines peuvent ne pas être pertinentes pour tous les langages, tandis que d'autres bénéficieront de correctifs spécifiques à chaque langage ou peuvent être liées à la façon dont un langage ou un framework particulier gère une fonctionnalité telle que les paramètres HTTP. Elle aborde également le risque lié à l'absence de validation cryptographique des mises à jour d'applications.
+Cette section couvre les types de vulnérabilités, notamment la jonglerie de types, la pollution de prototypes et autres, résultant de l'utilisation de modèles de codage non sécurisés dans un langage particulier. Certaines peuvent ne pas être pertinentes pour tous les langages, tandis que d'autres bénéficieront de correctifs spécifiques à chaque langage ou pourront être liées à la façon dont un langage ou un framework particulier gère une fonctionnalité telle que les paramètres HTTP. Elle aborde également le risque lié à l'absence de validation cryptographique des mises à jour d'applications.
 
-Elle aborde également les risques associés à l'utilisation d'objets pour représenter des éléments de données, ainsi qu'à leur acceptation et leur renvoi via des API externes. Dans ce cas, l'application doit s'assurer que les champs de données non accessibles en écriture ne sont pas modifiés par l'utilisateur (affectation de masse) et que l'API sélectionne les champs de données renvoyés. Lorsque l'accès aux champs dépend des autorisations d'un utilisateur, cela doit être pris en compte dans le contexte de l'exigence de contrôle d'accès au niveau des champs décrite dans le chapitre « Autorisation ».
+Elle prend également en compte les risques liés à l'utilisation d'objets pour représenter des éléments de données, ainsi qu'à leur acceptation et leur renvoi via des API externes. Dans ce cas, l'application doit s'assurer que les champs de données non accessibles en écriture ne sont pas modifiés par l'utilisateur (affectation de masse) et que l'API sélectionne les champs de données renvoyés. Lorsque l'accès aux champs dépend des autorisations de l'utilisateur, il convient d'en tenir compte dans le contexte des exigences de contrôle d'accès au niveau des champs décrites dans le chapitre « Autorisation ».
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
 | **15.3.1** | Vérifiez que l'application ne renvoie que le sous-ensemble requis de champs d'un objet de données. Par exemple, elle ne doit pas renvoyer un objet de données entier, car certains champs individuels ne doivent pas être accessibles aux utilisateurs. | 1 | v5.0.be-10.4.5 |
 | **15.3.2** | Vérifiez que lorsque le backend de l'application effectue des appels vers des URL externes, il est configuré pour ne pas suivre les redirections, sauf s'il s'agit d'une fonctionnalité prévue. | 2 | v5.0.be-10.4.8 |
 | **15.3.3** | Vérifiez que l'application dispose de contre-mesures pour se protéger contre les attaques d'affectation de masse en limitant les champs autorisés par contrôleur et action, par exemple, il n'est pas possible d'insérer ou de mettre à jour une valeur de champ lorsqu'elle n'était pas destinée à faire partie de cette action. | 2 | v5.0.be-10.4.4 |
-| **15.3.4** | Vérifiez que tous les composants proxy et middleware transfèrent correctement l'adresse IP d'origine de l'utilisateur à l'aide de champs de données fiables qui ne peuvent pas être manipulés par l'utilisateur final et que l'application et le serveur Web utilisent cette valeur correcte pour la journalisation et les décisions de sécurité telles que la limitation du débit, en tenant compte du fait que même l'adresse IP d'origine peut ne pas être fiable en raison d'adresses IP dynamiques, de VPN ou de pare-feu d'entreprise. | 2 | v5.0.be-10.4.6 |
+| **15.3.4** | Vérifiez que tous les composants proxy et middleware transfèrent correctement l'adresse IP d'origine de l'utilisateur à l'aide de champs de données fiables qui ne peuvent pas être manipulés par l'utilisateur final, et que l'application et le serveur Web utilisent cette valeur correcte pour la journalisation et les décisions de sécurité telles que la limitation du débit, en tenant compte du fait que même l'adresse IP d'origine peut ne pas être fiable en raison d'adresses IP dynamiques, de VPN ou de pare-feu d'entreprise. | 2 | v5.0.be-10.4.6 |
 | **15.3.5** | Vérifiez que l'application garantit explicitement que les variables sont du type correct et effectue des opérations d'égalité et de comparaison strictes. Cela permet d'éviter les vulnérabilités liées à la confusion de types, causées par des hypothèses du code de l'application sur le type d'une variable. | 2 | v5.0.be-10.4.1 |
 | **15.3.6** | Vérifiez que le code JavaScript est écrit de manière à éviter la pollution du prototype, par exemple en utilisant Set() ou Map() au lieu de littéraux d'objet. | 2 | v5.0.be-10.4.3 |
 | **15.3.7** | Vérifiez que l'application dispose de défenses contre les attaques de pollution des paramètres HTTP, en particulier si le framework d'application ne fait aucune distinction quant à la source des paramètres de requête (chaîne de requête, paramètres de corps, cookies ou champs d'en-tête). | 2 | v5.0.be-10.4.7 |

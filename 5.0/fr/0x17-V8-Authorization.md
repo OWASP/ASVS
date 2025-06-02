@@ -9,7 +9,7 @@ L'autorisation garantit que l'accès est accordé uniquement aux utilisateurs au
 
 ## V8.1 Documentation d'autorisation
 
-Une documentation d'autorisation complète est essentielle pour garantir que les décisions de sécurité sont appliquées de manière cohérente, vérifiables et alignées sur les politiques organisationnelles, réduisant ainsi le risque d'accès non autorisé en rendant les exigences de sécurité claires et exploitables pour les développeurs, les administrateurs et les testeurs.
+Une documentation complète des autorisations est essentielle pour garantir que les décisions de sécurité sont appliquées de manière cohérente, vérifiables et conformes aux politiques de l'organisation. Cela réduit le risque d'accès non autorisé en clarifiant les exigences de sécurité et en les rendant applicables aux développeurs, administrateurs et testeurs.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -20,7 +20,7 @@ Une documentation d'autorisation complète est essentielle pour garantir que les
 
 ## V8.2 Conception d'autorisation générale
 
-La mise en œuvre de contrôles d’autorisation granulaires aux niveaux de la fonction, des données et des champs garantira que les consommateurs ne pourront accéder qu’à ce qui leur a été explicitement accordé.
+La mise en œuvre de contrôles d’autorisation granulaires aux niveaux de la fonction, des données et des champs garantie que les consommateurs ne pourront accéder qu’à ce qui leur a été explicitement accordé.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -41,7 +41,7 @@ L'application immédiate des modifications d'autorisation dans le niveau appropr
 
 ## V8.4 Autres considérations relatives à l'autorisation
 
-Des considérations supplémentaires concernant l’autorisation, en particulier pour les interfaces administratives et les environnements multi-locataires, aideront à empêcher tout accès non autorisé.
+Des considérations supplémentaires concernant l’autorisation, en particulier pour les interfaces administratives et les environnements multi-locataires, aident à empêcher tout accès non autorisé.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |

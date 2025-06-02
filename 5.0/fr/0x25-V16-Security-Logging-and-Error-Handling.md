@@ -72,7 +72,7 @@ Cette section définit les exigences visant à garantir que les applications éc
 | **16.5.3** | Vérifiez que l'application échoue de manière élégante et sécurisée, y compris lorsqu'une exception se produit, en évitant les conditions d'échec d'ouverture telles que le traitement d'une transaction malgré les erreurs résultant de la logique de validation. | 2 | v5.0.be-7.4.5 |
 | **16.5.4** | Vérifiez qu'un gestionnaire d'erreurs de « dernier recours » est défini pour intercepter toutes les exceptions non gérées. Cela permet d'éviter la perte des informations d'erreur qui doivent être consignées dans les fichiers journaux et de garantir qu'une erreur ne paralyse pas l'ensemble du processus applicatif, entraînant une perte de disponibilité. | 3 | v5.0.be-7.4.3 |
 
-Remarque : Certains langages, tels que Swift et Go, et, par des pratiques de conception courantes, de nombreux langages fonctionnels, ne prennent pas en charge les exceptions ni les gestionnaires d'événements de dernier recours. Dans ce cas, les architectes et les développeurs doivent utiliser une méthode compatible avec les modèles, les langages ou les frameworks pour garantir que les applications peuvent gérer en toute sécurité les événements exceptionnels, inattendus ou liés à la sécurité.
+Remarque : Certains langages (dont Swift, Go et, par des pratiques de conception courantes, de nombreux langages fonctionnels) ne prennent pas en charge les exceptions ni les gestionnaires d'événements de dernier recours. Dans ce cas, les architectes et les développeurs doivent utiliser une méthode compatible avec les modèles, les langages ou les frameworks pour garantir que les applications peuvent gérer en toute sécurité les événements exceptionnels, inattendus ou liés à la sécurité.
 
 ## Références
 

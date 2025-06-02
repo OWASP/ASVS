@@ -2,17 +2,17 @@
 
 ## Objectif du contrôle
 
-La communication Web en temps réel (WebRTC) permet l'échange de voix, de vidéo et de données en temps réel dans les applications modernes. Avec son adoption croissante, la sécurisation de l'infrastructure WebRTC devient cruciale. Cette section présente les exigences de sécurité pour les acteurs qui développent, hébergent ou intègrent des systèmes WebRTC.
+La communication Web en temps réel (WebRTC) permet l'échange de voix, de vidéo et de données en temps réel dans les applications modernes. Avec l'adoption croissante de cette technologie, la sécurisation de l'infrastructure WebRTC devient cruciale. Cette section présente les exigences de sécurité pour les acteurs qui développent, hébergent ou intègrent des systèmes WebRTC.
 
 Le marché du WebRTC peut être classé en trois segments :
 
-1. Développeurs de produits : Ce sont des fournisseurs propriétaires et open source qui créent et fournissent des produits et solutions WebRTC. Leur objectif est de développer des technologies WebRTC robustes et sécurisées, utilisables par d'autres.
+1. Développeurs de produits : Fournisseurs propriétaires et open source qui créent et fournissent des produits et solutions WebRTC. Leur objectif est de développer des technologies WebRTC robustes et sécurisées, utilisables par d'autres.
 
-2. Plateformes de communication en tant que service (CPaaS) : Elles proposent des API, des SDK et l'infrastructure ou les plateformes nécessaires pour activer les fonctionnalités WebRTC. Les fournisseurs CPaaS peuvent utiliser les produits de la première catégorie ou développer leurs propres logiciels WebRTC pour offrir ces services.
+2. Plateformes de communication en tant que service (CPaaS) : fournisseurs proposant des API, des SDK et l'infrastructure ou les plateformes nécessaires pour exploiter les fonctionnalités WebRTC. Les fournisseurs CPaaS peuvent utiliser des produits de la première catégorie ou développer leur propre logiciel WebRTC pour offrir ces services.
 
-3. Fournisseurs de services : Ces organisations exploitent les produits des développeurs de produits ou des fournisseurs CPaaS, ou développent leurs propres solutions WebRTC. Elles créent et implémentent des applications pour les conférences en ligne, la santé, l'apprentissage en ligne et d'autres domaines où la communication en temps réel est essentielle.
+3. Fournisseurs de services : organisations qui exploitent les produits de développeurs ou de fournisseurs CPaaS, ou qui développent leurs propres solutions WebRTC. Elles créent et implémentent des applications pour les conférences en ligne, la santé, l'apprentissage en ligne et d'autres domaines où la communication en temps réel est essentielle.
 
-Les exigences de sécurité décrites ici s'adressent principalement aux développeurs de produits, aux fournisseurs CPaaS et aux fournisseurs de services qui :
+Les exigences de sécurité décrites ici s'adressent principalement aux développeurs de produits, aux CPaaS et aux fournisseurs de services qui :
 
 * utilisent des solutions open source pour développer leurs applications WebRTC ;
 * utilisent des produits WebRTC commerciaux au sein de leur infrastructure ;
@@ -33,7 +33,7 @@ Cette section définit les exigences de sécurité pour les systèmes utilisant 
 
 Ces exigences s'appliquent uniquement aux systèmes hébergeant leurs propres serveurs multimédias WebRTC, tels que les unités de transfert sélectif (SFU), les unités de contrôle multipoint (MCU), les serveurs d'enregistrement ou les serveurs de passerelle. Les serveurs multimédias gèrent et distribuent les flux multimédias, ce qui rend leur sécurité essentielle pour protéger les communications entre homologues. La protection des flux multimédias est primordiale dans les applications WebRTC pour prévenir les écoutes clandestines, les falsifications et les attaques par déni de service susceptibles de compromettre la confidentialité des utilisateurs et la qualité des communications.
 
-En particulier, il sera nécessaire de mettre en œuvre des protections contre les attaques par saturation, telles que la limitation du débit, la validation des horodatages, l'utilisation d'horloges synchronisées pour correspondre aux intervalles en temps réel et la gestion des tampons afin d'éviter les débordements et de maintenir une synchronisation correcte. Si les paquets d'une session multimédia spécifique arrivent trop rapidement, les paquets excédentaires doivent être rejetés. Il est également important de protéger le système contre les paquets malformés en implémentant la validation des entrées, en gérant en toute sécurité les dépassements d'entiers, en prévenant les dépassements de tampon et en utilisant d'autres techniques robustes de gestion des erreurs.
+En particulier, il est nécessaire de mettre en œuvre des protections contre les attaques par saturation, telles que la limitation du débit, la validation des horodatages, l'utilisation d'horloges synchronisées pour correspondre aux intervalles en temps réel et la gestion des tampons afin d'éviter les débordements et de maintenir une synchronisation correcte. Si les paquets d'une session multimédia spécifique arrivent trop rapidement, les paquets excédentaires doivent être rejetés. Il est également important de protéger le système contre les paquets malformés en implémentant la validation des entrées, en gérant en toute sécurité les dépassements d'entiers, en prévenant les dépassements de tampon et en utilisant d'autres techniques robustes de gestion des erreurs.
 
 Les systèmes qui s'appuient uniquement sur la communication multimédia peer-to-peer entre navigateurs Web, sans l'intervention de serveurs multimédias intermédiaires, sont exclus de ces exigences de sécurité spécifiques liées aux médias.
 

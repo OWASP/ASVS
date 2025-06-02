@@ -2,11 +2,11 @@
 
 ## Objectif du contrôle
 
-Ce chapitre comprend les exigences relatives aux mécanismes spécifiques qui doivent être mis en place pour protéger les données en transit, à la fois entre un client utilisateur final et un service backend, mais également entre les services internes et backend.
+Ce chapitre comprend les exigences relatives aux mécanismes spécifiques qui doivent être mis en place pour protéger les données en transit, à la fois entre un client utilisateur final et un service backend, ainsi qu'entre les services internes et backend.
 
 Les concepts généraux promus par ce chapitre comprennent :
 
-* S'assurer que les communications sont chiffrées en externe, et idéalement en interne également.
+* S’assurer que les communications ne sont pas interceptées par des parties non autorisées grâce à l’utilisation de certificats signés.
 * Configurer les mécanismes de chiffrement selon les dernières directives, y compris les algorithmes et chiffrements préférés.
 * Vérifier que les communications ne sont pas interceptées par une partie non autorisée à l'aide de certificats signés.
 
@@ -16,7 +16,7 @@ En plus de décrire les principes généraux et les meilleures pratiques, l'ASVS
 
 Cette section fournit des conseils initiaux sur la sécurisation des communications TLS. Des outils à jour doivent être utilisés pour vérifier régulièrement la configuration TLS.
 
-Bien que l'utilisation de certificats TLS génériques ne soit pas intrinsèquement dangereuse, la compromission d'un certificat déployé dans tous les environnements (par exemple, production, préproduction, développement et test) peut compromettre la sécurité des applications qui l'utilisent. Il est donc recommandé, si possible, de protéger, de gérer et d'utiliser des certificats TLS distincts dans différents environnements.
+Bien que l'utilisation de certificats TLS génériques ne soit pas intrinsèquement dangereuse, la compromission d'un certificat déployé dans tous les environnements (par exemple, production, préproduction, développement et test) peut compromettre la sécurité des applications qui l'utilisent. Une protection et une gestion appropriées, ainsi que l'utilisation de certificats TLS distincts dans différents environnements, sont recommandées si possible.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |

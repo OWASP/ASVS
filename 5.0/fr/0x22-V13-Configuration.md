@@ -2,15 +2,15 @@
 
 ## Objectif du contrôle
 
-La configuration initiale de l'application doit être sécurisée pour une utilisation sur Internet.
+La configuration par défaut de l'application doit être sécurisée pour une utilisation sur Internet.
 
-Ce chapitre fournit des conseils sur les différentes configurations nécessaires à cet effet, notamment celles à appliquer lors du développement de l'application, ainsi que celles appliquées lors de la compilation et du déploiement.
+Ce chapitre fournit des conseils sur les différentes configurations nécessaires pour y parvenir, y compris celles appliquées pendant le développement, la construction et le déploiement.
 
-Cela inclut des sujets tels que la prévention des fuites de données, la gestion sécurisée des communications entre les différents composants et la protection des secrets.
+Les sujets abordés incluent la prévention des fuites de données, la gestion sécurisée des communications entre les composants et la protection des secrets.
 
 ## V13.1 Documentation de configuration
 
-Cette section décrit les exigences de documentation relatives à la communication de l'application avec les services internes et externes, ainsi que les techniques à employer pour éviter toute perte de disponibilité due à l'inaccessibilité de ces services. Elle aborde également la documentation relative aux secrets.
+Cette section décrit les exigences de documentation relatives à la communication de l'application avec les services internes et externes, ainsi que les techniques permettant d'éviter toute perte de disponibilité due à l'inaccessibilité des services. Elle aborde également la documentation relative aux secrets.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -21,9 +21,9 @@ Cette section décrit les exigences de documentation relatives à la communicati
 
 ## V13.2 Configuration de la communication backend
 
-Les applications doivent interagir avec plusieurs services, notamment des API, des bases de données ou d'autres composants. Ces services peuvent être considérés comme internes à l'application, mais non inclus dans les mécanismes de contrôle d'accès standard de l'application, ou être entièrement externes. Dans les deux cas, il sera nécessaire de configurer l'application pour interagir en toute sécurité avec ces composants et, si nécessaire, de protéger cette configuration.
+Les applications interagissent avec plusieurs services, notamment des API, des bases de données ou d'autres composants. Ceux-ci peuvent être considérés comme internes à l'application, mais non inclus dans les mécanismes de contrôle d'accès standard de l'application, ou être entièrement externes. Dans les deux cas, il est nécessaire de configurer l'application pour interagir en toute sécurité avec ces composants et, si nécessaire, de protéger cette configuration.
 
-Notez que le chapitre « Communication sécurisée » fournit des conseils pour le chiffrement en transit.
+Remarque : le chapitre « Communication sécurisée » fournit des conseils pour le chiffrement en transit.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |
@@ -47,9 +47,9 @@ La gestion des secrets est une tâche de configuration essentielle pour garantir
 
 ## V13.4 Fuite d'informations involontaire
 
-Les configurations de production doivent être renforcées afin d'éviter la divulgation de données inutiles. Nombre de ces problèmes sont rarement considérés comme un risque significatif, mais ils sont liés à d'autres vulnérabilités. Si ces problèmes ne sont pas présents par défaut, la barre est plus haute pour les attaques contre une application.
+Les configurations de production doivent être renforcées afin d'éviter la divulgation de données inutiles. Nombre de ces problèmes sont rarement considérés comme des risques importants, mais sont souvent associés à d'autres vulnérabilités. Si ces problèmes ne sont pas présents par défaut, la barre est plus haute pour les attaques contre une application.
 
-Par exemple, masquer la version des composants côté serveur ne résout pas le besoin de corriger tous les composants, et désactiver la liste des dossiers n'élimine pas le besoin d'utiliser des contrôles d'autorisation ou de garder les fichiers loin du dossier public, mais cela place la barre plus haut.
+Par exemple, masquer la version des composants côté serveur n'élimine pas la nécessité de corriger tous les composants, et désactiver la liste des dossiers ne supprime pas la nécessité d'utiliser des contrôles d'autorisation ou de garder les fichiers loin du dossier public, mais cela place la barre plus haut.
 
 | # | Description | Niveau | #v5.0.be |
 | :---: | :--- | :---: | :---: |

@@ -2,39 +2,39 @@
 
 ## Objectif du contrôle
 
-OAuth2 (appelé OAuth dans ce chapitre) est un framework standard pour l'autorisation déléguée. Par exemple, grâce à OAuth, une application cliente peut accéder aux API (ressources serveur) au nom d'un utilisateur, si celui-ci l'a autorisée à le faire.
+OAuth2 (appelé OAuth dans ce chapitre) est un framework standard pour l'autorisation déléguée. Par exemple, grâce à OAuth, une application cliente peut accéder aux API (ressources serveur) au nom d'un utilisateur, à condition que ce dernier l'ait autorisée.
 
 OAuth n'est pas conçu pour l'authentification des utilisateurs. Le framework OpenID Connect (OIDC) étend OAuth en ajoutant une couche d'identité utilisateur. OIDC prend en charge des fonctionnalités telles que la standardisation des informations utilisateur, l'authentification unique (SSO) et la gestion des sessions. OIDC étant une extension d'OAuth, les exigences OAuth décrites dans ce chapitre s'appliquent également à OIDC.
 
 Les rôles suivants sont définis dans OAuth :
 
 * Le client OAuth est l'application qui tente d'accéder aux ressources du serveur (par exemple, en appelant une API à l'aide du jeton d'accès émis). Il s'agit souvent d'une application côté serveur.
-    * Un client confidentiel est un client capable de maintenir la confidentialité des informations d'identification qu'il utilise pour s'authentifier auprès du serveur d'autorisation.
+    * Un client confidentiel est un client capable de maintenir la confidentialité des informations d’identification qu’il utilise pour s’authentifier auprès du serveur d’autorisation.
     * Un client public n'est pas en mesure de préserver la confidentialité des informations d'identification nécessaires à l'authentification auprès du serveur d'autorisation. Par conséquent, au lieu de s'authentifier (par exemple, à l'aide des paramètres « client_id » et « client_secret »), il s'identifie uniquement (à l'aide du paramètre « client_id »).
 * Le serveur de ressources OAuth (RS) est l’API du serveur qui expose les ressources aux clients OAuth.
 * Le serveur d'autorisation OAuth (AS) est une application serveur qui émet des jetons d'accès aux clients OAuth. Ces jetons permettent aux clients OAuth d'accéder aux ressources RS, soit pour le compte d'un utilisateur final, soit pour leur propre compte. L'AS est souvent une application distincte, mais (le cas échéant) il peut être intégré à un RS approprié.
-* Le propriétaire de la ressource (RO) est l'utilisateur final qui autorise les clients OAuth à obtenir en leur nom un accès limité aux ressources hébergées sur le serveur de ressources. Le propriétaire de la ressource consent à cette autorisation déléguée en interagissant avec le serveur d'autorisation.
+* Le propriétaire de la ressource (RO) est l'utilisateur final qui autorise les clients OAuth à obtenir en son nom un accès limité aux ressources hébergées sur le serveur de ressources. Le propriétaire de la ressource consent à cette autorisation déléguée en interagissant avec le serveur d'autorisation.
 
 Les rôles suivants sont définis dans OIDC :
 
 * La partie de confiance (RP) est l'application cliente qui demande l'authentification de l'utilisateur final via le fournisseur OpenID. Elle joue le rôle de client OAuth.
 * Le fournisseur OpenID (OP) est un AS OAuth capable d'authentifier l'utilisateur final et de fournir des revendications OIDC à un RP. L'OP peut être le fournisseur d'identité (IdP), mais dans les scénarios fédérés, l'OP et le fournisseur d'identité (où l'utilisateur final s'authentifie) peuvent être des applications serveur différentes.
 
-Initialement conçus pour les applications tierces, OAuth et OIDC sont aujourd'hui souvent utilisés par les applications propriétaires. Cependant, leur utilisation dans des scénarios propriétaires, comme l'authentification et la gestion de session, ajoute une certaine complexité, ce qui peut engendrer de nouveaux défis de sécurité.
+OAuth et OIDC ont été initialement conçus pour les applications tierces. Aujourd'hui, ils sont également souvent utilisés par les applications propriétaires. Cependant, lorsqu'ils sont utilisés dans des scénarios propriétaires, comme l'authentification et la gestion de session, le protocole ajoute une certaine complexité, ce qui peut engendrer de nouveaux défis de sécurité.
 
 OAuth et OIDC peuvent être utilisés pour de nombreux types d'applications, mais l'accent d'ASVS et les exigences de ce chapitre portent sur les applications Web et les API.
 
-Étant donné que OAuth et OIDC peuvent être considérés comme une logique au-dessus des technologies Web, les exigences générales des autres chapitres s'appliquent toujours, et ce chapitre ne peut pas être sorti de son contexte.
+Étant donné que OAuth et OIDC peuvent être considérés comme une logique au-dessus des technologies Web, les exigences générales des autres chapitres s'appliquent toujours et ce chapitre ne peut pas être sorti de son contexte.
 
 Ce chapitre présente les meilleures pratiques actuelles pour OAuth2 et OIDC, conformément aux spécifications disponibles sur <https://oauth.net/2/> et <https://openid.net/developers/specs/>. Même si les RFC sont considérées comme matures, elles sont fréquemment mises à jour. Il est donc important de se conformer aux dernières versions lors de l'application des exigences de ce chapitre. Consultez la section Références pour plus de détails.
 
 Compte tenu de la complexité du domaine, il est essentiel qu’une solution OAuth ou OIDC sécurisée utilise des serveurs d’autorisation standard bien connus du secteur et applique la configuration de sécurité recommandée.
 
-La terminologie utilisée dans ce chapitre est conforme aux RFC OAuth et aux spécifications OIDC, mais notez que la terminologie OIDC n'est utilisée que pour les exigences spécifiques à OIDC, sinon, la terminologie OAuth est utilisée.
+La terminologie utilisée dans ce chapitre est conforme aux RFC OAuth et aux spécifications OIDC; mais notez que la terminologie OIDC n'est utilisée que pour les exigences spécifiques à OIDC, sinon, la terminologie OAuth est utilisée.
 
 Dans le contexte d'OAuth et d'OIDC, le terme « jeton » dans ce chapitre fait référence à :
 
-* Jetons d'accès, utilisés uniquement par le RS. Il peut s'agir de jetons de référence validés par introspection ou de jetons autonomes validés à l'aide d'éléments de clé.
+* Jetons d'accès, utilisés uniquement par le serveur de sécurité (RS) et pouvant être des jetons de référence validés par introspection ou des jetons autonomes validés à l'aide d'éléments de clé.
 * Jetons d'actualisation, utilisés uniquement par le serveur d'autorisation qui a émis le jeton.
 * Jetons d'identification OIDC, utilisés uniquement par le client ayant déclenché le flux d'autorisation.
 
