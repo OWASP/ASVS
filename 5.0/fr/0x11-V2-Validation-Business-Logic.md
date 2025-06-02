@@ -13,11 +13,11 @@ Ce chapitre vise à garantir qu'une application vérifiée répond aux objectifs
 
 La documentation de validation et de logique métier doit définir clairement les limites de la logique métier, les règles de validation et la cohérence contextuelle des éléments de données combinés, afin que ce qui doit être implémenté dans l'application soit clair.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.1.1** | Vérifiez que la documentation de l'application définit des règles de validation des entrées pour vérifier la validité des éléments de données par rapport à une structure attendue. Il peut s'agir de formats de données courants tels que des numéros de carte de crédit, des adresses e-mail ou des numéros de téléphone, ou d'un format de données interne. | 1 | v5.0.be-1.11.5 |
-| **2.1.2** | Vérifiez que la documentation de l'application définit comment valider la cohérence logique et contextuelle des éléments de données combinés, par exemple en vérifiant que la banlieue et le code postal correspondent. | 2 | v5.0.be-1.11.6 |
-| **2.1.3** | Vérifiez que les attentes en matière de limites et de validations de la logique métier sont documentées, y compris par utilisateur et globalement dans l'application. | 2 | v5.0.be-1.11.4 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **2.1.1** | Vérifiez que la documentation de l'application définit des règles de validation des entrées pour vérifier la validité des éléments de données par rapport à une structure attendue. Il peut s'agir de formats de données courants tels que des numéros de carte de crédit, des adresses e-mail ou des numéros de téléphone, ou d'un format de données interne. | 1 |
+| **2.1.2** | Vérifiez que la documentation de l'application définit comment valider la cohérence logique et contextuelle des éléments de données combinés, par exemple en vérifiant que la banlieue et le code postal correspondent. | 2 |
+| **2.1.3** | Vérifiez que les attentes en matière de limites et de validations de la logique métier sont documentées, y compris par utilisateur et globalement dans l'application. | 2 |
 
 ## V2.2 Validation des entrées
 
@@ -35,32 +35,32 @@ Veuillez noter les points suivants concernant la validation du schéma :
 * Toutes les bibliothèques de validation de schéma JSON utilisées doivent également être surveillées et mises à jour si nécessaire une fois la norme formalisée.
 * La validation DTD ne doit pas être utilisée et l'évaluation DTD du framework doit être désactivée pour éviter les problèmes liés aux attaques XXE contre les DTD.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.2.1** | Vérifier que les entrées sont validées afin de respecter les attentes métier ou fonctionnelles. Cette validation doit être basée sur une liste de valeurs, de modèles et de plages autorisées, ou sur la comparaison des entrées avec une structure attendue et des limites logiques selon des règles prédéfinies. Pour le niveau 1, cette validation peut se concentrer sur les entrées utilisées pour prendre des décisions métier ou de sécurité spécifiques. À partir du niveau 2, elle doit s'appliquer à toutes les entrées. | 1 | v5.0.be-11.3.1 |
-| **2.2.2** | Vérifiez que l'application est conçue pour appliquer la validation des entrées au niveau d'une couche de service de confiance. Bien que la validation côté client améliore la convivialité et doit être encouragée, elle ne doit pas être considérée comme un contrôle de sécurité. | 1 | v5.0.be-11.3.2 |
-| **2.2.3** | Vérifiez que l’application garantit que les combinaisons d’éléments de données associés sont raisonnables selon les règles prédéfinies. | 2 | v5.0.be-11.3.3 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **2.2.1** | Vérifier que les entrées sont validées afin de respecter les attentes métier ou fonctionnelles. Cette validation doit être basée sur une liste de valeurs, de modèles et de plages autorisées, ou sur la comparaison des entrées avec une structure attendue et des limites logiques selon des règles prédéfinies. Pour le niveau 1, cette validation peut se concentrer sur les entrées utilisées pour prendre des décisions métier ou de sécurité spécifiques. À partir du niveau 2, elle doit s'appliquer à toutes les entrées. | 1 |
+| **2.2.2** | Vérifiez que l'application est conçue pour appliquer la validation des entrées au niveau d'une couche de service de confiance. Bien que la validation côté client améliore la convivialité et doit être encouragée, elle ne doit pas être considérée comme un contrôle de sécurité. | 1 |
+| **2.2.3** | Vérifiez que l’application garantit que les combinaisons d’éléments de données associés sont raisonnables selon les règles prédéfinies. | 2 |
 
 ## V2.3 Sécurité de la logique métier
 
 Cette section examine les exigences clés pour garantir que l’application applique les processus de logique métier de manière correcte et n’est pas vulnérable aux attaques qui exploitent la logique et le flux de l’application.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.3.1** | Vérifiez que l’application traitera uniquement les flux de logique métier pour le même utilisateur dans l’ordre séquentiel attendu et sans sauter d’étapes. | 1 | v5.0.be-11.1.1 |
-| **2.3.2** | Vérifiez que les limites de la logique métier sont implémentées conformément à la documentation de l'application, afin d'éviter que des failles de la logique métier ne soient pas exploitées. | 2 | v5.0.be-11.1.3 |
-| **2.3.3** | Vérifiez que les transactions sont utilisées au niveau de la logique métier de telle sorte qu'une opération de logique métier réussisse dans son intégralité ou qu'elle soit restaurée à l'état correct précédent. | 2 | v5.0.be-11.1.9 |
-| **2.3.4** | Vérifiez que les mécanismes de verrouillage au niveau de la logique métier sont utilisés pour garantir que les ressources en quantité limitée (telles que les sièges de théâtre ou les créneaux de livraison) ne peuvent pas être réservées deux fois en manipulant la logique de l'application. | 2 | v5.0.be-11.1.11 |
-| **2.3.5** | Vérifiez que les flux logiques métier à forte valeur ajoutée nécessitent l'approbation de plusieurs utilisateurs afin d'éviter toute action non autorisée ou accidentelle. Cela peut inclure, sans s'y limiter, les transferts monétaires importants, les approbations de contrats, l'accès à des informations classifiées ou les contournements de sécurité dans le secteur manufacturier. | 3 | v5.0.be-11.1.10 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **2.3.1** | Vérifiez que l’application traitera uniquement les flux de logique métier pour le même utilisateur dans l’ordre séquentiel attendu et sans sauter d’étapes. | 1 |
+| **2.3.2** | Vérifiez que les limites de la logique métier sont implémentées conformément à la documentation de l'application, afin d'éviter que des failles de la logique métier ne soient pas exploitées. | 2 |
+| **2.3.3** | Vérifiez que les transactions sont utilisées au niveau de la logique métier de telle sorte qu'une opération de logique métier réussisse dans son intégralité ou qu'elle soit restaurée à l'état correct précédent. | 2 |
+| **2.3.4** | Vérifiez que les mécanismes de verrouillage au niveau de la logique métier sont utilisés pour garantir que les ressources en quantité limitée (telles que les sièges de théâtre ou les créneaux de livraison) ne peuvent pas être réservées deux fois en manipulant la logique de l'application. | 2 |
+| **2.3.5** | Vérifiez que les flux logiques métier à forte valeur ajoutée nécessitent l'approbation de plusieurs utilisateurs afin d'éviter toute action non autorisée ou accidentelle. Cela peut inclure, sans s'y limiter, les transferts monétaires importants, les approbations de contrats, l'accès à des informations classifiées ou les contournements de sécurité dans le secteur manufacturier. | 3 |
 
 ## V2.4 Anti-automatisation
 
 Cette section comprend des contrôles anti-automatisation pour garantir que les interactions de type humaine sont requises et que les demandes automatisées excessives sont évitées.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **2.4.1** | Vérifiez que des contrôles anti-automatisation sont en place pour protéger contre les appels excessifs aux fonctions d'application qui pourraient conduire à l'exfiltration de données, à la création de données inutiles, à l'épuisement des quotas, aux violations de limites de débit, au déni de service ou à la surutilisation de ressources coûteuses. | 2 | v5.0.be-11.2.2 |
-| **2.4.2** | Vérifiez que les flux logiques métier nécessitent un timing humain réaliste, évitant ainsi des soumissions de transactions excessivement rapides. | 3 | v5.0.be-11.2.1 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **2.4.1** | Vérifiez que des contrôles anti-automatisation sont en place pour protéger contre les appels excessifs aux fonctions d'application qui pourraient conduire à l'exfiltration de données, à la création de données inutiles, à l'épuisement des quotas, aux violations de limites de débit, au déni de service ou à la surutilisation de ressources coûteuses. | 2 |
+| **2.4.2** | Vérifiez que les flux logiques métier nécessitent un timing humain réaliste, évitant ainsi des soumissions de transactions excessivement rapides. | 3 |
 
 ## Références
 

@@ -10,11 +10,11 @@ L'utilisation de jetons autonomes est devenue très répandue, même en dehors d
 
 Cette section comprend des exigences visant à garantir que le jeton a été produit par une partie de confiance et n’a pas été falsifié.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **9.1.1** | Vérifiez que les jetons autonomes sont validés à l'aide de leur signature numérique ou MAC pour les protéger contre toute falsification avant d'accepter le contenu du jeton. | 1 | v5.0.be-52.1.1 |
-| **9.1.2** | Vérifiez que seuls les algorithmes d'une liste blanche peuvent être utilisés pour créer et vérifier des jetons autonomes, dans un contexte donné. La liste blanche doit inclure les algorithmes autorisés, idéalement symétriques ou asymétriques, et ne doit pas inclure l'algorithme « Aucun ». Si les algorithmes symétriques et asymétriques doivent être pris en charge, des contrôles supplémentaires seront nécessaires pour éviter toute confusion de clés. | 1 | v5.0.be-52.1.2 |
-| **9.1.3** | Vérifiez que les clés utilisées pour valider les jetons autonomes proviennent de sources préconfigurées et fiables pour l'émetteur du jeton, empêchant ainsi les attaquants de spécifier des sources et des clés non fiables. Pour les JWT et autres structures JWS, les en-têtes tels que « jku », « x5u » et « jwk » doivent être validés par rapport à une liste blanche de sources fiables. | 1 | v5.0.be-52.1.3 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **9.1.1** | Vérifiez que les jetons autonomes sont validés à l'aide de leur signature numérique ou MAC pour les protéger contre toute falsification avant d'accepter le contenu du jeton. | 1 |
+| **9.1.2** | Vérifiez que seuls les algorithmes d'une liste blanche peuvent être utilisés pour créer et vérifier des jetons autonomes, dans un contexte donné. La liste blanche doit inclure les algorithmes autorisés, idéalement symétriques ou asymétriques, et ne doit pas inclure l'algorithme « Aucun ». Si les algorithmes symétriques et asymétriques doivent être pris en charge, des contrôles supplémentaires seront nécessaires pour éviter toute confusion de clés. | 1 |
+| **9.1.3** | Vérifiez que les clés utilisées pour valider les jetons autonomes proviennent de sources préconfigurées et fiables pour l'émetteur du jeton, empêchant ainsi les attaquants de spécifier des sources et des clés non fiables. Pour les JWT et autres structures JWS, les en-têtes tels que « jku », « x5u » et « jwk » doivent être validés par rapport à une liste blanche de sources fiables. | 1 |
 
 ## V9.2 Contenu du jeton
 
@@ -22,15 +22,15 @@ Avant de prendre des décisions de sécurité basées sur le contenu d'un jeton 
 
 Les exigences spécifiques pour OAuth et OIDC sont couvertes dans le chapitre dédié.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **9.2.1** | Vérifiez que, si une période de validité est indiquée dans les données du jeton, celui-ci et son contenu ne sont acceptés que si la date de vérification est comprise dans cette période. Par exemple, pour les JWT, les revendications « nbf » et « exp » doivent être vérifiées. | 1 | v5.0.be-52.2.1 |
-| **9.2.2** | Vérifiez que le service recevant un jeton valide le type de jeton et son utilisation avant d'en accepter le contenu. Par exemple, seuls les jetons d'accès peuvent être acceptés pour les décisions d'autorisation, et seuls les jetons d'identification peuvent être utilisés pour prouver l'authentification des utilisateurs. | 2 | v5.0.be-52.2.2 |
-| **9.2.3** | Vérifiez que le service accepte uniquement les jetons destinés à être utilisés avec ce service (audience). Pour les JWT, cela peut être réalisé en validant la revendication « aud » par rapport à une liste blanche définie dans le service. | 2 | v5.0.be-52.2.3 |
-| **9.2.4** | Si un émetteur de jetons utilise la même clé privée pour émettre des jetons destinés à différents publics, vérifiez que les jetons émis contiennent une restriction d'audience identifiant de manière unique les publics visés. Cela empêchera la réutilisation d'un jeton avec un public non prévu. Si l'identifiant d'audience est provisionné dynamiquement, l'émetteur de jetons doit valider ces audiences afin de garantir qu'elles n'entraînent pas d'usurpation d'identité. | 2 | v5.0.be-52.2.4 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **9.2.1** | Vérifiez que, si une période de validité est indiquée dans les données du jeton, celui-ci et son contenu ne sont acceptés que si la date de vérification est comprise dans cette période. Par exemple, pour les JWT, les revendications « nbf » et « exp » doivent être vérifiées. | 1 |
+| **9.2.2** | Vérifiez que le service recevant un jeton valide le type de jeton et son utilisation avant d'en accepter le contenu. Par exemple, seuls les jetons d'accès peuvent être acceptés pour les décisions d'autorisation, et seuls les jetons d'identification peuvent être utilisés pour prouver l'authentification des utilisateurs. | 2 |
+| **9.2.3** | Vérifiez que le service accepte uniquement les jetons destinés à être utilisés avec ce service (audience). Pour les JWT, cela peut être réalisé en validant la revendication « aud » par rapport à une liste blanche définie dans le service. | 2 |
+| **9.2.4** | Si un émetteur de jetons utilise la même clé privée pour émettre des jetons destinés à différents publics, vérifiez que les jetons émis contiennent une restriction d'audience identifiant de manière unique les publics visés. Cela empêchera la réutilisation d'un jeton avec un public non prévu. Si l'identifiant d'audience est provisionné dynamiquement, l'émetteur de jetons doit valider ces audiences afin de garantir qu'elles n'entraînent pas d'usurpation d'identité. | 2 |
 
 ## Références
 
 Pour plus d'informations, voir également :
 
-* [OWASP Cheatsheet - JSON Web Token Cheat Sheet for Java](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (but has useful general guidance)
+* [OWASP JSON Web Token Cheat Sheet for Java Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (but has useful general guidance)

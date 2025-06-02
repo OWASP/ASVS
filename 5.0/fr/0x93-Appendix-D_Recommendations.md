@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Lors de la préparation de la version 5.0 de la norme de vérification de la sécurité des applications (ASVS), nous avons constaté que plusieurs éléments, existants ou nouvellement suggérés, ne faisaient pas partie des exigences de la version 5.0. Cela peut s'expliquer par le fait qu'ils n'étaient pas couverts par la définition de l'ASVS 5.0, ou que nous ne pensions pas pouvoir les rendre obligatoires, même si nous les trouvions judicieux.
+Lors de la préparation de la version 5.0 de la norme de vérification de la sécurité des applications (ASVS), il est apparu clairement que plusieurs éléments, existants ou nouvellement proposés, ne devaient pas être inclus comme exigences dans la version 5.0. Cela peut s'expliquer par le fait qu'ils n'entraient pas dans le champ d'application de l'ASVS selon la définition de la version 5.0, ou bien par le fait que, malgré leur pertinence, ils ne pouvaient être rendus obligatoires.
 
-Nous ne voulions pas supprimer complètement ces éléments, c'est pourquoi nous avons tenté d'en inclure certains dans cette annexe.
+Ne voulant pas perdre tous ces éléments entièrement, certains ont été capturés dans cette annexe.
 
 ## Mécanismes recommandés et concernés
 
-Les éléments suivants sont concernés par ASVS. Nous ne pensons pas qu'ils devraient être rendus obligatoires, mais nous recommandons fortement de les considérer comme faisant partie d'une application sécurisée.
+Les éléments suivants sont concernés par ASVS. Ils ne devraient pas être rendus obligatoires, mais il est fortement recommandé de les prendre en compte dans le cadre d'une application sécurisée.
 
 * Un indicateur de sécurité des mots de passe devrait être fourni pour aider les utilisateurs à définir un mot de passe plus fort.
 * Créez un fichier security.txt accessible au public à la racine ou dans le répertoire .well-known de l'application, définissant clairement un lien ou une adresse e-mail permettant de contacter les propriétaires en cas de problème de sécurité.
@@ -25,7 +25,7 @@ Références :
 Les éléments suivants figuraient déjà dans ASVS, mais ne constituent pas de véritables exigences. Il s'agit plutôt de principes à prendre en compte lors de la mise en œuvre de contrôles de sécurité, dont le respect permettra de renforcer la robustesse. Parmi ceux-ci :
 
 * Les contrôles de sécurité doivent être centralisés, simples (économie de conception), vérifiables et réutilisables. Cela permet d'éviter les contrôles dupliqués, manquants ou inefficaces.
-* Dans la mesure du possible, utilisez des implémentations de contrôles de sécurité déjà écrites et validées plutôt que de vous fier à vos propres implémentations.
+* Dans la mesure du possible, utilisez des implémentations de contrôle de sécurité préalablement écrites et bien contrôlées plutôt que de vous fier à la mise en œuvre de contrôles à partir de zéro.
 * Idéalement, un mécanisme de contrôle d'accès unique devrait être utilisé pour accéder aux données et ressources protégées. Toutes les requêtes devraient transiter par ce mécanisme unique afin d'éviter les copier-coller ou les chemins alternatifs non sécurisés.
 * Le contrôle d'accès basé sur les attributs ou les fonctionnalités est un modèle recommandé : le code vérifie l'autorisation de l'utilisateur pour une fonctionnalité ou un élément de données, plutôt que simplement son rôle. Les autorisations doivent toujours être attribuées à l'aide de rôles.
 

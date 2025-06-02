@@ -65,11 +65,11 @@ Les exigences suivantes traitent des risques associés à une utilisation non s�
 
 Dans certains cas, il peut être possible d'y parvenir en définissant des indicateurs de compilateur qui activent les protections et les avertissements contre les dépassements de tampon, y compris la randomisation de la pile et la prévention de l'exécution des données, et qui interrompent la construction si des opérations de pointeur, de mémoire, de chaîne de format, d'entier ou de chaîne non sécurisées sont trouvées.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **1.4.1** | Vérifiez que l'application utilise une chaîne de mémoire sécurisée, une copie de mémoire plus sûre et une arithmétique de pointeur pour détecter ou empêcher les débordements de pile, de tampon ou de tas. | 2 | v5.0.be-5.4.1 |
-| **1.4.2** | Vérifiez que les techniques de validation du signe, de la plage et de l’entrée sont utilisées pour éviter les dépassements d’entiers. | 2 | v5.0.be-5.4.3 |
-| **1.4.3** | Vérifiez que la mémoire et les ressources allouées dynamiquement sont libérées et que les références ou les pointeurs vers la mémoire libérée sont supprimés ou définis sur null pour éviter les pointeurs suspendus et les vulnérabilités d'utilisation après libération. | 2 | v5.0.be-5.4.4 |
+| # | Description | Niveau ||
+| :---: | :--- | :---: 
+| **1.4.1** | Vérifiez que l'application utilise une chaîne de mémoire sécurisée, une copie de mémoire plus sûre et une arithmétique de pointeur pour détecter ou empêcher les débordements de pile, de tampon ou de tas. | 2 |
+| **1.4.2** | Vérifiez que les techniques de validation du signe, de la plage et de l’entrée sont utilisées pour éviter les dépassements d’entiers. | 2 |
+| **1.4.3** | Vérifiez que la mémoire et les ressources allouées dynamiquement sont libérées et que les références ou les pointeurs vers la mémoire libérée sont supprimés ou définis sur null pour éviter les pointeurs suspendus et les vulnérabilités d'utilisation après libération. | 2 |
 
 ## V1.5 Désérialisation sécurisée
 
@@ -77,11 +77,11 @@ La conversion de données stockées ou transmises en objets applicatifs réels (
 
 En particulier, certaines méthodes de désérialisation ont été identifiées par la documentation des langages de programmation ou des frameworks comme étant non sécurisées et ne peuvent être sécurisées avec des données non fiables. Pour chaque mécanisme utilisé, une vérification rigoureuse doit être effectuée.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **1.5.1** | Vérifiez que l'application configure les analyseurs XML pour utiliser une configuration restrictive et que les fonctionnalités non sécurisées telles que la résolution d'entités externes sont désactivées pour empêcher les attaques XML eXternal Entity (XXE). | 1 | v5.0.be-5.5.2 |
-| **1.5.2** | Vérifiez que la désérialisation des données non fiables garantit une gestion sécurisée des entrées, par exemple en utilisant une liste blanche de types d'objets ou en limitant les types d'objets définis par le client, afin d'empêcher les attaques par désérialisation. Les mécanismes de désérialisation explicitement définis comme non sécurisés ne doivent pas être utilisés avec des entrées non fiables. | 2 | v5.0.be-5.5.3 |
-| **1.5.3** | Vérifiez que les différents analyseurs utilisés dans l'application pour le même type de données (par exemple, les analyseurs JSON, les analyseurs XML, les analyseurs d'URL) effectuent l'analyse de manière cohérente et utilisent le même mécanisme d'encodage de caractères pour éviter des problèmes tels que les vulnérabilités d'interopérabilité JSON ou un comportement d'analyse d'URI ou de fichier différent exploité dans les attaques d'inclusion de fichiers à distance (RFI) ou de falsification de requête côté serveur (SSRF). | 3 | v5.0.be-5.5.5 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **1.5.1** | Vérifiez que l'application configure les analyseurs XML pour utiliser une configuration restrictive et que les fonctionnalités non sécurisées telles que la résolution d'entités externes sont désactivées pour empêcher les attaques XML eXternal Entity (XXE). | 1 |
+| **1.5.2** | Vérifiez que la désérialisation des données non fiables garantit une gestion sécurisée des entrées, par exemple en utilisant une liste blanche de types d'objets ou en limitant les types d'objets définis par le client, afin d'empêcher les attaques par désérialisation. Les mécanismes de désérialisation explicitement définis comme non sécurisés ne doivent pas être utilisés avec des entrées non fiables. | 2 |
+| **1.5.3** | Vérifiez que les différents analyseurs utilisés dans l'application pour le même type de données (par exemple, les analyseurs JSON, les analyseurs XML, les analyseurs d'URL) effectuent l'analyse de manière cohérente et utilisent le même mécanisme d'encodage de caractères pour éviter des problèmes tels que les vulnérabilités d'interopérabilité JSON ou un comportement d'analyse d'URI ou de fichier différent exploité dans les attaques d'inclusion de fichiers à distance (RFI) ou de falsification de requête côté serveur (SSRF). | 3 |
 
 ## Références
 

@@ -44,10 +44,10 @@ Les niveaux de risque pour certaines exigences de ce chapitre varient selon que 
 
 Cette section couvre les exigences architecturales génériques qui s’appliquent à toutes les applications utilisant OAuth ou OIDC.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.1.1** | Vérifiez que les jetons sont envoyés uniquement aux composants qui en ont absolument besoin. Par exemple, lors de l'utilisation d'un modèle backend-for-frontend pour les applications JavaScript basées sur un navigateur, les jetons d'accès et d'actualisation ne doivent être accessibles qu'au backend. | 2 | v5.0.be-51.1.1 |
-| **10.1.2** | Vérifiez que le client n'accepte les valeurs du serveur d'autorisation (telles que le code d'autorisation ou le jeton d'identification) que si elles résultent d'un flux d'autorisation initié par la même session d'agent utilisateur et la même transaction. Cela nécessite que les secrets générés par le client, tels que la clé de preuve pour l'échange de codes (PKCE) « code_verifier », « state » ou le nonce OIDC, ne puissent être devinés, soient spécifiques à la transaction et soient liés de manière sécurisée au client et à la session d'agent utilisateur au cours de laquelle la transaction a été initiée. | 2 | v5.0.be-51.1.2 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **10.1.1** | Vérifiez que les jetons sont envoyés uniquement aux composants qui en ont absolument besoin. Par exemple, lors de l'utilisation d'un modèle backend-for-frontend pour les applications JavaScript basées sur un navigateur, les jetons d'accès et d'actualisation ne doivent être accessibles qu'au backend. | 2 |
+| **10.1.2** | Vérifiez que le client n'accepte les valeurs du serveur d'autorisation (telles que le code d'autorisation ou le jeton d'identification) que si elles résultent d'un flux d'autorisation initié par la même session d'agent utilisateur et la même transaction. Cela nécessite que les secrets générés par le client, tels que la clé de preuve pour l'échange de codes (PKCE) « code_verifier », « state » ou le nonce OIDC, ne puissent être devinés, soient spécifiques à la transaction et soient liés de manière sécurisée au client et à la session d'agent utilisateur au cours de laquelle la transaction a été initiée. | 2 |
 
 ## V10.2 Client OAuth
 
@@ -55,11 +55,11 @@ Ces exigences détaillent les responsabilités des applications clientes OAuth. 
 
 En général, les clients back-end sont considérés comme confidentiels et les clients front-end comme publics. Cependant, les applications natives exécutées sur l'appareil de l'utilisateur final peuvent être considérées comme confidentielles lors de l'enregistrement dynamique des clients OAuth.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.2.1** | Vérifiez que, si le flux de code est utilisé, le client OAuth dispose d'une protection contre les attaques de falsification de requêtes basées sur le navigateur, communément appelées falsification de requêtes intersites (CSRF), qui déclenchent des demandes de jetons, soit en utilisant la fonctionnalité de clé de preuve pour l'échange de code (PKCE), soit en vérifiant le paramètre « état » envoyé dans la demande d'autorisation. | 2 | v5.0.be-51.2.2 |
-| **10.2.2** | Vérifiez que, si le client OAuth peut interagir avec plusieurs serveurs d'autorisation, il dispose d'une protection contre les attaques par confusion. Par exemple, il peut exiger que le serveur d'autorisation renvoie la valeur du paramètre « iss » et la valide dans la réponse d'autorisation et la réponse du jeton. | 2 | v5.0.be-51.2.1 |
-| **10.2.3** | Vérifiez que le client OAuth demande uniquement les étendues requises (ou d’autres paramètres d’autorisation) dans les requêtes adressées au serveur d’autorisation. | 3 | v5.0.be-51.2.3 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **10.2.1** | Vérifiez que, si le flux de code est utilisé, le client OAuth dispose d'une protection contre les attaques de falsification de requêtes basées sur le navigateur, communément appelées falsification de requêtes intersites (CSRF), qui déclenchent des demandes de jetons, soit en utilisant la fonctionnalité de clé de preuve pour l'échange de code (PKCE), soit en vérifiant le paramètre « état » envoyé dans la demande d'autorisation. | 2 |
+| **10.2.2** | Vérifiez que, si le client OAuth peut interagir avec plusieurs serveurs d'autorisation, il dispose d'une protection contre les attaques par confusion. Par exemple, il peut exiger que le serveur d'autorisation renvoie la valeur du paramètre « iss » et la valide dans la réponse d'autorisation et la réponse du jeton. | 2 |
+| **10.2.3** | Vérifiez que le client OAuth demande uniquement les étendues requises (ou d’autres paramètres d’autorisation) dans les requêtes adressées au serveur d’autorisation. | 3 |
 
 ## V10.3 Serveur de ressources OAuth
 
@@ -70,13 +70,13 @@ Dans le contexte d'ASVS et de ce chapitre, le serveur de ressources est une API.
 
 Par conséquent, les exigences répertoriées ici sont spécifiques à OAuth ou OIDC et doivent être exécutées après la validation du jeton et avant d'effectuer l'autorisation basée sur les informations du jeton.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.3.1** | Vérifiez que le serveur de ressources accepte uniquement les jetons d'accès destinés à être utilisés avec ce service (audience). L'audience peut être incluse dans un jeton d'accès structuré (comme la revendication « aud » dans JWT) ou vérifiée à l'aide du point de terminaison d'introspection de jeton. | 2 | v5.0.be-51.3.2 |
-| **10.3.2** | Vérifiez que le serveur de ressources applique les décisions d'autorisation en fonction des revendications du jeton d'accès définissant l'autorisation déléguée. Si des revendications telles que « sub », « scope » et « authorization_details » sont présentes, elles doivent être prises en compte dans la décision. | 2 | v5.0.be-51.3.3 |
-| **10.3.3** | Vérifiez que si une décision de contrôle d'accès nécessite l'identification d'un utilisateur unique à partir d'un jeton d'accès (JWT ou réponse d'introspection de jeton associé), le serveur de ressources identifie l'utilisateur à partir de revendications non réattribuables à d'autres utilisateurs. En général, cela implique l'utilisation d'une combinaison de revendications « iss » et « sub ». | 2 | v5.0.be-51.3.4 |
-| **10.3.4** | Si le serveur de ressources requiert une force d'authentification, des méthodes ou une date d'expiration spécifiques, vérifiez que le jeton d'accès présenté respecte ces contraintes. Par exemple, s'il est présent, utilisez les revendications OIDC « acr », « amr » et « auth_time » respectivement. | 2 | v5.0.be-51.3.5 |
-| **10.3.5** | Vérifiez que le serveur de ressources empêche l'utilisation de jetons d'accès volés ou la relecture de jetons d'accès (de parties non autorisées) en exigeant des jetons d'accès limités par l'expéditeur, soit Mutual TLS pour OAuth 2, soit OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 | v5.0.be-51.3.1 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **10.3.1** | Vérifiez que le serveur de ressources accepte uniquement les jetons d'accès destinés à être utilisés avec ce service (audience). L'audience peut être incluse dans un jeton d'accès structuré (comme la revendication « aud » dans JWT) ou vérifiée à l'aide du point de terminaison d'introspection de jeton. | 2 |
+| **10.3.2** | Vérifiez que le serveur de ressources applique les décisions d'autorisation en fonction des revendications du jeton d'accès définissant l'autorisation déléguée. Si des revendications telles que « sub », « scope » et « authorization_details » sont présentes, elles doivent être prises en compte dans la décision. | 2 |
+| **10.3.3** | Vérifiez que si une décision de contrôle d'accès nécessite l'identification d'un utilisateur unique à partir d'un jeton d'accès (JWT ou réponse d'introspection de jeton associé), le serveur de ressources identifie l'utilisateur à partir de revendications non réattribuables à d'autres utilisateurs. En général, cela implique l'utilisation d'une combinaison de revendications « iss » et « sub ». | 2 |
+| **10.3.4** | Si le serveur de ressources requiert une force d'authentification, des méthodes ou une date d'expiration spécifiques, vérifiez que le jeton d'accès présenté respecte ces contraintes. Par exemple, s'il est présent, utilisez les revendications OIDC « acr », « amr » et « auth_time » respectivement. | 2 |
+| **10.3.5** | Vérifiez que le serveur de ressources empêche l'utilisation de jetons d'accès volés ou la relecture de jetons d'accès (de parties non autorisées) en exigeant des jetons d'accès limités par l'expéditeur, soit Mutual TLS pour OAuth 2, soit OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 |
 
 ## V10.4 Serveur d'autorisation OAuth
 
@@ -84,24 +84,24 @@ Ces exigences détaillent les responsabilités des serveurs d’autorisation OAu
 
 Pour l'authentification client, la méthode « self_signed_tls_client_auth » est autorisée avec les prérequis requis par la [section 2.2](https://datatracker.ietf.org/doc/html/rfc8705#name-self-signed-certificate-mut) de la [RFC 8705](https://datatracker.ietf.org/doc/html/rfc8705).
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.4.1** | Vérifiez que le serveur d'autorisation valide les URI de redirection en fonction d'une liste d'autorisation spécifique au client d'URI préenregistrés à l'aide d'une comparaison de chaînes exacte. | 1 | v5.0.be-51.4.6 |
-| **10.4.2** | Vérifiez que, si le serveur d'autorisation renvoie le code d'autorisation dans la réponse, celui-ci ne peut être utilisé qu'une seule fois pour une demande de jeton. Pour la deuxième demande valide avec un code d'autorisation déjà utilisé pour émettre un jeton d'accès, le serveur d'autorisation doit rejeter la demande de jeton et révoquer tous les jetons émis liés au code d'autorisation. | 1 | v5.0.be-51.4.1 |
-| **10.4.3** | Vérifiez que le code d'autorisation est de courte durée. La durée de vie maximale peut atteindre 10 minutes pour les applications L1 et L2 et 1 minute pour les applications L3. | 1 | v5.0.be-51.4.2 |
-| **10.4.4** | Vérifiez que, pour un client donné, le serveur d'autorisation autorise uniquement l'utilisation des autorisations nécessaires à ce client. Notez que les autorisations « token » (flux implicite) et « password » (flux d'informations d'identification du propriétaire de la ressource) ne doivent plus être utilisées. | 1 | v5.0.be-51.4.5 |
-| **10.4.5** | Vérifiez que le serveur d'autorisation atténue les attaques par rejeu de jetons d'actualisation pour les clients publics, de préférence en utilisant des jetons d'actualisation limités par l'expéditeur, par exemple des jetons DPoP (Demonstrating Proof of Possession) ou des jetons d'accès liés à un certificat utilisant le protocole TLS mutuel (mTLS). Pour les applications L1 et L2, la rotation des jetons d'actualisation peut être utilisée. Si cette rotation est utilisée, le serveur d'autorisation doit invalider le jeton d'actualisation après utilisation et révoquer tous les jetons d'actualisation de cette autorisation si un jeton d'actualisation déjà utilisé et invalidé est fourni. | 1 | v5.0.be-51.4.4 |
-| **10.4.6** | Vérifiez que, si l'octroi de code est utilisé, le serveur d'autorisation atténue les attaques par interception de code en exigeant une clé de preuve pour l'échange de code (PKCE). Pour les demandes d'autorisation, le serveur d'autorisation doit exiger une valeur « code_challenge » valide et ne doit pas accepter une valeur « plain » pour « code_challenge_method ». Pour une demande de jeton, il doit exiger la validation du paramètre « code_verifier ». | 2 | v5.0.be-51.4.3 |
-| **10.4.7** | Vérifiez que si le serveur d'autorisation prend en charge l'enregistrement dynamique des clients non authentifiés, il réduit le risque d'applications clientes malveillantes. Il doit valider les métadonnées clientes, telles que les URI enregistrés, garantir le consentement de l'utilisateur et l'avertir avant de traiter une demande d'autorisation avec une application cliente non approuvée. | 2 | v5.0.be-51.4.16 |
-| **10.4.8** | Vérifiez que les jetons d’actualisation ont une expiration absolue, y compris si l’expiration du jeton d’actualisation glissant est appliquée. | 2 | v5.0.be-51.4.13 |
-| **10.4.9** | Vérifiez que les jetons d'actualisation et les jetons d'accès de référence peuvent être révoqués par un utilisateur autorisé à l'aide de l'interface utilisateur du serveur d'autorisation, afin d'atténuer le risque de clients malveillants ou de jetons volés. | 2 | v5.0.be-51.4.14 |
-| **10.4.10** | Vérifiez que le client confidentiel est authentifié pour les demandes de canal arrière client-serveur autorisé telles que les demandes de jeton, les demandes d'autorisation poussée (PAR) et les demandes de révocation de jeton. | 2 | v5.0.be-51.4.7 |
-| **10.4.11** | Vérifiez que le client confidentiel est authentifié pour les demandes de canal arrière client-serveur autorisé telles que les demandes de jeton, les demandes d'autorisation poussée (PAR) et les demandes de révocation de jeton. | 2 | v5.0.be-51.4.8 |
-| **10.4.12** | Vérifiez que, pour un client donné, le serveur d'autorisation autorise uniquement la valeur « response_mode » dont ce client a besoin. Par exemple, en vérifiant cette valeur par rapport aux valeurs attendues ou en utilisant une requête d'autorisation poussée (PAR) ou une requête d'autorisation sécurisée par JWT (JAR). | 3 | v5.0.be-51.4.12 |
-| **10.4.13** | Vérifiez que le type de subvention « code » est toujours utilisé avec les demandes d'autorisation poussées (PAR). | 3 | v5.0.be-51.4.9 |
-| **10.4.14** | Vérifiez que le serveur d'autorisation émet uniquement des jetons d'accès limités à l'expéditeur (preuve de possession), soit avec des jetons d'accès liés au certificat utilisant TLS mutuel (mTLS), soit avec des jetons d'accès liés au DPoP (démonstration de preuve de possession). | 3 | v5.0.be-51.4.11 |
-| **10.4.15** | Vérifiez que, pour un client côté serveur (non exécuté sur l'appareil de l'utilisateur final), le serveur d'autorisation garantit que la valeur du paramètre « authorization_details » provient du backend client et que l'utilisateur ne l'a pas altérée. Par exemple, en exigeant l'utilisation d'une demande d'autorisation poussée (PAR) ou d'une demande d'autorisation sécurisée par JWT (JAR). | 3 | v5.0.be-51.4.15 |
-| **10.4.16** | Vérifiez que le client est confidentiel et que le serveur d'autorisation requiert l'utilisation de méthodes d'authentification client fortes (basées sur la cryptographie à clé publique et résistantes aux attaques par relecture), telles que TLS mutuel ('tls_client_auth', 'self_signed_tls_client_auth') ou JWT à clé privée ('private_key_jwt'). | 3 | v5.0.be-51.4.10 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **10.4.1** | Vérifiez que le serveur d'autorisation valide les URI de redirection en fonction d'une liste d'autorisation spécifique au client d'URI préenregistrés à l'aide d'une comparaison de chaînes exacte. | 1 |
+| **10.4.2** | Vérifiez que, si le serveur d'autorisation renvoie le code d'autorisation dans la réponse, celui-ci ne peut être utilisé qu'une seule fois pour une demande de jeton. Pour la deuxième demande valide avec un code d'autorisation déjà utilisé pour émettre un jeton d'accès, le serveur d'autorisation doit rejeter la demande de jeton et révoquer tous les jetons émis liés au code d'autorisation. | 1 |
+| **10.4.3** | Vérifiez que le code d'autorisation est de courte durée. La durée de vie maximale peut atteindre 10 minutes pour les applications L1 et L2 et 1 minute pour les applications L3. | 1 |
+| **10.4.4** | Vérifiez que, pour un client donné, le serveur d'autorisation autorise uniquement l'utilisation des autorisations nécessaires à ce client. Notez que les autorisations « token » (flux implicite) et « password » (flux d'informations d'identification du propriétaire de la ressource) ne doivent plus être utilisées. | 1 |
+| **10.4.5** | Vérifiez que le serveur d'autorisation atténue les attaques par rejeu de jetons d'actualisation pour les clients publics, de préférence en utilisant des jetons d'actualisation limités par l'expéditeur, par exemple des jetons DPoP (Demonstrating Proof of Possession) ou des jetons d'accès liés à un certificat utilisant le protocole TLS mutuel (mTLS). Pour les applications L1 et L2, la rotation des jetons d'actualisation peut être utilisée. Si cette rotation est utilisée, le serveur d'autorisation doit invalider le jeton d'actualisation après utilisation et révoquer tous les jetons d'actualisation de cette autorisation si un jeton d'actualisation déjà utilisé et invalidé est fourni. | 1 |
+| **10.4.6** | Vérifiez que, si l'octroi de code est utilisé, le serveur d'autorisation atténue les attaques par interception de code en exigeant une clé de preuve pour l'échange de code (PKCE). Pour les demandes d'autorisation, le serveur d'autorisation doit exiger une valeur « code_challenge » valide et ne doit pas accepter une valeur « plain » pour « code_challenge_method ». Pour une demande de jeton, il doit exiger la validation du paramètre « code_verifier ». | 2 |
+| **10.4.7** | Vérifiez que si le serveur d'autorisation prend en charge l'enregistrement dynamique des clients non authentifiés, il réduit le risque d'applications clientes malveillantes. Il doit valider les métadonnées clientes, telles que les URI enregistrés, garantir le consentement de l'utilisateur et l'avertir avant de traiter une demande d'autorisation avec une application cliente non approuvée. | 2 |
+| **10.4.8** | Vérifiez que les jetons d’actualisation ont une expiration absolue, y compris si l’expiration du jeton d’actualisation glissant est appliquée. | 2 |
+| **10.4.9** | Vérifiez que les jetons d'actualisation et les jetons d'accès de référence peuvent être révoqués par un utilisateur autorisé à l'aide de l'interface utilisateur du serveur d'autorisation, afin d'atténuer le risque de clients malveillants ou de jetons volés. | 2 |
+| **10.4.10** | Vérifiez que le client confidentiel est authentifié pour les demandes de canal arrière client-serveur autorisé telles que les demandes de jeton, les demandes d'autorisation poussée (PAR) et les demandes de révocation de jeton. | 2 |
+| **10.4.11** | Vérifiez que le client confidentiel est authentifié pour les demandes de canal arrière client-serveur autorisé telles que les demandes de jeton, les demandes d'autorisation poussée (PAR) et les demandes de révocation de jeton. | 2 |
+| **10.4.12** | Vérifiez que, pour un client donné, le serveur d'autorisation autorise uniquement la valeur « response_mode » dont ce client a besoin. Par exemple, en vérifiant cette valeur par rapport aux valeurs attendues ou en utilisant une requête d'autorisation poussée (PAR) ou une requête d'autorisation sécurisée par JWT (JAR). | 3 |
+| **10.4.13** | Vérifiez que le type de subvention « code » est toujours utilisé avec les demandes d'autorisation poussées (PAR). | 3 |
+| **10.4.14** | Vérifiez que le serveur d'autorisation émet uniquement des jetons d'accès limités à l'expéditeur (preuve de possession), soit avec des jetons d'accès liés au certificat utilisant TLS mutuel (mTLS), soit avec des jetons d'accès liés au DPoP (démonstration de preuve de possession). | 3 |
+| **10.4.15** | Vérifiez que, pour un client côté serveur (non exécuté sur l'appareil de l'utilisateur final), le serveur d'autorisation garantit que la valeur du paramètre « authorization_details » provient du backend client et que l'utilisateur ne l'a pas altérée. Par exemple, en exigeant l'utilisation d'une demande d'autorisation poussée (PAR) ou d'une demande d'autorisation sécurisée par JWT (JAR). | 3 |
+| **10.4.16** | Vérifiez que le client est confidentiel et que le serveur d'autorisation requiert l'utilisation de méthodes d'authentification client fortes (basées sur la cryptographie à clé publique et résistantes aux attaques par relecture), telles que TLS mutuel ('tls_client_auth', 'self_signed_tls_client_auth') ou JWT à clé privée ('private_key_jwt'). | 3 |
 
 ## V10.5 Client OIDC
 
@@ -109,13 +109,13 @@ Pour l'authentification client, la méthode « self_signed_tls_client_auth » es
 
 Notez que la section « Authentification avec un fournisseur d’identité » du chapitre « Authentification » contient également des exigences générales pertinentes.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.5.1** | Vérifiez que le client (en tant que partie utilisatrice) atténue les attaques par rejeu de jeton d'identification. Par exemple, en vous assurant que la valeur « nonce » du jeton d'identification correspond à la valeur « nonce » envoyée dans la demande d'authentification au fournisseur OpenID (appelée demande d'autorisation envoyée au serveur d'autorisation dans OAuth2). | 2 | v5.0.be-51.5.1 |
-| **10.5.2** | Vérifiez que le client identifie de manière unique l'utilisateur à partir des revendications de jeton d'identification, généralement la revendication « sub », qui ne peut pas être réaffectée à d'autres utilisateurs (pour la portée d'un fournisseur d'identité). | 2 | v5.0.be-51.5.2 |
-| **10.5.3** | Vérifiez que le client rejette les tentatives d'un serveur d'autorisation malveillant d'usurper l'identité d'un autre serveur d'autorisation via ses métadonnées. Le client doit rejeter les métadonnées du serveur d'autorisation si l'URL de l'émetteur figurant dans ces métadonnées ne correspond pas exactement à l'URL d'émetteur préconfigurée attendue par le client. | 2 | v5.0.be-51.5.3 |
-| **10.5.4** | Vérifiez que le client valide que le jeton d'identification est destiné à être utilisé pour ce client (audience) en vérifiant que la revendication « aud » du jeton est égale à la valeur « client_id » pour le client. | 2 | v5.0.be-51.5.4 |
-| **10.5.5** | Vérifiez que, lors de l'utilisation de la déconnexion du canal arrière OIDC, la partie utilisatrice atténue les risques de déni de service liés à la déconnexion forcée et à la confusion entre JWT dans le flux de déconnexion. Le client doit vérifier que le jeton de déconnexion est correctement typé avec la valeur « logout+jwt », qu'il contient la revendication « event » avec le nom de membre correct et qu'il ne contient pas de revendication « nonce ». Il est également recommandé d'utiliser une expiration courte (par exemple, 2 minutes). | 2 | v5.0.be-51.5.5 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **10.5.1** | Vérifiez que le client (en tant que partie utilisatrice) atténue les attaques par rejeu de jeton d'identification. Par exemple, en vous assurant que la valeur « nonce » du jeton d'identification correspond à la valeur « nonce » envoyée dans la demande d'authentification au fournisseur OpenID (appelée demande d'autorisation envoyée au serveur d'autorisation dans OAuth2). | 2 |
+| **10.5.2** | Vérifiez que le client identifie de manière unique l'utilisateur à partir des revendications de jeton d'identification, généralement la revendication « sub », qui ne peut pas être réaffectée à d'autres utilisateurs (pour la portée d'un fournisseur d'identité). | 2 |
+| **10.5.3** | Vérifiez que le client rejette les tentatives d'un serveur d'autorisation malveillant d'usurper l'identité d'un autre serveur d'autorisation via ses métadonnées. Le client doit rejeter les métadonnées du serveur d'autorisation si l'URL de l'émetteur figurant dans ces métadonnées ne correspond pas exactement à l'URL d'émetteur préconfigurée attendue par le client. | 2 |
+| **10.5.4** | Vérifiez que le client valide que le jeton d'identification est destiné à être utilisé pour ce client (audience) en vérifiant que la revendication « aud » du jeton est égale à la valeur « client_id » pour le client. | 2 |
+| **10.5.5** | Vérifiez que, lors de l'utilisation de la déconnexion du canal arrière OIDC, la partie utilisatrice atténue les risques de déni de service liés à la déconnexion forcée et à la confusion entre JWT dans le flux de déconnexion. Le client doit vérifier que le jeton de déconnexion est correctement typé avec la valeur « logout+jwt », qu'il contient la revendication « event » avec le nom de membre correct et qu'il ne contient pas de revendication « nonce ». Il est également recommandé d'utiliser une expiration courte (par exemple, 2 minutes). | 2 |
 
 ## V10.6 Fournisseur OpenID
 
@@ -123,27 +123,27 @@ Notez que la section « Authentification avec un fournisseur d’identité » du
 
 Notez que si vous utilisez le flux de jeton d'identification (et non le flux de code), aucun jeton d'accès n'est émis et de nombreuses exigences pour OAuth AS ne sont pas applicables.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.6.1** | Vérifiez que le fournisseur OpenID n'autorise que les valeurs « code », « ciba », « id_token » ou « id_token code » pour le mode de réponse. Notez que « code » est préférable à « id_token code » (flux hybride OIDC) et que « token » (tout flux implicite) ne doit pas être utilisé. | 2 | v5.0.be-51.6.1 |
-| **10.6.2** | Vérifiez que le fournisseur OpenID atténue les risques de déni de service liés à la déconnexion forcée. Pour ce faire, obtenez une confirmation explicite de l'utilisateur final ou, le cas échéant, validez les paramètres de la requête de déconnexion (initiée par la partie utilisatrice), comme « id_token_hint ». | 2 | v5.0.be-51.6.2 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **10.6.1** | Vérifiez que le fournisseur OpenID n'autorise que les valeurs « code », « ciba », « id_token » ou « id_token code » pour le mode de réponse. Notez que « code » est préférable à « id_token code » (flux hybride OIDC) et que « token » (tout flux implicite) ne doit pas être utilisé. | 2 |
+| **10.6.2** | Vérifiez que le fournisseur OpenID atténue les risques de déni de service liés à la déconnexion forcée. Pour ce faire, obtenez une confirmation explicite de l'utilisateur final ou, le cas échéant, validez les paramètres de la requête de déconnexion (initiée par la partie utilisatrice), comme « id_token_hint ». | 2 |
 
 ## V10.7 Gestion du consentement
 
 Ces exigences couvrent la vérification du consentement de l'utilisateur par le serveur d'autorisation. Sans vérification appropriée du consentement de l'utilisateur, un acteur malveillant peut obtenir des autorisations au nom de l'utilisateur par usurpation d'identité ou ingénierie sociale.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **10.7.1** | Vérifiez que le serveur d'autorisation garantit le consentement de l'utilisateur à chaque demande d'autorisation. Si l'identité du client ne peut être garantie, le serveur d'autorisation doit toujours demander explicitement le consentement de l'utilisateur. | 2 | v5.0.be-51.7.1 |
-| **10.7.2** | Vérifiez que lorsque le serveur d'autorisation demande le consentement de l'utilisateur, il fournit des informations claires et suffisantes sur ce qui est consenti. Le cas échéant, ces informations doivent inclure la nature des autorisations demandées (généralement en fonction de la portée, du serveur de ressources et des détails d'autorisation RAR), l'identité de l'application autorisée et la durée de vie de ces autorisations. | 2 | v5.0.be-51.7.2 |
-| **10.7.3** | Vérifiez que l’utilisateur peut consulter, modifier et révoquer les consentements qu’il a accordés via le serveur d’autorisation. | 2 | v5.0.be-51.7.3 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **10.7.1** | Vérifiez que le serveur d'autorisation garantit le consentement de l'utilisateur à chaque demande d'autorisation. Si l'identité du client ne peut être garantie, le serveur d'autorisation doit toujours demander explicitement le consentement de l'utilisateur. | 2 |
+| **10.7.2** | Vérifiez que lorsque le serveur d'autorisation demande le consentement de l'utilisateur, il fournit des informations claires et suffisantes sur ce qui est consenti. Le cas échéant, ces informations doivent inclure la nature des autorisations demandées (généralement en fonction de la portée, du serveur de ressources et des détails d'autorisation RAR), l'identité de l'application autorisée et la durée de vie de ces autorisations. | 2 |
+| **10.7.3** | Vérifiez que l’utilisateur peut consulter, modifier et révoquer les consentements qu’il a accordés via le serveur d’autorisation. | 2 |
 
 ## Références
 
 Pour plus d'informations, voir également :
 
 * [oauth.net](https://oauth.net/)
-* [OWASP Cheat Sheet: OAuth 2.0 Protocol Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
+* [OWASP OAuth 2.0 Protocol Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
 
 Pour les exigences liées à OAuth dans ASVS, les RFC publiées et à l'état de projet suivantes sont utilisées :
 

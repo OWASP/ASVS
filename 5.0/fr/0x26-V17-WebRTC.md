@@ -24,10 +24,10 @@ Il est important de noter que ces exigences de sécurité ne s'appliquent pas au
 
 Cette section définit les exigences de sécurité pour les systèmes utilisant leurs propres serveurs TURN (Traversal Using Relays around NAT). Les serveurs TURN contribuent au relais des médias dans les environnements réseau restrictifs, mais peuvent présenter des risques en cas de mauvaise configuration. Ces contrôles se concentrent sur le filtrage sécurisé des adresses et la protection contre l'épuisement des ressources.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **17.1.1** | Vérifiez que le service TURN (Traversal Using Relays around NAT) autorise uniquement l'accès aux adresses IP non réservées à des fins spécifiques (par exemple, réseaux internes, diffusion, bouclage). Notez que cela s'applique aux adresses IPv4 et IPv6. | 2 | v5.0.be-53.1.1 |
-| **17.1.2** | Vérifiez que le service Traversal Using Relays around NAT (TURN) n'est pas susceptible d'épuiser ses ressources lorsque des utilisateurs légitimes tentent d'ouvrir un grand nombre de ports sur le serveur TURN. | 3 | v5.0.be-53.1.2 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **17.1.1** | Vérifiez que le service TURN (Traversal Using Relays around NAT) autorise uniquement l'accès aux adresses IP non réservées à des fins spécifiques (par exemple, réseaux internes, diffusion, bouclage). Notez que cela s'applique aux adresses IPv4 et IPv6. | 2 |
+| **17.1.2** | Vérifiez que le service Traversal Using Relays around NAT (TURN) n'est pas susceptible d'épuiser ses ressources lorsque des utilisateurs légitimes tentent d'ouvrir un grand nombre de ports sur le serveur TURN. | 3 |
 
 ## V17.2 Média
 
@@ -39,16 +39,16 @@ Les systèmes qui s'appuient uniquement sur la communication multimédia peer-to
 
 Cette section traite de l'utilisation de la sécurité de la couche de transport des datagrammes (DTLS) dans le contexte de WebRTC. L'exigence relative à la mise en place d'une politique documentée de gestion des clés cryptographiques est décrite dans le chapitre « Cryptographie ». Des informations sur les méthodes cryptographiques approuvées sont disponibles dans l'annexe Cryptographie de l'ASVS ou dans des documents tels que NIST SP 800-52 Rev. 2 ou BSI TR-02102-2 (version 2025-01).
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **17.2.1** | Vérifiez que la clé du certificat Datagram Transport Layer Security (DTLS) est gérée et protégée conformément à la politique documentée de gestion des clés cryptographiques. | 2 | v5.0.be-53.2.1 |
-| **17.2.2** | Vérifiez que le serveur multimédia est configuré pour utiliser et prendre en charge les suites de chiffrement DTLS (Datagram Transport Layer Security) approuvées et un profil de protection sécurisé pour l'extension DTLS pour l'établissement de clés pour le protocole de transport en temps réel sécurisé (DTLS-SRTP). | 2 | v5.0.be-53.2.2 |
-| **17.2.3** | Vérifiez que l'authentification SRTP (Secure Real-time Transport Protocol) est vérifiée sur le serveur multimédia pour empêcher les attaques par injection RTP (Real-time Transport Protocol) d'entraîner une condition de déni de service ou l'insertion de médias audio ou vidéo dans les flux multimédias. | 2 | v5.0.be-53.2.4 |
-| **17.2.4** | Vérifiez que le serveur multimédia est en mesure de continuer à traiter le trafic multimédia entrant lorsqu'il rencontre des paquets SRTP (Secure Real-time Transport Protocol) mal formés. | 2 | v5.0.be-53.2.7 |
-| **17.2.5** | Vérifiez que le serveur multimédia est en mesure de continuer à traiter le trafic multimédia entrant pendant un flot de paquets SRTP (Secure Real-time Transport Protocol) provenant d'utilisateurs légitimes. | 3 | v5.0.be-53.2.5 |
-| **17.2.6** | Vérifiez que le serveur multimédia n'est pas sensible à la vulnérabilité de condition de concurrence « ClientHello » dans Datagram Transport Layer Security (DTLS) en vérifiant si le serveur multimédia est publiquement connu comme étant vulnérable ou en effectuant le test de condition de concurrence. | 3 | v5.0.be-53.2.3 |
-| **17.2.7** | Vérifiez que tous les mécanismes d'enregistrement audio ou vidéo associés au serveur multimédia sont en mesure de continuer à traiter le trafic multimédia entrant pendant un flot de paquets SRTP (Secure Real-time Transport Protocol) provenant d'utilisateurs légitimes. | 3 | v5.0.be-53.2.6 |
-| **17.2.8** | Vérifiez que le certificat Datagram Transport Layer Security (DTLS) est vérifié par rapport à l'attribut d'empreinte digitale du protocole de description de session (SDP), en mettant fin au flux multimédia si la vérification échoue, pour garantir l'authenticité du flux multimédia. | 3 | v5.0.be-53.2.8 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **17.2.1** | Vérifiez que la clé du certificat Datagram Transport Layer Security (DTLS) est gérée et protégée conformément à la politique documentée de gestion des clés cryptographiques. | 2 |
+| **17.2.2** | Vérifiez que le serveur multimédia est configuré pour utiliser et prendre en charge les suites de chiffrement DTLS (Datagram Transport Layer Security) approuvées et un profil de protection sécurisé pour l'extension DTLS pour l'établissement de clés pour le protocole de transport en temps réel sécurisé (DTLS-SRTP). | 2 |
+| **17.2.3** | Vérifiez que l'authentification SRTP (Secure Real-time Transport Protocol) est vérifiée sur le serveur multimédia pour empêcher les attaques par injection RTP (Real-time Transport Protocol) d'entraîner une condition de déni de service ou l'insertion de médias audio ou vidéo dans les flux multimédias. | 2 |
+| **17.2.4** | Vérifiez que le serveur multimédia est en mesure de continuer à traiter le trafic multimédia entrant lorsqu'il rencontre des paquets SRTP (Secure Real-time Transport Protocol) mal formés. | 2 |
+| **17.2.5** | Vérifiez que le serveur multimédia est en mesure de continuer à traiter le trafic multimédia entrant pendant un flot de paquets SRTP (Secure Real-time Transport Protocol) provenant d'utilisateurs légitimes. | 3 |
+| **17.2.6** | Vérifiez que le serveur multimédia n'est pas sensible à la vulnérabilité de condition de concurrence « ClientHello » dans Datagram Transport Layer Security (DTLS) en vérifiant si le serveur multimédia est publiquement connu comme étant vulnérable ou en effectuant le test de condition de concurrence. | 3 |
+| **17.2.7** | Vérifiez que tous les mécanismes d'enregistrement audio ou vidéo associés au serveur multimédia sont en mesure de continuer à traiter le trafic multimédia entrant pendant un flot de paquets SRTP (Secure Real-time Transport Protocol) provenant d'utilisateurs légitimes. | 3 |
+| **17.2.8** | Vérifiez que le certificat Datagram Transport Layer Security (DTLS) est vérifié par rapport à l'attribut d'empreinte digitale du protocole de description de session (SDP), en mettant fin au flux multimédia si la vérification échoue, pour garantir l'authenticité du flux multimédia. | 3 |
 
 ## V17.3 Signalisation
 
@@ -56,10 +56,10 @@ Cette section définit les exigences pour les systèmes qui exploitent leurs pro
 
 Pour garantir une signalisation sécurisée, les systèmes doivent gérer correctement les entrées malformées et rester disponibles sous charge.
 
-| # | Description | Niveau | #v5.0.be |
-| :---: | :--- | :---: | :---: |
-| **17.3.1** | Vérifiez que le serveur de signalisation est capable de continuer à traiter les messages de signalisation entrants légitimes lors d'une attaque par saturation. Cela peut être réalisé en implémentant une limitation de débit au niveau de la signalisation. | 2 | v5.0.be-53.3.1 |
-| **17.3.2** | Vérifiez que le serveur de signalisation est capable de continuer à traiter les messages de signalisation légitimes en cas de message mal formé susceptible de provoquer un déni de service. Cela peut inclure la validation des entrées, la gestion sécurisée des dépassements d'entiers, la prévention des dépassements de tampon et l'utilisation d'autres techniques robustes de gestion des erreurs. | 2 | v5.0.be-53.3.2 |
+| # | Description | Niveau |
+| :---: | :--- | :---: |
+| **17.3.1** | Vérifiez que le serveur de signalisation est capable de continuer à traiter les messages de signalisation entrants légitimes lors d'une attaque par saturation. Cela peut être réalisé en implémentant une limitation de débit au niveau de la signalisation. | 2 |
+| **17.3.2** | Vérifiez que le serveur de signalisation est capable de continuer à traiter les messages de signalisation légitimes en cas de message mal formé susceptible de provoquer un déni de service. Cela peut inclure la validation des entrées, la gestion sécurisée des dépassements d'entiers, la prévention des dépassements de tampon et l'utilisation d'autres techniques robustes de gestion des erreurs. | 2 |
 
 ## Références
 

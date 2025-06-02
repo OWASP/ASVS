@@ -1,4 +1,4 @@
-# Annexe V : Standards cryptographiques
+# Annexe C : Standards cryptographiques
 
 Le chapitre « Cryptographie » va au-delà de la simple définition des bonnes pratiques. Il vise à améliorer la compréhension des principes de cryptographie et à encourager l'adoption de méthodes de sécurité plus résilientes et modernes. Cette annexe fournit des informations techniques détaillées sur chaque exigence, en complément des normes générales décrites dans le chapitre « Cryptographie ».
 
@@ -82,28 +82,27 @@ Les algorithmes de chiffrement approuvés sont classés par ordre de préférenc
 
 ### Modes de chiffrement AES
 
-Les chiffrements modernes utilisent différents modes, notamment AES, à des fins diverses. Les exigences relatives aux modes de chiffrement AES sont décrites ici. Certains modes AES ne sont approuvés que pour le chiffrement par blocs au niveau du disque.
-
-| Mode | Authentifié | Référence | Statut | Restriction |
-|--|--|--|--|--|
-| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
-| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
-| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | A | |
-| XTS | No | [NIST SP 800-38E](https://csrc.nist.gov/pubs/sp/800/38/e/final) | A | Pour le chiffrement de bloc au niveau du disque uniquement. |
-| XEX | No | [Rogaway 2004](https://doi.org/10.1007/978-3-540-30539-2_2) | A | Pour le chiffrement de bloc au niveau du disque uniquement. |
-| LRW | No | [Liskov, Rivest, and Wagner 2005](https://doi.org/10.1007/s00145-010-9073-y) | A | Pour le chiffrement de bloc au niveau du disque uniquement. |
-| ECB | No | | D | |
-| CFB | No | | D | |
-| OFB | No | | D | |
-| CTR | No | | D | |
-| CCM-8 | Yes | | D | |
+Les chiffrements par blocs, comme AES, peuvent être utilisés avec différents modes opératoires. De nombreux modes, comme le livre de codes électronique (ECB), ne sont pas sécurisés et ne doivent pas être utilisés. Les modes Galois/Compteur (GCM) et Compteur avec chaînage de blocs et code d'authentification de message (CCM) assurent un chiffrement authentifié et doivent être utilisés dans les applications modernes.
 
 Les modes approuvés sont classés par ordre de préférence.
 
+| Mode | Authentifié | Référence | Statut | Restriction |
+|--|--|--|--|--|
+| GCM | Oui | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
+| CCM | Oui | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
+| CBC | Non | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | L | |
+| CCM-8 | Oui | | D | |
+| ECB | Non | | D | |
+| CFB | Non | | D | |
+| OFB | Non | | D | |
+| CTR | Non | | D | |
+
 Remarques :
 
-* Tous les messages chiffrés doivent être authentifiés. Par conséquent, toute utilisation du mode CBC nécessite une fonction de hachage ou un MAC associé pour valider le message. En général, cette fonction doit être appliquée à la méthode « Chiffrer puis hacher » (mais TLS 1.2 utilise plutôt la méthode « Hash-Then-Encrypt »). Si cela ne peut être garanti, le CBC NE DOIT PAS être utilisé.
+* Tous les messages chiffrés doivent être authentifiés. Toute utilisation du mode CBC nécessite l'association d'un algorithme MAC de hachage pour valider le message. En général, cet algorithme doit être appliqué à la méthode « Chiffrer puis hacher » (mais TLS 1.2 utilise plutôt la méthode « Hash puis chiffrer »). Si cela ne peut être garanti, le mode CBC NE DOIT PAS être utilisé. La seule application où le chiffrement sans algorithme MAC est autorisé est le chiffrement de disque. Ajouter un commentairePlus d'actions
+* Si le mode CBC est utilisé, la vérification du remplissage doit être garantie en temps constant.
 * Lors de l'utilisation de CCM-8, la balise MAC ne dispose que de 64 bits de sécurité. Ceci n'est pas conforme à l'exigence 6.2.9 qui exige au moins 128 bits de sécurité.
+* Le chiffrement de disque est considéré comme hors du champ d'application de l'ASVS. Par conséquent, cette annexe ne répertorie aucune méthode approuvée pour le chiffrement de disque. Pour cette utilisation, le chiffrement sans authentification est généralement accepté et les modes XTS, XEX et LRW sont généralement utilisés.
 
 ### Enveloppement de clé
 
@@ -135,8 +134,11 @@ La méthode « MAC puis chiffrer » est toujours autorisée pour des raisons d
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
+|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
 |Encrypt-then-MAC | | A |
-|MAC-then-encrypt | | L -
+|MAC-then-encrypt | | L |
 
 ## Fonctions de hachage
 
@@ -250,7 +252,7 @@ Les codes d'authentification de message (MAC) sont des structures cryptographiqu
 | HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
 | KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
 | KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| BLAKE3        | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
+| BLAKE3 (mode keyed_hash) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
 | AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) et [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
 | AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
 | Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
@@ -274,4 +276,4 @@ Les schémas de signature DOIVENT utiliser des tailles de clés et des paramètr
 
 Les implémentations PQC doivent être conformes à la norme [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd), car il existe encore un code renforcé minimal et une référence d'implémentation minimale. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
-Les groupes d'échange de clés TLS hybrides proposés qui sont spécifiés dans [draft-tls-westerbaan-xyber768x00-03](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) et pris en charge par les principaux navigateurs tels que [Firefox version 132](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-03.txt) et [Chrome version 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) PEUVENT être utilisés dans des environnements de test cryptographique et/ou lorsqu'ils sont disponibles dans des bibliothèques approuvées par l'industrie ou le gouvernement.
+La méthode d'accord de clé TLS hybride post-quantique proposée [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) est prise en charge par les principaux navigateurs tels que [Firefox version 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) et [Chrome version 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). Elle peut être utilisée dans des environnements de test cryptographique ou lorsqu'elle est disponible dans des bibliothèques approuvées par l'industrie ou le gouvernement.
