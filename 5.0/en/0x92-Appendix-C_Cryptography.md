@@ -27,7 +27,7 @@ It is important to ensure that all cryptographic assets, such as algorithms, key
 
 The relative security strengths for various cryptographic systems are in this table (from [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final), p.71):
 
-| Security Strength | Symmetric Key Algorithms | Finite Field | Integer Factorisation | Elliptic Curve |
+| Security Strength | Symmetric Key Algorithms | Finite Field | Integer Factorization | Elliptic Curve |
 |--|--|--|--|--|
 | <= 80 | 2TDEA | L = 1024 <br> N = 160 | k = 1024 | f = 160-223 |
 | 112 | 3TDEA   | L = 2048 <br> N = 224 | k = 2048 | f = 224-255 |
@@ -38,7 +38,7 @@ The relative security strengths for various cryptographic systems are in this ta
 Example of applications:
 
 * Finite Field Cryptography: DSA, FFDH, MQV
-* Integer Factorisation Cryptography: RSA
+* Integer Factorization Cryptography: RSA
 * Elliptic Curve Cryptography: ECDSA, EdDSA, ECDH, MQV
 
 Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
