@@ -14,7 +14,7 @@ Il n'existe aucune portée pour les attaquants. Par conséquent, les exigences d
 
 ASVS définit une « application » comme le produit logiciel en cours de développement, dans lequel des contrôles de sécurité doivent être intégrés. ASVS ne prescrit pas les activités du cycle de développement ni la manière dont l'application doit être construite via un pipeline CI/CD ; il spécifie plutôt les résultats de sécurité à atteindre au sein même du produit.
 
-Les composants qui traitent, modifient ou valident le trafic HTTP, tels que les pare-feu d'applications web (WAF), les équilibreurs de charge ou les proxys, peuvent être considérés comme faisant partie de l'application à ces fins spécifiques, car certains contrôles de sécurité en dépendent directement ou peuvent être implémentés par leur intermédiaire. Ces composants doivent être pris en compte pour les exigences liées aux réponses mises en cache, à la limitation du débit ou à la restriction des connexions entrantes et sortantes en fonction de la source et de la destination.
+Les composants qui traitent, modifient ou valident le trafic HTTP, tels que les pare-feux d'applications web (WAF), les équilibreurs de charge ou les proxys, peuvent être considérés comme faisant partie de l'application à ces fins spécifiques, car certains contrôles de sécurité en dépendent directement ou peuvent être implémentés par leur intermédiaire. Ces composants doivent être pris en compte pour les exigences liées aux réponses mises en cache, à la limitation du débit ou à la restriction des connexions entrantes et sortantes en fonction de la source et de la destination.
 
 À l'inverse, ASVS exclut généralement les exigences qui ne concernent pas directement l'application ou dont la configuration ne relève pas de sa responsabilité. Par exemple, les problèmes DNS sont généralement gérés par une équipe ou une fonction distincte.
 
@@ -40,7 +40,7 @@ Bien que l'ASVS ne soit pas uniquement destiné aux experts en sécurité, il ex
 
 ### Exigence
 
-Le terme « exigence » est utilisé spécifiquement dans l'ASVS car il décrit ce qui doit être accompli pour la satisfaire. L'ASVS ne contient que des exigences (must) et ne contient pas de recommandations (shiuld) comme condition principale.
+Le terme « exigence » est utilisé spécifiquement dans l'ASVS car il décrit ce qui doit être accompli pour la satisfaire. L'ASVS ne contient que des exigences (must) et ne contient pas de recommandations (should) comme condition principale.
 
 En d'autres termes, les recommandations, qu'elles constituent une solution parmi d'autres ou des considérations de style de code, ne répondent pas à la définition d'une exigence.
 
@@ -58,7 +58,7 @@ Ces exigences visent à documenter les décisions prises par l'organisation dév
 
 Les exigences de documentation figurent toujours dans la première section d'un chapitre (bien que tous les chapitres n'en disposent pas) et sont toujours associées à une exigence de mise en œuvre, où les décisions documentées doivent être effectivement mises en œuvre. L'essentiel est de distinguer la vérification de la documentation et de la mise en œuvre effective.
 
-L'inclusion de ces exigences repose sur deux facteurs clés. Le premier est qu'une exigence de sécurité implique souvent l'application de règles, par exemple concernant les types de fichiers autorisés à être téléchargés, les contrôles métier à appliquer et les caractères autorisés pour un champ particulier. Ces règles diffèrent d'une application à l'autre ; par conséquent, l'ASVS ne peut pas les définir de manière prescriptive, et une aide-mémoire ou une réponse plus détaillée ne serait d'aucune utilité dans ce cas précis. De même, sans documentation de ces décisions, il sera impossible de vérifier les exigences qui les mettent en œuvre.
+L'inclusion de ces exigences repose sur deux facteurs clés. Le premier est qu'une exigence de sécurité implique souvent l'application de règles, par exemple concernant les types de fichiers autorisés à être téléchargés, les contrôles métier à appliquer et les caractères autorisés pour un champ particulier. Ces règles diffèrent d'une application à l'autre ; par conséquent, l'ASVS ne peut pas les définir de manière prescriptive, et un aide-mémoire ou une réponse plus détaillée ne serait d'aucune utilité dans ce cas précis. De même, sans documentation de ces décisions, il sera impossible de vérifier les exigences qui les mettent en œuvre.
 
 Le deuxième facteur est que, pour certaines exigences, il est important d'offrir au développement d'applications une certaine flexibilité quant à la manière de répondre à des défis de sécurité particuliers. Par exemple, dans les versions précédentes d'ASVS, les règles d'expiration de session étaient très strictes. En pratique, de nombreuses applications, notamment celles destinées aux utilisateurs, ont des règles beaucoup plus souples et préfèrent mettre en œuvre d'autres contrôles d'atténuation. Les exigences de documentation permettent donc explicitement cette flexibilité.
 
@@ -92,7 +92,7 @@ Ce niveau contient les exigences minimales à prendre en compte pour sécuriser 
 
 Ces exigences sont généralement critiques ou basiques, et constituent la première couche de défense pour prévenir les attaques courantes. Elles ne nécessitent pas d'autres vulnérabilités ou conditions préalables pour être exploitables.
 
-Outre les exigences de la première couche de défense, certaines exigences ont moins d'impact aux niveaux supérieurs, comme celles relatives aux mots de passe. Celles-ci sont plus importantes pour le Niveau 1, car à partir de ces niveaux, les exigences d'authentification multifacteur deviennent pertinentes.
+Outre les exigences de la première couche de défense, certaines exigences ont moins d'impact aux niveaux supérieurs, comme celles relatives aux mots de passe. Celles-ci sont plus importantes pour le Niveau 1, car à partir de ces niveaux, les exigences d'authentification multi facteur deviennent pertinentes.
 
 Le Niveau 1 n'est pas nécessairement testable par un testeur externe sans accès interne à la documentation ou au code (comme les tests « boîte noire »), bien que le nombre réduit d'exigences devrait faciliter sa vérification.
 
@@ -142,19 +142,19 @@ Idéalement, chaque organisation devrait créer son propre ASVS personnalisé, e
 
 ### Comment référencer les exigences ASVS ?
 
-Chaque exigence possède un identifiant au format « <chapitre>.<section>.<exigence> », où chaque élément est un numéro. Par exemple, « 1.11.3 ».
+Chaque exigence possède un identifiant au format `<chapitre>.<section>.<exigence>`, où chaque élément est un numéro. Par exemple, « 1.11.3 ».
 
-* La valeur « <chapitre> » correspond au chapitre d'où provient l'exigence ; par exemple, toutes les exigences « 1.#.# » proviennent du chapitre « Encodage et nettoyage ».
-* La valeur « <section> » correspond à la section de ce chapitre où apparaît l'exigence ; par exemple, toutes les exigences « 1.2.# » se trouvent dans la section « Prévention des injections » du chapitre « Encodage et nettoyage ».
-* La valeur « <exigence> » identifie l'exigence spécifique au sein du chapitre et de la section, par exemple, « 1.2.5 » qui, dans la version 5.0.0 de cette norme, est :
+* La valeur `<chapitre>` correspond au chapitre d'où provient l'exigence ; par exemple, toutes les exigences `1.#.#` proviennent du chapitre 'Encodage et désinfection'.
+* La valeur `<section>` correspond à la section de ce chapitre où apparaît l'exigence ; par exemple, toutes les exigences `1.2.#` se trouvent dans la section 'Prévention des injections' du chapitre 'Encodage et nettoyage'.
+* La valeur `<exigence>` identifie l'exigence spécifique au sein du chapitre et de la section, par exemple, `1.2.5` qui, dans la version 5.0.0 de cette norme, est :
 
 > Vérifiez que l'application protège contre l'injection de commandes du système d'exploitation et que les appels du système d'exploitation utilisent des requêtes OS paramétrées ou un encodage contextuel de la sortie de ligne de commande.
 
-Les identifiants pouvant varier d'une version à l'autre de la norme, il est préférable, pour les autres documents, rapports ou outils, d'utiliser le format suivant : « v<version>-<chapitre>.<section>.<exigence> », où « version » correspond à la balise de version ASVS. Par exemple, « v5.0.0-1.2.5 » désigne spécifiquement la 5e exigence de la section « Prévention des injections » du chapitre « Encodage et nettoyage » de la version 5.0.0. (Ceci pourrait être résumé par « v<version>-<identifiant_exigence> ».)
+Les identifiants pouvant varier d'une version à l'autre de la norme, il est préférable, pour les autres documents, rapports ou outils, d'utiliser le format suivant : `v<version>-<chapter>.<section>.<requirement>`, où 'version' correspond à la balise de version ASVS. Par exemple, 'v5.0.0-1.2.5' désigne spécifiquement la 5ème exigence de la section 'Prévention des injections' du chapitre 'Encodage et nettoyage' de la version 5.0.0. (Ceci pourrait être résumé par `v<version>-<identifiant_exigence>`.)
 
-Remarque : Le « v » précédant le numéro de version dans le format doit toujours être en minuscule.
+Remarque : Le `v` précédant le numéro de version dans le format doit toujours être en minuscule.
 
-Si des identifiants sont utilisés sans inclure l'élément « v<version> », ils doivent être considérés comme faisant référence au contenu le plus récent de la norme de vérification de la sécurité des applications. À mesure que la norme évolue, cela devient problématique ; c'est pourquoi les rédacteurs et les développeurs doivent inclure l'élément « version ».
+Si des identifiants sont utilisés sans inclure l'élément `v<version>`, ils doivent être considérés comme faisant référence au contenu le plus récent de la norme de vérification de la sécurité des applications. À mesure que la norme évolue, cela devient problématique ; c'est pourquoi les rédacteurs et les développeurs doivent inclure l'élément « version ».
 
 Les listes d'exigences ASVS sont disponibles aux formats CSV, JSON et autres, utiles à des fins de référence ou d'utilisation programmatique.
 
@@ -172,9 +172,9 @@ L'ASVS peut être utilisé pour évaluer la sécurité d'une application, ce poi
 
 L'une des utilisations les plus courantes de la norme de vérification de la sécurité des applications (ASVS) est de servir de ressource aux architectes de sécurité. Les ressources disponibles pour construire une architecture applicative sécurisée sont limitées, notamment pour les applications modernes. L'ASVS peut combler ces lacunes en permettant aux architectes de sécurité de choisir de meilleurs contrôles pour les problèmes courants, tels que les modèles de protection des données et les stratégies de validation des entrées. Les exigences en matière d'architecture et de documentation seront particulièrement utiles à cet égard.
 
-### Référence spécialisée en codage sécurisé
+### Référence spécialisée en developpement sécurisé
 
-L'ASVS peut servir de base à la préparation d'une référence de codage sécurisé lors du développement d'applications, aidant ainsi les développeurs à prendre en compte la sécurité lors de la création de logiciels. Bien que l'ASVS puisse servir de base, les organisations doivent élaborer leurs propres directives claires et unifiées, idéalement basées sur les recommandations des ingénieurs ou architectes de sécurité. De plus, les organisations sont encouragées, dans la mesure du possible, à préparer des mécanismes et bibliothèques de sécurité approuvés, référencés dans les directives et utilisables par les développeurs.
+L'ASVS peut servir de base à la préparation d'une référence de developpement sécurisé lors du développement d'applications, aidant ainsi les développeurs à prendre en compte la sécurité lors de la création de logiciels. Bien que l'ASVS puisse servir de base, les organisations doivent élaborer leurs propres directives claires et unifiées, idéalement basées sur les recommandations des ingénieurs ou architectes de sécurité. De plus, les organisations sont encouragées, dans la mesure du possible, à préparer des mécanismes et bibliothèques de sécurité approuvés, référencés dans les directives et utilisables par les développeurs.
 
 ### Guide pour les tests unitaires et d'intégration automatisés
 
