@@ -2,7 +2,7 @@
 
 <img src="https://owasp.org/www-project-application-security-verification-standard/assets/images/OWASP_ASVS_Linkedin_Banner-01.jpg" width="700px">
 
-**This document has been updated for the version 5.0 release candidate stage in 2025 and may change at a future date.**
+**Last Update:** This document has been updated as of the v5.0.0 release in May 2025.
 
 ## Introduction
 
@@ -18,32 +18,32 @@ The primary aim of the OWASP Application Security Verification Standard (ASVS) P
 
 ### What is the Current Status of ASVS development?
 
-🎉🎉🎉 **We are now at the RC1 stage of ASVS version 5.0!** 🎉🎉🎉
+The ASVS project released v5.0.0 during May 2025 which was a complete revamp compared to the previous version 4.0.3.
 
-The ASVS project will release a 5.0 version during May 2025 which is a complete revamp compared to the previous version 4.0.3.
-
-We are waiting for your feedback on a release candidate version of 5.0! You can see this version on the master branch within the 5.0 folder. This branch will continue to be updated during the review process so we recommend always working from the latest version
+You can see the static version of this release on the v5.0.0 branch within the 5.0 folder. The master branch continues to be the "bleeding edge" and will contain any incremental changes made following the v5.0.0 release.
 
 We will no longer be accepting changes to the 4.0 folder which is now fixed at the 4.0.3 release.
 
+### Release strategy
+
+ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
+
+* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
+* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
+* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
+
+The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
+
 ## How can I help?
 
-Reading through the release candidate version of ASVS is a great place to start.
+We would be glad to receive feedback to help us to further enhance the ASVS.
 
-A few questions to ask yourself as you review the document:
+At this stage, we are accepting the following types of changes:
 
-* If I was a developer or a security tester, would this requirement understandable to me?
-* Can I think of a way of improving front / chapter / section text to add clarity without adding unnecessary content.
+* Changes to surrounding text and other content such as the appendices which is not be considered to be a breaking change for release purposes.
+* Changes which are considered "non-breaking" for an ASVS "patch" release. This means that requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well.
 
-Please first log ideas, issues or questions here: <https://github.com/OWASP/ASVS/issues>. It’s helpful to share if you have any ideas or if you find any bugs or typos (but see the extra guidance below).
-
-We may subsequently ask you to open a pull request, <https://github.com/OWASP/ASVS/pulls>, based on the discussion in the issue. 
-
-After familiarizing yourself with the current version and if you don't have additional questions or feedback, the next area to focus on is the "Issues" section. 
-
-The issues to focus on for RC1 are listed here:
-
-- [![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3AOWASP%2FASVS%20label%3A%22_5.0%20-%20rc1%22%20state%3Aopen&label=_5.0%20-%20rc1&labelColor=%2399F2D1&color=grey)](https://github.com/OWASP/ASVS/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22_5.0%20-%20rc1%22)
+If you feel there are other important changes but they would be considered breaking for a patch release, you are welcome to open an issue but please note that the issue may not be progressed until we are considering a new minor or major release, for which there is currently no fixed timeline.
 
 ## Additional Details for Helping
 
@@ -51,32 +51,19 @@ The issues to focus on for RC1 are listed here:
 
 Please do not open a pull request without first opening an associated issue. Please do not open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. For example, [this link](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt) searches for issues (open and closed) related to bcrypt.
 
-Note that since there was a major renumbering recently, a lot of the requirement numbers in the issues may be different. You should also therefore search in the issues for the requirements based on two other sources of requirment numbers:
+### Numbering changes compared to the issues.
 
-1) Each requirement has a column at the end called "#v5.0.be". This contains the number before the numbering.
-2) If you are looking for how a requirement was numbered in v4.0.3 (which may also be used in the issues), there is a [mapping page](https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html) which maps between the current number and the number from v4.0.3.
-    -  There are also other mappings in the [`5.0/mappings/`](https://github.com/OWASP/ASVS/tree/master/5.0/mappings/) folder but these may not be kept up to date.
+Note that since there were major numbering changes between v4.0.3 and the bleeding edge version of v5.0.0 (known as v5.0.be), and between v5.0.be and the final v5.0.0 release. As such, a lot of the requirement numbers in the issues may be different, depending on when the discussion was taking place. The following rough guide to numbering applies:
 
-If you are comfortable that your query has  has not been previously discussed, you can open an issue. Please try and include the ASVS text you are talking about in the issue (or at least the value of the "#v5.0.be" column) to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
+* The v4.0.3 numberings were valid at the time of its release in October 2021.
+* The v5.0.be numberings cover the period from then until the major renumbering around 27th March 2025
+* The v5.0.0 numberings cover the period from the major renumbering until the v5.0.0 release at the end of May 2025. 
 
-### How to suggest changes to the release candidate during this period
+The mappings in the [mappings folder](https://github.com/OWASP/ASVS/tree/master/5.0/mappings/) can be used to check what number the requirement was at the point in time it was being discussed:
 
-Note that review and changes should always be made based on the raw .md files. The other output formats have not yet been updated.
+If you are comfortable that your query has not been previously discussed, you can open an issue. Please try and include the ASVS requirement number and text you are talking about in the issue to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
 
-To help those who are using the "bleeding edge" version for their tests and in order to be able to track changes made during this period, we have prepared a set of labels to be used when making changes to the "bleeding edge" version during this time. The current bleeding edge working directory can be found here <https://github.com/OWASP/ASVS/tree/master/5.0/en>.
-
-### Mapping between v4.0.3 and v5.0.0
-
-For a smooth transfer from ASVS v4.0.3 to v5.0.0, it is good to know:
-
-  * What happened with a particular requirement since v4.0.3?
-  * Does a requirement in v5.0.0 originate from requirement/s from v4.0.3, or is it completely new?
-
-Through the 3.5 years since the last release (v4.0.3), changes have been tracked and tagged to make it possible to provide a 2-way mapping now.
-
-(Note that requirement numbers for v5.0.0 may change until it is released. Although we are continuing to update the mapping as we go. It is therefore too early to make "a final copy" of the mapping.)
-
-Mappings are presented in separate `yml` files. However, a formatted output is also provided on <asvs.dev>:
+<!-- COMMENTING OUT FOR FUTURE USE
 
   * Mapping from v4.0.3 to v5.0.0:
     * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v4.0.3_to_v5.0.0.yml> - mapping file
@@ -107,44 +94,29 @@ Tags in old (v4.0.3) mapping file:
   * `MOVED TO x.y.z` - reference to the requirement number from v5.0.0. Must have a matching `MOVED FROM` tag in the new version
   * `SPLIT TO x.y.z, i.j.k` - the v4.0.3 requirement is divided into multiple requirements in v5.0.0. Must have matching `SPLIT FROM` tags in the new mapping file.
 
-### Translations
+-->
 
-We are no longer also actively looking for translations of the 4.n branch but get ready for the final version of 5.0 which can then be translated!
+## Translations
 
-<!--
+We are now keen to receive translations for v5.0.0 of ASVS!
 
-NOTE: This content will be brought back in, related to 5.0 when 5.0 is ready
+Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintainance easier. 
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
 
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superseded!):
     * In-progress
+        * Turkish, see [#3171](https://github.com/OWASP/ASVS/issues/3171)
+    * v5.0.0
         * None
-    * v4.0.3
-        * Spanish
-        * Simplified Chinese
-        * Arabic
-        * Russian
-        * French
-        * German
-        * Portuguese
-        * Italian
-    * v4.0.2
-        * German
-        * Russian
-    * v4.0.1
-        * Persian
-        * Turkish
-        * Japanese
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
-* We would request that you base your translation on the 4.0/en folder in the master branch as this is now static at the 4.0.3 version.
+* We would request that you base your translation on the 4.0/en folder in the v5.0.0 branch as this is now static at the 5.0.0 version.
 * In order to start a translation, please start by forking the ASVS repository.
-    * If you are updating an existing translation which has markdown (just French as of December 2021), you can make modifications to the files in the existing folder based on language code (just /fr as at December 2021).
-    * If you are starting a new markdown translation, take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation.
-* When you have completed the translation, please open a Pull Request against the master ASVS branch and one of the leaders will look at integrating it.
+* Take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation.
+* You can then edit the markdown files to include your translation rather than the original English.
+* When you have completed the translation, please open a Pull Request against the v5.0.0 ASVS branch and one of the leaders will look at integrating it.
 * The leader will also use the relevant scripts to create the documents from the raw markdown (or you can if you want to save us some trouble).
-* Finally, the leader will back port the translation into the branch containing the ASVS version which was targeted (at this point, presumably v4.0.3).
+* Finally, the leader will back port the translation into the branch containing the ASVS version which was targeted (at this point, presumably v5.0.0).
 
 Thank you for your help!!
--->

@@ -13,79 +13,62 @@ This work is licensed under a
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg
 
+🎉🎉🎉 **Welcome to Version 5.0 of the ASVS!** 🎉🎉🎉 
+
+**Released LIVE on stage at Global AppSec EU Barcelona 2025!**
+
 ## Introduction
 
 The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types.
 
-The standard provides a basis for designing, building, and testing technical application security controls, including architectural concerns, secure development lifecycle, threat modelling, agile security including continuous integration / deployment, serverless, and configuration concerns.
+Originally launched in 2008 through a global community collaboration, the ASVS defines a comprehensive set of security requirements for designing, developing, and testing modern web applications and services.
+
+Following the release of ASVS 4.0 in 2019 and its minor update (v4.0.3) in 2021, Version 5.0 represents a significant milestone—modernized to reflect the latest advances in software security.
 
 We gratefully recognise the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
 
-**Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 4.n branch](CONTRIBUTING.md#translations).**
+**Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 5.n branch](CONTRIBUTING.md#translations).**
 
 ## Project Leaders and Working Group
 
 The project is led by the four project leaders [Daniel Cuthbert](https://github.com/danielcuthbert), [Jim Manico](https://github.com/jmanico), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
 
-They are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), [Iman Sharafaldin](https://github.com/ImanSharaf), and [Ryan Armstrong](https://github.com/ryarmst).
+They are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), [Iman Sharafaldin](https://github.com/ImanSharaf), [Ryan Armstrong](https://github.com/ryarmst), [Gabriel Corona](https://github.com/randomstuff), [Tobias Ahnoff](https://github.com/TobiasAhnoff), and [Eden Yardeni](https://github.com/cronchie). 
 
-## ASVS 5.0 Release Candidate is ready for review
+## Latest Stable Version - 5.0.0
 
-🎉🎉🎉 **We are now at the RC1 stage of ASVS version 5.0!** 🎉🎉🎉
+The latest stable version is version 5.0.0 (dated May 2025), which can be found:
 
-See the [Contribution Guide](CONTRIBUTING.md#what-is-the-current-status-of-asvs-development) for more details!
+* [OWASP Application Security Verification Standard 5.0.0 English (PDF)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/OWASP_Application_Security_Verification_Standard_5.0.0_en.pdf)
+* [OWASP Application Security Verification Standard 5.0.0 English (Word)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.docx)
+* [OWASP Application Security Verification Standard 5.0.0 English (CSV)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.csv)
+* [OWASP Application Security Verification Standard 5.0.0 (GitHub Branch)](https://github.com/OWASP/ASVS/tree/v5.0.0)
 
-## Latest Stable Version - 4.0.3
-
-The latest stable version is version 4.0.3 (dated October 2021), which can be found:
-
-* [OWASP Application Security Verification Standard 4.0.3 English (PDF)](https://github.com/OWASP/ASVS/raw/v4.0.3/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-en.pdf)
-* [OWASP Application Security Verification Standard 4.0.3 English (Word)](https://github.com/OWASP/ASVS/raw/v4.0.3/4.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-en.docx)
-* [OWASP Application Security Verification Standard 4.0.3 English (CSV)](https://github.com/OWASP/ASVS/raw/v4.0.3/4.0/docs_en/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-en.csv)
-* [OWASP Application Security Verification Standard 4.0.3 (GitHub Tag)](https://github.com/OWASP/ASVS/tree/v4.0.3)
-
-The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be version **5.0**.
-
-For information on changes between 4.0.2 and 4.0.3 of the standard, see [this wiki page](https://github.com/OWASP/ASVS/wiki/What-is-new-in-version-4.0.3) and for a full diff, see [this pull request](https://github.com/OWASP/ASVS/pull/1104/files?file-filters%5B%5D=.md&file-filters%5B%5D=.py&file-filters%5B%5D=.sh&file-filters%5B%5D=.yml&file-filters%5B%5D=No+extension).
+The master branch of this repository will always be the "bleeding edge version" which might have in-progress changes or other edits open. The next release target will be a patch release, version **5.0.1**. For details on the ASVS release strategy, see [the release strategy section of CONTRIBUTING.md](CONTRIBUTING.md#release-strategy).
 
 ### Translations
 
 The OWASP Community effort with regards to translations is a best effort. Whilst we do our utmost to ensure the content is valid, from a structural perspective, there is only so much we can do to ensure the translations are correct. We rely on you, the community, to help make the ASVS as usable as possible to all around the globe, and translating the main branch into your language is important to the project.
 
-If you think you can help with translations, or indeed ensuring the current list of translations below are correct, we'd love for you to join the community and make the ASVS amazing for all. For more information on translating the ASVS see the translations section of [CONTRIBUTING.md](CONTRIBUTING.md#translations).
+If you think you can help with translations, or indeed ensuring the current list of translations below are correct, we'd love for you to join the community and make the ASVS amazing for all. For more information on translating the ASVS see the [translations section of CONTRIBUTING.md](CONTRIBUTING.md#translations).
 
-* v4.0.3
-    * [OWASP Application Security Verification Standard 4.0.3 Spanish (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-es.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_es). (Thanks to [Carlos Allendes](https://github.com/CarlosAllendes) and [Hans Herrera](https://github.com/hansphp))
-    * [OWASP Application Security Verification Standard 4.0.3 Simplified Chinese (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-zh-cn.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_zh-cn).  (Thanks to [Unc1e](https://github.com/hi-unc1e))
-    * [OWASP Application Security Verification Standard 4.0.3 Arabic (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ar.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_ar).  (Thanks to [Aref Shaheed](https://github.com/aref2008) and Mhd Ghassan Alhabash)
-    * [OWASP Application Security Verification Standard 4.0.3 Russian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-ru.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_ru). (Thanks to [Andrei Titov](https://github.com/andrettv))
-    * [OWASP Application Security Verification Standard 4.0.3 French (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-fr.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_fr). (Thanks to [Cédric Lallier](https://github.com/clallier94), [Alexandre Joly](https://github.com/inaz0), [Sebastien Gioria](https://github.com/SPoint42), and [Marc Aubry](https://github.com/Marx314))
-    * [OWASP Application Security Verification Standard 4.0.3 German (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-de.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_de). (Thanks to [Jörg Brünner](https://github.com/JoergBruenner))
-    * [OWASP Application Security Verification Standard 4.0.3 Portuguese (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-pt.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_pt). (Thanks to [Cesar Kohl](https://github.com/cesarkohl))
-    * [OWASP Application Security Verification Standard 4.0.3 Italian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-it.pdf) and [other formats](https://github.com/OWASP/ASVS/raw/master/4.0/docs_it). (Thanks to [Riccardo Sirigu](https://github.com/ricsirigu))
-* v4.0.2
-    * [OWASP Application Security Verification Standard 4.0.2 German (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.pdf) and [Microsoft Word format](https://github.com/OWASP/ASVS/raw/master/4.0/docs_de/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-de.docx). (Thanks to [Jörg Brünner](https://github.com/JoergBruenner)) 
-    * [OWASP Application Security Verification Standard 4.0.2 Russian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.pdf) and [Microsoft Word format](https://github.com/OWASP/ASVS/raw/master/4.0/docs_ru/OWASP%20Application%20Security%20Verification%20Standard%204.0.2-ru.docx). (Thanks to [Sergey Diakonov](https://github.com/sergeydiak1980))
-* v4.0.1
-    * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-fa.pdf) (Thanks to CERT of Ferdowsi University of Mashhad / [Ardalan Foroughipour](https://github.com/ardalanForoughipour))
-    * [OWASP Application Security Verification Standard 4.0.1 Japanese (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-ja.pdf) (Thanks to Software ISAC Japan / [Riotaro OKADA](https://github.com/okdt))
-    * [OWASP Application Security Verification Standard 4.0.1 Turkish (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.1-tr.pdf) (Thanks to [Fatih ERSINADIM](https://github.com/fatihersinadim))
+There are currently no translations for version v5.0.0. Historic translations of the v4.x versions can be found in the [TRANSLATIONS.md file](4.0/TRANSLATIONS.md) in the 4.0 folder.
 
 ## How To Reference ASVS Requirements
 
-Each requirement has an identifier in the format `<chapter>.<section>.<requirement>` where each element is a number, for example: `1.11.3`:
+Each requirement has an identifier in the format `<chapter>.<section>.<requirement>`, where each element is a number. For example, `1.11.3`.
 
-- The `<chapter>` value corresponds to the chapter from which the requirement comes, for example: all `1.#.#` requirements are from the `Architecture` chapter.
-- The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.11.#` requirements are in the `Business Logic Architecture` section of the `Architecture` chapter.
-- The `<requirement>` value identifies the specific requirement within the chapter and section, for example: `1.11.3` which as of version 4.0.3 of this standard is:
+* The `<chapter>` value corresponds to the chapter from which the requirement comes; for example, all `1.#.#` requirements are from the 'Encoding and Sanitization' chapter.
+* The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.2.#` requirements are in the 'Injection Prevention' section of the 'Encoding and Sanitization' chapter.
+* The `<requirement>` value identifies the specific requirement within the chapter and section, for example, `1.2.5` which as of version 5.0.0 of this standard is:
 
-> Verify that all high-value business logic flows, including authentication, session management and access control are thread safe and resistant to time-of-check and time-of-use race conditions.
+> Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
 
-The identifiers may change between versions of the standard therefore it is preferable that other documents, reports, or tools use the format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v4.0.3-1.11.3` would be understood to mean specifically the 3rd requirement in the 'Business Logic Architecture' section of the 'Architecture' chapter from version 4.0.3. (This could be summarized as `v<version>-<requirement_identifier>`.)
+Since the identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v5.0.0-1.2.5` would be understood to mean specifically the 5th requirement in the 'Injection Prevention' section of the 'Encoding and Sanitization' chapter from version 5.0.0. (This could be summarized as `v<version>-<requirement_identifier>`.)
 
-Note: The `v` preceding the version portion is to be lower case.
+Note: The `v` preceding the version number in the format should always be lowercase.
 
-If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. Obviously as the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
+If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. As the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
 
 ## License
 
