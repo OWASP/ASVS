@@ -107,6 +107,8 @@ If you are interested in creating a translation, here are some pointers for how 
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superseded!):
     * In-progress
         * Turkish, see [#3171](https://github.com/OWASP/ASVS/issues/3171)
+        * Persian (Farsi), [#3172](https://github.com/OWASP/ASVS/issues/3172)
+        * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
     * v5.0.0
         * None
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
