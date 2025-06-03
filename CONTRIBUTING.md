@@ -107,11 +107,13 @@ If you are interested in creating a translation, here are some pointers for how 
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superseded!):
     * In-progress
         * Turkish, see [#3171](https://github.com/OWASP/ASVS/issues/3171)
+        * Persian (Farsi), [#3172](https://github.com/OWASP/ASVS/issues/3172)
+        * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
     * v5.0.0
         * None
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
-* We would request that you base your translation on the 4.0/en folder in the v5.0.0 branch as this is now static at the 5.0.0 version.
+* We would request that you base your translation on the 5.0/en folder in the v5.0.0 branch as this is now static at the 5.0.0 version.
 * In order to start a translation, please start by forking the ASVS repository.
 * Take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation.
 * You can then edit the markdown files to include your translation rather than the original English.

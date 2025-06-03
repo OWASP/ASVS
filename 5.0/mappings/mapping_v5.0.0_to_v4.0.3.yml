@@ -20,7 +20,7 @@ v5.0.0-6.2.4:
 v5.0.0-6.2.5:
   tag-v4.0.3: GRAMMAR, MOVED FROM v4.0.3-2.1.9
 v5.0.0-6.2.10:
-  tag-v4.0.3: MODIFIED, MOVED FROM v4.0.3-2.1.10
+  tag-v4.0.3: MODIFIED, MOVED FROM v4.0.3-2.1.10, SPLIT FROM v4.0.3-2.1.7
 v5.0.0-6.2.7:
   tag-v4.0.3: MOVED FROM v4.0.3-2.1.11
 v5.0.0-6.2.6:
