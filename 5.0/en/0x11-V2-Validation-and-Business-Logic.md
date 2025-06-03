@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-This chaipter aims to ensure that a verified application meets the following high-level goals:
+This chapter aims to ensure that a verified application meets the following high-level goals:
 
 * Input received by the application matches business or functional expectations.
 * The business logic flow is sequential, processed in order, and cannot be bypassed.
