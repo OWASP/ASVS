@@ -3,13 +3,13 @@ name: Spell Check Markdown
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - '**/*.md'
       - '**/*.markdown'
   pull_request:
     branches:
-      - main
+      - master
     paths:
       - '**/*.md'
       - '**/*.markdown'
