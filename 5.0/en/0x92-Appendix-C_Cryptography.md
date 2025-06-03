@@ -5,7 +5,7 @@ The "Cryptography" chapter goes beyond simply defining best practices. It aims t
 This appendix defines the level of approval for different cryptographic mechanisms:
 
 * Approved (A) mechanisms can be used in applications.
-* Legacy mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
+* Legacy mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code only. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
 * Disallowed mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
 
 This list may be overridden in the context of a given application for various reasons including:
@@ -153,7 +153,7 @@ The following table lists hash functions approved in general cryptographic use c
 
 * Approved hash functions provide strong collision resistance and are suitable for high-security applications.
 * Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
-* Hash function with less than 254 bit of output have insufficient collision resistancea and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
+* Hash function with less than 254 bit of output have insufficient collision resistance and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
 
 | Hash function | Reference | Status | Restrictions |
 | -------------- | ------------------------------------------------------------- |--|--|
