@@ -25,7 +25,7 @@ Originally launched in 2008 through a global community collaboration, the ASVS d
 
 Following the release of ASVS 4.0 in 2019 and its minor update (v4.0.3) in 2021, Version 5.0 represents a significant milestone—modernized to reflect the latest advances in software security.
 
-We gratefully recognise the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
+We gratefully recognize the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
 
 **Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 5.n branch](CONTRIBUTING.md#translations).**
 
