@@ -39,6 +39,7 @@ jobs:
         with:
           files: |
             5.0/en/**/*.md
+            *.md
 
       - name: Run cspell on changed files (PR)
         if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
@@ -50,4 +51,4 @@ jobs:
       - name: Run cspell on all markdown files (push to main or manual)
         if: github.event_name != 'pull_request'
         run: |
-          cspell --config .github/workflows/config/cspell.json "5.0/en/**/*.md"
+          cspell --config .github/workflows/config/cspell.json "5.0/en/**/*.md" "*.md"

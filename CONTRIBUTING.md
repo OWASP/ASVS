@@ -100,7 +100,7 @@ Tags in old (v4.0.3) mapping file:
 
 We are now keen to receive translations for v5.0.0 of ASVS!
 
-Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintainance easier. 
+Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintenance easier. 
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
 
