@@ -1,4 +1,4 @@
-# Frontispiece
+# Frontispice
 
 ## À propos du référentiel
 
