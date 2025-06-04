@@ -7,7 +7,7 @@ Session management mechanisms allow applications to correlate user and device in
 * Sessions are unique to each individual and cannot be guessed or shared.
 * Sessions are invalidated when no longer required and are timed out during periods of inactivity.
 
-Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focusing on common threats and commonly exploited authentication weaknesses.
+Many of the requiremenats in this chapter relate to selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focusing on common threats and commonly exploited authentication weaknesses.
 
 Note that requirements for specific implementation details of certain session management mechanisms can be found elsewhere:
 
