@@ -47,8 +47,12 @@ jobs:
         run: |
           files=()
           while IFS= read -r file; do
-            files+=("$file")
+            [ -n "$file" ] && files+=("$file")
           done <<< "${{ steps.files.outputs.all_changed_files }}"
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No files to check."
+            exit 0
+          fi
           cspell --config .github/workflows/config/cspell.json "${files[@]}"
 
       - name: Run cspell on all markdown files (push to main or manual)
