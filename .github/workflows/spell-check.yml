@@ -40,6 +40,7 @@ jobs:
           files: |
             5.0/en/**/*.md
             *.md
+          separator: '\n'
 
       - name: Run cspell on changed files (PR)
         if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
