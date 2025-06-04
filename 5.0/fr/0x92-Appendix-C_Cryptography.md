@@ -99,7 +99,7 @@ Les modes approuvés sont classés par ordre de préférence.
 
 Remarques :
 
-* Tous les messages chiffrés doivent être authentifiés. Toute utilisation du mode CBC nécessite l'association d'un algorithme MAC de hachage pour valider le message. En général, cet algorithme doit être appliqué à la méthode « Chiffrer puis hacher » (mais TLS 1.2 utilise plutôt la méthode « Hash puis chiffrer »). Si cela ne peut être garanti, le mode CBC NE DOIT PAS être utilisé. La seule application où le chiffrement sans algorithme MAC est autorisé est le chiffrement de disque. Ajouter un commentairePlus d'actions
+* Tous les messages chiffrés doivent être authentifiés. Toute utilisation du mode CBC nécessite l'association d'un algorithme MAC de hachage pour valider le message. En général, cet algorithme doit être appliqué à la méthode « Chiffrer puis hacher » (mais TLS 1.2 utilise plutôt la méthode « Hash puis chiffrer »). Si cela ne peut être garanti, le mode CBC NE DOIT PAS être utilisé. La seule application où le chiffrement sans algorithme MAC est autorisé est le chiffrement de disque.
 * Si le mode CBC est utilisé, la vérification du remplissage doit être garantie en temps constant.
 * Lors de l'utilisation de CCM-8, la balise MAC ne dispose que de 64 bits de sécurité. Ceci n'est pas conforme à l'exigence 6.2.9 qui exige au moins 128 bits de sécurité.
 * Le chiffrement de disque est considéré comme hors du champ d'application de l'ASVS. Par conséquent, cette annexe ne répertorie aucune méthode approuvée pour le chiffrement de disque. Pour cette utilisation, le chiffrement sans authentification est généralement accepté et les modes XTS, XEX et LRW sont généralement utilisés.
