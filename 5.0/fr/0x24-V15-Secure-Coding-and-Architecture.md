@@ -32,7 +32,7 @@ Cette section inclut les exigences relatives à la gestion des dépendances et d
 
 Elle inclut également l'utilisation de techniques au niveau architectural telles que le sandboxing, l'encapsulation, la conteneurisation et l'isolation du réseau pour réduire l'impact de l'utilisation d'« opérations dangereuses » ou de « composants risqués » (tels que définis dans la section précédente) et éviter la perte de disponibilité due à une utilisation excessive de fonctionnalités exigeantes en ressources.
 
-| # | Description | Niveau | 
+| # | Description | Niveau |
 | :---: | :--- | :---: |
 | **15.2.1** | Vérifiez que l’application contient uniquement des composants qui n’ont pas dépassé les délais de mise à jour et de correction documentés. | 1 |
 | **15.2.2** | Vérifiez que l'application a mis en œuvre des défenses contre la perte de disponibilité due à des fonctionnalités qui prennent du temps ou qui nécessitent des ressources, sur la base des décisions et stratégies de sécurité documentées à cet effet. | 2 |

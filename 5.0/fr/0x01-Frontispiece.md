@@ -10,7 +10,7 @@ Version 5.0.0, Mai 2025
 
 ![license](../images/license.png)
 
-Copyright © 2008-2025 La Fondation OWASP. Ce document est publié sous la [licence Creative Commons Attribution ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/). 
+Copyright © 2008-2025 La Fondation OWASP. Ce document est publié sous la [licence Creative Commons Attribution ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 Pour toute réutilisation ou distribution, vous devez indiquer clairement aux autres les termes de la licence de ce travail.
 

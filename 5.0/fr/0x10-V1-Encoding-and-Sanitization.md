@@ -66,7 +66,7 @@ Les exigences suivantes traitent des risques associés à une utilisation non s�
 Dans certains cas, il peut être possible d'y parvenir en définissant des indicateurs de compilateur qui activent les protections et les avertissements contre les dépassements de tampon, y compris la randomisation de la pile et la prévention de l'exécution des données, et qui interrompent la construction si des opérations de pointeur, de mémoire, de chaîne de format, d'entier ou de chaîne non sécurisées sont trouvées.
 
 | # | Description | Niveau |
-| :---: | :--- | :---: 
+| :---: | :--- | :---: |
 | **1.4.1** | Vérifiez que l'application utilise une chaîne de mémoire sécurisée, une copie de mémoire plus sûre et une arithmétique de pointeur pour détecter ou empêcher les débordements de pile, de tampon ou de tas. | 2 |
 | **1.4.2** | Vérifiez que les techniques de validation du signe, de la plage et de l’entrée sont utilisées pour éviter les dépassements d’entiers. | 2 |
 | **1.4.3** | Vérifiez que la mémoire et les ressources allouées dynamiquement sont libérées et que les références ou les pointeurs vers la mémoire libérée sont supprimés ou définis sur null pour éviter les pointeurs suspendus et les vulnérabilités d'utilisation après libération. | 2 |

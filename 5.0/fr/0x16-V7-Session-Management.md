@@ -44,7 +44,7 @@ Les mécanismes de temporisation de session servent à minimiser les risques de 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **7.3.1** | Vérifiez qu’il existe un délai d’inactivité tel que la réauthentification soit appliquée conformément à l’analyse des risques et aux décisions de sécurité documentées. | 2 |
-| **7.3.2** | Vérifiez qu'il existe une durée de vie maximale absolue de la session de sorte que la réauthentification soit appliquée conformément à l'analyse des risques et aux décisions de sécurité documentées. | 2 | 
+| **7.3.2** | Vérifiez qu'il existe une durée de vie maximale absolue de la session de sorte que la réauthentification soit appliquée conformément à l'analyse des risques et aux décisions de sécurité documentées. | 2 |
 
 ## V7.4 Fin de session
 
