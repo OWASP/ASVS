@@ -44,9 +44,11 @@ jobs:
       - name: Run cspell on changed files (PR)
         if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
         run: |
+          status=0
           for file in ${{ steps.files.outputs.all_changed_files }}; do
-            cspell --config .github/workflows/config/cspell.json "$file"
+            cspell --config .github/workflows/config/cspell.json "$file" || status=1
           done
+          exit $status
 
       - name: Run cspell on all markdown files (push to main or manual)
         if: github.event_name != 'pull_request'
