@@ -40,13 +40,25 @@ jobs:
           files: |
             5.0/en/**/*.md
             *.md
+          separator: '\n'
 
       - name: Run cspell on changed files (PR)
         if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
         run: |
-          for file in ${{ steps.files.outputs.all_changed_files }}; do
-            cspell --config .github/workflows/config/cspell.json --verbose "$file"
-          done
+          # Convert literal '\n' to real newlines for safe file splitting
+          files_string="${{ steps.files.outputs.all_changed_files }}"
+          files_string="${files_string//\\n/$'\n'}"
+          files=()
+          while IFS= read -r file; do
+            [ -n "$file" ] && files+=("$file")
+          done <<< "$files_string"
+          # Exit early if no files to check
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No files to check."
+            exit 0
+          fi
+          # Run cspell on all changed files; its exit code will control the workflow outcome
+          cspell --config .github/workflows/config/cspell.json "${files[@]}"
 
       - name: Run cspell on all markdown files (push to main or manual)
         if: github.event_name != 'pull_request'
