@@ -53,7 +53,14 @@ jobs:
             echo "No files to check."
             exit 0
           fi
-          cspell --config .github/workflows/config/cspell.json "${files[@]}"
+          # Print files for debugging
+          printf 'Files to check:\n%s\n' "${files[@]}"
+          cspell --config .github/workflows/config/cspell.json "${files[@]}" || exit_code=$?
+          if [ "${exit_code:-0}" -eq 1 ] && grep -q 'Files checked: 0' <(cspell --config .github/workflows/config/cspell.json --no-progress --no-color "${files[@]}" 2>&1); then
+            echo "cspell did not check any files. Exiting successfully."
+            exit 0
+          fi
+          exit ${exit_code:-0}
 
       - name: Run cspell on all markdown files (push to main or manual)
         if: github.event_name != 'pull_request'
