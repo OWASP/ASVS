@@ -15,7 +15,7 @@ This work is licensed under a
 
 🎉🎉🎉 **Welcome to Version 5.0 of the ASVS!** 🎉🎉🎉 
 
-**Releaaaased LIVE on stage at Global AppSec EU Barcelona 2025!**
+**Released LIVE on stage at Global AppSec EU Barcelona 2025!**
 
 ## Introduction
 
