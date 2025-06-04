@@ -34,7 +34,7 @@ Ces exigences sont pertinentes pour le traitement et la génération de messages
 
 ## V4.3 GraphQL
 
-GraphQL est de plus en plus utilisé pour créer des clients riches en données, peu couplés à divers services back-end. Cette section aborde les considérations de sécurité pour GraphQL..
+GraphQL est de plus en plus utilisé pour créer des clients riches en données, peu couplés à divers services back-end. Cette section aborde les considérations de sécurité pour GraphQL.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |

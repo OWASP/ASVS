@@ -20,7 +20,7 @@ Une documentation complète des autorisations est essentielle pour garantir que 
 
 ## V8.2 Conception d'autorisation générale
 
-La mise en œuvre de contrôles d’autorisation granulaires aux niveaux de la fonction, des données et des champs garantie que les consommateurs ne pourront accéder qu’à ce qui leur a été explicitement accordé.
+La mise en œuvre de contrôles d’autorisation granulaires aux niveaux de la fonction, des données et des champs garantis que les consommateurs ne pourront accéder qu’à ce qui leur a été explicitement accordé.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
@@ -52,5 +52,5 @@ Des considérations supplémentaires concernant l’autorisation, en particulier
 
 Pour plus d'informations, voir également :
 
-* [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)Add commentMore actions
+* [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
 * [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
