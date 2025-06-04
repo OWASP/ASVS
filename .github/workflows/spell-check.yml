@@ -44,24 +44,7 @@ jobs:
       - name: Run cspell on changed files (PR)
         if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
         run: |
-          status=0
-          error_files=0
-          total_errors=0
-          for file in ${{ steps.files.outputs.all_changed_files }}; do
-            # Run cspell and capture output and exit code
-            output=$(cspell --config .github/workflows/config/cspell.json "$file" 2>&1)
-            exit_code=$?
-            echo "$output"
-            if [ $exit_code -ne 0 ]; then
-              error_files=$((error_files+1))
-              # Count lines that look like spelling errors (lines starting with a number and a '|')
-              errors=$(echo "$output" | grep -E '^[0-9]+[[:space:]]+\|' | wc -l)
-              total_errors=$((total_errors+errors))
-            fi
-            status=$((status|exit_code))
-          done
-          echo "cspell found $total_errors errors in $error_files files."
-          exit $status
+          cspell --config .github/workflows/config/cspell.json ${{ steps.files.outputs.all_changed_files }}
 
       - name: Run cspell on all markdown files (push to main or manual)
         if: github.event_name != 'pull_request'
