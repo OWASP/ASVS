@@ -17,7 +17,7 @@ This work is licensed under a
 
 **Released LIVE on stage at Global AppSec EU Barcelona 2025!**
 
-## Introduction Ok
+## Introduction
 
 The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types.
 
