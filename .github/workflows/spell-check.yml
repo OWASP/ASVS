@@ -46,14 +46,16 @@ jobs:
         if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
         run: |
           files=()
+          # Replace literal '\n' with real newlines before reading
+          files_string="${{ steps.files.outputs.all_changed_files }}"
+          files_string="${files_string//\\n/$'\n'}"
           while IFS= read -r file; do
             [ -n "$file" ] && files+=("$file")
-          done <<< "${{ steps.files.outputs.all_changed_files }}"
+          done <<< "$files_string"
           if [ ${#files[@]} -eq 0 ]; then
             echo "No files to check."
             exit 0
           fi
-          # Print files for debugging
           printf 'Files to check:\n%s\n' "${files[@]}"
           cspell --config .github/workflows/config/cspell.json "${files[@]}" || exit_code=$?
           if [ "${exit_code:-0}" -eq 1 ] && grep -q 'Files checked: 0' <(cspell --config .github/workflows/config/cspell.json --no-progress --no-color "${files[@]}" 2>&1); then
