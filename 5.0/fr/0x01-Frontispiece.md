@@ -2,7 +2,7 @@
 
 ## À propos du référentiel
 
-Le référentiel de vérification de la sécurité des applications est une liste d'exigences ou de tests de sécurité des applications qui peut être utilisée par les architectes, les développeurs, les testeurs, les professionnels de la sécurité, les fournisseurs d'outils et les utilisateurs pour définir, construire, tester et vérifier des applications sécurisées.
+La norme de vérification de la sécurité des applications est une liste d'exigences de sécurité des applications que les architectes, les développeurs, les testeurs, les professionnels de la sécurité, les fournisseurs d'outils et les consommateurs peuvent utiliser pour définir, créer, tester et vérifier des applications sécurisées.
 
 ## Copyright et licence
 
@@ -21,7 +21,7 @@ Pour toute réutilisation ou distribution, vous devez indiquer clairement aux au
 | Jim Manico            | Daniel Cuthbert  |
 | Josh C Grossman       | Elar Lang        |
 
-## Principaux contributeurs
+## Groupes de travail
 
 |                 |                   |                    |                  |
 |---------------- |------------------ |------------------- |----------------- |
