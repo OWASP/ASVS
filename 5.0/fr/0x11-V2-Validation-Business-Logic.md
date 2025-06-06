@@ -30,7 +30,7 @@ Un contrôle de logique métier peut vérifier qu'une entrée particulière est 
 Bien que la validation de schéma ne soit pas explicitement obligatoire, elle peut être le mécanisme le plus efficace pour une couverture de validation complète des API HTTP ou d'autres interfaces qui utilisent JSON ou XML.
 
 Veuillez noter les points suivants concernant la validation du schéma :
-n
+
 * La « version publiée » de la spécification de validation du schéma JSON est considérée comme prête pour la production, mais pas à proprement parler « stable ». Lorsque vous utilisez la validation du schéma JSON, assurez-vous qu'il n'y a aucune lacune par rapport aux instructions des exigences ci-dessous.
 * Toutes les bibliothèques de validation de schéma JSON utilisées doivent également être surveillées et mises à jour si nécessaire une fois la norme formalisée.
 * La validation DTD ne doit pas être utilisée et l'évaluation DTD du framework doit être désactivée pour éviter les problèmes liés aux attaques XXE contre les DTD.
