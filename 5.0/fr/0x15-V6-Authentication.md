@@ -51,7 +51,7 @@ Cette section contient les exigences générales relatives à la sécurité des 
 
 Bien qu'il s'agisse d'une position relativement agressive concernant l'authentification multifacteur, il est essentiel de relever le niveau à ce sujet pour protéger les utilisateurs, et toute tentative d'assouplissement de ces exigences doit être accompagnée d'un plan clair sur la manière dont les risques liés à l'authentification seront atténués, en tenant compte des orientations et des recherches du NIST sur le sujet.
 
-Veuillez noter qu'au moment de la publication, la norme NIST SP 800-63 considère l'email comme [non acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) comme mécanisme d'authentification ([copie archivée](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
+Veuillez noter qu'au moment de la publication, la norme NIST SP 800-63 considère l'email comme [non acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) comme mécanisme d'authentification ([copie archivée](https://pages.nist.gov/800-63-FAQ/#q-b11)).
 
 Les exigences de cette section concernent diverses sections du [Guide du NIST](https://pages.nist.gov/800-63-3/sp800-63b.html), incluant : [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling), et [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
 
