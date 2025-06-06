@@ -1,6 +1,6 @@
 # V15 Développement et architecture sécurisés
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 De nombreuses exigences pour établir une architecture sécurisée et défendable dépendent d’une documentation claire des décisions prises concernant la mise en œuvre de contrôles de sécurité spécifiques et des composants utilisés dans l’application.
 

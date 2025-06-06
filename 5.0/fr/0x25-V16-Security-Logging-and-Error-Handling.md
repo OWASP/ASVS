@@ -1,6 +1,6 @@
 # V16 Journalisation de sécurité et gestion des erreurs
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 Les journaux de sécurité se distinguent des journaux d'erreurs ou de performances et servent à enregistrer les événements liés à la sécurité, tels que les décisions d'authentification, les décisions de contrôle d'accès et les tentatives de contournement des contrôles de sécurité, comme la validation des entrées ou la validation de la logique métier. Leur objectif est de faciliter la détection, la réponse et l'investigation en fournissant des données structurées et à haut potentiel aux outils d'analyse tels que les SIEM.
 

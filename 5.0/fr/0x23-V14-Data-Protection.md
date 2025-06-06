@@ -1,6 +1,6 @@
 # V14 Protection de la donnée
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 Les applications ne peuvent pas prendre en compte tous les modèles d’utilisation et comportements des utilisateurs et doivent donc mettre en œuvre des contrôles pour limiter l’accès non autorisé aux données sensibles sur les appareils clients.
 

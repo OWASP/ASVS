@@ -1,6 +1,6 @@
 # V17 WebRTC
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 La communication Web en temps réel (WebRTC) permet l'échange de voix, de vidéo et de données en temps réel dans les applications modernes. Avec l'adoption croissante de cette technologie, la sécurisation de l'infrastructure WebRTC devient cruciale. Cette section présente les exigences de sécurité pour les acteurs qui développent, hébergent ou intègrent des systèmes WebRTC.
 

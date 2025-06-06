@@ -1,6 +1,6 @@
 # V11 Cryptographie
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 L'objectif de ce chapitre est de définir les meilleures pratiques pour l'utilisation générale de la cryptographie, ainsi que d'inculquer une compréhension fondamentale des principes cryptographiques et d'encourager une évolution vers des approches plus résilientes et modernes. Il encourage les actions suivantes :
 

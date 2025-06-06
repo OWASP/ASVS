@@ -1,6 +1,6 @@
 # V10 OAuth and OIDC
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 OAuth2 (appelé OAuth dans ce chapitre) est un framework standard pour l'autorisation déléguée. Par exemple, grâce à OAuth, une application cliente peut accéder aux API (ressources serveur) au nom d'un utilisateur, à condition que ce dernier l'ait autorisée.
 

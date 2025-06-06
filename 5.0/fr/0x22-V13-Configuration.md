@@ -1,6 +1,6 @@
 # V13 Configuration
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 La configuration par défaut de l'application doit être sécurisée pour une utilisation sur Internet.
 
@@ -57,7 +57,7 @@ Par exemple, masquer la version des composants côté serveur n'élimine pas la 
 | **13.4.2** | Vérifiez que les modes de débogage sont désactivés pour tous les composants dans les environnements de production afin d’éviter l’exposition des fonctionnalités de débogage et la fuite d’informations. | 2 |
 | **13.4.3** | Vérifiez que les serveurs Web n’exposent pas les listes de répertoires aux clients, sauf si cela est explicitement prévu. | 2 |
 | **13.4.4** | Vérifiez que l’utilisation de la méthode HTTP TRACE n’est pas prise en charge dans les environnements de production, afin d’éviter toute fuite d’informations potentielle. | 2 |
-| **13.4.5** | Vérifiez que la documentation (comme pour les API internes) et les points de terminaison de surveillance ne sont pas exposés, sauf si cela est explicitement prévu. | 2 |
+| **13.4.5** | Vérifiez que la documentation (comme pour les API internes) et les endpoints de surveillance ne sont pas exposés, sauf si cela est explicitement prévu. | 2 |
 | **13.4.6** | Vérifiez que l’application n’expose pas d’informations de version détaillées des composants backend. | 3 |
 | **13.4.7** | Vérifiez que le niveau Web est configuré pour servir uniquement les fichiers avec des extensions de fichier spécifiques afin d’éviter toute fuite involontaire d’informations, de configuration et de code source. | 3 |
 

@@ -2,7 +2,7 @@
 
 ## À propos du référentiel
 
-La norme de vérification de la sécurité des applications est une liste d'exigences de sécurité des applications que les architectes, les développeurs, les testeurs, les professionnels de la sécurité, les fournisseurs d'outils et les consommateurs peuvent utiliser pour définir, créer, tester et vérifier des applications sécurisées.
+Le Référentiel de vérification de la sécurité des applications (Application Security Verification Standard) est une liste d'exigences de sécurité des applications que les architectes, les développeurs, les testeurs, les professionnels de la sécurité, les fournisseurs d'outils et les consommateurs peuvent utiliser pour définir, créer, tester et vérifier des applications sécurisées.
 
 ## Copyright et licence
 

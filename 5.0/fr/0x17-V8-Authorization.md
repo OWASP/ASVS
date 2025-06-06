@@ -1,15 +1,15 @@
 # V8 Autorisation
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 L'autorisation garantit que l'accès est accordé uniquement aux utilisateurs autorisés (utilisateurs, serveurs et autres clients). Pour appliquer le principe du moindre privilège (POLP), les applications vérifiées doivent répondre aux exigences générales suivantes :
 
-* Règles d'autorisation des documents, y compris les facteurs décisionnels et les contextes environnementaux.
+* Documenter les règles d'autorisation des documents, y compris les facteurs de prise de décision et les contextes environnementaux.
 * Les consommateurs ne devraient avoir accès qu'aux ressources autorisées par leurs droits définis.
 
 ## V8.1 Documentation d'autorisation
 
-Une documentation complète des autorisations est essentielle pour garantir que les décisions de sécurité sont appliquées de manière cohérente, vérifiables et conformes aux politiques de l'organisation. Cela réduit le risque d'accès non autorisé en clarifiant les exigences de sécurité et en les rendant applicables aux développeurs, administrateurs et testeurs.
+Une documentation exhaustive des autorisations est essentielle pour garantir que les décisions de sécurité sont appliquées de manière cohérente, vérifiables et conformes aux politiques de l'organisation. Cela réduit le risque d'accès non autorisé en clarifiant les exigences de sécurité et en les rendant applicables aux développeurs, administrateurs et testeurs.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
@@ -24,29 +24,29 @@ La mise en œuvre de contrôles d’autorisation granulaires aux niveaux de la f
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **8.2.1** | Vérifiez que l’application garantit que l’accès au niveau des fonctions est limité aux consommateurs disposant d’autorisations explicites. | 1 |
+| **8.2.1** | Vérifiez que l’application garantit que l’accès basé sur la fonction est limité aux consommateurs disposant d’autorisations explicites. | 1 |
 | **8.2.2** | Vérifiez que l'application garantit que l'accès spécifique aux données est limité aux consommateurs disposant d'autorisations explicites sur des éléments de données spécifiques afin d'atténuer les références d'objet directes non sécurisées (IDOR) et les autorisations de niveau d'objet rompues (BOLA). | 1 |
 | **8.2.3** | Vérifiez que l'application garantit que l'accès au niveau du champ est limité aux consommateurs disposant d'autorisations explicites sur des champs spécifiques afin d'atténuer les problèmes d'autorisation au niveau de la propriété d'objet (BOPLA). | 2 |
 | **8.2.4** | Vérifiez que les contrôles de sécurité adaptatifs basés sur les attributs environnementaux et contextuels du consommateur (tels que l'heure, la localisation, l'adresse IP ou l'appareil) sont mis en œuvre pour les décisions d'authentification et d'autorisation, comme défini dans la documentation de l'application. Ces contrôles doivent être appliqués lorsque le consommateur tente de démarrer une nouvelle session et également pendant une session existante. | 3 |
 
-## V8.3 Autorisation de niveau d'opération
+## V8.3 Autorisation par opération
 
 L'application immédiate des modifications d'autorisation dans le niveau approprié de l'architecture d'une application est essentielle pour empêcher les actions non autorisées, en particulier dans les environnements dynamiques.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **8.3.1** | Vérifiez que l’application applique les règles d’autorisation au niveau d’une couche de service approuvée et ne s’appuie pas sur des contrôles qu’un consommateur non approuvé pourrait manipuler, comme JavaScript côté client. | 1 |
-| **8.3.2** | Vérifiez que les modifications apportées aux valeurs sur lesquelles reposent les décisions d'autorisation sont appliquées immédiatement. Lorsque les modifications ne peuvent pas être appliquées immédiatement (par exemple, en s'appuyant sur des données de jetons autonomes), des contrôles d'atténuation doivent être mis en place pour alerter un consommateur lorsqu'il effectue une action alors qu'il n'est plus autorisé à le faire et annuler la modification. Notez que cette solution ne limiterait pas les fuites d'informations. | 3 |
+| **8.3.1** | Vérifier que l'application applique les règles d'autorisations au niveau de la couche service de confiance et et ne s’appuie pas sur des contrôles qu’un consommateur non approuvé pourrait manipuler, comme JavaScript côté client. | 1 |
+| **8.3.2** | Vérifiez que les modifications apportées aux valeurs sur lesquelles reposent les décisions d'autorisation sont appliquées immédiatement. Lorsque les modifications ne peuvent pas être appliquées immédiatement (par exemple, en s'appuyant sur des données de jetons autonomes), des contrôles d'atténuation doivent être mis en place pour alerter un consommateur lorsqu'il effectue une action alors qu'il n'est plus autorisé à le faire et annuler la modification. Notez que cette solution alternative ne limiterait pas les fuites d'informations. | 3 |
 | **8.3.3** | Vérifiez que l'accès à un objet repose sur les autorisations du sujet d'origine (par exemple, le consommateur), et non sur celles d'un intermédiaire ou d'un service agissant en son nom. Par exemple, si un consommateur appelle un service web à l'aide d'un jeton d'authentification autonome, et que ce service demande ensuite des données à un autre service, ce dernier utilisera le jeton du consommateur, plutôt qu'un jeton inter-machine du premier service, pour prendre les décisions d'autorisation. | 3 |
 
 ## V8.4 Autres considérations relatives à l'autorisation
 
-Des considérations supplémentaires concernant l’autorisation, en particulier pour les interfaces administratives et les environnements multi-locataires, aident à empêcher tout accès non autorisé.
+Des considérations supplémentaires concernant l’autorisation, en particulier pour les interfaces administratives et les environnements multi-tenants, aident à empêcher tout accès non autorisé.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **8.4.1** | Vérifiez que les applications multi-locataires utilisent des contrôles inter-locataires pour garantir que les opérations des consommateurs n'affecteront jamais les locataires avec lesquels ils ne sont pas autorisés à interagir. | 2 |
-| **8.4.2** | Vérifiez que l'accès aux interfaces administratives intègre plusieurs couches de sécurité, notamment la vérification continue de l'identité du consommateur, l'évaluation de la posture de sécurité des appareils et l'analyse contextuelle des risques, garantissant que l'emplacement du réseau ou les points de terminaison approuvés ne sont pas les seuls facteurs d'autorisation, même s'ils peuvent réduire la probabilité d'accès non autorisé. | 3 |
+| **8.4.1** | Vérifiez que les applications multi-tenants utilisent des contrôles inter-tenants pour garantir que les opérations des consommateurs n'affecteront jamais les tenants avec lesquels ils ne sont pas autorisés à interagir. | 2 |
+| **8.4.2** | Vérifiez que l'accès aux interfaces administratives intègre plusieurs couches de sécurité, notamment la vérification continue de l'identité du consommateur, l'évaluation de la posture de sécurité des appareils et l'analyse contextuelle des risques, garantissant que l'emplacement du réseau ou les endpoints approuvés ne sont pas les seuls facteurs d'autorisation, même s'ils peuvent réduire la probabilité d'accès non autorisé. | 3 |
 
 ## Références
 

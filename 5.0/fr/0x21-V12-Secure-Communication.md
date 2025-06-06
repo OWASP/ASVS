@@ -1,6 +1,6 @@
 # V12 Secure Communication
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 Ce chapitre comprend les exigences relatives aux mécanismes spécifiques qui doivent être mis en place pour protéger les données en transit, à la fois entre un client utilisateur final et un service backend, ainsi qu'entre les services internes et backend.
 

@@ -1,6 +1,6 @@
 # V9 Jetons autonomes
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 Le concept de jeton autonome est mentionné dans la RFC 6749 OAuth 2.0 originale de 2012. Il désigne un jeton contenant des données ou des revendications sur lesquelles un service récepteur s'appuie pour prendre des décisions de sécurité. Il convient de le distinguer d'un simple jeton contenant uniquement un identifiant, qu'un service récepteur utilise pour rechercher des données localement. Les exemples les plus courants de jetons autonomes sont les jetons Web JSON (JWT) et les assertions SAML.
 

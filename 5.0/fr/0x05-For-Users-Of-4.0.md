@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Les utilisateurs familiarisés avec la version 4.x de la norme trouveront utile de consulter les principales modifications apportées à la version 5.0, notamment les mises à jour de contenu, de portée et de philosophie sous-jacente.
+Les utilisateurs familiarisés avec la version 4.x du référentiel trouveront utile de consulter les principales modifications apportées à la version 5.0, notamment les mises à jour de contenu, de portée et de philosophie sous-jacente.
 
 Sur les 286 exigences de la version 4.0.3, seules 11 restent inchangées, tandis que 15 ont subi des ajustements grammaticaux mineurs sans altérer leur sens. Au total, 109 exigences (38 %) ne sont plus des exigences distinctes dans la version 5.0 : 50 ont été simplement supprimées, 28 ont été supprimées car doublons et 31 ont été fusionnées avec d'autres exigences. Les autres ont été révisées. Même les exigences n'ayant pas subi de modifications substantielles ont des identifiants différents à la suite d'une réorganisation ou une restructuration.
 
@@ -12,21 +12,21 @@ Pour faciliter l'adoption de la version 5.0, des documents de correspondance son
 
 ### Portée et orientation
 
-La version 4.x incluait des exigences qui ne correspondaient pas au périmètre prévu de la norme ; celles-ci ont été supprimées. Les exigences qui ne répondaient pas aux critères du périmètre de la version 5.0 ou qui n'étaient pas vérifiables ont également été exclues.
+La version 4.x incluait des exigences qui ne correspondaient pas au périmètre prévu du référentiel ; celles-ci ont été supprimées. Les exigences qui ne répondaient pas aux critères du périmètre de la version 5.0 ou qui n'étaient pas vérifiables ont également été exclues.
 
 ### Priorité aux objectifs de sécurité plutôt qu'aux mécanismes
 
-Dans la version 4.x, de nombreuses exigences se concentraient sur des mécanismes spécifiques plutôt que sur les objectifs de sécurité sous-jacents. Dans la version 5.0, les exigences sont centrées sur les objectifs de sécurité, ne référençant des mécanismes particuliers que lorsqu'ils constituent la seule solution pratique, ou les fournissant à titre d'exemple ou de guide complémentaire.
+Dans la version 4.x, de nombreuses exigences se concentraient sur des mécanismes spécifiques plutôt que sur les objectifs de sécurité sous-jacents. Dans la version 5.0, les exigences sont centrées sur les objectifs de sécurité, ne référençant des mécanismes particuliers que lorsqu'ils constituent la seule solution pratique, ou les fournissant à titre d'exemple ou de conseil complémentaire.
 
 Cette approche reconnaît que plusieurs méthodes peuvent exister pour atteindre un objectif de sécurité donné et évite toute prescription inutile susceptible de limiter la flexibilité organisationnelle.
 
-De plus, les exigences traitant d'une même préoccupation de sécurité ont été consolidées lorsque cela était nécessaire.
+De plus, les exigences traitant d'une même préoccupation de sécurité ont été consolidées lorsque cela était opportun.
 
 ### Décisions de sécurité documentées
 
 Bien que le concept de décisions de sécurité documentées puisse paraître nouveau dans la version 5.0, il s'agit d'une évolution des exigences antérieures liées à l'application des politiques et à la modélisation des menaces dans la version 4.0. Auparavant, certaines exigences exigeaient implicitement une analyse pour éclairer la mise en œuvre des contrôles de sécurité, comme la détermination des connexions réseau autorisées.
 
-Afin de garantir la disponibilité des informations nécessaires à la mise en œuvre et à la vérification, ces attentes sont désormais explicitement définies comme des exigences de documentation, ce qui les rend claires, exploitables et vérifiables.
+Afin de garantir la disponibilité des informations nécessaires à la mise en œuvre et à la vérification, ces attentes sont désormais explicitement définies comme des exigences de documentation, ce qui les rend claires, actionnables et vérifiables.
 
 ## Modifications structurelles et nouveaux chapitres
 
@@ -49,7 +49,7 @@ L'ancien chapitre « Architecture » ​​de la version 1 a été supprimé.
 
 ## Suppression des correspondances directes avec d'autres normes
 
-Les correspondances directes avec d'autres normes ont été supprimées du corps de la norme. L'objectif est de préparer une correspondance avec le projet OWASP Common Requirement Enumeration (CRE), qui reliera ASVS à divers projets OWASP et normes externes.
+Les correspondances directes avec d'autres normes ont été supprimées du corps du référentiel. L'objectif est de préparer une correspondance avec le projet OWASP Common Requirement Enumeration (CRE), qui reliera ASVS à divers projets OWASP et normes externes.
 
 Les correspondances directes avec CWE et NIST ne sont plus maintenues, comme expliqué ci-dessous.
 
@@ -61,7 +61,7 @@ Si ces directives demeurent une référence importante, un alignement strict a e
 
 ### S'éloigner de l'énumération des faiblesses communes (CWE)
 
-L'[Énumération des Faiblesses Communes (CWE)](https://cwe.mitre.org/) fournit une taxonomie utile des faiblesses de sécurité logicielle. Cependant, des défis tels que les CWE par catégorie, les difficultés de mappage des exigences à une CWE unique et la présence de mappages imprécis dans la version 4.x ont conduit à la décision d'abandonner les mappages CWE directs dans la version 5.0.
+L'[Énumération des Faiblesses Communes (CWE)](https://cwe.mitre.org/) fournit une taxonomie utile des faiblesses de sécurité logicielle. Cependant, des défis tels que les CWE par catégorie, les difficultés de correspondance des exigences à une CWE unique et la présence de mappages imprécis dans la version 4.x ont conduit à la décision d'abandonner les mappages CWE directs dans la version 5.0.
 
 ## Repenser les définitions de niveaux
 
@@ -69,7 +69,7 @@ La version 4.x décrivait les niveaux comme L1 (« Minimum »), L2 (« Standa
 
 La version 5.0 corrige plusieurs problèmes liés à cette approche, décrits dans les paragraphes suivants.
 
-En pratique, alors que la version 4.x utilisait des graduations pour les indicateurs de niveau, la version 5.x utilise un simple numéro pour tous les formats de la norme, notamment Markdown, PDF, DOCX, CSV, JSON et XML. Pour des raisons de rétrocompatibilité, les anciennes versions des sorties CSV, JSON et XML utilisant encore des graduations sont également générées.
+En pratique, alors que la version 4.x utilisait des graduations pour les indicateurs de niveau, la version 5.x utilise un simple numéro pour tous les formats du référentiel, notamment Markdown, PDF, DOCX, CSV, JSON et XML. Pour des raisons de rétrocompatibilité, les anciennes versions des sorties CSV, JSON et XML utilisant encore des graduations sont également générées.
 
 ### Niveau d'entrée simplifié
 

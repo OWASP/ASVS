@@ -1,13 +1,13 @@
 # V7 Gestion des sessions
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 Les mécanismes de gestion de session permettent aux applications de corréler les interactions entre utilisateurs et appareils au fil du temps, même avec des protocoles de communication sans état (comme HTTP). Les applications modernes peuvent utiliser plusieurs jetons de session aux caractéristiques et objectifs distincts. Un système de gestion de session sécurisé empêche les attaquants d'obtenir, d'utiliser ou d'abuser de la session d'une victime. Les applications gérant des sessions doivent garantir le respect des exigences de gestion de session de haut niveau suivantes :
 
 * Les sessions sont uniques à chaque individu et ne peuvent être ni devinées ni partagées.
 * Les sessions sont invalidées lorsqu'elles ne sont plus nécessaires et expirent pendant les périodes d'inactivité.
 
-De nombreuses exigences de ce chapitre concernent des contrôles sélectionnés [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/), en se concentrant sur les menaces courantes et les faiblesses d'authentification couramment exploitées.
+De nombreuses exigences de ce chapitre concernent des contrôles sélectionnés de [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/), en se concentrant sur les menaces courantes et les faiblesses d'authentification couramment exploitées.
 
 Notez que les exigences relatives aux détails d’implémentation spécifiques de certains mécanismes de gestion de session peuvent être trouvées ailleurs :
 
@@ -34,7 +34,7 @@ Cette section satisfait aux exigences essentielles des sessions sécurisées en 
 | :---: | :--- | :---: |
 | **7.2.1** | Vérifiez que l’application effectue toutes les vérifications des jetons de session à l’aide d’un service back-end de confiance. | 1 |
 | **7.2.2** | Vérifiez que l'application utilise des jetons autonomes ou de référence générés dynamiquement pour la gestion des sessions, c'est-à-dire sans utiliser de secrets et de clés d'API statiques. | 1 |
-| **7.2.3** | Vérifiez que si des jetons de référence sont utilisés pour représenter les sessions utilisateur, ils sont uniques et générés à l'aide d'un générateur de nombres pseudo-aléatoires cryptographiquement sécurisé (CSPRNG) et possèdent au moins 128 bits d'entropie. | 1 |
+| **7.2.3** | Vérifiez que si des jetons par référence sont utilisés pour représenter les sessions utilisateur, ils sont uniques et générés à l'aide d'un générateur de nombres pseudo-aléatoires cryptographiquement sécurisé (CSPRNG) et possèdent au moins 128 bits d'entropie. | 1 |
 | **7.2.4** | Vérifiez que l’application génère un nouveau jeton de session lors de l’authentification de l’utilisateur, y compris la réauthentification, et met fin au jeton de session actuel. | 1 |
 
 ## V7.3 Délai d'expiration de la session
@@ -56,7 +56,7 @@ Pour les mécanismes de session avec état, la terminaison implique généraleme
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **7.4.1** | Vérifiez que lorsque la fin de session est déclenchée (par exemple, déconnexion ou expiration), l'application interdit toute utilisation ultérieure de la session. Pour les jetons de référence ou les sessions avec état, cela implique l'invalidation des données de session au niveau du backend de l'application. Les applications utilisant des jetons autonomes nécessiteront une solution, comme la gestion d'une liste des jetons terminés, l'interdiction des jetons produits avant une date et une heure spécifique à chaque utilisateur ou la rotation d'une clé de signature spécifique à chaque utilisateur. | 1 |
+| **7.4.1** | Vérifiez que lorsque la fin de session est déclenchée (par exemple, déconnexion ou expiration), l'application interdit toute utilisation ultérieure de la session. Pour les jetons par référence ou les sessions avec état, cela implique l'invalidation des données de session au niveau du backend de l'application. Les applications utilisant des jetons autonomes nécessiteront une solution, comme la gestion d'une liste des jetons terminés, l'interdiction des jetons produits avant une date et une heure spécifique à chaque utilisateur ou la rotation d'une clé de signature spécifique à chaque utilisateur. | 1 |
 | **7.4.2** | Vérifiez que l'application met fin à toutes les sessions actives lorsqu'un compte utilisateur est désactivé ou supprimé (par exemple, lorsqu'un employé quitte l'entreprise). | 1 |
 | **7.4.3** | Vérifiez que l'application offre la possibilité de mettre fin à toutes les autres sessions actives après une modification ou une suppression réussie de tout facteur d'authentification (y compris la modification du mot de passe via une réinitialisation ou une récupération et, le cas échéant, une mise à jour des paramètres MFA). | 2 |
 | **7.4.4** | Vérifiez que toutes les pages nécessitant une authentification disposent d’un accès facile et visible à la fonctionnalité de déconnexion. | 2 |
@@ -76,7 +76,7 @@ Veuillez noter que les instructions spécifiques au niveau dans le chapitre « A
 
 ## V7.6 Réauthentification fédérée
 
-Cette section s'adresse aux rédacteurs de code de partie utilisatrice (RP) ou de fournisseur d'identité (IdP). Ces exigences découlent de la norme [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) relative à la fédération et aux assertions.
+Cette section s'adresse aux développeurs de code de partie utilisatrice (RP) ou de fournisseur d'identité (IdP). Ces exigences découlent de la norme [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) relative à la fédération et aux assertions.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |

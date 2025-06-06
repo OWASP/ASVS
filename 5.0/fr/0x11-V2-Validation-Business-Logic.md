@@ -1,6 +1,6 @@
 # V2 Validation et logique métier
 
-## Objectif du contrôle
+## Objectif de contrôle
 
 Ce chapitre vise à garantir qu'une application vérifiée répond aux objectifs de haut niveau suivants :
 
@@ -15,7 +15,7 @@ La documentation de validation et de logique métier doit définir clairement le
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **2.1.1** | Vérifiez que la documentation de l'application définit des règles de validation des entrées pour vérifier la validité des éléments de données par rapport à une structure attendue. Il peut s'agir de formats de données courants tels que des numéros de carte de crédit, des adresses e-mail ou des numéros de téléphone, ou d'un format de données interne. | 1 |
+| **2.1.1** | Vérifiez que la documentation de l'application définit des règles de validation des entrées pour vérifier la validité des éléments de données par rapport à la structure attendue. Il peut s'agir de formats de données courants tels que des numéros de carte de crédit, des adresses e-mail ou des numéros de téléphone, ou d'un format de données interne. | 1 |
 | **2.1.2** | Vérifiez que la documentation de l'application définit comment valider la cohérence logique et contextuelle des éléments de données combinés, par exemple en vérifiant que la banlieue et le code postal correspondent. | 2 |
 | **2.1.3** | Vérifiez que les attentes en matière de limites et de validations de la logique métier sont documentées, y compris par utilisateur et globalement dans l'application. | 2 |
 
@@ -30,7 +30,7 @@ Un contrôle de logique métier peut vérifier qu'une entrée particulière est 
 Bien que la validation de schéma ne soit pas explicitement obligatoire, elle peut être le mécanisme le plus efficace pour une couverture de validation complète des API HTTP ou d'autres interfaces qui utilisent JSON ou XML.
 
 Veuillez noter les points suivants concernant la validation du schéma :
-
+n
 * La « version publiée » de la spécification de validation du schéma JSON est considérée comme prête pour la production, mais pas à proprement parler « stable ». Lorsque vous utilisez la validation du schéma JSON, assurez-vous qu'il n'y a aucune lacune par rapport aux instructions des exigences ci-dessous.
 * Toutes les bibliothèques de validation de schéma JSON utilisées doivent également être surveillées et mises à jour si nécessaire une fois la norme formalisée.
 * La validation DTD ne doit pas être utilisée et l'évaluation DTD du framework doit être désactivée pour éviter les problèmes liés aux attaques XXE contre les DTD.
@@ -38,7 +38,7 @@ Veuillez noter les points suivants concernant la validation du schéma :
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **2.2.1** | Vérifier que les entrées sont validées afin de respecter les attentes métier ou fonctionnelles. Cette validation doit être basée sur une liste de valeurs, de modèles et de plages autorisées, ou sur la comparaison des entrées avec une structure attendue et des limites logiques selon des règles prédéfinies. Pour le niveau 1, cette validation peut se concentrer sur les entrées utilisées pour prendre des décisions métier ou de sécurité spécifiques. À partir du niveau 2, elle doit s'appliquer à toutes les entrées. | 1 |
-| **2.2.2** | Vérifiez que l'application est conçue pour appliquer la validation des entrées au niveau d'une couche de service de confiance. Bien que la validation côté client améliore la convivialité et doit être encouragée, elle ne doit pas être considérée comme un contrôle de sécurité. | 1 |
+| **2.2.2** | Vérifiez que l'application est conçue pour appliquer la validation des entrées au niveau d'une couche de service de confiance. Bien que la validation côté client améliore l'ergonomie et doit être encouragée, elle ne doit pas être considérée comme un contrôle de sécurité. | 1 |
 | **2.2.3** | Vérifiez que l’application garantit que les combinaisons d’éléments de données associés sont raisonnables selon les règles prédéfinies. | 2 |
 
 ## V2.3 Sécurité de la logique métier

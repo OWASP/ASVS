@@ -1,12 +1,12 @@
 # Qu'est-ce que l'ASVS ?
 
-La norme de vérification de la sécurité des applications (ASVS) définit les exigences de sécurité pour les applications et services web. Elle constitue une ressource précieuse pour quiconque souhaite concevoir, développer et maintenir des applications sécurisées ou évaluer leur sécurité.
+Le Référentiel de vérification de la sécurité des applications (ASVS) définit des exigences de sécurité pour les applications et services web. Elle constitue une ressource précieuse pour quiconque souhaite concevoir, développer et maintenir des applications sécurisées ou évaluer leur sécurité.
 
 Ce chapitre décrit les aspects essentiels de l'utilisation de l'ASVS, notamment son champ d'application, la structure de ses niveaux de priorité et ses principaux cas d'utilisation.
 
 ## Portée de l'ASVS
 
-La portée de l'ASVS est définie par son nom : Application, Sécurité, Vérification et Norme. Elle établit les exigences incluses ou exclues, avec pour objectif principal d'identifier les principes de sécurité à respecter. Elle prend également en compte les exigences de documentation, qui servent de base aux exigences de mise en œuvre.
+La portée de l'ASVS est définie par son nom : Application, Sécurité, Vérification et Référentiel. Elle établit les exigences incluses ou exclues, avec pour objectif principal d'identifier les principes de sécurité à respecter. Elle prend également en compte les exigences de documentation, qui servent de base aux exigences de mise en œuvre.
 
 Il n'existe aucune portée pour les attaquants. Par conséquent, les exigences de l'ASVS doivent être évaluées parallèlement aux recommandations relatives aux autres aspects du cycle de vie des applications, notamment les processus CI/CD, l'hébergement et les activités opérationnelles.
 
@@ -30,17 +30,17 @@ Toutes les autres considérations, telles que les aspects fonctionnels, le style
 
 L'exigence doit être vérifiable et la vérification doit aboutir à une décision d'échec ou de réussite.
 
-### Norme
+### Référentiel
 
-L'ASVS est conçue comme un recueil d'exigences de sécurité à mettre en œuvre pour se conformer à la norme. Cela signifie que les exigences se limitent à la définition de l'objectif de sécurité à atteindre. D'autres informations connexes peuvent être intégrées à l'ASVS ou reliées par des mappings.
+L'ASVS est conçue comme un recueil d'exigences de sécurité à mettre en œuvre pour se conformer au référentiel. Cela signifie que les exigences se limitent à la définition de l'objectif de sécurité à atteindre. D'autres informations connexes peuvent être intégrées à l'ASVS ou reliées par des mappings.
 
-Plus précisément, l'OWASP gère de nombreux projets, et l'ASVS évite délibérément tout chevauchement avec le contenu d'autres projets. Par exemple, les développeurs peuvent se demander : « Comment implémenter une exigence particulière dans ma technologie ou mon environnement ? » Cette question devrait être traitée par le projet « Aide-mémoire ». Les vérificateurs peuvent se demander : « Comment tester cette exigence dans cet environnement ? » Cette question devrait être traitée par le projet « Guide de test de sécurité Web ».
+Plus précisément, l'OWASP comporte de nombreux projets, et l'ASVS évite délibérément tout chevauchement avec le contenu d'autres projets. Par exemple, les développeurs peuvent se demander : « Comment implémenter une exigence particulière dans ma technologie ou mon environnement ? » Cette question devrait être traitée par le projet « Cheat-Sheets ». Les vérificateurs peuvent se demander : « Comment tester cette exigence dans cet environnement ? » Cette question devrait être traitée par le projet « Web Security Testing Guide ».
 
-Bien que l'ASVS ne soit pas uniquement destiné aux experts en sécurité, il exige du lecteur des connaissances techniques pour comprendre le contenu ou la capacité à rechercher des concepts spécifiques.
+Bien que l'ASVS ne soit pas uniquement destiné aux experts en sécurité, il attend du lecteur des connaissances techniques pour comprendre le contenu ou la capacité à rechercher des concepts spécifiques.
 
 ### Exigence
 
-Le terme « exigence » est utilisé spécifiquement dans l'ASVS car il décrit ce qui doit être accompli pour la satisfaire. L'ASVS ne contient que des exigences (must) et ne contient pas de recommandations (should) comme condition principale.
+Le terme « exigence » est utilisé spécifiquement dans l'ASVS car il décrit ce qui doit être accompli pour la satisfaire. L'ASVS ne contient que des exigences (doit) et ne contient pas de recommandations (devrait) comme condition principale.
 
 En d'autres termes, les recommandations, qu'elles constituent une solution parmi d'autres ou des considérations de style de code, ne répondent pas à la définition d'une exigence.
 
@@ -78,7 +78,7 @@ Afin d'éviter les doublons ou les exigences obsolètes aux niveaux supérieurs,
 
 ### Évaluation des niveaux
 
-Les niveaux sont définis par une évaluation prioritaire de chaque exigence, basée sur l'expérience de mise en œuvre et de test des exigences de sécurité. L'accent est mis principalement sur la comparaison de la réduction des risques avec les efforts nécessaires à la mise en œuvre de l'exigence. Un autre facteur clé est de maintenir une faible barrière à l'entrée.
+Les niveaux sont définis par une évaluation de prorité de chaque exigence, basée sur l'expérience de mise en œuvre et de test des exigences de sécurité. L'accent est mis principalement sur la balance entre la réduction des risques et les efforts nécessaires à la mise en œuvre de l'exigence. Un autre facteur clé est de maintenir une faible barrière à l'entrée.
 
 La réduction des risques évalue dans quelle mesure l'exigence réduit le niveau de risque de sécurité au sein de l'application, en tenant compte des facteurs d'impact classiques de confidentialité, d'intégrité et de disponibilité, et en déterminant s'il s'agit d'une couche de défense principale ou d'une défense en profondeur.
 
@@ -88,11 +88,11 @@ Les types d'exigences à chaque niveau peuvent être caractérisés comme suit.
 
 ### Niveau 1
 
-Ce niveau contient les exigences minimales à prendre en compte pour sécuriser une application et constitue un point de départ essentiel. Il comprend environ 20 % des exigences ASVS. L'objectif est de réduire au minimum les exigences afin de réduire les obstacles à l'entrée.
+Ce niveau contient les exigences minimales à prendre en compte pour sécuriser une application et constitue un point de départ essentiel. Il comprend environ 20 % des exigences de l'ASVS. L'objectif est de réduire au minimum les exigences afin de réduire les obstacles à l'entrée.
 
 Ces exigences sont généralement critiques ou basiques, et constituent la première couche de défense pour prévenir les attaques courantes. Elles ne nécessitent pas d'autres vulnérabilités ou conditions préalables pour être exploitables.
 
-Outre les exigences de la première couche de défense, certaines exigences ont moins d'impact aux niveaux supérieurs, comme celles relatives aux mots de passe. Celles-ci sont plus importantes pour le Niveau 1, car à partir de ces niveaux, les exigences d'authentification multi facteur deviennent pertinentes.
+Outre les exigences de la première couche de défense, certaines exigences ont moins d'impact aux niveaux supérieurs, comme celles relatives aux mots de passe. Celles-ci sont plus importantes pour le Niveau 1, car à partir de ces niveaux, les exigences d'authentification multifacteur deviennent pertinentes.
 
 Le Niveau 1 n'est pas nécessairement testable par un testeur externe sans accès interne à la documentation ou au code (comme les tests « boîte noire »), bien que le nombre réduit d'exigences devrait faciliter sa vérification.
 
@@ -136,29 +136,29 @@ Les informations ci-dessus concernent spécifiquement les exigences de l'ASVS. L
 
 Plusieurs points décrits ci-dessus, tels que les exigences de documentation et le mécanisme de niveaux, permettent une utilisation de l'ASVS plus flexible et plus spécifique à l'organisation.
 
-De plus, il est fortement recommandé aux organisations de créer un fork spécifique à l'organisation ou au domaine, afin d'ajuster les exigences en fonction des caractéristiques et des niveaux de risque de leurs applications. Cependant, il est important de maintenir la traçabilité afin que la conformité à l'exigence 4.1.1 soit identique pour toutes les versions.
+De plus, il est fortement encouragé aux organisations de créer un fork spécifique à l'organisation ou au domaine, afin d'ajuster les exigences en fonction des caractéristiques et des niveaux de risque de leurs applications. Cependant, il est important de maintenir une traçabilité afin que la conformité à l'exigence 4.1.1 soit identique pour toutes les versions.
 
 Idéalement, chaque organisation devrait créer son propre ASVS personnalisé, en supprimant les sections non pertinentes (par exemple, GraphQL, WebSockets, SOAP, si elles ne sont pas utilisées). Une version ou un supplément ASVS spécifique à l'organisation est également un bon support pour fournir des conseils d'implémentation spécifiques à l'organisation, détaillant les bibliothèques ou les ressources à utiliser pour se conformer aux exigences.
 
-### Comment référencer les exigences ASVS ?
+### Comment référencer les exigences de l'ASVS ?
 
 Chaque exigence possède un identifiant au format `<chapitre>.<section>.<exigence>`, où chaque élément est un numéro. Par exemple, « 1.11.3 ».
 
-* La valeur `<chapitre>` correspond au chapitre d'où provient l'exigence ; par exemple, toutes les exigences `1.#.#` proviennent du chapitre 'Encodage et désinfection'.
+* La valeur `<chapitre>` correspond au chapitre d'où provient l'exigence ; par exemple, toutes les exigences `1.#.#` proviennent du chapitre 'Encodage et nettoyage'.
 * La valeur `<section>` correspond à la section de ce chapitre où apparaît l'exigence ; par exemple, toutes les exigences `1.2.#` se trouvent dans la section 'Prévention des injections' du chapitre 'Encodage et nettoyage'.
-* La valeur `<exigence>` identifie l'exigence spécifique au sein du chapitre et de la section, par exemple, `1.2.5` qui, dans la version 5.0.0 de cette norme, est :
+* La valeur `<exigence>` identifie l'exigence spécifique au sein du chapitre et de la section, par exemple, `1.2.5` qui, dans la version 5.0.0 de ce référentiel, est :
 
 > Vérifiez que l'application protège contre l'injection de commandes du système d'exploitation et que les appels du système d'exploitation utilisent des requêtes OS paramétrées ou un encodage contextuel de la sortie de ligne de commande.
 
-Les identifiants pouvant varier d'une version à l'autre de la norme, il est préférable, pour les autres documents, rapports ou outils, d'utiliser le format suivant : `v<version>-<chapter>.<section>.<requirement>`, où 'version' correspond à la balise de version ASVS. Par exemple, 'v5.0.0-1.2.5' désigne spécifiquement la 5ème exigence de la section 'Prévention des injections' du chapitre 'Encodage et nettoyage' de la version 5.0.0. (Ceci pourrait être résumé par `v<version>-<identifiant_exigence>`.)
+Les identifiants pouvant varier d'une version à l'autre du référentiel, il est préférable, pour les autres documents, rapports ou outils, d'utiliser le format suivant : `v<version>-<chapter>.<section>.<requirement>`, où 'version' correspond à la balise de version ASVS. Par exemple, 'v5.0.0-1.2.5' désigne spécifiquement la 5ème exigence de la section 'Prévention des injections' du chapitre 'Encodage et nettoyage' de la version 5.0.0. (Ceci pourrait être résumé par `v<version>-<identifiant_exigence>`.)
 
 Remarque : Le `v` précédant le numéro de version dans le format doit toujours être en minuscule.
 
-Si des identifiants sont utilisés sans inclure l'élément `v<version>`, ils doivent être considérés comme faisant référence au contenu le plus récent de la norme de vérification de la sécurité des applications. À mesure que la norme évolue, cela devient problématique ; c'est pourquoi les rédacteurs et les développeurs doivent inclure l'élément « version ».
+Si des identifiants sont utilisés sans inclure l'élément `v<version>`, ils doivent être considérés comme faisant référence au contenu le plus récent du Référentiel de vérification de la sécurité des applications. À mesure que le référentiel évolue, cela devient problématique ; c'est pourquoi les rédacteurs et les développeurs doivent inclure l'élément « version ».
 
-Les listes d'exigences ASVS sont disponibles aux formats CSV, JSON et autres, utiles à des fins de référence ou d'utilisation programmatique.
+Les listes d'exigences de l'ASVS sont disponibles aux formats CSV, JSON et autres, utiles à des fins de référence ou d'utilisation programmatique.
 
-### Forking de l'ASVS
+### Forker l'ASVS
 
 Les organisations peuvent tirer profit de l'adoption d'ASVS en choisissant l'un des trois niveaux ou en créant un fork spécifique au domaine qui ajuste les exigences en fonction du niveau de risque applicatif. Ce type de fork est encouragé, à condition de garantir la traçabilité de l'exigence 4.1.1, garantissant ainsi la même cohérence pour toutes les versions.
 
@@ -168,9 +168,9 @@ Idéalement, chaque organisation devrait créer son propre ASVS personnalisé, e
 
 L'ASVS peut être utilisé pour évaluer la sécurité d'une application, ce point étant approfondi dans le chapitre suivant. Cependant, plusieurs autres utilisations potentielles de l'ASVS (ou d'une version dérivée) ont été identifiées.
 
-### Guide détaillé sur l'architecture de sécurité
+### En tant que que conseil détaillé sur l'architecture de sécurité
 
-L'une des utilisations les plus courantes de la norme de vérification de la sécurité des applications (ASVS) est de servir de ressource aux architectes de sécurité. Les ressources disponibles pour construire une architecture applicative sécurisée sont limitées, notamment pour les applications modernes. L'ASVS peut combler ces lacunes en permettant aux architectes de sécurité de choisir de meilleurs contrôles pour les problèmes courants, tels que les modèles de protection des données et les stratégies de validation des entrées. Les exigences en matière d'architecture et de documentation seront particulièrement utiles à cet égard.
+L'une des utilisations les plus courantes du Référentiel de vérification de la sécurité des applications (ASVS) est de servir de ressource aux architectes de sécurité. Les ressources disponibles pour construire une architecture applicative sécurisée sont limitées, notamment pour les applications modernes. L'ASVS peut combler ces lacunes en permettant aux architectes de sécurité de choisir de meilleurs contrôles pour les problèmes courants, tels que les modèles de protection des données et les stratégies de validation des entrées. Les exigences en matière d'architecture et de documentation seront particulièrement utiles à cet égard.
 
 ### Référence spécialisée en developpement sécurisé
 
@@ -178,17 +178,17 @@ L'ASVS peut servir de base à la préparation d'une référence de developpement
 
 ### Guide pour les tests unitaires et d'intégration automatisés
 
-L'ASVS est conçu pour être hautement testable. Certaines vérifications seront techniques, tandis que d'autres exigences (telles que les exigences d'architecture et de documentation) pourront nécessiter une revue de documentation ou d'architecture. En créant des tests unitaires et d'intégration qui testent et analysent par fuzz des cas d'abus spécifiques et pertinents liés aux exigences, vérifiables par des moyens techniques, il devrait être plus facile de vérifier le bon fonctionnement de ces contrôles à chaque build. Par exemple, des tests supplémentaires peuvent être créés pour la suite de tests d'un contrôleur de connexion, testant le paramètre username pour les noms d'utilisateur par défaut courants, l'énumération des comptes, le force brute, l'injection LDAP et SQL, et les attaques XSS. De même, un test sur le paramètre password doit inclure les mots de passe courants, la longueur des mots de passe, l'injection d'octets nuls, la suppression du paramètre, les attaques XSS, etc.
+L'ASVS est conçu pour être hautement testable. Certaines vérifications seront techniques, tandis que d'autres exigences (telles que les exigences d'architecture et de documentation) pourront nécessiter une revue de documentation ou d'architecture. En créant des tests unitaires et d'intégration qui testent et analysent par fuzzing des cas d'abus spécifiques et pertinents liés aux exigences, vérifiables par des moyens techniques, il devrait être plus facile de vérifier le bon fonctionnement de ces contrôles à chaque build. Par exemple, des tests supplémentaires peuvent être créés pour la suite de tests d'un contrôleur de connexion afin de tester la présence de valeur par défaut courante pour le paramètre username, l'énumération des comptes, le force brute, l'injection LDAP et SQL, et les attaques XSS. De même, un test sur le paramètre password doit inclure les mots de passe courants, la longueur des mots de passe, l'injection d'octets nuls, la suppression du paramètre, les attaques XSS, etc.
 
 ### Pour la formation au développement sécurisé
 
 L'ASVS peut également servir à définir les caractéristiques d'un logiciel sécurisé. De nombreux cours de « codage sécurisé » se résument à des cours de piratage éthique, avec quelques conseils de codage. Cela n'aide pas forcément les développeurs à écrire du code plus sécurisé. Les cours de développement sécurisé peuvent plutôt utiliser l'ASVS en mettant l'accent sur ses mécanismes positifs, plutôt que sur les 10 principes négatifs à éviter. La structure de l'ASVS offre également une structure logique pour aborder les différents sujets liés à la sécurisation d'une application.
 
-### Cadre pour guider l'approvisionnement en logiciels sécurisés
+### En tant que cadre pour l'approvisionnement des logiciels sécurisés
 
-L'ASVS est un cadre idéal pour faciliter l'approvisionnement en logiciels sécurisés ou l'acquisition de services de développement personnalisés. L'acheteur peut simplement exiger que le logiciel qu'il souhaite acquérir soit développé au niveau ASVS X et demander au vendeur de prouver que le logiciel satisfait à ce niveau.
+L'ASVS est un cadre idéal pour faciliter l'approvisionnement des logiciels sécurisés ou l'acquisition de services de développement de développement sur mesure. L'acheteur peut simplement exiger que le logiciel qu'il souhaite acquérir soit développé au niveau X de l'ASVS et demander au vendeur de prouver que le logiciel satisfait à ce niveau.
 
-## Application pratique de l'ASVS
+## Appliquer l'ASVS en pratique
 
 Les menaces varient selon les motivations. Certains secteurs disposent de ressources informatiques et technologiques spécifiques et d'exigences de conformité réglementaire spécifiques à leur domaine.
 
