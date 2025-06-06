@@ -110,6 +110,7 @@ If you are interested in creating a translation, here are some pointers for how 
         * Persian (Farsi), [#3172](https://github.com/OWASP/ASVS/issues/3172)
         * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
         * Portuguese, see [#3182](https://github.com/OWASP/ASVS/issues/3182)
+        * French, see [#3188](https://github.com/OWASP/ASVS/issues/3188)
     * v5.0.0
         * None
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
