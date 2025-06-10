@@ -48,7 +48,7 @@ Cette section traite de l'utilisation de la sécurité de la couche de transport
 | **17.2.5** | Vérifiez que le serveur multimédia est en mesure de continuer à traiter le trafic multimédia entrant pendant un flot de paquets SRTP (Secure Real-time Transport Protocol) provenant d'utilisateurs légitimes. | 3 |
 | **17.2.6** | Vérifiez que le serveur multimédia n'est pas sensible à la vulnérabilité de condition de concurrence « ClientHello » dans Datagram Transport Layer Security (DTLS) en vérifiant si le serveur multimédia est publiquement connu comme étant vulnérable ou en effectuant le test de condition de concurrence. | 3 |
 | **17.2.7** | Vérifiez que tous les mécanismes d'enregistrement audio ou vidéo associés au serveur multimédia sont en mesure de continuer à traiter le trafic multimédia entrant pendant un flot de paquets SRTP (Secure Real-time Transport Protocol) provenant d'utilisateurs légitimes. | 3 |
-| **17.2.8** | Vérifiez que le certificat Datagram Transport Layer Security (DTLS) est vérifié par rapport à l'attribut d'empreinte digitale du protocole de description de session (SDP), en mettant fin au flux multimédia si la vérification échoue, pour garantir l'authenticité du flux multimédia. | 3 |
+| **17.2.8** | Vérifiez que le certificat Datagram Transport Layer Security (DTLS) est vérifié par rapport à l'attribut d'empreinte cryptographique du protocole de description de session (SDP), en mettant fin au flux multimédia si la vérification échoue, pour garantir l'authenticité du flux multimédia. | 3 |
 
 ## V17.3 Signalisation
 
@@ -65,7 +65,7 @@ Pour garantir une signalisation sécurisée, les systèmes doivent gérer correc
 
 Pour plus d'informations, voir également :
 
-* Le WebRTC DTLS ClientHello DoS est mieux documenté ici : [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) et ici [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+* Le WebRTC DTLS ClientHello DoS est mieux documenté ici : [Article du blog d'Enable Security destiné aux professionnels de la sécurité](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) et ici [livre blanc destiné aux développeurs WebRTC](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
 * [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
 * [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
 * [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)

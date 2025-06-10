@@ -5,21 +5,21 @@ Le chapitre « Cryptographie » va au-delà de la simple définition des bonne
 Cette annexe définit le niveau d'approbation des différents mécanismes cryptographiques :
 
 * Les mécanismes *Approuvés* (A) peuvent être utilisés dans les applications.
-* Les mécanismes *Hérités* (L) ne doivent pas être utilisés dans les applications, mais peuvent néanmoins être utilisés uniquement pour assurer la compatibilité avec les applications ou le code existants. Bien que l'utilisation de ces mécanismes ne soit pas actuellement considérée comme une vulnérabilité en soi, ils doivent être remplacés par des mécanismes plus sûrs et évolutifs dès que possible.
-* Les mécanismes *Interdits* (D) ne doivent pas être utilisés car ils sont actuellement considérés comme défectueux ou n'offrent pas une sécurité suffisante.
+* Les mécanismes *Hérités* (L) ne devraient pas être utilisés dans les applications, mais peuvent néanmoins être utilisés uniquement pour assurer la compatibilité avec les applications ou le code existants. Bien que l'utilisation de ces mécanismes ne soit pas actuellement considérée comme une vulnérabilité en soi, ils devraient être remplacés par des mécanismes plus sûrs et évolutifs dès que possible.
+* Les mécanismes *Interdits* (D) ne devraient pas être utilisés car ils sont actuellement considérés comme cassés ou n'offrent pas une sécurité suffisante.
 
 Cette liste peut être modifiée dans le contexte d'une application donnée pour diverses raisons, notamment :
 
 * nouvelles évolutions dans le domaine de la cryptographie ;
-* conformité à la réglementation.
+* conformité à une réglementation.
 
 ## Inventaire et documentation cryptographiques
 
 Cette section fournit des informations complémentaires sur l'inventaire et la documentation cryptographiques V11.1.
 
-Il est important de s'assurer que tous les actifs cryptographiques, tels que les algorithmes, les clés et les certificats, sont régulièrement découverts, inventoriés et évalués. Pour le niveau 3, cela devrait inclure l'utilisation d'analyses statiques et dynamiques pour découvrir l'utilisation de la cryptographie dans une application. Des outils tels que SAST et DAST peuvent être utiles, mais des outils dédiés pourraient être nécessaires pour une couverture plus complète. Voici quelques exemples d'outils gratuits :
+Il est important de s'assurer que tous les actifs cryptographiques, tels que les algorithmes, les clés et les certificats, sont régulièrement découverts, inventoriés et évalués. Pour le niveau 3, cela devrait inclure l'utilisation d'analyses statiques et dynamiques pour découvrir l'utilisation de la cryptographie dans une application. Des outils tels que les SAST et DAST peuvent être utiles, mais des outils dédiés pourraient être nécessaires pour une couverture plus complète. Voici quelques exemples d'outils gratuits :
 
-* [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
+* [CryptoMon - Moniteur de cryptographie réseau - utilisant eBPF, écrit en python](https://github.com/Santandersecurityresearch/CryptoMon)
 * [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
 
 ## Forces équivalentes des paramètres cryptographiques
@@ -104,7 +104,7 @@ Remarques :
 * Lors de l'utilisation de CCM-8, la balise MAC ne dispose que de 64 bits de sécurité. Ceci n'est pas conforme à l'exigence 6.2.9 qui exige au moins 128 bits de sécurité.
 * Le chiffrement de disque est considéré comme hors du champ d'application de l'ASVS. Par conséquent, cette annexe ne répertorie aucune méthode approuvée pour le chiffrement de disque. Pour cette utilisation, le chiffrement sans authentification est généralement accepté et les modes XTS, XEX et LRW sont généralement utilisés.
 
-### Enveloppement de clé
+### key wrapping
 
 L'encapsulation (et le déchiffrement) d'une clé cryptographique est une méthode de protection d'une clé existante par encapsulation (c'est-à-dire par encapsulation) grâce à un mécanisme de chiffrement supplémentaire, afin que la clé d'origine ne soit pas exposée de manière visible, par exemple lors d'un transfert. Cette clé supplémentaire, utilisée pour protéger la clé d'origine, est appelée clé d'encapsulation.
 
@@ -168,8 +168,8 @@ Le tableau suivant répertorie les fonctions de hachage approuvées pour les cas
 | SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Ne convient pas aux signatures numériques HMAC, KDF, RBG |
 | SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Ne convient pas aux signatures numériques HMAC, KDF, RBG |
 | SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | L | Ne convient pas aux signatures numériques HMAC, KDF, RBG |
-| SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | L | Ne convient pas aux signatures numériques HMAC, KDF, RBG |
-| CRC (any length) |  | D |  |
+| SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) et [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | L | Ne convient pas aux signatures numériques HMAC, KDF, RBG |
+| CRC (toute longueur) |  | D |  |
 | MD4 | [RFC 1320](https://www.rfc-editor.org/info/rfc1320) | D | |
 | MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321) | D | |
 
@@ -181,10 +181,10 @@ Pour un hachage sécurisé des mots de passe, des fonctions de hachage dédiées
 | --- | --------- | ------------------- | ------ |
 | argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
 | scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
-| bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
-| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
-| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
-| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
+| bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | coût ≥ 10 | A |
+| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 210,000 | A |
+| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 600,000 | A |
+| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 1,300,000 | L |
 
 Les fonctions de dérivation de clés basées sur des mots de passe approuvées peuvent être utilisées pour le stockage des mots de passe.
 
@@ -192,15 +192,15 @@ Les fonctions de dérivation de clés basées sur des mots de passe approuvées 
 
 Cette section fournit des informations complémentaires sur la cryptographie à clé publique V11.6.
 
-### KEX Schemes
+### Systèmes KEX
 
-Une force de sécurité de 112 bits ou plus DOIT être garantie pour tous les schémas d'échange de clés, et leur mise en œuvre DOIT suivre les choix de paramètres dans le tableau suivant.
+Une force de sécurité de 112 bits ou plus DOIT être garantie pour tous les méthodes d'échange de clés, et leur mise en œuvre DOIT suivre les choix de paramètres dans le tableau suivant.
 
 | Schéma | Paramètres du domaine | Confidentialité persistante | Statut |
 |--|--|--|--|
-| Diffie-Hellman à corps finis (FFDH) | L >= 3072 & N >= 256 | Oui | A |
+| Diffie-Hellman à corps finis (FFDH) | L >= 3072 et N >= 256 | Oui | A |
 | Courbe elliptique Diffie-Hellman (ECDH) | f >= 256-383 | Oui | A |
-| Transport de clés cryptées avec RSA-PKCS#1 v1.5 | | Non | D |
+| Transport de clés chiffrées avec RSA-PKCS#1 v1.5 | | Non | D |
 
 Où les paramètres suivants sont :
 
@@ -247,16 +247,16 @@ Les codes d'authentification de message (MAC) sont des structures cryptographiqu
 
 | Algorithme MAC | Référence | Statut | Restrictions |
 | --------------| ----------------------------------------------------------------------------------------- | -------| ------------ |
-| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
+| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
+| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
+| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
 | KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
 | KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
 | BLAKE3 (mode keyed_hash) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
 | AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) et [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
 | AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
 | Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
-| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L | |
+| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L | |
 | HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      | |
 
 ## Signatures numériques

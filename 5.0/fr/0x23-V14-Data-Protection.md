@@ -1,4 +1,4 @@
-# V14 Protection de la donnée
+# V14 Protection des données
 
 ## Objectif de contrôle
 

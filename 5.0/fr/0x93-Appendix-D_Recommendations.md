@@ -6,7 +6,7 @@ Lors de la préparation de la version 5.0 de la norme de vérification de la sé
 
 Ne voulant pas perdre tous ces éléments entièrement, certains ont été capturés dans cette annexe.
 
-## Mécanismes recommandés et concernés
+## Mécanismes de portée recommandés
 
 Les éléments suivants sont concernés par ASVS. Ils ne devraient pas être rendus obligatoires, mais il est fortement recommandé de les prendre en compte dans le cadre d'une application sécurisée.
 
@@ -33,12 +33,13 @@ Les éléments suivants figuraient déjà dans ASVS, mais ne constituent pas de 
 
 Plusieurs processus de sécurité ont été supprimés d'ASVS 5.0, mais restent pertinents. Le projet OWASP SAMM pourrait être une bonne source d'inspiration pour une mise en œuvre efficace de ces processus. Parmi les éléments précédemment présents dans ASVS, on peut citer :
 
-* Vérifier l'utilisation d'un cycle de développement logiciel sécurisé intégrant la sécurité à toutes les étapes du développement.
-* Vérifier l'utilisation de la modélisation des menaces pour chaque modification de conception ou planification de sprint afin d'identifier les menaces, de planifier des contre-mesures, de faciliter les réponses aux risques appropriées et de guider les tests de sécurité.
-* Vérifier que tous les user stories et fonctionnalités contiennent des contraintes de sécurité fonctionnelles, telles que : « En tant qu'utilisateur, je dois pouvoir consulter et modifier mon profil. Je ne dois pas pouvoir consulter ni modifier le profil d'autrui. »
-* Vérifier la disponibilité d'une liste de contrôle de développement sécurisé, d'exigences de sécurité, de directives ou de politiques pour tous les développeurs et testeurs. * Vérifier l'existence d'un processus continu garantissant que le code source de l'application est exempt de portes dérobées, de code malveillant (par exemple, attaques salami, bombes logiques, bombes à retardement) et de fonctionnalités non documentées ou cachées (par exemple, œufs de Pâques, outils de débogage non sécurisés). Le respect de cette section est impossible sans un accès complet au code source, y compris aux bibliothèques tierces, et ne convient donc probablement qu'aux applications exigeant les niveaux de sécurité les plus élevés.
-* Vérifier la mise en place de mécanismes permettant de détecter et de gérer les dérives de configuration dans les environnements déployés. Cela peut inclure l'utilisation d'une infrastructure immuable, un redéploiement automatisé à partir d'une base de référence sécurisée ou des outils de détection des dérives comparant l'état actuel aux configurations approuvées.
-* Vérifier que le renforcement de la configuration est appliqué à tous les produits, bibliothèques, frameworks et services tiers, conformément à leurs recommandations individuelles.
+* Vérifier l'utilisation d'un cycle de vie sécurisé pour le développement de logiciels qui prend en compte la sécurité à tous les stades du développement.
+* Vérifier l'utilisation de la modélisation des menaces pour chaque changement de conception ou planification de sprint afin d'identifier les menaces, de planifier les contre-mesures, de faciliter les réponses appropriées aux risques et d'orienter les tests de sécurité.
+* Vérifier que toutes les histoires d'utilisateurs et les caractéristiques contiennent des contraintes de sécurité fonctionnelles, telles que "En tant qu'utilisateur, je devrais être en mesure de voir et de modifier mon profil. Je ne dois pas pouvoir consulter ou modifier le profil de quelqu'un d'autre"
+* Vérifier la disponibilité d'une liste de contrôle de codage sécurisé, d'exigences de sécurité, de lignes directrices ou d'une politique pour tous les développeurs et les testeurs.
+* Vérifier l'existence d'un processus permanent visant à garantir que le code source de l'application est exempt de portes dérobées, de codes malveillants (attaques par salami, bombes logiques, bombes à retardement) et de caractéristiques non documentées ou cachées (œufs de Pâques, outils de débogage non sécurisés). Il n'est pas possible de se conformer à cette section sans un accès complet au code source, y compris aux bibliothèques tierces, et cela ne convient donc probablement qu'aux applications exigeant les niveaux de sécurité les plus élevés.
+* Vérifier que des mécanismes sont en place pour détecter les dérives de configuration dans les environnements déployés et y répondre. Il peut s'agir de l'utilisation d'une infrastructure immuable, d'un redéploiement automatisé à partir d'une base sécurisée ou d'outils de détection de dérive qui comparent l'état actuel aux configurations approuvées.
+* Vérifier que le durcissement de la configuration est effectué sur tous les produits tiers, les bibliothèques,
 
 Références:
 

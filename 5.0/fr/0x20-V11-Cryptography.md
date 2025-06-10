@@ -26,12 +26,12 @@ Veuillez consulter l'annexe pour obtenir des conseils actualisés sur les primit
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **11.1.1** | Vérifiez qu’il existe une politique documentée pour la gestion des clés cryptographiques et un cycle de vie des clés cryptographiques qui suit une norme de gestion des clés telle que NIST SP 800-57.Cela devrait inclure la garantie que les clés ne sont pas trop partagées (par exemple, avec plus de deux entités pour les secrets partagés et plus d’une entité pour les clés privées). | 2 |
+| **11.1.1** | Vérifiez qu’il existe une politique documentée pour la gestion des clés cryptographiques et un cycle de vie des clés cryptographiques qui suit une norme de gestion des clés telle que NIST SP 800-57. Cela devrait inclure la garantie que les clés ne sont pas sur-partagées (par exemple, avec plus de deux entités pour les secrets partagés et plus d’une entité pour les clés privées). | 2 |
 | **11.1.2** | Vérifiez qu'un inventaire cryptographique est réalisé, maintenu et régulièrement mis à jour, et qu'il inclut toutes les clés, algorithmes et certificats cryptographiques utilisés par l'application. Il doit également documenter les emplacements du système où les clés peuvent ou non être utilisées, ainsi que les types de données qui peuvent ou non être protégées par ces clés. | 2 |
 | **11.1.3** | Vérifiez que les mécanismes de découverte cryptographique sont utilisés pour identifier toutes les instances de cryptographie dans le système, y compris les opérations de chiffrement, de hachage et de signature. | 3 |
 | **11.1.4** | Vérifier la tenue d'un inventaire cryptographique. Celui-ci doit inclure un plan documenté décrivant la migration vers de nouvelles normes cryptographiques, telles que la cryptographie post-quantique, afin de réagir aux menaces futures. | 3 |
 
-## V11.2 Mise en œuvre de la cryptographie sécurisée
+## V11.2 Mise en œuvre sécurisée de la cryptographie
 
 Cette section définit les exigences relatives à la sélection, à la mise en œuvre et à la gestion continue des algorithmes cryptographiques de base d'une application. L'objectif est de garantir que seules des primitives cryptographiques robustes et reconnues par l'industrie soient déployées, conformément aux normes en vigueur (par exemple, NIST, ISO/IEC) et aux meilleures pratiques. Les organisations doivent s'assurer que chaque composant cryptographique est sélectionné sur la base de preuves validées par des pairs et de tests de sécurité pratiques.
 
@@ -90,7 +90,7 @@ Dans ce contexte, des mécanismes d'échange de clés approuvés, tels que Diffi
 
 ## V11.7 Cryptographie des données en cours d'utilisation
 
-La protection des données pendant leur traitement est primordiale. Des techniques telles que le chiffrement intégral de la mémoire, le chiffrement des données en transit et la garantie d'un chiffrement des données le plus rapide possible après utilisation sont recommandées.
+La protection des données pendant leur traitement est "le nec plus ultra". Des techniques telles que le chiffrement intégral de la mémoire, le chiffrement des données en transit et s'assurer que le les données sont chiffrés le plus tôt possible après utilisation.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |

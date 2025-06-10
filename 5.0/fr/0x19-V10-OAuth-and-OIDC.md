@@ -1,10 +1,10 @@
-# V10 OAuth and OIDC
+# V10 Oauth et OIDC
 
 ## Objectif de contrôle
 
 OAuth2 (appelé OAuth dans ce chapitre) est un framework standard pour l'autorisation déléguée. Par exemple, grâce à OAuth, une application cliente peut accéder aux API (ressources serveur) au nom d'un utilisateur, à condition que ce dernier l'ait autorisée.
 
-OAuth n'est pas conçu pour l'authentification des utilisateurs. Le framework OpenID Connect (OIDC) étend OAuth en ajoutant une couche d'identité utilisateur. OIDC prend en charge des fonctionnalités telles que la standardisation des informations utilisateur, l'authentification unique (SSO) et la gestion des sessions. OIDC étant une extension d'OAuth, les exigences OAuth décrites dans ce chapitre s'appliquent également à OIDC.
+OAuth n'est pas conçu pour l'authentification dOauth et OIDCes utilisateurs. Le framework OpenID Connect (OIDC) étend OAuth en ajoutant une couche d'identité utilisateur. OIDC prend en charge des fonctionnalités telles que la standardisation des informations utilisateur, l'authentification unique (SSO) et la gestion des sessions. OIDC étant une extension d'OAuth, les exigences OAuth décrites dans ce chapitre s'appliquent également à OIDC.
 
 Les rôles suivants sont définis dans OAuth :
 
@@ -30,13 +30,13 @@ Ce chapitre présente les meilleures pratiques actuelles pour OAuth2 et OIDC, co
 
 Compte tenu de la complexité du domaine, il est essentiel qu’une solution OAuth ou OIDC sécurisée utilise des serveurs d’autorisation standard bien connus du secteur et applique la configuration de sécurité recommandée.
 
-La terminologie utilisée dans ce chapitre est conforme aux RFC OAuth et aux spécifications OIDC; mais notez que la terminologie OIDC n'est utilisée que pour les exigences spécifiques à OIDC, sinon, la terminologie OAuth est utilisée.
+La terminologie utilisée dans ce chapitre est conforme aux RFC OAuth et aux spécifications OIDC ; mais notez que la terminologie OIDC n'est utilisée que pour les exigences spécifiques à OIDC, sinon, la terminologie OAuth est utilisée.
 
 Dans le contexte d'OAuth et d'OIDC, le terme « jeton » dans ce chapitre fait référence à :
 
-* Jetons d'accès, utilisés uniquement par le serveur de sécurité (RS) et pouvant être des jetons de référence validés par introspection ou des jetons autonomes validés à l'aide d'éléments de clé.
-* Jetons d'actualisation, utilisés uniquement par le serveur d'autorisation qui a émis le jeton.
-* Jetons d'identification OIDC, utilisés uniquement par le client ayant déclenché le flux d'autorisation.
+* Les jetons d'accès, qui ne peuvent être consommés que par le serveur de sécurité (RS) et qui peuvent être des jetons de référence validés par introspection ou des jetons autonomes validés à l'aide d'un matériau clé.
+* jetons de rafraîchissement, qui ne seront consommés que par le serveur d'autorisation qui a émis le jeton.
+* jetons d'identification OIDC, qui ne doivent être consommés que par le client qui a déclenché le flux d'autorisation.
 
 Les niveaux de risque pour certaines exigences de ce chapitre varient selon que le client est confidentiel ou public. L'utilisation d'une authentification client forte limitant de nombreux vecteurs d'attaque, certaines exigences peuvent être assouplies lors de l'utilisation d'un client confidentiel pour les applications L1.
 
@@ -53,13 +53,13 @@ Cette section couvre les exigences architecturales génériques qui s’applique
 
 Ces exigences détaillent les responsabilités des applications clientes OAuth. Le client peut être, par exemple, un serveur web back-end (souvent utilisé comme back-end pour front-end, BFF), une intégration de service back-end ou une application monopage front-end (SPA, également appelée application basée sur un navigateur).
 
-En général, les clients back-end sont considérés comme confidentiels et les clients front-end comme publics. Cependant, les applications natives exécutées sur l'appareil de l'utilisateur final peuvent être considérées comme confidentielles lors de l'enregistrement dynamique des clients OAuth.
+En général, les clients back-end sont considérés comme confidentiels et les clients front-end comme publics. Cependant, les applications natives exécutées sur l'appareil de l'utilisateur final peuvent être considérées comme confidentielles lorsqu'elle s'enregistrent dynamiquement des clients OAuth.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **10.2.1** | Vérifiez que, si le flux de code est utilisé, le client OAuth dispose d'une protection contre les attaques de falsification de requêtes basées sur le navigateur, communément appelées falsification de requêtes intersites (CSRF), qui déclenchent des demandes de jetons, soit en utilisant la fonctionnalité de clé de preuve pour l'échange de code (PKCE), soit en vérifiant le paramètre « état » envoyé dans la demande d'autorisation. | 2 |
+| **10.2.1** | Vérifiez que, si le flux de code est utilisé, le client OAuth dispose d'une protection contre les attaques de falsification de requêtes basées sur le navigateur, communément appelées falsification de requêtes intersites (CSRF), qui déclenchent des demandes de jetons, soit en utilisant la fonctionnalité de clé de preuve pour l'échange de code (PKCE), soit en vérifiant le paramètre « state » envoyé dans la demande d'autorisation. | 2 |
 | **10.2.2** | Vérifiez que, si le client OAuth peut interagir avec plusieurs serveurs d'autorisation, il dispose d'une protection contre les attaques par confusion. Par exemple, il peut exiger que le serveur d'autorisation renvoie la valeur du paramètre « iss » et la valide dans la réponse d'autorisation et la réponse du jeton. | 2 |
-| **10.2.3** | Vérifiez que le client OAuth demande uniquement les étendues requises (ou d’autres paramètres d’autorisation) dans les requêtes adressées au serveur d’autorisation. | 3 |
+| **10.2.3** | Vérifiez que le client OAuth demande uniquement les portées requises (ou d’autres paramètres d’autorisation) dans les requêtes adressées au serveur d’autorisation. | 3 |
 
 ## V10.3 Serveur de ressources OAuth
 
@@ -98,7 +98,7 @@ Pour l'authentification client, la méthode « self_signed_tls_client_auth » es
 | **10.4.10** | Vérifiez que le client confidentiel est authentifié pour les demandes de canal arrière client-serveur autorisé telles que les demandes de jeton, les demandes d'autorisation poussée (PAR) et les demandes de révocation de jeton. | 2 |
 | **10.4.11** | Vérifiez que le client confidentiel est authentifié pour les demandes de canal arrière client-serveur autorisé telles que les demandes de jeton, les demandes d'autorisation poussée (PAR) et les demandes de révocation de jeton. | 2 |
 | **10.4.12** | Vérifiez que, pour un client donné, le serveur d'autorisation autorise uniquement la valeur « response_mode » dont ce client a besoin. Par exemple, en vérifiant cette valeur par rapport aux valeurs attendues ou en utilisant une requête d'autorisation poussée (PAR) ou une requête d'autorisation sécurisée par JWT (JAR). | 3 |
-| **10.4.13** | Vérifiez que le type de subvention « code » est toujours utilisé avec les demandes d'autorisation poussées (PAR). | 3 |
+| **10.4.13** | Vérifiez que le type d'Autorisation « code » est toujours utilisé avec les demandes d'autorisation poussées (PAR). | 3 |
 | **10.4.14** | Vérifiez que le serveur d'autorisation émet uniquement des jetons d'accès limités à l'expéditeur (preuve de possession), soit avec des jetons d'accès liés au certificat utilisant TLS mutuel (mTLS), soit avec des jetons d'accès liés au DPoP (démonstration de preuve de possession). | 3 |
 | **10.4.15** | Vérifiez que, pour un client côté serveur (non exécuté sur l'appareil de l'utilisateur final), le serveur d'autorisation garantit que la valeur du paramètre « authorization_details » provient du backend client et que l'utilisateur ne l'a pas altérée. Par exemple, en exigeant l'utilisation d'une demande d'autorisation poussée (PAR) ou d'une demande d'autorisation sécurisée par JWT (JAR). | 3 |
 | **10.4.16** | Vérifiez que le client est confidentiel et que le serveur d'autorisation requiert l'utilisation de méthodes d'authentification client fortes (basées sur la cryptographie à clé publique et résistantes aux attaques par relecture), telles que TLS mutuel ('tls_client_auth', 'self_signed_tls_client_auth') ou JWT à clé privée ('private_key_jwt'). | 3 |

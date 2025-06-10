@@ -2,11 +2,11 @@
 
 ## Objectif de contrôle
 
-Les journaux de sécurité se distinguent des journaux d'erreurs ou de performances et servent à enregistrer les événements liés à la sécurité, tels que les décisions d'authentification, les décisions de contrôle d'accès et les tentatives de contournement des contrôles de sécurité, comme la validation des entrées ou la validation de la logique métier. Leur objectif est de faciliter la détection, la réponse et l'investigation en fournissant des données structurées et à haut potentiel aux outils d'analyse tels que les SIEM.
+Les journaux de sécurité se distinguent des journaux d'erreurs ou de performances et servent à enregistrer les événements liés à la sécurité, tels que les décisions d'authentification, les décisions de contrôle d'accès et les tentatives de contournement des contrôles de sécurité, comme la validation des entrées ou la validation de la logique métier. Leur objectif est de faciliter la détection, la réponse et l'investigation en fournissant des données structurées et à haut niveau de signal aux outils d'analyse tels que les SIEM.
 
 Les journaux ne doivent pas contenir de données personnelles sensibles, sauf obligation légale, et toutes les données enregistrées doivent être protégées comme des ressources de grande valeur. La journalisation ne doit pas compromettre la confidentialité ni la sécurité du système. Les applications doivent également être sécurisées, évitant toute divulgation ou interruption inutile.
 
-Pour des conseils de mise en œuvre détaillés, consultez les aide-mémoire de l'OWASP dans la section Références.
+Pour des conseils de mise en œuvre détaillés, consultez les aide-mémoire de l'OWASP indiquées dans la section Références.
 
 ## V16.1 Documentation sur la journalisation de sécurité
 
@@ -18,11 +18,11 @@ Cette section garantit un inventaire clair et complet de la journalisation de l'
 
 ## V16.2 Journalisation générale
 
-Cette section décrit les exigences visant à garantir que les journaux de sécurité sont structurés de manière cohérente et contiennent les métadonnées attendues. L'objectif est de rendre les journaux lisibles et analysables par machine sur tous les systèmes et outils distribués.
+La présente section énonce des exigences visant à garantir que les journaux de sécurité sont structurés de manière cohérente et contiennent les métadonnées attendues. L'objectif est de rendre les journaux lisibles par une machine et analysables par des systèmes et des outils distribués.
 
 Les événements de sécurité impliquent souvent des données sensibles. Si ces données sont enregistrées sans surveillance, les journaux eux-mêmes deviennent classifiés et donc soumis à des exigences de chiffrement, à des politiques de conservation plus strictes et à une divulgation potentielle lors des audits.
 
-Il est donc essentiel de ne consigner que ce qui est nécessaire et de traiter les données des journaux avec le même soin que les autres ressources sensibles.
+Il est donc essentiel de ne logguer que ce qui est nécessaire et de traiter les données des journaux avec le même soin que les autres ressources sensibles.
 
 Les exigences ci-dessous établissent les exigences fondamentales pour la journalisation des métadonnées, la synchronisation, le format et le contrôle.
 
@@ -45,13 +45,13 @@ Notez que si ASVS inclut la journalisation des événements de sécurité, les a
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **16.3.1** | Vérifiez que toutes les opérations d'authentification sont enregistrées, y compris les tentatives réussies et infructueuses. Des métadonnées supplémentaires, telles que le type d'authentification ou les facteurs utilisés, doivent également être collectées. | 2 |
-| **16.3.2** | Vérifier que les tentatives d'autorisation infructueuses sont consignées. Pour le niveau 3, cela doit inclure la journalisation de toutes les décisions d'autorisation, y compris lors de l'accès à des données sensibles (sans journalisation des données sensibles elles-mêmes). | 2 |
+| **16.3.2** | Vérifier que les tentatives d'autorisation infructueuses sont logguées. Pour le niveau 3, cela doit inclure la journalisation de toutes les décisions d'autorisation, y compris lors de l'accès à des données sensibles (sans journalisation des données sensibles elles-mêmes). | 2 |
 | **16.3.3** | Vérifiez que l'application enregistre les événements de sécurité définis dans la documentation et enregistre également les tentatives de contournement des contrôles de sécurité, tels que la validation des entrées, la logique métier et l'anti-automatisation. | 2 |
 | **16.3.4** | Vérifiez que l’application enregistre les erreurs inattendues et les échecs de contrôle de sécurité tels que les échecs TLS du backend. | 2 |
 
 ## V16.4 Protection des journaux
 
-Les journaux sont des artefacts d'investigation précieux et doivent être protégés. S'ils peuvent être facilement modifiés ou supprimés, ils perdent leur intégrité et deviennent peu fiables pour les enquêtes sur les incidents ou les procédures judiciaires. Ils peuvent exposer le comportement interne des applications ou des métadonnées sensibles, ce qui en fait une cible de choix pour les attaquants.
+Les journaux sont des artefacts d'investigation précieux et doivent être protégés. S'ils peuvent être facilement modifiés ou supprimés, ils perdent leur intégrité et deviennent peu fiables pour les enquêtes sur les incidents ou les procédures légales. Ils peuvent exposer le comportement interne des applications ou des métadonnées sensibles, ce qui en fait une cible de choix pour les attaquants.
 
 Cette section définit les exigences visant à garantir la protection des journaux contre les accès non autorisés, les falsifications et les divulgations, ainsi que leur transmission et leur stockage sécurisés dans des systèmes sécurisés et isolés.
 
@@ -63,14 +63,14 @@ Cette section définit les exigences visant à garantir la protection des journa
 
 ## V16.5 Gestion des erreurs
 
-Cette section définit les exigences visant à garantir que les applications échouent de manière élégante et sécurisée sans divulguer de détails internes sensibles.
+Cette section définit les exigences visant à garantir que les applications échouent proprement et sécurisée sans divulguer de détails internes sensibles.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **16.5.1** | Vérifiez qu'un message générique est renvoyé au consommateur lorsqu'une erreur inattendue ou sensible à la sécurité se produit, garantissant ainsi l'absence d'exposition de données système internes sensibles telles que les traces de pile, les requêtes, les clés secrètes et les jetons. | 2 |
 | **16.5.2** | Vérifiez que l'application continue de fonctionner en toute sécurité lorsque l'accès aux ressources externes échoue, par exemple, en utilisant des modèles tels que des disjoncteurs ou une dégradation progressive. | 2 | v5.0.be-7.4.4 |
-| **16.5.3** | Vérifiez que l'application échoue de manière élégante et sécurisée, y compris lorsqu'une exception se produit, en évitant les conditions d'échec d'ouverture telles que le traitement d'une transaction malgré les erreurs résultant de la logique de validation. | 2 |
-| **16.5.4** | Vérifiez qu'un gestionnaire d'erreurs de « dernier recours » est défini pour intercepter toutes les exceptions non gérées. Cela permet d'éviter la perte des informations d'erreur qui doivent être consignées dans les fichiers journaux et de garantir qu'une erreur ne paralyse pas l'ensemble du processus applicatif, entraînant une perte de disponibilité. | 3 |
+| **16.5.3** | Vérifiez que l'application échoue proprement et sécurisée, y compris lorsqu'une exception se produit, en évitant les accès en cas d'erreur telles que le traitement d'une transaction malgré les erreurs résultant de la logique de validation. | 2 |
+| **16.5.4** | Vérifiez qu'un gestionnaire d'erreurs de « dernier recours » est défini pour intercepter toutes les exceptions non gérées. Cela permet d'éviter la perte des informations d'erreur qui doivent être logguées dans les fichiers journaux et de garantir qu'une erreur ne paralyse pas l'ensemble du processus applicatif, entraînant une perte de disponibilité. | 3 |
 
 Remarque : Certains langages (dont Swift, Go et, par des pratiques de conception courantes, de nombreux langages fonctionnels) ne prennent pas en charge les exceptions ni les gestionnaires d'événements de dernier recours. Dans ce cas, les architectes et les développeurs doivent utiliser une méthode compatible avec les modèles, les langages ou les frameworks pour garantir que les applications peuvent gérer en toute sécurité les événements exceptionnels, inattendus ou liés à la sécurité.
 

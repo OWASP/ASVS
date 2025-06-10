@@ -2,9 +2,9 @@
 
 ## Objectif de contrôle
 
-De nombreuses exigences pour établir une architecture sécurisée et défendable dépendent d’une documentation claire des décisions prises concernant la mise en œuvre de contrôles de sécurité spécifiques et des composants utilisés dans l’application.
+De nombreuses exigences de l'ASVS se rapportent soit à un domaine particulier de la sécurité, comme l'authentification ou l'autorisation, soit à un type particulier de fonctionnalité de l'application, comme la journalisation ou la gestion des fichiers.
 
-Ce chapitre présente les exigences générales de sécurité à prendre en compte lors de la conception et du développement d'applications. Ces exigences portent non seulement sur une architecture propre et la qualité du code, mais aussi sur les pratiques spécifiques d'architecture et de codage nécessaires à la sécurité des applications.
+Ce chapitre présente les exigences générales de sécurité à prendre en compte lors de la conception et du développement d'applications. Ces exigences portent non seulement sur la propreté de l'architecture et la qualité du code, mais aussi sur les pratiques spécifiques d'architecture et de codage nécessaires à la sécurité des applications.
 
 ## V15.1 Documentation sur le développement et l'architecture sécurisés
 
@@ -22,7 +22,7 @@ Cette section souligne également l’importance de définir des délais appropr
 | :---: | :--- | :---: |
 | **15.1.1** | Vérifiez que la documentation de l'application définit les délais de correction basés sur les risques pour les versions de composants tiers présentant des vulnérabilités et pour la mise à jour des bibliothèques en général, afin de minimiser les risques liés à ces composants. | 1 |
 | **15.1.2** | Vérifiez qu'un catalogue d'inventaire, tel qu'une nomenclature logicielle (SBOM), est conservé pour toutes les bibliothèques tierces utilisées, y compris en vérifiant que les composants proviennent de référentiels prédéfinis, fiables et continuellement maintenus. | 2 |
-| **15.1.3** | Vérifiez que la documentation de l'application identifie les fonctionnalités chronophages ou gourmandes en ressources. Elle doit notamment indiquer comment prévenir une perte de disponibilité due à une utilisation excessive de ces fonctionnalités et éviter que la génération d'une réponse ne prenne plus de temps que le délai d'expiration du consommateur. Les mesures de protection potentielles peuvent inclure le traitement asynchrone, l'utilisation de files d'attente et la limitation des processus parallèles par utilisateur et par application. | 2 |
+| **15.1.3** | Vérifiez que la documentation de l'application identifie les fonctionnalités consommatrices en temps ou gourmandes en ressources. Elle doit notamment indiquer comment prévenir une perte de disponibilité due à une utilisation excessive de ces fonctionnalités et éviter que la génération d'une réponse ne prenne plus de temps que le délai d'expiration du consommateur. Les mesures de protection potentielles peuvent inclure le traitement asynchrone, l'utilisation de files d'attente et la limitation des processus parallèles par utilisateur et par application. | 2 |
 | **15.1.4** | Vérifiez que la documentation de l’application met en évidence les bibliothèques tierces qui sont considérées comme des « composants à risque ». | 3 |
 | **15.1.5** | Vérifiez que la documentation de l’application met en évidence les parties de l’application où des « fonctionnalités dangereuses » sont utilisées. | 3 |
 
@@ -42,7 +42,7 @@ Elle inclut également l'utilisation de techniques au niveau architectural telle
 
 ## V15.3 Développement défensif
 
-Cette section couvre les types de vulnérabilités, notamment la jonglerie de types, la pollution de prototypes et autres, résultant de l'utilisation de modèles de codage non sécurisés dans un langage particulier. Certaines peuvent ne pas être pertinentes pour tous les langages, tandis que d'autres bénéficieront de correctifs spécifiques à chaque langage ou pourront être liées à la façon dont un langage ou un framework particulier gère une fonctionnalité telle que les paramètres HTTP. Elle aborde également le risque lié à l'absence de validation cryptographique des mises à jour d'applications.
+Cette section couvre les types de vulnérabilités, y compris le jonglage de types, la pollution de prototypes et autres, qui résultent de l'utilisation de modèles de codage non sécurisés dans un langage particulier. Certaines peuvent ne pas être pertinentes pour tous les langages, tandis que d'autres bénéficieront de correctifs spécifiques à chaque langage ou pourront être liées à la façon dont un langage ou un framework particulier gère une fonctionnalité telle que les paramètres HTTP. Elle aborde également le risque lié à l'absence de validation cryptographique des mises à jour d'applications.
 
 Elle prend également en compte les risques liés à l'utilisation d'objets pour représenter des éléments de données, ainsi qu'à leur acceptation et leur renvoi via des API externes. Dans ce cas, l'application doit s'assurer que les champs de données non accessibles en écriture ne sont pas modifiés par l'utilisateur (affectation de masse) et que l'API sélectionne les champs de données renvoyés. Lorsque l'accès aux champs dépend des autorisations de l'utilisateur, il convient d'en tenir compte dans le contexte des exigences de contrôle d'accès au niveau des champs décrites dans le chapitre « Autorisation ».
 
@@ -58,7 +58,7 @@ Elle prend également en compte les risques liés à l'utilisation d'objets pour
 
 ## V15.4 Concurrence sécurisée
 
-Les problèmes de concurrence tels que les situations de concurrence, les vulnérabilités TOCTOU (Time-of-Check-to-Time-of-Use), les interblocages, les blocages en direct, la privation de threads et les synchronisations incorrectes peuvent entraîner des comportements imprévisibles et des risques de sécurité. Cette section présente diverses techniques et stratégies pour atténuer ces risques.
+Les problèmes de concurrence tels que les situations de concurrence, les vulnérabilités TOCTOU (Time-of-Check-to-Time-of-Use), les interblocages, les livelock, la privation de threads et les synchronisations incorrectes peuvent entraîner des comportements imprévisibles et des risques de sécurité. Cette section présente diverses techniques et stratégies pour atténuer ces risques.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |

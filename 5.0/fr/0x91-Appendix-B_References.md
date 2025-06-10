@@ -10,7 +10,7 @@ Les projets OWASP suivants sont les plus susceptibles d’être utiles aux utili
 4. OWASP Software Assurance Maturity Model (SAMM) : [https://owasp.org/www-project-samm/](https://owasp.org/www-project-samm/)
 5. OWASP Secure Headers Project : [https://owasp.org/www-project-secure-headers/](https://owasp.org/www-project-secure-headers/)
 
-## Projet de la série de fiches de triche de l'OWASP
+## Projet de la série de fiches aide-mémoire de l'OWASP
 
 [Ce projet](https://owasp.org/www-project-cheat-sheets/) contient plusieurs aide-mémoires qui seront pertinents pour différents sujets de l'ASVS.
 
@@ -20,12 +20,7 @@ Il existe un mappage vers l'ASVS qui peut être trouvé ici : [https://cheatshe
 
 1. OWASP Mobile Security Project : [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
 2. OWASP Mobile Top 10 Risks : [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
-3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard : [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
-
-## Projets liés à l'Internet des objets de l'OWASP
-
-1. OWASP Internet of Things Project : [https://owasp.org/www-project-internet-of-things/](https://owasp.org/www-project-internet-of-things/)
-
+3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard : [https://owasp.org/www-project-mobile-security-testing-guide/](httenrichi
 ## Projets sans serveur OWASP
 
 1. OWASP Serverless Project : [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)

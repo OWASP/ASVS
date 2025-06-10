@@ -34,13 +34,13 @@ Remarque : le chapitre « Communication sécurisée » fournit des conseils pour
 | **13.2.5** | Vérifiez que le serveur Web ou d’application est configuré avec une liste autorisée de ressources ou de systèmes vers lesquels le serveur peut envoyer des requêtes ou charger des données ou des fichiers. | 2 |
 | **13.2.6** | Vérifiez que lorsque l'application se connecte à des services distincts, elle suit la configuration documentée pour chaque connexion, comme le nombre maximal de connexions parallèles, le comportement lorsque le nombre maximal de connexions autorisées est atteint, les délais d'expiration de connexion et les stratégies de nouvelle tentative. | 3 |
 
-## V13.3 Gestion du secret
+## V13.3 Gestion des secrets
 
 La gestion des secrets est une tâche de configuration essentielle pour garantir la protection des données utilisées dans l'application. Les exigences spécifiques en matière de cryptographie sont décrites dans le chapitre « Cryptographie », mais cette section se concentre sur les aspects de gestion et de traitement des secrets.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **13.3.1** | Vérifiez qu'une solution de gestion des secrets, telle qu'un coffre-fort de clés, est utilisée pour créer, stocker, contrôler l'accès et détruire en toute sécurité les secrets back-end. Ceux-ci peuvent inclure des mots de passe, du matériel de clé, des intégrations avec des bases de données et des systèmes tiers, des clés et des semences pour des jetons temporels, d'autres secrets internes et des clés API. Les secrets ne doivent pas être inclus dans le code source de l'application ni dans les artefacts de build. Pour une application L3, cela doit impliquer une solution matérielle telle qu'un HSM. | 2 |
+| **13.3.1** | Vérifiez qu'une solution de gestion des secrets, telle qu'un coffre-fort de clés, est utilisée pour créer, stocker, contrôler l'accès et détruire en toute sécurité les secrets back-end. Ceux-ci peuvent inclure des mots de passe, du matériel de clé, des intégrations avec des bases de données et des systèmes tiers, des clés et des graines pour des jetons temporels, d'autres secrets internes et des clés API. Les secrets ne doivent pas être inclus dans le code source de l'application ni dans les artefacts de build. Pour une application L3, cela doit impliquer une solution matérielle telle qu'un HSM. | 2 |
 | **13.3.2** | Vérifiez que l’accès aux ressources secrètes respecte le principe du moindre privilège. | 2 | v5.0.be-14.8.4 |
 | **13.3.3** | Vérifiez que toutes les opérations cryptographiques sont effectuées à l'aide d'un module de sécurité isolé (tel qu'un coffre-fort ou un module de sécurité matériel) pour gérer et protéger en toute sécurité le matériel clé contre toute exposition en dehors du module de sécurité. | 3 |
 | **13.3.4** | Vérifiez que les secrets sont configurés pour expirer et être renouvelés en fonction de la documentation de l'application. | 3 |
@@ -59,7 +59,7 @@ Par exemple, masquer la version des composants côté serveur n'élimine pas la 
 | **13.4.4** | Vérifiez que l’utilisation de la méthode HTTP TRACE n’est pas prise en charge dans les environnements de production, afin d’éviter toute fuite d’informations potentielle. | 2 |
 | **13.4.5** | Vérifiez que la documentation (comme pour les API internes) et les endpoints de surveillance ne sont pas exposés, sauf si cela est explicitement prévu. | 2 |
 | **13.4.6** | Vérifiez que l’application n’expose pas d’informations de version détaillées des composants backend. | 3 |
-| **13.4.7** | Vérifiez que le niveau Web est configuré pour servir uniquement les fichiers avec des extensions de fichier spécifiques afin d’éviter toute fuite involontaire d’informations, de configuration et de code source. | 3 |
+| **13.4.7** | Vérifiez que la couche web est configuré pour servir uniquement les fichiers avec des extensions de fichier spécifiques afin d’éviter toute fuite involontaire d’informations, de configuration et de code source. | 3 |
 
 ## Références
 
