@@ -18,9 +18,10 @@ Il existe un mappage vers l'ASVS qui peut être trouvé ici : [https://cheatshe
 
 ## Projets liés à la sécurité mobile
 
-1. OWASP Mobile Security Project : [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
-2. OWASP Mobile Top 10 Risks : [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
-3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard : [https://owasp.org/www-project-mobile-security-testing-guide/](httenrichi
+1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
+2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
+3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
+
 ## Projets sans serveur OWASP
 
 1. OWASP Serverless Project : [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
