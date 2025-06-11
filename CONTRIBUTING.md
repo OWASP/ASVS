@@ -100,7 +100,7 @@ Tags in old (v4.0.3) mapping file:
 
 We are now keen to receive translations for v5.0.0 of ASVS!
 
-Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintainance easier. 
+Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintenance easier. 
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
 
@@ -109,6 +109,9 @@ If you are interested in creating a translation, here are some pointers for how 
         * Turkish, see [#3171](https://github.com/OWASP/ASVS/issues/3171)
         * Persian (Farsi), [#3172](https://github.com/OWASP/ASVS/issues/3172)
         * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
+        * Portuguese, see [#3182](https://github.com/OWASP/ASVS/issues/3182)
+        * French, see [#3188](https://github.com/OWASP/ASVS/issues/3188)
+        * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
     * v5.0.0
         * None
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.

@@ -1,0 +1,66 @@
+name: Spell Check Markdown
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**/*.md'
+      - '**/*.markdown'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '**/*.md'
+      - '**/*.markdown'
+  workflow_dispatch:
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install cspell
+        run: npm install -g cspell
+
+      # cspell config is now in .github/workflows/config/cspell.json
+
+      - name: Get changed files (PR only)
+        if: github.event_name == 'pull_request'
+        id: files
+        uses: tj-actions/changed-files@v46
+        with:
+          files: |
+            5.0/en/**/*.md
+            *.md
+          separator: '\n'
+
+      - name: Run cspell on changed files (PR)
+        if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
+        run: |
+          # Convert literal '\n' to real newlines for safe file splitting
+          files_string="${{ steps.files.outputs.all_changed_files }}"
+          files_string="${files_string//\\n/$'\n'}"
+          files=()
+          while IFS= read -r file; do
+            [ -n "$file" ] && files+=("$file")
+          done <<< "$files_string"
+          # Exit early if no files to check
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No files to check."
+            exit 0
+          fi
+          # Run cspell on all changed files; its exit code will control the workflow outcome
+          cspell --config .github/workflows/config/cspell.json "${files[@]}"
+
+      - name: Run cspell on all markdown files (push to main or manual)
+        if: github.event_name != 'pull_request'
+        run: |
+          cspell --config .github/workflows/config/cspell.json "5.0/en/**/*.md" "*.md"

@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    "**/0x94-Appendix-E_Contributors.md",
+    "**/LICENSE.md",
+    "**/SUPPORTERS.md"
+  ],
+  "dictionaries": [
+    "en_US",
+    "local-custom"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "local-custom",
+      "path": "local-custom.txt"
+    }
+  ]
+}
