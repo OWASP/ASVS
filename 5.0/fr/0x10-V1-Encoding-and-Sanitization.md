@@ -26,7 +26,7 @@ Dans de nombreux cas, les bibliothèques logicielles incluent des fonctions sûr
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **1.2.1** | Vérifiez que l'encodage de sortie d'une réponse HTTP, d'un document HTML ou d'un document XML est pertinent pour le contexte requis, comme l'encodage des caractères pertinents pour les éléments HTML, les attributs HTML, les commentaires HTML, les CSS ou les champs d'en-tête HTTP, pour éviter de modifier la structure du message ou du document. | 1 |
-| **1.2.2** | Vérifiez que, lors de la création dynamique d'URL, les données non fiables sont encodées en fonction de leur contexte (par exemple, encodage d'URL ou encodage base64url pour les paramètres de requête ou de chemin). Assurez-vous que seuls les schemas d'URL sûrs sont autorisés (par exemple, interdire javascript: ou data:). | 1 |
+| **1.2.2** | Vérifiez que, lors de la création dynamique d'URL, les données non fiables sont encodées en fonction de leur contexte (par exemple, encodage d'URL ou encodage base64url pour les paramètres de requête ou de chemin). Assurez-vous que seuls les schémas d'URL sûrs sont autorisés (par exemple, interdire javascript: ou data:). | 1 |
 | **1.2.3** | Vérifiez que l'encodage ou l'échappement de sortie est utilisé lors de la création dynamique de contenu JavaScript (y compris JSON), pour éviter de modifier la structure du message ou du document (pour éviter l'injection JavaScript et JSON). | 1 |
 | **1.2.4** | Vérifiez que la sélection de données ou les requêtes de base de données (par exemple, SQL, HQL, NoSQL, Cypher) utilisent des requêtes paramétrées, des ORM, des Framework d'entités ou sont protégées contre les injections SQL et autres attaques par injection de base de données. Ceci est également pertinent lors de l'écriture de procédures stockées. | 1 |
 | **1.2.5** | Vérifiez que l’application protège contre l’injection de commandes du système d’exploitation et que les appels du système d’exploitation utilisent des requêtes du système d’exploitation paramétrées ou utilisent un encodage de sortie de ligne de commande contextuelle. | 1 |
@@ -63,7 +63,7 @@ Lorsque cela n'est pas possible, un nettoyage devient nécessaire, supprimant le
 
 Les exigences suivantes traitent des risques associés à une utilisation non sécurisée de la mémoire, qui s’appliquent généralement lorsque l’application utilise un langage système ou un code à mémoire non-managée.
 
-Dans certains cas, il peut être possible d'y parvenir en définissant des indicateurs de compilateur qui activent les protections contre les dépassements de tampon et les avertissement, y compris la randomisation de la pile et la prévention de l'exécution des données, et qui interrompent la construction si des opérations de pointeur, de mémoire, de chaîne de format, d'entier ou de chaine de caractères non sûres sont trouvées.
+Dans certains cas, il peut être possible d'y parvenir en définissant des indicateurs de compilateur qui activent les protections contre les dépassements de tampon et les avertissements, y compris la randomisation de la pile et la prévention de l'exécution des données, et qui interrompent la construction si des opérations de pointeur, de mémoire, de chaîne de format, d'entier ou de chaine de caractères non sûres sont trouvées.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |

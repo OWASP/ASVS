@@ -1,8 +1,8 @@
 # Appendix E - Contributeurs
 
-We gratefully acknowledge the contributions of the following people who have commented or opened pull requests since the the release of ASVS 4.0.0.
+Nous remercions les personnes suivantes pour leurs contributions, leurs commentaires et leurs demandes d'extension depuis la publication de ASVS 4.0.0.
 
-If you are aware of any mistakes or would like your name to appear differently, please let us know.
+Si vous avez connaissance d'erreurs ou si vous souhaitez que votre nom apparaisse différemment, merci de nous le faire savoir.
 
 | | | | |
 |---|---|---|---|

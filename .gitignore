@@ -5,3 +5,6 @@ docker/cert
 .vscode/settings.json
 */dist/*
 */__pycache__/*
+5.0/tools/generate_document.sh
+5.0/generate-all.sh
+5.0/generate-all.sh

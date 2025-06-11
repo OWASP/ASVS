@@ -22,7 +22,7 @@ La présente section énonce des exigences visant à garantir que les journaux d
 
 Les événements de sécurité impliquent souvent des données sensibles. Si ces données sont enregistrées sans surveillance, les journaux eux-mêmes deviennent classifiés et donc soumis à des exigences de chiffrement, à des politiques de conservation plus strictes et à une divulgation potentielle lors des audits.
 
-Il est donc essentiel de ne logguer que ce qui est nécessaire et de traiter les données des journaux avec le même soin que les autres ressources sensibles.
+Il est donc essentiel de ne loguer que ce qui est nécessaire et de traiter les données des journaux avec le même soin que les autres ressources sensibles.
 
 Les exigences ci-dessous établissent les exigences fondamentales pour la journalisation des métadonnées, la synchronisation, le format et le contrôle.
 
@@ -70,7 +70,7 @@ Cette section définit les exigences visant à garantir que les applications éc
 | **16.5.1** | Vérifiez qu'un message générique est renvoyé au consommateur lorsqu'une erreur inattendue ou sensible à la sécurité se produit, garantissant ainsi l'absence d'exposition de données système internes sensibles telles que les traces de pile, les requêtes, les clés secrètes et les jetons. | 2 |
 | **16.5.2** | Vérifiez que l'application continue de fonctionner en toute sécurité lorsque l'accès aux ressources externes échoue, par exemple, en utilisant des modèles tels que des disjoncteurs ou une dégradation progressive. | 2 | v5.0.be-7.4.4 |
 | **16.5.3** | Vérifiez que l'application échoue proprement et sécurisée, y compris lorsqu'une exception se produit, en évitant les accès en cas d'erreur telles que le traitement d'une transaction malgré les erreurs résultant de la logique de validation. | 2 |
-| **16.5.4** | Vérifiez qu'un gestionnaire d'erreurs de « dernier recours » est défini pour intercepter toutes les exceptions non gérées. Cela permet d'éviter la perte des informations d'erreur qui doivent être logguées dans les fichiers journaux et de garantir qu'une erreur ne paralyse pas l'ensemble du processus applicatif, entraînant une perte de disponibilité. | 3 |
+| **16.5.4** | Vérifiez qu'un gestionnaire d'erreurs de « dernier recours » est défini pour intercepter toutes les exceptions non gérées. Cela permet d'éviter la perte des informations d'erreur qui doivent être loguées dans les fichiers journaux et de garantir qu'une erreur ne paralyse pas l'ensemble du processus applicatif, entraînant une perte de disponibilité. | 3 |
 
 Remarque : Certains langages (dont Swift, Go et, par des pratiques de conception courantes, de nombreux langages fonctionnels) ne prennent pas en charge les exceptions ni les gestionnaires d'événements de dernier recours. Dans ce cas, les architectes et les développeurs doivent utiliser une méthode compatible avec les modèles, les langages ou les frameworks pour garantir que les applications peuvent gérer en toute sécurité les événements exceptionnels, inattendus ou liés à la sécurité.
 

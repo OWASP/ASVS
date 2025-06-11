@@ -88,7 +88,7 @@ Cette section fournit des conseils généraux qui seront pertinents pour différ
 Les mécanismes comprennent :
 
 * Secret recherché dans une table
-* Mots de passe à usage unique basés sur le temps(TOTP)
+* Mots de passe à usage unique basés sur le temps (TOTP)
 * Mécanismes out-of-band
 
 Les secrets de recherche sont des listes pré-générées de codes secrets, similaires aux numéros d'autorisation de transaction (TAN), aux codes de récupération des réseaux sociaux ou à une grille contenant un ensemble de valeurs aléatoires. Ce type de mécanisme d'authentification est considéré comme « quelque chose que vous possédez », car les codes sont volontairement non mémorisables et doivent donc être stockés quelque part.

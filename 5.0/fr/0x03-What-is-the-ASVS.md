@@ -14,7 +14,7 @@ Il n'existe aucune portée pour les attaquants. Par conséquent, les exigences d
 
 ASVS définit une « application » comme le produit logiciel en cours de développement, dans lequel des contrôles de sécurité doivent être intégrés. ASVS ne prescrit pas les activités du cycle de développement ni la manière dont l'application doit être construite via un pipeline CI/CD ; il spécifie plutôt les résultats de sécurité à atteindre au sein même du produit.
 
-Les composants qui traitent, modifient ou valident le trafic HTTP, tels que les pare-feux d'applications web (WAF), les équilibreurs de charge ou les proxys, peuvent être considérés comme faisant partie de l'application à ces fins spécifiques, car certains contrôles de sécurité en dépendent directement ou peuvent être implémentés par leur intermédiaire. Ces composants doivent être pris en compte pour les exigences liées aux réponses mises en cache, à la limitation du débit ou à la restriction des connexions entrantes et sortantes en fonction de la source et de la destination.
+Les composants qui traitent, modifient ou valident le trafic HTTP, tels que les pares-feux d'applications web (WAF), les équilibreurs de charge ou les proxys, peuvent être considérés comme faisant partie de l'application à ces fins spécifiques, car certains contrôles de sécurité en dépendent directement ou peuvent être implémentés par leur intermédiaire. Ces composants doivent être pris en compte pour les exigences liées aux réponses mises en cache, à la limitation du débit ou à la restriction des connexions entrantes et sortantes en fonction de la source et de la destination.
 
 À l'inverse, ASVS exclut généralement les exigences qui ne concernent pas directement l'application ou dont la configuration ne relève pas de sa responsabilité. Par exemple, les problèmes DNS sont généralement gérés par une équipe ou une fonction distincte.
 
@@ -78,7 +78,7 @@ Afin d'éviter les doublons ou les exigences obsolètes aux niveaux supérieurs,
 
 ### Évaluation des niveaux
 
-Les niveaux sont définis par une évaluation de prorité de chaque exigence, basée sur l'expérience de mise en œuvre et de test des exigences de sécurité. L'accent est mis principalement sur la balance entre la réduction des risques et les efforts nécessaires à la mise en œuvre de l'exigence. Un autre facteur clé est de maintenir une faible barrière à l'entrée.
+Les niveaux sont définis par une évaluation de priorité de chaque exigence, basée sur l'expérience de mise en œuvre et de test des exigences de sécurité. L'accent est mis principalement sur la balance entre la réduction des risques et les efforts nécessaires à la mise en œuvre de l'exigence. Un autre facteur clé est de maintenir une faible barrière à l'entrée.
 
 La réduction des risques évalue dans quelle mesure l'exigence réduit le niveau de risque de sécurité au sein de l'application, en tenant compte des facteurs d'impact classiques de confidentialité, d'intégrité et de disponibilité, et en déterminant s'il s'agit d'une couche de défense principale ou d'une défense en profondeur.
 
@@ -168,13 +168,13 @@ Idéalement, chaque organisation devrait créer son propre ASVS personnalisé, e
 
 L'ASVS peut être utilisé pour évaluer la sécurité d'une application, ce point étant approfondi dans le chapitre suivant. Cependant, plusieurs autres utilisations potentielles de l'ASVS (ou d'une version dérivée) ont été identifiées.
 
-### En tant que que conseil détaillé sur l'architecture de sécurité
+### En tant que conseil détaillé sur l'architecture de sécurité
 
 L'une des utilisations les plus courantes du Référentiel de vérification de la sécurité des applications (ASVS) est de servir de ressource aux architectes de sécurité. Les ressources disponibles pour construire une architecture applicative sécurisée sont limitées, notamment pour les applications modernes. L'ASVS peut combler ces lacunes en permettant aux architectes de sécurité de choisir de meilleurs contrôles pour les problèmes courants, tels que les modèles de protection des données et les stratégies de validation des entrées. Les exigences en matière d'architecture et de documentation seront particulièrement utiles à cet égard.
 
 ### Référence spécialisée en developpement sécurisé
 
-L'ASVS peut servir de base à la préparation d'une référence de developpement sécurisé lors du développement d'applications, aidant ainsi les développeurs à prendre en compte la sécurité lors de la création de logiciels. Bien que l'ASVS puisse servir de base, les organisations doivent élaborer leurs propres directives claires et unifiées, idéalement basées sur les recommandations des ingénieurs ou architectes de sécurité. De plus, les organisations sont encouragées, dans la mesure du possible, à préparer des mécanismes et bibliothèques de sécurité approuvés, référencés dans les directives et utilisables par les développeurs.
+L'ASVS peut servir de base à la préparation d'une référence de développement sécurisé lors du développement d'applications, aidant ainsi les développeurs à prendre en compte la sécurité lors de la création de logiciels. Bien que l'ASVS puisse servir de base, les organisations doivent élaborer leurs propres directives claires et unifiées, idéalement basées sur les recommandations des ingénieurs ou architectes de sécurité. De plus, les organisations sont encouragées, dans la mesure du possible, à préparer des mécanismes et bibliothèques de sécurité approuvés, référencés dans les directives et utilisables par les développeurs.
 
 ### Guide pour les tests unitaires et d'intégration automatisés
 

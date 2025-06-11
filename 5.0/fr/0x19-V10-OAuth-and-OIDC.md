@@ -4,7 +4,7 @@
 
 OAuth2 (appelé OAuth dans ce chapitre) est un framework standard pour l'autorisation déléguée. Par exemple, grâce à OAuth, une application cliente peut accéder aux API (ressources serveur) au nom d'un utilisateur, à condition que ce dernier l'ait autorisée.
 
-OAuth n'est pas conçu pour l'authentification dOauth et OIDCes utilisateurs. Le framework OpenID Connect (OIDC) étend OAuth en ajoutant une couche d'identité utilisateur. OIDC prend en charge des fonctionnalités telles que la standardisation des informations utilisateur, l'authentification unique (SSO) et la gestion des sessions. OIDC étant une extension d'OAuth, les exigences OAuth décrites dans ce chapitre s'appliquent également à OIDC.
+OAuth n'est pas conçu pour l'authentification dOauth et OIDCes utilisateurs. Le Framework OpenID Connect (OIDC) étend OAuth en ajoutant une couche d'identité utilisateur. OIDC prend en charge des fonctionnalités telles que la standardisation des informations utilisateur, l'authentification unique (SSO) et la gestion des sessions. OIDC étant une extension d'OAuth, les exigences OAuth décrites dans ce chapitre s'appliquent également à OIDC.
 
 Les rôles suivants sont définis dans OAuth :
 
@@ -35,8 +35,8 @@ La terminologie utilisée dans ce chapitre est conforme aux RFC OAuth et aux sp�
 Dans le contexte d'OAuth et d'OIDC, le terme « jeton » dans ce chapitre fait référence à :
 
 * Les jetons d'accès, qui ne peuvent être consommés que par le serveur de sécurité (RS) et qui peuvent être des jetons de référence validés par introspection ou des jetons autonomes validés à l'aide d'un matériau clé.
-* jetons de rafraîchissement, qui ne seront consommés que par le serveur d'autorisation qui a émis le jeton.
-* jetons d'identification OIDC, qui ne doivent être consommés que par le client qui a déclenché le flux d'autorisation.
+* Jetons de rafraîchissement, qui ne seront consommés que par le serveur d'autorisation qui a émis le jeton.
+* Jetons d'identification OIDC, qui ne doivent être consommés que par le client qui a déclenché le flux d'autorisation.
 
 Les niveaux de risque pour certaines exigences de ce chapitre varient selon que le client est confidentiel ou public. L'utilisation d'une authentification client forte limitant de nombreux vecteurs d'attaque, certaines exigences peuvent être assouplies lors de l'utilisation d'un client confidentiel pour les applications L1.
 
@@ -51,9 +51,9 @@ Cette section couvre les exigences architecturales génériques qui s’applique
 
 ## V10.2 Client OAuth
 
-Ces exigences détaillent les responsabilités des applications clientes OAuth. Le client peut être, par exemple, un serveur web back-end (souvent utilisé comme back-end pour front-end, BFF), une intégration de service back-end ou une application monopage front-end (SPA, également appelée application basée sur un navigateur).
+Ces exigences détaillent les responsabilités des applications clientes OAuth. Le client peut être, par exemple, un serveur web backend (souvent utilisé comme backend pour frontend, BFF), une intégration de service backend ou une application monopage frontend (SPA, également appelée application basée sur un navigateur).
 
-En général, les clients back-end sont considérés comme confidentiels et les clients front-end comme publics. Cependant, les applications natives exécutées sur l'appareil de l'utilisateur final peuvent être considérées comme confidentielles lorsqu'elle s'enregistrent dynamiquement des clients OAuth.
+En général, les clients backend sont considérés comme confidentiels et les clients frontend comme publics. Cependant, les applications natives exécutées sur l'appareil de l'utilisateur final peuvent être considérées comme confidentielles lorsqu'elles s'enregistrent dynamiquement des clients OAuth.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
@@ -74,7 +74,7 @@ Par conséquent, les exigences répertoriées ici sont spécifiques à OAuth ou 
 | :---: | :--- | :---: |
 | **10.3.1** | Vérifiez que le serveur de ressources accepte uniquement les jetons d'accès destinés à être utilisés avec ce service (audience). L'audience peut être incluse dans un jeton d'accès structuré (comme la revendication « aud » dans JWT) ou vérifiée à l'aide du point de terminaison d'introspection de jeton. | 2 |
 | **10.3.2** | Vérifiez que le serveur de ressources applique les décisions d'autorisation en fonction des revendications du jeton d'accès définissant l'autorisation déléguée. Si des revendications telles que « sub », « scope » et « authorization_details » sont présentes, elles doivent être prises en compte dans la décision. | 2 |
-| **10.3.3** | Vérifiez que si une décision de contrôle d'accès nécessite l'identification d'un utilisateur unique à partir d'un jeton d'accès (JWT ou réponse d'introspection de jeton associé), le serveur de ressources identifie l'utilisateur à partir de revendications non réattribuables à d'autres utilisateurs. En général, cela implique l'utilisation d'une combinaison de revendications « iss » et « sub ». | 2 |
+| **10.3.3** | Vérifiez que si une décision de contrôle d'accès nécessite l'identification d'un utilisateur unique à partir d'un jeton d'accès (JWT ou réponse d'introspection de jeton associé), le serveur de ressources identifie l'utilisateur à partir de revendications non ré attribuables à d'autres utilisateurs. En général, cela implique l'utilisation d'une combinaison de revendications « iss » et « sub ». | 2 |
 | **10.3.4** | Si le serveur de ressources requiert une force d'authentification, des méthodes ou une date d'expiration spécifiques, vérifiez que le jeton d'accès présenté respecte ces contraintes. Par exemple, s'il est présent, utilisez les revendications OIDC « acr », « amr » et « auth_time » respectivement. | 2 |
 | **10.3.5** | Vérifiez que le serveur de ressources empêche l'utilisation de jetons d'accès volés ou la relecture de jetons d'accès (de parties non autorisées) en exigeant des jetons d'accès limités par l'expéditeur, soit Mutual TLS pour OAuth 2, soit OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 |
 

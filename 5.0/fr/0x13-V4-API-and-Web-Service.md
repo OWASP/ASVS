@@ -26,7 +26,7 @@ Ces exigences sont pertinentes pour le traitement et la génération de messages
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **4.2.1** | Vérifiez que tous les composants de l'application (y compris les équilibreurs de charge, les pare-feu et les serveurs d'applications) déterminent les limites des messages HTTP entrants à l'aide du mécanisme approprié à la version HTTP afin d'empêcher la contrebande de requêtes HTTP. Dans HTTP/1.x, si un champ d'en-tête Transfer-Encoding est présent, l'en-tête Content-Length doit être ignoré conformément à la RFC 2616. Avec HTTP/2 ou HTTP/3, si un champ d'en-tête Content-Length est présent, le récepteur doit s'assurer qu'il est cohérent avec la longueur des trames DATA. | 2 |
+| **4.2.1** | Vérifiez que tous les composants de l'application (y compris les équilibreurs de charge, les pares-feux et les serveurs d'applications) déterminent les limites des messages HTTP entrants à l'aide du mécanisme approprié à la version HTTP afin d'empêcher la contrebande de requêtes HTTP. Dans HTTP/1.x, si un champ d'en-tête Transfer-Encoding est présent, l'en-tête Content-Length doit être ignoré conformément à la RFC 2616. Avec HTTP/2 ou HTTP/3, si un champ d'en-tête Content-Length est présent, le récepteur doit s'assurer qu'il est cohérent avec la longueur des trames DATA. | 2 |
 | **4.2.2** | Vérifier que, lors de la génération de messages HTTP, le champ d'en-tête Content-Length n'entre pas en conflit avec la longueur du contenu déterminée par le cadrage du protocole HTTP, afin d'empêcher les attaques de type « request smuggling ». | 3 |
 | **4.2.3** | Vérifiez que l'application n'envoie ni n'accepte de messages HTTP/2 ou HTTP/3 avec des champs d'en-tête spécifiques à la connexion, tels que Transfer-Encoding, afin d'éviter les attaques par fractionnement de la réponse et par injection d'en-tête. | 3 |
 | **4.2.4** | Vérifiez que l'application n'accepte que les requêtes HTTP/2 et HTTP/3 dont les champs et valeurs d'en-tête ne contiennent pas de séquences CR (\r), LF (\n) ou CRLF (\r\n), afin d'éviter les attaques par injection d'en-tête. | 3 |
@@ -34,7 +34,7 @@ Ces exigences sont pertinentes pour le traitement et la génération de messages
 
 ## V4.3 GraphQL
 
-GraphQL est de plus en plus utilisé pour créer des clients riches en données, peu couplés à divers services back-end. Cette section aborde les considérations de sécurité pour GraphQL.
+GraphQL est de plus en plus utilisé pour créer des clients riches en données, peu couplés à divers services backend. Cette section aborde les considérations de sécurité pour GraphQL.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |

@@ -32,7 +32,7 @@ Cette section satisfait aux exigences essentielles des sessions sécurisées en 
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **7.2.1** | Vérifiez que l’application effectue toutes les vérifications des jetons de session à l’aide d’un service back-end de confiance. | 1 |
+| **7.2.1** | Vérifiez que l’application effectue toutes les vérifications des jetons de session à l’aide d’un service backend de confiance. | 1 |
 | **7.2.2** | Vérifiez que l'application utilise des jetons autonomes ou de référence générés dynamiquement pour la gestion des sessions, c'est-à-dire sans utiliser de secrets et de clés d'API statiques. | 1 |
 | **7.2.3** | Vérifiez que si des jetons par référence sont utilisés pour représenter les sessions utilisateur, ils sont uniques et générés à l'aide d'un générateur de nombres pseudo-aléatoires cryptographiquement sécurisé (CSPRNG) et possèdent au moins 128 bits d'entropie. | 1 |
 | **7.2.4** | Vérifiez que l’application génère un nouveau jeton de session lors de l’authentification de l’utilisateur, y compris la réauthentification, et met fin au jeton de session actuel. | 1 |

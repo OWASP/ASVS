@@ -33,7 +33,7 @@ Veuillez noter les points suivants concernant la validation du schéma :
 
 * La « version publiée » de la spécification de validation du schéma JSON est considérée comme prête pour la production, mais pas à proprement parler « stable ». Lorsque vous utilisez la validation du schéma JSON, assurez-vous qu'il n'y a aucune lacune par rapport aux instructions des exigences ci-dessous.
 * Toutes les bibliothèques de validation de schéma JSON utilisées doivent également être surveillées et mises à jour si nécessaire une fois la norme formalisée.
-* La validation DTD ne doit pas être utilisée et l'évaluation DTD du framework doit être désactivée pour éviter les problèmes liés aux attaques XXE contre les DTD.
+* La validation DTD ne doit pas être utilisée et l'évaluation DTD du Framework doit être désactivée pour éviter les problèmes liés aux attaques XXE contre les DTD.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
@@ -68,6 +68,6 @@ Pour plus d'informations, voir également :
 
 * [OWASP Web Security Testing Guide 4.2: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
 * [OWASP Web Security Testing Guide 4.2: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README)
-* Anti-automation can be achieved in many ways, including the use of the [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
+* La lutte contre l'automatisation peut se faire de différentes manières, notamment par l'utilisation de l'[OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
 * [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [JSON Schema](https://json-schema.org/specification.html)

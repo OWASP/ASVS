@@ -35,7 +35,7 @@ L'application immédiate des modifications d'autorisation dans le niveau appropr
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **8.3.1** | Vérifier que l'application applique les règles d'autorisations au niveau de la couche service de confiance et et ne s’appuie pas sur des contrôles qu’un consommateur non approuvé pourrait manipuler, comme JavaScript côté client. | 1 |
+| **8.3.1** | Vérifier que l'application applique les règles d'autorisations au niveau de la couche service de confiance et ne s’appuie pas sur des contrôles qu’un consommateur non approuvé pourrait manipuler, comme JavaScript côté client. | 1 |
 | **8.3.2** | Vérifiez que les modifications apportées aux valeurs sur lesquelles reposent les décisions d'autorisation sont appliquées immédiatement. Lorsque les modifications ne peuvent pas être appliquées immédiatement (par exemple, en s'appuyant sur des données de jetons autonomes), des contrôles d'atténuation doivent être mis en place pour alerter un consommateur lorsqu'il effectue une action alors qu'il n'est plus autorisé à le faire et annuler la modification. Notez que cette solution alternative ne limiterait pas les fuites d'informations. | 3 |
 | **8.3.3** | Vérifiez que l'accès à un objet repose sur les autorisations du sujet d'origine (par exemple, le consommateur), et non sur celles d'un intermédiaire ou d'un service agissant en son nom. Par exemple, si un consommateur appelle un service web à l'aide d'un jeton d'authentification autonome, et que ce service demande ensuite des données à un autre service, ce dernier utilisera le jeton du consommateur, plutôt qu'un jeton inter-machine du premier service, pour prendre les décisions d'autorisation. | 3 |
 

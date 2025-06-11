@@ -52,7 +52,7 @@ Cette section traite de l'utilisation de la sécurité de la couche de transport
 
 ## V17.3 Signalisation
 
-Cette section définit les exigences pour les systèmes qui exploitent leurs propres serveurs de signalisation WebRTC. La signalisation coordonne les communications pair à pair et doit être résiliente face aux attaques susceptibles de perturber l'établissement ou le contrôle des sessions.
+Cette section définit les exigences pour les systèmes qui exploitent leurs propres serveurs de signalisation WebRTC. La signalisation coordonne les communications "pair à pair" et doit être résiliente face aux attaques susceptibles de perturber l'établissement ou le contrôle des sessions.
 
 Pour garantir une signalisation sécurisée, les systèmes doivent gérer correctement les entrées malformées et rester disponibles sous charge.
 
