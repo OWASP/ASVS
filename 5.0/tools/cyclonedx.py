@@ -80,12 +80,14 @@ class CycloneDX:
                     for asvs_requirement in asvs_section['Items']:
                         requirement = self.convert_requirement(asvs_requirement, section_req['bom-ref'])
                         requirements.append(requirement)
-                        if 'L1' in asvs_requirement and 'Required' in asvs_requirement['L1'] and asvs_requirement['L1']['Required'] is True:
-                            l1_requirements.append(requirement['bom-ref'])
-                        if 'L2' in asvs_requirement and 'Required' in asvs_requirement['L2'] and asvs_requirement['L2']['Required'] is True:
-                            l2_requirements.append(requirement['bom-ref'])
-                        if 'L3' in asvs_requirement and 'Required' in asvs_requirement['L3'] and asvs_requirement['L3']['Required'] is True:
-                            l3_requirements.append(requirement['bom-ref'])
+                        # Updated logic for ASVS 5.0 JSON structure
+                        if 'L' in asvs_requirement:
+                            if asvs_requirement['L'] == "1":
+                                l1_requirements.append(requirement['bom-ref'])
+                            elif asvs_requirement['L'] == "2":
+                                l2_requirements.append(requirement['bom-ref'])
+                            elif asvs_requirement['L'] == "3":
+                                l3_requirements.append(requirement['bom-ref'])
 
         self.bom['declarations']['standards'][0]['requirements'] = requirements
 
