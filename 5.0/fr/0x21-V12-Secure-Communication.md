@@ -21,7 +21,7 @@ Bien que l'utilisation de certificats TLS génériques ne soit pas intrinsèquem
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **12.1.1** | Vérifiez que seules les dernières versions recommandées du protocole TLS sont activées, telles que TLS 1.2 et TLS 1.3. La dernière version du protocole TLS doit être privilégiée. | 1 |
-| **12.1.2** | Vérifiez que seules les suites de chiffrement recommandées sont activées, les suites de chiffrement les plus puissantes étant définies comme préférées. Les applications L3 doivent uniquement prendre en charge les suites de chiffrement assurant le secret d'acheminement. | 2 |
+| **12.1.2** | Vérifiez que seules les suites de chiffrement recommandées sont activées, les suites de chiffrement les plus puissantes étant définies comme préférées. Les applications L3 doivent uniquement prendre en charge les suites de chiffrement assurant la confidentialité persistante (forward secrecy). | 2 |
 | **12.1.3** | Vérifiez que l’application valide que les certificats clients mTLS sont approuvés avant d’utiliser l’identité du certificat pour l’authentification ou l’autorisation. | 2 |
 | **12.1.4** | Vérifiez que la révocation de certification appropriée, telle que l'agrafage du protocole OCSP (Online Certificate Status Protocol), est activée et configurée. | 3 |
 | **12.1.5** | Vérifiez que Encrypted Client Hello (ECH) est activé dans les paramètres TLS de l'application pour empêcher l'exposition de métadonnées sensibles, telles que l'indication du nom du serveur (SNI), pendant les processus de négociation TLS. | 3 |
