@@ -51,7 +51,7 @@ jobs:
     uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
 
   publish-v5-latest:
-    if: ${{ always() && needs.filters.outputs.v5 == 'true' }}
+    if: ${{ github.event_name == 'push' && always() && needs.filters.outputs.v5 == 'true' }}
     needs:
       - build-v5
       - filters
