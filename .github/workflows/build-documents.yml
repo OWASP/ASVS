@@ -55,4 +55,4 @@ jobs:
     needs:
       - build-v5
       - filters
-    uses: ./.github/workflows/publish-5.0-english-latest.yml
+    uses: ./.github/workflows/publish-5.0-latest.yml
