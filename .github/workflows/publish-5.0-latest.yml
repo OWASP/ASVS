@@ -1,0 +1,27 @@
+# This workflow uploads the generated 5.0 documents to the 'latest' GitHub release.
+name: Publish 5.0 Latest to Release
+
+on:
+  workflow_call:
+
+jobs:
+  publish-5-0-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download 5.0 artifact
+        uses: actions/download-artifact@v4.1.7
+        with:
+          name: ASVS 5.0.0
+          path: ./asvs-5.0-latest
+      - name: Upload to 'latest' GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: OWASP Application Security Verification Standard (Bleeding Edge)
+          body: |
+            This release will be automatically updated on an ongoing basis with the output files from the bleeding edge version of the ASVS, i.e. the latest version from the master branch.
+            
+            Obviously this version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience.
+          files: ./asvs-5.0-latest/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
