@@ -6,7 +6,7 @@ The Application Security Verification Standard is a list of application security
 
 ## Copyright and License
 
-Version 5.0.0, May 2025
+Version 5.0.0, May 2025, OUTPUT TEST
 
 ![license](../images/license.png)
 
