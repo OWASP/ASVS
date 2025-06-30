@@ -1,13 +1,12 @@
-[작업 등록]
-# V1 Encoding and Sanitization
+# V1 인코딩과 데이터 정제
 
-## Control Objective
+## 통제 목표
 
-This chapter addresses the most common web application security weaknesses related to the unsafe processing of untrusted data. Such weaknesses can result in various technical vulnerabilities, where untrusted data is interpreted according to the syntax rules of the relevant interpreter.
+이번 장에서는 신뢰할 수 없는 데이터를 안전하지 않게 처리하여 발생하는 가장 흔한 웹 애플리케이션 보안 취약점들을 다룬다. 이러한 취약점들은 신뢰할 수 없는 데이터가 관련 인터프리터의 문법 규칙에 따라 해석되면서 다양한 기술적 취약점들로 이어질 수 있다.
 
-For modern web applications, it is always best to use safer APIs, such as parameterized queries, auto-escaping, or templating frameworks. Otherwise, carefully performed output encoding, escaping, or sanitization becomes critical to the application's security.
+현대의 웹 애플리케이션에서는 파라미터화된 쿼리, 자동 이스케이핑, 또는 템플릿 프레임워크와 같은 더 안전한 응용 프로그램 프로그래밍 인터페이스(Application Programming Interface; API)들을 쓰는 것이 항상 가장 좋다. 즉, 출력값 인코딩, 이스케이핑, 또는 데이터 정제를 신중하게 처리하는 것은 애플리케이션의 보안에 필수적이다.
 
-Input validation serves as a defense-in-depth mechanism to protect against unexpected or dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements related to this can be found in the "Validation and Business Logic" chapter.
+입력값 검증은 예상치 못한 입력이나 위험한 콘텐츠로부터 보호하기 위한 심층 방어(Defense-in-Depth; DID) 메커니즘 역할을 한다. 다만, 입력값 검증의 주요 목적은 입력된 데이터가 기능 및 비즈니스 요구사항에 부합하는지를 확인하는 데 있으므로, 이에 관련된 요구사항은 "검증 및 비즈니스 로직" 장에서 다루고 있다.
 
 ## V1.1 Encoding and Sanitization Architecture
 
