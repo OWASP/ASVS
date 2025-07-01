@@ -8,14 +8,14 @@
 
 입력값 검증은 예상치 못한 입력이나 위험한 콘텐츠로부터 보호하기 위한 심층 방어(Defense-in-Depth; DID) 메커니즘 역할을 한다. 다만, 입력값 검증의 주요 목적은 입력된 데이터가 기능 및 비즈니스 요구사항에 부합하는지를 확인하는 데 있으므로, 이에 관련된 요구사항은 "검증 및 비즈니스 로직" 장에서 다루고 있다.
 
-## V1.1 Encoding and Sanitization Architecture
+## V1.1 인코딩 및 데이터 정제 아키텍처
 
-In the sections below, syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities are provided. The requirements in this section cover the order in which this processing should occur and where it should take place. They also aim to ensure that whenever data is stored, it remains in its original state and is not stored in an encoded or escaped form (e.g., HTML encoding), to prevent double encoding issues.
+아래의 섹션에서는 위험한 콘텐츠를 안전하게 처리하여 보안 취약점을 방지하기 위한 문법 또는 인터프리터별 요구사항들이 제시된다. 이 요구사항들은 처리가 이루어져야 할 순서와 위치에 대한 내용도 포함하고 있다. 또한 데이터가 저장될 때 인코드 되거나 이스케이프 된 형태(예를 들어 HTML 인코딩이 있다)가 아닌 원래의 상태로 저장되도록 보장함으로써 더블 인코딩 문제를 방지하는 데 목적이 있다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.1.1** | Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | 2 |
-| **1.1.2** | Verify that the application performs output encoding and escaping either as a final step before being used by the interpreter for which it is intended or by the interpreter itself. | 2 |
+| **1.1.1** | 입력값 검증은 오직 한 번만 표준 형태로 디코드 되거나 언이스케이프 되어야 하며, 인코드된 데이터가 예상될 때만 디코드 되어야한다. 이 과정은 입력값이 추가로 처리되기 전에 완료되어야 한다. 예를 들어서 입력값 검증이나 데이터 정제 이후에는 수행되면 안 된다. | 2 |
+| **1.1.2** | 애플리케이션이 출력값 인코딩 또는 이스케이핑을 인터프리터가 사용하기 전의 최종 단계로 수행하거나 인터프리터 자체에서 처리하는지 검증해야 한다. | 2 |
 
 ## V1.2 Injection Prevention
 
