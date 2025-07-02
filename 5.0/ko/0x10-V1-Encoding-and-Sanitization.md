@@ -4,39 +4,39 @@
 
 이번 장에서는 신뢰할 수 없는 데이터를 안전하지 않게 처리하여 발생하는 가장 흔한 웹 애플리케이션 보안 취약점들을 다룬다. 이러한 취약점들은 신뢰할 수 없는 데이터가 관련 인터프리터의 문법 규칙에 따라 해석되면서 다양한 기술적 취약점들로 이어질 수 있다.
 
-현대의 웹 애플리케이션에서는 파라미터화된 쿼리, 자동 이스케이핑, 또는 템플릿 프레임워크와 같은 더 안전한 응용 프로그램 프로그래밍 인터페이스(Application Programming Interface; API)들을 쓰는 것이 항상 가장 좋다. 즉, 출력값 인코딩, 이스케이핑, 또는 데이터 정제를 신중하게 처리하는 것은 애플리케이션의 보안에 필수적이다.
+현대의 웹 애플리케이션에서는 파라미터화된 쿼리, 자동 이스케이핑, 또는 템플릿 프레임워크와 같은 더 안전한 응용 프로그램 프로그래밍 인터페이스(Application Programming Interface; API)들을 쓰는 것이 항상 가장 좋다. 즉, 출력값 인코딩, 이스케이핑, 또는 데이터 정제를 신중하게 처리하는 것은 애플리케이션의 보안에 매우 중요하다.
 
 입력값 검증은 예상치 못한 입력이나 위험한 콘텐츠로부터 보호하기 위한 심층 방어(Defense-in-Depth; DID) 메커니즘 역할을 한다. 다만, 입력값 검증의 주요 목적은 입력된 데이터가 기능 및 비즈니스 요구사항에 부합하는지를 확인하는 데 있으므로, 이에 관련된 요구사항은 "검증 및 비즈니스 로직" 장에서 다루고 있다.
 
 ## V1.1 인코딩 및 데이터 정제 아키텍처
 
-아래의 섹션에서는 위험한 콘텐츠를 안전하게 처리하여 보안 취약점을 방지하기 위한 문법 또는 인터프리터별 요구사항들이 제시된다. 이 요구사항들은 처리가 이루어져야 할 순서와 위치에 대한 내용도 포함하고 있다. 또한 데이터가 저장될 때 인코드 되거나 이스케이프 된 형태(예를 들어 HTML 인코딩이 있다)가 아닌 원래의 상태로 저장되도록 보장함으로써 이중 인코딩 문제를 방지하는 데 목적이 있다.
+아래의 섹션에서는 위험한 콘텐츠를 안전하게 처리하여 보안 취약점을 방지하기 위한 문법 또는 인터프리터별 요구사항들이 제시된다. 이 요구사항들은 처리가 이루어져야 할 순서와 위치에 대한 내용도 포함하고 있다. 또한 데이터가 저장될 때 인코딩 되거나 이스케이프 된 형태(예: HTML 인코딩)가 아닌 원래의 상태로 저장되도록 보장함으로써 이중 인코딩 문제를 방지하는 데 목적이 있다.
 
 | # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.1.1** | 입력값 검증은 오직 한 번만 표준 형태로 디코드 되거나 언이스케이프 되어야 하며, 인코드된 데이터가 예상될 때만 디코드 되어야한다. 이 과정은 입력값이 추가로 처리되기 전에 완료되어야 한다. 예를 들어서 입력값 검증이나 데이터 정제 이후에는 수행되면 안 된다. | 2 |
+| **1.1.1** | 입력값 검증은 오직 한 번만 표준 형태로 디코딩 되거나 언이스케이프 되어야 하며, 인코딩된 데이터가 예상될 때만 디코딩 되어야한다. 이 과정은 입력값이 추가로 처리되기 전에 완료되어야 한다. 예를 들어서 입력값 검증이나 데이터 정제 이후에는 수행되면 안 된다. | 2 |
 | **1.1.2** | 애플리케이션이 출력값 인코딩 또는 이스케이핑을 인터프리터가 사용하기 전의 최종 단계로 수행하거나 인터프리터 자체에서 처리하는지 검증해야 한다. | 2 |
 
-## V1.2 Injection Prevention
+## V1.2 인젝션 방지
 
-Output encoding or escaping, performed close to or adjacent to a potentially dangerous context, is critical to the security of any application. Typically, output encoding and escaping are not persisted, but are instead used to render output safe for immediate use in the appropriate interpreter. Attempting to perform this too early may result in malformed content or render the encoding or escaping ineffective.
+잠재적으로 위험 컨텍스트(context)에 인접하거나 가까운 위치에서 수행되는 출력값 인코딩이나 이스케이핑은 애플리케이션의 보안에 매우 중요하다. 일반적으로 출력값 인코딩과 이스케이핑은 저장되지 않으며, 대신 해당 출력값을 적절한 인터프리터에서 즉시 안전하게 렌더링하기 위해 사용된다. 이를 너무 이른 시점에 수행하려고 하면 콘텐츠가 잘못 구성되거나 인코딩 및 이스케이핑이 무효화될 수 있다.
 
-In many cases, software libraries include safe or safer functions that perform this automatically, although it is necessary to ensure that they are correct for the current context.
+많은 경우에서 소프트웨어 라이브러리에는 이를 자동으로 처리하는 안전한 함수들이 포함되어 있지만 현재 컨텍스트에 적합한지 확인이 필요하다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.2.1** | Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP header fields, to avoid changing the message or document structure. | 1 |
-| **1.2.2** | Verify that when dynamically building URLs, untrusted data is encoded according to its context (e.g., URL encoding or base64url encoding for query or path parameters). Ensure that only safe URL protocols are permitted (e.g., disallow javascript: or data:). | 1 |
-| **1.2.3** | Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | 1 |
-| **1.2.4** | Verify that data selection or database queries (e.g., SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This is also relevant when writing stored procedures. | 1 |
-| **1.2.5** | Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | 1 |
-| **1.2.6** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | 2 |
-| **1.2.7** | Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 2 |
-| **1.2.8** | Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 |
-| **1.2.9** | Verify that the application escapes special characters in regular expressions (typically using a backslash) to prevent them from being misinterpreted as metacharacters. | 2 |
-| **1.2.10** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC 4180 sections 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as XLS, XLSX, or ODF), special characters (including '=', '+', '-', '@', '\t' (tab), and '\0' (null character)) must be escaped with a single quote if they appear as the first character in a field value. | 3 |
+| **1.2.1** | HTTP 응답, HTML 문서 또는 XML 문서에 대한 출력 인코딩이 해당 컨텍스트에 적절한지 검증해야 한다. 예를 들어, 메시지나 문서 구조가 변경되지 않도록 HTML 요소, HTML 속성, HTML 주석, CSS, HTTP 헤더 필드 등에 맞는 문맥별 문자 인코딩이 수행되어야 한다. | 1 |
+| **1.2.2** | 통합 자원 식별자(Uniform Resource Locator; URL)들을 동적으로 생성할 때 신뢰할 수 없는 데이터가 해당 컨텍스트에 맞게 인코딩되었는지 검증해야 한다(예: 쿼리나 경로 파라미터에 대한 URL 인코딩 또는 base64url 인코딩). 또한, 오직 안전한 URL 프로토콜만이 허용되는지 검증해야 한다(예: javascript: 또는 data:를 허용하지 않음). | 1 |
+| **1.2.3** | 동적으로 자바스크립트 콘텐츠(JSON 포함)를 생성할 때 메시지나 문서 구조를 바꾸는 것을 방지하기 위해 출력값 인코딩이나 이스케이핑이 사용되고 있는지 검증해야 한다(자바스크립트 또는 JSON 인젝션을 피하기 위함). | 1 |
+| **1.2.4** | 데이터 선택 혹은 데이터베이스 쿼리(예: SQL, HQL, NoSQL, Cypher)들 파라미터화된 쿼리, 객체 관계 매핑(Object Relational Mapping; ORM), 엔티티 프레임워크, 또는 다른 구조화된 쿼리 언어(Structured Query Language; SQL) 인젝션 및 기타 데이터베이스 인젝션 공격으로부터 보호해 주는 것들을 사용하는지 검증해야 한다. 이는 저장 프로시저를 쓸 때도 마찬가지이다. | 1 |
+| **1.2.5** | 애플리케이션이 운영체제(Operating System; OS) 명령 인젝션으로부터 보호되며 운영체제 호출 시 파라미터화된 OS 쿼리나 상황에 맞는 명령줄 출력값 인코딩을 사용하는지 검증해야 한다. | 1 |
+| **1.2.6** | 애플리케이션이 경량 디렉터리 접근 프로토콜(Lightweight Directory Access Protocol; LDAP) 인젝션 취약점에 대해 보호되어 있는지, 또는 LSAP 인젝션을 방지하기 위한 특정 보안 통제가 구현되어 있는지 검증해야 한다. | 2 |
+| **1.2.7** | 애플리케이션이 XPath 인젝션 공격을 쿼리 파라미터나 미리 컴파일된 쿼리들을 사용해 보호되고 있는지 검증해야 한다.. | 2 |
+| **1.2.8** | LaTeX 프로세서가 안전하게 구성되어 있으며("--shell-escape" 플래그 비사용 등) LaTex 인젝션 공격을 방지하기 위해 허용된 명령어 목록이 사용되고 있는지 검증해야 한다. | 2 |
+| **1.2.9** | 애플리케이션이 정규 표현식에서 특수 문자들을 메타 문자로 잘못 해석하는 것을 방지하기 위해 해당 문자들 이스케이프(보통 백슬래시를 사용)하고 있는지 검증해야 한다. | 2 |
+| **1.2.10** | 애플리케이션이 쉼표 구분 데이터(Comma Separated Values; CSV) 및 수식 인젝션에 대해 보호되어 있는지 검증해야 한다. 그리고 애플리케이션은 CSV 콘텐츠를 내보낼 때 RFC 4180 2.6과 2.7 부분에 명시된 이스케이핑 규칙을 반드시 따라야 한다. 또한 CSV나 다른 스프레드시트 포맷(XLS, XLSX, ODF 등)으로 내보낼 때 필드 값의 첫 번째가 특수 문자('=', '+', '-', '@', '\t' (탭), '\0' (null 문자) 포함)라면 반드시 작은따옴표로 이스케이프되어야 한다. | 3 |
 
-Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. Including escaped user-supplied data in these fields results in failed queries or SQL injection.
+참고: 파라미터화된 쿼리를 사용하거나 SQL을 이스케이핑만으로 항상 충분하지 않다. 테이블명과 컬럼명("ORDER BY" 컬럼 이름을 포함)과 같은 쿼리의 일부는 이스케이프 될 수 없다. 이러한 필드에 이스케이프된 사용자 입력 데이터를 포함하면 쿼리가 실패하거나 SQL 인젝션에 취약해질 수 있다.
 
 ## V1.3 Sanitization
 
