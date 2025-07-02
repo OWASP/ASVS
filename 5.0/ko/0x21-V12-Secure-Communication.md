@@ -1,13 +1,14 @@
-# V12 Secure Communication
+# V12 암호화 통신
 
 ## Control Objective
 
-This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end-user client and a backend service, as well as between internal and backend services.
+이번 장에서는 사용자 클라이언트와 백엔드 서비스 간, 그리고 내부 서비스와 백엔드 서비스 사이에 전송중인 데이터를 보호하기 위해 마련되어야할 특정 메커니즘에 관한 요구사항을 포함한다.
 
-The general concepts promoted by this chapter include:
+이번 장에서 강조되는 주요 개념은 다음과 같다:
 
-* Ensuring that communications are encrypted externally, and ideally internally as well.
-* Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
+* 외부통신은 물론 가능하다면 내부통신 또한 암호화되도록 한다.
+* 최신 가이드를 
+Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
 * Using signed certificates to ensure that communications are not being intercepted by unauthorized parties.
 
 In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in Appendix C - Cryptography Standards.
