@@ -27,10 +27,9 @@
 
 예를 들어, 비즈니스 로직 제어는 특정 입력값이 100보다 작은 숫자인지 확인할 수 있습니다. 반면, 기능적 요구사항은 특정 숫자가 정해진 임계값 미만인지 확인할 수 있습니다. 이는 해당 숫자가 특정 루프의 반복 횟수를 제어하며, 이 값이 너무 클 경우 과도한 처리 부하를 유발하여 잠재적인 서비스 거부(DoS) 상태로 이어질 수 있기 때문입니다.
 
-스키마 유효성 검증이 명시적으로 의무화된 것은 아니지만, JSON 이나 XML 을 사용하는 HTTP API 또는 기타 인터페이스의 전체 유효성 검증을 수행하는 데 가장 효과적인 방법일 수 있습니다. 
+스키마 유효성 검증이 명시적으로 의무화된 것은 아니지만, JSON 이나 XML 을 사용하는 HTTP API 또는 기타 인터페이스의 전체 유효성 검증을 수행하는 데 가장 효과적인 방법일 수 있습니다.
 
 스키나 유효성 검증에 관해서는 다음 사항을 참고하십시오.
-
 
 * 비즈니스 로직 제어는 특정 입력값이 100보다 작은 숫자인지 확인할 수 있습니다.
 * 기능적인 기대는 숫자가 특정 임계값보다 아래인지 확인하는 것일 수도 있으며, 이는 해당 숫자가 루프가 수행되는 횟수를 제어하고 너무 큰 숫자는 과도한 처리와 잠재적인 서비스 거부 상태를 유발할 수 있기 때문입니다.
@@ -79,5 +78,3 @@
 * Anti-automation can be achieved in many ways, including the use of the [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
 * [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [JSON Schema](https://json-schema.org/specification.html)
-
-
