@@ -1,6 +1,6 @@
 # V1 인코딩과 데이터 정제
 
-## 통제 목표
+## 제어 목표
 
 이번 장에서는 신뢰할 수 없는 데이터를 안전하지 않게 처리하여 발생하는 가장 흔한 웹 애플리케이션 보안 취약점들을 다룬다. 이러한 취약점들은 신뢰할 수 없는 데이터가 관련 인터프리터의 문법 규칙에 따라 해석되면서 다양한 기술적 취약점들로 이어질 수 있다.
 
@@ -14,10 +14,10 @@
 
 | # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.1.1** | 입력값 검증은 오직 한 번만 표준 형태로 디코딩 되거나 언이스케이프 되어야 하며, 인코딩된 데이터가 예상될 때만 디코딩 되어야한다. 이 과정은 입력값이 추가로 처리되기 전에 완료되어야 한다. 예를 들어서 입력값 검증이나 데이터 정제 이후에는 수행되면 안 된다. | 2 |
+| **1.1.1** | 입력값 검증은 오직 한 번만 표준 형태로 디코딩 되거나 언이스케이프 되어야 하며, 인코딩된 데이터가 예상될 때만 디코딩 되어야한다. 이 과정은 입력이 추가로 처리되기 전에 완료되어야 한다. 예를 들어서 입력값 검증이나 데이터 정제 이후에는 수행되면 안 된다. | 2 |
 | **1.1.2** | 애플리케이션이 출력값 인코딩 또는 이스케이핑을 인터프리터가 사용하기 전의 최종 단계로 수행하거나 인터프리터 자체에서 처리하는지 검증해야 한다. | 2 |
 
-## V1.2 인젝션 방지
+## V1.2 인젝션(injection) 방지
 
 잠재적으로 위험 컨텍스트(context)에 인접하거나 가까운 위치에서 수행되는 출력값 인코딩이나 이스케이핑은 애플리케이션의 보안에 매우 중요하다. 일반적으로 출력값 인코딩과 이스케이핑은 저장되지 않으며, 대신 해당 출력값을 적절한 인터프리터에서 즉시 안전하게 렌더링하기 위해 사용된다. 이를 너무 이른 시점에 수행하려고 하면 콘텐츠가 잘못 구성되거나 인코딩 및 이스케이핑이 무효화될 수 있다.
 
@@ -25,7 +25,7 @@
 
 | # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.2.1** | HTTP 응답, HTML 문서 또는 XML 문서에 대한 출력 인코딩이 해당 컨텍스트에 적절한지 검증해야 한다. 예를 들어, 메시지나 문서 구조가 변경되지 않도록 HTML 요소, HTML 속성, HTML 주석, CSS, HTTP 헤더 필드 등에 맞는 문맥별 문자 인코딩이 수행되어야 한다. | 1 |
+| **1.2.1** | HTTP 응답, HTML 문서 또는 XML 문서에 대한 출력값 인코딩이 해당 컨텍스트에 적절한지 검증해야 한다. 예를 들어, 메시지나 문서 구조가 변경되지 않도록 HTML 요소, HTML 속성, HTML 주석, CSS, HTTP 헤더 필드 등에 맞는 문맥별 문자 인코딩이 수행되어야 한다. | 1 |
 | **1.2.2** | 통합 자원 식별자(Uniform Resource Locator; URL)들을 동적으로 생성할 때 신뢰할 수 없는 데이터가 해당 컨텍스트에 맞게 인코딩되었는지 검증해야 한다(예: 쿼리나 경로 파라미터에 대한 URL 인코딩 또는 base64url 인코딩). 또한, 오직 안전한 URL 프로토콜만이 허용되는지 검증해야 한다(예: javascript: 또는 data:를 허용하지 않음). | 1 |
 | **1.2.3** | 동적으로 자바스크립트 콘텐츠(JSON 포함)를 생성할 때 메시지나 문서 구조를 바꾸는 것을 방지하기 위해 출력값 인코딩이나 이스케이핑이 사용되고 있는지 검증해야 한다(자바스크립트 또는 JSON 인젝션을 피하기 위함). | 1 |
 | **1.2.4** | 데이터 선택 혹은 데이터베이스 쿼리(예: SQL, HQL, NoSQL, Cypher)들 파라미터화된 쿼리, 객체 관계 매핑(Object Relational Mapping; ORM), 엔티티 프레임워크, 또는 다른 구조화된 쿼리 언어(Structured Query Language; SQL) 인젝션 및 기타 데이터베이스 인젝션 공격으로부터 보호해 주는 것들을 사용하는지 검증해야 한다. 이는 저장 프로시저를 쓸 때도 마찬가지이다. | 1 |
@@ -38,26 +38,25 @@
 
 참고: 파라미터화된 쿼리를 사용하거나 SQL을 이스케이핑만으로 항상 충분하지 않다. 테이블명과 컬럼명("ORDER BY" 컬럼 이름을 포함)과 같은 쿼리의 일부는 이스케이프 될 수 없다. 이러한 필드에 이스케이프된 사용자 입력 데이터를 포함하면 쿼리가 실패하거나 SQL 인젝션에 취약해질 수 있다.
 
-## V1.3 Sanitization
+## V1.3 데이터 정제
 
-The ideal protection against using untrusted content in an unsafe context is to use context-specific encoding or escaping, which maintains the same semantic meaning of the unsafe content but renders it safe for use in that particular context, as discussed in more detail in the previous section.
+신뢰할 수 없는 콘텐츠를 안전하지 않은 컨텍스트에서 사용하는 것을 이상적으로 방지하는 방법은 해당 컨텍스트에 맞는 인코딩 또는 이스케이핑을 사용하는 것이다. 이를 통해 안전하지 않은 콘텐츠의 시맨틱(semantic) 의미는 그대로 유지하면서 해당 컨텍스트를 안전하게 유지할 수 있다. 이에 대한 자세한 내용은 앞 부분에서 다루었다.
 
-Where this is not possible, sanitization becomes necessary, removing potentially dangerous characters or content. In some cases, this may change the semantic meaning of the input, but for security reasons, there may be no alternative.
-
-| # | Description | Level |
+이와 같은 처리가 불가능한 경우에 잠재적으로 위험한 문자나 콘텐츠를 제거하는 데이터 정제는 필수적이다. 일부 경우에 이로 인해 입력의 시맨틱 의미가 바뀔 수 있다. 그러나 보안상의 이유로 다른 대안이 없을 수 있다.
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.3.1** | Verify that all untrusted HTML input from WYSIWYG editors or similar is sanitized using a well-known and secure HTML sanitization library or framework feature. | 1 |
-| **1.3.2** | Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized before being executed. | 1 |
-| **1.3.3** | Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | 2 |
-| **1.3.4** | Verify that user-supplied Scalable Vector Graphics (SVG) scriptable content is validated or sanitized to contain only tags and attributes (such as draw graphics) that are safe for the application, e.g., do not contain scripts and foreignObject. | 2 |
-| **1.3.5** | Verify that the application sanitizes or disables user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | 2 |
-| **1.3.6** | Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | 2 |
-| **1.3.7** | Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | 2 |
-| **1.3.8** | Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured securely to prevent JNDI injection attacks. | 2 |
-| **1.3.9** | Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | 2 |
-| **1.3.10** | Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | 2 |
-| **1.3.11** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | 2 |
-| **1.3.12** | Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | 3 |
+| **1.3.1** | 위지윅(WYSIWYG) 에디터나 이와 유사한 것으로부터 오는 모든 신뢰할 수 없는 HTML 입력들은 잘 알려지고 안전한 HTML 데이터 정제 라이브러리나 프레임워크 기능을 사용해 정제되는지 검증해야 한다. | 1 |
+| **1.3.2** | 애플리케이션이 eval() 또는 스프링 표현 언어(Spring Expression Language; SpEL) 등과 같은 동적 코드 실행 기능 사용을 피하고 있는지 검증해야 한다. 대안이 없는 경우, 실행 전에 포함되는 모든 사용자 입력이 반드시 정제되어야 한다. | 1 |
+| **1.3.3** | 잠재적으로 위험한 컨텍스트에 전달되는 데이터가 사전에 정제되어 안전 조치가 적용되는지 검증해야 한다. 예를 들어 해당 컨텍스트에서 안전한 문자만 허용하고 너무 긴 입력값은 잘라내는 등의 조치가 포함된다. | 2 |
+| **1.3.4** | 사용자로부터 제공된 확장 가능한 벡터 그래픽(Scalable Vector Graphics; SVG)의 스크립트 실행 가능 콘텐츠가 애플리케이션에 안전한 태그 및 속성(예: 그래픽 그리기)만 포함하도록 검증 또는 정제되는지 검증해야 한다. 예를 들어 스크립트나 foreignObject는 포함되면 안 된다. | 2 |
+| **1.3.5** | 애플리케이션이 사용자로부터 제공된 스크립트 실행 가능하거나 표현식 템플릿 언어(예: 마크다운, CSS, XSL 스타일시, BBCode ) 콘텐츠를 정제하거나 비활성화하는지 검증해야 한다. | 2 |
+| **1.3.6** | 애플리케이션이 서버측 요청 위조(Server-side Request Forgery; SSRF) 공격으로부터 보호하기 위해 신뢰할 수 없는 데이터를 프로토콜, 도메인, 경로, 포트의 허용 목록과 대조해 검증하고 다른 서비스를 호출하기 전에 잠재적으로 위험한 문자를 정제(sanitization)하는지 검증해야 한다. | 2 |
+| **1.3.7** | 애플리케이션이 템플릿 인젝션 공격으로부터 보호하기 위해 신뢰할 수 없는 입력값을 기반으로 템플릿을 생성하지 않도록 하는지 검증해야 한다. 대안이 없는 경우에는 템플릿 생성 과정에서 동적으로 포함되는 모든 신뢰할 수 없는 입력값은 정제되거나 엄격히 검증되어야 한다. | 2 |
+| **1.3.8** | 애플리케이션이 자바 명명 및 디렉터리 인터페이스(Java Naming and Directory Interface; JNDI) 쿼리에서 신뢰할 수 없는 입력값을 사용하기 전에 적절히 정제하고 JNDI가 JNDI 인젝션 공격을 방지할 수 있도록 안전하게 구성되어 있는지 검증해야 한다. | 2 |
+| **1.3.9** | 인젝션을 방지하기 위해 애플리케이션이 메모리 캐시에 콘텐츠를 전달하기 전에 해당 데이터를 정제하는지 검증해야 한다.  | 2 |
+| **1.3.10** | 사용 시 예상치 못하거나 악의적인 방식으로 작동할 수 있는 포맷 스트링(format string)들은 처리되기 전에 정제되는지 검증해야 한다. | 2 |
+| **1.3.11** | 단순 메일 전송 프로토콜(Simple Mail Transfer Protocol; SMTP)이나 인터넷 메시지 액세스 프로토콜(Internet Message Access Protocol; IMAP) 인젝션으로부터 보호하기 위해 애플리케이션이 사용자 입력을 메일 시스템으로 보내기 전에 정제를 하는지 검증해야 한다. | 2 |
+| **1.3.12** | 정규 표현식에 지수형 백트래킹을 유발하는 요소가 없는지, 또한 신뢰할 수 없는 입력값을 정제하여 정규식 기반 서비스 거부 공격(Regular Expression Denial of Service; ReDoS) 또는 런어웨이(Runaway) 정규식 공격을 방지하는지 검증해야 한다. | 3 |
 
 ## V1.4 Memory, String, and Unmanaged Code
 
