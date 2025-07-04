@@ -58,19 +58,19 @@
 | **1.3.11** | 단순 메일 전송 프로토콜(Simple Mail Transfer Protocol; SMTP)이나 인터넷 메시지 액세스 프로토콜(Internet Message Access Protocol; IMAP) 인젝션으로부터 보호하기 위해 애플리케이션이 사용자 입력을 메일 시스템으로 보내기 전에 정제를 하는지 검증해야 한다. | 2 |
 | **1.3.12** | 정규 표현식에 지수형 백트래킹을 유발하는 요소가 없는지, 또한 신뢰할 수 없는 입력값을 정제하여 정규식 기반 서비스 거부 공격(Regular Expression Denial of Service; ReDoS) 또는 런어웨이(Runaway) 정규식 공격을 방지하는지 검증해야 한다. | 3 |
 
-## V1.4 Memory, String, and Unmanaged Code
+## V1.4 메모리, 스트링, 비관리 코드
 
-The following requirements address risks associated with unsafe memory use, which generally apply when the application uses a systems language or unmanaged code.
+애플리케이션이 스택, 버퍼, 또는 힙 오버플로를 탐지하거나 방지하기 위해 안전한 메모리 안전 문자열, 안전한 메모리 복사 및 포인터 산술을 사용하는지 검증해야 한다.
 
-In some cases, it may be possible to achieve this by setting compiler flags that enable buffer overflow protections and warnings, including stack randomization and data execution prevention, and that break the build if unsafe pointer, memory, format string, integer, or string operations are found.
+일부 경우에는 컴파일러 플래그를 설정하여 버퍼 오버플로우 방지 및 경고 기능을 활성화함으로써 보호할 수 있다. 이에는 스택 무작위화, 데이터 실행 방지 등이 포함되고 위험한 포인터, 메모리, 포맷 문자열, 정수 또는 문자열 연산이 발견될 경우 빌드를 중단하도록 설정할 수도 있다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 |
-| **1.4.2** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | 2 |
-| **1.4.3** | Verify that dynamically allocated memory and resources are released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | 2 |
+| **1.4.1** | 애플리케이션이 스택, 버퍼, 또는 힙 오버플로를 탐지하거나 방지하기 위해 안전한 메모리 안전 문자열, 안전한 메모리 복사 및 포인터 산술을 사용하는지 검증해야 한다. | 2 |
+| **1.4.2** | 정수 오버플로를 방지하기 위해 부호 확인, 범위 검사, 입력값 검증 등의 기법이 사용되고 있는지 검증해야 한다. | 2 |
+| **1.4.3** | 댕글링 포인터(dangling pointer)나 해체 후 사용(Use After Free; UAF) 취약점을 방지하기 위해 동적으로 할당된 메모리와 자원이 적절히 해제되었는지 그리고 해제된 메모리를 참조하는 포인터나 참조가 제거되었거나 null로 설정되었는지를 검증해야 한다. | 2 |
 
-## V1.5 Safe Deserialization
+## V1.5 안전한 역직렬화
 
 The conversion of data from a stored or transmitted representation into actual application objects (deserialization) has historically been the cause of various code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
 
