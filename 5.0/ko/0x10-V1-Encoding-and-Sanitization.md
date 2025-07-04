@@ -17,7 +17,7 @@
 | **1.1.1** | 입력값 검증은 오직 한 번만 표준 형태로 디코딩 되거나 언이스케이프 되어야 하며, 인코딩된 데이터가 예상될 때만 디코딩 되어야한다. 이 과정은 입력이 추가로 처리되기 전에 완료되어야 한다. 예를 들어서 입력값 검증이나 데이터 정제 이후에는 수행되면 안 된다. | 2 |
 | **1.1.2** | 애플리케이션이 출력값 인코딩 또는 이스케이핑을 인터프리터가 사용하기 전의 최종 단계로 수행하거나 인터프리터 자체에서 처리하는지 검증해야 한다. | 2 |
 
-## V1.2 인젝션(injection) 방지
+## V1.2 인젝션(Injection) 방지
 
 잠재적으로 위험 컨텍스트(context)에 인접하거나 가까운 위치에서 수행되는 출력값 인코딩이나 이스케이핑은 애플리케이션의 보안에 매우 중요하다. 일반적으로 출력값 인코딩과 이스케이핑은 저장되지 않으며, 대신 해당 출력값을 적절한 인터프리터에서 즉시 안전하게 렌더링하기 위해 사용된다. 이를 너무 이른 시점에 수행하려고 하면 콘텐츠가 잘못 구성되거나 인코딩 및 이스케이핑이 무효화될 수 있다.
 
@@ -82,21 +82,21 @@
 | **1.5.2** | 역직렬화 공격을 방지하기 위해 신뢰할 수 없는 데이터의 역직렬화 시 객체 타입 허용 목록 사용 또는 클라이언트 정의 객체 타입 제한과 같은 안전한 입력 처리 방식이 적용되는지 검증해야 한다. 또한 명확히 안전하지 않은 것으로 지정된 역직렬화 메커니즘은 신뢰할 수 없는 입력에 대해 반드시 사용해서는 안 된다. | 2 |
 | **1.5.3** | 애플리케이션에서 동일한 데이터 타입(예: JSON 파서, XML 파서, URL 파서)에 대해 사용되는 서로 다른 파서들이 일관된 방식으로 파싱(parsing)을 수행하고 동일한 문자 인코딩 방식을 사용하는지 검증해야 한다. 이를 통해 자바스크립트 객체 표기법(JavaScript Object Notation; JSON) 상호운용 취약점이나 원격 파일 포함(Remote File Inclusion; RFI) 및 SSRF 공격에서 악용될 수 있는 서로 다른 URI 또는 파일 파싱 동작 문제를 방지할 수 있다. | 3 |
 
-## References
+## 참고자료
 
-For more information, see also:
+자세한 내용은 다음을 참조:
 
-* [OWASP LDAP Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
-* [OWASP Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
-* [OWASP DOM Based Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
-* [OWASP XML External Entity Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
-* [OWASP Web Security Testing Guide: Client-Side Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing)
-* [OWASP Java Encoding Project](https://owasp.org/owasp-java-encoder/)
-* [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
-* [RFC4180 - Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
+* [OWASP LDAP 인젝션 방지 치트 시트(Cheat Sheet)](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
+* [OWASP 사이트 간 스크립팅(Cross Site Scripting; XSS) 방지 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+* [OWASP 문서 객체 모델(Document Object Model; DOM) 기반 XSS 방지 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
+* [OWASP XXE 방지 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
+* [OWASP 웹 보안 테스트 가이드: 클라이언트 측 테스트](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing)
+* [OWASP 자바 인코딩 프로젝트](https://owasp.org/owasp-java-encoder/)
+* [DOMPurify - 클라이언트 측 HTML 정제 라이브러리](https://github.com/cure53/DOMPurify)
+* [RFC4180 - CSV 파일의 공통 포맷(format) 및 다목적 인터넷 메일 확장(Multipurpose Internet Mail Extensions; MIME) 타입](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
 
-For more information, specifically on deserialization or parsing issues, please see:
+역직렬화 또는 파싱 문제에 대한 자세한 내용은 다음을 참조:
 
-* [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
-* [An Exploration of JSON Interoperability Vulnerabilities](https://bishopfox.com/blog/json-interoperability-vulnerabilities)
-* [Orange Tsai - A New Era of SSRF Exploiting URL Parser In Trending Programming Languages](https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf)
+* [OWASP 역직렬화 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+* [JSON 상호운용 취약점 탐구](https://bishopfox.com/blog/json-interoperability-vulnerabilities)
+* [Orange Tsai – 트렌딩(Trending) 프로그래밍 언어의 URL 파서를 악용한 SSRF의 새로운 시대](https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf)
