@@ -72,15 +72,15 @@
 
 ## V1.5 안전한 역직렬화
 
-The conversion of data from a stored or transmitted representation into actual application objects (deserialization) has historically been the cause of various code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
+저장되었거나 전송된 데이터를 애플리케이션의 실제 객체로 변환하는 과정(역직렬화)은 역사적으로 다양한 코드 인젝션 취약점의 원인이 되어왔다. 이 과정을 조심스럽고 안전하게 수행하는 것은 이러한 종류의 문제를 피하는데 중요하다.
 
-In particular, certain methods of deserialization have been identified by programming language or framework documentation as insecure and cannot be made safe with untrusted data. For each mechanism in use, careful due diligence should be performed.
+특히, 일부 역직렬화 방법은 프로그래밍 언어나 프레임워크 문서에서 안전하지 않거나 신뢰할 수 없는 데이터를 안전하게 만들 수 없다고 지정되어 왔다. 사용 중인 각 메커니즘에 대해 신중한 검토(실사)를 수행해야 한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **1.5.1** | Verify that the application configures XML parsers to use a restrictive configuration and that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | 1 |
-| **1.5.2** | Verify that deserialization of untrusted data enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure must not be used with untrusted input. | 2 |
-| **1.5.3** | Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 3 |
+| **1.5.1** | 애플리케이션이 확장 가능한 마크업 언어(eXtensible Markup Language; XML) 파서(parser)를 제한적인 설정으로 구성하고 외부 엔티티 해석과 같은 안전하지 않은 기능을 비활성화하여 XML 외부 엔티티(XML eXternal Entity; XXE) 공격을 방지하는지 검증해야 한다. | 1 |
+| **1.5.2** | 역직렬화 공격을 방지하기 위해 신뢰할 수 없는 데이터의 역직렬화 시 객체 타입 허용 목록 사용 또는 클라이언트 정의 객체 타입 제한과 같은 안전한 입력 처리 방식이 적용되는지 검증해야 한다. 또한 명확히 안전하지 않은 것으로 지정된 역직렬화 메커니즘은 신뢰할 수 없는 입력에 대해 반드시 사용해서는 안 된다. | 2 |
+| **1.5.3** | 애플리케이션에서 동일한 데이터 타입(예: JSON 파서, XML 파서, URL 파서)에 대해 사용되는 서로 다른 파서들이 일관된 방식으로 파싱(parsing)을 수행하고 동일한 문자 인코딩 방식을 사용하는지 검증해야 한다. 이를 통해 자바스크립트 객체 표기법(JavaScript Object Notation; JSON) 상호운용 취약점이나 원격 파일 포함(Remote File Inclusion; RFI) 및 SSRF 공격에서 악용될 수 있는 서로 다른 URI 또는 파일 파싱 동작 문제를 방지할 수 있다. | 3 |
 
 ## References
 
