@@ -14,7 +14,7 @@ ASVS 5.0 est le résultat de nombreuses contributions des chefs de projet, des m
 
 Cette révision majeure a été élaborée en gardant à l’esprit plusieurs principes clés :
 
-* Portée et orientation affinées : Cette version du référentiel a été conçue pour s'aligner plus directement sur les piliers fondamentaux de son nom : Application, Sécurité, Vérification et Référentiel. Les exigences ont été réécrites afin de mettre l'accent sur la prévention des failles de sécurité plutôt que d'imposer des implémentations techniques spécifiques. Les textes des exigences sont explicites et expliquent leur raison d'être.
+* Périmètre et orientation affinées : Cette version du référentiel a été conçue pour s'aligner plus directement sur les piliers fondamentaux de son nom : Application, Sécurité, Vérification et Référentiel. Les exigences ont été réécrites afin de mettre l'accent sur la prévention des failles de sécurité plutôt que d'imposer des implémentations techniques spécifiques. Les textes des exigences sont explicites et expliquent leur raison d'être.
 
 * Prise en charge des décisions de sécurité documentées : ASVS 5.0 introduit des exigences de documentation des décisions de sécurité clés. Cela améliore la traçabilité et prend en charge les implémentations qui dépendent du contexte, permettant aux organisations d'adapter leur posture de sécurité à leurs besoins et risques spécifiques.
 

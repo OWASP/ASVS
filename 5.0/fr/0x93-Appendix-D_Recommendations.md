@@ -6,7 +6,7 @@ Lors de la préparation de la version 5.0 de la norme de vérification de la sé
 
 Ne voulant pas perdre tous ces éléments entièrement, certains ont été capturés dans cette annexe.
 
-## Mécanismes de portée recommandés
+## Mécanismes de périmètre recommandés
 
 Les éléments suivants sont concernés par ASVS. Ils ne devraient pas être rendus obligatoires, mais il est fortement recommandé de les prendre en compte dans le cadre d'une application sécurisée.
 

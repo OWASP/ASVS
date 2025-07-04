@@ -14,7 +14,7 @@ L'ASVS n'est volontairement pas prescriptif quant à la manière précise de vé
 
 Les tests d'intrusion traditionnels signalent les problèmes « par exception », en ne listant que les échecs. Cependant, un rapport de certification ASVS doit inclure le périmètre, un résumé de toutes les exigences vérifiées, les exigences pour lesquelles des exceptions ont été constatées et des conseils pour résoudre les problèmes. Certaines exigences peuvent ne pas être applicables (par exemple, la gestion des sessions dans les API sans état), et cela doit être mentionné dans le rapport.
 
-### Portée de la vérification
+### Périmètre de la vérification
 
 Une organisation développant une application n'implémentera généralement pas toutes les exigences, certaines pouvant être non pertinentes ou moins importantes selon les fonctionnalités de l'application. Le vérificateur doit préciser le périmètre de la vérification, notamment le niveau que l'organisation souhaite atteindre et les exigences incluses. Il doit s'agir de ce qui a été inclus plutôt que de ce qui ne l'a pas été. Il doit également fournir un avis sur les raisons justifiant l'exclusion des exigences non implémentées.
 

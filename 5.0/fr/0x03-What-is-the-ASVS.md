@@ -4,11 +4,11 @@ Le Référentiel de vérification de la sécurité des applications (ASVS) défi
 
 Ce chapitre décrit les aspects essentiels de l'utilisation de l'ASVS, notamment son champ d'application, la structure de ses niveaux de priorité et ses principaux cas d'utilisation.
 
-## Portée de l'ASVS
+## Périmètre de l'ASVS
 
-La portée de l'ASVS est définie par son nom : Application, Sécurité, Vérification et Référentiel. Elle établit les exigences incluses ou exclues, avec pour objectif principal d'identifier les principes de sécurité à respecter. Elle prend également en compte les exigences de documentation, qui servent de base aux exigences de mise en œuvre.
+Le périmètre de l'ASVS est définie par son nom : Application, Sécurité, Vérification et Référentiel. Elle établit les exigences incluses ou exclues, avec pour objectif principal d'identifier les principes de sécurité à respecter. Elle prend également en compte les exigences de documentation, qui servent de base aux exigences de mise en œuvre.
 
-Il n'existe aucune portée pour les attaquants. Par conséquent, les exigences de l'ASVS doivent être évaluées parallèlement aux recommandations relatives aux autres aspects du cycle de vie des applications, notamment les processus CI/CD, l'hébergement et les activités opérationnelles.
+Il n'existe aucun périmètre pour les attaquants. Par conséquent, les exigences de l'ASVS doivent être évaluées parallèlement aux recommandations relatives aux autres aspects du cycle de vie des applications, notamment les processus CI/CD, l'hébergement et les activités opérationnelles.
 
 ### Application
 
@@ -18,13 +18,13 @@ Les composants qui traitent, modifient ou valident le trafic HTTP, tels que les 
 
 À l'inverse, ASVS exclut généralement les exigences qui ne concernent pas directement l'application ou dont la configuration ne relève pas de sa responsabilité. Par exemple, les problèmes DNS sont généralement gérés par une équipe ou une fonction distincte.
 
-De même, si l'application est responsable de la manière dont elle consomme les entrées et produit les sorties, l'interaction d'un processus externe avec l'application ou ses données est considérée comme hors du champ d'application d'ASVS. Par exemple, la sauvegarde de l'application ou de ses données relève généralement de la responsabilité d'un processus externe et n'est pas contrôlée par l'application ou ses développeurs.
+De même, si l'application est responsable de la manière dont elle consomme les entrées et produit les sorties, l'interaction d'un processus externe avec l'application ou ses données est considérée comme hors du périmètre d'ASVS. Par exemple, la sauvegarde de l'application ou de ses données relève généralement de la responsabilité d'un processus externe et n'est pas contrôlée par l'application ou ses développeurs.
 
 ### Sécurité
 
 Chaque exigence doit avoir un impact démontrable sur la sécurité. L'absence d'exigence doit entraîner une application moins sécurisée, et sa mise en œuvre doit réduire la probabilité ou l'impact d'un risque de sécurité.
 
-Toutes les autres considérations, telles que les aspects fonctionnels, le style de code ou les exigences de politique, sont hors du champ d'application.
+Toutes les autres considérations, telles que les aspects fonctionnels, le style de code ou les exigences de politique, sont hors du périmètre d'application.
 
 ### Vérification
 

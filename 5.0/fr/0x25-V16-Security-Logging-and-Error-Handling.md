@@ -40,7 +40,7 @@ Cette section définit les exigences relatives à la journalisation des événem
 
 Cette section décrit les types d'événements à journaliser, sans toutefois prétendre à l'exhaustivité. Chaque application présente des facteurs de risque et un contexte opérationnel spécifiques.
 
-Notez que si ASVS inclut la journalisation des événements de sécurité, les alertes et la corrélation (par exemple, les règles SIEM ou l'infrastructure de surveillance) sont considérées comme hors de portée et sont gérées par les systèmes opérationnels et de surveillance.
+Notez que si ASVS inclut la journalisation des événements de sécurité, les alertes et la corrélation (par exemple, les règles SIEM ou l'infrastructure de surveillance) sont considérées comme hors du périmètre et sont gérées par les systèmes opérationnels et de surveillance.
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |

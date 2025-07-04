@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Les utilisateurs familiarisés avec la version 4.x du référentiel trouveront utile de consulter les principales modifications apportées à la version 5.0, notamment les mises à jour de contenu, de portée et de philosophie sous-jacente.
+Les utilisateurs familiarisés avec la version 4.x du référentiel trouveront utile de consulter les principales modifications apportées à la version 5.0, notamment les mises à jour de contenu, de périmètre et de philosophie sous-jacente.
 
 Sur les 286 exigences de la version 4.0.3, seules 11 restent inchangées, tandis que 15 ont subi des ajustements grammaticaux mineurs sans altérer leur sens. Au total, 109 exigences (38 %) ne sont plus des exigences distinctes dans la version 5.0 : 50 ont été simplement supprimées, 28 ont été supprimées car doublons et 31 ont été fusionnées avec d'autres exigences. Les autres ont été révisées. Même les exigences n'ayant pas subi de modifications substantielles ont des identifiants différents à la suite d'une réorganisation ou une restructuration.
 
@@ -10,7 +10,7 @@ Pour faciliter l'adoption de la version 5.0, des documents de correspondance son
 
 ## Philosophie des exigences
 
-### Portée et orientation
+### Périmètre et orientation
 
 La version 4.x incluait des exigences qui ne correspondaient pas au périmètre prévu du référentiel ; celles-ci ont été supprimées. Les exigences qui ne répondaient pas aux critères du périmètre de la version 5.0 ou qui n'étaient pas vérifiables ont également été exclues.
 
