@@ -1,73 +1,49 @@
-# V5 File Handling
 # V5 파일 처리
 
-## Control Objective
 ## 제어 목표
 
-The use of files can present a variety of risks to the application, including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
 파일을 사용하는 것은 서비스 거부, 무단 접근 및 저장 공간 고갈을 포함하여 애플리케이션에 다양한 위험을 초래할 수 있다. 이 장은 이러한 위험을 해결하기 위한 요구사항을 포함한다.
 
-## V5.1 File Handling Documentation
 ## V5.1 파일 처리 문서화
 
-This section includes a requirement to document the expected characteristics of files accepted by the application, as a necessary precondition for developing and verifying relevant security checks.
 이 섹션은 관련 보안 검사를 개발하고 검증하기 위한 필수 전제 조건으로 애플리케이션이 허용하는 파일의 예상 특성을 문서화하는 요구사항을 포함한다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **5.1.1** | Verify that the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process, such as how the application behaves when a malicious file is detected. | 2 |
-| **5.1.1** | 문서가 각 업로드 기능에 대해 허용되는 파일 형식, 예상 파일 확장자 및 최대 크기(압축 해제된 크기 포함)를 정의하는지 확인한다. 또한 문서가 악성 파일이 탐지될 때 애플리케이션이 어떻게 동작하는지와 같이 최종 사용자가 파일을 안전하게 다운로드하고 처리할 수 있도록 하는 방법을 명시하는지 확인한다. | 2 |
+| **5.1.1** | 업로드 기능별로 허용되는 파일 형식, 예상되는 파일 확장자, 그리고 최대 크기(압축 해제된 크기 포함)가 문서에 정의되어 있는지 검증해야 한다. 또한, 악성 파일이 탐지될 때 애플리케이션이 어떻게 동작하는지와 같이, 최종 사용자가 파일을 안전하게 다운로드하고 처리할 수 있도록 하는 방법이 문서에 명시되어 있는지 확인해야 한다. | 2 |
 
-## V5.2 File Upload and Content
 ## V5.2 파일 업로드 및 콘텐츠
 
-File upload functionality is a primary source of untrusted files. This section outlines the requirements for ensuring that the presence, volume, or content of these files cannot harm the application.
 파일 업로드 기능은 신뢰할 수 없는 파일의 주요 소스이다. 이 섹션은 이러한 파일의 존재, 볼륨 또는 내용이 애플리케이션에 해를 끼치지 않도록 보장하기 위한 요구사항을 설명한다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **5.2.1** | Verify that the application will only accept files of a size which it can process without causing a loss of performance or a denial of service attack. | 1 |
-| **5.2.1** | 애플리케이션이 성능 저하나 서비스 거부 공격을 유발하지 않고 처리할 수 있는 크기의 파일만 허용하는지 확인한다. | 1 |
-| **5.2.2** | Verify that when the application accepts a file, either on its own or within an archive such as a zip file, it checks if the file extension matches an expected file extension and validates that the contents correspond to the type represented by the extension. This includes, but is not limited to, checking the initial 'magic bytes', performing image re-writing, and using specialized libraries for file content validation. For L1, this can focus just on files which are used to make specific business or security decisions. For L2 and up, this must apply to all files being accepted. | 1 |
-| **5.2.2** | 애플리케이션이 파일 자체 또는 zip 파일과 같은 아카이브 내에서 파일을 허용할 때, 파일 확장자가 예상 파일 확장자와 일치하는지 확인하고 내용이 확장자로 표현된 유형과 일치하는지 확인하는지 검증한다. 여기에는 초기 '매직 바이트' 확인, 이미지 재작성 수행, 파일 내용 유효성 검사를 위한 전문 라이브러리 사용이 포함되지만 이에 국한되지 않는다. L1의 경우, 특정 비즈니스 또는 보안 결정을 내리는 데 사용되는 파일에만 집중할 수 있다. L2 이상에서는 허용되는 모든 파일에 적용되어야 한다 | 1 |
-| **5.2.3** | Verify that the application checks compressed files (e.g., zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | 2 |
-| **5.2.3** | 애플리케이션이 압축 해제하기 전에 압축 파일(예: zip, gz, docx, odt)을 허용되는 최대 압축 해제 크기 및 최대 파일 수에 대해 검사하는지 확인한다. | 2 |
-| **5.2.4** | Verify that a file size quota and maximum number of files per user are enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | 3 |
-| **5.2.4** | 단일 사용자가 너무 많은 파일이나 지나치게 큰 파일로 저장 공간을 채우지 않도록 사용자당 파일 크기 할당량 및 최대 파일 수가 적용되는지 확인한다. | 3 |
-| **5.2.5** | Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | 3 |
-| **5.2.5** | 애플리케이션이 심볼릭 링크를 포함하는 압축 파일의 업로드를 허용하지 않는지 확인한다. 단, 특별히 요구되는 경우는 제외한다 (이 경우 심볼릭 링크될 수 있는 파일의 허용 목록을 적용해야 함). | 3 |
-| **5.2.6** | Verify that the application rejects uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 3 |
-| **5.2.6** | 픽셀 플러드(pixel flood) 공격을 방지하기 위해 애플리케이션이 허용되는 최대값보다 큰 픽셀 크기를 가진 업로드된 이미지를 거부하는지 확인한다. | 3 |
+| **5.2.1** | 애플리케이션이 성능 저하나 서비스 거부 공격(Denial of Service; DoS)을 유발하지 않고 처리할 수 있는 크기의 파일만 허용하는지 검증해야 한다. | 1 |
+| **5.2.2** | 애플리케이션이 파일 자체 또는 zip 파일과 같은 아카이브 내에서 파일을 허용할 때, 파일 확장자가 예상 파일 확장자와 일치하는지 확인하고 내용이 확장자로 표현된 유형과 일치하는지 확인하는지 검증해야 한다. 여기에는 초기 '매직 바이트(magic bytes)' 확인, 이미지 재작성 수행, 파일 내용 유효성 검사를 위한 전문 라이브러리 사용이 포함되지만 이에 국한되지 않는다. L1의 경우, 특정 비즈니스 또는 보안 결정을 내리는 데 사용되는 파일에만 집중할 수 있다. L2 이상에서는 허용되는 모든 파일에 적용되어야 한다 | 1 |
+| **5.2.3** | 애플리케이션이 압축 파일(예: zip, gz, docx, odt)을 압축 해제하기 전에 허용되는 최대 압축 해제 크기와 최대 파일 수를 확인하는지 검증해야 한다. | 2 |
+| **5.2.4** | 단일 사용자가 너무 많은 파일이나 과도하게 큰 파일로 저장 공간을 채우지 않도록 사용자별 파일 크기 할당량(quota) 및 최대 파일 수가 적용되는지 검증해야 한다. | 3 |
+| **5.2.5** | 애플리케이션이 심볼릭 링크(symlink)를 포함하는 압축 파일 업로드를 허용하지 않는지 검증해야 한다. 단, 이러한 기능이 특별히 요구되는 경우에는 심볼릭 링크할 수 있는 파일의 허용 목록(allowlist)을 강제하는 것이 필요히다. | 3 |
+| **5.2.6** | 픽셀 플러드 공격(Pixel Flood Attack)을 방지하기 위해, 애플리케이션이 업로드된 이미지의 픽셀 크기가 허용된 최대값보다 큰 경우 해당 이미지를 거부하는지 검증해야 한다. | 3 |
 
-## V5.3 File Storage
 ## V5.3 파일 저장
 
-This section includes requirements to prevent files from being inappropriately executed after upload, to detect dangerous content, and to avoid untrusted data being used to control where files are being stored.
 이 섹션은 업로드 후 파일이 부적절하게 실행되는 것을 방지하고, 위험한 콘텐츠를 탐지하며, 신뢰할 수 없는 데이터가 파일 저장 위치를 제어하는 데 사용되지 않도록 하기 위한 요구사항을 포함한다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **5.3.1** | Verify that files uploaded or generated by untrusted input and stored in a public folder, are not executed as server-side program code when accessed directly with an HTTP request. | 1 |
-| **5.3.1** | 신뢰할 수 없는 입력으로 업로드되거나 생성되어 공개 폴더에 저장된 파일이 HTTP 요청으로 직접 접근될 때 서버 측 프로그램 코드로 실행되지 않는지 확인한다. | 1 |
-| **5.3.2** | Verify that when the application creates file paths for file operations, instead of user-submitted filenames, it uses internally generated or trusted data, or if user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. This is to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. | 1 |
-| **5.3.2** | 애플리케이션이 파일 작업을 위한 파일 경로를 생성할 때 사용자 제출 파일 이름 대신 내부적으로 생성되거나 신뢰할 수 있는 데이터를 사용하는지 확인하거나, 사용자 제출 파일 이름 또는 파일 메타데이터를 사용해야 하는 경우 엄격한 유효성 검사 및 새니티제이션이 적용되는지 확인한다. 이는 경로 탐색, 로컬 또는 원격 파일 포함(LFI, RFI) 및 서버 측 요청 위조(SSRF) 공격으로부터 보호하기 위함이다. | 1 |
-| **5.3.3** | Verify that server-side file processing, such as file decompression, ignores user-provided path information to prevent vulnerabilities such as zip slip. | 3 |
-| **5.3.3** | 파일 압축 해제와 같은 서버 측 파일 처리가 zip slip과 같은 취약점을 방지하기 위해 사용자 제공 경로 정보를 무시하는지 확인한다. | 3 |
+| **5.3.1** | 신뢰할 수 없는 입력으로 업로드되거나 생성되어 공개 폴더에 저장된 파일이 HTTP 요청으로 직접 접근될 때 서버 측 프로그램 코드로 실행되지 않는지 검증해야 한다. | 1 |
+| **5.3.2** | 애플리케이션이 파일 작업을 위한 파일 경로를 생성할 때, 사용자 제출 파일명 대신 내부적으로 생성되거나 신뢰할 수 있는 데이터를 사용하는지 검증해야 한다. 만약 사용자 제출 파일명 또는 파일 메타데이터를 반드시 사용해야 한다면, 경로 탐색(path traversal), 로컬 또는 원격 파일 포함(LFI, RFI), 그리고 서버 측 요청 위조SSRF) 공격으로부터 보호하기 위해 엄격한 유효성 검사 및 정제(Sanitization)가 적용되는지 확인해야 한다. {{#원문 문장 구조를 유지한 직역 시 어색하여 일부 의역함, Sanitization의 적절한 번역은 상황에 따라 다르게 해석될 수 있다. 해당 챕터에서는 입력값 검증에 준하는 의미이므로 '정제'라고 번역함}} | 1 |
+| **5.3.3** | 파일 압축 해제와 같은 서버 측 파일 처리가 zip slip과 같은 취약점을 방지하기 위해 사용자 제공 경로 정보를 무시하는지 검증해야 한다. | 3 |
 
-## V5.4 File Download
 ## V5.4 파일 다운로드
 
-This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This also includes making sure they don't contain dangerous content.
 이 섹션은 경로 탐색 및 삽입 공격을 포함하여 파일을 다운로드할 때 위험을 완화하기 위한 요구사항을 포함한다. 또한 위험한 콘텐츠를 포함하지 않도록 하는 것도 포함된다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **5.4.1** | Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header field in the response. | 2 |
-| **5.4.1** | 애플리케이션이 JSON, JSONP 또는 URL 매개변수를 포함하여 사용자 제출 파일 이름을 검증하거나 무시하고 응답의 Content-Disposition 헤더 필드에 파일 이름을 지정하는지 확인한다. | 2 |
-| **5.4.2** | Verify that file names served (e.g., in HTTP response header fields or email attachments) are encoded or sanitized (e.g., following RFC 6266) to preserve document structure and prevent injection attacks. | 2 |
-| **5.4.2** | 제공되는 파일 이름(예: HTTP 응답 헤더 필드 또는 이메일 첨부 파일)이 문서 구조를 보존하고 삽입 공격을 방지하기 위해 인코딩되거나 새니티제이션되는지(예: RFC 6266에 따라) 확인한다. | 2 |
-| **5.4.3** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent serving of known malicious content. | 2 |
-| **5.4.3** | 신뢰할 수 없는 소스에서 얻은 파일이 알려진 악성 콘텐츠 제공을 방지하기 위해 안티바이러스 스캐너에 의해 검사되는지 확인한다. | 2 |
+| **5.4.1** | 애플리케이션이 JSON, JSONP 또는 URL 파라미터를 포함한 사용자 제출 파일명을 검증하거나 무시하는지 검증해야 하고, 응답의 Content-Disposition 헤더 필드에 파일명을 명시하는지 검증해야 한다. {{#직역 시 2개 문장이 하나의 동사에 영향을 미쳐 가독성에 문제가 있어 두 문장을 and로 구성하도록 의역함}} | 2 |
+| **5.4.2** | 제공되는 파일 이름(예: HTTP 응답 헤더 필드 또는 이메일 첨부 파일)이 문서 구조를 보존하고 삽입 공격(Injection Attack)을 방지하기 위해 인코딩되거나 정제(Sanitization)되는지 검증해야 한다. (예: RFC 6266 준수) {{#Sanitization의 적절한 번역은 상황에 따라 다르게 해석될 수 있다. 해당 챕터에서는 입력값 검증에 준하는 의미이므로 '정제'라고 번역함}}| 2 |
+| **5.4.3** | 신뢰할 수 없는 소스에서 얻은 파일이 알려진 악성 콘텐츠 제공을 방지하기 위해 안티바이러스 스캐너에 의해 검사되는지 검증해야 한다. | 2 |
 
 ## References
 ## 참조
