@@ -1,7 +1,7 @@
 # 서문
 
 ## 표준 소개
-애플리케이션 보안 검증 표준(Application Security Verification Standard: ASVS)은 아키텍트, 개발자, 테스터, 보안전문가, tool 공급업체, 소비자가 안전한 애플리케이션을 정의, 구축, 테스트 및 검증하는데 사용할 수 있는 애플리케이션 보안 요구 사항 목록이다.
+애플리케이션 보안 검증 표준(Application Security Verification Standard; ASVS)은 아키텍트, 개발자, 테스터, 보안전문가, tool 공급업체, 소비자가 안전한 애플리케이션을 정의, 구축, 테스트 및 검증하는데 사용할 수 있는 애플리케이션 보안 요구 사항 목록이다.
 
 ## 저작권 및 라이선스
 
@@ -15,14 +15,14 @@ Copyright © 2008-2025 The OWASP Foundation.
 
 재사용 또는 배포 시, 본 작업물의 라이선스 조건을 명확하게 전달해야 한다.
 
-## Project Leads
+## 프로젝트 리드
 
 |                       |                  |
 |---------------------- |----------------- |
 | Elar Lang             | Josh C Grossman  |
 | Jim Manico            | Daniel Cuthbert  |
 
-## Working Group
+## 작업 그룹
 
 |                 |                   |                    |                  |
 |---------------- |------------------ |------------------- |----------------- |
