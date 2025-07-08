@@ -1,36 +1,36 @@
-# V9 Self-contained Tokens
+# V9 자체 포함 토큰 (self-contained token)
 
-## Control Objective
+## 제어 목표
 
-The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It refers to a token containing data or claims on which a receiving service will rely to make security decisions. This should be differentiated from a simple token containing only an identifier, which a receiving service uses to look up data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
+자체 포함 토큰의 개념은 2012년에 발표된 RFC 6749 OAuth 2.0 원문에서 언급된다. 이는 수신 서비스가 보안 결정을 내릴 때 의존할 데이터 또는 클레임(claims)을 포함하는 토큰을 의미한다. 이는 수신 서비스가 데이터를 로컬에서 조회하는 데 사용하는 식별자만 포함하는 단순 토큰과는 구별되어야 한다. 자체 포함 토큰의 가장 일반적인 예시는 JSON 웹 토큰(JSON Web Tokens; JWT)과 SAML 어설션(SAML assertions)이 있다.
 
-The use of self-contained tokens has become very widespread, even outside of OAuth and OIDC. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process, and this chapter provides specific details of the mechanisms that applications should have in place to prevent them.
+자체 포함 토큰의 사용은 OAuth 및 OIDC 외부에서도 매우 광범위하게 확산되었다. 동시에 이 메커니즘의 보안은 토큰의 무결성을 검증하고 토큰이 특정 컨텍스트에 유효한지 확인하는 능력에 의존한다. 이 과정에는 많은 위험요소가 있으며, 이 장에서는 애플리케이션이 이를 방지하기 위해 갖춰야 할 메커니즘에 대한 구체적인 세부 정보를 제공한다.
 
-## V9.1 Token source and integrity
+## V9.1 토큰 출처 및 무결성
 
-This section includes requirements to ensure that the token has been produced by a trusted party and has not been tampered with.
-
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **9.1.1** | Verify that self-contained tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | 1 |
-| **9.1.2** | Verify that only algorithms on an allowlist can be used to create and verify self-contained tokens, for a given context. The allowlist must include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and must not include the 'None' algorithm. If both symmetric and asymmetric must be supported, additional controls will be needed to prevent key confusion. | 1 |
-| **9.1.3** | Verify that key material that is used to validate self-contained tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | 1 |
-
-## V9.2 Token content
-
-Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within its validity period and that it is intended for use by the receiving service and for the purpose for which it was presented. This helps avoid insecure cross-usage between different services or with different token types from the same issuer.
-
-Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
+이 섹션에는 토큰이 신뢰할 수 있는 주체에 의해 생성되었으며 변조되지 않았음을 확인하기 위한 요구사항을 포함한다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **9.2.1** | Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs, the claims 'nbf' and 'exp' must be verified. | 1 |
-| **9.2.2** | Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID Tokens can be used for proving user authentication. | 2 |
-| **9.2.3** | Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | 2 |
-| **9.2.4** | Verify that, if a token issuer uses the same private key for issuing tokens to different audiences, the issued tokens contain an audience restriction that uniquely identifies the intended audiences. This will prevent a token from being reused with an unintended audience. If the audience identifier is dynamically provisioned, the token issuer must validate these audiences in order to make sure that they do not result in audience impersonation. | 2 |
+| **9.1.1** | 자체 포함 토큰 내용을 허용하기 전에 변조를 방지하기 위해 디지털 서명 또는 메시지 인증 코드(MAC)를 사용하여 토큰이 검증되었는지 검증해야 한다. | 1 |
+| **9.1.2** | 주어진 컨텍스트에 대해 자체 포함 토큰을 생성하고 검증할 때, 허용 목록에 있는 알고리즘만 사용될 수 있는지 검증해야 한다. 허용 목록은 허용된 알고리즘(이상적으로는 대칭 또는 비대칭 알고리즘 중 하나만)을 포함해야 하며, 'None' 알고리즘을 포함해서는 안 된다. 대칭 및 비대칭 알고리즘 모두를 지원해야 하는 경우, 키 혼동을 방지하기 위해 추가 제어가 필요하다. | 1 |
+| **9.1.3** | 자체 포함 토큰을 검증하는 데 사용되는 키 자료가 토큰 발행자를 위한 신뢰할 수 있는 사전 구성된 출처에서 비롯되었는지 검증하여, 공격자가 신뢰할 수 없는 출처 및 키를 지정하는 것을 방지해야 한다. JWT 및 기타 JWS 구조의 경우, 'jku', 'x5u', 'jwk'와 같은 헤더는 신뢰할 수 있는 출처의 허용 목록에 대해 검증되어야 한다. | 1 |
 
-## References
+## V9.2 토큰 내용
 
-For more information, see also:
+자체 포함 토큰의 내용에 기반하여 보안 결정을 내리기 전에, 토큰이 유효 기간 내에 제시되었는지, 수신 서비스에서 사용하도록 의도되었는지, 그리고 제시된 목적에 맞게 사용되었는지 검증해야 한다. 이는 동일한 발급자로부터 발급된 서로 다른 서비스 간 또는 서로 다른 토큰 유형 간의 안전하지 않은 교차 사용을 방지하는 데 도움이 된다.
 
-* [OWASP JSON Web Token Cheat Sheet for Java Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (but has useful general guidance)
+OAuth 및 OIDC에 대한 구체적인 요구사항은 별도의 장(V10 OAuth and OIDC)에서 다룬다.
+
+| # | Description | Level |
+| :---: | :--- | :---: |
+| **9.2.1** | 토큰 데이터에 유효 기간이 존재하는 경우, 검증 시간이 이 유효 기간 내에 있을 때만 토큰 및 해당 내용이 허용되는지 검증해야 한다. 예를 들어, JWT의 경우 'nbf' 및 'exp' 클레임이 검증되어야 한다. | 1 |
+| **9.2.2** | 토큰을 수신하는 서비스가 토큰 내용을 허용하기 전에 올바른 유형이며 의도된 목적을 위한 것인지 토큰을 검증하는지 확인해야 한다. 예를 들어, 인가 결정에는 액세스 토큰만 허용될 수 있으며, 사용자 인증을 증명하는 데는 ID 토큰만 사용될 수 있다. | 2 |
+| **9.2.3** | 서비스가 대상 서비스(audience)와 함께 사용하기 위한 토큰만 허용하는지 검증해야 한다. JWT의 경우, 서비스에 정의된 허용 목록에 대해 'aud' 클레임을 검증함으로써 이를 달성할 수 있다. | 2 |
+| **9.2.4** | 토큰 발행자가 다른 대상(audience)에게 토큰을 발행하기 위해 동일한 개인 키를 사용하는 경우, 발행된 토큰이 의도된 대상을 고유하게 식별하는 대상 제한을 포함하는지 검증해야 한다. 이는 토큰이 의도하지 않은 대상에서 재사용되는 것을 방지한다. 대상 식별자가 동적으로 공급되는(provisioned) 경우, 토큰 발행자는 대상 위장(audience impersonation)을 초래하지 않도록 대상들을 검증해야 한다. | 2 |
+
+## 참조
+
+더 많은 정보는 다음을 참조한다:
+
+* [OWASP JSON Web Token Cheat Sheet for Java Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (유용한 일반 지침 포함)
