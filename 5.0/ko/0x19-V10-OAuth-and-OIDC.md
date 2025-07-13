@@ -2,121 +2,82 @@
 
 ## 제어 목표
 
-OAuth2(본 장에서는 OAuth로 지칭)는 위임된 권한 부여를 위한 산업 표준 프레임워크이다. 예를 들어, OAuth를 사용하면 클라이언트 애플리케이션은 사용자가 클라이언트 애플리케이션에 권한을 부여한 경우 사용자를 대신하여 API(서버 리소스)에 접근할 수 있다.
+OAuth2(본 장에서는 OAuth로 지칭)는 위임된 인가를 위한 산업 표준 프레임워크이다. 예를 들어, OAuth를 사용하면 클라이언트 애플리케이션은 사용자가 클라이언트 애플리케이션에 권한을 부여한 경우 사용자를 대신하여 API(서버 리소스)에 접근할 수 있다.
 
-OAuth 자체는 사용자 인증을 위해 설계되지 않았다. OpenID Connect(OIDC) 프레임워크는 OAuth 위에 사용자 ID 계층을 추가하여 OAuth를 확장한다. OIDC는 표준화된 사용자 정보, 싱글 사인온(SSO), 세션 관리 등의 기능을 지원한다. OIDC는 OAuth의 확장 기능이므로 본 장의 OAuth 요구 사항은 OIDC에도 적용된다.
+OAuth 자체는 사용자 인증을 위해 설계되지 않았다. OpenID Connect(OIDC) 프레임워크는 OAuth 위에 사용자 ID 계층을 추가하여 OAuth를 확장한다. OIDC는 표준화된 사용자 정보, 싱글 사인온(SSO), 세션 관리 등의 기능을 지원한다. OIDC는 OAuth의 확장 기능이므로 본 장의 OAuth 요구사항은 OIDC에도 적용된다.
 
 OAuth에 정의된 역할은 다음과 같다.
 
-* The OAuth client is the application that attempts to obtain access to server resources (e.g., by calling an API using the issued access token). The OAuth client is often a server-side application.
-* OAuth 클라이언트는 서버 리소스에 접근하려는 애플리케이션이다(예: 발급된 접근 토큰을 사용하여 API 호출). OAuth 클라이언트는 종종 서버 측 애플리케이션인 경우가 많다.
-    * A confidential client is a client capable of maintaining the confidentiality of the credentials it uses to authenticate itself with the authorization server.
-    * 기밀 클라이언트(Confidential Client)는 권한 부여 서버에 자체 인증하는 데 사용하는 자격 증명의 기밀성을 유지할 수 있는 클라이언트이다.
-    * A public client is not capable of maintaining the confidentiality of credentials for authenticating with the authorization server. Therefore, instead of authenticating itself (e.g., using 'client_id' and 'client_secret' parameters), it only identifies itself (using a 'client_id' parameter).
-    * 공개 클라이언트(Public Client)는 권한 부여 서버에 인증하기 위한 자격 증명의 기밀성을 유지할 수 없다. 따라서 자체 인증(예: 'client_id' 및 'client_secret' 매개변수 사용)하는 대신 자체 식별만 한다('client_id' 매개변수 사용).
-* The OAuth resource server (RS) is the server API exposing resources to OAuth clients.
-* OAuth 리소스 서버(RS)는 OAuth 클라이언트에 리소스를 노출하는 서버 API이다.
-* The OAuth authorization server (AS) is a server application that issues access tokens to OAuth clients. These access tokens allow OAuth clients to access RS resources, either on behalf of an end-user or on the OAuth client's own behalf. The AS is often a separate application, but (if appropriate) it may be integrated into a suitable RS.
-* OAuth 권한 부여 서버(AS)는 OAuth 클라이언트에 접근 토큰을 발급하는 서버 애플리케이션이다. 이 접근 토큰을 통해 OAuth 클라이언트는 최종 사용자를 대신하여 또는 OAuth 클라이언트 자체를 대신하여 RS 리소스에 접근할 수 있다. AS는 종종 별도의 애플리케이션이지만 (적절한 경우) 적합한 RS에 통합될 수 있다.
-* The resource owner (RO) is the end-user who authorizes OAuth clients to obtain limited access to resources hosted on the resource server on their behalf. The resource owner consents to this delegated authorization by interacting with the authorization server.
-* 리소스 소유자(RO)는 리소스 서버에 호스팅된 리소스에 대한 제한된 접근 권한을 획득하도록 OAuth 클라이언트에 권한을 부여하는 최종 사용자이다. 리소스 소유자는 권한 부여 서버와 상호 작용함으로써 이 위임된 권한 부여에 동의한다.
+* OAuth 클라이언트는 서버 리소스에 접근하려는 애플리케이션이다(예: 발급된 액세스 토큰(Access Token)을 사용하여 API 호출). OAuth 클라이언트는 서버 측 애플리케이션인 경우가 많다.
+    * 기밀 클라이언트는 인가 서버에 자체 인증하는 데 사용하는 자격 증명(Credentials)의 기밀성을 유지할 수 있는 클라이언트이다.
+    * 공개 클라이언트는 인가 서버에 인증하기 위한 자격 증명의 기밀성을 유지할 수 없다. 따라서 자체 인증(예: 'client_id' 및 'client_secret' 파라미터 사용)하는 대신 자체 식별만 한다('client_id' 파라미터 사용).
+* OAuth 리소스 서버는 OAuth 클라이언트에 리소스를 노출하는 서버 API이다.
+* OAuth 인가 서버는 OAuth 클라이언트에 액세스 토큰을 발급하는 서버 애플리케이션이다. 이 액세스 토큰을 통해 OAuth 클라이언트는 최종 사용자를 대신하여 또는 OAuth 클라이언트 자체를 대신하여 리소스 서버의 리소스에 접근할 수 있다. 인가 서버는 종종 별도의 애플리케이션이지만, (적절한 경우) 적합한 리소스 서버에 통합될 수 있다.
+* 리소스 소유자는 리소스 서버에 호스팅된 리소스에 대해 제한된 접근 권한을 획득하도록 OAuth 클라이언트에 권한을 부여하는 최종 사용자이다. 리소스 소유자는 인가 서버와 상호 작용함으로써 이 위임된 인가에 동의한다.
 
-The following roles are defined in OIDC:
 OIDC에 정의된 역할은 다음과 같다.
 
-* The relying party (RP) is the client application requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
-* 의존 당사자(RP)는 OpenID 공급자를 통해 최종 사용자 인증을 요청하는 클라이언트 애플리케이션이다. 이는 OAuth 클라이언트의 역할을 수행한다.
-* The OpenID Provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to an RP. The OP may be the identity provider (IdP), but in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
-* OpenID 공급자(OP)는 최종 사용자를 인증하고 RP에 OIDC 클레임을 제공할 수 있는 OAuth AS이다. OP는 ID 공급자(IdP)일 수 있지만, 페더레이션 시나리오에서는 OP와 ID 공급자(최종 사용자가 인증하는 곳)가 다른 서버 애플리케이션일 수 있다.
+* 신뢰 당사자(Replying Party)는 OpenID 공급자를 통해 최종 사용자 인증을 요청하는 클라이언트 애플리케이션이다. 이는 OAuth 클라이언트의 역할을 수행한다.
+* OpenID 공급자는 최종 사용자를 인증하고 신뢰 당사자에 OIDC 클레임(claims)을 제공할 수 있는 OAuth 인가 서버이다. OpenID 공급자는 ID 공급자(IdP)일 수 있지만, 연합 인증 시나리오
+(federated scenarios)에서는 OpenID 공급자와 ID 공급자(최종 사용자가 인증하는 곳)가 다른 서버 애플리케이션일 수 있다.
 
-OAuth and OIDC were initially designed for third-party applications. Today, they are often used by first-party applications as well. However, when used in first-party scenarios, such as authentication and session management, the protocol adds some complexity, which may introduce new security challenges.
-OAuth와 OIDC는 원래 타사 애플리케이션을 위해 설계되었다. 오늘날에는 퍼스트 파티 애플리케이션에서도 종종 사용된다. 그러나 인증 및 세션 관리와 같은 퍼스트 파티 시나리오에서 사용될 때, 프로토콜은 약간의 복잡성을 추가하여 새로운 보안 문제를 야기할 수 있다.
+OAuth와 OIDC는 원래 외부(third-party) 애플리케이션을 위해 설계되었으며, 오늘날에는 내부(first-party) 애플리케이션에서도 종종 사용된다. 그러나 인증 및 세션 관리와 같은 내부 시나리오에서 사용될 때, 프로토콜이 복잡성을 더하게 되며, 이로 인해 새로운 보안 과제가 발생할 수 있습니다.
 
-OAuth and OIDC can be used for many types of applications, but the focus for ASVS and the requirements in this chapter is on web applications and APIs.
-OAuth와 OIDC는 다양한 유형의 애플리케이션에 사용될 수 있지만, ASVS 및 본 장의 초점은 웹 애플리케이션과 API에 있다.
+OAuth와 OIDC는 다양한 유형의 애플리케이션에 사용될 수 있지만, 이 장에서는 ASVS와 요구사항은 웹 애플리케이션과 API에 중점을 둔다.
 
-Since OAuth and OIDC can be considered logic on top of web technologies, general requirements from other chapters always apply, and this chapter cannot be taken out of context.
-OAuth와 OIDC는 웹 기술 위에 있는 로직으로 간주될 수 있으므로, 다른 장의 일반 요구 사항은 항상 적용되며, 본 장은 문맥과 분리하여 이해할 수 없다.
+OAuth와 OIDC는 웹 기술 위에 구축된 논리 계층으로 간주될 수 있으므로, 본 장의 내용만을 따로 떼어내서 해석하지 않고, 다른 장의 일반 요구사항과 함께 통합적으로 적용해야 한다.
 
-This chapter addresses best current practices for OAuth2 and OIDC aligned with specifications found at <https://oauth.net/2/> and <https://openid.net/developers/specs/>. Even if RFCs are considered mature, they are updated frequently. Thus, it is important to align with the latest versions when applying the requirements in this chapter. See the references section for more details.
-본 장은 https://oauth.net/2/ 및 https://openid.net/developers/specs/ 에서 찾을 수 있는 사양에 맞춰 OAuth2 및 OIDC에 대한 현재의 모범 사례를 다룬다. RFC가 성숙하다고 간주되더라도 자주 업데이트된다. 따라서 본 장의 요구 사항을 적용할 때 최신 버전과 일치시키는 것이 중요하다. 자세한 내용은 참조 섹션을 참조해야 한다.
+본 장은 https://oauth.net/2/ 및 https://openid.net/developers/specs/ 에서 찾을 수 있는 사양에 맞춰 OAuth2 및 OIDC에 대한 현재의 모범 사례를 다룬다. RFC가 성숙하다고 간주되더라도 자주 업데이트된다. 따라서 본 장의 요구사항을 적용할 때 최신 버전과 일치시키는 것이 중요하다. 자세한 내용은 참조 섹션을 참조한다.
 
-Given the complexity of the area, it is vitally important for a secure OAuth or OIDC solution to use well-known industry-standard authorization servers and apply the recommended security configuration.
-이 영역의 복잡성을 고려할 때, 안전한 OAuth 또는 OIDC 솔루션을 위해서는 잘 알려진 산업 표준 권한 부여 서버를 사용하고 권장되는 보안 구성을 적용하는 것이 매우 중요하다.
+이 영역의 복잡성을 고려할 때, 안전한 OAuth 또는 OIDC 솔루션을 위해서는 잘 알려진 산업 표준의 인가 서버를 사용하고, 권장되는 보안 구성을 적용하는 것이 매우 중요하다.
 
-Terminology used in this chapter aligns with OAuth RFCs and OIDC specifications, but note that OIDC terminology is only used for OIDC-specific requirements; otherwise, OAuth terminology is used.
-본 장에서 사용되는 용어는 OAuth RFC 및 OIDC 사양과 일치하지만, OIDC 용어는 OIDC 특정 요구 사항에만 사용되며, 그렇지 않은 경우에는 OAuth 용어가 사용된다는 점에 유의해야 한다.
+본 장에서 사용되는 용어는 OAuth RFC 및 OIDC 사양과 일치하지만, OIDC 용어는 OIDC에 특화된 요구사항에만 사용되며, 그 외에는 OAuth 용어가 사용된다는 점에 유의해야 한다.
 
-In the context of OAuth and OIDC, the term "token" in this chapter refers to:
-OAuth 및 OIDC의 맥락에서 본 장의 "토큰"이라는 용어는 다음을 의미한다.
+OAuth 및 OIDC의 맥락에서, 본 장의 "토큰(Token)"이라는 용어는 다음을 의미한다.
 
-* Access tokens, which shall only be consumed by the RS and can either be reference tokens that are validated using introspection or self-contained tokens that are validated using some key material.
-* 접근 토큰(Access Tokens)은 RS에서만 소비되어야 하며, 인트로스펙션을 사용하여 검증되는 참조 토큰이거나 특정 키 자료를 사용하여 검증되는 자체 포함 토큰일 수 있다.
-* Refresh tokens, which shall only be consumed by the authorization server that issued the token.
-* 갱신 토큰(Refresh Tokens)은 토큰을 발급한 권한 부여 서버에서만 소비되어야 한다.
-* OIDC ID Tokens, which shall only be consumed by the client that triggered the authorization flow.
-* OIDC ID 토큰(OIDC ID Tokens)은 권한 부여 흐름을 트리거한 클라이언트에서만 소비되어야 한다.
+* 액세스 토큰(Access Tokens)은 리소스 서버에서만 사용되어야 하며, 조회(introspection)를 통해 검증되는 참조 토큰이거나 특정 키 정보를 사용하여 검증되는 자체 포함 토큰일 수 있다.
+* 리프레시 토큰(Refresh Tokens)은 토큰을 발급한 인가 서버에서만 사용되어야 한다.
+* OIDC ID 토큰은 인가 흐름을 트리거한 클라이언트에서만 사용되어야 한다.
 
-The risk levels for some of the requirements in this chapter depend on whether the client is a confidential client or regarded as a public client. Since using strong client authentication mitigates many attack vectors, a few requirements might be relaxed when using a confidential client for L1 applications.
-본 장의 일부 요구 사항에 대한 위험 수준은 클라이언트가 기밀 클라이언트인지 또는 공개 클라이언트로 간주되는지에 따라 달라진다. 강력한 클라이언트 인증을 사용하면 많은 공격 벡터가 완화되므로, L1 애플리케이션에서 기밀 클라이언트를 사용할 때 일부 요구 사항은 완화될 수 있다.
+본 장의 일부 요구사항에 대한 위험 수준은 클라이언트가 기밀 클라이언트인지 또는 공개 클라이언트로 간주되는지에 따라 달라진다. 강력한 클라이언트 인증을 사용하면 많은 공격 벡터가 완화되므로, L1 애플리케이션에서 기밀 클라이언트를 사용할 때 일부 요구사항은 완화될 수 있다.
 
-## V10.1 Generic OAuth and OIDC Security
 ## V10.1 일반 OAuth 및 OIDC 보안
 
-This section covers generic architectural requirements that apply to all applications using OAuth or OIDC.
-이 섹션은 OAuth 또는 OIDC를 사용하는 모든 애플리케이션에 적용되는 일반적인 아키텍처 요구 사항을 다룬다.
+이 섹션은 OAuth 또는 OIDC를 사용하는 모든 애플리케이션에 적용되는 일반적인 아키텍처 요구사항을 다룬다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **10.1.1** | Verify that tokens are only sent to components that strictly need them. For example, when using a backend-for-frontend pattern for browser-based JavaScript applications, access and refresh tokens shall only be accessible for the backend. | 2 |
-| **10.1.1** | 토큰이 엄격하게 필요한 구성 요소에만 전송되는지 검증해야 한다. 예를 들어, 브라우저 기반 JavaScript 애플리케이션에 BFF(Backend-for-Frontend) 패턴을 사용하는 경우, 접근 및 갱신 토큰은 백엔드에서만 접근 가능해야 한다. | 2 |
-| **10.1.2** | Verify that the client only accepts values from the authorization server (such as the authorization code or ID Token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce', are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | 2 |
-| **10.1.2** | 클라이언트가 권한 부여 서버로부터의 값(예: 권한 부여 코드 또는 ID 토큰)을 수락하는 경우, 이러한 값이 동일한 사용자 에이전트 세션 및 트랜잭션에 의해 시작된 권한 부여 흐름의 결과인지 검증해야 한다. 이를 위해서는 PKCE(Proof Key for Code Exchange) 'code_verifier', 'state' 또는 OIDC 'nonce'와 같은 클라이언트 생성 시크릿이 추측 불가능하고, 트랜잭션에 특화되어야 하며, 트랜잭션이 시작된 클라이언트 및 사용자 에이전트 세션 모두에 안전하게 바인딩되어야 한다. | 2 |
+| **10.1.1** | 엄격하게 필요한 구성 요소에만 토큰이 전송되는지 검증해야 한다. 예를 들어, 브라우저 기반 JavaScript 애플리케이션에 프론트엔드 전용 백엔드(Backend For Frontend; BFF)로 작동) 패턴을 사용하는 경우, 접근 및 리프레시 토큰은 백엔드에서만 접근 가능해야 한다. | 2 |
+| **10.1.2** | 클라이언트는 인가 서버에서 제공하는 값(예: 인가 코드 또는 ID토큰)이 동일한 사용자 에이전트 세션 및 트랜잭션에서 시작된 인가 흐름의 결과인 경우에만 허용하는지 검증해야 한다. 이를 위해 클라이언트가 생성하는 비밀 값들(PKCE의 code_verifier, state, OIDC의 nonce 등)은 추측이 불가능해야 하며, 해당 트랜잭션에 고유해야 하고, 트랜잭션이 시작된 클라이언트와 사용자 에이전트 세션 양쪽에 안전하게 바인딩되어 있어야 한다. | 2 |
 
-## V10.2 OAuth Client
 ## V10.2 OAuth 클라이언트
 
-These requirements detail the responsibilities for OAuth client applications. The client can be, for example, a web server backend (often acting as a Backend For Frontend, BFF), a backend service integration, or a frontend Single Page Application (SPA, aka browser-based application).
-이러한 요구 사항은 OAuth 클라이언트 애플리케이션의 책임을 상세히 설명한다. 클라이언트는 예를 들어 웹 서버 백엔드(종종 BFF(Backend For Frontend)로 작동), 백엔드 서비스 통합, 또는 프론트엔드 SPA(Single Page Application, 일명 브라우저 기반 애플리케이션)일 수 있다.
+이 요구사항은 OAuth 클라이언트 애플리케이션의 책임을 상세히 설명한다. 클라이언트는 예를 들어 웹 서버 백엔드(일반적으로 BFF로 작동), 백엔드 서비스 통합, 또는 프론트엔드 싱글 페이지 애플리케이션(일명 브라우저 기반 애플리케이션)일 수 있다.
 
-In general, backend clients are regarded as confidential clients and frontend clients are regarded as public clients. However, native applications running on the end-user device can be regarded as confidential when using OAuth dynamic client registration.
-일반적으로 백엔드 클라이언트는 기밀 클라이언트로 간주되고 프론트엔드 클라이언트는 공개 클라이언트로 간주된다. 그러나 최종 사용자 장치에서 실행되는 네이티브 애플리케이션은 OAuth 동적 클라이언트 등록을 사용하는 경우 기밀로 간주될 수 있다.
+일반적으로 백엔드 클라이언트는 기밀 클라이언트로 간주되고, 프론트엔드 클라이언트는 공개 클라이언트로 간주된다. 그러나 최종 사용자 장치에서 실행되는 네이티브 애플리케이션은 OAuth 동적 클라이언트 등록을 사용하는 경우 기밀로 간주될 수 있다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **10.2.1** | Verify that, if the code flow is used, the OAuth client has protection against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF), which trigger token requests, either by using proof key for code exchange (PKCE) functionality or checking the 'state' parameter that was sent in the authorization request. | 2 |
-| **10.2.1** | 코드 플로우가 사용되는 경우, OAuth 클라이언트가 PKCE(Proof Key for Code Exchange) 기능을 사용하거나 권한 요청 시 전송된 'state' 매개변수를 확인하여 브라우저 기반 요청 위조 공격(일반적으로 CSRF(Cross-Site Request Forgery)로 알려진 토큰 요청을 유발하는 공격)에 대한 보호 기능을 갖는지 검증해야 한다. | 2 |
-| **10.2.2** | Verify that, if the OAuth client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server return the 'iss' parameter value and validate it in the authorization response and the token response. | 2 |
-| **10.2.2** | OAuth 클라이언트가 둘 이상의 권한 부여 서버와 상호 작용할 수 있는 경우, 믹스업 공격에 대한 방어 기능을 갖는지 검증해야 한다. 예를 들어, 권한 부여 서버가 'iss' 매개변수 값을 반환하도록 요구하고 권한 부여 응답 및 토큰 응답에서 이를 검증할 수 있다. | 2 |
-| **10.2.3** | Verify that the OAuth client only requests the required scopes (or other authorization parameters) in requests to the authorization server. | 3 |
-| **10.2.3** | OAuth 클라이언트가 권한 부여 서버에 대한 요청에서 필요한 범위(또는 기타 권한 부여 매개변수)만 요청하는지 검증해야 한다. | 3 |
+| **10.2.1** | 코드 플로우를 사용하는 경우, OAuth 클라이언트는 토큰 요청을 유도하는 사이트간 요청 위조 공격(Cross-Site Request Forgery; CSRF)에 대한 보호 기능을 갖추고 있는지 검증한다. 이를 위해 인가 요청 시 전송된 state 파라미터를 검증하거나, PKCE(Proof Key for Code Exchange) 기능을 사용해야 한다. | 2 |
+| **10.2.2** | OAuth 클라이언트가 둘 이상의 인가 서버와 상호 작용할 수 있는 경우, 믹스업 공격에 대한 방어 기능을 갖는지 검증해야 한다. 예를 들어, 인가 서버가 'iss' 파라미터 값을 반환하도록 요구하고 인가 응답 및 토큰 응답에서 이를 검증할 수 있다. | 2 |
+| **10.2.3** | OAuth 클라이언트가 인가 서버에 대한 요청에서 필요한 범위(또는 기타 인가 파라미터)만 요청하는지 검증해야 한다. | 3 |
 
-## V10.3 OAuth Resource Server
 ## V10.3 OAuth 리소스 서버
 
-In the context of ASVS and this chapter, the resource server is an API. To provide secure access, the resource server must:
 ASVS 및 본 장의 맥락에서 리소스 서버는 API이다. 안전한 접근을 제공하기 위해 리소스 서버는 다음을 수행해야 한다.
 
-* Validate the access token, according to the token format and relevant protocol specifications, e.g., JWT-validation or OAuth token introspection.
-* 토큰 형식 및 관련 프로토콜 사양(예: JWT 검증 또는 OAuth 토큰 인트로스펙션)에 따라 접근 토큰을 검증해야 한다.
-* If valid, enforce authorization decisions based on the information from the access token and permissions which have been granted. For example, the resource server needs to verify that the client (acting on behalf of RO) is authorized to access the requested resource.
-* 유효한 경우, 접근 토큰의 정보 및 부여된 권한을 기반으로 권한 부여 결정을 시행해야 한다. 예를 들어, 리소스 서버는 클라이언트(RO를 대신하여 작동)가 요청된 리소스에 접근할 권한이 있는지 검증해야 한다.
+* 토큰 형식 및 관련 프로토콜 사양(예: JWT 검증 또는 OAuth 토큰 조회)에 따라 액세스 토큰을 검증해야 한다.
+* 토큰이 유효한 경우, 액세스 토큰의 정보 및 부여된 권한을 기반으로 인가 결정을 강제해야 한다. 예를 들어, 리소스 서버는 클라이언트(리소스 소유자를 대신하여 작동)가 요청된 리소스에 접근할 권한이 있는지 검증해야 한다.
 
-Therefore, the requirements listed here are OAuth or OIDC specific and should be performed after token validation and before performing authorization based on information from the token.
-따라서 여기에 나열된 요구 사항은 OAuth 또는 OIDC에 특화되어 있으며, 토큰 검증 후 토큰의 정보를 기반으로 권한 부여를 수행하기 전에 수행되어야 한다.
+따라서 여기에 나열된 요구사항은 OAuth 또는 OIDC에 특화되어 있으며, 토큰 검증 후 토큰의 정보를 기반으로 인가를 수행하기 전에 이행되어야 한다.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **10.3.1** | Verify that the resource server only accepts access tokens that are intended for use with that service (audience). The audience may be included in a structured access token (such as the 'aud' claim in JWT), or it can be checked using the token introspection endpoint. | 2 |
-| **10.3.1** | 리소스 서버가 해당 서비스(대상)에 사용하도록 의도된 접근 토큰만 수락하는지 검증해야 한다. 대상은 구조화된 접근 토큰(예: JWT의 'aud' 클레임)에 포함될 수 있거나, 토큰 인트로스펙션 엔드포인트를 사용하여 확인할 수 있다. | 2 |
-| **10.3.2** | Verify that the resource server enforces authorization decisions based on claims from the access token that define delegated authorization. If claims such as 'sub', 'scope', and 'authorization_details' are present, they must be part of the decision. | 2 |
-| **10.3.2** | 리소스 서버가 위임된 권한 부여를 정의하는 접근 토큰의 클레임을 기반으로 권한 부여 결정을 시행하는지 검증해야 한다. 'sub', 'scope', 'authorization_details'와 같은 클레임이 존재하는 경우, 이는 결정의 일부여야 한다. | 2 |
-| **10.3.3** | Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that cannot be reassigned to other users. Typically, it means using a combination of 'iss' and 'sub' claims. | 2 |
-| **10.3.3** | 접근 토큰(JWT 또는 관련 토큰 인트로스펙션 응답)에서 고유한 사용자를 식별해야 하는 접근 제어 결정이 필요한 경우, 리소스 서버가 다른 사용자에게 재할당될 수 없는 클레임에서 사용자를 식별하는지 검증해야 한다. 일반적으로 이는 'iss' 및 'sub' 클레임의 조합을 사용하는 것을 의미한다. | 2 |
-| **10.3.4** | Verify that, if the resource server requires specific authentication strength, methods, or recentness, it verifies that the presented access token satisfies these constraints. For example, if present, using the OIDC 'acr', 'amr' and 'auth_time' claims respectively. | 2 |
-| **10.3.4** | 리소스 서버가 특정 인증 강도, 방법 또는 최신성을 요구하는 경우, 제시된 접근 토큰이 이러한 제약 조건을 충족하는지 검증해야 한다. 예를 들어, 존재하는 경우 OIDC 'acr', 'amr' 및 'auth_time' 클레임을 각각 사용해야 한다. | 2 |
-| **10.3.5** | Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 |
-| **10.3.5** | 리소스 서버가 발신자 제약 접근 토큰(Sender-Constrained Access Tokens), 즉 OAuth 2용 상호 TLS(Mutual TLS) 또는 OAuth 2 PoP(Proof of Possession) 시연을 요구하여 도난된 접근 토큰 사용 또는 접근 토큰 재사용(권한 없는 당사자로부터)을 방지하는지 검증해야 한다. | 3 |
+| **10.3.1** | 리소스 서버가 해당 서비스(audience)에 사용하도록 의도된 액세스 토큰만 수락하는지 검증해야 한다. 대상은 구조화된 액세스 토큰(예: JWT의 'aud' 클레임)에 포함될 수 있거나, 토큰 조회 엔드포인트를 사용하여 확인할 수 있다. | 2 |
+| **10.3.2** | 리소스 서버가 위임된 인가를 정의하는 액세스 토큰의 클레임을 기반으로 인가 결정을 시행하는지 검증해야 한다. 'sub', 'scope', 'authorization_details'와 같은 클레임이 존재하는 경우, 이는 결정의 일부여야 한다. | 2 |
+| **10.3.3** | 액세스 토큰(JWT 또는 관련 토큰 조회 응답)에서 고유한 사용자를 식별해야 하는 접근 제어 결정이 필요한 경우, 리소스 서버가 다른 사용자에게 재할당될 수 없는 클레임에서 사용자를 식별하는지 검증해야 한다. 일반적으로 이는 'iss' 및 'sub' 클레임의 조합을 사용하는 것을 의미한다. | 2 |
+| **10.3.4** | 리소스 서버가 특정 인증 강도, 방법 또는 최신성을 요구하는 경우, 제시된 액세스 토큰이 이러한 제약 조건을 충족하는지 검증해야 한다. 예를 들어, 토큰을 제시한 경우 OIDC의 'acr', 'amr' 및 'auth_time' 클레임을 각각 사용해야 한다. | 2 |
+| **10.3.5** | 리소스 서버가 발신자 제약 액세스 토큰, 즉 OAuth 2용 상호 TLS(Mutual TLS) 또는 OAuth 2 DPoP(Demonstration of Proof of Possession)를 요구하여 도난된 액세스 토큰 사용 또는 액세스 토큰 재사용(권한 없는 당사자로부터)을 방지하는지 검증해야 한다. | 3 |
 
 ## V10.4 OAuth Authorization Server
 ## V10.4 OAuth 권한 부여 서버
