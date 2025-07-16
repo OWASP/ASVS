@@ -50,6 +50,21 @@ jobs:
       - filters
     uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
 
+  debug-publish-conditions:
+    if: ${{ always() }}
+    needs: 
+      - build-v5
+      - filters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug publish conditions
+        run: |
+          echo "github.event_name: ${{ github.event_name }}"
+          echo "needs.filters.outputs.v5: ${{ needs.filters.outputs.v5 }}"
+          echo "github.ref: ${{ github.ref }}"
+          echo "github.ref == 'refs/heads/master': ${{ github.ref == 'refs/heads/master' }}"
+          echo "Overall condition would be: ${{ github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' }}"
+
   publish-v5-latest:
     if: ${{ github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && always() && github.ref == 'refs/heads/master' }}
     needs:
