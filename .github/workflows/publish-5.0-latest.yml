@@ -9,20 +9,29 @@ jobs:
     runs-on: ubuntu-latest
     name: Publish 5.0 Latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
       - name: Download 5.0 artifact
-        uses: actions/download-artifact@v4.1.7
+        uses: actions/download-artifact@v4.3.0
         with:
           name: ASVS 5.0.0
           path: ./asvs-5.0-latest
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "datetime=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_OUTPUT
       - name: Upload to 'latest' GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.3.2
         with:
           tag_name: latest
           name: OWASP Application Security Verification Standard (Bleeding Edge)
           body: |
-            This release will be automatically updated on an ongoing basis with the output files from the bleeding edge version of the ASVS, i.e. the latest version from the master branch.
+            This release is automatically updated with the latest changes from the master branch of the ASVS project.
             
-            Obviously this version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience.
+            **Generated on:** ${{ steps.timestamp.outputs.datetime }}
+            
+            This bleeding-edge version represents the most current state of the ASVS documentation and should be used for testing and preview purposes only. For production use, please refer to the stable releases.
+            
+            **Note:** This version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience and early access to the latest improvements.
           files: ./asvs-5.0-latest/**
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
