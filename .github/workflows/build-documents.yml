@@ -67,7 +67,7 @@ jobs:
           echo "Overall condition would be: ${{ github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' }}"
 
   publish-v5-latest:
-    if: ${{ github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' }}
+    if: ${{ always() && github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' && (needs.build-v5.result == 'success') }}
     needs:
       - build-v5
       - filters
