@@ -1,51 +1,51 @@
 [작업등록]
-# What is the ASVS?
+# ASVS란 무엇인가?
 
-The Application Security Verification Standard (ASVS) defines security requirements for web applications and services, and it is a valuable resource for anyone aiming to design, develop, and maintain secure applications or evaluate their security.
+애플리케이션 보안 검증 표준(Application Security Verification Standard; ASVS)은 웹 애플리케이션 및 서비스의 보안 요구사항을 정의하며, 보안 애플리케이션을 설계, 개발, 유지보수하거나 보안을 평가하는 모든 사람에게 유용한 자료이다.
 
-This chapter outlines the essential aspects of using the ASVS, including its scope, the structure of its priority-based levels, and the primary use cases for the standard.
+이 장은 ASVS 사용의 필수적인 측면을 다루며, 여기에는 범위, 우선순위 기반 레벨 구조, 표준의 주요 사용 사례가 포함된다.
 
-## Scope of the ASVS
+## ASVS의 범위
 
-The scope of the ASVS is defined by its name: Application, Security, Verification, and Standard. It establishes which requirements are included or excluded, with the overarching goal of identifying the security principles that must be achieved. The scope also considers documentation requirements, which serve as the foundation for implementation requirements.
+ASVS의 범위는 명칭인 애플리케이션, 보안, 검증, 표준에 의해 정의된다. 이는 궁극적으로 달성해야 하는 보안 원칙을 식별하는 목표를 가지고 포함되거나 제외되는 요구사항을 설정한다. 이 범위는 구현 요구사항의 토대 역할을 하는 문서화 요구사항 또한 고려한다.
 
-There is no such thing as scope for attackers. Therefore, ASVS requirements should be evaluated alongside guidance for other aspects of the application lifecycle, including CI/CD processes, hosting, and operational activities.
+공격자에게는 범위라는 개념이 존재하지 않는다. 따라서 ASVS 요구사항은 CI/CD 프로세스, 호스팅, 운영 활동을 포함한 애플리케이션 수명 주기의 다른 측면에 대한 지침과 함께 평가되어야 한다.
 
-### Application
+### 애플리케이션
 
-ASVS defines an "application" as the software product being developed, into which security controls must be integrated. ASVS does not prescribe development lifecycle activities or dictate how the application should be built via a CI/CD pipeline; instead, it specifies the security outcomes that must be achieved within the product itself.
+ASVS는 "애플리케이션"을 보안 제어 기능이 통합되어야 하는 개발 중인 소프트웨어 제품으로 정의한다. ASVS는 개발 수명 주기 활동을 규정하거나 CI/CD 파이프라인을 통해 애플리케이션이 구축되는 방식을 지시하지 않는다. 대신 제품 자체 내에서 달성해야 하는 보안 결과를 명시한다.
 
-Components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application for those specific purposes, as some security controls depend directly on them or can be implemented through them. These components should be considered for requirements related to cached responses, rate limiting, or restricting incoming and outgoing connections based on source and destination.
+웹 애플리케이션 방화벽(Web Application Firewall; WAF), 로드 밸런서 또는 프록시와 같이 HTTP 트래픽을 처리, 수정 또는 검증하는 컴포넌트는 일부 보안 제어 기능이 해당 컴포넌트에 직접 의존하거나 해당 컴포넌트를 통해 구현될 수 있으므로 특정 목적을 위해 애플리케이션의 일부로 간주될 수 있다. 이러한 컴포넌트는 캐시된 응답, 속도 제한 또는 원본과 대상에 기반한 인바운드 및 아웃바운드 연결 제한과 관련된 요구사항에 대해 고려되어야 한다.
 
-Conversely, ASVS generally excludes requirements that are not directly relevant to the application or where configuration is outside the application's responsibility. For example, DNS issues are typically managed by a separate team or function.
+반대로 ASVS는 애플리케이션과 직접 관련이 없거나 구성이 애플리케이션의 책임 범위를 벗어나는 요구사항을 일반적으로 제외한다. 예를 들어, DNS 문제는 일반적으로 별도의 팀 또는 기능에 의해 관리된다.
 
-Similarly, while the application is responsible for how it consumes input and produces output, if an external process interacts with the application or its data, it is considered out of scope for ASVS. For instance, backing up the application or its data is usually the responsibility of an external process and is not controlled by the application or its developers.
+마찬가지로, 애플리케이션이 입력을 소비하고 출력을 생성하는 방식에 대한 책임이 있지만, 외부 프로세스가 애플리케이션 또는 해당 데이터와 상호 작용하는 경우 ASVS의 범위를 벗어나는 것으로 간주된다. 예를 들어, 애플리케이션 또는 해당 데이터 백업은 일반적으로 외부 프로세스의 책임이며 애플리케이션 또는 개발자가 제어하지 않는다.
 
-### Security
+### 보안
 
-Every requirement must have a demonstrable impact on security. The absence of a requirement must result in a less secure application, and implementing the requirement must reduce either the likelihood or the impact of a security risk.
+모든 요구사항은 보안에 대해 입증 가능한 영향을 미쳐야 한다. 요구사항이 없으면 덜 안전한 애플리케이션이 될 수 있으며, 요구사항을 구현하면 보안 위험의 발생 가능성 또는 영향 중 하나를 줄여야 한다. 
 
-All other considerations, such as functional aspects, code style, or policy requirements, are out of scope.
+기능적 측면, 코드 스타일 또는 정책 요구사항과 같은 다른 모든 고려 사항은 범위에 포함되지 않는다.
 
-### Verification
+### 검증
 
-The requirement must be verifiable, and the verification must result in a "fail" or "pass" decision.
+해당 요구사항은 검증 가능해야 하며, 검증 결과는 "실패" 또는 "통과" 결정으로 이어져야 한다.
 
-### Standard
+### 표준
 
-The ASVS is designed to be a collection of security requirements to be implemented to comply with the standard. This means that requirements are limited to defining the security goal to achieve that. Other related information can be built on top of ASVS or linked via mappings.
+ASVS는 표준을 준수하기 위해 구현되어야 하는 보안 요구사항의 모음으로 설계되었다. 이는 요구사항이 해당 보안 목표를 달성하기 위한 보안 목표 정의에 국한된다는 의미이다. 다른 관련 정보는 ASVS 위에 구축되거나 매핑을 통해 연결될 수 있다
 
-Specifically, OWASP has many projects, and the ASVS deliberately avoids overlapping with the content in other projects. For example, developers may have a question, "how do I implement a particular requirement in my particular technology or environment," and this should be covered by the Cheat Sheet Series project. Verifiers may have a question "how do I test this requirement in this environment," and this should be covered by the Web Security Testing Guide project.
+특히 OWASP는 많은 프로젝트를 가지고 있으며, ASVS는 다른 프로젝트의 내용과 중복되는 것을 의도적으로 피한다. 예를 들어, 개발자는 "특정 기술 또는 환경에서 특정 요구사항을 어떻게 구현해야 하는가"라는 질문을 할 수 있으며, 이는 Cheat Sheet Series 프로젝트에서 다루어져야 한다. 검증자는 "이 환경에서 이 요구사항을 어떻게 테스트해야 하는가"라는 질문을 할 수 있으며, 이는 Web Security Testing Guide 프로젝트에서 다루어져야 한다.
 
-Whilst the ASVS is not just intended for security experts to use, it does expect the reader to have technical knowledge to understand the content or the ability to research particular concepts.
+ASVS는 보안 전문가만이 사용하도록 의도된 것은 아니지만, 독자가 내용을 이해하거나 특정 개념을 연구할 수 있는 기술적 지식을 갖출 것을 기대한다.
 
-### Requirement
+### 요구사항
 
-The word requirement is used specifically in the ASVS as it describes what must be achieved to satisfy it. The ASVS only contains requirements (must) and does not contain recommendations (should) as the main condition.
+"요구사항"이라는 단어는 ASVS에서 이를 충족하기 위해 무엇을 달성해야 하는지를 설명하므로 특별히 사용된다. ASVS는 주요 조건으로서 요구사항(must)만 포함하며 권고 사항(should)은 포함하지 않는다. 
 
-In other words, recommendations, whether they are just one of many possible options to solve a problem or code style considerations, do not satisfy the definition to be a requirement.
+다시 말해, 권고 사항은 문제를 해결하기 위한 여러 가능한 옵션 중 하나이거나 코드 스타일 고려 사항일지라도 요구사항의 정의를 충족하지 않는다. 
 
-ASVS requirements are intended to address specific security principles without being too implementation or technology-specific, at the same time, being self-explanatory as to why they exist. This also means that requirements are not built around a particular verification method or implementation.
+ASVS 요구사항은 구현이나 기술에 너무 구애받지 않으면서도 존재하는 이유를 자명하게 설명하면서 특정 보안 원칙을 다루도록 의도되었다. 이는 또한 요구사항이 특정 검증 방법이나 구현을 중심으로 구축되지 않음을 의미한다.
 
 ### Documented security decisions
 
