@@ -25,8 +25,6 @@ Bu büyük revizyon, birkaç temel ilke göz önünde bulundurularak geliştiril
 
 ## ASVS'nin Geleceği
 
-
-
 Bir uygulamanın güvenliğini sağlamak hiçbir zaman tam anlamıyla bitmeyeceği gibi, ASVS de bitmeyecektir. 5.0 sürümü büyük bir adım olsa da, geliştirme süreci devam etmektedir. Bu sürüm, topluluğun biriken geliştirmelerden ve eklemelerden faydalanmasını sağlamakla kalmaz, aynı zamanda gelecekteki iyileştirmeler için zemin hazırlar. Bunlar arasında topluluk tarafından oluşturulan uygulama ve doğrulama rehberlerinin temel gereksinim seti üzerine inşa edilmesi de olabilir.
 
-ASVS 5.0, güvenli yazılım geliştirme için güvenilir bir temel oluşturacak şekilde tasarlanmıştır. Topluluğu, bu standardı benimsemeye, katkıda bulunmaya ve üzerine inşa etmeye davet ediyoruz; böylece uygulama güvenliğinin seviyesini hep birlikte yükseltebiliriz.
+ASVS 5.0, güvenli yazılım geliştirme için güvenilir bir temel oluşturacak şekilde tasarlanmıştır. Topluluk, uygulama güvenliğinin durumunu kolektif olarak ilerletmek için bu standardı benimsemeye, katkıda bulunmaya ve üzerine inşa etmeye davet edilmektedir.

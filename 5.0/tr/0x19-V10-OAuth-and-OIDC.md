@@ -41,7 +41,7 @@ Bu bölümde geçen "token" terimi, aşağıdaki anlamlarda kullanılmıştır:
 Bu bölümdeki bazı gereksinimlerin risk seviyesi, istemcinin gizli istemci mi yoksa açık istemci mi olduğuna göre değişiklik gösterebilir. Güçlü istemci kimlik doğrulaması, birçok saldırı vektörünü etkisiz hale getirebildiği için, L1 uygulamalarında bazı gereksinimler gizli istemci kullanıldığında esnetilebilir.
 
 
-## V10.1 Generic OAuth and OIDC Security
+## V10.1 Genel OAuth ve OIDC Güvenliği
 
 Bu bölüm, OAuth veya OIDC kullanan tüm uygulamalara uygulanabilen genel mimari gereksinimleri kapsar.
 
@@ -62,7 +62,7 @@ Genel olarak backend istemciler gizli istemci olarak, frontend istemciler ise a�
 | **10.2.2** | OAuth istemcisi birden fazla AS ile etkileşime girebiliyorsa, mix-up saldırılarına karşı korumaya sahip olduğu doğrulanmalıdır. Örneğin, authorization server’ın 'iss' parametresini döndürmesi zorunlu kılınabilir ve bu parametrenin hem authorization yanıtında hem de token yanıtında doğrulanması gerekir. | 2 |
 | **10.2.3** | OAuth istemcisinin authorization server’a yaptığı taleplerde yalnızca gerekli scope’ları (veya diğer yetkilendirme parametrelerini) talep ettiği doğrulanmalıdır. | 3 |
 
-## V10.3 OAuth Resource Server
+## V10.3 OAuth Kaynak Sunucusu (RS)
 
 ASVS ve bu bölüm bağlamında resource server (RS) bir API’dir. Güvenli erişim sağlamak için RS şunları yapmalıdır:
 
@@ -74,10 +74,10 @@ Bu nedenle burada listelenen gereksinimler, OAuth veya OIDC’ye özeldir ve tok
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
 | **10.3.1** | RS'nin yalnızca bu servisle kullanılmak üzere tasarlanmış access token’ları kabul ettiği doğrulanmalıdır (audience kontrolü). Audience bilgisi yapılandırılmış token’larda (örneğin JWT içindeki ‘aud’ claim’i) yer alabilir veya token introspection endpoint aracılığıyla kontrol edilebilir. | 2 |
-| **10.3.2** | Verify that the resource server enforces authorization decisions based on claims from the access token that define delegated authorization. If claims such as 'sub', 'scope', and 'authorization_details' are present, they must be part of the decision. | 2 |
-| **10.3.3** | Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that cannot be reassigned to other users. Typically, it means using a combination of 'iss' and 'sub' claims. | 2 |
-| **10.3.4** | Verify that, if the resource server requires specific authentication strength, methods, or recentness, it verifies that the presented access token satisfies these constraints. For example, if present, using the OIDC 'acr', 'amr' and 'auth_time' claims respectively. | 2 |
-| **10.3.5** | Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 |
+| **10.3.2** | RS'nin, access token’dan gelen claim’lere dayanarak yetki devri tanımına uygun şekilde yetkilendirme kararları uyguladığı doğrulanmalıdır. ‘sub’, ‘scope’ ve ‘authorization_details’ gibi claim’ler varsa, bu kararın parçası olmalıdır. | 2 |
+| **10.3.3** | Erişim kontrolü kararında, access token’dan (JWT veya ilgili token introspection yanıtı) benzersiz bir kullanıcının tanımlanması gerekiyorsa, RS'nin başka kullanıcılara devredilemeyecek claim’ler ile kullanıcıyı tanımladığı doğrulanmalıdır. Genellikle bu, ‘iss’ ve ‘sub’ claim’lerinin birlikte kullanılması anlamına gelir. | 2 |
+| **10.3.4** | RS'nin belirli bir kimlik doğrulama gücü, yöntemi veya güncelliği (recentness) gerektirmesi durumunda, sunulan access token’ın bu kısıtlamaları karşıladığını doğruladığı, örneğin, OIDC ‘acr’, ‘amr’ ve ‘auth_time’ claim’leri kullanılarak doğrulanmalıdır.  | 2 |
+| **10.3.5** | RS'nin, (yetkisiz taraflarca) çalınmış veya tekrar edilen access token’ların kullanımını önlemek için sender-constrained access token’lar kullandığı doğrulanmalıdır. Bu, OAuth 2 için Mutual TLS veya OAuth 2 Demonstration of Proof of Possession (DPoP) ile sağlanabilir. | 3 |
 
 ## V10.4 OAuth Authorization Server
 

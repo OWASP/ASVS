@@ -6,8 +6,6 @@
 # 0x01-Frontispiece.md
 <span style="color:green">**Tamamlandı.**</span>
 
-Contributor tablosu güncellenecek.
-
 21.05.2025
 
 # 0x02-Preface.md
@@ -54,6 +52,27 @@ Contributor tablosu güncellenecek.
 <span style="color:green">**Tamamlandı.**</span>
 
 26.05.2025 21:51
+
+# 0x15-V6-Authentication.md
+<span style="color:green">**Tamamlandı.**</span>
+
+02.06.2025 00:15
+
+# 0x16-V7-Session-Management.md
+<span style="color:green">**Tamamlandı.**</span>
+
+02.06.2025 18:36
+
+# 0x17-V8-Authorization.md
+<span style="color:green">**Tamamlandı.**</span>
+
+# 0x18-V9-Self-contained-Tokens.md
+<span style="color:green">**Tamamlandı.**</span>
+
+# 0x19-V10-OAuth-and-OIDC.md
+<span style="color:green">**Devam ediyor.**</span>
+
+16.07.2025
 
 
 

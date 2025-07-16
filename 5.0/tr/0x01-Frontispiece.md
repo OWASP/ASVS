@@ -6,7 +6,7 @@ Uygulama Güvenliği Doğrulama Standardı, mimarlar, geliştiriciler, test uzma
 
 ## Telif Hakkı ve Lisans
 
-Versiyon 5.0 (En Son Versiyon), 2025
+Versiyon 5.0.0, Mayıs 2025
 
 ![license](../images/license.png)
 
@@ -30,16 +30,17 @@ Dokümanın yeniden kullanımı veya dağıtımı esnasında bu lisans göz ön�
 
 ## Diğer Önemli Katkıda Bulunanlar 
 
-|                 |                 |
-|---------------- |---------------- |
-| Sjoerd Langkemper | Isaac Lewis   |
+|                   |                   |
+|-------------------|-------------------|
+| Sjoerd Langkemper | Isaac Lewis       |
+| Mark Carney       | Sandro Gauci      |
 
 
 
 ## Diğer Katkıda Bulunanlar ve Değerlendirenler
 
-\<\<TABLE REMOVED PENDING AN UPDATE>>
+Diğer katkıda bulunanların bir listesini Ek E'ye ekledik.
 
-Eğer yukarıdaki 5.x katkıda bulunanlar listesinde eksik bir kişi varsa, gelecekteki 5.x güncellemelerinde eklenmesi için lütfen GitHub'da bir olay açın.  
+Eğer 5.x katkıda bulunanlar listesinde eksik bir kişi varsa, gelecekteki 5.x güncellemelerinde eklenmesi için lütfen GitHub'da bir olay açın.  
 
 Uygulama Güvenliği Doğrulama Standardı, 2008'de ASVS 1.0'dan 2019'da ASVS 4.0'a kadar katkıda bulunanların emeğiyle inşa edilmiştir. ASVS'nin bugünkü yapısının ve doğrulama maddelerinin çoğu, başlangıçta Andrew van der Stock, Mike Boberski, Jeff Williams ve/veya Dave Wichers tarafından yazılmış olsa da, katkıda bulunan çok daha fazla kişi bulunmaktadır. Daha önce katkıda bulunan herkese teşekkür ederiz. Önceki sürümlere katkıda bulunanların tam listesi için lütfen önceki ilgili sürümleri inceleyin.
