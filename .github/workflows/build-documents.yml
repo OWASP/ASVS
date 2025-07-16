@@ -15,8 +15,8 @@ jobs:
   filters:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.1.1
-    - uses: dorny/paths-filter@v3.0.0
+    - uses: actions/checkout@v4.2.2
+    - uses: dorny/paths-filter@v3.0.2
       id: filter
       with:
         filters: |
@@ -49,22 +49,6 @@ jobs:
       - build-image
       - filters
     uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
-
-  debug-publish-conditions:
-    if: ${{ always() }}
-    needs: 
-      - build-v5
-      - filters
-    runs-on: ubuntu-latest
-    steps:
-      - name: Debug publish conditions
-        run: |
-          echo "github.event_name: ${{ github.event_name }}"
-          echo "needs.filters.outputs.v5: ${{ needs.filters.outputs.v5 }}"
-          echo "github.ref: ${{ github.ref }}"
-          echo "github.ref == 'refs/heads/master': ${{ github.ref == 'refs/heads/master' }}"
-          echo "build-v5 result: ${{ needs.build-v5.result }}"
-          echo "Overall condition would be: ${{ github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' }}"
 
   publish-v5-latest:
     if: ${{ always() && github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' && (needs.build-v5.result == 'success') }}
