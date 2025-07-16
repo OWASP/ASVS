@@ -1,90 +1,90 @@
-# Changes Compared to v4.x
+# v4.x 대비 변경 사항
 
-## Introduction
+## 소개
 
-Users familiar with version 4.x of the standard may find it helpful to review the key changes introduced in version 5.0, including updates in content, scope, and underlying philosophy.
+표준 버전 4.x에 익숙한 사용자는 버전 5.0에서 도입된 주요 변경 사항을 검토하면 도움이 된다. 이에는 내용, 범위, 기본 철학의 변경이 포함된다.
 
-Of the 286 requirements in version 4.0.3, only 11 remain unchanged, while 15 have undergone minor grammatical adjustments without altering their meaning. In total 109 requirements (38%) are no longer separate requirements in version 5.0 with 50 simply being deleted, 28 removed as duplicates and 31 merged into other requirements. The rest have been revised in some way. Even requirements that were not substantively modified have different identifiers due to reordering or restructuring.
+버전 4.0.3의 286개 요구사항 중 변경되지 않은 것은 11개에 불과하며, 15개는 의미를 바꾸지 않는 범위에서 문법적으로 소폭 조정되었다. 총 109개(38%)의 요구사항은 더 이상 버전 5.0에서 별도의 요구사항으로 존재하지 않으며, 이 중 50개는 단순히 삭제되었고, 28개는 중복으로 제거되었으며, 31개는 다른 요구사항에 병합되었다. 나머지 요구사항들은 어떤 형태로든 수정되었다. 실질적인 수정이 이루어지지 않은 요구사항조차도 재배열이나 구조 변경으로 인해 식별자가 달라졌다.
 
-To facilitate adoption of version 5.0, mapping documents are provided to help users trace how requirements from version 4.x correspond to those in version 5.0. These mappings are not tied to release versioning and may be updated or clarified as needed.
+버전 5.0의 원활한 채택을 위해, 버전 4.x의 요구사항이 버전 5.0의 어떤 요구사항에 대응되는지 사용자가 확인할 수 있도록 매핑 문서를 제공한다. 이러한 매핑 문서는 릴리스 버전과 연동되지 않으며, 필요에 따라 업데이트되거나 보완될 수 있다.
 
-## Requirement Philosophy
+## 요구사항 철학
 
-### Scope and Focus
+### 범위와 중점
 
-Version 4.x included requirements that did not align with the intended scope of the standard; these have been removed. Requirements that did not meet the scope criteria for 5.0 or were not verifiable have also been excluded.
+버전 4.x에는 표준에서 정의한 범위와 맞지 않는 요구사항이 포함되어 있었으며, 이는 제거되었다. 5.0의 범위 기준에 부합하지 않거나 검증이 불가능한 요구사항 또한 제외되었다.
 
-### Emphasis on Security Goals Over Mechanisms
+### 보안 메커니즘보다 보안 목표에 중점
 
-In version 4.x, many requirements focused on specific mechanisms rather than the underlying security objectives. In version 5.0, requirements are centered on security goals, referencing particular mechanisms only when they are the sole practical solution, or providing them as examples or supplementary guidance.
+버전 4.x에서는 많은 요구사항이 근본적인 보안 목표보다 특정 메커니즘에 집중되어 있었다. 버전 5.0에서는 요구사항이 보안 목표에 중심을 두며, 특정 메커니즘은 유일한 실질적 해결책인 경우에만 참조하거나 예시 또는 보충 안내로 제공한다.
 
-This approach recognizes that multiple methods may exist to achieve a given security objective, and avoids unnecessary prescriptiveness that could limit organizational flexibility.
+이 접근법은 주어진 보안 목표를 달성하기 위해 여러 방법이 존재할 수 있음을 인정하며, 조직의 유연성을 제한할 수 있는 불필요한 규제를 지양한다. 
 
-Additionally, requirements addressing the same security concern have been consolidated where appropriate.
+또한, 동일한 보안 문제를 다루는 요구사항은 적절한 경우 통합되었다.
 
-### Documented Security Decisions
+### 문서화된 보안 결정 
 
-While the concept of documented security decisions may appear new in version 5.0, it is an evolution of earlier requirements related to policy application and threat modeling in version 4.0. Previously, some requirements implicitly demanded analysis to inform the implementation of security controls, such as determining permitted network connections.
+문서화된 보안 결정이라는 개념은 버전 5.0에서 새롭게 등장한 것처럼 보이나, 이는 버전 4.0의 정책 적용과 위협 모델링 관련 요구사항의 진화된 형태이다. 이전에는 일부 요구사항이 허용된 네트워크 연결을 결정하는 등 보안 통제 구현을 위한 분석을 암묵적으로 요구하였다.
 
-To ensure that necessary information is available for implementation and verification, these expectations are now explicitly defined as documentation requirements, making them clear, actionable, and verifiable.
+구현과 검증에 필요한 정보가 확보되도록, 이러한 기대사항을 분명하고 실행 가능하며 검증 가능한 문서화 요구사항으로 명확히 정의한다. 
 
-## Structural Changes and New Chapters
+## 구조적 변화 및 신규 장 
 
-Several chapters in version 5.0 introduce entirely new content:
+버전 5.0에서는 여러 장에서 완전히 새로운 내용을 도입하였다:
 
-* OAuth and OIDC – Given the widespread adoption of these protocols for access delegation and single sign-on, dedicated requirements have been added to address the diverse scenarios developers may encounter. This area may eventually evolve into a standalone standard, similar to the treatment of Mobile and IoT requirements in previous versions.
-* WebRTC – As this technology gains popularity, its unique security considerations and challenges are now addressed in a dedicated section.
+* OAuth 및 OIDC – 접근 위임 및 싱글 사인온(single sign-on; SSO)을 위한 이러한 프로토콜의 광범위한 채택을 고려하여, 개발자가 직면할 수 있는 다양한 시나리오를 다루기 위한 전용 요구사항이 추가되었다. 이 영역은 이전 버전에서 모바일 및 IoT 요구사항을 별도로 분리했던 것처럼, 궁극적으로 독립적인 표준으로 발전할 수 있다. 
+* WebRTC – 이 기술의 보급이 확산됨에 따라, 고유한 보안 고려사항과 과제들을 별도의 섹션에서 다루고 있다.
 
-Efforts have also been made to ensure that chapters and sections are organized around coherent sets of related requirements.
+또한, 관련된 요구사항들을 논리적으로 묶어 장과 섹션을 구성하도록 개선하였다.
 
-This restructuring has led to the creation of additional chapters:
+이러한 구조 개편으로 인해 다음과 같은 신규 장이 추가되었다:
 
-* Self-contained Tokens – Formerly grouped under session management, self-contained tokens are now recognized as a distinct mechanism and a foundational element for stateless communication (such as in OAuth and OIDC). Due to their unique security implications, they are addressed in a dedicated chapter, with some new requirements introduced in version 5.x.
-* Web Frontend Security – With the increasing complexity of browser-based applications and the rise of API-only architectures, frontend security requirements have been separated into their own chapter.
-* Secure Coding and Architecture – New requirements addressing general security practices that did not fit within existing chapters have been grouped here.
+* 자체 포함 토큰 – 기존에는 세션 관리 항목에 포함되었으나, 이제는 독립적인 메커니즘이자 OAuth 및 OIDC와 같은 무상태 통신의 기반 요소로 인식되어 별도의 장에서 다뤄진다. 고유한 보안 특성을 고려하여 전용 요구사항이 추가되었으며, 버전 5.x에서 일부 신규 요구사항이 도입되었다. 
+* 웹 프론트엔드 보안 – 브라우저 기반 애플리케이션의 복잡성이 증가하고 API 중심 아키텍처가 확산됨에 따라, 프론트엔드 보안 요구사항을 별도의 장으로 분리하였다.
+* 시큐어 코딩 및 아키텍처 – 기존 장에 포함되지 않았던 일반적인 보안 관행에 대한 신규 요구사항을 이 장에 통합하였다. 
 
-Other organizational changes in version 5.0 were made to clarify intent. For example, input validation requirements were moved alongside business logic, reflecting their role in enforcing business rules, rather than being grouped with sanitization and encoding.
+버전 5.0의 기타 구성 변경은 목적의 명확화를 위한 것이다. 예를 들어, 입력 검증 요구사항은 정제 및 인코딩 항목과의 연관성보다는 비즈니스 규칙을 강제하는 역할에 초점을 맞추어 비즈니스 로직과 함께 배치되었다.
 
-The former V1 Architecture chapter has been removed. Its initial section contained requirements that were out of scope, while subsequent sections have been redistributed to relevant chapters, with requirements deduplicated and clarified as necessary.
+기존 V1 아키텍처 장은 삭제되었다. 서두에는 범위에서 벗어난 요구사항이 포함되어 있었고, 이후 섹션들은 관련 장으로 재배치되었으며, 요구사항은 중복 제거 및 명확화 작업이 이루어졌다.
 
-## Removal of Direct Mappings to Other Standards
+## 외부 표준과의 직접 매핑 제거
 
-Direct mappings to other standards have been removed from the main body of the standard. The aim is to prepare a mapping with the OWASP Common Requirement Enumeration (CRE) project, which in turn will link ASVS to a range of OWASP projects and external standards.
+표준 본문에서는 외부 표준과의 직접 매핑이 제거되었다. 이는 OWASP Common Requirement Enumeration (CRE) 프로젝트와의 매핑을 준비하기 위한 것으로, 이를 통해 ASVS를 다양한 OWASP 프로젝트 및 외부 표준과 연결할 수 있도록 한다.
 
-Direct mappings to CWE and NIST are no longer maintained, as explained below.
+아래에서 설명하는 바와 같이, CWE와 NIST에 대한 직접 매핑은 더 이상 유지되지 않는다.
 
-### Reduced Coupling with NIST Digital Identity Guidelines
+### NIST 디지털 신원 지침과의 결합도 감소
 
-The NIST [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) have long served as a reference for authentication and authorization controls. In version 4.x, certain chapters were closely aligned with NIST's structure and terminology.
+NIST [디지털 신원 지침(SP 800-63)](https://pages.nist.gov/800-63-3/)은 오랫동안 인증 및 권한 부여 제어의 참고 자료로 활용되어 왔다. 버전 4.x에서는 일부 장이 NIST의 구조와 용어에 밀접하게 정렬되어 있었다. 
 
-While these guidelines remain an important reference, strict alignment introduced challenges, including less widely recognized terminology, duplication of similar requirements, and incomplete mappings. Version 5.0 moves away from this approach to improve clarity and relevance.
+이러한 지침은 여전히 중요한 참고 자료이지만, 지나치게 엄격한 정렬은 널리 통용되지 않는 용어 사용, 유사 요구사항의 중복, 불완전한 매핑과 같은 문제를 초래하였다. 버전 5.0에서는 명확성과 실효성을 높이기 위해 이러한 접근 방식을 지양한다. 
 
-### Moving Away from Common Weakness Enumeration (CWE)
+### CWE(Common Weakness Enumeration)와의 결합도 감소
 
-The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) provides a useful taxonomy of software security weaknesses. However, challenges such as category-only CWEs, difficulties in mapping requirements to a single CWE, and the presence of imprecise mappings in version 4.x have led to the decision to discontinue direct CWE mappings in version 5.0.
+[CWE(Common Weakness Enumeration)](https://cwe.mitre.org/)은 소프트웨어 보안 약점에 대한 유용한 분류 체계를 제공한다. 그러나 카테고리 전용 CWE, 단일 CWE에 대한 매핑의 어려움, 버전 4.x의 부정확한 매핑 등 여러 문제로 인해, 버전 5.0에서는 CWE와의 직접 매핑을 중단하기로 결정하였다. 
 
-## Rethinking Level Definitions
+## 보안 수준 정의 재검토
 
-Version 4.x described the levels as L1 ("Minimum"), L2 ("Standard"), and L3 ("Advanced"), with the implication that all applications handling sensitive data should meet at least L2.
+버전 4.x에서는 L1("최소"), L2("표준"), L3("고급")으로 수준을 정의하고, 민감한 데이터를 처리하는 모든 애플리케이션은 최소한 L2를 충족해야 한다고 간주하였다. 
 
-Version 5.0 addresses several issues with this approach which are described in the following paragraphs.
+버전 5.0에서는 다음과 같은 단락에서 설명되는 여러 문제점을 해결하였다. 
 
-As a practical matter, whereas version 4.x used tick marks for level indicators, 5.x uses a simple number on all formats of the standard including markdown, PDF, DOCX, CSV, JSON and XML. For backwards compatibility, legacy versions of the CSV, JSON and XML outputs which still use tick marks are also generated.
+실무적으로는, 버전 4.x에서 수준 표시로 사용되던 체크 마크 대신, 버전 5.x에서는 markdown, PDF, DOCX, CSV, JSON, XML 등 모든 형식에서 단순 숫자 표기를 사용한다. 하위 호환성을 위해, 기존 체크 마크 형식을 유지하는 CSV, JSON, XML 출력물도 함께 제공된다. 
 
-### Easier Entry Level
+### 진입 장벽 완화
 
-Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier by defining Level 1 primarily around first-layer defense requirements, resulting in clearer and fewer requirements at that level. To demonstrate this numerically, in v4.0.3 there were 128 L1 requirements out of a total of 278 requirements, representing 46%. In 5.0.0 there are 70 L1 requirements out of a total of 345 requirements, representing 20%.
+레벨 1이 "최소 수준"으로 간주되면서도 대부분의 애플리케이션에 충분하지 않다는 인식, 그리고 약 120개의 요구사항이 포함된다는 점이 채택을 저해한다는 피드백이 있었다. 버전 5.0에서는 L1을 주로 1차 방어 계층 요구사항 중심으로 정의함으로써, 보다 명확하고 간결한 요구사항으로 진입 장벽을 낮추고자 하였다. 수치적으로는, v4.0.3에서는 전체 278개 중 128개가 L1로, 46%를 차지했으며, 5.0.0에서는 전체 345개 중 70개로, 20%에 해당한다. 
 
-### The Fallacy of Testability
+### 테스트 가능성의 오류
 
-A key factor in selecting controls for Level 1 in version 4.x was their suitability for assessment through "black box" external penetration testing. However, this approach was not fully aligned with the intent of Level 1 as the minimum set of security controls. Some users argued that Level 1 was insufficient for securing applications, while others found it too difficult to test.
+버전 4.x에서 레벨 1 요구사항을 선정하는 주요 기준은 외부 블랙박스 침투 테스트를 통한 평가 가능성이었다. 그러나 이러한 접근은 L1을 최소 보안 통제 집합으로 정의한 본래 목적과 완전히 부합하지 않았다. 일부 사용자는 L1이 보안을 보장하기에 부족하다고 보았고, 다른 사용자들은 테스트가 너무 어렵다고 평가하였다. 
 
-Relying on testability as a criterion is both relative and, at times, misleading. The fact that a requirement is testable does not guarantee that it can be tested in an automated or straightforward manner. Moreover, the most easily testable requirements are not always those with the greatest security impact or the simplest to implement.
+테스트 가능성을 기준으로 삼는 것은 상대적일 뿐만 아니라 때로는 오해를 불러일으킨다. 요구사항이 테스트 가능하다는 사실이 자동화되거나 간단한 방식으로 테스트할 수 있음을 보장하지는 않는다. 더 나아가, 가장 쉽게 테스트할 수 있는 요구사항이 반드시 가장 큰 보안 효과를 가지거나 가장 구현이 용이한 요구사항인 것도 아니다.
 
-As such, in version 5.0, the level decisions were made primarily based on risk reduction and also keeping in mind the effort to implement.
+따라서 버전 5.0에서는 수준 결정 시 위험 감소 효과를 우선적으로 고려하되, 구현에 필요한 노력도 함께 고려하였다. 
 
-### Not Just About Risk
+### 위험 기반에만 의존하지 않는 접근
 
-The use of prescriptive, risk-based levels that mandate a specific level for certain applications has proven to be overly rigid. In practice, the prioritization and implementation of security controls depend on multiple factors, including both risk reduction and the effort required for implementation.
+특정 애플리케이션에 대해 정해진 수준을 요구하는 위험 기반 접근은 지나치게 경직된 것으로 드러났다. 실제로 보안 통제의 우선순위 결정 및 구현은 위험 감소 효과뿐 아니라 구현 난이도 등 다양한 요소에 따라 달라진다.
 
-Therefore, organizations are encouraged to achieve the level that they feel like they should be achieving based on their maturity and the message they want to send to their users.
+따라서 조직은 자신의 성숙도와 사용자에게 전달하려는 메시지에 따라 적절하다고 판단되는 수준을 달성하는 것이 권장된다.
