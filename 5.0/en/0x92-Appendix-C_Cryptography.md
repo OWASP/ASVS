@@ -131,7 +131,7 @@ The application should preferably use an approved AEAD scheme. It might alternat
 
 MAC-then-encrypt is still allowed for compatibility with legacy applications. It is used in TLS v1.2 with old ciphers suites.
 
-| AEAD mechanism | Reference | Status
+| AEAD mechanism | Reference | Status |
 |--------------------------|---------|-----|
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |

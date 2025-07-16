@@ -19,32 +19,27 @@ jobs:
       - name: Generate timestamp
         id: timestamp
         run: echo "datetime=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_OUTPUT
-      - name: Generate temporary tag name
-        id: temp_tag
-        run: echo "tag=latest-temp-$(date +%s)" >> $GITHUB_OUTPUT
-      - name: Create temporary release
-        uses: softprops/action-gh-release@v2.3.2
-        with:
-          tag_name: ${{ steps.temp_tag.outputs.tag }}
-          name: OWASP Application Security Verification Standard (Bleeding Edge)
-          body: |
-            This release is automatically recreated with the latest changes from the master branch of the ASVS project.
-            
-            **Generated on:** ${{ steps.timestamp.outputs.datetime }}
-            
-            This bleeding-edge version represents the most current state of the ASVS documentation and should be used for testing and preview purposes only. For production use, please refer to the stable releases.
-            
-            **Note:** This version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience and early access to the latest improvements.
-          files: ./asvs-5.0-latest/**
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Delete existing 'latest' release
         run: |
           gh release delete latest --yes || echo "No existing 'latest' release to delete"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update release to use 'latest' tag
+      - name: Delete existing 'latest' tag
         run: |
-          gh release edit ${{ steps.temp_tag.outputs.tag }} --tag latest
+          git push origin :refs/tags/latest || echo "No existing 'latest' tag to delete"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create fresh 'latest' release
+        run: |
+          gh release create latest \
+            --title "OWASP Application Security Verification Standard (Bleeding Edge)" \
+            --notes "This release is automatically recreated with the latest changes from the master branch of the ASVS project.
+
+          **Generated on:** ${{ steps.timestamp.outputs.datetime }}
+
+          This bleeding-edge version represents the most current state of the ASVS documentation and should be used for testing and preview purposes only. For production use, please refer to the stable releases.
+
+          **Note:** This version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience and early access to the latest improvements." \
+            ./asvs-5.0-latest/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
