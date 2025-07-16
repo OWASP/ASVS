@@ -7,6 +7,7 @@ on:
 jobs:
   publish-5-0-latest:
     runs-on: ubuntu-latest
+    name: Publish 5.0 Latest
     steps:
       - name: Download 5.0 artifact
         uses: actions/download-artifact@v4.1.7
