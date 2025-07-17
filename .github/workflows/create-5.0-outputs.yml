@@ -7,19 +7,24 @@ on:
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
 
+# Updated versions:
+# docker/login-action@v3.4.0
+# actions/checkout@v4.2.2
+# actions/upload-artifact@v4.4.3
+
 jobs:
   prepare_outputs:
     runs-on: ubuntu-latest
     name: Generate 5.0 outputs
     steps:
-      - uses: docker/login-action@v3.4.0
+      - uses: docker/login-action@v3.0.0
         with: 
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v4.1.1
       - run: make 5.0
-      - uses: actions/upload-artifact@v4.4.3
+      - uses: actions/upload-artifact@v4.3.0
         with:
           name: ASVS 5.0.0
           path: 5.0/dist/en/
