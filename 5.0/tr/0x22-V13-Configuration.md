@@ -51,23 +51,19 @@ Gizli bilgilerin (secret) yönetimi, uygulama tarafından kullanılan verilerin 
 
 Örneğin, sunucu taraflı bileşenlerin sürüm bilgisini gizlemek, tüm bileşenlerin yamanması ihtiyacını ortadan kaldırmaz; dizin listelemeyi devre dışı bırakmak, yetkilendirme kontrolleri ihtiyacını ya da dosyaların herkese açık klasörden uzak tutulması gerekliliğini ortadan kaldırmaz. Ancak bunlar, saldırıların başarıya ulaşma olasılığını azaltır.
 
-
-Production configurations should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as significant risks but are often chained with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application.
-
-For example, hiding the version of server-side components does not eliminate the need to patch all components, and disabling folder listing does not remove the need to use authorization controls or keep files away from the public folder, but it raises the bar.
-
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **13.4.1** | Verify that the application is deployed either without any source control metadata, including the .git or .svn folders, or in a way that these folders are inaccessible both externally and to the application itself. | 1 |
-| **13.4.2** | Verify that debug modes are disabled for all components in production environments to prevent exposure of debugging features and information leakage. | 2 |
-| **13.4.3** | Verify that web servers do not expose directory listings to clients unless explicitly intended. | 2 |
-| **13.4.4** | Verify that using the HTTP TRACE method is not supported in production environments, to avoid potential information leakage. | 2 |
-| **13.4.5** | Verify that documentation (such as for internal APIs) and monitoring endpoints are not exposed unless explicitly intended. | 2 |
-| **13.4.6** | Verify that the application does not expose detailed version information of backend components. | 3 |
-| **13.4.7** | Verify that the web tier is configured to only serve files with specific file extensions to prevent unintentional information, configuration, and source code leakage. | 3 |
+| **13.4.1** | Uygulamanın .git veya .svn klasörleri gibi kaynak kontrolüyle ilgili metadata içermeyecek şekilde deploy edildiğini ya da bu klasörlerin hem dış erişime hem de uygulama erişimine kapalı olduğu doğrulanmalıdır. | 1 |
+| **13.4.2** | Tüm bileşenler için üretim ortamlarında hata ayıklama (debug) modlarının devre dışı bırakıldığı doğrulanmalıdır. | 2 |
+| **13.4.3** | Web sunucularının, açık şekilde istenmediği sürece dizin listelemesi (directory listing) özelliğini istemcilere sunmadığı doğrulanmalıdır. | 2 |
+| **13.4.4** | HTTP TRACE metodunun üretim ortamlarında desteklenmediği, böylece potansiyel bilgi sızıntılarının önlendiği doğrulanmalıdır. | 2 |
+| **13.4.5** | Belgeler (örneğin dahili API belgeleri) ve izleme uç noktalarının (monitoring endpoints) yalnızca açıkça belirtildiği durumlarda erişilebilir olduğu doğrulanmalıdır. | 2 |
+| **13.4.6** | Uygulamanın arka uç bileşenlerinin ayrıntılı sürüm bilgilerini ifşa etmediği doğrulanmalıdır. | 3 |
+| **13.4.7** | Web katmanının yalnızca belirli dosya uzantılarına sahip dosyaları sunacak şekilde yapılandırıldığı, bu sayede istem dışı bilgi, yapılandırma ya da kaynak kod sızıntılarının önlendiği doğrulanmalıdır. | 3 |
 
-## References
 
-For more information, see also:
+## Referanslar
+
+Daha fazla bilgi için:
 
 * [OWASP Web Security Testing Guide: Configuration and Deployment Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing)
