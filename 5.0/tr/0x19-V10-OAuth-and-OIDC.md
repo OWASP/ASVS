@@ -79,74 +79,74 @@ Bu nedenle burada listelenen gereksinimler, OAuth veya OIDC’ye özeldir ve tok
 | **10.3.4** | RS'nin belirli bir kimlik doğrulama gücü, yöntemi veya güncelliği (recentness) gerektirmesi durumunda, sunulan access token’ın bu kısıtlamaları karşıladığını doğruladığı, örneğin, OIDC ‘acr’, ‘amr’ ve ‘auth_time’ claim’leri kullanılarak doğrulanmalıdır.  | 2 |
 | **10.3.5** | RS'nin, (yetkisiz taraflarca) çalınmış veya tekrar edilen access token’ların kullanımını önlemek için sender-constrained access token’lar kullandığı doğrulanmalıdır. Bu, OAuth 2 için Mutual TLS veya OAuth 2 Demonstration of Proof of Possession (DPoP) ile sağlanabilir. | 3 |
 
-## V10.4 OAuth Authorization Server
+## V10.4 OAuth Yetkilendirme Sunucusu (AS)
 
-These requirements detail the responsibilities for OAuth authorization servers, including OpenID Providers.
+Bu gereksinimler, OAuth authorization server'ların (yetkilendirme sunucuları) ve OpenID Provider'ların sorumluluklarını detaylandırır.
 
-For client authentication, the 'self_signed_tls_client_auth' method is allowed with the prerequisites required by [section 2.2](https://datatracker.ietf.org/doc/html/rfc8705#name-self-signed-certificate-mut) of [RFC 8705](https://datatracker.ietf.org/doc/html/rfc8705).
+İstemci kimlik doğrulaması için 'self_signed_tls_client_auth' yöntemi, [RFC 8705](https://datatracker.ietf.org/doc/html/rfc8705) [böüm 2.2'de](https://datatracker.ietf.org/doc/html/rfc8705#name-self-signed-certificate-mut) belirtilen ön koşullarla birlikte kullanılabilir.
 
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **10.4.1** | Verify that the authorization server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | 1 |
-| **10.4.2** | Verify that, if the authorization server returns the authorization code in the authorization response, it can be used only once for a token request. For the second valid request with an authorization code that has already been used to issue an access token, the authorization server must reject a token request and revoke any issued tokens related to the authorization code. | 1 |
-| **10.4.3** | Verify that the authorization code is short-lived. The maximum lifetime can be up to 10 minutes for L1 and L2 applications and up to 1 minute for L3 applications. | 1 |
-| **10.4.4** | Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) must no longer be used. | 1 |
-| **10.4.5** | Verify that the authorization server mitigates refresh token replay attacks for public clients, preferably using sender-constrained refresh tokens, i.e., Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens using mutual TLS (mTLS). For L1 and L2 applications, refresh token rotation may be used. If refresh token rotation is used, the authorization server must invalidate the refresh token after usage, and revoke all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | 1 |
-| **10.4.6** | Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring proof key for code exchange (PKCE). For authorization requests, the authorization server must require a valid 'code_challenge' value and must not accept a 'code_challenge_method' value of 'plain'. For a token request, it must require validation of the 'code_verifier' parameter. | 2 |
-| **10.4.7** | Verify that if the authorization server supports unauthenticated dynamic client registration, it mitigates the risk of malicious client applications. It must validate client metadata such as any registered URIs, ensure the user's consent, and warn the user before processing an authorization request with an untrusted client application. | 2 |
-| **10.4.8** | Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | 2 |
-| **10.4.9** | Verify that refresh tokens and reference access tokens can be revoked by an authorized user using the authorization server user interface, to mitigate the risk of malicious clients or stolen tokens. | 2 |
-| **10.4.10** | Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, pushed authorization requests (PAR), and token revocation requests. | 2 |
-| **10.4.11** | Verify that the authorization server configuration only assigns the required scopes to the OAuth client. | 2 |
-| **10.4.12** | Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. For example, by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 |
-| **10.4.13** | Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | 3 |
-| **10.4.14** | Verify that the authorization server issues only sender-constrained (Proof-of-Possession) access tokens, either with certificate-bound access tokens using mutual TLS (mTLS) or DPoP-bound access tokens (Demonstration of Proof of Possession). | 3 |
-| **10.4.15** | Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example, by requiring the usage of pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 |
-| **10.4.16** | Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), such as mutual TLS ('tls_client_auth', 'self_signed_tls_client_auth') or private key JWT ('private_key_jwt'). | 3 |
+| **10.4.1** | AS'nin, istemciye özel önceden kaydedilmiş URI’lerden oluşan bir allowlist kullanarak redirect URI’leri tam dize karşılaştırması ile doğruladığı doğrulanmalıdır. | 1 |
+| **10.4.2** | AS'nin, "authorization response" içinde "authorization code" döndürdüğü durumlarda, bu kodun yalnızca bir kez kullanılabildiği doğrulanmalıdır. Daha önce access token vermek için kullanılmış bir authorization code ile yapılan ikinci geçerli token isteği reddedilmeli ve ilgili tüm token’lar iptal edilmelidir. | 1 |
+| **10.4.3** | Authorization code’un kısa ömürlü olduğu doğrulanmalıdır. L1 ve L2 uygulamalar için maksimum yaşam süresi 10 dakika, L3 uygulamalar için 1 dakikadır. | 1 |
+| **10.4.4** | Belirli bir istemci için AS'nin yalnızca o istemcinin ihtiyaç duyduğu grant türlerine izin verdiği doğrulanmalıdır. "Token" (Implicit flow) ve "password" (Resource Owner Password Credentials flow) grant türlerinin artık kullanılmaması gerekir. | 1 |
+| **10.4.5** | AS'nin, açık istemciler için refresh token replay saldırılarını azalttığı doğrulanmalıdır. Tercihen sender-constrained refresh token’lar (DPoP veya mutual TLS ile certificate-bound access token’lar) kullanılmalıdır. L1 ve L2 uygulamalar için refresh token rotation kullanılabilir. Rotation kullanılıyorsa, AS refresh token’ı kullanım sonrası geçersiz kılmalı ve geçersiz bir refresh token sunulması durumunda o yetkilendirme ile ilişkili tüm refresh token’ları iptal etmelidir. | 1 |
+| **10.4.6** | Code grant kullanılıyorsa, AS'nin authorization code interception saldırılarına karşı koruma sağladığı doğrulanmalıdır. Yetkilendirme isteğinde geçerli bir "code_challenge" değeri zorunlu olmalı ve "code_challenge_method" olarak "plain" kabul edilmemelidir. Token isteğinde ise "code_verifier" parametresi doğrulanmalıdır. | 2 |
+| **10.4.7** | AS'nin, kimlik doğrulaması yapılmamış dinamik istemci kaydını desteklemesi durumunda, kötü niyetli istemci uygulamalarına karşı riskleri azalttığı doğrulanmalıdır. Kayıtlı URI’ler gibi client metadata’sı doğrulanmalı, kullanıcı onayı alınmalı ve güvenilmeyen bir client uygulamasıyla yapılan yetkilendirme isteği işlenmeden önce kullanıcı uyarılmalıdır. | 2 |
+| **10.4.8** | Refresh token’ların, sliding expiration kullanılsa bile mutlak bir sona erme süresine sahip olduğu doğrulanmalıdır. | 2 |
+| **10.4.9** | Yetkili bir kullanıcı tarafından AS kullanıcı arayüzü üzerinden refresh token’ların ve reference access token’ların iptal edilebildiği doğrulanmalıdır. | 2 |
+| **10.4.10** | Gizli istemcilerin token istekleri, pushed authorization request (PAR) ve token iptal istekleri gibi server’a yapılan backchannel isteklerinde kimliğinin kontrol edildiği doğrulanmalıdır. | 2 |
+| **10.4.11** | AS yapılandırmasının, OAuth istemcisine yalnızca gerekli scope’ları atadığı doğrulanmalıdır. | 2 |
+| **10.4.12** | Belirli bir client için, authorization server’ın yalnızca client’ın ihtiyaç duyduğu 'response_mode' değerine izin verdiği doğrulanmalıdır. Örneğin, bu değer ya beklenenlerle karşılaştırılarak doğrulanmalı ya da PAR veya JAR kullanılmalıdır. | 3 |
+| **10.4.13** | "Code" grant türünün daima pushed authorization request (PAR) ile birlikte kullanıldığı doğrulanmalıdır. | 3 |
+| **10.4.14** | AS'nin yalnızca sender-constrained (Proof-of-Possession) access token’lar ürettiği doğrulanmalıdır. Bu, mutual TLS ile certificate-bound access token ya da DPoP ile DPoP-bound access token olabilir. | 3 |
+| **10.4.15** | Sunucu taraflı istemciler için (kullanıcı cihazında çalışmayan), AS'nin "authorization_details" parametresinin istemci backend'i tarafından sağlandığını ve kullanıcı tarafından değiştirilmediğini doğruladığı, örneğin pushed authorization request (PAR) or JWT-secured Authorization Request (JAR) zorunlu kılınarak doğrulanmalıdır. | 3 |
+| **10.4.16** | Bir istemci gizli ise, AS'nin güçlü istemci kimlik doğrulama yöntemlerini zorunlu kıldığı doğrulanmalıdır. Bu yöntemler, public-key cryptography’ye dayalı ve replay saldırılarına karşı dayanıklı olmalı, örneğin mutual TLS ("tls_client_auth", "self_signed_tls_client_auth") veya private key JWT ("private_key_jwt") gibi.	| 3 |
 
-## V10.5 OIDC Client
+## V10.5 OIDC İstemcisi
 
-As the OIDC relying party acts as an OAuth client, the requirements from the section "OAuth Client" apply as well.
+"OIDC relying party", bir OAuth istemcisi olarak davrandığı için "OAuth İstemcisi" bölümündeki gereksinimler burada da geçerlidir.
 
-Note that the "Authentication with an Identity Provider" section in the "Authentication" chapter also contains relevant general requirements.
+“Kimlik Doğrulama” başlığındaki “Kimlik Sağlayıcısı ile Kimlik Doğrulama” bölümü de ilgili genel gereksinimleri içerir.
 
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **10.5.1** | Verify that the client (as the relying party) mitigates ID Token replay attacks. For example, by ensuring that the 'nonce' claim in the ID Token matches the 'nonce' value sent in the authentication request to the OpenID Provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | 2 |
-| **10.5.2** | Verify that the client uniquely identifies the user from ID Token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 2 |
-| **10.5.3** | Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by the client. | 2 |
-| **10.5.4** | Verify that the client validates that the ID Token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 2 |
-| **10.5.5** | Verify that, when using OIDC back-channel logout, the relying party mitigates denial of service through forced logout and cross-JWT confusion in the logout flow. The client must verify that the logout token is correctly typed with a value of 'logout+jwt', contains the 'event' claim with the correct member name, and does not contain a 'nonce' claim. Note that it is also recommended to have a short expiration (e.g., 2 minutes). | 2 |
+| **10.5.1** | İstemcinin (relying party olarak) ID Token replay saldırılarını azalttığı doğrulanmalıdır. Örneğin, ID Token’daki 'nonce' claim’inin, OpenID Provider’a gönderilen kimlik doğrulama isteğindeki 'nonce' değeriyle eşleştiği doğrulanmalıdır. | 2 |
+| **10.5.2** | İstemcinin kullanıcıyı ID Token claim’lerinden (genellikle, başka kullanıcılarla yeniden atanamayan 'sub' claim’i) benzersiz şekilde tanımladığı doğrulanmalıdır. | 2 |
+| **10.5.3** | İstemcinin, kötü niyetli bir AS'nin başka bir AS'yi taklit etmesini AS metadata’sı üzerinden reddettiği doğrulanmalıdır. AS metadata’sındaki issuer URL’si, istemci tarafından beklenen önceden yapılandırılmış issuer URL’siyle tam olarak eşleşmiyorsa, metadata reddedilmelidir. | 2 |
+| **10.5.4** | İstemcinin, ID Token’ın kendisi için (audience) kullanılması amaçlandığını doğruladığı doğrulanmalıdır. Bu, token’daki 'aud' claim’inin istemcinin 'client_id' değeriyle eşit olup olmadığının kontrol edilmesiyle yapılır.	 | 2 |
+| **10.5.5** | OIDC back-channel logout kullanıldığında, relying party’nin "forced logout" ve "logout" akışında "cross-JWT confusion" gibi saldırılara karşı koruma sağladığı doğrulanmalıdır. Client, logout token’ın 'logout+jwt' türünde olduğunu, 'event' claim’inin doğru üyeye sahip olduğunu ve 'nonce' claim’i içermediğini doğrulamalıdır. Ayrıca token için kısa bir sona erme süresi (örneğin 2 dakika) önerilir.	| 2 |
 
 ## V10.6 OpenID Provider
 
-As OpenID Providers act as OAuth authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
+OpenID Provider’lar, OAuth AS olarak davrandığı için “OAuth Yetkilendirme Sunucusu” bölümündeki gereksinimler burada da geçerlidir.
 
-Note that if using the ID Token flow (not the code flow), no access tokens are issued, and many of the requirements for OAuth AS are not applicable.
+ID Token flow (code flow değil) kullanılıyorsa, access token üretilmez ve OAuth AS için geçerli olan birçok gereksinim uygulanamaz.
 
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **10.6.1** | Verify that the OpenID Provider only allows values 'code', 'ciba', 'id_token', or 'id_token code' for response mode. Note that 'code' is preferred over 'id_token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 |
-| **10.6.2** | Verify that the OpenID Provider mitigates denial of service through forced logout. By obtaining explicit confirmation from the end-user or, if present, validating parameters in the logout request (initiated by the relying party), such as the 'id_token_hint'. | 2 |
+| **10.6.1** | OpenID Provider’ın yalnızca 'code', 'ciba', 'id_token' veya 'id_token code' response mode değerlerine izin verdiği doğrulanmalıdır. 'code' değeri, 'id_token code' (OIDC Hybrid flow) yerine tercih edilmelidir. 'token' (Implicit flow) kullanılmamalıdır. | 2 |
+| **10.6.2** | OpenID Provider’ın forced logout yoluyla yapılan hizmet reddi saldırılarını önlediği doğrulanmalıdır. Bu, son kullanıcıdan açık onay alınarak veya varsa logout isteğinde (relying party tarafından başlatılan) bulunan parametrelerin, örneğin 'id_token_hint', doğrulanmasıyla yapılabilir. | 2 |
 
-## V10.7 Consent Management
+## V10.7 Onay (Consent) Yönetimi
 
-These requirements cover the verification of the user's consent by the authorization server. Without proper user consent verification, a malicious actor may obtain permissions on the user's behalf through spoofing or social-engineering.
+Bu gereksinimler, kullanıcı onayının AS tarafından doğrulanmasını kapsar. Uygun kullanıcı onayı olmadan, kötü niyetli bir aktör spoofing veya sosyal mühendislik yoluyla kullanıcının adına yetki elde edebilir.
 
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **10.7.1** | Verify that the authorization server ensures that the user consents to each authorization request. If the identity of the client cannot be assured, the authorization server must always explicitly prompt the user for consent. | 2 |
-| **10.7.2** | Verify that when the authorization server prompts for user consent, it presents sufficient and clear information about what is being consented to. When applicable, this should include the nature of the requested authorizations (typically based on scope, resource server, Rich Authorization Requests (RAR) authorization details), the identity of the authorized application, and the lifetime of these authorizations. | 2 |
-| **10.7.3** | Verify that the user can review, modify, and revoke consents which the user has granted through the authorization server. | 2 |
+| **10.7.1** | AS'nin her yetkilendirme isteği için kullanıcının onayını aldığı doğrulanmalıdır. İstemcinin kimliği garanti altına alınamıyorsa, AS daima kullanıcıdan açıkça onay istemelidir.	| 2 |
+| **10.7.2** | AS'nin kullanıcıdan onay istediğinde, neye onay verildiğini açık ve yeterli şekilde gösterdiği doğrulanmalıdır. Uygun olduğunda bu bilgiler, istenen yetkilendirmelerin doğasını (genellikle scope, resource server, RAR gibi detaylara dayalı), yetkilendirilmiş uygulamanın kimliğini ve bu yetkilendirmelerin süresini içermelidir. | 2 |
+| **10.7.3** | Kullanıcının, AS üzerinden verdiği onayları görüntüleyebildiği, değiştirebildiği ve iptal edebildiği doğrulanmalıdır.	 | 2 |
 
-## References
+## Referanslar
 
-For more information on OAuth, please see:
+OAuth ile ilgili daha fazla bilgi için:
 
 * [oauth.net](https://oauth.net/)
 * [OWASP OAuth 2.0 Protocol Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
 
-For OAuth-related requirements in ASVS following published and in draft status RFC-s are used:
+ASVS içindeki OAuth ile ilgili gereksinimler için, yayımlanmış ve taslak durumundaki aşağıdaki RFC'ler kullanılmaktadır:
 
 * [RFC6749 The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
 * [RFC6750 The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
@@ -164,7 +164,7 @@ For OAuth-related requirements in ASVS following published and in draft status R
 * [draft OAuth 2.0 for Browser-Based Applications](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)<!-- recheck on release -->
 * [draft The OAuth 2.1 Authorization Framework](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)<!-- recheck on release -->
 
-For more information on OpenID Connect, please see:
+OpenID Connect ile ilgili daha fazla bilgi için:
 
 * [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 * [FAPI 2.0 Security Profile](https://openid.net/specs/fapi-security-profile-2_0-final.html)
