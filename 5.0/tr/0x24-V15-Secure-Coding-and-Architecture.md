@@ -40,36 +40,36 @@ Ayrıca, “tehlikeli işlemler” veya “riskli bileşenlerin” (önceki böl
 | **15.2.4** | Üçüncü taraf bileşenlerin ve bunların tüm transitif bağımlılıklarının beklenen depolardan (iç kaynaklı ya da harici) alındığı ve bağımlılık karışıklığı (dependency confusion) saldırılarına açık olmadığı doğrulanmalıdır. | 3 |
 | **15.2.5** | Uygulamanın, “tehlikeli işlevsellik” içeren veya “riskli bileşenler” kullanan bölümlerine ek korumalar uyguladığı doğrulanmalıdır. Bu korumalar sandbox, kapsülleme, konteynerleştirme veya ağ düzeyinde izolasyon gibi teknikler aracılığıyla, bir uygulama bölümünün ele geçirilmesi durumunda saldırganın diğer bölümlere sıçramasını geciktirmeyi veya engellemeyi amaçlamalıdır. | 3 |
 
-## V15.3 Defensive Coding
+## V15.3 Savunmacı Kodlama
 
-This section covers vulnerability types, including type juggling, prototype pollution, and others, which result from using insecure coding patterns in a particular language. Some may not be relevant to all languages, whereas others will have language-specific fixes or may relate to how a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
+Bu bölüm, belirli bir programlama dilinde güvensiz kodlama kalıplarının kullanılması sonucu oluşan tür oynama (type juggling), prototip zehirleme (prototype pollution) gibi güvenlik açıklarını kapsar. Bazıları tüm dillere uygun olmayabilirken, diğerleri dile özel düzeltmelere sahip olabilir ya da HTTP parametrelerinin işlenmesi gibi framework'e özgü davranışlarla ilişkilidir. Ayrıca uygulama güncellemelerinin kriptografik olarak doğrulanmamasıyla ilgili riskleri de ele alır.
 
-It also considers the risks associated with using objects to represent data items and accepting and returning these via external APIs. In this case, the application must ensure that data fields that should not be writable are not modified by user input (mass assignment) and that the API is selective about what data fields get returned. Where field access depends on a user's permissions, this should be considered in the context of the field-level access control requirement in the Authorization chapter.
+Ayrıca, veri öğelerini temsil etmek için nesnelerin kullanılması ve bu nesnelerin dış API’ler üzerinden alınması ve döndürülmesi durumunda ortaya çıkan riskleri de dikkate alır. Bu durumda, uygulama kullanıcı girdileriyle değiştirilmemesi gereken alanların değiştirilememesini (kitlesel atama – mass assignment) sağlamalı ve hangi alanların döndürüldüğü konusunda seçici olmalıdır. Alan erişimi bir kullanıcının izinlerine bağlıysa, bu durum "Authorization" bölümündeki domain düzeyinde erişim kontrolü gereksinimi bağlamında değerlendirilmelidir.
 
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **15.3.1** | Verify that the application only returns the required subset of fields from a data object. For example, it should not return an entire data object, as some individual fields should not be accessible to users. | 1 |
-| **15.3.2** | Verify that where the application backend makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | 2 |
-| **15.3.3** | Verify that the application has countermeasures to protect against mass assignment attacks by limiting allowed fields per controller and action, e.g., it is not possible to insert or update a field value when it was not intended to be part of that action. | 2 |
-| **15.3.4** | Verify that all proxying and middleware components transfer the user's original IP address correctly using trusted data fields that cannot be manipulated by the end user, and the application and web server use this correct value for logging and security decisions such as rate limiting, taking into account that even the original IP address may not be reliable due to dynamic IPs, VPNs, or corporate firewalls. | 2 |
-| **15.3.5** | Verify that the application explicitly ensures that variables are of the correct type and performs strict equality and comparator operations. This is to avoid type juggling or type confusion vulnerabilities caused by the application code making an assumption about a variable type. | 2 |
-| **15.3.6** | Verify that JavaScript code is written in a way that prevents prototype pollution, for example, by using Set() or Map() instead of object literals. | 2 |
-| **15.3.7** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | 2 |
+| **15.3.1** | Uygulamanın yalnızca gerekli alanların bir alt kümesini veri nesnesinden döndürdüğü doğrulanmalıdır. Örneğin, bazı alanlara kullanıcıların erişmemesi gerektiğinden tüm veri nesnesi döndürülmemelidir. | 1 |
+| **15.3.2** | Uygulama backend'i harici URL’lere çağrı yaptığında, yalnızca amaçlanan işlevsellik söz konusuysa yönlendirmeleri takip edecek şekilde yapılandırıldığının doğrulanması gerekir. | 2 |
+| **15.3.3** | Uygulamanın, kitlesel atama saldırılarına karşı, her bir controller ve eylem için izin verilen alanları sınırlandırarak savunmalar sağladığı doğrulanmalıdır. Örneğin, bir alan değeri, bu işlemde değiştirilmesi amaçlanmadıysa eklenememeli veya güncellenememelidir. | 2 |
+| **15.3.4** | Tüm proxy ve ara katman bileşenlerinin kullanıcının orijinal IP adresini, uç kullanıcı tarafından değiştirilemeyecek güvenilir veri alanları kullanarak doğru şekilde ilettiği ve uygulamanın ve web sunucusunun bu doğru değeri, loglama ve hız sınırlama gibi güvenlik kararları için kullandığı doğrulanmalıdır. Ayrıca, orijinal IP adresinin bile dinamik IP'ler, VPN'ler veya kurumsal güvenlik duvarları nedeniyle güvenilir olmayabileceği dikkate alınmalıdır. | 2 |
+| **15.3.5** | Uygulamanın değişkenlerin doğru türde olduğunu açıkça doğruladığı ve sıkı eşitlik ve karşılaştırma işlemleri kullandığı doğrulanmalıdır. Bu, değişken türüyle ilgili varsayımlardan kaynaklanan tür oynama (type juggling) veya tür karışıklığı (type confusion) güvenlik açıklarını önlemek içindir. | 2 |
+| **15.3.6** | 	JavaScript kodunun prototip zehirleme (prototype pollution) saldırılarını önleyecek şekilde yazıldığı, örneğin, nesne literal’leri yerine Set() veya Map() gibi yapılar kullanıldığı doğrulanmalıdır. | 2 |
+| **15.3.7** | Uygulamanın, özellikle framework'ün istek parametrelerinin kaynağı (sorgu dizgisi, gövde parametreleri, çerezler veya başlık alanları) arasında ayrım yapmadığı durumlarda, HTTP parametre kirliliği (HTTP parameter pollution) saldırılarına karşı savunmalar uyguladığı doğrulanmalıdır. | 2 |
 
-## V15.4 Safe Concurrency
+## V15.4 Güvenli Eş Zamanlılık (Concurrency)
 
-Concurrency issues such as race conditions, time-of-check to time-of-use (TOCTOU) vulnerabilities, deadlocks, livelocks, thread starvation, and improper synchronization can lead to unpredictable behavior and security risks. This section includes various techniques and strategies to help mitigate these risks.
+Yarış durumları (race condition), kontrol anından kullanım anına (TOCTOU - time-of-check to time-of-use) açıkları, deadlock, livelock, iş parçacığı (thread) açlığı ve hatalı senkronizasyon gibi eş zamanlılık sorunları, öngörülemeyen davranışlara ve güvenlik risklerine yol açabilir. Bu bölüm, bu riskleri azaltmaya yardımcı olacak çeşitli teknikleri ve stratejileri içerir.
 
-| # | Description | Level |
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **15.4.1** | Verify that shared objects in multi-threaded code (such as caches, files, or in-memory objects accessed by multiple threads) are accessed safely by using thread-safe types and synchronization mechanisms like locks or semaphores to avoid race conditions and data corruption. | 3 |
-| **15.4.2** | Verify that checks on a resource's state, such as its existence or permissions, and the actions that depend on them are performed as a single atomic operation to prevent time-of-check to time-of-use (TOCTOU) race conditions. For example, checking if a file exists before opening it, or verifying a user’s access before granting it. | 3 |
-| **15.4.3** | Verify that locks are used consistently to avoid threads getting stuck, whether by waiting on each other or retrying endlessly, and that locking logic stays within the code responsible for managing the resource to ensure locks cannot be inadvertently or maliciously modified by external classes or code. | 3 |
-| **15.4.4** | Verify that resource allocation policies prevent thread starvation by ensuring fair access to resources, such as by leveraging thread pools, allowing lower-priority threads to proceed within a reasonable timeframe. | 3 |
+| **15.4.1** | Çok iş parçacıklı kodda (örneğin cache'ler, dosyalar veya birden fazla iş parçacığı tarafından erişilen bellek içi nesneler gibi) paylaşılan nesnelere yalnızca thread-safe (iş parçacığı güvenli) türler ve kilitleme (lock) veya semaphore gibi senkronizasyon mekanizmaları kullanılarak erişildiği doğrulanmalıdır. Bu, yarış durumlarını ve veri bozulmasını önlemeye yöneliktir. | 3 |
+| **15.4.2** | Bir kaynağın durumu üzerindeki kontroller (örneğin varlığı ya da izinleri gibi) ile bu kontrole bağlı eylemlerin tek bir atomik işlem olarak gerçekleştirildiği doğrulanmalıdır. Bu, TOCTOU (time-of-check to time-of-use) yarış durumlarını önlemeye yöneliktir. Bir dosyanın varlığının kontrol edilip ardından açılması veya bir kullanıcının erişiminin doğrulanıp ardından yetki verilmesi gibi işlemler buna örnektir. | 3 |
+| **15.4.3** | Kilitlerin (locks) tutarlı biçimde kullanıldığı, iş parçacıklarının birbirini beklemesi ya da sonsuz döngüye girmesi (deadlock veya livelock) gibi durumların önlendiği doğrulanmalıdır. Ayrıca, kilitleme mantığı, kaynağı yöneten kod içinde kalmalı ve dış sınıflar veya dış kodlar tarafından istemeden veya kötü niyetli şekilde değiştirilememelidir. | 3 |
+| **15.4.4** | Kaynak tahsis politikalarının, iş parçacığı açlığını önleyecek şekilde, kaynaklara adil erişimi sağladığı doğrulanmalıdır. Örneğin, thread pool (iş parçacığı havuzu) kullanımı, düşük öncelikli iş parçacıklarının da makul sürelerde çalışabilmesi için uygulanmalıdır. | 3 |
 
-## References
+## Referanslar
 
-For more information, see also:
+Daha fazla bilgi için:
 
 * [OWASP Prototype Pollution Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Prototype_Pollution_Prevention_Cheat_Sheet.html)
 * [OWASP Mass Assignment Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)

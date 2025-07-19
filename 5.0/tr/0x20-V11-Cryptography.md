@@ -57,7 +57,7 @@ AES ve CHACHA20 üzerine kurulu kimliği doğrulanmış şifreleme algoritmalar�
 | **11.3.5** | Şifreleme algoritması ve MAC algoritması kombinasyonlarının "encrypt-then-MAC" modunda çalıştığı doğrulanmalıdır. | 3 |
 
 
-## V11.4 Hashing ve Hash Temelli Fonksiyonlar
+## V11.4 Hashing ve Hash Tabanlı Fonksiyonlar
 
 Kriptografik hash'ler, dijital imzalar, HMAC, anahtar türetme fonksiyonları (KDF), rastgele bit üretimi ve parola saklama gibi çok çeşitli kriptografik protokollerde kullanılır. Kriptografik sistemin güvenliği, kullanılan hash fonksiyonlarının güvenliği ile doğrudan ilişkilidir. Bu bölüm, kriptografik işlemlerde güvenli hash fonksiyonlarının kullanımına dair gereksinimleri özetler.
 
