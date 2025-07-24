@@ -1,47 +1,47 @@
-# Assessment and Certification
+# 평가와 인증
 
-## OWASP's Stance on ASVS Certifications and Trust Marks
+##OWASP의 ASVS 인증과 신뢰 마크에 대한 입장
 
-OWASP, as a vendor-neutral nonprofit, does not certify any vendors, verifiers, or software. Any assurance, trust mark, or certification claiming ASVS compliance is not officially endorsed by OWASP, so organizations should be cautious of third-party claims of ASVS certification.
+OWASP는 공급업체에 종속되지 않는 비영리 단체로서, 어느 공급업체, 검증자 또는 소프트웨어도 인증하지 않는다. ASVS 준수를 주장하는 어떤 보증, 신뢰 마크 또는 인증이라도 OWASP의 공식 승인을 받은 것이 아니므로, 조직은 제3자의 ASVS 인증 주장을 함부로 검토하거나 신뢰하지 않는 것이 권장된다.
 
-Organizations may offer assurance services, provided they do not claim official OWASP certification.
+조직은 공식 OWASP 인증을 주장하지 않는 한, 보증 서비스를 제공할 수 있다.
 
-## How to Verify ASVS Compliance
+ASVS 준수 여부를 검증하는 방법
 
-The ASVS is deliberately not prescriptive about exactly how to verify compliance at the level of a testing guide. However, it is important to highlight some key points.
+ASVS는 테스트 가이드 수준에서 준수 여부를 정확히 검증하는 방법에 대해 의도적으로 구체적인 지침을 제공하지 않는다. 그러나 몇몇의 핵심 사항은 강조할 필요가 있다.
 
-### Verification reporting
+검증 보고
 
-Traditional penetration testing reports issues “by exception,” only listing failures. However, an ASVS certification report should include scope, a summary of all requirements checked, the requirements where exceptions were noted, and guidance on resolving issues. Some requirements may be non-applicable (e.g., session management in stateless APIs), and this must be noted in the report.
+전통적인 침투 테스트 보고서는 일반적으로 예외 방식으로 기록하며, 실패한 항목만을 나열한다. 그러나 ASVS 인증 보고서에는 범위, 점검된 모든 요구사항의 요약, 예외가 발생한 요구사항, 문제 해결을 위한 가이드가 포함하는 것이 권장된다. 일부 요구사항은 적용되지 않을 수 있으며(예: 상태 비저장 API(stateless API)에서의 세션 관리), 이러한 사항은 보고서에 반드시 명시해야 한다.
 
-### Scope of Verification
+### 검증 범위
 
-An organization developing an application will generally not implement all requirements, as some may be irrelevant or less significant based on the functionality of the application. The verifier should make the scope of the verification clear including which Level the organization is attempting to achieve and which requirements were included. This should be from the perspective of what was included rather than what was not included. They should also provide an opinion on the rationale of excluding the requirements which haven't been implemented.
+애플리케이션을 개발하는 조직은 일반적으로 모든 요구사항을 구현하지 않으며, 이는 애플리케이션의 기능에 따라 일부 요구사항이 관련 없거나 중요도가 낮을 수 있기 때문이다. 검증자는 조직이 달성하려는 레벨과 포함된 요구사항을 명확히 하여 검증 범위를 분명히 해야 한다. 이때 검증 범위는 '포함하지 않은 항목'이 아닌, '포함한 항목'을 중심으로 기술하는 것이 권장된다. 또한 구현되지 않은 요구사항을 제외한 근거에 대한 의견도 함께 제시하는 것이 권장된다.
 
-This should allow the consumer of a verification report to understand the context of the verification and make an informed decision about the level of trust they can place in the application.
+이는 검증 보고서의 수신자가 검증의 맥락을 이해하고, 애플리케이션에 어느 정도의 신뢰를 부여할 수 있을지에 대해 정보에 기반한 결정을 내리는 것이 권장된다.
 
-Certifying organizations can choose their testing methods but should disclose them in the report and this should ideally be repeatable. Different methods, like manual penetration tests or source code analysis, may be used to verify aspects such as input validation, depending on the application and requirements.
+인증 기관은 검증 방법을 자율적으로 선택할 수 있지만, 해당 방법은 보고서에 공개하는 것이 권장되며 이상적으로는 반복 가능한 것이 권장된다. 입력 검증과 같은 항목을 확인하기 위해, 애플리케이션과 요구사항에 따라 수동 침투 테스트나 소스 코드 분석과 같은 다양한 방법이 사용될 수 있다.
 
-### Verification Mechanisms
+### 검증 메커니즘
 
-There are a number of different techniques which may be needed to verify specific ASVS requirements. Aside from penetration testing (using valid credentials to get full application coverage), verifying ASVS requirements may require access to documentation, source code, configuration, and the people involved in the development process. Especially for verifying L2 and L3 requirements. It is standard practice to provide robust evidence of findings with detailed documentation, which may include work papers, screenshots, scripts, and testing logs. Merely running an automated tool without thorough testing is insufficient for certification, as each requirement must be verifiably tested.
+특정 ASVS 요구사항을 검증하기 위해서는 다양한 기술이 필요할 수 있다. 유효한 자격 증명을 사용하여 애플리케이션 전체를 점검하는 침투 테스트 외에도, ASVS 요구사항을 검증하려면 문서, 소스 코드, 설정 정보, 그리고 개발 과정에 관여한 인력에 대한 접근이 요구될 수 있다. 이는 특히 L2 및 L3 요구사항을 검증할 때 중요하다. 일반적으로는 작업 문서, 스크린샷, 스크립트, 테스트 로그 등을 포함한 상세한 문서를 통해 검증 결과에 대한 충분한 증거를 제공하는 것이 표준적인 방식이다. 단순히 자동화 도구를 실행하는 것만으로는 충분하지 않으며, 각 요구사항은 반드시 검증 가능하게 테스트되어야 한다.
 
-The use of automation to verify ASVS requirements is a topic that is constantly of interest. It is therefore important to clarify some points related to automated and black box testing.
+ASVS 요구사항을 검증하기 위한 자동화 도구의 사용은 지속적으로 관심을 받는 주제이다. 따라서 자동화 테스트 및 블랙박스 테스트와 관련된 몇 가지 사항을 명확히 하는 것이 중요하다.
 
-#### The Role of Automated Security Testing Tools
+####자동화 보안 테스트 도구의 역할
 
-When automated security testing tools such as Dynamic and Static Application Security Testing tools (DAST and SAST) are correctly implemented in the build pipeline, they may be able to identify some security issues that should never exist. However, without careful configuration and tuning they will not provide the required coverage and the level of noise will prevent real security issues from being identified and mitigated.
+DAST(동적 애플리케이션 보안 테스트 도구) 및 SAST(정적 애플리케이션 보안 테스트 도구)와 같은 자동화 보안 테스트 도구를 빌드 파이프라인(build pipline)에 올바르게 시행 경우, 초기 단계에서 제거되었어야 할 일부 보안 문제를 식별할 수 있을 수 있다. 그러나 신중한 구성 및 조정 없이 사용할 경우, 이러한 도구는 요구되는 범위를 충족하지 못하며, 과도한 노이즈로 인해 실제 보안 문제가 식별되고 완화되는 것을 방해하게 된다.
 
-Whilst this may provide coverage of some of the more basic and straightforward technical requirements such as those relating to output encoding or sanitization, it is critical to note that these tools will be unable entirely to verify many of the more complicated ASVS requirements or those that relate to business logic and access control.
+이러한 도구들이 출력 인코딩이나 정제(sanitization)와 관련된 요구사항처럼 비교적 기본적이고 단순한 기술 요구사항 일부를 검증하는 데에는 도움이 될 수 있을 수 있으나, 보다 복잡한 ASVS 요구사항이나 비즈니스 로직 및 접근 제어와 관련된 요구사항은 전혀 검증할 수 없다는 점을 명확히 인식해야 한다.
 
-For less straightforward requirements, it is likely that automation can still be utilized but application specific verifications will need to be written to achieve this. These may be similar to unit and integration tests that the organization may already be using. It may therefore be possible to use this existing test automation infrastructure to write these ASVS specific tests. Whilst doing this will require short term investment, the long term benefits being able to continually verify these ASVS requirements will be significant.
+복잡도가 낮지 않은 요구사항에 대해서도 자동화를 활용할 수 있는 가능성은 있으며, 이를 위해서는 애플리케이션 특화 검증 항목을 직접 작성해야 할 수 있다(MAY). 이러한 검증 항목은 조직에서 이미 사용 중인 단위 테스트(unit test)나 통합 테스트(integration test)와 유사할 수 있다. 따라서 기존의 테스트 자동화 인프라를 활용하여 ASVS 요구사항에 특화된 테스트를 작성하는 것도 가능할 수 있다. 이러한 작업에는 단기적인 투자가 필요하지만, 장기적으로 지속 가능한 ASVS 검증을 가능하게 하므로 충분히 그 가치가 있다.
 
-In summary, testable using automation != running an off the shelf tool.
+요약하면, 자동화로 검증할 수 있다는 것은 시중 도구를 그대로 실행하는 것과 같지 않다.
 
-#### The Role of Penetration Testing
+### 침투 테스트의 역할
 
-Whilst L1 in version 4.0 was optimized for "black box" (no documentation and no source) testing to occur, even then the standard was clear that it is not an effective assurance activity and should be actively discouraged.
+버전 4.0의 L1은 문서나 소스 코드 없이 수행되는 블랙박스 테스트에 최적화되어 있었으나, 당시에도 본 표준은 해당 방식이 효과적인 보증 활동이 아니며 적극적으로 지양되어야 한다는 점을 명확히 하고 있었다.
 
-Testing without access to necessary additional information is an inefficient and ineffective mechanism for security verification, as it misses out on the possibility of reviewing the source, identifying threats and missing controls, and performing a far more thorough test in a shorter timeframe.
+필요한 추가 정보에 대한 접근 없이 수행되는 테스트는 비효율적이고 효과적이지 못한 보안 검증 방식이다. 이 방식은 소스 코드를 검토하거나, 위협 요소와 누락된 통제를 식별하거나, 더 짧은 시간 안에 훨씬 더 철저한 테스트를 수행할 수 있는 가능성을 놓치게 된다.
 
-It is strongly encouraged to perform documentation or source code-led (hybrid) penetration testing, which have full access to the application developers and the application's documentation, rather than traditional penetration tests. This will certainly be necessary in order to verify many of the ASVS requirements.
+전통적인 침투 테스트보다는 애플리케이션 개발자 및 문서에 대한 완전한 접근 권한을 갖고 수행되는 문서 기반 또는 소스 코드 기반(하이브리드) 침투 테스트를 수행하는 것이 강력히 권장된다. 이러한 방식은 많은 ASVS 요구사항을 검증하기 위해 반드시 필요하다.
