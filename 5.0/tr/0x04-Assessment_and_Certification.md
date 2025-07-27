@@ -12,7 +12,7 @@ ASVS, uyumluluğun nasıl doğrulanacağı konusunda kasıtlı olarak kesin bir 
 
 ### Doğrulama Raporlaması
 
-Geleneksel sızma testi raporları, yalnızca başarısız olan durumları istisnalarla listeler. Ancak bir ASVS sertifikasyon raporu; kapsamı, kontrol edilen tüm gereksinimlerin özetini, istisna tespit edilen gereksinimleri ve bu sorunların nasıl çözüleceğine dair rehberliği içermelidir. Bazı gereksinimler uygulanabilir olmayabilir (örneğin, durum bilgisi olmayan API'lerde oturum yönetimi), bu durum raporda açıkça belirtilmelidir.
+Geleneksel sızma testi raporları, yalnızca başarısız olan durumları istisnalarla listeler. Ancak bir ASVS sertifikasyon raporu; kapsamı, kontrol edilen tüm gereksinimlerin özetini, istisna tespit edilen gereksinimleri ve bu sorunların nasıl çözüleceğine dair rehberliği içermelidir. Bazı gereksinimler uygulanabilir olmayabilir (örneğin, durum bilgisi olmayan API'lerde oturum yönetimi) ve bu durum raporda açıkça belirtilmelidir.
 
 ### Doğrulama Kapsamı
 

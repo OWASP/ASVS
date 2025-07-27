@@ -10,7 +10,9 @@ Versiyon 5.0.0, Mayıs 2025
 
 ![license](../images/license.png)
 
-Copyright © 2008-2024 The OWASP Foundation. Bu doküman [Creative Commons Attribution-ShareAlike 4.0 Uluslararası Lisansı](https://creativecommons.org/licenses/by-sa/4.0/). altında yayımlanmıştır.  
+Copyright © 2008-2025 The OWASP Foundation. 
+
+Bu doküman [Creative Commons Attribution-ShareAlike 4.0 Uluslararası Lisansı](https://creativecommons.org/licenses/by-sa/4.0/) altında yayımlanmıştır.  
 
 Dokümanın yeniden kullanımı veya dağıtımı esnasında bu lisans göz önünde bulundurulmalıdır.
 
@@ -28,14 +30,12 @@ Dokümanın yeniden kullanımı veya dağıtımı esnasında bu lisans göz ön�
 | Tobias Ahnoff   | Ralph Andalis     | Ryan Armstrong     | Gabriel Corona   |
 | Meghan Jacquot  | Shanni Prutchi    | Iman Sharafaldin   | Eden Yardeni     |
 
-## Diğer Önemli Katkıda Bulunanlar 
+## Diğer Önemli Katkıda Bulunanlar
 
 |                   |                   |
 |-------------------|-------------------|
 | Sjoerd Langkemper | Isaac Lewis       |
 | Mark Carney       | Sandro Gauci      |
-
-
 
 ## Diğer Katkıda Bulunanlar ve Değerlendirenler
 

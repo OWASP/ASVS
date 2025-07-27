@@ -10,7 +10,6 @@ Uygulama Güvenliği Doğrulama Standardı (ASVS) 5.0 sürümüne hoş geldiniz.
 
 ASVS 5.0, proje liderleri, çalışma grubu üyeleri ve bunlardan daha geniş OWASP topluluğunun bu önemli standardı güncellemek ve geliştirmek amacıyla verdikleri yoğun katkıların sonucudur.
 
-
 ## 5.0 Sürümünün Arkasındaki İlkeler
 
 Bu büyük revizyon, birkaç temel ilke göz önünde bulundurularak geliştirilmiştir:

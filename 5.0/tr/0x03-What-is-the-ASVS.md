@@ -1,121 +1,195 @@
-# ASVS'yi Kullanma
+# ASVS Nedir?
 
-Uygulama Güvenliği Doğrulama Standardı (ASVS), modern web uygulamaları ve servisleri için güvenlik gereksinimlerini tanımlar ve uygulama geliştiricilerin kontrolünde olan unsurlara odaklanır.
+Uygulama Güvenliği Doğrulama Standardı (ASVS), web uygulamaları ve hizmetleri için güvenlik gereksinimlerini tanımlar ve güvenli uygulamalar tasarlamayı, geliştirmeyi ve sürdürmeyi veya bunların güvenliğini değerlendirmeyi amaçlayan herkes için değerli bir kaynaktır.
 
-ASVS, güvenli uygulamalar geliştirmeyi, sürdürmeyi ya da uygulamaların güvenliğini değerlendirmeyi amaçlayan herkes için faydalıdır. Bu bölümde, ASVS'nin kullanımına dair öncelik temelli seviyeler ve standardın farklı kullanım senaryoları gibi temel konular ele alınmaktadır.
+Bu bölümde ASVS'nin kapsamı, önceliğe dayalı seviyelerinin yapısı ve standart için birincil kullanım durumları da dahil olmak üzere ASVS'yi kullanmanın temel yönleri özetlenmektedir.
+
+## ASVS'nin Kapsamı
+
+ASVS'nin kapsamı adıyla tanımlanmaktadır: Uygulama, Güvenlik, Doğrulama ve Standart. Ulaşılması gereken güvenlik ilkelerini tanımlamak amacıyla hangi gereksinimlerin dahil edileceğini veya hariç tutulacağını belirler. Kapsam, uygulama gereksinimleri için temel teşkil eden dokümantasyon gereksinimlerini de dikkate alır.
+
+Saldırganlar için kapsam diye bir şey yoktur. Bu nedenle ASVS gereksinimleri, CI/CD süreçleri, hosting ve operasyonel faaliyetler de dahil olmak üzere uygulama yaşam döngüsünün diğer yönlerine ilişkin yönlendirmelerle birlikte değerlendirilmelidir.
+
+### Uygulama
+
+ASVS bir “uygulamayı”, güvenlik kontrollerinin entegre edilmesi gereken ve geliştirilmekte olan yazılım ürünü olarak tanımlar. ASVS, geliştirme yaşam döngüsü faaliyetlerini belirlemez veya uygulamanın bir CI/CD boru hattı aracılığıyla nasıl oluşturulması gerektiğini dikte etmez. Bunun yerine, ürünün kendi içinde elde edilmesi gereken güvenlik sonuçlarını belirtir.
+
+Web Uygulaması Güvenlik Duvarları (WAF'lar), yük dengeleyiciler veya proxy'ler gibi HTTP trafiğini sunan, değiştiren veya doğrulayan bileşenler, bazı güvenlik kontrolleri doğrudan bunlara bağlı olduğundan veya bunlar aracılığıyla uygulanabildiğinden, bu özel amaçlar için uygulamanın bir parçası olarak kabul edilebilir. Bu bileşenler, önbelleğe alınan yanıtlar, hız sınırlaması veya gelen ve giden bağlantıların kaynak ve hedefe göre kısıtlanmasıyla ilgili gereksinimler için dikkate alınmalıdır.
+
+Tersine, ASVS genellikle uygulamayla doğrudan ilgili olmayan veya yapılandırmanın uygulamanın sorumluluğu dışında olduğu gereksinimleri hariç tutar. Örneğin, DNS sorunları genellikle ayrı bir ekip veya işlev tarafından yönetilir.
+
+Benzer şekilde, uygulama girdiyi nasıl tükettiğinden ve çıktıyı nasıl ürettiğinden sorumlu olsa da, harici bir süreç uygulama veya verileriyle etkileşime giriyorsa, ASVS için kapsam dışı kabul edilir. Örneğin, uygulamanın veya verilerinin yedeklenmesi genellikle harici bir sürecin sorumluluğundadır ve uygulama veya geliştiricileri tarafından kontrol edilmez.
+
+### Güvenlik
+
+Her gerekliliğin güvenlik üzerinde kanıtlanabilir bir etkisi olmalıdır. Bir gerekliliğin olmaması daha az güvenli bir uygulama ile sonuçlanmalı ve gerekliliğin uygulanması bir güvenlik riskinin olasılığını veya etkisini azaltmalıdır.
+
+İşlevsel yönler, kod stili veya politika gereksinimleri gibi diğer tüm hususlar kapsam dışıdır.
+
+### Doğrulama
+
+Gereksinim doğrulanabilir olmalı ve doğrulama “başarısız” veya “başarılı” kararıyla sonuçlanmalıdır.
+
+### Standart
+
+ASVS, standarda uymak için uygulanması gereken bir güvenlik gereksinimleri koleksiyonu olarak tasarlanmıştır. Bu, gereksinimlerin bunu başarmak için güvenlik hedefini tanımlamakla sınırlı olduğu anlamına gelir. Diğer ilgili bilgiler ASVS'nin üzerine inşa edilebilir veya eşleştirmeler yoluyla bağlanabilir.
+
+Özellikle, OWASP'ın birçok projesi vardır ve ASVS kasıtlı olarak diğer projelerdeki içerikle örtüşmekten kaçınır. Örneğin, geliştiricilerin “belirli bir gereksinimi kendi teknolojimde veya ortamımda nasıl uygulayabilirim” şeklinde bir sorusu olabilir ve bu, Cheat Sheet Series projesi kapsamında ele alınmalıdır. Doğrulayıcıların “bu gereksinimi bu ortamda nasıl test edebilirim” şeklinde bir sorusu olabilir ve bu Web Güvenliği Test Kılavuzu projesi kapsamında ele alınmalıdır.
+
+ASVS sadece güvenlik uzmanlarının kullanımına yönelik olmamakla birlikte, okuyucunun içeriği anlamak için teknik bilgiye veya belirli kavramları araştırma becerisine sahip olmasını beklemektedir.
+
+### Gereksinim
+
+Gereksinim kelimesi ASVS'de özel olarak kullanılır çünkü bu kelimenin karşılanması için nelerin başarılması gerektiğini tanımlar. ASVS sadece gereksinimleri (must) içerir ve ana koşul olarak tavsiyeleri (should) içermez.
+
+Başka bir deyişle, ister bir sorunu çözmek için birçok olası seçenekten biri isterse de kod stili hususları olsun, öneriler bir gereksinim olma tanımını karşılamaz.
+
+ASVS gereksinimleri, uygulamaya veya teknolojiye özgü olmadan belirli güvenlik ilkelerini ele almayı ve aynı zamanda neden var olduklarına dair açıklayıcı olmayı amaçlamaktadır. Bu aynı zamanda gereksinimlerin belirli bir doğrulama yöntemi veya uygulaması etrafında oluşturulmadığı anlamına gelir.
+
+### Belgelenmiş güvenlik kararları
+
+Yazılım güvenliğinde, güvenlik tasarımını ve kullanılacak mekanizmaları erkenden planlamak, bitmiş üründe veya özellikte daha tutarlı ve güvenilir bir uygulama oluşturacaktır.
+
+Ayrıca, belirli gereksinimler için uygulama, karmaşık ve bir uygulamanın ihtiyaçlarına çok spesifik olacaktır. Yaygın örnekler arasında izinler, girdi doğrulama ve farklı hassas veri seviyeleri etrafında koruyucu kontroller yer alır.
+
+Bunu hesaba katmak için "tüm veriler şifrelenmelidir" gibi kapsamlı ifadeler veya bir gereksinimde olası her kullanım durumunu kapsamaya çalışmak yerine, uygulama geliştiricisinin bu tür kontrollere yaklaşımının ve yapılandırmasının belgelenmesini zorunlu kılan dokümantasyon gereksinimleri dahil edilmiştir. Bu daha sonra uygunluk açısından gözden geçirilebilir ve ardından gerçek uygulama, uygulamanın beklentilere uyup uymadığını değerlendirmek için belgelerle karşılaştırılabilir.
+
+Bu gereksinimler, uygulamayı geliştiren kuruluşun belirli güvenlik gereksinimlerinin nasıl uygulanacağına ilişkin aldığı kararları belgelemeyi amaçlamaktadır.
+
+Dokümantasyon gereksinimleri her zaman bir bölümün ilk kısmında yer alır (her bölümde olmasa da) ve her zaman dokümante edilen kararların gerçekten uygulamaya konulması gereken ilgili bir uygulama gerekliliğine sahiptir. Burada önemli olan nokta, dokümantasyonun yerinde olduğunu ve fiili uygulamanın iki ayrı faaliyet olduğunu doğrulamaktır.
+
+Bu gereksinimleri dahil etmenin iki temel nedeni vardır. İlk neden, güvenlik gereksiniminin genellikle kuralların uygulanmasını içermesidir. Örneğin hangi tür dosya türlerinin yüklenmesine izin verilir, hangi iş kontrolleri uygulanmalıdır, belirli bir alan için izin verilen karakterler nelerdir gibi uygulanma biçimleri. Bu kurallar her uygulama için farklı olacaktır ve bu nedenle ASVS, bunların ne olması gerektiğini kuralcı bir şekilde tanımlayamaz ve bu durumda bir cheat sheet veya daha ayrıntılı bir yanıt da yardımcı olmaz. Benzer şekilde, bu kararlar belgelenmeden, bu kararları uygulayan gereksinimlerin doğrulanması mümkün olmayacaktır.
+
+İkinci neden ise, belirli gereksinimler için belirli güvenlik sorunlarının nasıl ele alınacağı konusunda esnekliğe sahip bir uygulama geliştirme sağlamanın önemli olmasıdır. Örneğin, önceki ASVS sürümlerinde oturum zaman aşımı kuralları çok kuralcıydı. Pratik olarak, birçok uygulama, özellikle tüketicilere yönelik olanlar, çok daha esnek kurallara sahiptir ve bunun yerine diğer risk azaltma kontrollerini uygulamayı tercih eder. Bu nedenle, belgeleme gereksinimleri bu konuda açıkça esneklik sağlar.
+
+Elbette ki, bu kararların bireysel geliştiriciler tarafından alınması ve belgelenmesi beklenmemektedir. Aksine, bu kararlar organizasyonun bir bütün olarak alınacak ve geliştiricilere iletilecek, geliştiriciler de bu kararları uygulamaya özen gösterecektir.
+
+Geliştiricilere yeni özellikler ve işlevler için spesifikasyonlar ve tasarımlar sağlamak, yazılım geliştirmenin standart bir parçasıdır. Benzer şekilde, geliştiricilerin her seferinde kendi kararlarını vermek yerine ortak bileşenleri ve kullanıcı arayüzü mekanizmalarını kullanmaları beklenir. Bu nedenle, bunu güvenliğe genişletmek şaşırtıcı veya tartışmalı olarak görülmemelidir.
+
+Bunu nasıl başaracağınız konusunda da esneklik vardır. Güvenlik kararları, geliştiricilerin başvurması beklenen yazılı bir belgede belgelenebilir. Alternatif olarak, güvenlik kararları belgelenebilir ve tüm geliştiricilerin kullanması zorunlu olan ortak bir kod kütüphanesinde uygulanabilir. Her iki durumda da istenen sonuç elde edilir.
 
 ## Uygulama Güvenliği Doğrulama Seviyeleri
 
-ASVS, her biri artan derinlik ve karmaşıklığa sahip üç güvenlik doğrulama seviyesi tanımlar. Her ASVS seviyesi, o seviyeye ulaşmak için gerekli olan güvenlik gereksinimlerini belirtir (diğer gereksinimler ise öneri olarak kalır). Genel hedef, organizasyonların en düşük seviyeden başlayarak daha yüksek seviyelere geçmeleridir.
+ASVS, seviyesi arttıkça derinliği ve karmaşıklığı artan üç güvenlik doğrulama seviyesi tanımlar. Genel amaç, kuruluşların en kritik güvenlik sorunlarını ele almak için ilk seviyeden başlaması ve ardından kuruluşun ve uygulamanın ihtiyaçlarına göre daha yüksek seviyelere geçmesidir. Seviyeler, belgede ve gereksinim metinlerinde L1, L2 ve L3 olarak gösterilebilir.
 
-### Seviye Değerlendirme Kriterleri
+Her ASVS seviyesi, o seviyeden elde edilmesi gereken güvenlik gereksinimlerini belirtir ve kalan daha yüksek seviye gereksinimler öneri olarak sunulur.
 
-Sürüm 5.0 için seviye tanımlama yaklaşımı, ASVS kullanıcılarından gelen geri bildirimler doğrultusunda Çalışma Grubu içerisinde yapılan yoğun tartışmalar sonucunda ve önceki bölümde açıklanan 5.0 sürümünün ilkeleri rehberliğinde belirlenmiştir. Sürüm 5.0, her bir güvenlik gereksinimini uygulama deneyimlerine dayanarak öncelik temelli bir değerlendirmeye tabi tutar. Bu yaklaşım benimsenerek, her gereksinim aşağıdaki kriterlere göre değerlendirilmiştir.
+Yinelenen gereksinimleri veya daha yüksek seviyelerde artık geçerli olmayan gereksinimleri önlemek için bazı gereksinimler belirli bir seviyeye özel uygulanır. Fakat bu gereksinimler daha yüksek seviyeler için daha katı koşullar içerir.
 
-#### Risk Azaltma
+### Seviye değerlendirmesi
 
-Bu gereksinim, uygulama içindeki güvenlik riskini ne ölçüde azaltıyor? Bu değerlendirme, klasik Gizlilik, Bütünlük ve Erişilebilirlik (CIA Triad) etki faktörlerini dikkate alır ve aynı zamanda bunun birincil savunma katmanı mı yoksa savunma derinliği (defense in depth) kapsamında mı değerlendirileceğini göz önünde bulundurur.
+Seviyeler, güvenlik gereksinimlerinin uygulanması ve test edilmesi deneyimine dayalı olarak her bir gereksinimin öncelik bazlı değerlendirmesiyle tanımlanır. Ana odak noktası, risk azaltma ile gereksinimin uygulanması için gereken çabayı karşılaştırmaktır. Bir diğer önemli faktör ise giriş engelini düşük tutmaktır.
 
-Genel olarak, en yüksek risk azaltımını sağlayan gereksinimler Seviye 1 veya Seviye 2'de yer alırken; hâlâ değerli olan ancak savunma derinliği kapsamında olan ya da daha niş alanlara veya konulara hitap eden gereksinimler Seviye 3’te yer alır.
+Risk azaltma, gereksinimin uygulama içindeki güvenlik riskinin düzeyini ne ölçüde azalttığını, klasik Gizlilik, Bütünlük ve Kullanılabilirlik etki faktörlerini dikkate alarak ve bunun birincil savunma katmanı mı yoksa derinlemesine savunma mı olduğunu değerlendirerek değerlendirir.
 
-#### Hayata Geçirme Eforu
+Kriterler ve seviyelendirme kararları etrafında yapılan titiz tartışmalar, her duruma %100 uymayabileceğini kabul etmekle birlikte, vakaların büyük çoğunluğu için geçerli olması gereken bir dağılımla sonuçlanmıştır. Bu, belirli durumlarda kuruluşların kendi özel risk değerlendirmelerine göre daha yüksek seviyedeki gereksinimleri daha erken önceliklendirmek isteyebilecekleri anlamına gelir.
 
-ASVS bir doğrulama standardı olarak adlandırılsa da, bir gereksinim uygulamada hayata geçirilmediği sürece doğrulanacak bir şey yoktur. Bazı gereksinimlerin uygulanması ve sürdürülmesi diğerlerine göre çok daha karmaşıktır ve bir gereksinimin göreceli önceliği belirlenirken bunun dikkate alınması önemlidir.
+Her seviyedeki gereksinim türleri aşağıdaki gibi tanımlanabilir:
 
-Bazı karmaşık kontroller uygulaması zor olsa da ciddi risk azaltımı sağladıkları için Seviye 1'de yer alabilir; ancak genellikle daha karmaşık gereksinimler Seviye 2 veya Seviye 3’te konumlandırılır.
+### Seviye 1
 
-#### Düşük Başlangıç Eşiği
+Bu seviye, bir uygulamayı güvenli hale getirirken dikkate alınması gereken minimum gereksinimleri içerir ve kritik bir başlangıç noktasıdır. Bu seviye, ASVS gereksinimlerinin yaklaşık %20'sini içerir. Bu seviyenin amacı, giriş engelini azaltmak için mümkün olduğunca az gereksinim olmasını sağlamaktır.
 
-Önceki ASVS sürümlerinin sektördeki kullanımına (veya kullanılmayışına) ilişkin geri bildirimlerden çıkan en büyük sorunlardan biri, Seviye 1’in yaklaşık 120 gereksinim içermesi nedeniyle oldukça kapsamlı olması ama aynı zamanda çoğu uygulama için “yetersiz asgari düzey” olarak değerlendirilmesiydi. Bu durum, organizasyonların ya başlamadan vazgeçmesine ya da gereksinimlerin sadece bir kısmını uygulamaya çalışmasına, ancak gerçek anlamda Seviye 1’i başaramamasına neden oldu; bu da ilerleme ve başarı hissini zayıflattı.
+Bu gereksinimler genellikle kritik veya temel, diğer güvenlik açıklarının veya ön koşulların istismar edilmesini gerektirmeyen yaygın saldırıları önlemek için birinci katman savunma gereksinimleridir.
 
-Bu nedenle Seviye 1’in, en yüksek önceliğe sahip yaklaşık 70 gereksinimle sınırlandırılmasına karar verildi. Bu sayı, hem uygulanabilirlik hem de güçlü bir güvenlik düzeyi sağlama açısından iyi bir denge olarak değerlendirildi. Diğer gereksinimler ise Seviye 2 veya Seviye 3’e aktarıldı. Bu hedefe ulaşmak için, Seviye 1'e nelerin dahil edileceği konusunda zorlu kararlar alındı. Amaç, uygulanabilir bir "iyi" Seviye 1 sunmaktı; uygulanamaz ama "mükemmel" bir Seviye 1 değil.
+Birinci savunma katmanı gereksinimlerine ek olarak, bazı gereksinimlerin daha yüksek seviyelerde etkisi daha azdır, şifrelerle ilgili gereksinimler gibi. Bunlar Seviye 1 için daha önemlidir, çünkü daha yüksek seviyelerde çok faktörlü kimlik doğrulama gereksinimleri önem kazanır.
 
-#### Daha İyi Seviye Dengesi
+Seviye 1, belgelere veya koda iç erişimi olmayan bir dış test uzmanı tarafından mutlaka penetrasyon testi yapılabilir değildir (örneğin "kara kutu" testi), ancak gereksinimlerin sayısının az olması doğrulamayı kolaylaştırmalıdır.
 
-Sürüm 4.0’da, Seviye 1 ve Seviye 2’nin her birinde yaklaşık 120 gereksinim yer alırken, Seviye 3 sadece yaklaşık 30 gereksinim içeriyordu. Sürüm 5.0, gereksinimleri seviyeler arasında daha dengeli bir şekilde dağıtarak özellikle Seviye 2 ve Seviye 3 arasında eşitliği sağlamayı amaçlamaktadır. Bu sayede, Seviye 2 daha uygulanabilir ve gerçekçi hale gelirken, Seviye 3 ise en üst düzey güvenliği hedefleyen uygulamalar için ayrılmıştır.
+### Seviye 2
 
-### Seviye Tanımları
+Çoğu uygulama bu güvenlik seviyesine ulaşmak için çaba göstermelidir. ASVS'deki gereksinimlerin yaklaşık %50'si L2 seviyesindedir, yani bir uygulamanın L2 seviyesine uymak için ASVS'deki gereksinimlerin yaklaşık %70'ini (tüm L1 ve L2 gereksinimlerini) uygulaması gerekir.
 
-Yukarıda belirtilen kriterlere dayanarak, 5.0 sürümündeki gereksinimler üç seviyeden birine tahsis edilmiştir. Bu faktörlere dayalı karşılaştırmalı analizler, tahsis sürecinde bir miktar yorum payı bıraksa da, hem kriterler hem de seviye belirleme kararları üzerine yapılan titiz tartışmalar sonucunda, büyük çoğunlukla geçerli olacak bir dağılım elde edilmiştir. Her duruma %100 uymasa da genellikle yeterli olacaktır.
+Bu gereksinimler genellikle daha az yaygın saldırılarla veya yaygın saldırılara karşı daha karmaşık korumalarla ilgilidir. Bunlar hala ilk savunma katmanı olabilir veya saldırının başarılı olması için belirli ön koşullar gerektirebilir.
 
-Bu, bazı durumlarda organizasyonların kendi özel risk değerlendirmelerine göre üst seviyedeki bazı gereksinimlere daha erken öncelik vermek isteyebileceği anlamına gelir.
+### Seviye 3
 
-Her seviyedeki gereksinim türleri aşağıdaki şekilde özetlenebilir.
+Bu seviye, en yüksek güvenlik seviyelerini göstermek isteyen uygulamalar için bir hedef olmalıdır. Bu seviye, uyum sağlamak için gereken gereksinimlerin son %30'unu sağlar.
 
-#### Seviye 1 Gereksinimleri
+Bu bölümdeki gereksinimler genellikle derinlemesine savunma mekanizmaları veya diğer yararlı ancak uygulanması zor kontrollerden oluşur.
 
-Bu gereksinimler, genel olarak kritik veya temel düzeyde, yaygın saldırıları önlemeye yönelik, başka güvenlik açıkları veya ön koşullar gerektirmeyen ilk savunma katmanı gereksinimleridir. Bu gereksinimler ya uygulanması görece kolaydır ya da çabaya değecek kadar önemlidir.
+### Hangi seviyeye ulaşılmalı?
 
-Seviye 1 her zaman insanlar tarafından yapılan sızma testleriyle test edilebilir olmayabilir; ancak daha az sayıda gereksinim içermesi, doğrulamasını kolaylaştırır.
+Öncelik tabanlı seviyeler, kuruluşun ve uygulamanın uygulama güvenliği olgunluğunu yansıtmayı amaçlamaktadır. ASVS, bir uygulamanın hangi seviyede olması gerektiğini kuralcı bir şekilde belirtmek yerine, kuruluşun risklerini analiz etmesi ve uygulamanın hassasiyetine ve elbette uygulamanın kullanıcılarının beklentilerine bağlı olarak hangi seviyede olması gerektiğini belirlemesi gerekir.
 
-#### Seviye 2 Gereksinimleri
+Örneğin, yalnızca sınırlı miktarda hassas veri toplayan erken aşamadaki bir girişim, ilk güvenlik hedefleri için Seviye 1'e odaklanmaya karar verebilir, ancak bir banka, çevrimiçi bankacılık uygulaması için müşterilerine Seviye 3'ten daha düşük bir seviyeyi haklı çıkarmakta zorlanabilir.
 
-Bu gereksinimler genellikle daha az yaygın saldırılarla veya yaygın saldırılara karşı daha karmaşık koruma mekanizmalarıyla ilgilidir. Hâlâ birincil savunma katmanı olabilirler ya da saldırının başarılı olması için belirli ön koşulları gerektirebilirler.
+## ASVS nasıl kullanılır?
 
-#### Seviye 3 Gereksinimleri
+### ASVS'nin yapısı
 
-Bu bölümdeki gereksinimler genellikle derinlemesine savunma mekanizmaları ya da uygulanması zor fakat faydalı kontrollerdir. Ayrıca, yalnızca belirli durumlarda geçerli olan veya daha niş saldırı türleriyle ilgili olabilirler.
+ASVS, toplamda yaklaşık 350 gereksinimden oluşur ve bu gereksinimler 17 bölüme ayrılmıştır. Her bölüm de alt bölümlere ayrılmıştır.
 
-### Hangi Seviye Hedeflenmeli
+Bölüm ve alt bölümlerin ayrılmasının amacı, uygulama ile ilgili olanları seçmeyi veya filtrelemeyi kolaylaştırmaktır. Örneğin, bir makineler arası API için, V3 bölümündeki web ön uçlarıyla ilgili gereksinimler ilgili olmayacaktır. OAuth veya WebRTC kullanılmıyorsa, bu bölümler de göz ardı edilebilir.
 
-Her bir gereksinimin önceliğine dayalı bir değerlendirme yaklaşımına geçilmesiyle birlikte, seviyeler artık daha çok bir organizasyonun ve uygulamanın güvenlik olgunluğunu yansıtmaktadır. ASVS, uygulamanın hangi seviyede olması gerektiğini katı bir şekilde belirtmek yerine, organizasyonun uygulamanın hassasiyeti ve kullanıcıların beklentilerine göre hangi seviyede olması gerektiğine karar vermesini önerir.
+### Sürüm stratejisi
 
-Örneğin, yalnızca sınırlı miktarda hassas veri toplayan bir erken aşama girişim, Seviye 1’in yeterli olduğuna karar verebilirken; bir banka, çevrimiçi bankacılık uygulaması için Seviye 3’ten daha azını müşterilerine gerekçelendirmekte zorlanabilir.
+ASVS sürümleri "Major.Minor.Patch" ("Büyük.Küçük.Yama") modelini izler ve sayılar sürüm içinde nelerin değiştiği hakkında bilgi verir. Büyük bir sürümde ilk sayı, küçük bir sürümde ikinci sayı ve yama sürümünde üçüncü sayı değişir.
 
-## ASVS Gereksinimlerine Nasıl Atıfta Bulunulur?
+* Büyük sürüm - Tamamen yeniden düzenleme yapılmıştır. Gereksinim numaraları da dahil olmak üzere neredeyse her şey değişebilir. Uyumluluk için yeniden değerlendirme gerekli olacaktır (örneğin, 4.0.3 -> 5.0.0).
+* Küçük sürüm - Gereksinimler eklenebilir veya kaldırılabilir, ancak genel numaralandırma aynı kalır. Uyumluluk için yeniden değerlendirme gerekli olacaktır, ancak daha kolay olacaktır (örneğin, 5.0.0 -> 5.1.0).
+* Yama sürümü - Gereksinimler kaldırılabilir (örneğin, tekrar eden veya güncelliğini yitiren gereksinimler) veya daha az katı hale getirilebilir, ancak önceki sürüme uygun olan bir uygulama, yama sürümüne de uygun olacaktır (örneğin, 5.0.0 -> 5.0.1).
 
-Her gereksinimin `<bölüm>.<kısım>.<gereksinim>` formatında bir tanımlayıcısı vardır ve her öğe bir numaradan oluşur. Örneğin, `1.11.3`.
+Yukarıdaki bilgiler özellikle ASVS'deki gereksinimlerle ilgilidir. Gereksinimleri çevreleyen metin ve ekler gibi diğer içeriklerdeki değişiklikler, önemli bir değişiklik olarak değerlendirilmeyecektir.
 
-* `<bölüm>`(Chapter) değeri, gereksinimin geldiği bölümü belirtir. Örneğin, tüm `1.#.#` gereksinimleri `Mimari`(Architecture) bölümünden gelir.
-* `<kısım>`(Section) değeri, o bölüm içinde gereksinimin yer aldığı kısmı belirtir. Örneğin, tüm `1.11.#` gereksinimleri `Mimari` bölümünün `İş Mantığı Mimari Gereksinimleri` kısmında bulunur.
-* `<gereksinim>`(Requirement) değeri, bölüm ve kısım içindeki belirli bir gereksinimi tanımlar. Örneğin, `1.11.3` gereksinimi (bu standardın 4.0.2 sürümüne göre):
+### ASVS ile esneklik
 
-> Tüm yüksek değerli iş mantığı akışlarının — kimlik doğrulama, oturum yönetimi ve erişim kontrolü dahil — iş parçacığına (thread) karşı güvenli ve zaman kontrolü ile zaman kullanımı arasındaki yarış durumu (race condition) saldırılarına dayanıklı olduğu doğrulanmalıdır.
+Yukarıda açıklanan belgeleme gereksinimleri ve seviye mekanizması gibi bazı noktalar, ASVS'yi daha esnek ve kuruluşa özgü bir şekilde kullanma olanağı sağlar.
 
-Tanımlayıcılar standart sürümleri arasında değişebileceğinden, diğer belgeler, raporlar veya araçların şu formatı kullanması tercih edilir: `v<sürüm>-<bölüm>.<kısım>.<gereksinim>`, burada 'sürüm', ASVS sürüm etiketini ifade eder. Örneğin: `v4.0.2-1.11.3`, `Mimari` bölümünün `İş Mantığı Mimari Gereksinimleri` kısmındaki 3. gereksinimin 4.0.2 sürümüne ait olduğunu açıkça belirtir. (Bu, `v<sürüm>-<gereksinim_tanımlayıcısı>` olarak özetlenebilir.)
+Ayrıca, kuruluşların uygulamalarının belirli özelliklerine ve risk seviyelerine göre gereksinimleri ayarlayan, kuruluşa veya alana özgü bir "fork" oluşturmaları şiddetle tavsiye edilir. Ancak, gereksinim 4.1.1'in tüm sürümlerde aynı anlama gelmesi için izlenebilirliği korumak önemlidir.
 
-Not: Format içinde sürüm numarasından önce gelen `v` her zaman küçük harf olmalıdır.
+İdeal olarak, her kuruluş kendi özel ASVS'sini oluşturmalı ve ilgisiz bölümleri (örneğin, kullanılmıyorsa GraphQL, WebSockets, SOAP) çıkarmalıdır. Kuruluşa özgü bir ASVS sürümü veya eki, gereksinimlere uyum sağlarken kullanılacak kütüphaneleri veya kaynakları ayrıntılı olarak açıklayan, kuruluşa özgü uygulama kılavuzları sağlamak için de iyi bir varlıktır.
 
-Tanımlayıcılar `v<sürüm>` öğesi olmadan kullanıldığında, varsayılan olarak en güncel Uygulama Güvenliği Doğrulama Standardı içeriğine atıfta bulunulduğu kabul edilir. Ancak standart büyüyüp değiştikçe bu durum sorun yaratabilir, bu nedenle yazarlar veya geliştiriciler sürüm öğesini eklemelidir.
+### ASVS Gereksinimlerine Nasıl Atıfta Bulunulur?
+
+Her gereksinim, her ögesinin bir sayı olduğu `<bölüm>.<kısım>.<gereksinim>` biçiminde bir tanımlayıcıya sahiptir. Örneğin, `1.11.3`.
+
+* `<bölüm>` (chapter) değeri, gereksinimin geldiği bölümü belirtir. Örneğin, tüm `1.#.#` gereksinimleri "Kodlama (Encoding) ve Temizleme" bölümünden gelir.
+* `<kısım>` (section) değeri, o bölüm içinde gereksinimin yer aldığı kısmı belirtir. Örneğin, tüm `1.2.#` gereksinimleri "Kodlama ve Temizleme" bölümünün "Enjeksiyon Önleme" bölümündedir.
+* `<gereksinim>` (requirement) değeri, bölüm ve kısım içindeki belirli bir gereksinimi tanımlar. Örneğin, bu standardın 5.0.0 sürümünde `1.2.5` şu şekildedir:
+
+> Uygulamanın işletim sistemi komut enjeksiyonuna karşı koruma sağladığını ve işletim sistemi çağrılarının parametreli işletim sistemi sorguları veya bağlamsal komut satırı çıktı kodlaması kullandığını doğrulayın.
+
+Tanımlayıcılar standardın sürümleri arasında değişebileceğinden, diğer belgeler, raporlar veya araçlar için aşağıdaki biçimin kullanılması tercih edilir: `v<sürüm>-<bölüm>.<kısım>.<gereksinim>`, burada: 'sürüm' ASVS sürüm etiketidir. Örneğin: `v5.0.0-1.2.5`, 5.0.0 sürümünün "Kodlama ve Temizleme" bölümünün "Enjeksiyon Önleme" alt bölümündeki 5. gereksinimi ifade eder. (Bu, `v<sürüm>-<gereksinim_tanımlayıcı>` olarak özetlenebilir.)
+
+Not: Format içinde sürüm numarasından önce gelen v her zaman küçük harf olmalıdır.
+
+Tanımlayıcılar v<sürüm> öğesi olmadan kullanıldığında, varsayılan olarak en güncel Uygulama Güvenliği Doğrulama Standardı içeriğine atıfta bulunulduğu kabul edilir. Ancak standart büyüyüp değiştikçe bu durum sorun yaratabilir, bu nedenle yazarlar veya geliştiriciler sürüm öğesini eklemelidir.
 
 ASVS gereksinim listeleri, başvuru veya programatik kullanım için yararlı olabilecek CSV, JSON ve diğer formatlarda sunulmaktadır.
 
-## ASVS’yi Çatallama (Forklama)
+### ASVS’yi Çatallama (Forklama)
 
-Kuruluşlar, ASVS’yi benimseyerek üç seviyeden birini seçebilir ya da uygulama risk seviyesine göre gereksinimleri uyarlayan alan (domain) odaklı bir çatallanma (fork) oluşturabilir. Bu tür çatallamaları teşvik ediyoruz; yeter ki izlenebilirlik korunmuş olsun, yani bir sürümde 4.1.1 gereksiniminin karşılanması diğer tüm sürümlerde de aynı anlama gelmelidir.
+Kuruluşlar, üç seviyeden birini seçerek veya uygulama risk seviyesine göre gereksinimleri ayarlayan alana özgü bir fork oluşturarak ASVS'den faydalanabilir. Bu tür bir fork, izlenebilirliği koruduğu sürece teşvik edilir, böylece 4.1.1 gereksiniminin karşılanması tüm sürümlerde aynı anlama gelir.
 
-İdeal olarak, her kuruluş kendi ihtiyaçlarına özel, özelleştirilmiş bir ASVS oluşturmalıdır; kullanılmayan bölümler (örneğin, GraphQL, Websockets, SOAP gibi) bu özelleştirmede çıkarılabilir. Çatallanma, temel olarak ASVS Seviye 1 ile başlamalı ve uygulamanın risk düzeyine bağlı olarak Seviye 2 veya Seviye 3’e doğru ilerlemelidir.
+İdeal olarak, her kuruluş kendi özel ASVS'sini oluşturmalı ve alakasız bölümleri (örneğin, kullanılmıyorsa GraphQL, Websockets, SOAP) çıkarmalıdır. Fork oluşturma, ASVS Seviye 1'i temel alarak başlamalı ve uygulamanın riskine göre Seviye 2 veya 3'e ilerlemelidir.
 
-## ASVS’nin Kullanım Alanları
+## ASVS’nin kullanım alanları
 
-ASVS, bir uygulamanın güvenliğini değerlendirmek amacıyla kullanılabilir ve bu konu bir sonraki bölümde daha ayrıntılı olarak ele alınacaktır. Ancak, ASVS'nin (veya çatallanmış bir sürümünün) başka potansiyel kullanım alanlarını da belirledik.
+ASVS, bir uygulamanın güvenliğini değerlendirmek amacıyla kullanılabilir ve bu konu bir sonraki bölümde daha ayrıntılı olarak ele alınacaktır. Ancak, ASVS'nin (veya forklanmış bir sürümünün) başka potansiyel kullanım alanları da belirlenmiştir.
 
 ### Ayrıntılı Güvenlik Mimarisi Rehberi Olarak Kullanma
 
-Uygulama Güvenliği Doğrulama Standardı'nın en yaygın kullanım alanlarından biri, güvenlik mimarları için bir kaynak olarak kullanılmasıdır. Sherwood Applied Business Security Architecture (SABSA), kapsamlı bir uygulama güvenliği mimarisi değerlendirmesini tamamlamak için gereken pek çok bilgiden yoksundur. ASVS, güvenlik mimarlarının veri koruma desenleri ve girdi doğrulama stratejileri gibi yaygın problemler için daha iyi kontroller seçmesine olanak tanıyarak bu boşlukları doldurabilir.
+Uygulama Güvenliği Doğrulama Standardı'nın en yaygın kullanım alanlarından biri, güvenlik mimarları için bir kaynak olarak kullanılmasıdır. Özellikle modern uygulamalarda, güvenli bir uygulama mimarisi oluşturmak için sınırlı sayıda kaynak mevcuttur. ASVS, güvenlik mimarlarının veri koruma modelleri ve girdi doğrulama stratejileri gibi yaygın sorunlar için daha iyi kontroller seçmelerine olanak tanıyarak bu boşlukları doldurmak için kullanılabilir. Mimari ve dokümantasyon gereksinimleri bu konuda özellikle yararlı olacaktır.
 
-### Özelleştirilmiş Bir Güvenli Kodlama Kontrol Listesi Olarak Kullanma
+### Özelleştirilmiş Bir Güvenli Kodlama Referansı Olarak Kullanma
 
-ASVS, güvenli uygulama geliştirme sürecinde geliştiricilere rehberlik etmek amacıyla güvenli kodlama kontrol listesi olarak kullanılabilir. Bu sayede geliştiriciler, yazılım oluştururken güvenliği ön planda tutabilir. Güvenli kodlama kontrol listesi; birleştirilmiş, açık ve tüm geliştirme ekiplerine uygulanabilir olmalıdır. İdeal olarak, bu liste güvenlik mühendisleri veya güvenlik mimarlarının rehberliğiyle hazırlanmalıdır.
+ASVS, uygulama geliştirme sırasında güvenli kodlama referansı hazırlamak için temel olarak kullanılabilir ve geliştiricilerin yazılım oluştururken güvenliği göz önünde bulundurmalarını sağlar. ASVS temel olarak kullanılabilirken, kuruluşlar kendi özel kılavuzlarını hazırlamalıdır. Bu kılavuzlar açık ve birleşik olmalı ve ideal olarak güvenlik mühendisleri veya güvenlik mimarlarının rehberliğine dayalı olarak hazırlanmalıdır. Bunun bir uzantısı olarak, kuruluşların mümkün olduğunca kılavuzda referans gösterilebilecek ve geliştiriciler tarafından kullanılabilecek onaylanmış güvenlik mekanizmaları ve kütüphaneleri hazırlamaları teşvik edilir.
 
 ### Otomatik Birim ve Entegrasyon Testleri İçin Rehber Olarak Kullanma
 
-ASVS, mimari ve dokümantasyon gereksinimleri dışında, yüksek derecede test edilebilir olacak şekilde tasarlanmıştır. Spesifik ve ilgili kötüye kullanım senaryolarına yönelik birim ve entegrasyon testleri oluşturarak, her derlemede uygulanmış olan kontrollerin doğrulanması kolaylaşır. Örneğin, bir oturum açma kontrolörü için hazırlanan test paketine; yaygın varsayılan kullanıcı adları, hesap bulma, kaba kuvvet saldırıları, LDAP ve SQL enjeksiyonu, XSS gibi saldırılarla ilgili testler eklenebilir. Benzer şekilde, parola parametresi için yapılan bir testte yaygın parolalar, parola uzunluğu, null byte enjeksiyonu, parametrenin eksikliği, XSS ve benzeri senaryolar yer almalıdır.
+ASVS, yüksek düzeyde test edilebilir şekilde tasarlanmıştır. Bazı doğrulamalar teknik nitelikteyken, bazı gereksinimler (mimari ve dokümantasyon gereksinimleri gibi) dokümantasyon veya mimari incelemesi gerektirebilir. Teknik yollarla doğrulanabilir gereksinimlerle ilgili belirli ve ilgili kötüye kullanım durumlarını test eden ve "fuzz" yapan birim ve entegrasyon testleri oluşturarak, bu kontrollerin her derlemede doğru şekilde çalıştığını kontrol etmek daha kolay hale gelmelidir. Örneğin, bir oturum açma denetleyicisi için test paketi için ek testler oluşturulabilir. Bu testlerde, kullanıcı adı parametresi için yaygın varsayılan kullanıcı adları, hesap numaralandırma, kaba kuvvet saldırısı, LDAP ve SQL enjeksiyonu ve XSS test edilir. Benzer şekilde, şifre parametresi üzerinde yapılan bir testte yaygın şifreler, şifre uzunluğu, null byte enjeksiyonu, parametrenin kaldırılması, XSS ve daha fazlası yer almalıdır.
 
 ### Güvenli Geliştirme Eğitimi İçin Kullanma
 
-ASVS, güvenli yazılımın sahip olması gereken özellikleri tanımlamak için de kullanılabilir. Pek çok "güvenli kodlama" eğitimi, aslında yalnızca etik hacking derslerine yüzeysel birkaç kod ipucu eklenmiş hâlidir. Bu yaklaşım, geliştiricilerin daha güvenli kod yazmasına her zaman katkı sağlamaz. Bunun yerine, güvenli geliştirme eğitimleri, OWASP Top 10 gibi yapılmaması gereken olumsuzluklara değil, ASVS'de bulunan proaktif kontroller üzerine odaklanarak daha etkili hâle getirilebilir.
+ASVS, güvenli yazılımın özelliklerini tanımlamak için de kullanılabilir. Birçok "güvenli kodlama kursu", kodlama ipuçlarının hafifçe serpiştirildiği etik hackleme kurslarından ibarettir. Bu, geliştiricilerin daha güvenli kod yazmasına yardımcı olmayabilir. Güvenli geliştirme kursları, yapılmaması gereken en önemli 10 olumsuz şey yerine ASVS'yi kullanarak ASVS'de bulunan olumlu mekanizmalara odaklanabilir. ASVS yapısı, bir uygulamayı güvenli hale getirirken farklı konuları ele almak için mantıklı bir yapı da sağlar.
 
-### Çevik (Agile) Uygulama Güvenliği İçin Bir Yönlendirici Olarak Kullanma
+### Güvenli Yazılım Satın Alımına Rehberlik Eden Bir Çerçeve Olarak Kullanma
 
-ASVS, agile yazılım geliştirme süreçlerinde güvenli ürün oluşturmak için takımın uygulaması gereken görevleri tanımlayan bir çerçeve olarak kullanılabilir. Örneğin Seviye 1 ile başlanır, belirli bir uygulama ya da sistem bu seviyedeki ASVS gereksinimlerine göre doğrulanır, eksik kontroller belirlenir ve bunlara ilişkin görevler backlog’a eklenir. Bu yöntem, önceliklendirme (grooming) sürecine yardımcı olur ve güvenliği agile süreçte görünür hâle getirir. Aynı zamanda, organizasyon içinde denetim ve inceleme görevlerinin önceliklendirilmesi için de kullanılabilir. Belirli bir ASVS gereksinimi, bir ekip üyesi için kod gözden geçirme, yeniden yapılandırma (refactor) veya denetim görevi olarak backlog’da "borç" olarak görünür hâle gelebilir.
+ASVS, güvenli yazılım satın alımına veya özel geliştirme hizmetleri satın alımına yardımcı olan harika bir çerçevedir. Alıcı, satın almak istediği yazılımın ASVS seviye X'te geliştirilmesi gerektiğini belirten bir gereksinim belirleyebilir ve satıcıdan yazılımın ASVS seviye X'i karşıladığını kanıtlamasını isteyebilir.
 
-### Güvenli Yazılım Tedariğini Yönlendiren Bir Framework Olarak Kullanma
+## ASVS'nin Pratikte Uygulanması
 
-ASVS, güvenli yazılım ya da özel yazılım geliştirme hizmeti satın alımı için mükemmel bir çerçevedir. Alıcı, satın alınmak istenen yazılımın ASVS Seviye X’e uygun geliştirilmesini şart koşabilir ve satıcıdan bu seviyeye uygunluğunu ispatlamasını talep edebilir. Bu yaklaşım, OWASP Güvenli Yazılım Sözleşme Eki (OWASP Secure Software Contract Annex) ile birlikte kullanıldığında oldukça etkilidir.
+Farklı tehditlerin farklı motivasyonları vardır. Bazı sektörler, benzersiz bilgi ve teknoloji varlıklarına ve alana özgü yasal uyumluluk gereksinimlerine sahiptir.
 
-## ASVS’nin Pratikte Uygulanması
-
-Farklı tehditlerin farklı motivasyonları vardır. Bazı sektörlerin kendine özgü bilgi ve teknoloji varlıkları ile alan odaklı regülasyon ve uyumluluk gereksinimleri olabilir.
-
-Kuruluşların, işlerinin doğası gereği sahip oldukları özgün risk faktörlerini derinlemesine incelemeleri ve bu riskler ile iş ihtiyaçlarına göre uygun ASVS seviyesini belirlemeleri şiddetle tavsiye edilir.
+Kuruluşların, işlerinin doğasına göre benzersiz risk özelliklerini derinlemesine incelemeleri ve bu risk ve iş gereksinimlerine göre uygun ASVS seviyesini belirlemeleri şiddetle tavsiye edilir.
