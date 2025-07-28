@@ -131,14 +131,14 @@ MAC-then-encrypt'e eski uygulamalarla uyumluluk için hala izin verilmektedir. T
 
 | AEAD mekanizması | Referans | Durum |
 |--------------------------|---------|-----|
-|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
-|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
-|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
-|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|Encrypt-then-MAC | | A
-|MAC-then-encrypt | | L
+|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
+|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
+|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
+|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|Encrypt-then-MAC | | A |
+|MAC-then-encrypt | | L |
 
 ## Hash Fonksiyonları
 
@@ -231,7 +231,6 @@ Parametreler aşağıdaki gibidir:
 
 Herhangi bir yeni uygulama [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) ve [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final) ile uyumlu OLMAYAN herhangi bir şema kullanılmamalıdır. Özellikle, IKEv1 üretimde kullanılmamalıdır.
 
-
 ### Diffie-Hellman Grupları
 
 Aşağıdaki gruplar Diffie-Hellman anahtar değişimi uygulamaları için onaylanmıştır. Güvenlik güçleri [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Ek D ve [NIST SP 800-57 Bölüm 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)'de belgelenmiştir.
@@ -299,4 +298,3 @@ Mesaj Kimlik Doğrulama Kodları (MAC), bir mesajın bütünlüğünü ve gerçe
 Kuantum sonrası kriptografi (PQC) uygulamaları [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd), [FIPS-204](https://csrc.nist.gov/pubs/fips/204/ipd) ve [FIPS-205](https://csrc.nist.gov/pubs/fips/205/ipd) standartlarını takip etmelidir. Şu anda, bu standartlar için çok fazla güçlendirilmiş kod örneği veya referans uygulaması mevcut değildir. Daha fazla ayrıntı için, [Kuantum sonrası şifreleme standartlarının ilk üçüne ilişkin NIST duyurusu (Ağustos 2024)](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards) adresine bakın.
 
 Önerilen [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) kuantum sonrası hibrit TLS anahtar anlaşma yöntemi [Firefox sürüm 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) ve [Chrome sürüm 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) gibi büyük tarayıcılar tarafından desteklenmektedir. Kriptografik test ortamlarında veya endüstri veya devlet onaylı kütüphanelerde mevcut olduğunda kullanılabilir.
-

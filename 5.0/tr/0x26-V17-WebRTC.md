@@ -41,7 +41,7 @@ DTLS (Datagram Transport Layer Security) kullanımıyla ilgili gereksinimler bur
 
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **17.2.1** | 	DTLS sertifikası anahtarının, belgelenmiş kriptografik anahtar yönetim politikasına uygun şekilde yönetildiği ve korunduğu doğrulanmalıdır. | 2 |
+| **17.2.1** | DTLS sertifikası anahtarının, belgelenmiş kriptografik anahtar yönetim politikasına uygun şekilde yönetildiği ve korunduğu doğrulanmalıdır. | 2 |
 | **17.2.2** | Medya sunucusunun onaylı DTLS şifre takımlarını (cipher suites) ve Güvenli Gerçek Zamanlı Aktarım Protokolü (Secure Real-time Transport Protocol - SRTP) için anahtarlar oluşturmaya yönelik DTLS Uzantısı için güvenli bir koruma profilini kullanacak ve destekleyecek şekilde yapılandırıldığı (DTLS-SRTP) doğrulanmalıdır. | 2 |
 | **17.2.3** | Real-time Transport Protocol (RTP) injection saldırılarının bir hizmet reddi durumuna veya medya akışlarına ses veya video medyası eklenmesine yol açmasını önlemek için medya sunucusunda Güvenli SRTP kimlik doğrulamasının kontrol edildiği doğrulanmalıdır. | 2 |
 | **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed Secure Real-time Transport Protocol (SRTP) packets. | 2 |
@@ -59,7 +59,7 @@ Sinyalizasyonun güvenli olması için sistemler bozuk girdileri zararsız biçi
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
 | **17.3.1** | Sinyalizasyon sunucusunun, flood saldırısı altında bile meşru sinyalizasyon mesajlarını işlemeye devam edebildiği doğrulanmalıdır. Bu, sinyalizasyon düzeyinde oran sınırlaması uygulanarak sağlanmalıdır. | 2 |
-| **17.3.2** | Sinyalizasyon sunucusunun, hizmet reddine yol açabilecek şekilde yapılandırılmış bozuk sinyalizasyon mesajlarıyla karşılaştığında bile meşru mesajları işlemeye devam edebildiği doğrulanmalıdır. Bu, girdi doğrulaması, integer overflow ve buffer overflow'a karşı savunma ve sağlam hata işleme teknikleri ile sağlanmalıdır.	 | 2 |
+| **17.3.2** | Sinyalizasyon sunucusunun, hizmet reddine yol açabilecek şekilde yapılandırılmış bozuk sinyalizasyon mesajlarıyla karşılaştığında bile meşru mesajları işlemeye devam edebildiği doğrulanmalıdır. Bu, girdi doğrulaması, integer overflow ve buffer overflow'a karşı savunma ve sağlam hata işleme teknikleri ile sağlanmalıdır. | 2 |
 
 ## Referanslar
 

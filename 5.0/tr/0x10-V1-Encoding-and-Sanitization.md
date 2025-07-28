@@ -4,7 +4,7 @@
 
 Bu bölüm, güvenilmeyen verilerin güvensiz işlenmesiyle ilişkili en yaygın web uygulaması güvenlik zayıflıklarına odaklanır. Bu tür durumlar, güvenilmeyen verinin ilgili yorumlayıcının sözdizimi kuralları çerçevesinde yanlış şekilde yorumlanmasına neden olan çeşitli teknik güvenlik açıklarına yol açar.
 
-Modern web uygulamalarında, parametreli sorgular, otomatik kaçış (escaping) veya şablonlama (templating) çerçeveleri gibi daha güvenli API'lerin kullanımı her zaman en iyi yaklaşımdır. Aksi takdirde ya da bu mümkün değilse, çıktı kodlaması, kaçış veya temizleme işlemlerinin dikkatle uygulanması uygulamanın güvenliği için kritik öneme sahiptir.
+Modern web uygulamalarında, parametreli sorgular, otomatik kaçış (escaping) veya şablonlama (templating) çerçeveleri gibi daha güvenli API'ların kullanımı her zaman en iyi yaklaşımdır. Aksi takdirde ya da bu mümkün değilse, çıktı kodlaması, kaçış veya temizleme işlemlerinin dikkatle uygulanması uygulamanın güvenliği için kritik öneme sahiptir.
 
 Girdi doğrulama, beklenmeyen ve tehlikeli içeriklere karşı savunma derinliği mekanizması olarak kullanılabilir. Ancak asıl amacı gelen verinin işlevsel ve iş gereksinimleriyle uyumlu olup olmadığını kontrol etmektir. Bu nedenle, bu konudaki gereksinimler "Doğrulama ve İş Mantığı" bölümünde ele alınmıştır.
 
@@ -13,8 +13,8 @@ Girdi doğrulama, beklenmeyen ve tehlikeli içeriklere karşı savunma derinliğ
 Aşağıdaki bölümlerde, güvenli olmayan içeriklerin güvenli şekilde işlenmesine yönelik, sözdizimi veya yorumlayıcıya özel güvenlik gereksinimleri sunulmaktadır. Bu bölümdeki gereksinimler, bu işlemlerin hangi sırayla ve nerede gerçekleştirilmesi gerektiğini kapsar. Ayrıca, verilerin saklandığı her durumda orijinal (ham) haliyle saklanması gerektiğini (örneğin HTML kodlaması gibi kodlanmış/kaçırılmış biçimde değil) vurgular. Bu sayede çift kodlama (double encoding) gibi sorunlar önlenmiş olur.
 
 | # | Açıklama | Seviye |
-| :---: | :--- | :---: | 
-| **1.1.1** | Girdinin yalnızca bir kez kanonik forma (canonical form) çözümlendiği veya kaçış işlemlerinin kaldırıldığı, bu işlemin yalnızca verinin bu biçimde beklenmesi durumunda yapıldığı ve bu işlemin girdi doğrulama veya temizleme işlemlerinden sonra değil, önce gerçekleştiği doğrulanmalıdır. | 2 | 
+| :---: | :--- | :---: |
+| **1.1.1** | Girdinin yalnızca bir kez kanonik forma (canonical form) çözümlendiği veya kaçış işlemlerinin kaldırıldığı, bu işlemin yalnızca verinin bu biçimde beklenmesi durumunda yapıldığı ve bu işlemin girdi doğrulama veya temizleme işlemlerinden sonra değil, önce gerçekleştiği doğrulanmalıdır. | 2 |
 | **1.1.2** | Uygulamanın, çıktıyı kullanılması gereken yorumlayıcıya verilmeden hemen önce veya yorumlayıcının kendisi tarafından çıktı kodlaması ya da kaçış işlemi yaptığı doğrulanmalıdır. | 2 |
 
 ## V1.2 Enjeksiyon Önleme
@@ -26,7 +26,7 @@ Potansiyel olarak tehlikeli içeriklerin yakınında yapılan çıktı kodlama v
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
 | **1.2.1** | HTTP yanıtı, HTML veya XML belgesi için yapılan çıktı kodlamasının; HTML elemanları, HTML öznitelikleri, HTML yorumları, CSS ya da HTTP başlık alanları gibi bağlamlara uygun olduğu doğrulanmalıdır. Böylece mesaj veya belge yapısının bozulması önlenir. | 1 |
-| **1.2.2** | 	Dinamik olarak URL oluşturulurken, güvenilmeyen verinin bağlamına göre (örneğin, sorgu veya yol parametreleri için URL kodlaması ya da base64url kodlaması) kodlandığı doğrulanmalıdır. Yalnızca güvenli URL protokollerine izin verilmelidir (örneğin, javascript: veya data: yasaklanmalıdır). | 1 |
+| **1.2.2** | Dinamik olarak URL oluşturulurken, güvenilmeyen verinin bağlamına göre (örneğin, sorgu veya yol parametreleri için URL kodlaması ya da base64url kodlaması) kodlandığı doğrulanmalıdır. Yalnızca güvenli URL protokollerine izin verilmelidir (örneğin, javascript: veya data: yasaklanmalıdır). | 1 |
 | **1.2.3** |JavaScript içeriği (JSON dahil) dinamik olarak oluşturulurken çıktı kodlama/kaçış kullanıldığı doğrulanmalıdır. Böylece mesaj veya belge yapısı değiştirilmemiş olur (JavaScript ve JSON enjeksiyonlarının önüne geçilir). | 1 |
 | **1.2.4** | Veri sorguları veya veritabanı sorguları (SQL, HQL, NoSQL, Cypher vb.) için parametreli sorgular, ORM’ler, entity framework’ler kullanıldığı ya da SQL enjeksiyonu ve diğer veritabanı enjeksiyon saldırılarına karşı koruma sağlandığı doğrulanmalıdır. Bu durum, saklı yordam (stored procedure) yazarken de geçerlidir. | 1 |
 | **1.2.5** | Uygulamanın işletim sistemi komut enjeksiyonlarına karşı korunduğu ve işletim sistemi çağrılarında parametreli OS sorguları veya bağlama özgü komut satırı çıktı kodlamasının kullanıldığı doğrulanmalıdır. | 1 |
@@ -48,14 +48,14 @@ Bu mümkün olmadığında, potansiyel olarak tehlikeli karakterlerin veya içer
 | :---: | :--- | :---: |
 | **1.3.1** | WYSIWYG editörlerinden veya benzer kaynaklardan gelen tüm güvenilmeyen HTML girdilerinin, bilinen ve güvenli bir HTML temizleme kütüphanesi ya da çerçeve özelliği ile temizlendiği doğrulanmalıdır. | 1 |
 | **1.3.2** | Uygulamanın eval() veya Spring Expression Language (SpEL) gibi dinamik kod çalıştırma özelliklerini kullanmaktan kaçındığı doğrulanmalıdır. Alternatif yoksa, kullanıcı girdisi çalıştırılmadan önce mutlaka temizlenmelidir. | 1 |
-| **1.3.3** | Potansiyel olarak tehlikeli bir bağlamda kullanılacak verilerin, bu bağlama uygun karakterlere izin vermek ve çok uzun girdileri kısaltmak gibi güvenlik önlemleriyle önceden temizlendiği doğrulanmalıdır. | 2 | 
-| **1.3.4** | Kullanıcı tarafından sağlanan SVG içeriğinin, yalnızca güvenli etiket ve özellikler (örneğin grafik çizme ile ilgili) içerdiğinden emin olmak için onaylandığı veya temizlendiği doğrulanmalıdır (ör. script veya foreignObject içermemelidir). | 2 | 
-| **1.3.5** | Markdown, CSS, XSL stil sayfaları, BBCode veya benzeri ifade şablon dillerinde kullanıcı girdisinin temizlendiği veya bu tür özelliklerin devre dışı bırakıldığı doğrulanmalıdır. | 2 | 
-| **1.3.6** | Uygulamanın, güvenilmeyen verileri başka servislere iletmeden önce izinli protokol, alan adı, yol ve port listelerine göre doğruladığı ve tehlikeli karakterleri temizlediği doğrulanarak SSRF (Sunucu Taraflı İstek Sahteciliği) saldırılarına karşı korunduğu doğrulanmalıdır. | 2 | 
-| **1.3.7** | Uygulamanın şablon enjeksiyon saldırılarına karşı, güvenilmeyen girdilere dayalı şablon oluşturmayı engellediği; eğer bu kaçınılmazsa, bu girdilerin mutlaka temizlendiği veya sıkı şekilde onaylandığı doğrulanmalıdır. | 2 | 
-| **1.3.8** | JNDI sorgularında kullanılmadan önce güvenilmeyen girdilerin temizlendiği ve JNDI'nin enjeksiyonlara karşı güvenli şekilde yapılandırıldığı doğrulanmalıdır. | 2 | 
-| **1.3.9** | Memcache’e gönderilmeden önce içeriğin temizlenerek enjeksiyon saldırılarına karşı korunduğu doğrulanmalıdır. | 2 | 
-| **1.3.10** | 	Format dizgilerinin (format strings) beklenmeyen veya zararlı şekilde çözümlenmesini önlemek için işlenmeden önce temizlendiği doğrulanmalıdır. | 2 | 
+| **1.3.3** | Potansiyel olarak tehlikeli bir bağlamda kullanılacak verilerin, bu bağlama uygun karakterlere izin vermek ve çok uzun girdileri kısaltmak gibi güvenlik önlemleriyle önceden temizlendiği doğrulanmalıdır. | 2 |
+| **1.3.4** | Kullanıcı tarafından sağlanan SVG içeriğinin, yalnızca güvenli etiket ve özellikler (örneğin grafik çizme ile ilgili) içerdiğinden emin olmak için onaylandığı veya temizlendiği doğrulanmalıdır (ör. script veya foreignObject içermemelidir). | 2 |
+| **1.3.5** | Markdown, CSS, XSL stil sayfaları, BBCode veya benzeri ifade şablon dillerinde kullanıcı girdisinin temizlendiği veya bu tür özelliklerin devre dışı bırakıldığı doğrulanmalıdır. | 2 |
+| **1.3.6** | Uygulamanın, güvenilmeyen verileri başka servislere iletmeden önce izinli protokol, alan adı, yol ve port listelerine göre doğruladığı ve tehlikeli karakterleri temizlediği doğrulanarak SSRF (Sunucu Taraflı İstek Sahteciliği) saldırılarına karşı korunduğu doğrulanmalıdır. | 2 |
+| **1.3.7** | Uygulamanın şablon enjeksiyon saldırılarına karşı, güvenilmeyen girdilere dayalı şablon oluşturmayı engellediği; eğer bu kaçınılmazsa, bu girdilerin mutlaka temizlendiği veya sıkı şekilde onaylandığı doğrulanmalıdır. | 2 |
+| **1.3.8** | JNDI sorgularında kullanılmadan önce güvenilmeyen girdilerin temizlendiği ve JNDI'nin enjeksiyonlara karşı güvenli şekilde yapılandırıldığı doğrulanmalıdır. | 2 |
+| **1.3.9** | Memcache’e gönderilmeden önce içeriğin temizlenerek enjeksiyon saldırılarına karşı korunduğu doğrulanmalıdır. | 2 |
+| **1.3.10** | Format dizgilerinin (format strings) beklenmeyen veya zararlı şekilde çözümlenmesini önlemek için işlenmeden önce temizlendiği doğrulanmalıdır. | 2 |
 | **1.3.11** | SMTP veya IMAP enjeksiyonlarını önlemek için, kullanıcı girdisinin posta sistemlerine iletilmeden önce temizlendiği doğrulanmalıdır. | 2 |
 | **1.3.12** | Regex girdilerinin üstel geri izlemeye (exponential backtracking) neden olan öğeler içermediği ve güvenilmeyen girdilerin ReDoS (Regex Denial of Service) gibi saldırılara karşı temizlendiği doğrulanmalıdır. | 3 |
 
@@ -65,7 +65,7 @@ Aşağıdaki gereksinimler, sistem programlama dilleri veya yönetilmeyen kod ku
 
 Bazı durumlarda, taşma korumaları ve uyarılar, yığın (stack) rastgeleleştirme ve veri yürütme engelleme gibi önlemleri etkinleştiren derleyici bayrakları (compiler flags) kullanılarak bu risklerin önüne geçilebilir. Ayrıca, tehlikeli işaretçi, bellek, format dizgisi, tamsayı ve dizgi işlemleri tespit edildiğinde derlemenin başarısız olmasını sağlayan ayarlar tercih edilmelidir.
 
-| # | Açıklama | Seviye | 
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
 | **1.4.1** | Yığın, arabellek (buffer) veya yığın belleği taşmalarını önlemek ya da tespit etmek amacıyla, bellek güvenli dizgi işlemlerinin, daha güvenli bellek kopyalama ve işaretçi aritmetiğinin kullanıldığı doğrulanmalıdır. | 2 |
 | **1.4.2** | Tamsayı taşmalarını önlemek için işaret (sign), aralık (range) ve giriş doğrulama tekniklerinin kullanıldığı doğrulanmalıdır. | 2 |
@@ -79,9 +79,9 @@ Verilerin saklanmış veya iletilmiş bir temsilinden uygulama nesnelerine dön�
 
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **1.5.1** | XML ayrıştırıcılarının (parser) kısıtlayıcı şekilde yapılandırıldığı ve dış varlık çözümleme (external entity resolution) gibi güvensiz özelliklerin XXE (XML eXternal Entity) saldırılarına karşı devre dışı bırakıldığı doğrulanmalıdır . | 1 | 
-| **1.5.2** | Güvenilmeyen verilerin ters serileştirilmesinde, nesne türleri için izinli liste kullanımı veya istemci tanımlı nesne türlerinin kısıtlanması gibi güvenli giriş işleme önlemlerinin uygulandığı doğrulanmalıdır. Güvensiz olarak tanımlanmış ters serileştirme mekanizmaları, güvenilmeyen girdilerle kullanılmamalıdır. | 2 | 
-| **1.5.3** | Aynı veri türü için uygulamada kullanılan farklı parser'ların (ör. JSON, XML, URL parser'ları), veriyi tutarlı şekilde ayrıştırdığı ve aynı karakter kodlamasını kullandığı doğrulanmalıdır. Böylece JSON birlikte çalışabilirlik açıkları, URI veya dosya ayrıştırma farkları gibi sorunlar nedeniyle RFI veya SSRF saldırılarının istismar edilmesi önlenir. | 3 | 
+| **1.5.1** | XML ayrıştırıcılarının (parser) kısıtlayıcı şekilde yapılandırıldığı ve dış varlık çözümleme (external entity resolution) gibi güvensiz özelliklerin XXE (XML eXternal Entity) saldırılarına karşı devre dışı bırakıldığı doğrulanmalıdır . | 1 |
+| **1.5.2** | Güvenilmeyen verilerin ters serileştirilmesinde, nesne türleri için izinli liste kullanımı veya istemci tanımlı nesne türlerinin kısıtlanması gibi güvenli giriş işleme önlemlerinin uygulandığı doğrulanmalıdır. Güvensiz olarak tanımlanmış ters serileştirme mekanizmaları, güvenilmeyen girdilerle kullanılmamalıdır. | 2 |
+| **1.5.3** | Aynı veri türü için uygulamada kullanılan farklı parser'ların (ör. JSON, XML, URL parser'ları), veriyi tutarlı şekilde ayrıştırdığı ve aynı karakter kodlamasını kullandığı doğrulanmalıdır. Böylece JSON birlikte çalışabilirlik açıkları, URI veya dosya ayrıştırma farkları gibi sorunlar nedeniyle RFI veya SSRF saldırılarının istismar edilmesi önlenir. | 3 |
 
 ## Referanslar
 

@@ -43,7 +43,6 @@ Bu bölüm, bir uygulama için temel kriptografik algoritmaların seçimi, uygul
 | **11.2.4** | Tüm kriptografik işlemlerin sabit süreli (constant-time) olduğu, karşılaştırmalarda, hesaplamalarda veya geri dönüşlerde kısa devre (short-circuit) işlemleri yapılmadığı doğrulanmalıdır; bu, bilgi sızıntısını önlemek için gereklidir. | 3 |
 | **11.2.5** | Tüm kriptografik modüllerin güvenli şekilde hata verdiği ve hataların, padding oracle saldırıları gibi zafiyetleri mümkün kılmayacak şekilde ele alındığı doğrulanmalıdır. | 3 |
 
-
 ## V11.3 Şifreleme Algoritmaları
 
 AES ve CHACHA20 üzerine kurulu kimliği doğrulanmış şifreleme algoritmaları, modern kriptografik uygulamaların temelini oluşturur.
@@ -55,7 +54,6 @@ AES ve CHACHA20 üzerine kurulu kimliği doğrulanmış şifreleme algoritmalar�
 | **11.3.3** | Şifrelenmiş verilerin yetkisiz değişikliklere karşı korunduğu doğrulanmalıdır. Tercihen bu koruma, onaylı bir kimliği doğrulanmış şifreleme yöntemi kullanılarak ya da onaylı bir şifreleme yöntemi ile onaylı bir MAC algoritmasının kombinasyonu ile sağlanmalıdır. | 2 |
 | **11.3.4** | Sayılar, başlatma vektörleri (IV) ve diğer tek kullanımlık değerlerin, aynı şifreleme anahtarı ve veri öğesi çifti için birden fazla kez kullanılmadığı doğrulanmalıdır. Oluşturma yöntemi kullanılan algoritmaya uygun olmalıdır. | 3 |
 | **11.3.5** | Şifreleme algoritması ve MAC algoritması kombinasyonlarının "encrypt-then-MAC" modunda çalıştığı doğrulanmalıdır. | 3 |
-
 
 ## V11.4 Hashing ve Hash Tabanlı Fonksiyonlar
 

@@ -8,7 +8,7 @@ Bu kategori, bir web frontend'i üzerinden gerçekleştirilen saldırılara kar�
 
 Bu bölüm, uygulamanın dokümantasyonunda belirtilmesi gereken tarayıcı güvenlik özelliklerini tanımlar.
 
-| # | Açıklama | Seviye | 
+| # | Açıklama | Seviye |
 | :---: | :---: | :---: |
 | **3.1.1** | Uygulama dokümantasyonunda, uygulamayı kullanan tarayıcıların desteklemesi gereken güvenlik özelliklerinin (ör. HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP) ve diğer ilgili HTTP güvenlik mekanizmaları) tanımlandığı doğrulanmalıdır. Ayrıca bu özelliklerin mevcut olmadığı durumlarda uygulamanın nasıl davranması gerektiği (ör. kullanıcıyı uyarmak veya erişimi engellemek) de tanımlanmalıdır. | 3 |
 
@@ -16,8 +16,8 @@ Bu bölüm, uygulamanın dokümantasyonunda belirtilmesi gereken tarayıcı güv
 
 İçerik veya işlevin yanlış bir bağlamda sunulması, kötü amaçlı içeriğin çalıştırılmasına veya görüntülenmesine neden olabilir.
 
-| # | Açıklama | Seviye | 
-| :---: | :---: | :---: | 
+| # | Açıklama | Seviye |
+| :---: | :---: | :---: |
 | **3.2.1** | Tarayıcıların HTTP yanıtlarında içerik veya işlevi yanlış bir bağlamda sunmalarını önlemek amacıyla güvenlik kontrollerinin uygulandığı doğrulanmalıdır (ör. API, kullanıcı tarafından yüklenen dosya veya başka bir kaynağın doğrudan çağrılması durumunda). Olası kontroller arasında; yalnızca HTTP istek başlıklarının (ör. Sec-Fetch-\*) doğru bağlamı gösterdiği durumlarda içeriğin sunulması, Content-Security-Policy başlığında "sandbox" yönergesinin kullanılması veya Content-Disposition başlığında "attachment" biçiminin kullanılması yer alabilir. | 1 |
 | **3.2.2** | HTML yerine metin olarak görüntülenmesi amaçlanan içeriğin, HTML veya JavaScript gibi içeriklerin istenmeden çalıştırılmasını önleyecek şekilde "createTextNode" veya "textContent" gibi güvenli işleme fonksiyonlarıyla işlendiği doğrulanmalıdır. | 1 |
 | **3.2.3** | Uygulamanın istemci tarafı JavaScript kullanırken açık değişken tanımlamaları yaparak, sıkı tür kontrolü uygulayarak, global değişkenleri document nesnesine kaydetmekten kaçınarak ve ad alanı izolasyonu sağlayarak DOM clobbering’den kaçındığı doğrulanmalıdır. | 3 |
@@ -27,10 +27,10 @@ Bu bölüm, uygulamanın dokümantasyonunda belirtilmesi gereken tarayıcı güv
 Bu bölüm, hassas çerezlerin güvenli biçimde yapılandırılması için gereksinimleri tanımlar. Amaç, çerezlerin gerçekten uygulama tarafından oluşturulduğuna dair daha yüksek düzeyde güvence sağlamak ve içeriklerinin sızmasını veya uygunsuz şekilde değiştirilmesini önlemektir.
 
 | # | Açıklama | Seviye |
-| :---: | :---: | :---: | 
+| :---: | :---: | :---: |
 | **3.3.1** | Çerezlerin 'Secure' niteliğine sahip olduğu ve eğer çerez adı '\__Host-' ön eki ile başlamıyorsa, '__Secure-' ön ekinin kullanıldığı doğrulanmalıdır. | 1 |
-| **3.3.2** | Kullanıcı arayüzü kandırma saldırılarına ve tarayıcı tabanlı istek sahteciliği saldırılarına (CSRF) karşı koruma sağlamak amacıyla, her çerezin 'SameSite' niteliğinin kullanım amacına uygun şekilde ayarlandığı doğrulanmalıdır. | 2 | 
-| **3.3.3** | Çerez adı, diğer sunucularla paylaşılmak üzere açıkça tasarlanmadığı sürece '__Host-' ön eki ile tanımlanmalıdır. | 2 | 
+| **3.3.2** | Kullanıcı arayüzü kandırma saldırılarına ve tarayıcı tabanlı istek sahteciliği saldırılarına (CSRF) karşı koruma sağlamak amacıyla, her çerezin 'SameSite' niteliğinin kullanım amacına uygun şekilde ayarlandığı doğrulanmalıdır. | 2 |
+| **3.3.3** | Çerez adı, diğer sunucularla paylaşılmak üzere açıkça tasarlanmadığı sürece '__Host-' ön eki ile tanımlanmalıdır. | 2 |
 | **3.3.4** | Bir çerez değeri istemci tarafı betikleri tarafından erişilememesi gereken bir veri içeriyorsa (ör. oturum token'ı), çerezin 'HttpOnly' niteliğine sahip olduğu ve aynı değerin (ör. oturum token'ı) yalnızca 'Set-Cookie' başlığı ile istemciye iletildiği doğrulanmalıdır. | 2 |
 | **3.3.5** | Uygulama bir çerez oluştururken, çerez adı ve değerinin toplam uzunluğunun 4096 baytı aşmadığı doğrulanmalıdır. Çok büyük çerezler tarayıcı tarafından saklanmaz ve isteklerle gönderilmez; bu da çereze bağlı çalışan uygulama işlevlerinin bozulmasına yol açabilir. | 3 |
 

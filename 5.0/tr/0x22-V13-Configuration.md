@@ -61,7 +61,6 @@ Gizli bilgilerin (secret) yönetimi, uygulama tarafından kullanılan verilerin 
 | **13.4.6** | Uygulamanın arka uç bileşenlerinin ayrıntılı sürüm bilgilerini ifşa etmediği doğrulanmalıdır. | 3 |
 | **13.4.7** | Web katmanının yalnızca belirli dosya uzantılarına sahip dosyaları sunacak şekilde yapılandırıldığı, bu sayede istem dışı bilgi, yapılandırma ya da kaynak kod sızıntılarının önlendiği doğrulanmalıdır. | 3 |
 
-
 ## Referanslar
 
 Daha fazla bilgi için:

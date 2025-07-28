@@ -22,7 +22,6 @@ Bu bölüm, bir uygulamada kimlik doğrulama ile ilgili tutulması gereken dokü
 | **6.1.2** | Parolalarda kullanılmasını önlemek amacıyla, bağlama özgü sözcüklerin (örneğin kurum adlarının permütasyonları, ürün adları, sistem tanımlayıcıları, proje kod adları, departman veya rol adları vb.) bulunduğu belgelenmiş bir liste mevcut olduğu doğrulanmalıdır. | 2 |
 | **6.1.3** | Uygulama birden fazla kimlik doğrulama yolu içeriyorsa, bunların tümünün belgelenmiş olduğu ve her yol için tutarlı şekilde uygulanması gereken güvenlik kontrolleri ile kimlik doğrulama gücünün tanımlandığı doğrulanmalıdır. | 2 |
 
-
 ## V6.2 Parola Güvenliği
 
 Parolalar, NIST SP 800-63 tarafından "Ezberlenmiş Sırlar" (Memorized Secrets) olarak tanımlanır ve parolalar, parola öbekleri, PIN'ler, desen kilitleri ya da "doğru kedinin veya başka bir görsel öğenin seçilmesi" gibi yöntemleri kapsar. Genellikle "bildiğiniz bir şey" olarak kabul edilirler ve tek faktörlü kimlik doğrulamada yaygın olarak kullanılırlar.
@@ -115,7 +114,7 @@ Bu bölümlerdeki gereklilikler çoğunlukla [NIST's Guidance](https://pages.nis
 
 Bu mekanizmalar genellikle kimlik doğrulama sunucusunun, fiziksel bir cihazla güvenli bir ikinci kanal üzerinden iletişim kurmasını (örneğin mobil cihazlara gönderilen bildirimler) içerir. Bu tür mekanizmalar, “sahip olduğunuz bir şey” olarak değerlendirilir.
 
-E-posta ve VOIP gibi güvenli olmayan bant dışı kimlik doğrulama yöntemlerine izin verilmemektedir. PSTN ve SMS ile yapılan kimlik doğrulama şu anda NIST tarafından ["sınırlandırılmış" doğrulama mekanizmaları](https://pages.nist.gov/800-63-FAQ/#q-b01) olarak değerlendirilmekte ve yerlerine zamana dayalı tek kullanımlık parolalar (TOTP) veya benzer kriptografik mekanizmaların tercih edilmesi önerilmektedir. 
+E-posta ve VOIP gibi güvenli olmayan bant dışı kimlik doğrulama yöntemlerine izin verilmemektedir. PSTN ve SMS ile yapılan kimlik doğrulama şu anda NIST tarafından ["sınırlandırılmış" doğrulama mekanizmaları](https://pages.nist.gov/800-63-FAQ/#q-b01) olarak değerlendirilmekte ve yerlerine zamana dayalı tek kullanımlık parolalar (TOTP) veya benzer kriptografik mekanizmaların tercih edilmesi önerilmektedir.
 
 NIST SP 800-63B [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network), telefon veya SMS kullanılması gerekiyorsa cihaz değişimi, SIM değişikliği, numara taşıma gibi anormal davranışların risklerinin ele alınmasını önermektedir. Bu ASVS bölümü bunu zorunlu kılmasa da, bu önlemlerin alınmaması Seviye 2'deki hassas bir uygulamada veya Seviye 3’teki bir uygulamada ciddi bir güvenlik riski olarak değerlendirilmelidir.
 
@@ -130,7 +129,7 @@ Ayrıca NIST, yakın zamanda [anlık bildirimlerin kullanılmamasını öneren](
 
 ## V6.7 Kriptografik Kimlik Doğrulama Mekanizması
 
-Kriptografik kimlik doğrulama mekanizmaları, akıllı kartlar veya FIDO anahtarları gibi kullanıcıların kimlik doğrulama işlemini tamamlamak için kriptografik cihazı bilgisayara takması ya da eşleştirmesini gerektiren mekanizmaları içerir. Kimlik doğrulama sunucusu, kriptografik cihaza veya yazılıma bir "challenge nonce" gönderir; cihaz ya da yazılım da güvenli bir şekilde saklanan kriptografik anahtara dayalı olarak bir yanıt üretir. Bu bölümdeki gereksinimler bu mekanizmalar için, “Kriptografi” bölümünde ele alınan kriptografik algoritmalarla ilgili rehberlik sağlayan kısımlarla birlikte, uygulamaya özel rehberlik sağlar. 
+Kriptografik kimlik doğrulama mekanizmaları, akıllı kartlar veya FIDO anahtarları gibi kullanıcıların kimlik doğrulama işlemini tamamlamak için kriptografik cihazı bilgisayara takması ya da eşleştirmesini gerektiren mekanizmaları içerir. Kimlik doğrulama sunucusu, kriptografik cihaza veya yazılıma bir "challenge nonce" gönderir; cihaz ya da yazılım da güvenli bir şekilde saklanan kriptografik anahtara dayalı olarak bir yanıt üretir. Bu bölümdeki gereksinimler bu mekanizmalar için, “Kriptografi” bölümünde ele alınan kriptografik algoritmalarla ilgili rehberlik sağlayan kısımlarla birlikte, uygulamaya özel rehberlik sağlar.
 
 Kriptografik kimlik doğrulama için paylaşımlı veya gizli anahtarların kullanıldığı durumlarda, diğer sistem gizli anahtarlarıyla aynı mekanizmalar kullanılarak saklanmalıdır. Bu mekanizmalar “Yapılandırma” başlığındaki “Gizli Yönetimi” bölümünde belgelenmiştir.
 
@@ -140,7 +139,6 @@ Bu bölümdeki gereksinimler çoğunlukla [NIST's Guidance](https://pages.nist.g
 | :---: | :--- | :---: |
 | **6.7.1** | Kriptografik kimlik doğrulama beyanlarını doğrulamak için kullanılan sertifikaların, değiştirilmeye karşı korumalı şekilde saklandığı doğrulanmalıdır. | 3 |
 | **6.7.2** | Challenge nonce değerinin en az 64 bit uzunluğunda olduğu ve istatistiksel olarak benzersiz ya da cihazın ömrü boyunca benzersiz olduğu doğrulanmalıdır. | 3 |
-
 
 ## V6.8 Kimlik Sağlayıcısı ile Kimlik Doğrulama
 

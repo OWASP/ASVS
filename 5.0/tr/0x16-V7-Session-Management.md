@@ -16,7 +16,6 @@ Belirli oturum yönetim mekanizmalarının bazı uygulama detaylarına ilişkin 
 
 ## V7.1 Oturum Yönetim Dokümantasyonu
 
-
 Tüm uygulamalara uyan tek bir kalıp yoktur. Bu nedenle, tüm durumlara uygun evrensel sınırlar ve limitler tanımlamak mümkün değildir. Oturum yönetimi uygulama ve testine başlanmadan önce, oturum işleme ile ilgili güvenlik kararlarının belgelenmiş olduğu bir risk analizi yapılmalıdır. Bu, oturum yönetim sisteminin uygulamanın özel ihtiyaçlarına göre uyarlanmasını sağlar.
 
 Durum bilgili ya da durumsuz (stateful ya da stateless) oturum mekanizması tercih edilse bile, analiz eksiksiz ve belgelenmiş olmalı ve seçilen çözümün ilgili tüm güvenlik gereksinimlerini karşılayabildiğini göstermelidir. Kullanılan herhangi bir Tek Oturum Açma (SSO) mekanizması ile olan etkileşim de değerlendirilmelidir.
@@ -37,7 +36,6 @@ Bu bölüm, oturum token'larının güvenli bir şekilde oluşturulup doğruland
 | **7.2.2** | Uygulamanın, statik API gizli anahtarları veya sabit değerler yerine, oturum yönetimi için dinamik olarak oluşturulan kendi kendine yeterli veya referans token'ları kullandığı doğrulanmalıdır. | 1 |
 | **7.2.3** | Uygulama kullanıcı oturumlarını temsil etmek için referans token'ları kullanıyorsa, bu token'ların benzersiz olduğu, kriptografik olarak güvenli bir sözde rastgele sayı üreteci (CSPRNG) kullanılarak üretildiği ve en az 128 bit entropiye sahip olduğu doğrulanmalıdır. | 1 |
 | **7.2.4** | Uygulamanın, kullanıcı kimlik doğrulaması (yeniden kimlik doğrulama dahil) sırasında yeni bir oturum token'ı oluşturduğu ve mevcut oturum token'ını sonlandırdığı doğrulanmalıdır. | 1 |
-
 
 ## V7.3 Oturum Zaman Aşımı
 

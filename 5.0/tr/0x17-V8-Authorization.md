@@ -29,18 +29,15 @@ Kapsamlı yetkilendirme dokümantasyonu, güvenlik kararlarının tutarlı biçi
 | **8.2.3** | Uygulamanın, alan (field) düzeyindeki erişimin yalnızca belirli alanlara açık izinlere sahip tüketicilerle sınırlandığını sağladığı doğrulanmalıdır. Bu, bozuk nesne özelliği düzeyinde yetkilendirme (BOPLA) risklerini azaltır. | 2 |
 | **8.2.4** | Tüketicinin çevresel ve bağlamsal özniteliklerine (ör. günün saati, konum, IP adresi veya cihaz) dayalı uyarlanabilir güvenlik kontrollerinin, uygulama dokümantasyonunda tanımlandığı şekilde, kimlik doğrulama ve yetkilendirme kararları için uygulandığı doğrulanmalıdır. Bu kontroller, tüketici yeni bir oturum başlatmaya çalışırken ve mevcut bir oturum sırasında uygulanmalıdır. | 3 |
 
-
 ## V8.3 İşlem Düzeyinde Yetkilendirme
 
 Yetkilendirme değişikliklerinin uygulamanın mimarisindeki uygun katmana anında yansıtılması, özellikle dinamik ortamlarda yetkisiz işlemleri önlemek açısından kritik öneme sahiptir.
-
 
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
 | **8.3.1** | Uygulamanın yetkilendirme kurallarını güvenilir bir servis katmanında uyguladığı ve istemci taraflı JavaScript gibi güvenilmeyen tüketiciler tarafından değiştirilebilecek kontrollerle yetinmediği doğrulanmalıdır. | 1 |
 | **8.3.2** | Yetkilendirme kararlarının temelini oluşturan değerlerdeki değişikliklerin hemen uygulandığı doğrulanmalıdır. Değişikliklerin anında uygulanamadığı durumlarda (örneğin self-contained token içindeki verilere güveniliyorsa), tüketici artık yetkili olmadığı hâlde bir işlem gerçekleştirdiğinde uyarı verecek ve değişikliği geri alacak önlemler uygulanmalıdır. Bu alternatifin bilgi sızıntısını önlemeyeceği unutulmamalıdır. | 3 |
 | **8.3.3** | Bir nesneye erişimin, herhangi bir aracı veya onun adına hareket eden bir servis yerine yalnızca erişimi başlatan öznenin (ör. tüketici) izinlerine dayandığı doğrulanmalıdır. Örneğin, bir tüketici kimlik doğrulama için bir self-contained token kullanarak bir web servis çağırırsa ve bu servis başka bir servisten veri talep ederse, ikinci servis izin kararlarını verirken birinci servisin makine-makine token'ı yerine tüketicinin token'ını kullanmalıdır. | 3 |
-
 
 ## V8.4 Diğer Yetkilendirme Hususları
 

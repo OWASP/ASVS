@@ -8,17 +8,16 @@ Bu bölümün amacı, doğrulanan bir uygulamanın aşağıdaki üst düzey hede
 * İş mantığı akışı sıralıdır, sırayla işlenir ve atlanamaz.
 * İş mantığı, sürekli küçük para transferleri veya her seferinde 1 tane olmak üzere 1 milyon arkadaş ekleme gibi otomatik saldırıları tespit edip engellemek için sınırlar ve kontroller içerir.
 * Yüksek değerli iş mantığı akışları, kötüye kullanım senaryoları ve kötü niyetli aktörler göz önüne alınarak oluşturulmuştur ve kimlik sahteciliği, manipülasyon, bilgi sızıntısı ve yetki yükseltme saldırılarına karşı korumaya sahiptir.
- 
+
 ## V2.1 Doğrulama ve İş Mantığı Dokümantasyonu
 
 Doğrulama ve iş mantığı dokümantasyonu; iş mantığı sınırlarını, doğrulama kurallarını ve birleştirilmiş veri öğelerinin bağlamsal tutarlılığını açıkça tanımlamalıdır. Böylece uygulamada neyin uygulanması gerektiği net olur.
 
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **2.1.1** | Uygulama dokümantasyonunda, veri öğelerinin beklenen yapıya göre nasıl doğrulanacağına ilişkin giriş doğrulama kurallarının tanımlandığı doğrulanmalıdır. Bu; kredi kartı numaraları, e-posta adresleri, telefon numaraları gibi yaygın veri biçimleri olabileceği gibi iç sistemlere özel biçimler de olabilir. | 1 | 
-| **2.1.2** | Uygulama dokümantasyonunda, birleştirilmiş veri öğelerinin mantıksal ve bağlamsal tutarlılığının nasıl doğrulanacağı tanımlanmalıdır (örneğin, mahalle ve posta kodunun eşleşip eşleşmediğinin kontrolü). | 2 | 
-| **2.1.3** | Hem kullanıcı bazında hem de uygulama genelinde geçerli olacak şekilde, iş mantığı sınırları ve doğrulama beklentilerinin belgelendiği doğrulanmalıdır. | 2 | 
-
+| **2.1.1** | Uygulama dokümantasyonunda, veri öğelerinin beklenen yapıya göre nasıl doğrulanacağına ilişkin giriş doğrulama kurallarının tanımlandığı doğrulanmalıdır. Bu; kredi kartı numaraları, e-posta adresleri, telefon numaraları gibi yaygın veri biçimleri olabileceği gibi iç sistemlere özel biçimler de olabilir. | 1 |
+| **2.1.2** | Uygulama dokümantasyonunda, birleştirilmiş veri öğelerinin mantıksal ve bağlamsal tutarlılığının nasıl doğrulanacağı tanımlanmalıdır (örneğin, mahalle ve posta kodunun eşleşip eşleşmediğinin kontrolü). | 2 |
+| **2.1.3** | Hem kullanıcı bazında hem de uygulama genelinde geçerli olacak şekilde, iş mantığı sınırları ve doğrulama beklentilerinin belgelendiği doğrulanmalıdır. | 2 |
 
 ## V2.2 Girdi Doğrulama
 
@@ -38,32 +37,30 @@ Bir iş mantığı kontrolü, belirli bir girdinin 100'den küçük bir sayı ol
 
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **2.2.1** | Girdilerin, işlevsel ya da iş gereksinimlerine uygunluğunun doğrulandığı teyit edilmelidir. Bu işlem; izinli değerler, desenler ve aralıklar listesine karşı pozitif doğrulama ile ya da girdinin beklenen yapıya ve mantıksal sınırlara uygunluğunun önceden tanımlanmış kurallara göre karşılaştırılması ile yapılmalıdır. Seviye 1 için bu, güvenlik veya iş kararlarında kullanılan girdilere odaklanabilir. Seviye 2 ve üstü için tüm girdilere uygulanmalıdır. | 1 | 
-| **2.2.2** | Uygulamanın, güvenilir bir servis katmanında girdi doğrulama zorunluluğu uygulayacak şekilde tasarlandığı doğrulanmalıdır. İstemci tarafında gerçekleştirilen doğrulama, kullanılabilirliği artırabilir ve teşvik edilmelidir. Ancak bu doğrulama,güvenlik kontrolü olarak kabul edilmemelidir. | 1 | 
-| **2.2.3** | Uygulamanın, ilişkili veri öğelerinin önceden tanımlanmış kurallara göre makul olup olmadığını kontrol ettiği doğrulanmalıdır. | 2 | 
+| **2.2.1** | Girdilerin, işlevsel ya da iş gereksinimlerine uygunluğunun doğrulandığı teyit edilmelidir. Bu işlem; izinli değerler, desenler ve aralıklar listesine karşı pozitif doğrulama ile ya da girdinin beklenen yapıya ve mantıksal sınırlara uygunluğunun önceden tanımlanmış kurallara göre karşılaştırılması ile yapılmalıdır. Seviye 1 için bu, güvenlik veya iş kararlarında kullanılan girdilere odaklanabilir. Seviye 2 ve üstü için tüm girdilere uygulanmalıdır. | 1 |
+| **2.2.2** | Uygulamanın, güvenilir bir servis katmanında girdi doğrulama zorunluluğu uygulayacak şekilde tasarlandığı doğrulanmalıdır. İstemci tarafında gerçekleştirilen doğrulama, kullanılabilirliği artırabilir ve teşvik edilmelidir. Ancak bu doğrulama,güvenlik kontrolü olarak kabul edilmemelidir. | 1 |
+| **2.2.3** | Uygulamanın, ilişkili veri öğelerinin önceden tanımlanmış kurallara göre makul olup olmadığını kontrol ettiği doğrulanmalıdır. | 2 |
 
 ## V2.3 İş Mantığı Güvenliği
 
 Bu bölüm, uygulamanın iş mantığı süreçlerini doğru şekilde yürüttüğünden ve bu mantık ve akışın istismarına karşı savunmasız olmadığından emin olunması için temel gereksinimleri kapsar.
 
 | # | Açıklama | Seviye |
-| :---: | :--- | :---: | 
-| **2.3.1** | Uygulamanın, aynı kullanıcı için iş mantığı akışlarını yalnızca beklenen adım sırasına göre ve adım atlamadan işlediği doğrulanmalıdır. | 1 | 
-| **2.3.2** | İş mantığı sınırlarının, uygulama dokümantasyonuna uygun şekilde uygulandığı doğrulanmalıdır. | 2 | 
-| **2.3.3** | İş mantığı seviyesinde işlemlerin (transaction) kullanıldığı ve bir iş mantığı işleminin ya bütünüyle başarıyla tamamlandığı ya da önceki geçerli duruma geri döndürüldüğü (rollback) doğrulanmalıdır. | 2 | 
-| **2.3.4** | İş mantığı düzeyinde kilitleme mekanizmalarının, sınırlı kaynakların (ör. sinema koltukları, teslimat zamanları) uygulamanın mantığı manipüle edilerek çift rezervasyona neden olmamasını sağladığı doğrulanmalıdır. | 2 | 
-| **2.3.5** | Yüksek değerli iş mantığı akışlarının, yetkisiz veya kazara gerçekleşebilecek işlemleri önlemek için çoklu kullanıcı onayı gerektirdiği doğrulanmalıdır. Bu işlemler büyük para transferleri, sözleşme onayları, gizli bilgilere erişim veya üretimde güvenlik kurallarının geçersiz kılınmaları gibi durumları içerebilir. | 3 | 
-
+| :---: | :--- | :---: |
+| **2.3.1** | Uygulamanın, aynı kullanıcı için iş mantığı akışlarını yalnızca beklenen adım sırasına göre ve adım atlamadan işlediği doğrulanmalıdır. | 1 |
+| **2.3.2** | İş mantığı sınırlarının, uygulama dokümantasyonuna uygun şekilde uygulandığı doğrulanmalıdır. | 2 |
+| **2.3.3** | İş mantığı seviyesinde işlemlerin (transaction) kullanıldığı ve bir iş mantığı işleminin ya bütünüyle başarıyla tamamlandığı ya da önceki geçerli duruma geri döndürüldüğü (rollback) doğrulanmalıdır. | 2 |
+| **2.3.4** | İş mantığı düzeyinde kilitleme mekanizmalarının, sınırlı kaynakların (ör. sinema koltukları, teslimat zamanları) uygulamanın mantığı manipüle edilerek çift rezervasyona neden olmamasını sağladığı doğrulanmalıdır. | 2 |
+| **2.3.5** | Yüksek değerli iş mantığı akışlarının, yetkisiz veya kazara gerçekleşebilecek işlemleri önlemek için çoklu kullanıcı onayı gerektirdiği doğrulanmalıdır. Bu işlemler büyük para transferleri, sözleşme onayları, gizli bilgilere erişim veya üretimde güvenlik kurallarının geçersiz kılınmaları gibi durumları içerebilir. | 3 |
 
 ## V2.4 Otomasyon Karşıtı Önlemler
 
 Bu bölümde, insan benzeri etkileşimlerin zorunlu kılındığı ve aşırı miktardaki otomatik taleplerin engellendiği kontroller yer alır.
 
-| # | Açıklama | Seviye | 
+| # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **2.4.1** | Uygulama işlevlerine yönelik aşırı miktardaki çağrılara karşı; veri sızdırma, anlamsız veri üretme, kota tüketme, hız sınırının aşılması, hizmet reddi (DoS) ya da maliyetli kaynakların aşırı kullanımı gibi risklere karşı otomasyon karşıtı kontrollerin bulunduğu doğrulanmalıdır. | 2 | 
+| **2.4.1** | Uygulama işlevlerine yönelik aşırı miktardaki çağrılara karşı; veri sızdırma, anlamsız veri üretme, kota tüketme, hız sınırının aşılması, hizmet reddi (DoS) ya da maliyetli kaynakların aşırı kullanımı gibi risklere karşı otomasyon karşıtı kontrollerin bulunduğu doğrulanmalıdır. | 2 |
 | **2.4.2** | İş mantığı akışlarının, aşırı hızlı işlem gönderimlerini önleyecek şekilde gerçekçi insan zamanlaması gerektirdiği doğrulanmalıdır. | 3 |
-
 
 ## Referanslar
 

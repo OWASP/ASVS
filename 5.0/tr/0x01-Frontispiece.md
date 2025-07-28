@@ -10,7 +10,7 @@ Versiyon 5.0.0, Mayıs 2025
 
 ![license](../images/license.png)
 
-Copyright © 2008-2025 The OWASP Foundation. 
+Copyright © 2008-2025 The OWASP Foundation.
 
 Bu doküman [Creative Commons Attribution-ShareAlike 4.0 Uluslararası Lisansı](https://creativecommons.org/licenses/by-sa/4.0/) altında yayımlanmıştır.  
 

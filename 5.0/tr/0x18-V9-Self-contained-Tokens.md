@@ -6,7 +6,6 @@ Kendi içinde taşıyıcı token ya da self-contained token kavramı, ilk olarak
 
 Self-contained token kullanımı, OAuth ve OIDC dışında bile oldukça yaygın hale gelmiştir. Aynı zamanda bu mekanizmanın güvenliği, token'ın bütünlüğünün doğrulanabilmesine ve belirli bir bağlam için geçerli olduğunun teyit edilmesine bağlıdır. Bu süreçte birçok güvenlik açığı ortaya çıkabilir ve bu bölüm, uygulamaların alması gereken önlemleri ayrıntılı şekilde açıklamaktadır.
 
-
 ## V9.1 Token Kaynağı ve Bütünlüğü
 
 Bu bölüm, token'ın güvenilir bir tarafça üretildiğini ve üzerinde oynama yapılmadığını sağlamak için gereken gereksinimleri içerir.
@@ -36,7 +35,6 @@ OAuth ve OIDC'ye özgü gereksinimler ilgili bölümde yer almaktadır.
 | **9.2.2** | Token'ı alan hizmetin, token içeriğini kabul etmeden önce bu token'ın doğru türde olduğunu ve sunulma amacına uygun olduğunu doğruladığı teyit edilmelidir. Örneğin, yalnızca erişim token'ları yetkilendirme kararları için, yalnızca ID Token'lar kullanıcı kimlik doğrulamasını kanıtlamak için kullanılabilir. | 2 |
 | **9.2.3** | Hizmetin yalnızca kendisiyle kullanılması amaçlanan (audience) token'ları kabul ettiği doğrulanmalıdır. JWT'lerde bu, 'aud' claim'inin hizmet içinde tanımlı bir allowlist ile doğrulanması yoluyla sağlanabilir. | 2 |
 | **9.2.4** | Eğer bir token issuer, farklı audience'lara token oluşturmak için aynı private key'i kullanıyorsa, oluşturulan token'ların hedef audience'ları benzersiz şekilde tanımlayan bir audience kısıtlaması içerdiği doğrulanmalıdır. Bu, bir token'ın farklı bir audience ile yeniden kullanılmasını önler. Audience tanımlayıcısı dinamik olarak sağlanıyorsa, token issuer bu audience'ları doğrulamalı ve audience taklitlerinin (impersonation) önüne geçmelidir. | 2 |
-
 
 ## Referanslar
 

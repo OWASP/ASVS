@@ -40,14 +40,13 @@ Bu bölümde geçen "token" terimi, aşağıdaki anlamlarda kullanılmıştır:
 
 Bu bölümdeki bazı gereksinimlerin risk seviyesi, istemcinin gizli istemci mi yoksa açık istemci mi olduğuna göre değişiklik gösterebilir. Güçlü istemci kimlik doğrulaması, birçok saldırı vektörünü etkisiz hale getirebildiği için, L1 uygulamalarında bazı gereksinimler gizli istemci kullanıldığında esnetilebilir.
 
-
 ## V10.1 Genel OAuth ve OIDC Güvenliği
 
 Bu bölüm, OAuth veya OIDC kullanan tüm uygulamalara uygulanabilen genel mimari gereksinimleri kapsar.
 
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **10.1.1** | 	Token'ların yalnızca kesinlikle ihtiyaç duyan bileşenlere gönderildiği doğrulanmalıdır. Örneğin, tarayıcı tabanlı JavaScript uygulamaları için bir backend-for-frontend modeli kullanıldığında, access ve refresh token'lara yalnızca backend'in erişebilmesi gerekir. | 2 |
+| **10.1.1** | Token'ların yalnızca kesinlikle ihtiyaç duyan bileşenlere gönderildiği doğrulanmalıdır. Örneğin, tarayıcı tabanlı JavaScript uygulamaları için bir backend-for-frontend modeli kullanıldığında, access ve refresh token'lara yalnızca backend'in erişebilmesi gerekir. | 2 |
 | **10.1.2** | Authorization server'dan gelen değerler (örneğin authorization code veya ID Token gibi) yalnızca aynı user agent oturumu ve işlemi tarafından başlatılmış bir yetkilendirme akışının sonucuysa kabul edildiği doğrulanmalıdır. Bu, client tarafından oluşturulan secret’ların 'proof key for code exchange' (PKCE) ‘code_verifier’, ‘state’ veya OIDC ‘nonce’ gibi tahmin edilemez, işleme özgü ve hem client’a hem de işlem başlatılan user agent oturumuna güvenli bir şekilde bağlı olmasını gerektirir. | 2 |
 
 ## V10.2 OAuth İstemcisi
@@ -102,7 +101,7 @@ Bu gereksinimler, OAuth authorization server'ların (yetkilendirme sunucuları) 
 | **10.4.13** | "Code" grant türünün daima pushed authorization request (PAR) ile birlikte kullanıldığı doğrulanmalıdır. | 3 |
 | **10.4.14** | AS'nin yalnızca sender-constrained (Proof-of-Possession) access token’lar ürettiği doğrulanmalıdır. Bu, mutual TLS ile certificate-bound access token ya da DPoP ile DPoP-bound access token olabilir. | 3 |
 | **10.4.15** | Sunucu taraflı istemciler için (kullanıcı cihazında çalışmayan), AS'nin "authorization_details" parametresinin istemci backend'i tarafından sağlandığını ve kullanıcı tarafından değiştirilmediğini doğruladığı, örneğin pushed authorization request (PAR) or JWT-secured Authorization Request (JAR) zorunlu kılınarak doğrulanmalıdır. | 3 |
-| **10.4.16** | Bir istemci gizli ise, AS'nin güçlü istemci kimlik doğrulama yöntemlerini zorunlu kıldığı doğrulanmalıdır. Bu yöntemler, public-key cryptography’ye dayalı ve replay saldırılarına karşı dayanıklı olmalı, örneğin mutual TLS ("tls_client_auth", "self_signed_tls_client_auth") veya private key JWT ("private_key_jwt") gibi.	| 3 |
+| **10.4.16** | Bir istemci gizli ise, AS'nin güçlü istemci kimlik doğrulama yöntemlerini zorunlu kıldığı doğrulanmalıdır. Bu yöntemler, public-key cryptography’ye dayalı ve replay saldırılarına karşı dayanıklı olmalı, örneğin mutual TLS ("tls_client_auth", "self_signed_tls_client_auth") veya private key JWT ("private_key_jwt") gibi. | 3 |
 
 ## V10.5 OIDC İstemcisi
 
@@ -115,8 +114,8 @@ Bu gereksinimler, OAuth authorization server'ların (yetkilendirme sunucuları) 
 | **10.5.1** | İstemcinin (relying party olarak) ID Token replay saldırılarını azalttığı doğrulanmalıdır. Örneğin, ID Token’daki 'nonce' claim’inin, OpenID Provider’a gönderilen kimlik doğrulama isteğindeki 'nonce' değeriyle eşleştiği doğrulanmalıdır. | 2 |
 | **10.5.2** | İstemcinin kullanıcıyı ID Token claim’lerinden (genellikle, başka kullanıcılarla yeniden atanamayan 'sub' claim’i) benzersiz şekilde tanımladığı doğrulanmalıdır. | 2 |
 | **10.5.3** | İstemcinin, kötü niyetli bir AS'nin başka bir AS'yi taklit etmesini AS metadata’sı üzerinden reddettiği doğrulanmalıdır. AS metadata’sındaki issuer URL’si, istemci tarafından beklenen önceden yapılandırılmış issuer URL’siyle tam olarak eşleşmiyorsa, metadata reddedilmelidir. | 2 |
-| **10.5.4** | İstemcinin, ID Token’ın kendisi için (audience) kullanılması amaçlandığını doğruladığı doğrulanmalıdır. Bu, token’daki 'aud' claim’inin istemcinin 'client_id' değeriyle eşit olup olmadığının kontrol edilmesiyle yapılır.	 | 2 |
-| **10.5.5** | OIDC back-channel logout kullanıldığında, relying party’nin "forced logout" ve "logout" akışında "cross-JWT confusion" gibi saldırılara karşı koruma sağladığı doğrulanmalıdır. Client, logout token’ın 'logout+jwt' türünde olduğunu, 'event' claim’inin doğru üyeye sahip olduğunu ve 'nonce' claim’i içermediğini doğrulamalıdır. Ayrıca token için kısa bir sona erme süresi (örneğin 2 dakika) önerilir.	| 2 |
+| **10.5.4** | İstemcinin, ID Token’ın kendisi için (audience) kullanılması amaçlandığını doğruladığı doğrulanmalıdır. Bu, token’daki 'aud' claim’inin istemcinin 'client_id' değeriyle eşit olup olmadığının kontrol edilmesiyle yapılır. | 2 |
+| **10.5.5** | OIDC back-channel logout kullanıldığında, relying party’nin "forced logout" ve "logout" akışında "cross-JWT confusion" gibi saldırılara karşı koruma sağladığı doğrulanmalıdır. Client, logout token’ın 'logout+jwt' türünde olduğunu, 'event' claim’inin doğru üyeye sahip olduğunu ve 'nonce' claim’i içermediğini doğrulamalıdır. Ayrıca token için kısa bir sona erme süresi (örneğin 2 dakika) önerilir. | 2 |
 
 ## V10.6 OpenID Provider
 
@@ -135,9 +134,9 @@ Bu gereksinimler, kullanıcı onayının AS tarafından doğrulanmasını kapsar
 
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
-| **10.7.1** | AS'nin her yetkilendirme isteği için kullanıcının onayını aldığı doğrulanmalıdır. İstemcinin kimliği garanti altına alınamıyorsa, AS daima kullanıcıdan açıkça onay istemelidir.	| 2 |
+| **10.7.1** | AS'nin her yetkilendirme isteği için kullanıcının onayını aldığı doğrulanmalıdır. İstemcinin kimliği garanti altına alınamıyorsa, AS daima kullanıcıdan açıkça onay istemelidir. | 2 |
 | **10.7.2** | AS'nin kullanıcıdan onay istediğinde, neye onay verildiğini açık ve yeterli şekilde gösterdiği doğrulanmalıdır. Uygun olduğunda bu bilgiler, istenen yetkilendirmelerin doğasını (genellikle scope, resource server, RAR gibi detaylara dayalı), yetkilendirilmiş uygulamanın kimliğini ve bu yetkilendirmelerin süresini içermelidir. | 2 |
-| **10.7.3** | Kullanıcının, AS üzerinden verdiği onayları görüntüleyebildiği, değiştirebildiği ve iptal edebildiği doğrulanmalıdır.	 | 2 |
+| **10.7.3** | Kullanıcının, AS üzerinden verdiği onayları görüntüleyebildiği, değiştirebildiği ve iptal edebildiği doğrulanmalıdır. | 2 |
 
 ## Referanslar
 

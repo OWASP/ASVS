@@ -18,7 +18,6 @@ Bu bölüm, genel web servisi güvenliğiyle ilgili değerlendirmeleri ve temel 
 | **4.1.4** | Uygulama veya API tarafından açıkça desteklenen HTTP yöntemlerinin (preflight istekleri sırasında OPTIONS dahil) dışında hiçbir yöntemin kullanılmadığı ve kullanılmayan yöntemlerin engellendiği doğrulanmalıdır. | 3 |
 | **4.1.5** | Çok hassas istekler veya birçok sistemden geçen işlemler için, taşıma katmanı güvenliğinin üzerine ek bir güvence sağlamak amacıyla, her iletiye özel dijital imzaların kullanıldığı doğrulanmalıdır. | 3 |
 
-
 ## V4.2 HTTP İleti Yapısı Doğrulama
 
 Bu bölüm, HTTP ileti yapısının ve başlık alanlarının doğrulanma biçimini açıklar. Amaç, istek kaçakçılığı, yanıt bölme, başlık enjeksiyonu ve aşırı uzun HTTP iletileri aracılığıyla hizmet reddi gibi saldırıları önlemektir.
@@ -42,7 +41,6 @@ GraphQL, veri açısından zengin istemcilerin çeşitli backend servislerine s�
 | **4.3.1** | Maliyetli ve iç içe geçmiş sorgular sonucu oluşabilecek GraphQL veya veri katmanı ifadelerine yönelik Hizmet Reddi (DoS) saldırılarını önlemek için, sorgu izin listesi (allowlist), derinlik sınırlandırması, sorgu sayısı sınırlandırması veya sorgu maliyeti analizi kullanıldığı doğrulanmalıdır. | 2 |
 | **4.3.2** | GraphQL introspection (iç yapı sorgulama) sorgularının, GraphQL API'nin üçüncü taraflar tarafından kullanılmasına yönelik olmadığı sürece, üretim ortamında devre dışı bırakıldığı doğrulanmalıdır. | 2 |
 
-
 ## V4.4 WebSocket
 
 WebSocket, tek bir TCP bağlantısı üzerinden eşzamanlı çift yönlü iletişim sağlayan bir iletişim protokolüdür. 2011 yılında IETF tarafından RFC 6455 olarak standartlaştırılmıştır ve HTTP'den farklıdır, ancak 443 ve 80 numaralı HTTP portları üzerinden çalışacak şekilde tasarlanmıştır.
@@ -55,7 +53,6 @@ Bu bölüm, özellikle bu gerçek zamanlı iletişim kanalını hedef alan ileti
 | **4.4.2** | WebSocket'in başlangıçtaki HTTP el sıkışması (handshake) sırasında, Origin başlık alanının uygulama için izin verilen origin listesiyle karşılaştırılarak kontrol edildiği doğrulanmalıdır. | 2 |
 | **4.4.3** | Uygulamanın standart oturum yönetimi kullanılamıyorsa, bunun yerine ilgili Oturum Yönetimi güvenlik gereksinimlerine uygun özel token'ların kullanıldığı doğrulanmalıdır. | 2 |
 | **4.4.4** | HTTPS oturumu WebSocket kanalına geçerken, özel WebSocket oturum yönetim token’larının önceki şekilde kimliği doğrulanmış HTTPS oturumu aracılığıyla elde edildiği veya doğrulandığı doğrulanmalıdır. | 2 |
-
 
 ## Referanslar
 
