@@ -1,57 +1,57 @@
-# V12 Secure Communication
+# V12 보안 통신
 
-## Control Objective
+## 제어 목표
 
-This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end-user client and a backend service, as well as between internal and backend services.
+이번 장에서는 사용자 클라이언트와 백엔드 서비스 간, 그리고 내부 서비스와 백엔드 서비스 사이에 전송 중인 데이터를 보호하기 위해 마련되어야 할 특정 메커니즘에 관한 요구사항을 포함한다.
 
-The general concepts promoted by this chapter include:
+이번 장에서 강조되는 주요 개념은 다음과 같다:
 
-* Ensuring that communications are encrypted externally, and ideally internally as well.
-* Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
-* Using signed certificates to ensure that communications are not being intercepted by unauthorized parties.
+* 외부 통신은 물론 가능하다면 내부 통신 또한 암호화되도록 한다.
+* 최신 가이드에 따라서 암호화 매커니즘을 구성하고, 권장 알고리즘과 암호를 사용해야 한다.
+* 서명된 인증서를 사용해 통신이 허가되지 않은 제 3자에게 가로채이지 않도록 해야 한다.
 
-In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in Appendix C - Cryptography Standards.
+게다가 일반적인 원칙과 모범 사례를 제시하는 것 외에도 ASVS는 부록 C - 암호 표준에서 암호화 강도에 대한 좀 더 세부적인 기술 정보를 제공한다. 
 
-## V12.1 General TLS Security Guidance
+## V12.1 일반 TLS 보안 가이드
 
-This section provides initial guidance on how to secure TLS communications. Up-to-date tools should be used to review TLS configuration on an ongoing basis.
+이번 절에서는 TLS 통신을 보호하는 방법에 대한 초기 가이드를 제공한다. 최신 도구를 사용해 TLS 설정을 지속적으로 검토해야 한다.
 
-While the use of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development, and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and the use of separate TLS certificates in different environments should be employed if possible.
+와일드카드 TLS 인증서 사용 자체가 원래 안전하지 않은 것이 아니지만, 모든 자체 환경(예를 들어, 운영, 스테이징, 개발, 테스트)에서 배포된 인증서가 손상되는 것은 이를 사용하는 애플리케이션의 보안 상태가 손상될 수 있다. 그래서 가능하다면 적절한 보호 및 관리와 각각의 환경별로 별도의 TLS인증서 사용을 취해야 한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **12.1.1** | Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol must be the preferred option. | 1 |
-| **12.1.2** | Verify that only recommended cipher suites are enabled, with the strongest cipher suites set as preferred. L3 applications must only support cipher suites which provide forward secrecy. | 2 |
-| **12.1.3** | Verify that the application validates that mTLS client certificates are trusted before using the certificate identity for authentication or authorization. | 2 |
-| **12.1.4** | Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | 3 |
-| **12.1.5** | Verify that Encrypted Client Hello (ECH) is enabled in the application's TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | 3 |
+| **12.1.1** | TLS 1.2 및 TLS 1.3과 같은 최신 권장 버전의 TLS 프로토콜만 활성화되어 있으며, 그중 최신 버전이 우선되어야 한다. | 1 |
+| **12.1.2** | 오직 권장되는 암호화 스위트(cipher suites)들이 활성화되어 있으며 그 중 가장 강력한 암호화 스위트로 우선 설정되어 있는지 확인한다. 레벨3 애플리케이션은 순방향 비밀성(forward secrecy)을 제공하는 암호화 스위트만 지원해야 한다. | 2 |
+| **12.1.3** | 인증이나 권한 부여를 위해 인증서 ID를 사용하기 전에 애플리케이션이 mTLS 클라이언트 인증서가 신뢰할 수 있는지 검증해야 한다. | 2 |
+| **12.1.4** | Online Certificate Status Protocol (OCSP) 스테이플링(Stapling)과 같은 적절한 인증서 폐지 프로토콜이 활성화되고 설정되어 있는지 확인해야 한다. | 3 |
+| **12.1.5** | TLS 핸드셰이크 프로세스 중 Server Name Indication (SNI)과 같은 민감한 메타 데이터의 노출을 방지하기 위해 애플리케이션 TLS 설정에서 Encrypted Client Hello (ECH)가 활성화되어 있는지 확인해야 한다. | 3 |
 
-## V12.2 HTTPS Communication with External Facing Services
+## V12.2 외부 서비스와의 HTTPS 통신
 
-Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publicly trusted certificates.
+애플리케이션이 노출하는 외부 서비스에 대한 모든 HTTP 트래픽은 공적으로 신뢰되는 인증서를 사용해 암호화되어 전송되는지 확인해야 한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **12.2.1** | Verify that TLS is used for all connectivity between a client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. | 1 |
-| **12.2.2** | Verify that external facing services use publicly trusted TLS certificates. | 1 |
+| **12.2.1** | TLS는 클라이언트와 외부 HTTP 기반 서비스 간의 모든 연결에 사용되며, 안전하지 않거나 암호화 되어 있지 않은 통신에 대체 동작(fall back)이 발생하지 않는지 확인해야한다.  | 1 |
+| **12.2.2** | 외부 서비스가 공적으로 신뢰된 TLS 인증서를 사용하는지 확인해야 한다. | 1 |
 
-## V12.3 General Service to Service Communication Security
+## V12.3 일반 서비스 간의 통신 보안
 
-Server communications (both internal and external) involve more than just HTTP. Connections to and from other systems must also be secure, ideally using TLS.
+내부와 외부 서버 통신은 HTTP 외에도 다양하게 이루어지며 다른 시스템과의 연결은 가능한 TLS를 사용하여 보호되어야 한다. 
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **12.3.1** | Verify that an encrypted protocol such as TLS is used for all inbound and outbound connections to and from the application, including monitoring systems, management tools, remote access and SSH, middleware, databases, mainframes, partner systems, or external APIs. The server must not fall back to insecure or unencrypted protocols. | 2 |
-| **12.3.2** | Verify that TLS clients validate certificates received before communicating with a TLS server. | 2 |
-| **12.3.3** | Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services within the application, and does not fall back to insecure or unencrypted communications. | 2 |
-| **12.3.4** | Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. | 2 |
-| **12.3.5** | Verify that services communicating internally within a system (intra-service communications) use strong authentication to ensure that each endpoint is verified. Strong authentication methods, such as TLS client authentication, must be employed to ensure identity, using public-key infrastructure and mechanisms that are resistant to replay attacks. For microservice architectures, consider using a service mesh to simplify certificate management and enhance security. | 3 |
+| **12.3.1** | 애플리케이션간의 모니터링 시스템, 관리 도구, 원격 엑세스 및 SSH, 미들웨어, 데이터베이스, 메인프레임, 파트너 시스템이나 외부 API를 포함한 모든 인바운드와 아웃바운드 통신은 TLS같은 암호화 프로토콜이 사용되는지 확인해야 한다. 이 서버는 안전하지 않거나 암호화 되어있지 않은 프로토콜에 대체 동작(fall back)이 발생하지 않아야 한다. | 2 |
+| **12.3.2** | TLS 클라이언트가 통신하기 전에 TLS서버로 부터 받은 인증서를 검증하는지 확인해야 한다. | 2 |
+| **12.3.3** | 그리고 TLS 또는 애플리케이션 내의 내부 HTTP 기반 서비스간에 사용된 다른 적절한 전송 암호화 매커니즘이 안전하지 않거나 암호화 되어있지 않은 통신에 대체 동작(fall back)이 발생하지 않는지 확인해야 한다. | 2 |
+| **12.3.4** | 내부 서버간에 TLS 통신이 신뢰된 인증서를 사용하는지 확인해야 한다. 내부 인증서나 자체 서명(self-signed)인증서를 사용할 경우, 이를 사용하는 서비스는 오직 특정 내부 인증기관(CA)과 자체 서명 인증만을 신뢰하게 설정해야 한다. | 2 |
+| **12.3.5** | 시스템 내부에서 통신하는 서비스(intra-service communication)는 각 엔드포인트를 검증하기 위해 강력한 인증을 사용해야 한다. 공용키(public-key) 기반 구조와 재전송 공격(replay attacks)에 저항하는 매커니즘을 사용하여 신원보장을 위해 TLS 클라이언트 인증과 같은 강력한 인증 방식을 사용해야 한다. 마이크로서비스 아키텍쳐의 경우 인증서 관리를 간소화 하고 보안을 강화하기 위해 서비스 매시(service mesh)를 사용하는 것을 고려해야 한다. | 3 |
 
-## References
+## 참조
 
-For more information, see also:
+자세한 내용은 다음을 참조하세요:
 
-* [OWASP - Transport Layer Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
-* [Mozilla's Server Side TLS configuration guide](https://wiki.mozilla.org/Security/Server_Side_TLS)
-* [Mozilla's tool to generate known good TLS configurations](https://ssl-config.mozilla.org/).
-* [O-Saft - OWASP Project to validate TLS configuration](https://owasp.org/www-project-o-saft/)
+* [OWASP - TLS 참고자료](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
+* [Mozilla's 서버측 TLS 구성 가이드](https://wiki.mozilla.org/Security/Server_Side_TLS)
+* [Mozilla's 일반적으로 알려진 좋은 TLS 구성 툴](https://ssl-config.mozilla.org/).
+* [O-Saft - TLS 구성 검증을 위한 OWASP 프로젝트](https://owasp.org/www-project-o-saft/)
