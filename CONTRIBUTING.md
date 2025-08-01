@@ -112,6 +112,7 @@ If you are interested in creating a translation, here are some pointers for how 
         * French, see [#3188](https://github.com/OWASP/ASVS/issues/3188)
         * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
         * Korean, see [#3204](https://github.com/OWASP/ASVS/issues/3204)
+        * Russian, see [#3223](https://github.com/OWASP/ASVS/issues/3223)
     * v5.0.0
         * None
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
