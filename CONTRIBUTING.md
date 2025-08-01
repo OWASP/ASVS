@@ -36,12 +36,11 @@ The above specifically relates to the requirements in the ASVS. Changes to surro
 
 ## How can I help?
 
-We would be glad to receive feedback to help us to further enhance the ASVS.
+We would be glad to receive feedback to help us to further enhance the ASVS. Note however that having had intensive efforts to get out the recent release, there may be some delays in responses. Be assured that all issues will eventually be reviewed.
 
-At this stage, we are accepting the following types of changes:
+At this stage, we are most likely to immediately accept changes to surrounding text and other content such as the appendices which is not considered a breaking change for release purposes.
 
-* Changes to surrounding text and other content such as the appendices which is not be considered to be a breaking change for release purposes.
-* Changes which are considered "non-breaking" for an ASVS "patch" release. This means that requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well.
+The next ASVS release is likely to be a "patch" release containing changes which are considered "non-breaking". This means that requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well. We are open to integrating changes that satisfy this definition although we need to decide on a tracking mechanism, which may also lead to a delay. 
 
 If you feel there are other important changes but they would be considered breaking for a patch release, you are welcome to open an issue but please note that the issue may not be progressed until we are considering a new minor or major release, for which there is currently no fixed timeline.
 
