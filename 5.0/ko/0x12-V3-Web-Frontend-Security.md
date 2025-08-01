@@ -1,38 +1,38 @@
-# V3 Web Frontend Security
+# V3 웹 프론트엔드 보안
 .
-## Control Objective
+## 통제 목표
 
-This category focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
+이 항목에서는 웹 프론트엔드를 통한 공격들을 막기 위한 요구사항들에 초점을 맞췄습니다. 이는 사물 간 통신(M2M) 해결책들에 대해서는 적용되지 않습니다.
 
-## V3.1 Web Frontend Security Documentation
+## V3.1 웹 프론트엔드 보안 문서
 
-This section outlines the browser security features that should be specified in the application's documentation.
+이 섹션에서는 어플리케이션의 docs에서 알려줘야 할 브라우저 보안 특징들에 대해 설명합니다.
 
-| # | Description | Level |
+| # | 설명 | 단계 |
 | :---: | :--- | :---: |
-| **3.1.1** | Verify that application documentation states the expected security features that browsers using the application must support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It must also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | 3 |
+| **3.1.1** | 어플리케이션 docs에서 어플리케이션이 반드시 지원해야 하는, 예상되는 보안 특징들을 나타내고 있는지 확인해야 합니다. (예시: HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), 그리고 다른 관련된 HTTP 보안 메커니즘들) | 3 |
 
-## V3.2 Unintended Content Interpretation
+## V3.2 의도하지 않은 콘텐츠 접근
 
-Rendering content or functionality in an incorrect context can result in malicious content being executed or displayed.
+잘못된 콘텐츠나 기능을 렌더링하는 작업은 위협적인 콘텐츠를 실행하거나 나타나게 하는 결과를 초래할 수도 있습니다.
 
-| # | Description | Level |
+| # | 설명 | 단계 |
 | :---: | :--- | :---: |
-| **3.2.1** | Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field. | 1 |
-| **3.2.2** | Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 |
-| **3.2.3** | Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | 3 |
+| **3.2.1** | 브라우저가 HTTP 응답에 대해 컨텐츠나 기능을 불러올 때, 의도하지 않은 상황이 보안적으로 통제되고 있는지 확인해야 합니다(예시: API, 유저가 올린 파일, 혹은 다른 리소스에 직접 접근할 때). | 1 |
+| **3.2.2** | 콘텐츠는 HTML보다는 텍스트로 보여줌으로써, 의도하지 않은 HTML이나 JavaScript 등의 콘텐츠 실행을 막는 안전한 렌더 함수들을 사용함을 확인해야 합니다(createTextNode나 textContent) | 1 |
+| **3.2.3** | 어플리케이션이 클라이언트 사이드 JavaScript를 사용할 때, 명시적 변수 사용, 엄격한 타입 체킹, 문서에서의 전역 변수 저장 지양, 그리고 네임스페이스 격리 구현 등으로 DOM clobbering을 막고 있음을 확인해야 합니다. | 3 |
 
-## V3.3 Cookie Setup
+## V3.3 쿠키 설정
 
-This section outlines requirements for securely configuring sensitive cookies to provide a higher level of assurance that they were created by the application itself and to prevent their contents from leaking or being inappropriately modified.
+이 섹션에서는 민감한 쿠키를 설정할 때, 어플리케이션 자체에서 만들어졌고, 콘텐츠 내용이 새어 나가거나, 부적절한 수정이 되는 것을 막는다는 더 높은 수준의 보장을 제공하기 위한 요구사항에 대해 설명합니다.
 
-| # | Description | Level |
+| # | 설명 | 단계 |
 | :---: | :--- | :---: |
-| **3.3.1** | Verify that cookies have the 'Secure' attribute set, and if the '\__Host-' prefix is not used for the cookie name, the '__Secure-' prefix must be used for the cookie name. | 1 |
-| **3.3.2** | Verify that each cookie's 'SameSite' attribute value is set according to the purpose of the cookie, to limit exposure to user interface redress attacks and browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 2 |
-| **3.3.3** | Verify that cookies have the '__Host-' prefix for the cookie name unless they are explicitly designed to be shared with other hosts. | 2 |
-| **3.3.4** | Verify that if the value of a cookie is not meant to be accessible to client-side scripts (such as a session token), the cookie must have the 'HttpOnly' attribute set and the same value (e. g. session token) must only be transferred to the client via the 'Set-Cookie' header field. | 2 |
-| **3.3.5** | Verify that when the application writes a cookie, the cookie name and value length combined are not over 4096 bytes. Overly large cookies will not be stored by the browser and therefore not sent with requests, preventing the user from using application functionality which relies on that cookie. | 3 |
+| **3.3.1** | 쿠키가 ‘Secure’ 속성이 있는지, 쿠키 이름에 '\__Host-’ 접두사가 사용되지 않았고, '__Secure-' 접두사가 사용되었는지 확인해야 합니다. | 1 |
+| **3.3.2** | UI redress 공격, 그리고 CSRF라 알려진 브라우저 기반 요청 위조 공격들에 대한 노출을 제한하기 위해 각 쿠키의 ‘SameSite’ 속성 값이 쿠키의 목적에 맞게 설정되어 있는지 확인해야 합니다. | 2 |
+| **3.3.3** | 다른 호스트들과 명시적으로 공유되는 쿠키에 대해서, '__Host-’ 접두사를 가지고 있는지 확인해야 합니다. | 2 |
+| **3.3.4** | 쿠키의 값이 클라이언트-사이드 스크립트에서 접근이 가능한 걸 의도하지 않았다면(세션 토큰 등), 쿠키는 반드시 ‘HttpOnly’ 속성을 가져야 하고, 반드시 ‘Set-Cookie’ 헤더 필드를 통해 클라이언트에게 전달돼야 합니다. | 2 |
+| **3.3.5** | 어플리케이션이 쿠키를 만들 때, 쿠키 이름과 값 길이가 합쳐서 4096바이트를 넘지 않는지 확인해야 합니다. 너무 큰 쿠키는 브라우저에 저장되지 않을 것이고, 요청 전달도 안될 것이며, 사용자가 그 쿠키에 의존적인 어플리케이션 기능을 사용하지 못할 것입니다. | 3 |
 
 ## V3.4 Browser Security Mechanism Headers
 
