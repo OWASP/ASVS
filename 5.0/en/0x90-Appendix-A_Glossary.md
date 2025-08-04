@@ -1,3 +1,4 @@
+[0x90 in progress]
 # Appendix A: Glossary
 
 * **Absolute Maximum Session Lifetime** – Also referred to as "Overall Timeout" by NIST, this is the maximal amount of time a session can remain active following authentication regardless of user interaction. This is a component of session expiration.
