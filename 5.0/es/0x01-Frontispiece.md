@@ -1,46 +1,46 @@
 # Frontispiece
 
-## About the Standard
+## Acerca del estándar
 
-The Application Security Verification Standard is a list of application security requirements that architects, developers, testers, security professionals, tool vendors, and consumers can use to define, build, test, and verify secure applications.
+El Estándar para la verificación de seguridad de aplicaciones es una lista de requisitos de seguridad de aplicaciones que los arquitectos, desarrolladores, testers, profesionales de seguridad, proveedores de herramientas y consumidores pueden utilizar para definir, construir, probar y verificar aplicaciones seguras.
 
-## Copyright and License
+## Copyright y Licencia
 
-Version 5.0.0, May 2025
+Versión 5.0.0, Mayo 2025
 
 ![license](../images/license.png)
 
 Copyright © 2008-2025 The OWASP Foundation.
 
-This document is released under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+Este documento es publicado bajo la [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
-For any reuse or distribution, you must clearly communicate the license terms of this work to others.
+Para cualquier reutilización o distribución se debe comunicar claramente los términos de la licencia de esta obra a otros.
 
-## Project Leads
+## Líderes del proyecto
 
 |                       |                  |
 |---------------------- |----------------- |
 | Elar Lang             | Josh C Grossman  |
 | Jim Manico            | Daniel Cuthbert  |
 
-## Working Group
+## Grupo de trabajo
 
 |                 |                   |                    |                  |
 |---------------- |------------------ |------------------- |----------------- |
 | Tobias Ahnoff   | Ralph Andalis     | Ryan Armstrong     | Gabriel Corona   |
 | Meghan Jacquot  | Shanni Prutchi    | Iman Sharafaldin   | Eden Yardeni     |
 
-## Other Major Contributors
+## Otros contribuidores principales
 
 |                   |                   |
 |-------------------|-------------------|
 | Sjoerd Langkemper | Isaac Lewis       |
 | Mark Carney       | Sandro Gauci      |
 
-## Other Contributors and Reviewers
+## Otros contribuidores y revisores
 
-We have included a list of the other contributors in Appendix E.
+Hemos incluido una lista de los demás colaboradores en el Apéndice E.
 
-If a credit is missing from the 5.x credit list, please log a ticket at GitHub to be recognized in future 5.x updates.
+Si hace falta un crédito en la lista de créditos de la versión 5.x por favor registre un ticket en GitHub para ser reconocido en futuras actualizaciones de la versión 5.x.
 
-The Application Security Verification Standard builds on the work of those involved in ASVS 1.0 (2008) through 4.0 (2019). Much of the structure and many of the verification items that remain in ASVS today were originally written by Andrew van der Stock, Mike Boberski, Jeff Williams, and Dave Wichers, among numerous other contributors. Thank you to everyone who has contributed in the past. For a comprehensive list of earlier contributors, please consult each prior version.
+El Estándar para la verificación de seguridad de aplicaciones se basa en el trabajo de quienes participaron en las versiones ASVS 1.0 (2008) a 4.0 (2019). Gran parte de la estructura y muchos de los elementos de verificación que se conservan en ASVS hoy en día fueron escritos originalmente por Andrew van der Stock, Mike Boberski, Jeff Williams y Dave Wichers entre otros numerosos colaboradores. Agradecemos a todos los que han contribuido en el pasado. Para obtener una lista completa de los colaboradores anteriores por favor consulte cada versión anterior.
