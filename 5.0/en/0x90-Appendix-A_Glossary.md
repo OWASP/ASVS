@@ -1,90 +1,89 @@
-[0x90 in progress]
-# Appendix A: Glossary
+# 부록 A: 어휘
 
-* **Absolute Maximum Session Lifetime** – Also referred to as "Overall Timeout" by NIST, this is the maximal amount of time a session can remain active following authentication regardless of user interaction. This is a component of session expiration.
-* **Allowlist** – A list of permitted data or operations, for example, a list of characters that are allowed to perform input validation.
-* **Anti-forgery token** – A mechanism by which one or more tokens are passed in a request and validated by the application server to ensure that the request has come from an expected endpoint.
-* **Application Security** – Application-level security focuses on the analysis of components that comprise the application layer of the Open Systems Interconnection Reference Model (OSI Model), rather than focusing on for example the underlying operating system or connected networks.
-* **Application Security Verification** – The technical assessment of an application against the OWASP ASVS.
-* **Application Security Verification Report** – A report that documents the overall results and supporting analysis produced by the verifier for a particular application.
-* **Authentication** – The verification of the claimed identity of an application user.
-* **Automated Verification** – The use of automated tools (either dynamic analysis tools, static analysis tools, or both) that use vulnerability signatures to find problems.
-* **Black box testing** – A method of software testing that examines the functionality of an application without peering into its internal structures or workings.
-* **Common Weakness Enumeration** (CWE) – A community-developed list of common software security weaknesses. It serves as a common language, a measuring stick for software security tools, and a baseline for weakness identification, mitigation, and prevention efforts.
-* **Component** – A self-contained unit of code, with associated disk and network interfaces that communicates with other components.
-* **Credential Service Provider** (CSP) – Also called an Identity Provider (IdP). A source of user data which may be used as an authentication source by other applications.
-* **Cross-Site Script Inclusion** (XSSI) - A variant of Cross-Site Scripting (XSS) attack in which a web application retrieves malicious code from an external resource and includes that code as part of its own content.
-* **Cross-Site Scripting** (XSS) – A security vulnerability typically found in web applications allowing the injection of client-side scripts into content.
-* **Cryptographic module** – Hardware, software, and/or firmware that implements cryptographic algorithms and/or generates cryptographic keys.
-* **Cryptographically secure pseudo-random number generator** (CSPRNG) - A pseudorandom number generator with properties that make it suitable for use in cryptography, also referred to as a cryptographic random number generator (CRNG).
-* **Datagram Transport Layer Security** (DTLS) – A cryptographic protocol which provides communication security over a network connection. It is based on the TLS protocol but adapted for protecting datagram-oriented protocols (usually over UDP). Defined in RFC 9147 for DTLS 1.3.
-* **Datagram Transport Layer Security Extension to Establish Keys for the Secure Real-time Transport Protocol** (DTLS-SRTP) – A mechanism for using a DTLS handshake for establishing key material for a SRTP session. Defined in RFC 5764.
-* **Design Verification** – The technical assessment of the security architecture of an application.
-* **Dynamic Application Security Testing** (DAST) – Technologies are designed to detect conditions indicative of a security vulnerability in an application in its running state.
-* **Dynamic Verification** – The use of automated tools that use vulnerability signatures to find problems during the execution of an application.
-* **Fast IDentity Online** (FIDO) – A set of authentication standards that allow a variety of different authentication methods to be used including biometrics, Trusted Platform Modules (TPMs), USB security tokens, etc.
-* **Hardware Security Module** (HSM) – Hardware component that stores cryptographic keys and other secrets in a protected manner.
-* **Hibernate Query Language** (HQL) – A query language that is similar in appearance to SQL used by the Hibernate ORM library.
-* **HTTP Strict Transport Security** (HSTS) – An policy which instructs the browser to only connect to the domain returning the header via TLS and when a valid certificate is presented. It is activated using the Strict-Transport-Security response header field.
-* **HyperText Transfer Protocol** (HTTP) – An application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web.
-* **HyperText Transfer Protocol over SSL/TLS** (HTTPS) – A method of securing HTTP communication by encrypting it using Transport Layer Security (TLS).
-* **Identity Provider** (IdP) – Also called a Credential Service Provider (CSP) in NIST references. An entity that provides an authentication source for other applications.
-* **Inactivity Timeout** – This is the length of time a session can remain active in the absence of user interaction with the application. This is a component of session expiration.
-* **Input Validation** – The canonicalization and validation of untrusted user input.
-* **JSON Web Token** (JWT) – RFC 7519 defines a standard for a JSON data object made up of a header section which explains how to validate the object, a body section containing a set of claims, and a signature section which contains a digital signature which can be used to validate the contents of the body section. It is a type of self-contained token.
-* **Local File Inclusion** (LFI) - An attack that exploits vulnerable file inclusion procedures in an application, leading to the inclusion of local files already present on the server.
-* **Malicious Code** – Code introduced into an application during its development unbeknownst to the application owner, which circumvents the application's intended security policy. Not the same as malware such as a virus or worm!
-* **Malware** – Executable code that is introduced into an application during runtime without the knowledge of the application user or administrator.
-* **Message authentication code** (MAC) - A cryptographic checksum on data, computed by a MAC generation algorithm, that is used to provide assurance on its integrity and authenticity.
-* **Multi-factor authentication** (MFA) – Authentication which includes two or more of the single factors.
-* **Mutual TLS** (mTLS) – See TLS client authentication.
-* **Object-relational Mapping** (ORM) – A system used to allow a relational/table-based database to be referenced and queried within an application program using an application-compatible object model.
-* **One-time Password** (OTP) – A password that is uniquely generated to be used on a single occasion.
-* **Open Worldwide Application Security Project** (OWASP) – The Open Worldwide Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible," so that people and organizations can make informed decisions about application security risks. See: [https://www.owasp.org/](https://www.owasp.org/).
-* **Password-Based Key Derivation Function 2** (PBKDF2) – A special one-way algorithm used to create a strong cryptographic key from an input text (such as a password) and an additional random salt value and can therefore be used to make it harder to crack a password offline if the resulting value is stored instead of the original password.
-* **Public Key Infrastructure** (PKI) – An arrangement that binds public keys with respective identities of entities. The binding is established through a process of registration and issuance of certificates at and by a certificate authority (CA).
-* **Public Switched Telephone Network** (PSTN) – The traditional telephone network that includes both fixed-line telephones and mobile telephones.
-* **Real-time Transport Protocol** (RTP) and **Real-time Transport Control Protocol** (RTCP) – Two protocols used in association for transporting multimedia streams. Used by the WebRTC stack. Defined in RFC 3550.
-* **Reference Token** – A type of token that acts as a pointer or identifier to state or metadata stored on a server, sometimes referred to as random tokens or opaque tokens. Unlike self-contained tokens, which embed some of their relevant data within the token itself, reference tokens contain no intrinsic information, instead relying on the server for context. The reference token will either be or contain a session identifier.
-* **Relying Party** (RP) – Generally an application which is relying on a user having authenticated against a separate authentication provider. The application relies on some sort of token or set of signed assertions provided by that authentication provider to trust that the user is who they say they are.
-* **Remote File Inclusion** (RFI) - An attack that exploits vulnerable inclusion procedures in the application, resulting in the inclusion of remote files.
-* **Scalable Vector Graphics** (SVG) – An XML-based markup language for describing two-dimensional based vector graphics.
-* **Secure Real-time Transport Protocol** (SRTP) and **Secure Real-time Transport Control Protocol** (SRTCP) – A profile of the RTP and RTCP protocols providing support for message encryption, authentication and integrity protection. Defined in RFC 3711.
-* **Security Architecture** – An abstraction of an application's design that identifies and describes where and how security controls are used, and also identifies and describes the location and sensitivity of both user and application data.
-* **Security Assertion Markup Language** (SAML) – An open standard for single sign-on authentication based on passing signed assertions (usually XML objects) between the identity provider and the relying party.
-* **Security Configuration** – The runtime configuration of an application that affects how security controls are used.
-* **Security Control** – A function or component that performs a security check (e.g., an authorization check) or when called results in a security effect (e.g., generating an audit record).
-* **Security information and event management** (SIEM) - A system for threat detection, compliance and security incident management through the collection and analysis of security-related data from various sources within an organization's IT infrastructure.
-* **Self-Contained Token** – A token that encapsulates one or more attributes that do not rely on server-side state or other external storage. These tokens ensure the authenticity and integrity of their contained attributes, enabling secure, "stateless" information exchange across systems. Self-contained tokens are generally secured using cryptographic techniques, such as digital signatures or message authentication codes (MACs), to ensure the authenticity, integrity, and in some cases the confidentiality of its data. Common examples include SAML Assertions and JWTs.
-* **Server-side Request Forgery** (SSRF) – An attack that abuses functionality on the server to read or update internal resources. The attacker supplies or modifies a URL, which the code running on the server will read or submit data to.
-* **Session Description Protocol** (SDP) – A message format for setting up multimedia session (used for example in WebRTC). Defined in RFC 4566.
-* **Session Identifier** or **Session ID** – A key which identifies a stateful session stored at the back end. Will be transferred to and from the client either as or inside a "Reference Token".
-* **Session Token** – A "catch-all" phrase used in this standard to refer to the token or value used in either stateless session mechanisms (which use a self-contained token) or stateful session mechanisms (which use a reference token).
-* **Session Traversal Utilities for NAT** (STUN) – A protocol used to assist NAT traversal in order to establish peer-to-peer communications. Defined in RFC 3489.
-* **Single-factor authenticator** – A mechanism to check that a user is authenticated. It should either be something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card).
-* **Single Sign-on Authentication** (SSO) – This occurs when a user logs into one application and is then automatically logged into other applications without having to re-authenticate. For example, when logging into Google, the user will be automatically logged into other Google services such as YouTube, Google Docs, and Gmail.
-* **Software bill of materials** (SBOM) - A structured, comprehensive list of all components, modules, libraries, frameworks and other resources required to build or assemble a software application.
-* **Software Composition Analysis** (SCA) – A set of technologies designed to analyze application composition, dependencies, libraries and packages for security vulnerabilities of specific component versions in use. This is not to be confused with source-code analysis which is now commonly referred to as SAST.
-* **Software development lifecycle** (SDLC) – The step-by-step process by which software is developed going from the initial requirements to deployment and maintenance.
-* **SQL Injection** (SQLi) – A code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry point.
-* **Stateful Session Mechanism** – In a stateful session mechanism, the application retains session state at the backend which typically corresponds to a session token, generated using a cryptographically secure pseudo-random number generator (CSPRNG), which is issued to the end user.
-* **Stateless Session Mechanism** – A stateless session mechanism will use a self-contained token which is passed to clients, and contains session information that is not necessarily stored within the service which then receives and validates the token. In reality, a service will need to have access to some session information (such as a JWT revocation list) in order to be able to enforce required security controls.
-* **Static application security testing** (SAST) – A set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the “inside out” in a non-running state.
-* **Threat Modeling** – A technique consisting of developing increasingly refined security architectures to identify threat agents, security zones, security controls, and important technical and business assets.
-* **Time-of-check to time-of-use** (TOCTOU) – A situation where an application checks the state of a resource before using that resource, but the resource's state can be changed between the check and the use. This can invalidate the results of the check and cause a situation where the application performs invalid actions due to this state mismatch.
-* **Time based One-time Passwords** (TOTPs) - A method of generating an OTP where the current time acts as part of the algorithm to generate the password.
-* **TLS client authentication**, also called **Mutual TLS** (mTLS) – In a standard TLS connection, a client can use the certificate provided by the server to validate the server's identity. Where TLS client authentication is used, the client also uses its own private key and certificate to allow the server to also validate the client's identity.
-* **Transport Layer Security** (TLS) – Cryptographic protocols that provide communication security over a network connection.
-* **Traversal Using Relays around NAT** (TURN) – An extension of the STUN protocol using a TURN server as a relay when direct peer-to-peer connections cannot be established. Defined in RFC 8656.
-* **Trusted execution environment** (TEE) - An isolated processing environment in which applications can be securely executed irrespective of the rest of the system.
-* **Trusted Platform Module** (TPM) – A type of HSM that is usually attached to a larger hardware component such as a motherboard and acts as the "root of trust" for that system.
-* **Trusted Service Layer** – Any trusted control enforcement point, such as a microservice, serverless API, server-side, a trusted API on a client device that has secure boot, partner or external APIs, and so on. Trusted means that there is no concern that an untrusted user will be able to bypass or skip the layer or controls implemented at that layer.
-* **Uniform Resource Identifier** (URI)- A unique string of characters that identifies a resource, such as webpage, mail address, places.
-* **Uniform Resource Locator** (URL) – A string that specifies the location of resource on the Internet.
-* **Universally Unique Identifier** (UUID) – A unique reference number used as an identifier in software.
-* **Verifier** – The person or team that is reviewing an application against the OWASP ASVS requirements.
-* **Web Real-Time Communication** (WebRTC) – A protocol stack and associated web API used for the transport of multimedia streams in web applications, usually in the context of teleconferencing. Based on SRTP, SRTCP, DTLS, SDP and STUN/TURN.
-* **WebSocket over TLS** (WSS) – A practice of securing WebSocket communication by layering WebSocket over TLS protocol.
-* **What You See Is What You Get** (WYSIWYG) – A type of rich content editor that shows how the content will actually look when rendered rather than showing the coding used to govern the rendering.
-* **X.509 Certificate** – An X.509 certificate is a digital certificate that uses the widely accepted international X.509 public key infrastructure (PKI) standard to verify that a public key belongs to the user, computer or service identity contained within the certificate.
-* **XML eXternal Entity** (XXE) – A type of XML entity that can access local or remote content via a declared system identifier. This may lead to various injection attacks.
+- **절대 최대 세션 수명** - NIST에서는 “Overall Timeout”이라고도 언급되었다. 유저 상호작용과 관계없이 다음 인증까지 세션이 액티브하게 유지될 수 있는 최대 시간이다. 세션 만료의 한 요소이다.
+- **얼로우리스트(allowlist)** - 허용된 데이터 혹은 작업들의 리스트. 예를 들어 입력 검증이 허용된 문자들의 리스트.
+- **위조 방지 토큰** - 요청에 하나 혹은 그 이상의 토큰이 전달되고 그 요청이 예상되는 엔드포인트로부터 왔음을 보장하도록 애플리케이션 서버에서 검증되는 메커니즘.
+- **애플리케이션 보안** - 예를 들어 기저에 있는 운영 체제 혹은 연결된 네트워크에 집중하기보다는 OSI 모델에서 애플리케이션 계층을 이루는 구성 요소들의 분석에 초점을 두는 애플리케이션 단계의 보안.
+- **애플리케이션 보안 검증** - OWASP ASVS를 따르는 애플리케이션의 기술적 평가.
+- **애플리케이션 보안 검증 보고서** - 검증자가 특정 애플리케이션에 대한 전반적인 결과와 보조적인 분석을 기록한 보고서.
+- **인증** - 애플리케이션 유저가 주장하는 신원의 검증.
+- **자동화된 검증** - 문제를 찾기 위한 취약점 시그니처를 사용하는 자동화 도구(동적 분석 도구, 정적 분석 도구 혹은 둘 다)의 사용.
+- **블랙박스 시험** - 내부 구조나 동작을 자세히 들여다보지 않고 애플리케이션의 기능을 검사하는 소프트웨어 시험 방법.
+- **공통 취약점 목록 (CWE)** - 커뮤니티에서 개발한 공통 소프트웨어 보안 취약점 목록. 공용어로 제공되며, 소프트웨어 보안 도구들을 위한 척도이자, 취약점의 식별, 완화책, 예방을 위한 노력의 기준선이다.
+- **컴포넌트(component)** - 다른 컴포넌트들과 통신하는 디스크나 네트워크 인터페이스들과 연관된 자체-포함 단위의 코드.
+- **자격 증명 서비스 제공자 (CSP)** - IdP라고도 불린다. 다른 애플리케이션들로부터 인증의 근원으로써 사용될 수 있는 유저 데이터의 근원.
+- **교차 사이트 스크립트 포함 (XSSI)** - 웹 애플리케이션이 외부 리소스로부터 악의적 코드를 받고 그 코드를 자기 콘텐츠의 일부로 포함하는 XSS의 변이 공격이다.
+- **교차 사이트 스크립트 (XSS)** - 콘텐츠에 클라이언트 단 스크립트 주입을 허용하는 웹 애플리케이션에서 전형적으로 찾아볼 수 있는 보안 취약점이다.
+- **암호 모듈** - 암호화 알고리즘을 구현하고/구현하거나 암호 키를 생성하는 하드웨어, 소프트웨어, 그리고/또는 펌웨어.
+- **암호학적으로 안전한 의사 난수 생성기 (CSPRNG)** - 암호 기법에서 사용하기 적합한 의사 난수 생성기, 암호 난수 생성기 (CRNG)라고도 한다.
+- **데이터그램 전송 계층 보안 (DTLS)** - 네트워크 연결 상에서 통신 보안을 제공하는 암호 프로토콜이다. TLS 프로토콜을 기반으로 하지만, (보통 UDP 상에서의) 데이터그램-지향 프로토콜 보호를 위해 개량되었다. RFC 9147에서 DTLS 1.3으로 정의되었다.
+- **실시간 전송 프로토콜 보호의 키 수립을 위한 데이터그램 전송 계층 보안 확장 (DTLS-SRTP)** - SRTP 세션의 키 수립을 위해 DTLS 핸드셰이크를 사용하는 메커니즘. RFC 5764에서 정의되었다.
+- **설계 검증** - 애플리케이션 보안 구조에 대한 기술적 평가.
+- **동적 애플리케이션 보안 테스팅 (DAST)** - 애플리케이션이 동작하는 상태에서 보안 취약점을 드러낼 수 있는 조건들을 발견하기 위한 기술들.
+- **동적 검증** - 애플리케이션이 동작하는 동안 문제를 찾기 위해 취약점 시그니처를 활용하는 자동화 도구의 사용.
+- **온라인 간편 인증 (FIDO)** - 생체인증, TPM(Trusted Platform Modules), USB 보안 토큰 등을 포함해 다양한 인증 방법들을 이용할 수 있게 하는 인증 표준들의 집합.
+- **HSM (Hardware Security Module)** - 보호된 방식으로 암호키나 기밀들을 저장하는 하드웨어 컴포넌트.
+- **HQL (Hibernate Query Language)** - SQL과 문법적으로 비슷해 보이는 히버네이트 ORM 라이브러리에서 사용하는 쿼리 언어.
+- **HSTS (HTTP Strict Transport Security)** - 브라우저에 해당 도메인에 대해 유효한 인증서가 제시된 TLS 연결만 허용하도록 지시하는 정책이다. Strict-Transport-Security 응답 헤더 필드를 통해서 활성화된다.
+- **HTTP (HyperText Transfer Protocol)** - 분산된 협력적인 하이퍼미디어 정보 시스템을 위한 애플리케이션 프로토콜이다. 월드 와이드 웹 (World Wide Web) 데이터 통신의 토대이다.
+- **SSL/TLS 상에서의 HyperText Transfer Protocol (HTTPS)** - 전송 계층 보안(TLS)으로 암호화하여 HTTP 통신을 보호하는 방법.
+- **신원 제공자 (IdP)** - NIST references로부터 자격 증명 서비스 제공자(CSP)로도 언급된다. 다른 애플리케이션에 인증 근원을 제공해 준다.
+- **비활동 타임아웃** - 유저가 활동하지 않고 세션이 유지될 수 있는 시간의 길이이다. 세션 만료의 한 요소이다.
+- **입력 검증** - 신뢰할 수 없는 유저 입력의 정규화와 검증
+- **JSON 웹 토큰 (JWT)** - 해당 객체의 유효성을 어떻게 검증할지 설명하는 헤더 섹션, 클레임들(claims)을 포함한 바디 섹션, 바디 섹션의 내용들을 검증할 디지털 시그니처를 담고 있는 시그니처 섹션으로 구성되어 있는 JSON 데이터 객체. 자체-포함 토큰의 한 종류이다. RFC 7519에서 정의되었다.
+- **로컬 파일 삽입(LFI)** - 애플리케이션에서 취약한 파일 삽입 과정을 악용하는 공격으로, 서버에 이미 존재하는 로컬 파일에 대한 삽입으로 이어질 수 있다.
+- **악의적 코드** - 개발 과정 중 애플리케이션 소유자가 알지 못하게 삽입되어 애플리케이션의 보안 정책을 우회하는 코드. 바이러스나 웜과 같은 멀웨어와는 다르다!
+- **멀웨어** - 애플리케이션 실행 중에 유저나 관리자가 알지 못하게 애플리케이션에 삽입된 실행 가능한 코드.
+- **메시지 인증 코드 (MAC)** - MAC 생성 알고리즘을 통해 산출되어 데이터의 무결성과 인증성을 보장하는 데이터에 대한 암호 체크섬.
+- **다중 인증 (MFA)** - 둘 혹은 그 이상의 단일 요소를 포함한 인증.
+- **상호 TLS(mTLS)** - ‘TLS 클라이언트 인증’을 확인.
+- **객체-관계 매핑(ORM)** - 애플리케이션-호환 객체 모델을 사용하여 관계형 데이터베이스를 애플리케이션 내에서 참조하고 질의할 수 있게 하는 시스템.
+- **일회용 비밀번호 (OTP)** - 한 번만 사용되도록 유일하게 생성된 비밀번호.
+- **오픈 웹 애플리케이션 보안 프로젝트(OWASP)** - OWASP는 애플리케이션 소프트웨어의 보안 증진에 초점을 맞춘 자유롭고 개방적인 커뮤니티이다. 우리의 사명은 애플리케이션 보안을 “가시적”으로 만들어 사람들과 단체들이 애플리케이션 보안 위험에 대해 현명한 선택을 할 수 있도록 하는 것이다. [https://www.owasp.org/](https://www.owasp.org/%EB%A5%BC)를 확인.
+- **암호-기반 키 파생 함수 2 (PBKDF2)** - 특별한 단방향 알고리즘으로 (비밀번호와 같은) 입력값 텍스트와 추가적인 무작위 솔트 값으로부터 강한 암호 키를 생성하고, 기존 비밀번호 대신 저장하여 오프라인에서 비밀번호를 알아내기 어렵게 만든다.
+- **공개키 인프라스트럭처(PKI)** - 공개키를 각각의 개체와 신원과 연결하는 배열이다. 이러한 배열은 인증기관들로부터 등록 과정과 인증서 발급을 통해 수립된다.
+- **공중 교환 전화망(PSTN)** - 유선 전화와 휴대 전화를 포함한 전통적인 전화 네트워크.
+- **실시간 전송 프로토콜 (RTP) 과 실시간 전송 제어 프로토콜(RTCP)** - 멀티미디어 스트림을 전송하기 위해 함께 사용되는 두 프로토콜이다. 웹 실시간 통신 스택에 의해 사용된다. RFC 3550에서 정의되었다.
+- **레퍼런스 토큰(Reference Token)** - 서버에 저장된 상태나 메타데이터의 포인터나 식별자로서 동작하는 토큰의 한 종류. 가끔 ‘임의 토큰’이나 ‘불투명 토큰’이라고도 한다. 토큰 자체에 토큰 자신과 관련 있는 데이터들이 포함된 자체-포함 토큰과 다르게, 레퍼런스 토큰은 고유한 정보를 포함하지 않는 대신, 맥락을 위해 서버에 의존한다. 또한 레퍼런스 토큰은 세션 식별자가 되거나, 그것에 포함된다.
+- **신뢰 당사자 (RP)** - 일반적으로 유저가 별도의 인증 제공자로부터 인증을 받았다고 신뢰하는 애플리케이션. 인증 제공자로부터 제공된 몇 종류의 토큰이나 서명된 주장(assertion)들의 집합으로 유저를 신뢰한다.
+- **원격 파일 삽입(RFI)** - 애플리케이션에서 취약한 파일 삽입 과정을 악용하는 공격. 외부 파일의 삽입으로 이어질 수 있다.
+- **확장형 벡터 그래픽스(SVG)** - 2차원 기반의 벡터 그래픽을 표현하는 XML 기반의 마크업 언어.
+- **실시간 전송 보안 프로토콜 (SRTP) 와 실시간 전송 보안 제어 프로토콜 (SRTCP)** - 메시지의 암호화, 인증, 무결성의 보호를 지원하는 RTP와 RTCP의 프로파일(profile). RFC 3711에 정의되어 있다.
+- **보안 아키텍처** - 애플리케이션 설계의 추상화로 보안 제어가 어디서 어떻게 사용되는지와 유저와 애플리케이션 데이터의 위치와 민감도를 식별하고 설명한다.
+- **보안 보장 마크업 언어(SAML)** - 신원 제공자와 신뢰 당사자 간 서명된 보장(주로 XML 객체)의 전달을 기반으로 하는 싱글 사인 온 인증을 위한 개방 표준이다.
+- **보안 구성**- 보안 제어가 어떻게 사용되는지에 영향을 주는 애플리케이션의 런타임 구성이다.
+- **보안 제어** - 보안 검사를 수행하는 기능이나 요소 (예: 인증 검사) 혹은 보안적 측면에서 영향을 초래하는 경우. (예: 감사 레코드를 생성)
+- **보안 정보와 이벤트 관리 (SIEM)** - 컬렉션과 여러 소스로부터의 보안-관련 데이터들의 분석을 통한 조직의 IT 인프라스트럭처에서의 위협 감지, 컴플라이언스, 보안 사고 관리를 위한 시스템.
+- **자체-포함 토큰** - 서버 단의 상태나 다른 외부 저장소에 의존하지 않는 하나 이상의 속성들을 캡슐화한 토큰. 이 토큰들은 포함되어 있는 속성들의 인증성과 무결성을 보장하고, “무상태” 정보들을 여러 시스템에 걸쳐 안전한 교환이 가능하게 한다. 자체-포함 토큰은 보통 인증성, 무결성 그리고 어떤 경우에는 데이터의 기밀성을 보장하기 위해 디지털 서명, 메시지 인증 코드 (MAC) 등의 암호 기술들을 이용하여 보호된다.
+- **서버 측 요청 위조(SSRF)** - 서버의 내부 리소스들을 읽고 업데이트하는 기능을 남용하는 공격. 공격자는 데이터를 읽거나 제출하는 코드인 서버상에서 작동하는 URL을 제공하거나 변형한다.
+- **세션 기술 프로토콜(SDP)** - 멀티미디어 세션을 구성하기 위한 메시지 형식이다. (예로 웹 실시간 통신에서 사용된다.) RFC 4566에서 정의되었다.
+- **세션 식별자 또는 세션 ID** - 백엔드에 저장된 상태 유지 세션을 식별하는 키이다. 레퍼런스 토큰으로서, 혹은 레퍼런스 토큰 내에서 클라이언트에게 혹은 클라이언트로부터 전달된다.
+- **세션 토큰** - (자체-포함 토큰을 사용하는) 무상태 세션 메커니즘이나 (레퍼런스 토큰을 사용하는) 상태 유지 세션 메커니즘에서 사용되는 토큰이나 값을 이 표준에서 포괄적으로 이르는 말.
+- **NAT용 세션 탐색 유틸리티 (STUN) -** peer-to-peer 통신을 수립하기 위해 NAT 탐색을 돕는 프로토콜. RFC 3489에서 정의되었다.
+- **단일 요소 인증기** - 유저가 인증되었는지 확인하는 메커니즘. 당신이 알거나(기억하는 비밀, 비밀번호, 비밀 구절, PIN), 당신 자신이거나 (생체 인증, 지문, 얼굴 인식), 당신이 가지고 있는 것 (OTP 토큰, 스마트카드와 같은 암호 디바이스)들이 될 수 있다.
+- **싱글 사인 온 인증 (SSO)** - 유저가 한 애플리케이션에 로그인한 다음 다시 인증을 할 필요 없이 다른 애플리케이션에 자동으로 로그인될 때 발생한다. 예를 들어, 구글에 로그인할 때, 유저는 자동으로 유튜브, 구글 문서, G메일 같은 다른 구글 서비스들에 로그인된다.
+- **소프트웨어 구성 명세서 (SBOM)** - 소프트웨어 애플리케이션을 만들거나 어셈블(assemble)할때 요구되는 모든 컴포넌트, 모듈, 라이브러리, 프레임워크 등 리소스들의 구조적이고 포괄적인 리스트이다.
+- **소프트웨어 구성 분석 (SCA)** - 사용 중인 특정 컴포넌트 버전의 보안 취약점을 위한 애플리케이션 구성, 의존성, 라이브러리 그리고 패키지들을 분석하기 위해 설계된 기술들의 집합. 현재 흔히 SAST라고 불리는 소스코드 분석과 혼동해서는 안 된다.
+- **소프트웨어 개발 수명 주기(SDLC)** - 초기 요구 사항부터 배포와 유지보수까지 소프트웨어가 개발되는 단계별 과정이다
+- **SQL 인젝션 (SQLi)** - 엔트리 포인트에 악성 SQL 구문이 삽입되는, 데이터 기반 애플리케이션을 공격하기 위해 사용되는 코드 주입 기술
+- **상태 유지 세션 메커니즘** - 상태 유지 세션 메커니즘에서는, 애플리케이션이 CSRPNG를 사용하여 생성된 세션 토큰에 해당하는 세션 상태를 백엔드 단에 보유하며, 이 토큰은 최종 사용자에게 발급된다.
+- **무상태 세션 메커니즘** - 무상태 세션 메커니즘은 서비스 내에 저장될 필요가 없고 클라이언트에게 전달되는 자체-포함 토큰을 사용하고, 토큰을 받고 검증한다. 그러나 실제로는, 서비스가 필요한 보안 제어를 시행하기 위해 약간의 세션 정보(JWT 파기 목록과 같은)에 대한 접근이 필요하다.
+- **정적 애플리케이션 보안 테스팅 (SAST) -** 보안 취약점을 시사하는 코딩, 설계 조건들을 찾기 위해 애플리케이션의 소스 코드, 바이트 코드, 바이너리들을 분석하도록 설계된 기술들의 집합. SAST 솔루션들은 비실행 상태에서 애플리케이션을 “내부에서 외부로” 분석한다.
+- **위협 모델링** - 위협 주체, 보안 영역, 보안 제어, 그리고 중요한 기술과 사업 자산들을 식별하기 위해 보안 아키텍처를 점점 더 정교하게 개발해 나가는 기술이다.
+- **검사 시점과 사용 시점(TOCTOU)** - 애플리케이션이 리소스를 사용하기 전에 리소스의 상태를 검사하더라도, 리소스의 상태는 리소스의 검사 시점과 사용 시점 사이에 바뀔 수 있다. 이는 검사 결과를 무효화하고 상태 비일치로 인한 잘못된 동작의 수행을 초래할 수 있다.
+- **시간 동기 일회용 패스워드 (TOTPs)** - 현재 시각이 비밀번호를 생성하는 알고리즘의 일부로 사용되는 OTP 생성의 한 방식.
+- **TLS 클라이언트 인증, 또는 상호 TLS(mTLS)** - 표준 TLS 연결에서, 클라이언트는 서버의 신원을 검증하기 위해 서버가 제공한 인증서를 사용할 수 있다. TLS 클라이언트 인증이 사용될 때, 클라이언트 또한 자신의 비밀 키와 인증서를 사용하여 서버로 하여금 클라이언트의 신원을 검증하도록 허용할 수 있다.
+- **전송 계층 보안 (TLS)** - 네트워크 연결 상에서 통신 보안을 제공하는 암호 프로토콜.
+- **NAT를 중심으로 릴레이를 이용한 트래버설(TURN)** - peer-to-peer 직접 연결이 수립되지 못할 때 TURN 서버를 중계 서버로 사용하는 STUN 프로토콜의 확장. RFC 8656에서 정의되었다.
+- **신뢰 실행 환경 (TEE)** - 애플리케이션이 시스템의 다른 영역과 관계없이 안전하게 실행될 수 있는 고립된 처리 환경.
+- **신뢰 플랫폼 모듈 (TPM)** - 마더보드와 같은 더 큰 하드웨어 컴포넌트에 부착되어 그 시스템의 “신뢰의 근원” 역할을 하는 HSM의 한 종류.
+- **신뢰 서비스 계층** - 마이크로서비스, 서버리스 API, 서버 단, secure boot을 가진 클라이언트 장치의 신뢰되는 API, 파트너 또는 외부 API 등등의 제어 집행 지점(control enforcement point). ‘신뢰되는’ 이란, 신뢰할 수 없는 유저가 그 계층에 구현된 계층이나 제어를 우회하거나 통과할 우려가 없음을 의미한다.
+- **인터넷 식별자 (URI)** - 웹페이지, 메일 주소, 장소 등을 식별하는 고유의 문자열.
+- **인터넷 주소 (URL)** - 인터넷상의 리소스들의 위치를 명시하는 문자열.
+- **범용 단일 식별자 (UUID) -** 소프트웨어에서 식별자로 사용되는 고유의 레퍼런스 번호.
+- **검증자** - 애플리케이션을 OWASP ASVS 요구사항에 따라 리뷰하는 사람이나 팀.
+- **웹 실시간 통신 (WebRTC)** - 보통 화상회의에서, 웹 애플리케이션에서 멀티미디어 스트림을 전송하기 위해 사용되는 프로토콜 스택과 관련된 웹 API. SRTP, SRTCP, DTLS, SDP 그리고 STUN/TURN을 기반으로 한다.
+- **TLS 상의 웹 소켓 (WSS)** - 웹 소켓 통신을 TLS 프로토콜 상에서 계층화하여 보호하는 한 방법.
+- **위지위그 (WYSIWYG)** - 렌더링을 제어하는 코드 자체를 보이기보다 콘텐츠가 렌더링 되었을 때 실제로 어떻게 보일지를 보여주는 리치 콘텐츠 에디터의 한 종류.
+- **X.509 인증서** - 공개키가 인증서에 포함된 해당 유저, 컴퓨터 혹은 서비스의 신원에 속해있음을 검증하고, 널리 받아들여지는 국제 X.509 PKI 표준을 사용하는 디지털 인증서.
+- **XML 외부 개체 (XXE)** - 선언된 시스템 식별자를 통해 로컬 혹은 리모트 콘텐츠에 접근할 수 있는 XML 개체의 한 종류. 다양한 삽입 공격을 초래할 수 있다.
