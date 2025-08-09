@@ -1,72 +1,72 @@
-# What is the ASVS?
+# ¿Qué es el ASVS?
 
-The Application Security Verification Standard (ASVS) defines security requirements for web applications and services, and it is a valuable resource for anyone aiming to design, develop, and maintain secure applications or evaluate their security.
+El Estándar para la Verificación de Seguridad de Aplicaciones (ASVS) define los requerimientos de seguridad para aplicaciones y servicios web, constituye un recurso valioso para quienes desean diseñar, desarrollar y mantener aplicaciones seguras o evaluar su seguridad.
 
-This chapter outlines the essential aspects of using the ASVS, including its scope, the structure of its priority-based levels, and the primary use cases for the standard.
+Este capítulo describe los aspectos esenciales del uso del ASVS, incluyendo su alcance, la estructura de sus niveles basados en prioridad y los principales casos de uso del estándar.
 
-## Scope of the ASVS
+## Alcance del ASVS
 
-The scope of the ASVS is defined by its name: Application, Security, Verification, and Standard. It establishes which requirements are included or excluded, with the overarching goal of identifying the security principles that must be achieved. The scope also considers documentation requirements, which serve as the foundation for implementation requirements.
+El alcance del ASVS se define por su nombre: Aplicación, Seguridad, Verificación y Estándar. Establece qué requerimientos se incluyen o excluyen con el objetivo general de identificar los principios de seguridad que deben cumplirse. El alcance también considera los requerimientos de documentación, los cuales sirven de base para los requerimientos de implementación.
 
-There is no such thing as scope for attackers. Therefore, ASVS requirements should be evaluated alongside guidance for other aspects of the application lifecycle, including CI/CD processes, hosting, and operational activities.
+No existe algo como el alcance para los atacantes. Por lo tanto, los requerimientos del ASVS deben evaluarse junto con orientación en otros aspectos del ciclo de vida de las aplicaciones incluyendo los procesos de CI/CD, el alojamiento y las actividades operativas.
 
-### Application
+### Aplicación
 
-ASVS defines an "application" as the software product being developed, into which security controls must be integrated. ASVS does not prescribe development lifecycle activities or dictate how the application should be built via a CI/CD pipeline; instead, it specifies the security outcomes that must be achieved within the product itself.
+ASVS define una "aplicación" como el producto de software en desarrollo, en el que deben integrarse controles de seguridad. ASVS no prescribe las actividades del ciclo de vida del desarrollo ni dicta cómo debe construirse la aplicación mediante un flujo (pipeline) de CI/CD; en cambio, especifica los resultados de seguridad que deben lograrse dentro del propio producto.
 
-Components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application for those specific purposes, as some security controls depend directly on them or can be implemented through them. These components should be considered for requirements related to cached responses, rate limiting, or restricting incoming and outgoing connections based on source and destination.
+Los componentes que sirven, modifican o validan el tráfico HTTP, como los firewalls de aplicaciones web (WAF), los balanceadores de carga o los proxies, pueden considerarse parte de la aplicación para esos fines específicos, ya que algunos controles de seguridad dependen directamente de ellos o pueden implementarse a través de ellos. Estos componentes deben considerarse para los requerimientos relacionados con las respuestas en caché, la limitación de velocidad (rate limit) o la restricción de las conexiones entrantes y salientes según el origen y el destino.
 
-Conversely, ASVS generally excludes requirements that are not directly relevant to the application or where configuration is outside the application's responsibility. For example, DNS issues are typically managed by a separate team or function.
+Por el contrario, ASVS generalmente excluye los requerimientos que no son directamente relevantes para la aplicación o cuya configuración escapa a su responsabilidad. Por ejemplo, los problemas de DNS suelen ser gestionados por un equipo o función independiente.
 
-Similarly, while the application is responsible for how it consumes input and produces output, if an external process interacts with the application or its data, it is considered out of scope for ASVS. For instance, backing up the application or its data is usually the responsibility of an external process and is not controlled by the application or its developers.
+De igual forma, si bien la aplicación es responsable de cómo consume entradas y produce salidas, si un proceso externo interactúa con la aplicación o sus datos, se considera fuera del alcance de ASVS. Por ejemplo, la copia de seguridad de la aplicación o sus datos suele ser responsabilidad de un proceso externo y no está controlada por la aplicación ni por sus desarrolladores.
 
-### Security
+### Seguridad
 
-Every requirement must have a demonstrable impact on security. The absence of a requirement must result in a less secure application, and implementing the requirement must reduce either the likelihood or the impact of a security risk.
+Todo requerimiento debe tener un impacto demostrable en la seguridad. La ausencia de un requerimiento debe resultar en una aplicación menos segura, y su implementación debe reducir la probabilidad o el impacto de un riesgo de seguridad.
 
-All other considerations, such as functional aspects, code style, or policy requirements, are out of scope.
+Todas las demás consideraciones, como aspectos funcionales, estilo de código o requerimientos de políticas, quedan fuera del alcance.
 
-### Verification
+### Verificación
 
-The requirement must be verifiable, and the verification must result in a "fail" or "pass" decision.
+El requerimiento debe ser verificable y la verificación debe resultar en una decisión de "reprobado" o "aprobado".
 
-### Standard
+### Estándar
 
-The ASVS is designed to be a collection of security requirements to be implemented to comply with the standard. This means that requirements are limited to defining the security goal to achieve that. Other related information can be built on top of ASVS or linked via mappings.
+El ASVS está diseñado como un conjunto de requerimientos de seguridad que deben implementarse para cumplir con el estándar. Esto significa que los requerimientos se limitan a definir el objetivo de seguridad para lograrlo. Otra información relacionada puede construirse sobre el ASVS o vincularse mediante mapeos.
 
-Specifically, OWASP has many projects, and the ASVS deliberately avoids overlapping with the content in other projects. For example, developers may have a question, "how do I implement a particular requirement in my particular technology or environment," and this should be covered by the Cheat Sheet Series project. Verifiers may have a question "how do I test this requirement in this environment," and this should be covered by the Web Security Testing Guide project.
+En concreto, OWASP cuenta con numerosos proyectos y el ASVS evita deliberadamente solaparse con el contenido de otros proyectos. Por ejemplo, los desarrolladores pueden preguntarse: "¿Cómo implemento un requerimiento particular en mi tecnología o entorno específico?", lo cual debería abordarse en el proyecto Cheat Sheet Series. Los verificadores pueden preguntarse: "¿Cómo pruebo este requerimiento en este entorno?", lo cual debería abordarse en el proyecto Web Security Testing Guide.
 
-Whilst the ASVS is not just intended for security experts to use, it does expect the reader to have technical knowledge to understand the content or the ability to research particular concepts.
+Si bien el ASVS no está destinado únicamente a expertos en seguridad, se espera que el lector tenga conocimientos técnicos para comprender el contenido o la capacidad de investigar conceptos específicos.
 
-### Requirement
+### Requerimiento
 
-The word requirement is used specifically in the ASVS as it describes what must be achieved to satisfy it. The ASVS only contains requirements (must) and does not contain recommendations (should) as the main condition.
+El término requerimiento se utiliza específicamente en ASVS ya que describe lo que debe lograrse para satisfacerlo. ASVS solo contiene requerimientos (deben) y no recomendaciones (deberían) como condición principal.
 
-In other words, recommendations, whether they are just one of many possible options to solve a problem or code style considerations, do not satisfy the definition to be a requirement.
+En otras palabras, las recomendaciones, ya sean una de las muchas opciones posibles para resolver un problema o consideraciones de estilo de código, no cumplen la definición de requerimiento.
 
-ASVS requirements are intended to address specific security principles without being too implementation or technology-specific, at the same time, being self-explanatory as to why they exist. This also means that requirements are not built around a particular verification method or implementation.
+Los requerimientos de ASVS buscan abordar principios de seguridad específicos sin ser demasiado específicos de la implementación o la tecnología, y al mismo tiempo, justifican por sí mismos su existencia. Esto también significa que los requerimientos no se basan en un método de verificación o implementación en particular.
 
-### Documented security decisions
+### Decisiones de seguridad documentadas
 
-In software security, planning security design and the mechanisms to be used early on will lead to a more consistent and reliable implementation in the finished product or feature.
+En seguridad de software, planear desde el principio el diseño de seguridad y los mecanismos que se utilizarán permitirá una implementación más consistente y fiable en el producto terminado o funcionalidad.
 
-Additionally, for certain requirements, implementation will be complicated and very specific to an application's needs. Common examples include permissions, input validation, and protective controls around different levels of sensitive data.
+Además, para ciertos requerimientos, la implementación será compleja y muy específica a las necesidades de la aplicación. Ejemplos comunes incluyen permisos, validación de entradas y controles de protección para diferentes niveles de datos sensibles.
 
-To account for this, rather than sweeping statements like "all data must be encrypted" or trying to cover every possible use case in a requirement, documentation requirements were included which mandate that the application developer's approach and configuration to these sorts of controls must be documented. This can then be reviewed for appropriateness and then the actual implementation can be compared to the documentation to assess whether the implementation matches expectations.
+Para tener esto en cuenta, en lugar de afirmaciones generales como "todos los datos deben estar cifrados" o intentar abarcar todos los posibles casos de uso en un requerimiento, se incluyeron requerimientos de documentación que exigen que el enfoque del desarrollador de la aplicación y las configuraciones para este tipo de controles se documenten. Esto puede revisarse para comprobar su idoneidad y, posteriormente, la implementación real puede compararse con la documentación para evaluar si cumple con las expectativas.
 
-These requirements are intended to document the decisions which the organization developing the application has taken regarding how to implement certain security requirements.
+Estos requerimientos tienen como objetivo documentar las decisiones que la organización que desarrolla la aplicación ha tomado con respecto a cómo implementar ciertos requerimientos de seguridad.
 
-Documentation requirements are always in the first section of a chapter (although not every chapter has them) and always have a related implementation requirement where the decisions that are documented should actually be put into place. The point here is that verifying that the documentation is in place and that the actual implementation are two separate activities.
+Los requerimientos de documentación siempre se encuentran en la primera sección de un capítulo (aunque no todos los capítulos los incluyen) y siempre tienen un requerimiento de implementación relacionado donde las decisiones documentadas deben implementarse. La cuestión es que verificar que la documentación esté disponible y que la implementación cumple con ella, son dos actividades independientes.
 
-There are two key drivers for including these requirements. The first driver is that a security requirement will often involve enforcing rules e.g., what kind of file types are allowed to be uploaded, what business controls should be enforced, what are the allowed characters for a particular field. These rules will differ for every application, and therefore, the ASVS cannot prescriptively define what they should be, nor will a cheat sheet or more detailed response help in this case. Similarly, without these decisions being documented, it will not be possible to perform verification of the requirements that implement these decisions.
+Hay dos factores clave para incluir estos requerimientos. El primero es que un requerimiento de seguridad suele implicar la aplicación de reglas, por ejemplo, ¿qué tipos de archivos son permitidos para cargar?, ¿qué controles de negocio deben aplicarse?, ¿cuáles son los caracteres permitidos para un campo específico?. Estas reglas varían según la aplicación y, por lo tanto, el ASVS no puede definirlas de forma prescriptiva, ni una hoja de referencia (cheat sheet) o una respuesta más detallada servirá de ayuda en este caso. De igual manera, sin documentar estas decisiones no es posible hacer la verificación de los requerimientos que las implementan.
 
-The second driver is that for certain requirements, it is important to provide an application development with flexibility regarding how to address particular security challenges. For example, in previous ASVS versions, session timeout rules were very prescriptive. Practically speaking, many applications, especially those that are consumer-facing, have much more relaxed rules and prefer to implement other mitigation controls instead. Documentation requirements, therefore, explicitly allow for flexibility around this.
+El segundo factor es que, para ciertos requerimientos, es importante proporcionar flexibilidad al desarrollo de aplicaciones en cuanto a cómo abordar desafíos de seguridad específicos. Por ejemplo, en versiones anteriores del ASVS, las reglas de tiempo de expiración (timeout) de sesión eran muy prescriptivas. En la práctica, muchas aplicaciones, especialmente las orientadas al consumidor, tienen reglas mucho más flexibles y prefieren implementar otros controles de mitigación. Por lo tanto los requerimientos de documentación permiten explícitamente esta flexibilidad.
 
-Clearly, it is not expected that individual developers will be making and documenting these decisions but rather the organization as a whole will be taking those decisions and making sure that they are communicated to developers who then make sure to follow them.
+Claramente, no se espera que los desarrolladores individuales tomen y documenten estas decisiones, sino que sea la organización en su conjunto la que las tome y se asegure de comunicarlas a los desarrolladores, quienes a su vez se asegurarán de seguirlas.
 
-Providing developers with specifications and designs for new features and functionality is a standard part of software development. Similarly, developers are expected to use common components and user interface mechanisms rather than just making their own decisions each time. As such, extending this to security should not be seen as surprising or controversial.
+Proporcionar a los desarrolladores especificaciones y diseños para nuevas características y funcionalidades es parte integral del desarrollo de software. De igual manera, se espera que los desarrolladores utilicen componentes y mecanismos de interfaz de usuario comunes en lugar de simplemente tomar sus propias decisiones en cada ocasión. Por lo tanto, extender esto a la seguridad no debería considerarse sorprendente ni controvertido.
 
-There is also flexibility around how to achieve this. Security decisions might be documented in a literal document, which developers are expected to refer to. Alternatively, security decisions could be documented and implemented in a common code library that all developers are mandated to use. In both cases, the desired result is achieved.
+También existe flexibilidad en cuanto a cómo lograr esto. Las decisiones de seguridad pueden documentarse en un documento literal, al que se espera que los desarrolladores se refieran. Alternativamente, las decisiones de seguridad pueden documentarse e implementarse en una librería de código común que todos los desarrolladores estén obligados a usar. En ambos casos, se logra el resultado deseado.
 
 ## Application Security Verification Levels
 
