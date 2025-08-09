@@ -1,70 +1,77 @@
-# V2 Validation and Business Logic
+# V2 유효성 검증 및 비즈니스 로직
 
-## Control Objective
+## 제어 목표
 
-This chapter aims to ensure that a verified application meets the following high-level goals:
+이번 장에서는 검증된 애플리케이션이 아래와 같은 상위 수준의 목표를 충족하는지 확인하는 것이 목표이다.
 
-* Input received by the application matches business or functional expectations.
-* The business logic flow is sequential, processed in order, and cannot be bypassed.
-* Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers or adding a million friends one at a time.
-* High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
+* 애플리케이션에 입력되는 값은 비즈니스 및 기능 요구사항에 부합한다.
+* 비즈니스 로직은 정해진 순서에 따라 순차적으로 실행되며, 특정 단계를 건너뛰거나 우회할 수 없다.
+* 비즈니스 로직에는 지속적인 소액 송금이나 한 번에 친구 백만 명 추가와 같은 자동화된 공격을 탐지하고 방지하기 위한 제한 및 제어 기능이 포함되어 있다.
+* 핵심적인 비즈니스 로직은 악용 사례와 악의적인 공격자를 고려하여 설계되었으며, 스푸핑, 데이터 위변조, 정보 유출, 권한 상승 공격에 대한 보호 조치를 갖추고 있다.
 
-## V2.1 Validation and Business Logic Documentation
+## V2.1 유효성 검증 및 비즈니스 로직 문서화
 
-Validation and business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items, so it is clear what needs to be implemented in the application.
+유효성 검증 및 비즈니스 로직 관련 문서는 애플리케이션에 구현해야 할 사항을 명확히 하기 위해서 비즈니스 로직의 제한 사항, 유효성 검증 규칙, 그리고 여러 데이터 항목 간의 문맥적 일관성을 명확하게 정의해야 한다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **2.1.1** | Verify that the application's documentation defines input validation rules for how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, email addresses, telephone numbers, or it could be an internal data format. | 1 |
-| **2.1.2** | Verify that the application's documentation defines how to validate the logical and contextual consistency of combined data items, such as checking that suburb and ZIP code match. | 2 |
-| **2.1.3** | Verify that expectations for business logic limits and validations are documented, including both per-user and globally across the application. | 2 |
+| **2.1.1** | 애플리케이션 문서에 데이터 항목이 예상되는 구조에 부합하는지 확인하는 입력값 유효성 검증 규칙이 정의되어 있는지 확인한다. 이는 신용카드 번호, 이메일 주소, 전화번호와 같은 일반적인 데이터 형식일 수도 있고, 내부적으로 사용하는 데이터 형식일 수도 있다. | 1 |
+| **2.1.2** | 애플리케이션 문서에 연관된 데이터 항목들 간의 논리적, 문맥적 일관성을 검증하는 방법이 정의되어 있는지 검증한다. 예를 들어서 세부 주소와 우편번호가 서로 일치하는지 확인하는 경우가 이에 해당한다. | 2 |
+| **2.1.3** | 비즈니스 로직의 제한사항 및 유효성 검증에 대한 요구사항이 사용자별 기준과 애플리케이션 전체에 적용되는 전역적 기준을 모두 포함하여 문서화되어 있는지 검증한다. | 2 |
 
-## V2.2 Input Validation
+## V2.2 입력값 검증
 
-Effective input validation controls enforce business or functional expectations around the type of data the application expects to receive. This ensures good data quality and reduces the attack surface. However, it does not remove or replace the need to use correct encoding, parameterization, or sanitization when using the data in another component or for presenting it for output.
+효과적인 입력값 검증은 애플리케이션이 받아들이고자 하는 데이터의 유형에 관한 비즈니스 또는 기능적 요구사항을 강제하는 제어 기능이다. 이를 통해 데이터 품질을 높이고 공격 표면을 줄일 수 있다. 하지만 이는 데이터를 다른 컴포넌트에서 사용하거나 출력용으로 표시할 때 필요한 올바른 인코딩, 매개변수화, 또는 정제의 필요성을 대체하거나 없애주는 것은 아니다.
 
-In this context, "input" could come from a wide variety of sources, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, and external APIs.
+이 문맥에서 "입력값"이란, HTML 양식 필드, REST 요청, URL 파라미터, HTTP 헤더 필드, 쿠키, 디스크상의 파일, DB, 외부 API 등 매우 다양한 출처로부터 오는 데이터를 의미할 수 있다.
 
-A business logic control might check that a particular input is a number less than 100. A functional expectation might check that a number is below a certain threshold, as that number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
+예를 들어, 비즈니스 로직 제어는 특정 입력값이 100보다 작은 숫자인지 확인할 수 있다. 반면, 기능적 요구사항은 특정 숫자가 정해진 임계값 미만인지 확인할 수 있다. 이는 해당 숫자가 특정 루프의 반복 횟수를 제어하며, 이 값이 너무 클 경우 과도한 처리 부하를 유발하여 잠재적인 서비스 거부(DoS) 상태로 이어질 수 있기 때문이다.
 
-While schema validation is not explicitly mandated, it may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces that use JSON or XML.
+스키마 유효성 검증이 명시적으로 의무화된 것은 아니지만, JSON 이나 XML 을 사용하는 HTTP API 또는 기타 인터페이스의 전체 유효성 검증을 수행하는 데 가장 효과적인 방법일 수 있다.
 
-Please note the following points on Schema Validation:
+스키나 유효성 검증에 관해서는 다음 사항을 참고해야 한다.
 
-* The "published version" of the JSON Schema validation specification is considered production-ready, but not strictly speaking "stable." When using JSON Schema validation, ensure there are no gaps with the guidance in the requirements below.
-* Any JSON Schema validation libraries in use should also be monitored and updated if necessary once the standard is formalized.
-* DTD validation should not be used, and framework DTD evaluation should be disabled, to avoid issues with XXE attacks against DTDs.
+* 비즈니스 로직 제어는 특정 입력값이 100보다 작은 숫자인지 확인할 수 있다.
+* 기능적인 기대는 숫자가 특정 임계값보다 아래인지 확인하는 것일 수도 있으며, 이는 해당 숫자가 루프가 수행되는 횟수를 제어하고 너무 큰 숫자는 과도한 처리와 잠재적인 서비스 거부 상태를 유발할 수 있기 때문이다.
 
-| # | Description | Level |
+스키마 검증이 명시적으로 필수 사항은 아니지만, HTTP API나 JSON, XML을 사용하는 인터페이스에서 전체 유효성 검사를 수행하기 위한 가장 효과적인 방법일 수도 있다.
+
+스키마 검증에 대한 아래 사항들에 유의해야 한다.
+
+* JSON 스키마 검증 사양의 '공식 배포 버전'은 운영 환경에서 사용 가능할 정도로 안정적이지만, 엄밀히 말해 '완전히 안정된' 상태는 아니다.
+* 사용 중인 JSON 스키마 검증 라이브러리도, 표준이 공식화되면 이를 반영하여 모니터링하고 필요시 업데이트해야 한다.
+* DTD(문서 타입 정의) 검증은 사용해서는 안 되며, 프레임워크의 DTD 평가 기능은 반드시 비활성화해야 한다. 이는 DTD를 악용한 XXE(XML 외부 개체) 공격을 방지하기 위함이다.
+
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **2.2.1** | Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allow list of values, patterns, and ranges, or be based on comparing the input to an expected structure and logical limits according to predefined rules. For L1, this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input. | 1 |
-| **2.2.2** | Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability and should be encouraged, it must not be relied upon as a security control. | 1 |
-| **2.2.3** | Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | 2 |
+| **2.2.1** | 입력값에 대한 비즈니스 또는 기능적인 기대치를 충족하기 위해서 입력값의 유효성을 검증해야 한다. 이는 허용 값, 패턴 및 범위 목록에 대한 긍정적 검증을 사용하거나, 미리 정의된 규칙에 따라 입력값을 예상 구조 및 논리적 한계와 비교하여 검증해야 한다. L1의 경우, 특정 비즈니스 또는 보안 결정을 내리는 데 초점을 맞출 수 있다. L2 이상의 경우에는 모든 입력값에 적용해야 한다. | 1 |
+| **2.2.2** | 애플리케이션이 신뢰할 수 있는 서비스 계층에서 입력값 유효성 검사를 시행하도록 설계되었는지 확인해야 한다. 클라이언트 측 유효성 검사는 사용성을 향상시키므로 권장해야 하지만, 보안 제어 수단으로 의존해서는 안된다. | 1 |
+| **2.2.3** | 사전 정의된 규칙에 따라 관련 데이터 항목의 조합이 합리적인지 애플리케이션에서 확인해야 한다. | 2 |
 
-## V2.3 Business Logic Security
+## V2.3 비즈니스 로직 보안
 
-This section considers key requirements to ensure that the application enforces business logic processes in the correct way and is not vulnerable to attacks that exploit the logic and flow of the application.
+이 챕터에서는 애플리케이션이 비즈니스 로직 프로세스를 올바른 방식으로 적용하고 애플리케이션의 로직과 흐름을 악용하는 공격에 취약하지 않은지 확인하기 위한 핵심 요구 사항을 고려한다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **2.3.1** | Verify that the application will only process business logic flows for the same user in the expected sequential step order and without skipping steps. | 1 |
-| **2.3.2** | Verify that business logic limits are implemented per the application's documentation to avoid business logic flaws being exploited. | 2 |
-| **2.3.3** | Verify that transactions are being used at the business logic level such that either a business logic operation succeeds in its entirety or it is rolled back to the previous correct state. | 2 |
-| **2.3.4** | Verify that business logic level locking mechanisms are used to ensure that limited quantity resources (such as theater seats or delivery slots) cannot be double-booked by manipulating the application's logic. | 2 |
-| **2.3.5** | Verify that high-value business logic flows require multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to classified information, or safety overrides in manufacturing. | 3 |
+| **2.3.1** | 애플리케이션이 예상되는 순차적 단계 순서에 따라 동일한 사용자에 대한 비즈니스 로직 흐름만 처리하고 단계를 건너뛰지 않는지 확인한다. | 1 |
+| **2.3.2** | 비즈니스 로직 결함이 악용되는 것을 방지하기 위해서 애플리케이션 문서에 따라 비즈니스 로직 제한이 구현되었는지 확인한다. | 2 |
+| **2.3.3** | 비즈니스 로직 수준에서 트랜잭션이 사용되고 있는지 확인하여 비즈니스 로직 작업이 완전히 성공하거나 이전의 올바른 상태로 롤백되는지 확인한다. | 2 |
+| **2.3.4** | 제한된 양의 리소스(ex. 극장 좌석이나 배송 시간대)가 애플리케이션의 로직을 조작하여 이중으로 예약되는 것을 방지하기 위해서 비즈니스 로직 수준 잠금 메커니즘이 사용되는지 확인한다. | 2 |
+| **2.3.5** | 핵심적인 비즈니스 로직 흐름에 무단 또는 우발적인 행위를 방지하기 위해서 다중 사용자 승인이 필요한지 확인해야 한다. 이는 거액 자금 이체, 계약 승인, 기밀 정보 접근, 제조 과정의 안전 무시 등이 포함될 수 있지만, 이에 국한되지는 않는다. | 3 |
 
-## V2.4 Anti-automation
+## V2.4 자동화 방지
 
-This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
+이 섹션은 인간과 유사한 상호작용을 요구하고, 과도한 자동화 요청을 방지하기 위한 자동화 방지 제어 기능들을 포함한다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **2.4.1** | Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, garbage-data creation, quota exhaustion, rate-limit breaches, denial-of-service, or overuse of costly resources. | 2 |
-| **2.4.2** | Verify that business logic flows require realistic human timing, preventing excessively rapid transaction submissions. | 3 |
+| **2.4.1** | 데이터 유출, 더미 데이터 생성, 할당량 소진, 속도 제한 위반, 서비스 거부(DoS), 핵심적인 리소스의 과다 사용으로 이어질 수 있는 애플리케이션 기능에 대한 과도한 호출을 방어하기 위해, 자동화 방지 제어 기능이 구현되어 있는지 검증한다. | 2 |
+| **2.4.2** | 비즈니스 로직의 각 단계가 실제 사람이 수행하는 데 필요한 현실적인 시간을 요구하여, 비정상적으로 빠른 속도의 트랜잭션 제출을 방지하는지 검증한다. | 3 |
 
-## References
+## 참고
 
-For more information, see also:
+자세한 내용은 다음을 참조(참고)한다.
 
 * [OWASP Web Security Testing Guide: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
 * [OWASP Web Security Testing Guide: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README)
