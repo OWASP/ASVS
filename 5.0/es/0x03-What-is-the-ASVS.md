@@ -68,51 +68,51 @@ Proporcionar a los desarrolladores especificaciones y diseños para nuevas carac
 
 También existe flexibilidad en cuanto a cómo lograr esto. Las decisiones de seguridad pueden documentarse en un documento literal, al que se espera que los desarrolladores se refieran. Alternativamente, las decisiones de seguridad pueden documentarse e implementarse en una librería de código común que todos los desarrolladores estén obligados a usar. En ambos casos, se logra el resultado deseado.
 
-## Application Security Verification Levels
+## Niveles de verificación de seguridad de aplicaciones
 
-The ASVS defines three security verification levels, with each level increasing in depth and complexity. The general aim is for organizations to start with the first level to address the most critical security concerns, and then move up to the higher levels according to the organization and application needs. Levels may be presented as L1, L2, and L3 in the document and in requirement texts.
+El ASVS define tres niveles de verificación de seguridad, cada uno de los cuales aumenta en profundidad y complejidad. El objetivo general es que las organizaciones comiencen con el primer nivel para abordar las preocupaciones de seguridad más críticas y luego avancen a los niveles superiores según las necesidades de la organización y la aplicación. Los niveles pueden presentarse como L1, L2 y L3 en el documento y en los textos de requerimientos.
 
-Each ASVS level indicates the security requirements that are required to achieve from that level, with the higher remaining level requirements as recommendations.
+Cada nivel del ASVS indica los requerimientos de seguridad que se deben cumplir para ese nivel, y los requerimientos restantes de nivel superior se presentan como recomendaciones.
 
-In order to avoid duplicate requirements or requirements that are no longer relevant at higher levels, some requirements apply to a particular level but have more stringent conditions for higher levels.
+Para evitar requerimientos duplicados o requerimientos que ya no son relevantes en niveles superiores, algunos requerimientos se aplican a un nivel específico, pero tienen condiciones más estrictas para los niveles superiores.
 
-### Level evaluation
+### Evaluación de niveles
 
-Levels are defined by priority-based evaluation of each requirement based on experience implementing and testing security requirements. The main focus is on comparing risk reduction with the effort to implement the requirement. Another key factor is to keep a low barrier to entry.
+Los niveles se definen mediante una evaluación por prioridades de cada requerimiento basada en la experiencia en la implementación y prueba de requerimientos de seguridad. El enfoque principal es comparar la reducción de riesgos con el esfuerzo necesario para implementar el requerimiento. Otro factor clave es mantener una barrera de entrada baja.
 
-Risk reduction considers the extent to which the requirement reduces the level of security risk within the application, taking into account the classic Confidentiality, Integrity, and Availability impact factors as well as considering whether this is a primary layer of defense or whether it would be considered defense in depth.
+La reducción de riesgos considera hasta qué punto el requerimiento reduce el nivel de riesgo de seguridad dentro de la aplicación, considerando los factores de impacto clásicos de Confidencialidad, Integridad y Disponibilidad así como considerar si se trata de una capa primaria de defensa o si se trata de defensa en profundidad (defense in depth).
 
-The rigorous discussions around both the criteria and the leveling decisions have resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+Los rigurosos debates sobre los criterios y las decisiones de nivelación han dado como resultado una asignación que debería ser válida en la gran mayoría de los casos, pero se acepta que puede no ser totalmente adecuada para todas las situaciones. Esto significa que, en ciertos casos, las organizaciones podrían desear priorizar los requerimientos de un nivel superior con antelación basándose en sus propias consideraciones de riesgos.
 
-The types of requirements in each level could be characterized as follows.
+Los tipos de requerimientos en cada nivel podrían caracterizarse de la siguiente manera.
 
-### Level 1
+### Nivel 1 (L1)
 
-This level contains the minimum requirements to consider when securing an application and represents a critical starting point. This level contains around 20% of the ASVS requirements. The goal for this level is to have as few requirements as possible, to decrease the barrier to entry.
+Este nivel contiene los requerimientos mínimos a considerar para asegurar una aplicación y representa un punto de partida crucial. Este nivel abarca aproximadamente el 20 % de los requerimientos de ASVS. El objetivo de este nivel tener la menor cantidad de requerimientos posible y así minimizar las barreras de entrada.
 
-These requirements are generally critical or basic, first-layer of defense requirements for preventing common attacks that do not require other vulnerabilities or preconditions to be exploitable.
+Estos requerimientos son generalmente críticos o básicos, requerimientos de primera capa de defensa para prevenir ataques comunes que no requieren otras vulnerabilidades o condiciones previas para ser explotables.
 
-In addition to the first layer of defense requirements, some requirements have less of an impact at higher levels, such as requirements related to passwords. Those are more important for Level 1, as from higher levels, the multi-factor authentication requirements become relevant.
+Además de los requerimientos de la primera capa de defensa, algunos requerimientos tienen menor impacto en niveles superiores, como los requerimientos relacionados con las contraseñas. Estos son más importantes para el Nivel 1, ya que a partir de niveles superiores, los requerimientos de autenticación multifactor cobran relevancia.
 
-Level 1 is not necessarily penetration testable by an external tester without internal access to documentation or code (such as "black box" testing), although the lower number of requirements should make it easier to verify.
+El Nivel 1 no es necesariamente susceptible de pruebas de penetración por parte de un evaluador externo sin acceso interno a la documentación o el código (como las pruebas de "caja negra"), aunque la menor cantidad de requerimientos debería facilitar su verificación.
 
-### Level 2
+### Nivel 2 (L2)
 
-Most applications should be striving to achieve this level of security. Around 50% of the requirements in the ASVS are L2 meaning that an application needs to implement around 70% of the requirements in the ASVS (all of the L1 and L2 requirements) in order to comply with L2.
+La mayoría de las aplicaciones deberían esforzarse por alcanzar este nivel de seguridad. Alrededor del 50% de los requerimientos del ASVS son de nivel L2, lo que significa que una aplicación debe implementar alrededor del 70% de los requerimientos del ASVS (todos los requerimientos de nivel L1 y L2) para cumplir con el nivel L2.
 
-These requirements generally relate to either less common attacks or more complicated protections against common attacks. They may still be a first layer of defense, or they may require certain preconditions for the attack to be successful.
+Estos requerimientos generalmente se refieren a ataques menos comunes o a protecciones más complejas contra ataques comunes. Pueden seguir siendo una primera capa de defensa o requerir ciertas condiciones previas para que el ataque tenga éxito.
 
-### Level 3
+### Nivel 3 (L3)
 
-This level should be the goal for applications looking to demonstrate the highest levels of security and provides the final ~30% of requirements to comply with.
+Este nivel debería ser el objetivo para las aplicaciones que buscan demostrar los más altos niveles de seguridad y proporciona aproximadamente el 30% restante de los requerimientos que deben cumplirse.
 
-Requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls.
+Los requerimientos de esta sección suelen ser mecanismos de defensa en profundidad u otros controles útiles pero difíciles de implementar.
 
-### Which level to achieve
+### ¿Qué nivel alcanzar?
 
-The priority-based levels are intended to provide a reflection of the application security maturity of the organization and the application. Rather than the ASVS prescriptively stating what level an application should be at, an organization should analyze its risks and decide what level it believes it should be at, depending on the sensitivity of the application and of course, the expectations of the application's users.
+Los niveles basados en prioridades buscan reflejar la madurez de la seguridad de aplicaciones tanto de la organización como de la aplicación. En lugar de que el ASVS establezca de forma prescriptiva el nivel de seguridad que debe alcanzar una aplicación, una organización debe analizar sus riesgos y decidir que nivel considera que debería alcanzar en función de la sensibilidad de la aplicación y, por supuesto, de las expectativas de sus usuarios.
 
-For example, an early-stage startup that is only collecting limited sensitive data may decide to focus on Level 1 for its initial security goals, but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
+Por ejemplo, una startup en fase inicial que solo recopila datos sensibles limitados podría optar por el Nivel 1 para sus objetivos iniciales de seguridad pero un banco podría tener dificultades para justificar ante sus clientes un nivel inferior al 3 para su aplicación de banca en línea.
 
 ## How to use the ASVS
 
