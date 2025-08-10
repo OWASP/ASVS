@@ -1,29 +1,29 @@
-# Preface
+# 서론
 
-Welcome to the Application Security Verification Standard (ASVS) Version 5.0.
+어플리케이션 보안 증명 표준(ASVS) 5.0 버전에 온 걸 환경한다.
 
-## Introduction
+## 소개
 
-Originally launched in 2008 through a global community collaboration, the ASVS defines a comprehensive set of security requirements for designing, developing, and testing modern web applications and services.
+2008년에 글로벌 커뮤니티 협력을 통해 처음 시작된 ASVS는 최신 웹 애플리케이션과 서비스를 설계, 개발 및 테스트하기 위한 포괄적인 보안 요구 사항을 정의한다.
 
-Following the release of ASVS 4.0 in 2019 and its minor update (v4.0.3) in 2021, Version 5.0 represents a significant milestone—modernized to reflect the latest advances in software security.
+2019년 ASVS 4.0과 이은 2021년의 작은 업데이트(v4.0.3)의 출시에이어서, 5.0 버전은 소프트웨어 보안의 최신 발전을 반영한 중요한 현대의 이정표와 같다.
 
-ASVS 5.0 is the result of extensive contributions from project leaders, working group members, and the wider OWASP community to update and improve this important standard.
+ASVS 5.0은 이 중요한 표준을 업데이트하고 개선하기 위해 프로젝트 리더, 작업 그룹 구성원, 그리고 더 넓은 OWASP 커뮤니티가 광범위하게 기여한 결과다.
 
-## Principles behind version 5.0
+## 5.0 버전의 원칙
 
-This major revision has been developed with several key principles in mind:
+이 주요 개정판은 다음과 같은 몇 가지 주요 원칙을 염두에 두고 개발되었다:
 
-* Refined Scope and Focus: This version of the standard has been designed to align more directly with the foundational pillars in its name: Application, Security, Verification, and Standard. Requirements have been rewritten to emphasize the prevention of security flaws rather than mandating specific technical implementations. Requirement texts are intended to be self-explanatory, explaining why they exist.
+* 세련된 범위와 초점: 이 표준 버전은 어플리케이션, 보안, 검증 및 표준이라는 이름의 기본 토대와 더 직접적으로 일치하도록 설계되었다. 특정 기술 구현을 의무화하기보다는 보안 결함 예방을 강조하기 위해 요구 사항이 다시 작성되었다. 요구 사항 텍스트는 왜 그런 요구 사항이 존재하는지 설명하도록 의도했다.
 
-* Support for Documented Security Decisions: ASVS 5.0 introduces requirements for documenting key security decisions. This enhances traceability and supports context-sensitive implementations, allowing organizations to tailor their security posture to their specific needs and risks.
+* 보안 지도 문서화를 위한 지원: ASVS 5.0은 주요 보안 결정을 문서화하기 위한 요구 사항을 도입했다. 이를 통해 추적 가능성이 향상되고 맥락상 민감한 구현을 지원하여 조직이 특정 요구 사항과 위험에 맞게 보안 상태를 조정할 수 있게 됐다.
 
-* Updated Levels: While ASVS retains its three-tier model, the level definitions have evolved to make the ASVS easier to adopt. Level 1 is designed as the initial step to adopting the ASVS, providing the first layer of defense. Level 2 represents a comprehensive view of standard security practices, and Level 3 addresses advanced, high-assurance requirements.
+* 레벨 추가: ASVS는 3단계 모델을 유지하지만, 레벨의 정의는 ASVS를 더 쉽게 채택할 수 있도록 진화했다. 레벨 1은 ASVS를 채택하기 위한 초기 단계로 설계되어 첫 번째 방어 계층을 제공한다. 레벨 2는 표준 보안 관행에 대한 포괄적인 관점을 나타내며, 레벨 3은 고급 고보장 요구 사항을 다룬다.
 
-* Restructured and Expanded Content: ASVS 5.0 includes approximately 350 requirements across 17 chapters. Chapters have been reorganized for clarity and usability. A two-way mapping between v4.0 and v5.0 is provided to facilitate migration.
+* 재구성 및 확장된 콘텐츠: ASVS 5.0에는 17개의 챕터에 걸쳐 약 350개의 요구 사항이 포함되어 있다. 챕터는 명확성과 사용성을 위해 재구성했다. 마이그레이션을 용이하게 하기 위해 v4.0과 v5.0 간의 양방향 매핑이 제공됩니다.
 
-## Looking ahead
+## 이후 계획
 
-Just as securing an application is never truly finished, neither is the ASVS. Although Version 5.0 is a major release, development continues. This release allows the wider community to benefit from the improvements and additions which have been accumulated but also lays the groundwork for future enhancements. This could include community-driven efforts to create implementation and verification guidance built on top of the core requirement set.
+어플리케이션 보안에는 끝이 없듯이, ASVS도 마찬가지다. 버전 5.0은 주요 배포판이지만 개발은 계속되고 있다. 이번 배포판을 통해 더 넓은 커뮤니티가 축적된 개선 사항과 추가 사항의 혜택을 누릴 수 있을 뿐만 아니라 향후 개선을 위한 토대를 마련할 수 있다. 여기에는 핵심 요구 사항 세트를 기반으로 구축된 구현 및 검증 지침을 만들기 위한 커뮤니티 주도의 노력이 포함될 것이다.
 
-ASVS 5.0 is designed to serve as a reliable foundation for secure software development. The community is invited to adopt, contribute, and build upon this standard to collectively advance the state of application security.
+ASVS 5.0은 안전한 소프트웨어 개발을 위한 신뢰할 수 있는 기반으로 설계되었다. 커뮤니티는 어플리케이션 보안 상태를 종합적으로 발전시키기 위해 이 표준을 채택, 기여 및 구축할 것을 권장한다.
