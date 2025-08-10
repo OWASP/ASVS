@@ -30,33 +30,33 @@
 | **4.2.2** | HTTP 메세지를 생성할 때, 요청 smuggling 공격을 예방하기 위해서 HTTP 프로토콜의 프레이밍 방식에 의해 결정된 Content의 길이와 Content-Length 헤더 필드가 충돌하지 않는지 확인한다.  | 3 |
 | **4.2.3** | 응답 분할 및 헤더 인젝션 공격을 예방하기 위해서 애플리케이션이 Transfer-encoding과 같은 connection-specific 헤더 필드를 가진 HTTP/2또는 HTTP/3 메세지를 전송하거나 수락하지 않는지 확인한다. | 3 |
 | **4.2.4** | 헤더 인젝션 공격을 예방하기 위해서, 애플리케이션이 헤더 이름과 값에 CR(\r), LF(\n), CRLF(\r\n)과 같은 줄바꿈 문자가 포함되어 있지 않은 HTTP/2 및 HTTP/3 요청만 허용하는지 확인한다. | 3 |
-| **4.2.5** | 애플리케이션이 다른 서버로 API요청을 보낼 때, 요청 주소(URI)나 쿠키나 검증과 같은 HTTP 헤더 필드가 너무 길어져서 를 생성하는  | 3 |
+| **4.2.5** | 애플리케이션(백엔드 또는 프론트엔드)이 요청을 빌드하고 전송하는 경우, 수신 구성 요소가 수학하기에는 너무 긴 URI(ex. API 호출) 또는 HTTP 요청 헤더 필드(ex. Authorization 또는 Cookie)를 생성하지 않도록 검증, 검열 또는 기타 메커니즘을 사용하는지 확인한다. 이로 인해서 지나치게 긴 요청(ex. 긴 쿠키 헤더 필드)을 보낼 때와 같이 서비스 거부가 발생하여 서버가 항상 오류 상태로 응답할 수 있다. | 3 |
 
 ## V4.3 GraphQL
 
-GraphQL is becoming more common as a way of creating data-rich clients that are not tightly coupled to a variety of backend services. This section covers security considerations for GraphQL.
+GraphQL은 다양한 백엔드 서비스와 긴밀하게 연결되지 않은 데이터가 풍부한 클라이언트를 만드는 방법으로, 점점 일반화 되고 있다. 이 섹션에서는 GraphQL의 보안 고려 사항을 다룬다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **4.3.1** | Verify that a query allowlist, depth limiting, amount limiting, or query cost analysis is used to prevent GraphQL or data layer expression Denial of Service (DoS) as a result of expensive, nested queries. | 2 |
-| **4.3.2** | Verify that GraphQL introspection queries are disabled in the production environment unless the GraphQL API is meant to be used by other parties. | 2 |
+| **4.3.1** | 쿼리 허용 목록, 깊이 제한, 양 제한 또는 쿼리 비용 분석을 사용하여 값비싼 중첩 쿼리로 인해 GraphQL 또는 데이터 계층 표현식 거부(DOS)를 방지하는지 확인한다. | 2 |
+| **4.3.2** | GraphQL API가 다른 사용자에 의해 사용되지 않는 한, 운영 환경에서 GraphQL 점검 쿼리들이 비비활성화되어 있는지 확인한다. | 2 |
 
 ## V4.4 WebSocket
 
-WebSocket is a communications protocol that provides a simultaneous two-way communication channel over a single TCP connection. It was standardized by the IETF as RFC 6455 in 2011 and is distinct from HTTP, even though it is designed to work over HTTP ports 443 and 80.
+WebSocket은 단일 TCP 연결을 통해 동시에 양방향 통신 채널을 제공하는 통신 프로토콜이다. 2011년에 IETF에 의해 RFC 6455로 표준화되었으며, HTTP 포트 443 및 80에서 동작하도록 설계되었음에도 불구하고 HTTP와는 다르다.
 
-This section provides key security requirements to prevent attacks related to communication security and session management that specifically exploit this real-time communication channel.
+이 섹션에서는 실시간 통신 채널을 악용하는 통신 보안 및 세션 관리와 관련된 공격을 방지하기 위한 주요 보안 요구 사항을 제공한다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **4.4.1** | Verify that WebSocket over TLS (WSS) is used for all WebSocket connections. | 1 |
-| **4.4.2** | Verify that, during the initial HTTP WebSocket handshake, the Origin header field is checked against a list of origins allowed for the application. | 2 |
-| **4.4.3** | Verify that, if the application's standard session management cannot be used, dedicated tokens are being used for this, which comply with the relevant Session Management security requirements. | 2 |
-| **4.4.4** | Verify that dedicated WebSocket session management tokens are initially obtained or validated through the previously authenticated HTTPS session when transitioning an existing HTTPS session to a WebSocket channel. | 2 |
+| **4.4.1** | 모든 WebSocket 연결에 WebSocket over TLS(WSS)이 사용되는지 확인한다. | 1 |
+| **4.4.2** | 초기 HTTP WebSocket Handshake 중에 기존 헤더 필드가 애플리케이션에 허용된 기존 목록과 대조되는지 확인한다. | 2 |
+| **4.4.3** | 애플리케이션의 표준 세션 관리를 사용할 수 없는 경우, 관련 세션 관리 보안 요구 사항을 준수하는 전용 토큰이 사용되고 있는지 확인한다. | 2 |
+| **4.4.4** | 기존 HTTPS 세션을 WebSocket 채널로 전환할 때 이전에 인증된 HTTPS 세션을 통해 전용 WebSocket 세션 관리 토큰을 처음 얻거나 검증하는지 확인한다. | 2 |
 
-## References
+## 참고
 
-For more information, see also:
+더 많은 정보를 위해서는 아래의 링크를 확인하면 된다.
 
 * [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
 * Resources on GraphQL Authorization from [graphql.org](https://graphql.org/learn/authorization/) and [Apollo](https://www.apollographql.com/docs/apollo-server/security/authentication/#authorization-methods).
