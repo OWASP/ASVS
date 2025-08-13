@@ -1,34 +1,34 @@
-# Assessment and Certification
+# Evaluación y certificación
 
-## OWASP's Stance on ASVS Certifications and Trust Marks
+## Postura de OWASP sobre las certificaciones y marcas de confianza de ASVS
 
-OWASP, as a vendor-neutral nonprofit, does not certify any vendors, verifiers, or software. Any assurance, trust mark, or certification claiming ASVS compliance is not officially endorsed by OWASP, so organizations should be cautious of third-party claims of ASVS certification.
+OWASP, como organización sin fines de lucro independiente de proveedores, no certifica a ningún proveedor, verificador ni software. Ninguna garantía, marca de confianza o certificación que afirme conformidad con ASVS cuenta con el respaldo oficial de OWASP, por lo que las organizaciones deben ser cautelosas con las afirmaciones de terceros sobre la certificación ASVS.
 
-Organizations may offer assurance services, provided they do not claim official OWASP certification.
+Las organizaciones pueden ofrecer servicios de garantía, siempre y cuando no afirmen contar con la certificación oficial de OWASP.
 
-## How to Verify ASVS Compliance
+## Cómo verificar el cumplimiento de ASVS
 
-The ASVS is deliberately not prescriptive about exactly how to verify compliance at the level of a testing guide. However, it is important to highlight some key points.
+El ASVS es deliberadamente no prescriptivo sobre cómo verificar el cumplimiento a nivel de una guía de pruebas. Sin embargo, es importante destacar algunos puntos clave.
 
-### Verification reporting
+### Informes de verificación
 
-Traditional penetration testing reports issues “by exception,” only listing failures. However, an ASVS certification report should include scope, a summary of all requirements checked, the requirements where exceptions were noted, and guidance on resolving issues. Some requirements may be non-applicable (e.g., session management in stateless APIs), and this must be noted in the report.
+Las pruebas de penetración tradicionales informan los problemas por “excepción”, enumerando únicamente los fallos. Sin embargo, un informe de certificación de ASVS debe incluir el alcance, un resumen de todos los requerimientos comprobados, los requerimientos donde se detectaron excepciones y una guía para la solución de problemas. Algunos requerimientos pueden no ser aplicables (por ejemplo, la gestión de sesiones en API sin estado), lo cual debe indicarse en el informe.
 
-### Scope of Verification
+### Alcance de la verificación
 
-An organization developing an application will generally not implement all requirements, as some may be irrelevant or less significant based on the functionality of the application. The verifier should make the scope of the verification clear including which Level the organization is attempting to achieve and which requirements were included. This should be from the perspective of what was included rather than what was not included. They should also provide an opinion on the rationale of excluding the requirements which haven't been implemented.
+Una organización que desarrolla una aplicación generalmente no implementará todos los requerimientos ya que algunos pueden ser irrelevantes o menos significativos según la funcionalidad de la aplicación. El verificador debe aclarar el alcance de la verificación, incluyendo el nivel que la organización intenta alcanzar y los requerimientos incluidos. Esto debe hacerse desde la perspectiva de lo incluido, no de lo que no se incluyó. También debe emitir una opinión sobre la justificación de la exclusión de los requerimientos no implementados.
 
-This should allow the consumer of a verification report to understand the context of the verification and make an informed decision about the level of trust they can place in the application.
+Esto debería permitir al usuario de un informe de verificación comprender el contexto de la verificación y tomar una decisión informada sobre el nivel de confianza que puede depositar en la aplicación.
 
-Certifying organizations can choose their testing methods but should disclose them in the report and this should ideally be repeatable. Different methods, like manual penetration tests or source code analysis, may be used to verify aspects such as input validation, depending on the application and requirements.
+Las organizaciones certificadoras pueden elegir sus métodos de prueba pero deben divulgarlos en el informe, que idealmente debería ser repetible. Se pueden utilizar diferentes métodos, como pruebas de penetración manuales o análisis de código fuente, para verificar aspectos como la validación de entradas según la aplicación y los requerimientos.
 
-### Verification Mechanisms
+### Mecanismos de verificación
 
 There are a number of different techniques which may be needed to verify specific ASVS requirements. Aside from penetration testing (using valid credentials to get full application coverage), verifying ASVS requirements may require access to documentation, source code, configuration, and the people involved in the development process. Especially for verifying L2 and L3 requirements. It is standard practice to provide robust evidence of findings with detailed documentation, which may include work papers, screenshots, scripts, and testing logs. Merely running an automated tool without thorough testing is insufficient for certification, as each requirement must be verifiably tested.
 
 The use of automation to verify ASVS requirements is a topic that is constantly of interest. It is therefore important to clarify some points related to automated and black box testing.
 
-#### The Role of Automated Security Testing Tools
+#### El papel de las herramientas de pruebas de seguridad automatizadas
 
 When automated security testing tools such as Dynamic and Static Application Security Testing tools (DAST and SAST) are correctly implemented in the build pipeline, they may be able to identify some security issues that should never exist. However, without careful configuration and tuning they will not provide the required coverage and the level of noise will prevent real security issues from being identified and mitigated.
 
@@ -38,7 +38,7 @@ For less straightforward requirements, it is likely that automation can still be
 
 In summary, testable using automation != running an off the shelf tool.
 
-#### The Role of Penetration Testing
+#### El papel de las pruebas de penetración
 
 Whilst L1 in version 4.0 was optimized for "black box" (no documentation and no source) testing to occur, even then the standard was clear that it is not an effective assurance activity and should be actively discouraged.
 
