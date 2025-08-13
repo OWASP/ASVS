@@ -1,58 +1,56 @@
-# V8 Authorization
+# V8 권한 부여
 
-## Control Objective
+## 제어 목표
 
-Authorization ensures that access is granted only to permitted consumers (users, servers, and other clients). To enforce the Principle of Least Privilege (POLP), verified applications must meet the following high-level requirements:
+권한 부여는 허가된 소비자(사용자, 서버, 기타 클라이언트)에게만 접근을 허용하는 것을 보장한다. 최소 권한의 원칙(PLOP)을 적용하기 위해, 검증된 애플리케이션은 반드시 다음의 상위 수준 요구사항을 충족해야 한다:
 
-* Document authorization rules, including decision-making factors and environmental contexts.
-* Consumers should have access only to resources permitted by their defined entitlements.
+- 권한 부여 규칙을 문서화하며, 문서에는 의사 결정 요소와 환경적 맥락을 포함한다.
+- 소비자는 자신에게 부여된 권한으로 허용된 자원에만 접근할 수 있는 것이 권장된다.
 
-## V8.1 Authorization Documentation
+## V8.1 권한 부여 문서화
 
-Comprehensive authorization documentation is essential to ensure that security decisions are consistently applied, auditable, and aligned with organizational policies. This reduces the risk of unauthorized access by making security requirements clear and actionable for developers, administrators, and testers.
+포괄적인 권한 부여 문서는 보안 결정이 일관성 있게 적용되고, 감사 가능하며, 조직의 정책에 부합함을 보장하는 데 필수적이다. 이는 보안 요구사항을 개발자, 관리자, 테스터에게 명확하고 실행 가능하게 전달함으로써 무단 접근 위험을 줄인다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **8.1.1** | Verify that authorization documentation defines rules for restricting function-level and data-specific access based on consumer permissions and resource attributes. | 1 |
-| **8.1.2** | Verify that authorization documentation defines rules for field-level access restrictions (both read and write) based on consumer permissions and resource attributes. Note that these rules might depend on other attribute values of the relevant data object, such as state or status. | 2 |
-| **8.1.3** | Verify that the application's documentation defines the environmental and contextual attributes (including but not limited to, time of day, user location, IP address, or device) that are used in the application to make security decisions, including those pertaining to authentication and authorization. | 3 |
-| **8.1.4** | Verify that authentication and authorization documentation defines how environmental and contextual factors are used in decision-making, in addition to function-level, data-specific, and field-level authorization. This should include the attributes evaluated, thresholds for risk, and actions taken (e.g., allow, challenge, deny, step-up authentication). | 3 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **8.1.1** | 권한 부여 문서가 소비자 권한과 자원 속성에 따라 기능 수준 및 데이터별 접근을 제한하는 규칙을 정의하는지 검증한다. | 1 |
+| **8.1.2** | 권한 부여 문서가 소비자 권한과 자원 속성에 따라 필드 수준 접근 제한(읽기 및 쓰기 모두)을 정의하는지 검증한다. 이러한 규칙은 관련 데이터 객체의 상태(state)나 상태값(status)과 같은 다른 속성 값에 의존할 수 있다. | 2 |
+| **8.1.3** | 애플리케이션 문서가 인증 및 권한 부여와 관련된 보안 결정을 내리는 데 사용되는 환경적·맥락적 속성(예: 시간대, 사용자 위치, IP 주소, 디바이스 등)을 정의하는지 검증한다. | 3 |
+| **8.1.4** | 인증 및 권한 부여 문서가 기능 수준, 데이터별, 필드 수준 권한 부여에 더해 환경적·맥락적 요소가 의사 결정에 어떻게 사용되는지 정의하는지 검증한다. 여기에는 평가되는 속성, 위험 임계값, 수행되는 조치(예: 허용, 추가 인증 요청, 거부, 단계적 인증)을 포함하는 것을 권장한다. | 3 |
 
-## V8.2 General Authorization Design
+## V8.2 일반 권한 부여 설계
 
-Implementing granular authorization controls at the function, data, and field levels ensures that consumers can access only what has been explicitly granted to them.
+기능, 데이터, 필드 수준에서 세분화된 권한 부여 제어의 구현은, 소비자가 명시적으로 부여된 범위 내에서만 접근할 수 있도록 보장할 수 있다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **8.2.1** | Verify that the application ensures that function-level access is restricted to consumers with explicit permissions. | 1 |
-| **8.2.2** | Verify that the application ensures that data-specific access is restricted to consumers with explicit permissions to specific data items to mitigate insecure direct object reference (IDOR) and broken object level authorization (BOLA). | 1 |
-| **8.2.3** | Verify that the application ensures that field-level access is restricted to consumers with explicit permissions to specific fields to mitigate broken object property level authorization (BOPLA). | 2 |
-| **8.2.4** | Verify that adaptive security controls based on a consumer's environmental and contextual attributes (such as time of day, location, IP address, or device) are implemented for authentication and authorization decisions, as defined in the application's documentation. These controls must be applied when the consumer tries to start a new session and also during an existing session. | 3 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **8.2.1** | 애플리케이션이 기능 수준의 접근을 명시적 권한이 있는 소비자에게만 허용하는지 검증한다. | 1 |
+| **8.2.2** | 애플리케이션이 특정 데이터 항목에 대한 명시적 권한이 있는 소비자에게만 데이터별 접근을 허용하여, 안전하지 않은 직접 객체 참조(IDOR) 및 객체 수준 권한 부여 취약점(BOLA)을 방지하는지 검증한다. | 1 |
+| **8.2.3** | 애플리케이션이 특정 필드에 대한 명시적 권한이 있는 소비자에게만 필드 수준 접근을 허용하여, 객체 속성 수준 권한 부여 취약점(BOPLA)을 방지하는지 검증한다. | 2 |
+| **8.2.4** | 애플리케이션 문서에서 정의한 바에 따라, 소비자의 환경적·맥락적 속성(예: 시간대, 위치, IP 주소 또는 장치)에 기반한 적응형 보안 제어가 인증 및 권한 부여 결정에 구현되는지 검증한다. 이러한 제어는 소비자가 새 세션을 시작할 때뿐만 아니라 기존 세션 중에도 반드시 적용되어야 한다. | 3 |
 
-## V8.3 Operation Level Authorization
+## V8.3 운영 수준 권한 부여
 
-The immediate application of authorization changes in the appropriate tier of an application's architecture is crucial to preventing unauthorized actions, especially in dynamic environments.
+애플리케이션 아키텍처의 적절한 계층에서 권한 부여 변경 사항을 즉시 적용하는 것은, 특히 동적인 환경에서 무단 행위를 방지하는 데 매우 중요하다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **8.3.1** | Verify that the application enforces authorization rules at a trusted service layer and doesn't rely on controls that an untrusted consumer could manipulate, such as client-side JavaScript. | 1 |
-| **8.3.2** | Verify that changes to values on which authorization decisions are made are applied immediately. Where changes cannot be applied immediately, (such as when relying on data in self-contained tokens), there must be mitigating controls to alert when a consumer performs an action when they are no longer authorized to do so and revert the change. Note that this alternative would not mitigate information leakage. | 3 |
-| **8.3.3** | Verify that access to an object is based on the originating subject's (e.g. consumer's) permissions, not on the permissions of any intermediary or service acting on their behalf. For example, if a consumer calls a web service using a self-contained token for authentication, and the service then requests data from a different service, the second service will use the consumer's token, rather than a machine-to-machine token from the first service, to make permission decisions. | 3 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **8.3.1** | 애플리케이션이 권한 부여 규칙을 신뢰할 수 있는 서비스 계층에서 적용하고, 클라이언트 측 JavaScript처럼 신뢰할 수 없는 소비자가 조작할 수 있는 제어에 의존하지 않는지 검증한다. | 1 |
+| **8.3.2** | 권한 부여 결정에 영향을 미치는 값의 변경 사항이 즉시 적용되는지 검증한다. 자체 포함 토큰(self-contained token)과 같이 즉시 적용이 불가능한 경우, 소비자가 더 이상 권한이 없는 작업을 수행할 때 이를 알리고 변경을 되돌리는 완화 제어를 반드시 두어야 한다. 단, 이 방법은 정보 유출을 방지하지는 못한다. | 3 |
+| **8.3.3** | 객체에 대한 접근이, 대리인이나 이를 대신 수행하는 서비스의 권한이 아닌, 원래 주체(예: 소비자)의 권한에 기반하는지 검증한다. 예를 들어, 소비자가 인증을 위해 자체 포함 토큰을 사용하여 웹 서비스를 호출하고, 해당 서비스가 다른 서비스에 데이터를 요청하는 경우, 두 번째 서비스는 첫 번째 서비스의 머신-투-머신 토큰이 아니라 소비자의 토큰을 사용하여 권한 결정을 내려야 한다. | 3 |
 
-## V8.4 Other Authorization Considerations
+## V8.4 기타 권한 부여 고려사항
 
-Additional considerations for authorization, particularly for administrative interfaces and multi-tenant environments, help prevent unauthorized access.
+특히 관리 인터페이스나 다중 테넌트 환경에서의 권한 부여에 대한 추가적인 고려사항은 무단 접근을 방지하는 데 도움이 된다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **8.4.1** | Verify that multi-tenant applications use cross-tenant controls to ensure consumer operations will never affect tenants with which they do not have permissions to interact. | 2 |
-| **8.4.2** | Verify that access to administrative interfaces incorporates multiple layers of security, including continuous consumer identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they may reduce the likelihood of unauthorized access. | 3 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **8.4.1** | 다중 테넌트 애플리케이션이 교차 테넌트 제어를 사용하여, 소비자의 작업이 권한이 없는 다른 테넌트에 영향을 미치지 않도록 하는지 검증한다. | 2 |
+| **8.4.2** | 관리 인터페이스 접근이 연속적인 소비자 신원 검증, 장치 보안 상태 평가, 맥락 기반 위험 분석 등 복수의 보안 계층을 포함하는지 검증한다. 네트워크 위치나 신뢰된 엔드포인트가 무단 접근 가능성을 줄일 수는 있더라도, 단독으로 권한 부여 판단의 유일한 요소가 되어서는 안 된다. | 3 |
 
-## References
+## 참고
 
-For more information, see also:
+더 많은 정보:
 
-* [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
-* [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
-
-#### in progress
+- [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
+- [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
