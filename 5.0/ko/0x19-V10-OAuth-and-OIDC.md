@@ -6,7 +6,7 @@ OAuth2(본 장에서는 OAuth로 지칭)는 권한 위임을 위한 산업 표�
 
 OAuth 자체는 사용자 인증을 위해 설계되지 않았다. OpenID Connect(OIDC) 프레임워크는 OAuth 위에 사용자 식별 계층을 추가하여 OAuth를 확장한다. OIDC는 표준화된 사용자 정보, 싱글 사인온(SSO), 세션 관리 등의 기능을 지원한다. OIDC는 OAuth를 확장한 표준 사양이므로 본 장의 OAuth 요구사항은 OIDC에도 적용된다.
 
-OAuth에 정의된 역할은 다음과 같다.
+OAuth에 정의된 역할은 다음과 같다:
 
 * OAuth 클라이언트는 서버 리소스에 접근하려는 애플리케이션이다(예: 발급된 액세스 토큰을 사용하여 API 호출). OAuth 클라이언트는 서버에서 동작하는 애플리케이션인 경우가 많다.
     * 기밀 클라이언트는 인가 서버에 자체적으로 인증하는 데 사용하는 자격 증명(Credentials)의 기밀성을 유지할 수 있는 클라이언트이다.
@@ -15,7 +15,7 @@ OAuth에 정의된 역할은 다음과 같다.
 * OAuth 인가 서버는 OAuth 클라이언트에 액세스 토큰을 발급하는 서버 애플리케이션이다. 이 액세스 토큰을 통해 OAuth 클라이언트는 최종 사용자를 대신하여 또는 OAuth 클라이언트 자체를 대신하여 리소스 서버의 리소스에 접근할 수 있다. 인가 서버는 종종 별도의 애플리케이션이지만, (적절한 경우) 요건에 맞는 리소스 서버에 통합될 수 있다.
 * 리소스 소유자는 리소스 서버에 호스팅된 리소스에 대해 제한된 접근 권한을 획득하도록 OAuth 클라이언트에 권한을 위임하는 최종 사용자이다. 리소스 소유자는 인가 서버와 상호 작용함으로써 이 권한 위임에 동의한다.
 
-OIDC에 정의된 역할은 다음과 같다.
+OIDC에 정의된 역할은 다음과 같다:
 
 * 신뢰 당사자(Relying Party)는 OpenID 공급자를 통해 최종 사용자 인증을 요청하는 클라이언트 애플리케이션이다. 이는 OAuth 클라이언트의 역할을 수행한다.
 * OpenID 공급자는 최종 사용자를 인증하고 신뢰 당사자에 OIDC 클레임(claims)을 제공할 수 있는 OAuth 인가 서버이다. OpenID 공급자는 ID 공급자(IdP)일 수 있지만, 연합 인증 시나리오(federated scenarios)에서는 OpenID 공급자와 ID 공급자(최종 사용자가 인증하는 곳)가 다른 서버 애플리케이션일 수 있다.
@@ -32,11 +32,11 @@ OAuth와 OIDC는 웹 기술 위에 구축된 논리 계층으로 간주될 수 �
 
 본 장에서 사용되는 용어는 OAuth RFC 및 OIDC 사양과 일치하지만, OIDC 용어는 OIDC에 특화된 요구사항에만 사용되며, 그 외에는 OAuth 용어가 사용된다는 점에 유의해야 한다.
 
-OAuth 및 OIDC의 맥락에서, 본 장의 "토큰"이라는 용어는 다음을 의미한다.
+OAuth 및 OIDC의 맥락에서, 본 장의 "토큰"이라는 용어는 다음을 의미한다:
 
 * 액세스 토큰은 리소스 서버에서만 사용되어야 하며, 조회(introspection)를 통해 검증되는 참조 토큰이거나 특정 키 정보를 사용하여 검증되는 자체 포함 토큰일 수 있다.
 * 리프레시 토큰은 토큰을 발급한 인가 서버에서만 사용되어야 한다.
-* OIDC ID 토큰은 인가 플로우를 시작한 클라이언트에서만 사용되어야 한다.
+* OIDC ID 토큰은 인가 플로우를 시작했던 클라이언트에서만 사용되어야 한다.
 
 본 장의 일부 요구사항의 위험 수준은 클라이언트가 기밀 클라이언트인지, 공개 클라이언트로 간주되는지에 따라 달라질 수 있다. 강력한 클라이언트 인증을 사용하면 많은 공격 벡터를 줄일 수 있으므로, L1 애플리케이션에서 기밀 클라이언트를 사용하는 경우 일부 요구사항이 완화될 수 있다.
 
@@ -46,7 +46,7 @@ OAuth 및 OIDC의 맥락에서, 본 장의 "토큰"이라는 용어는 다음을
 
 | # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **10.1.1** | 엄격하게 필요한 구성 요소에만 토큰이 전송되는지 검증해야 한다. 예를 들어, 브라우저 기반 JavaScript 애플리케이션에 프론트엔드 전용 백엔드(Backend For Frontend; BFF) 패턴을 사용하는 경우, 접근 토큰 및 리프레시 토큰은 백엔드에서만 접근 가능해야 한다. | 2 |
+| **10.1.1** | 엄격하게 필요한 구성 요소에만 토큰이 전송되는지 검증해야 한다. 예를 들어, 브라우저 기반 JavaScript 애플리케이션에 프론트엔드 전용 백엔드(Backend For Frontend; BFF) 패턴을 사용하는 경우, 액세스 토큰 및 리프레시 토큰은 백엔드에서만 접근 가능해야 한다. | 2 |
 | **10.1.2** | 클라이언트는 인가 서버에서 제공하는 값(예: 인가 코드 또는 ID 토큰)이 동일한 사용자 에이전트 세션 및 트랜잭션에서 시작된 인가 플로우의 결과인 경우에만 허용하는지 검증해야 한다. 이를 위해 클라이언트가 생성하는 비밀 값(PKCE(Proof Key for Code Exchange)의 'code_verifier', 'state', OIDC의 'nonce' 등)은 추측이 불가능해야 하며, 해당 트랜잭션에 고유해야 하고, 트랜잭션이 시작된 클라이언트와 사용자 에이전트 세션 양쪽에 안전하게 결합(Binding)되어 있어야 한다. | 2 |
 
 ## V10.2 OAuth 클라이언트
@@ -125,7 +125,7 @@ ID 토큰 플로우(코드 플로우가 아닌)을 사용하는 경우, 액세�
 
 | # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **10.6.1** | OpenID 공급자는 response_mode 파라미터 값으로'code', 'ciba', 'id_token' 또는 'id_token code' 만 허용하는지 검증해야 한다. 이 중 'id_token code'(OIDC 하이브리드 흐름)보다는 'code'가 선호되며, 'token'(모든 암시적 흐름)은 사용되어서는 안 된다. | 2 |
+| **10.6.1** | OpenID 공급자는 response_mode 파라미터 값으로'code', 'ciba', 'id_token' 또는 'id_token code' 만 허용하는지 검증해야 한다. 이 중 'id_token code'(OIDC 하이브리드 플로우)보다는 'code'가 선호되며, 'token'(모든 암시적 플로우)은 사용되어서는 안 된다. | 2 |
 | **10.6.2** | OpenID 공급자가 강제 로그아웃을 통한 서비스 거부 공격을 완화하는지 검증해야 한다. 신뢰 당사자로 부터 시작된 로그아웃 요청에 id_token_hint 등의 파라미터가 포함되어 있는 경우, 이를 검증하거나 최종 사용자로부터 명시적인 확인을 받아야 한다.
 
 
@@ -146,7 +146,7 @@ ID 토큰 플로우(코드 플로우가 아닌)을 사용하는 경우, 액세�
 * [oauth.net](https://oauth.net/)
 * [OWASP OAuth 2.0 프로토콜 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
 
-ASVS에서 OAuth 관련 요구사항은 다음의 공개 및 초안 상태 RFC를 사용한다.
+ASVS에서 OAuth 관련 요구사항은 다음의 공개 및 초안 상태 RFC를 사용한다:
 
 * [RFC6749 OAuth 2.0 인가 프레임워크](https://datatracker.ietf.org/doc/html/rfc6749)
 * [RFC6750 OAuth 2.0 인가 프레임워크: 베어러 토큰 사용](https://datatracker.ietf.org/doc/html/rfc6750)
@@ -164,7 +164,7 @@ ASVS에서 OAuth 관련 요구사항은 다음의 공개 및 초안 상태 RFC�
 * [브라우저 기반 애플리케이션을 위한 OAuth 2.0 초안](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)
 * [OAuth 2.1 인가 프레임워크 초안](https://datatr.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)
 
-OpenID Connect에 대한 자세한 내용은 다음을 참조한다.
+OpenID Connect에 대한 자세한 내용은 다음을 참조한다:
 
 * [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 * [FAPI 2.0 보안 프로파일](https://openid.net/specs/fapi-security-profile-2_0-final.html)
