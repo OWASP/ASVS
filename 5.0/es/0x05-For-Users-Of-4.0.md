@@ -1,90 +1,90 @@
-# Changes Compared to v4.x
+# Cambios en comparación con la versión v4.x
 
-## Introduction
+## Introducción
 
-Users familiar with version 4.x of the standard may find it helpful to review the key changes introduced in version 5.0, including updates in content, scope, and underlying philosophy.
+Los usuarios familiarizados con la versión 4.x del estándar pueden encontrar útil revisar los cambios clave introducidos en la versión 5.0, incluyendo actualizaciones de contenido, alcance y filosofía subyacente.
 
-Of the 286 requirements in version 4.0.3, only 11 remain unchanged, while 15 have undergone minor grammatical adjustments without altering their meaning. In total 109 requirements (38%) are no longer separate requirements in version 5.0 with 50 simply being deleted, 28 removed as duplicates and 31 merged into other requirements. The rest have been revised in some way. Even requirements that were not substantively modified have different identifiers due to reordering or restructuring.
+De los 286 requerimientos de la versión 4.0.3 solo 11 permanecen sin cambios, mientras que 15 han sufrido pequeños ajustes gramaticales sin alterar su significado. En total, 109 requerimientos (38%) ya no son requerimientos independientes en la versión 5.0, con 50 simplemente eliminados, 28 se eliminaron por duplicados y 31 se fusionaron con otros requerimientos. El resto se ha revisado de alguna manera. Incluso los requerimientos que no se modificaron sustancialmente tienen identificadores diferentes debido a reordenación o reestructuración.
 
-To facilitate adoption of version 5.0, mapping documents are provided to help users trace how requirements from version 4.x correspond to those in version 5.0. These mappings are not tied to release versioning and may be updated or clarified as needed.
+Para facilitar la adopción de la versión 5.0, se proporcionan documentos de mapeo para ayudar a los usuarios a rastrear cómo se corresponden los requerimientos de la versión 4.x con los de la versión 5.0. Estos mapeos no están vinculados al versionamiento y pueden actualizarse o aclararse según sea necesario.
 
-## Requirement Philosophy
+## Filosofía de los requerimientos
 
-### Scope and Focus
+### Alcance y enfoque
 
-Version 4.x included requirements that did not align with the intended scope of the standard; these have been removed. Requirements that did not meet the scope criteria for 5.0 or were not verifiable have also been excluded.
+La versión 4.x incluía requerimientos que no se ajustaban al alcance previsto del estándar; estos se han eliminado. También se han excluido los requerimientos que no cumplían los criterios de alcance de la versión 5.0 o que no eran verificables.
 
-### Emphasis on Security Goals Over Mechanisms
+### Énfasus en metas de Seguridad por sobre mecanismos
 
-In version 4.x, many requirements focused on specific mechanisms rather than the underlying security objectives. In version 5.0, requirements are centered on security goals, referencing particular mechanisms only when they are the sole practical solution, or providing them as examples or supplementary guidance.
+En la versión 4.x, muchos requerimientos se centraban en mecanismos específicos en lugar de en los objetivos de seguridad subyacentes. En la versión 5.0, los requerimientos se centran en los objetivos de seguridad, haciendo referencia a mecanismos concretos solo cuando constituyen la única solución práctica o proporcionándolos como ejemplos o guía complementaria.
 
-This approach recognizes that multiple methods may exist to achieve a given security objective, and avoids unnecessary prescriptiveness that could limit organizational flexibility.
+Este enfoque reconoce que pueden existir múltiples métodos para lograr un objetivo de seguridad determinado y evita la prescripción innecesaria que podría limitar la flexibilidad organizativa.
 
-Additionally, requirements addressing the same security concern have been consolidated where appropriate.
+Además, se han consolidado los requerimientos que abordan el mismo problema de seguridad cuando corresponde.
 
-### Documented Security Decisions
+### Decisiones de seguridad documentadas
 
-While the concept of documented security decisions may appear new in version 5.0, it is an evolution of earlier requirements related to policy application and threat modeling in version 4.0. Previously, some requirements implicitly demanded analysis to inform the implementation of security controls, such as determining permitted network connections.
+Si bien el concepto de decisiones de seguridad documentadas puede parecer nuevo en la versión 5.0, representa una evolución de los requerimientos anteriores relacionados con la aplicación de políticas y el modelado de amenazas (threat modeling) de la versión 4.0. Anteriormente, algunos requerimientos exigían implícitamente un análisis para fundamentar la implementación de controles de seguridad, como por ejemplo la determinación de las conexiones de red permitidas.
 
-To ensure that necessary information is available for implementation and verification, these expectations are now explicitly defined as documentation requirements, making them clear, actionable, and verifiable.
+Para garantizar que la información necesaria esté disponible para la implementación y la verificación, estas expectativas ahora se definen explícitamente como requerimientos de documentación, lo que las hace claras, viables y verificables.
 
-## Structural Changes and New Chapters
+## Cambios estructurales y nuevos capítulos
 
-Several chapters in version 5.0 introduce entirely new content:
+Varios capítulos de la versión 5.0 introducen contenido completamente nuevo:
 
-* OAuth and OIDC – Given the widespread adoption of these protocols for access delegation and single sign-on, dedicated requirements have been added to address the diverse scenarios developers may encounter. This area may eventually evolve into a standalone standard, similar to the treatment of Mobile and IoT requirements in previous versions.
-* WebRTC – As this technology gains popularity, its unique security considerations and challenges are now addressed in a dedicated section.
+* OAuth y OIDC - Dada la adopción generalizada de estos protocolos para la delegación de acceso y el inicio de sesión único (single sign-on), se han añadido requerimientos específicos para abordar los diversos escenarios que pueden encontrar los desarrolladores. Esta área podría eventualmente convertirse en un estándar independiente, similar al tratamiento de los requerimientos para dispositivos móviles e IoT en versiones anteriores.
+* WebRTC - A medida que esta tecnología gana popularidad, sus consideraciones y desafíos de seguridad únicos se abordan ahora en una sección dedicada.
 
-Efforts have also been made to ensure that chapters and sections are organized around coherent sets of related requirements.
+También se han realizado esfuerzos para garantizar que los capítulos y secciones se organicen en torno a conjuntos coherentes de requerimientos relacionados.
 
-This restructuring has led to the creation of additional chapters:
+Esta reestructuración ha dado lugar a la creación de capítulos adicionales:
 
-* Self-contained Tokens – Formerly grouped under session management, self-contained tokens are now recognized as a distinct mechanism and a foundational element for stateless communication (such as in OAuth and OIDC). Due to their unique security implications, they are addressed in a dedicated chapter, with some new requirements introduced in version 5.x.
-* Web Frontend Security – With the increasing complexity of browser-based applications and the rise of API-only architectures, frontend security requirements have been separated into their own chapter.
-* Secure Coding and Architecture – New requirements addressing general security practices that did not fit within existing chapters have been grouped here.
+* Tokens auto-contenidos - Anteriormente agrupados bajo gestión de sesiones, los tokens auto-contenidos ahora se reconocen como un mecanismo independiente y un elemento fundamental para la comunicación sin estado (stateless) (como en OAuth y OIDC). Debido a sus singulares implicaciones de seguridad se abordan en un capítulo específico, con algunos requerimientos nuevos introducidos en la versión 5.x.
+* Seguridad del Frontend web - Con la creciente complejidad de las aplicaciones basadas en navegador y el auge de las arquitecturas basadas únicamente en API, los requerimientos de seguridad del frontend se han separado en un capítulo propio.
+* Codificación y arquitectura seguras - Se han agrupado aquí los nuevos requerimientos que abordan prácticas generales de seguridad que no encajaban en los capítulos existentes.
 
-Other organizational changes in version 5.0 were made to clarify intent. For example, input validation requirements were moved alongside business logic, reflecting their role in enforcing business rules, rather than being grouped with sanitization and encoding.
+Se realizaron otros cambios organizativos en la versión 5.0 para aclarar la intención. Por ejemplo, los requerimientos de validación de entrada se trasladaron junto con lógica de negocio, reflejando su función en la aplicación de las reglas de negocio en lugar de agruparse con sanitización y codificación.
 
-The former V1 Architecture chapter has been removed. Its initial section contained requirements that were out of scope, while subsequent sections have been redistributed to relevant chapters, with requirements deduplicated and clarified as necessary.
+Se eliminó el antiguo capítulo "Arquitectura V1". Su sección inicial contenía requerimientos que estaban fuera del alcance, mientras que las secciones posteriores se redistribuyeron a los capítulos pertinentes, con los requerimientos deduplicados y aclarados según fuera necesario.
 
-## Removal of Direct Mappings to Other Standards
+## Eliminación de mapeos directos a otros estándares
 
-Direct mappings to other standards have been removed from the main body of the standard. The aim is to prepare a mapping with the OWASP Common Requirement Enumeration (CRE) project, which in turn will link ASVS to a range of OWASP projects and external standards.
+Se han eliminado del cuerpo principal del estándar los mapeos directos a otros estándares. El objetivo es preparar un mapeo con el proyecto de Enumeración de Requerimientos Comunes (CRE) de OWASP, que a su vez vinculará ASVS con diversos proyectos de OWASP y estándares externos.
 
-Direct mappings to CWE and NIST are no longer maintained, as explained below.
+Los mapeos directos a CWE y NIST ya no se mantienen, como se explica a continuación.
 
-### Reduced Coupling with NIST Digital Identity Guidelines
+### Reducción del acoplamiento con las directrices de identidad digital del NIST
 
-The NIST [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) have long served as a reference for authentication and authorization controls. In version 4.x, certain chapters were closely aligned with NIST's structure and terminology.
+Las [Directrices de Identidad Digital (SP 800-63)](https://pages.nist.gov/800-63-3/) del NIST han servido durante mucho tiempo como referencia para los controles de autenticación y autorización. En la versión 4.x, ciertos capítulos se ajustaron estrechamente a la estructura y terminología del NIST.
 
-While these guidelines remain an important reference, strict alignment introduced challenges, including less widely recognized terminology, duplication of similar requirements, and incomplete mappings. Version 5.0 moves away from this approach to improve clarity and relevance.
+Si bien estas directrices siguen siendo una referencia importante, su estricta alineación generó desafíos como una terminología menos reconocida, la duplicación de requerimientos similares y mapeos incompletos. La versión 5.0 se aleja de este enfoque para mejorar la claridad y la relevancia.
 
-### Moving Away from Common Weakness Enumeration (CWE)
+### Alejándose de la Enumeración de Debilidades Comunes (Common Weakness Enumeration CWE) 
 
-The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) provides a useful taxonomy of software security weaknesses. However, challenges such as category-only CWEs, difficulties in mapping requirements to a single CWE, and the presence of imprecise mappings in version 4.x have led to the decision to discontinue direct CWE mappings in version 5.0.
+La [Enumeración de Debilidades Comunes (CWE)](https://cwe.mitre.org/) proporciona una taxonomía útil de las debilidades de seguridad del software. Sin embargo, desafíos como las CWE solo por categoría, dificultades para asignar requerimientos a una única CWE y la presencia de mapeos imprecisos en la versión 4.x han llevado a la decisión de suspender los mapeos directos de CWE en la versión 5.0.
 
-## Rethinking Level Definitions
+## Repensando las definiciones de niveles
 
-Version 4.x described the levels as L1 ("Minimum"), L2 ("Standard"), and L3 ("Advanced"), with the implication that all applications handling sensitive data should meet at least L2.
+La versión 4.x describía los niveles como 1 ("Mínimo"), 2 ("Estándar") y 3 ("Avanzado"), lo que implicaba que todas las aplicaciones que manejan datos sensibles debían cumplir al menos con el nivel 2.
 
-Version 5.0 addresses several issues with this approach which are described in the following paragraphs.
+La versión 5.0 soluciona varios problemas con este enfoque y que se describen en los siguientes párrafos.
 
-As a practical matter, whereas version 4.x used tick marks for level indicators, 5.x uses a simple number on all formats of the standard including markdown, PDF, DOCX, CSV, JSON and XML. For backwards compatibility, legacy versions of the CSV, JSON and XML outputs which still use tick marks are also generated.
+En la práctica, mientras que la versión 4.x utilizaba marcas de verificación para los indicadores de nivel, la versión 5.x utiliza un número simple en todos los formatos del estándar, incluyendo Markdown, PDF, DOCX, CSV, JSON y XML. Para garantizar la compatibilidad con versiones anteriores, también se generan versiones anteriores de las salidas CSV, JSON y XML que aún utilizan marcas de verificación.
 
-### Easier Entry Level
+### Nivel de entrada mas fácil.
 
-Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier by defining Level 1 primarily around first-layer defense requirements, resulting in clearer and fewer requirements at that level. To demonstrate this numerically, in v4.0.3 there were 128 L1 requirements out of a total of 278 requirements, representing 46%. In 5.0.0 there are 70 L1 requirements out of a total of 345 requirements, representing 20%.
+Los comentarios de retroalimentación indicaron que una gran cantidad de requerimientos de Nivel 1 (aproximadamente 120), junto con su designación como el nivel "mínimo", era insuficiente para la mayoría de las aplicaciones y desalentaba su adopción. La versión 5.0 busca reducir esta barrera definiendo el Nivel 1 principalmente en torno a los requerimientos de defensa de primera capa, lo que resulta en menos requerimientos pero más claros en ese nivel. Para demostrarlo numéricamente, en la v4.0.3 había 128 requerimientos de Nivel 1 de un total de 278, lo que representa un 46%. En la versión 5.0.0 hay 70 requerimientos de Nivel 1 de un total de 345, lo que representa un 20%.
 
-### The Fallacy of Testability
+### La falacia de la testabilidad (Testability)
 
-A key factor in selecting controls for Level 1 in version 4.x was their suitability for assessment through "black box" external penetration testing. However, this approach was not fully aligned with the intent of Level 1 as the minimum set of security controls. Some users argued that Level 1 was insufficient for securing applications, while others found it too difficult to test.
+Un factor clave en la selección de los controles de Nivel 1 en la versión 4.x fue su idoneidad para la evaluación mediante pruebas de penetración externas de "caja negra". Sin embargo, este enfoque no se ajustaba plenamente al propósito del Nivel 1 como conjunto mínimo de controles de seguridad. Algunos usuarios argumentaron que el Nivel 1 era insuficiente para proteger las aplicaciones mientras que otros lo consideraron demasiado difícil de probar.
 
-Relying on testability as a criterion is both relative and, at times, misleading. The fact that a requirement is testable does not guarantee that it can be tested in an automated or straightforward manner. Moreover, the most easily testable requirements are not always those with the greatest security impact or the simplest to implement.
+Considerar la testabilidad como criterio es relativo y, en ocasiones, engañoso. El hecho de que un requerimiento sea testable no garantiza que pueda probarse de forma automatizada o sencilla. Además, los requerimientos más fáciles de probar no siempre son aquellos con mayor impacto en la seguridad ni los más sencillos de implementar.
 
-As such, in version 5.0, the level decisions were made primarily based on risk reduction and also keeping in mind the effort to implement.
+Por lo tanto, en la versión 5.0, las decisiones de nivel se tomaron principalmente en función de la reducción de riesgos y teniendo en cuenta el esfuerzo de implementación.
 
-### Not Just About Risk
+### No solo acerca del riesgo
 
-The use of prescriptive, risk-based levels that mandate a specific level for certain applications has proven to be overly rigid. In practice, the prioritization and implementation of security controls depend on multiple factors, including both risk reduction and the effort required for implementation.
+El uso de niveles prescriptivos basados en el riesgo que exigen un nivel específico para ciertas aplicaciones ha demostrado ser excesivamente rígido. En la práctica, la priorización e implementación de los controles de seguridad dependen de múltiples factores, incluyendo tanto la reducción del riesgo como el esfuerzo requerido para su implementación.
 
-Therefore, organizations are encouraged to achieve the level that they feel like they should be achieving based on their maturity and the message they want to send to their users.
+Por lo tanto, se anima a las organizaciones a alcanzar el nivel que consideren necesario en función de su madurez y del mensaje que desean transmitir a sus usuarios.
