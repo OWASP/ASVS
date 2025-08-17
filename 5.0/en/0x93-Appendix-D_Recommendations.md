@@ -1,5 +1,3 @@
-
-
 # Appendix D: Recommendations
 
 ## Introduction
