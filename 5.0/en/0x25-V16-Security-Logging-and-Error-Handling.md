@@ -1,83 +1,82 @@
-[0x25 in progress]
-# V16 Security Logging and Error Handling
+# V16 보안 로깅과 에러 핸들링
 
-## Control Objective
+## 제어 목표
 
-Security logs are distinct from error or performance logs and are used to record security-relevant events such as authentication decisions, access control decisions, and attempts to bypass security controls, such as input validation or business logic validation. Their purpose is to support detection, response, and investigation by providing high-signal, structured data for analysis tools like SIEMs.
+보안 로그는 에러나 성능 로그와 달리 인증 결정, 접근 제어 결정, 그리고 입력값 확인이나 비즈니스 로직 확인 등의 보안 제어 우회 시도와 같은 보안과 관련된 이벤트를 기록하는데 사용된다. 보안 로그의 목적은 SIEM과 같은 분석 도구에 고신뢰성의 구조화된 데이터를 제공함으로써 감지, 응답, 조사를 돕는 것이다.
 
-Logs should not include sensitive personal data unless legally required, and any logged data must be protected as a high-value asset. Logging must not compromise privacy or system security. Applications must also fail securely, avoiding unnecessary disclosure or disruption.
+로그는 법적으로 요구되지 않는 이상, 민감한 개인 정보를 포함해서는 안 되고, 모든 로그 데이터는 높은 가치의 자원으로서 보호되어야 한다. 로깅이 프라이버시나 시스템 보안을 훼손해서는 안 된다. 애플리케이션은 오류가 나더라도 안전하게 발생해야 하고, 불필요한 공개나, 혼란을 방지해야 한다.
 
-For detailed implementation guidance, refer to the OWASP Cheat Sheets in the references section.
+더욱 자세한 구현 가이던스는 참조 섹션의 OWASP 치트 시트를 참조.
 
-## V16.1 Security Logging Documentation
+## V16.1 보안 로깅 문서화
 
-This section ensures a clear and complete inventory of logging across the application stack. This is essential for effective security monitoring, incident response, and compliance.
+이 섹션은 애플리케이션 스택 전체에 걸친 완전하고 명확히 목록화된 로깅을 보장한다. 이는 효과적인 보안 모니터링, 사고 대응, 그리고 컴플라이언스에 필수적이다. 
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **16.1.1** | Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled, and for how long logs are kept. | 2 |
+| **16.1.1** | 애플리케이션의 기술 스택의 각 계층에서 수행된 로깅에 대해, 어떤 이벤트들이 로그로 남았는지, 로그의 형식이 무엇인지, 로그가 어디에 저장되었는지, 어떻게 사용되는지, 로그에 대한 접근이 어떻게 제어되는지, 그리고 로그가 얼마나 보관되는지에 대해 문서화한 목록이 존재하는지 검증한다. | 2 |
 
-## V16.2 General Logging
+## V16.2 일반 로깅
 
-This section provides requirements to ensure that security logs are consistently structured and contain the expected metadata. The goal is to make logs machine-readable and analyzable across distributed systems and tools.
+이 섹션은 보안 로그가 일관적으로 구조화되어 있고, 필요한 메타데이터들을 포함하고 있음을 보장하기 위한 요구사항들을 제공한다. 목표는 분산 시스템들과 도구들에서 로그를 기계가 읽고, 분석할 수 있도록 만드는 것이다.
 
-Naturally, security events often involve sensitive data. If such data is logged without consideration, the logs themselves become classified and therefore subject to encryption requirements, stricter retention policies, and potential disclosure during audits.
+자연스레 보안 이벤트들은 자주 민감한 데이터와 연관되어 있다. 만약 데이터가 주의하지 않고 로깅 되었다면, 그 로그들 자체가 기밀로 분류되어 암호화 요구사항, 더 엄격한 보유 정책, 그리고 감사 진행 중 잠재적 공개의 대상이 된다.
 
-Therefore, it is critical to log only what is necessary and to treat log data with the same care as other sensitive assets.
+그러므로 정말 필요한 것들만 로깅하고, 또 로그를 다른 민감한 재산들처럼 다루는 것이 매우 중요하다.
 
-The requirements below establish foundational requirements for logging metadata, synchronization, format, and control.
+아래의 요구사항들은 로깅의 메타데이터, 동기화, 형식, 그리고 제어에 대해 기초적인 요구사항들을 확립한다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **16.2.1** | Verify that each log entry includes necessary metadata (such as when, where, who, what) that would allow for a detailed investigation of the timeline when an event happens. | 2 |
-| **16.2.2** | Verify that time sources for all logging components are synchronized, and that timestamps in security event metadata use UTC or include an explicit time zone offset. UTC is recommended to ensure consistency across distributed systems and to prevent confusion during daylight saving time transitions. | 2 |
-| **16.2.3** | Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | 2 |
-| **16.2.4** | Verify that logs can be read and correlated by the log processor that is in use, preferably by using a common logging format. | 2 |
-| **16.2.5** | Verify that when logging sensitive data, the application enforces logging based on the data's protection level. For example, it may not be allowed to log certain data, such as credentials or payment details. Other data, such as session tokens, may only be logged by being hashed or masked, either in full or partially. | 2 |
+| **16.2.1** | 이벤트가 발생했을 때 그 타임라인을 자세히 조사할 수 있도록 각 로그의 항목이 필수적인 메타데이터(언제, 어디서 누가 무엇을 등)을 포함하는지 검증한다.  | 2 |
+| **16.2.2** | 모든 로깅 컴포넌트의 시간 소스가 동기화되어 있는지, 그리고 보안 이벤트 메타데이터에서 타임스탬프가 UTC를 사용하거나 혹은 명시적인 시간대 오프셋을 포함하는지 검증한다. UTC는 분산 시스템 전체에 걸친 일관성을 보장하고, 일광 절약 시간제 전환 시의 혼란을 방지하기 위해 추천된다. | 2 |
+| **16.2.3** | 애플리케이션이 로그를 저장만 하는지, 혹은 로그 목록에서 문서화 된 파일이나 서비스로 브로드캐스트하는지 검증한다. | 2 |
+| **16.2.4** | 사용 중인 로그 처리기가 로그를 읽고, 또 상호 연관 지을 수 있는지 검증한다. 가능하다면 공통 로깅 형식을 사용하는 것이 좋다. | 2 |
+| **16.2.5** | 민감한 데이터를 로깅할때, 애플리케이션이 데이터의 보호 수준을 기반으로 로깅을 수행하는지 검증한다. 예를 들어, 자격 증명이나, 지불 상세 정보 등의 특정 데이터는 로깅 해서는 안 된다. 또한 세션 토큰 등의 데이터는 전체 혹은 일부분이 해싱된, 마스킹 된 상태로 로깅 되어야 한다. | 2 |
 
-## V16.3 Security Events
+## V16.3 보안 이벤트
 
-This section defines requirements for logging security-relevant events within the application. Capturing these events is critical for detecting suspicious behavior, supporting investigations, and fulfilling compliance obligations.
+이 섹션에서는 애플리케이션 내 보안 관련 이벤트들의 로깅을 위한 요구사항들을 정의한다. 이러한 이벤트들을 수집하는 것은 의심스러운 행위를 탐지하고, 조사를 돕고, 컴플라이언스 의무를 달성하기 위해 매우 중요하다.
 
-This section outlines the types of events that should be logged but does not attempt to provide exhaustive detail. Each application has unique risk factors and operational context.
+이 섹션은 로깅 되어야 할 이벤트들에 대해 간략히 설명하고 있지만, 모든 세부 사항을 다 다루려는 것은 아니다. 각 애플리케이션은 자신만의 위험 요소들과 운영의 맥락을 가진다.
 
-Note that while ASVS includes logging of security events in scope, alerting and correlation (e.g., SIEM rules or monitoring infrastructure) are considered out of scope and are handled by operational and monitoring systems.
+ASVS는 보안 이벤트의 로깅을 범위에 포함하는 반면, 경보(alerting)와 상관분석(correlation, 예시: SIEM 규칙이나 모니터링 인프라스트럭처)은 범위에 포함하지 않는다. 이는 운영 및 모니터링 시스템에서 다루어진다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **16.3.1** | Verify that all authentication operations are logged, including successful and unsuccessful attempts. Additional metadata, such as the type of authentication or factors used, should also be collected. | 2 |
-| **16.3.2** | Verify that failed authorization attempts are logged. For L3, this must include logging all authorization decisions, including logging when sensitive data is accessed (without logging the sensitive data itself). | 2 |
-| **16.3.3** | Verify that the application logs the security events that are defined in the documentation and also logs attempts to bypass the security controls, such as input validation, business logic, and anti-automation. | 2 |
-| **16.3.4** | Verify that the application logs unexpected errors and security control failures such as backend TLS failures. | 2 |
+| **16.3.1** | 성공한 시도와 실패한 시도를 포함하여 모든 인증 명령을 로깅 하는지 검증한다. 인증의 종류나, 사용한 인증 요소 등의 추가적인 메타데이터 또한 수집해야 한다. | 2 |
+| **16.3.2** | 실패한 인가 시도들도 로깅 하는지 검증한다. L3에 대해서는 반드시 민감한 데이터가 접근되었을 때를 포함하여(민감한 데이터 자체는 제외하고) 모든 인가 결정들의 로그를 포함해야 한다. | 2 |
+| **16.3.3** | 애플리케이션이 이 문서에서 정의한 보안 이벤트들을 로깅하고, 또한 입력값 확인, 비즈니스 로직, 그리고 자동화 방지 등의 보안 제어를 우회하려는 시도들도 로깅 하는지 검증한다. | 2 |
+| **16.3.4** | 애플리케이션이 백엔드 TLS 오류와 같은 예상치 못한 오류나 보안 제어 오류들을 로깅 하는지 검증한다. | 2 |
 
-## V16.4 Log Protection
+## V16.4 로그 보호
 
-Logs are valuable forensic artifacts and must be protected. If logs can be easily modified or deleted, they lose their integrity and become unreliable for incident investigations or legal proceedings. Logs may expose internal application behavior or sensitive metadata, making them an attractive target for attackers.
+로그는 중요한 포렌식 아티팩트이며 반드시 보호해야 한다. 만약 로그가 쉽게 수정되거나 삭제된다면 로그는 자신의 무결성을 잃고, 사고 조사나 법적 절차에서 신뢰할 수 없게 된다. 로그는 내부 애플리케이션의 동작이나 민감한 메타데이터를 노출할 수 있으므로 공격자들에게 매력적인 표적이 될 수 있다.
 
-This section defines requirements to ensure that logs are protected from unauthorized access, tampering, and disclosure, and that they are safely transmitted and stored in secure, isolated systems.
+이 섹션은 로그를 비인가 접근, 위조, 공개로부터 보호하고 로그들이 안전하게 전송되고 또 안전하고 격리된 시스템에 저장되도록 보장하기 위한 요구사항들을 정의한다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **16.4.1** | Verify that all logging components appropriately encode data to prevent log injection. | 2 |
-| **16.4.2** | Verify that logs are protected from unauthorized access and cannot be modified. | 2 |
-| **16.4.3** | Verify that logs are securely transmitted to a logically separate system for analysis, detection, alerting, and escalation. The aim is to ensure that if the application is breached, the logs are not compromised. | 2 |
+| **16.4.1** | 로그 삽입을 방지하기 위해 모든 로깅 컴포넌트가 적절히 데이터를 인코딩하는지 검증한다. | 2 |
+| **16.4.2** | 로그가 비인가된 접근으로부터 보호되고 수정할 수 없는지 검증한다. | 2 |
+| **16.4.3** | 분석, 탐지, 경보, 그리고 에스컬레이션(escalation)을 위해 로그가 논리적으로 분리된 시스템으로 안전하게 전송되는지 검증한다. 애플리케이션이 침해되더라도 로그는 훼손하지 못하도록 보장하는 것이 목적이다. | 2 |
 
-## V16.5 Error Handling
+## V16.5 에러 핸들링
 
-This section defines requirements to ensure that applications fail gracefully and securely without disclosing sensitive internal details.
+이 섹션은 애플리케이션이 민감한 내부 상세 정보를 공개하지 않고 안전하고 우아한 오류 발생을 보장하기 위한 요구사항들을 정의한다.
 
-| # | Description | Level |
+| # | 설명 | 수준 |
 | :---: | :--- | :---: |
-| **16.5.1** | Verify that a generic message is returned to the consumer when an unexpected or security-sensitive error occurs, ensuring no exposure of sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 |
-| **16.5.2** | Verify that the application continues to operate securely when external resource access fails, for example, by using patterns such as circuit breakers or graceful degradation. | 2 |
-| **16.5.3** | Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail-open conditions such as processing a transaction despite errors resulting from validation logic. | 2 |
-| **16.5.4** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that must go to log files and to ensure that an error does not take down the entire application process, leading to a loss of availability. | 3 |
+| **16.5.1** | 예상치 못한 혹은 보안 측면에서 민감한 오류가 발생했을 때 스택 흔적, 쿼리, 비밀키, 그리고 토큰 등의 민감한 내부 시스템 데이터의 노출 방지를 보장하기 위해 유저에게 구체화하지 않은 메시지를 반환하는지 검증한다. | 2 |
+| **16.5.2** | 외부 리소스 접근 오류가 발생하더라도 애플리케이션이 계속해서 안전하게 작동하는지 검증한다. 예를 들어 서킷 브레이커(circuit breaker)나 우아한 성능 저하와 같은 패턴을 사용할 수 있다. | 2 |
+| **16.5.3** | 예외가 발생할 때, 검증 로직의 오류에도 불구하고 거래를 처리하는 등의 페일-오픈(fail-open) 상태 방지를 포함하여 애플리케이션이 우아하고 안전하게 실패하는지 검증한다.  | 2 |
+| **16.5.4** | 처리되지 못한 모든 예외를 처리할 “최후의 수단” 오류 핸들러가 정의되어 있는지 검증한다. 이는 로그 파일에 기록되어야 하는 오류 상세 정보들의 손실을 피하기 위함과 동시에, 오류로 인해 전체 애플리케이션 프로세스가 종료되어 가용성 손실로 이어지지 않도록 보장하기 위함이다.  | 3 |
 
-Note: Certain languages, (including Swift, Go, and through common design practice, many functional languages,) do not support exceptions or last-resort event handlers. In this case, architects and developers should use a pattern, language, or framework-friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
+참고: Swift나 Go 등의 특정 언어들, 그리고 일반적인 설계 관례상의 많은 함수형 언어들은 예외나 최후의 수단 이벤트 핸들러를 지원하지 않는다. 이 경우에는 설계자나 개발자들이 애플리케이션이 안전하게 예외와 예상치 못한 혹은 보안 관련 이벤트들을 처리하도록 보장하기 위해 패턴이나, 언어, 프레임워크 친화적인 방법을 사용해야 한다.    
 
-## References
+## 참조
 
-For more information, see also:
+더 많은 정보를 위해 아래 참조:
 
 * [OWASP Web Security Testing Guide: Testing for Error Handling](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README)
 * [OWASP Authentication Cheat Sheet section about error messages](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages)
