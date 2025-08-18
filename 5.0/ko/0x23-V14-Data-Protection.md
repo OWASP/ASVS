@@ -14,7 +14,7 @@ This chapter includes requirements related to defining what data needs to be pro
 
 Another consideration for data protection is bulk extraction, modification, or excessive usage. Each system's requirements are likely to be very different, so determining what is "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Validation and Business Logic" chapter.
 
-데이터 보호와 관련해 또 다른 고려 사항은 데이터 대량 추출, 무단 변경, 과도한 자원 사용이다. 각 시스템의 요구사항은 매우 다를 가능성이 높으므로, 무엇이 "비정상"인지 판단하려면 위협 모델과 비즈니스 리스크를 고려해야 한다. ASVS 관점에서 이러한 문제들을 탐지하는 것은 “보안 로그와 오류 처리” 장에서 다루며, 한도 설정은 “검증과 비즈니스 로직” 장에서 다룬다.
+데이터 보호에서 또 다른 고려 사항은 데이터 대량 추출, 무단 변경, 과도한 자원 사용이다. 각 시스템의 요구사항은 매우 다를 가능성이 높으므로, 무엇이 "비정상"인지 판단하려면 위협 모델과 비즈니스 리스크를 고려해야 한다. ASVS 관점에서 이러한 문제들을 탐지하는 것은 “보안 로그와 오류 처리” 장에서 다루며, 한도 설정은 “검증과 비즈니스 로직” 장에서 다룬다.
 
 ## V14.1 Data Protection Documentation
 ## V14.1 데이터 보호 문서화
@@ -26,7 +26,7 @@ A key prerequisite for being able to protect data is to categorize what data sho
 
 There are various privacy regulations and laws that affect how applications must approach the storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation, but rather focuses on key technical considerations for protecting sensitive data. Please consult local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
 
-애플리케이션이 민감한 개인정보를 저장, 사용, 전송의 접근 방식에 영향을 미치는 다양한 개인정보보호 규정 및 법률이 존재한다. 이 절에서는 더이상 이러한 유형의 테이터 보호 또는 개인정보보호 법률을 반복해서 다루지 않지만, 민감한 데이터를 보호하기 위한 핵심기술 고려사항에 초점을 맞춘다. 현지 법률 및 규정을 확인하고, 필요에 따라 자격을 갖춘 개인정보보호 전문가나 변호사와 상의한다.
+애플리케이션이 민감한 개인정보를 저장, 사용, 전송의 접근 방식에 영향을 미치는 다양한 개인정보보호 규정 및 법률이 존재한다. 이 절에서는 이러한 유형의 테이터 보호 또는 개인정보보호 법률을 반복해서 다루지 않지만, 민감한 데이터를 보호하기 위한 핵심기술의 고려사항에 초점을 맞춘다. 현지 법률 및 규정을 확인하고, 필요에 따라 자격을 갖춘 개인정보보호 전문가나 변호사와 상의한다.
 
 | # | Description | Level |
 | # | 설명 | 수준 |
@@ -41,7 +41,7 @@ There are various privacy regulations and laws that affect how applications must
 
 This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leakage, but there is also a general requirement to implement protection controls based on the protection level required for each data item.
 
-이 절에는 데이터 보호와 관련된 다양하게 실제로 적용가능한 요구사항들이 포함되어 있다. 대부분은 의도하지 않은 데이터 유출과 같은 특정 문제를 다루지만, 각 데이터 항목에 요구되는 보호 수준에 따라 보호 통제를 구현해야 하는 일반적인 요구사항도 있다.
+이 절에는 데이터 보호와 관련하여 다양하게 실제로 적용가능한 요구사항들이 포함되어 있다. 대부분은 의도하지 않은 데이터 유출과 같은 특정 문제를 다루지만, 각 데이터 항목에 요구되는 보호 수준에 따라 보호 통제를 구현해야 하는 일반적인 요구사항도 있다.
 
 | # | Description | Level |
 | # | 설명 | 수준 |
