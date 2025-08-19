@@ -24,7 +24,7 @@ Las organizaciones certificadoras pueden elegir sus métodos de prueba pero debe
 
 ### Mecanismos de verificación
 
-Existen diversas técnicas que pueden ser necesarias para verificar requerimientos específicos de ASVS. Además de las pruebas de penetración (utilizando credenciales válidas para obtener una cobertura completa en la aplicación), la verificación de los requerimientos de ASVS puede requerir acceso a la documentación, el código fuente, la configuración y al personal involucrado en el proceso de desarrollo, especialmente para verificar los requerimientos de nivel L2 y L3. Es práctica habitual proporcionar evidencia sólida de los hallazgos con documentación detallada, que puede incluir documentos de trabajo, capturas de pantalla, scripts y logs de las pruebas. La simple ejecución de una herramienta automatizada sin pruebas exhaustivas no es suficiente para la certificación ya que cada requerimiento debe probarse de forma verificable.
+Existen diversas técnicas que pueden ser necesarias para verificar requerimientos específicos de ASVS. Además de las pruebas de penetración (utilizando credenciales válidas para obtener una cobertura completa en la aplicación), la verificación de los requerimientos de ASVS puede requerir acceso a la documentación, el código fuente, la configuración y al personal involucrado en el proceso de desarrollo, especialmente para verificar los requerimientos de nivel 2 y 3. Es práctica habitual proporcionar evidencia sólida de los hallazgos con documentación detallada, que puede incluir documentos de trabajo, capturas de pantalla, scripts y logs de las pruebas. La simple ejecución de una herramienta automatizada sin pruebas exhaustivas no es suficiente para la certificación ya que cada requerimiento debe probarse de forma verificable.
 
 El uso de la automatización para verificar los requerimientos de ASVS es un tema de constante interés. Por lo tanto, es importante aclarar algunos puntos relacionados con las pruebas automatizadas y de caja negra.
 
@@ -40,7 +40,7 @@ En resumen, capacidad de probar usando automatización != ejecutar una herramien
 
 #### El papel de las pruebas de penetración
 
-Si bien el nivel L1 en la versión 4.0 se optimizó para realizar pruebas de "caja negra" (sin documentación ni código fuente), incluso entonces, el estándar dejaba claro que no se trata de una actividad de aseguramiento eficaz y que debería desaconsejarse encarecidamente.
+Si bien el nivel 1 en la versión 4.0 se optimizó para realizar pruebas de "caja negra" (sin documentación ni código fuente), incluso entonces, el estándar dejaba claro que no se trata de una actividad de aseguramiento eficaz y que debería desaconsejarse encarecidamente.
 
 Realizar pruebas sin acceso a la información adicional necesaria es un mecanismo ineficiente e ineficaz para la verificación de la seguridad ya que desaprovecha la posibilidad de revisar el código fuente, identificar amenazas y controles faltantes, y realizar una prueba mucho más exhaustiva en un plazo más corto.
 

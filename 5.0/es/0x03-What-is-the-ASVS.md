@@ -70,7 +70,7 @@ También existe flexibilidad en cuanto a cómo lograr esto. Las decisiones de se
 
 ## Niveles de verificación de seguridad de aplicaciones
 
-El ASVS define tres niveles de verificación de seguridad, cada uno de los cuales aumenta en profundidad y complejidad. El objetivo general es que las organizaciones comiencen con el primer nivel para abordar las preocupaciones de seguridad más críticas y luego avancen a los niveles superiores según las necesidades de la organización y la aplicación. Los niveles pueden presentarse como L1, L2 y L3 en el documento y en los textos de requerimientos.
+El ASVS define tres niveles de verificación de seguridad, cada uno de los cuales aumenta en profundidad y complejidad. El objetivo general es que las organizaciones comiencen con el primer nivel para abordar las preocupaciones de seguridad más críticas y luego avancen a los niveles superiores según las necesidades de la organización y la aplicación. Los niveles pueden presentarse como 1, 2 y 3 en el documento y en los textos de requerimientos.
 
 Cada nivel del ASVS indica los requerimientos de seguridad que se deben cumplir para ese nivel, y los requerimientos restantes de nivel superior se presentan como recomendaciones.
 
@@ -86,7 +86,7 @@ Los rigurosos debates sobre los criterios y las decisiones de nivelación han da
 
 Los tipos de requerimientos en cada nivel podrían caracterizarse de la siguiente manera.
 
-### Nivel 1 (L1)
+### Nivel 1
 
 Este nivel contiene los requerimientos mínimos a considerar para asegurar una aplicación y representa un punto de partida crucial. Este nivel abarca aproximadamente el 20 % de los requerimientos de ASVS. El objetivo de este nivel tener la menor cantidad de requerimientos posible y así minimizar las barreras de entrada.
 
@@ -96,13 +96,13 @@ Además de los requerimientos de la primera capa de defensa, algunos requerimien
 
 El Nivel 1 no es necesariamente susceptible de pruebas de penetración por parte de un evaluador externo sin acceso interno a la documentación o el código (como las pruebas de "caja negra"), aunque la menor cantidad de requerimientos debería facilitar su verificación.
 
-### Nivel 2 (L2)
+### Nivel 2
 
-La mayoría de las aplicaciones deberían esforzarse por alcanzar este nivel de seguridad. Alrededor del 50% de los requerimientos del ASVS son de nivel L2, lo que significa que una aplicación debe implementar alrededor del 70% de los requerimientos del ASVS (todos los requerimientos de nivel L1 y L2) para cumplir con el nivel L2.
+La mayoría de las aplicaciones deberían esforzarse por alcanzar este nivel de seguridad. Alrededor del 50% de los requerimientos del ASVS son de nivel 2, lo que significa que una aplicación debe implementar alrededor del 70% de los requerimientos del ASVS (todos los requerimientos de nivel 1 y 2) para cumplir con el nivel 2.
 
 Estos requerimientos generalmente se refieren a ataques menos comunes o a protecciones más complejas contra ataques comunes. Pueden seguir siendo una primera capa de defensa o requerir ciertas condiciones previas para que el ataque tenga éxito.
 
-### Nivel 3 (L3)
+### Nivel 3
 
 Este nivel debería ser el objetivo para las aplicaciones que buscan demostrar los más altos niveles de seguridad y proporciona aproximadamente el 30% restante de los requerimientos que deben cumplirse.
 
@@ -162,7 +162,7 @@ Las listas de requerimientos del ASVS están disponibles en CSV, JSON y otros fo
 
 Las organizaciones pueden beneficiarse de la adopción del ASVS eligiendo uno de los tres niveles o creando una copia (fork) específica para cada dominio que ajuste los requerimientos según el nivel de riesgo de sus aplicaciones. Se recomienda este tipo de copia siempre que mantenga la trazabilidad para que el cumplimiento del requisito 4.1.1 sea igual en todas las versiones.
 
-Idealmente, cada organización debería crear su propio ASVS personalizado, omitiendo las secciones irrelevantes (por ejemplo, GraphQL, Websockets, SOAP, si no se utilizan). La copia (fork) debería comenzar con el nivel L1 de ASVS como base, y avanzar a los niveles L2 o L3 según el riesgo de la aplicación.
+Idealmente, cada organización debería crear su propio ASVS personalizado, omitiendo las secciones irrelevantes (por ejemplo, GraphQL, Websockets, SOAP, si no se utilizan). La copia (fork) debería comenzar con el nivel 1 de ASVS como base, y avanzar a los niveles 2 o 3 según el riesgo de la aplicación.
 
 ## Casos de uso para el ASVS
 
