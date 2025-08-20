@@ -1,8 +1,8 @@
-# Appendix E - Contributors
+# 부록 E - 기여자들
 
-We gratefully acknowledge the contributions of the following people who have commented or opened pull requests since the the release of ASVS 4.0.0.
+우리는 ASVS 4.0.0 릴리즈 이후부터 의견을 제공하거나 풀 리퀘스트(pull request)를 올려준 다음의 기여자들에게 감사한다.
 
-If you are aware of any mistakes or would like your name to appear differently, please let us know.
+오류를 발견하거나 이름이 다른 방식으로 표기되길 바랄 경우 알려주기 바란다.
 
 | | | | |
 |---|---|---|---|
