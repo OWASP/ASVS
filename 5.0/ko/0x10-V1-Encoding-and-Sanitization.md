@@ -82,9 +82,9 @@
 | **1.5.2** | 역직렬화 공격을 방지하기 위해 신뢰할 수 없는 데이터의 역직렬화 시 객체 타입 허용 목록 사용 또는 클라이언트 정의 객체 타입 제한과 같은 안전한 입력 처리 방식이 적용되는지 검증해야 한다. 또한 명확히 안전하지 않은 것으로 지정된 역직렬화 메커니즘은 신뢰할 수 없는 입력에 대해 반드시 사용해서는 안 된다. | 2 |
 | **1.5.3** | 애플리케이션에서 동일한 데이터 타입(예: JSON 파서, XML 파서, URL 파서)에 대해 사용되는 서로 다른 파서들이 일관된 방식으로 파싱(parsing)을 수행하고 동일한 문자 인코딩 방식을 사용하는지 검증해야 한다. 이를 통해 JSON 상호운용 취약점이나 원격 파일 포함(Remote File Inclusion; RFI) 및 SSRF 공격에서 악용될 수 있는 서로 다른 URI 또는 파일 파싱 동작 문제를 방지할 수 있다. | 3 |
 
-## 참고자료
+## 참조
 
-자세한 내용은 다음을 참조:
+자세한 내용은 다음을 참고:
 
 * [OWASP LDAP 인젝션 방지 치트 시트(Cheat Sheet)](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
 * [OWASP 사이트 간 스크립팅(Cross Site Scripting; XSS) 방지 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
@@ -95,7 +95,7 @@
 * [DOMPurify - 클라이언트 측 HTML 정제 라이브러리](https://github.com/cure53/DOMPurify)
 * [RFC4180 - CSV 파일의 공통 포맷(format) 및 다목적 인터넷 메일 확장(Multipurpose Internet Mail Extensions; MIME) 타입](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
 
-역직렬화 또는 파싱 문제에 대한 자세한 내용은 다음을 참조:
+역직렬화 또는 파싱 문제에 대한 자세한 내용은 다음을 참고:
 
 * [OWASP 역직렬화 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 * [JSON 상호운용 취약점 탐구](https://bishopfox.com/blog/json-interoperability-vulnerabilities)
