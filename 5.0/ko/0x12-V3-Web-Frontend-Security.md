@@ -1,96 +1,96 @@
-# V3 Web Frontend Security
+# V3 웹 프론트엔드 보안
 
-## Control Objective
+## 제어 목표
 
-This category focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
+이번 장에서는 웹 프론트엔드를 통해 수행되는 공격으로부터 보호하기 위한 요구사항에 초점을 둔다. 이러한 요구사항은 기계 간 통신(M2M) 솔루션에는 적용되지 않는다.
 
-## V3.1 Web Frontend Security Documentation
+## V3.1 웹 프론트엔드 보안 문서
 
-This section outlines the browser security features that should be specified in the application's documentation.
+이 섹션에서는 애플리케이션의 공식 문서에서 알려줘야 할 브라우저 내 보안 특징들에 대해 설명한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **3.1.1** | Verify that application documentation states the expected security features that browsers using the application must support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It must also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | 3 |
+| **3.1.1** | 애플리케이션 공식 문서에서 애플리케이션이 반드시 지원해야 하는, 예상되는 보안 특징들을 서술하고 있는지 확인한다. (예: HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), 그리고 다른 관련된 HTTP 보안 메커니즘들). 또한 문서에서 앞선 특징들(유저에게나 경고하거나 접속을 막는 등의)이 유효하지 않을 때 애플리케이션이 어떻게 행동하는지 반드시 정의해야 한다. | 3 |
 
-## V3.2 Unintended Content Interpretation
+## V3.2 의도하지 않은 콘텐츠 접근
 
-Rendering content or functionality in an incorrect context can result in malicious content being executed or displayed.
+잘못된 콘텐츠나 기능을 불러오는 작업은 위협적인 콘텐츠를 실행하거나 불러오는 결과를 초래한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **3.2.1** | Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field. | 1 |
-| **3.2.2** | Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 |
-| **3.2.3** | Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | 3 |
+| **3.2.1** | 브라우저가 HTTP 응답에 대해 콘텐츠나 기능을 불러올 때, 의도하지 않은 상황이 보안적으로 통제되고 있는지 확인한다(예: API, 유저가 올린 파일, 혹은 다른 리소스에 직접 접근 시). Content-Security-Policy 헤더 필드의 샌드박스 지시어를 사용하거나, Content-Disposition 헤더 필드 내의 attachment disposition 타입을 사용하는 등으로, 불필요한 HTTP 요청 헤더 필드 (Sec-Fetch-* 와 같은)를 제공하지 않을 수 있다. | 1 |
+| **3.2.2** | 콘텐츠가 HTML로 렌더링되지 않고 텍스트로 표시되도록 하여, HTML이나 JavaScript 등의 의도하지 않은 실행을 방지하는 안전한 렌더링 함수(예: createTextNode, textContent)를 사용하는지 확인한다. | 1 |
+| **3.2.3** | 애플리케이션이 클라이언트 사이드 JavaScript를 사용할 때, 명시적 변수 사용, 엄격한 타입 검사, 문서에서의 전역 변수 저장 지양, 그리고 네임스페이스 격리 구현 등으로 DOM 클로버링을 막고 있음을 확인한다. | 3 |
 
-## V3.3 Cookie Setup
+## V3.3 쿠키 설정
 
-This section outlines requirements for securely configuring sensitive cookies to provide a higher level of assurance that they were created by the application itself and to prevent their contents from leaking or being inappropriately modified.
+이 섹션에서는 민감한 쿠키를 설정할 때, 애플리케이션 자체에서 만들어졌고, 콘텐츠 내용이 새어 나가거나, 부적절한 수정이 되는 것을 막는 등의 더 높은 수준의 보안을 제공하기 위한 요구사항에 대해 설명한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **3.3.1** | Verify that cookies have the 'Secure' attribute set, and if the '\__Host-' prefix is not used for the cookie name, the '__Secure-' prefix must be used for the cookie name. | 1 |
-| **3.3.2** | Verify that each cookie's 'SameSite' attribute value is set according to the purpose of the cookie, to limit exposure to user interface redress attacks and browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 2 |
-| **3.3.3** | Verify that cookies have the '__Host-' prefix for the cookie name unless they are explicitly designed to be shared with other hosts. | 2 |
-| **3.3.4** | Verify that if the value of a cookie is not meant to be accessible to client-side scripts (such as a session token), the cookie must have the 'HttpOnly' attribute set and the same value (e. g. session token) must only be transferred to the client via the 'Set-Cookie' header field. | 2 |
-| **3.3.5** | Verify that when the application writes a cookie, the cookie name and value length combined are not over 4096 bytes. Overly large cookies will not be stored by the browser and therefore not sent with requests, preventing the user from using application functionality which relies on that cookie. | 3 |
+| **3.3.1** | 쿠키가 'Secure' 속성을 가지며, 쿠키 이름에 '\__Host-' 접두사가 사용되지 않았고, '__Secure-' 접두사를 사용했는지 확인한다. | 1 |
+| **3.3.2** | UI redress 공격, 그리고 CSRF라 알려진 브라우저 기반 요청 위조 공격들에 대한 노출을 제한하기 위해 각 쿠키의 'SameSite' 속성 값이 쿠키의 목적에 맞게 설정되어 있는지 확인한다. | 2 |
+| **3.3.3** | 다른 호스트들과 명시적으로 공유되는 쿠키에 대해서, '__Host-' 접두사를 가지고 있는지 확인한다. | 2 |
+| **3.3.4** | 클라이언트 측 스크립트에서 쿠키의 값에 접근이 가능한 걸 의도하지 않았다면(세션 토큰 등), 쿠키는 반드시 'HttpOnly' 속성을 가져야 하고, 반드시 'Set-Cookie' 헤더 필드를 통해 클라이언트에게 전달돼야 한다. | 2 |
+| **3.3.5** | 애플리케이션이 쿠키를 만들 때, 쿠키 이름과 값의 길이 합이 4096바이트를 넘지 않는지 확인한다. 너무 큰 쿠키는 브라우저에 저장되지 않으며, 요청 전달도 안되고, 해당 쿠키에 의존하는 애플리케이션 기능을 사용하지 못하게 된다. | 3 |
 
-## V3.4 Browser Security Mechanism Headers
+## V3.4 브라우저 보안 메커니즘 헤더
 
-This section describes which security headers should be set on HTTP responses to enable browser security features and restrictions when handling responses from the application.
+이 섹션에서는 브라우저 보안 기능들을 활성화하기 위해 HTTP 응답에 설정되어야 할 보안 헤더들과, 애플리케이션에서의 응답들을 다루기 위한 제한사항들에 대해 설명한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **3.4.1** | Verify that a Strict-Transport-Security header field is included on all responses to enforce an HTTP Strict Transport Security (HSTS) policy. A maximum age of at least 1 year must be defined, and for L2 and up, the policy must apply to all subdomains as well. | 1 |
-| **3.4.2** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field is a fixed value by the application, or if the Origin HTTP request header field value is used, it is validated against an allowlist of trusted origins. When 'Access-Control-Allow-Origin: *' needs to be used, verify that the response does not include any sensitive information. | 1 |
-| **3.4.3** | Verify that HTTP responses include a Content-Security-Policy response header field which defines directives to ensure the browser only loads and executes trusted content or resources, in order to limit execution of malicious JavaScript. As a minimum, a global policy must be used which includes the directives object-src 'none' and base-uri 'none' and defines either an allowlist or uses nonces or hashes. For an L3 application, a per-response policy with nonces or hashes must be defined. | 2 |
-| **3.4.4** | Verify that all HTTP responses contain an 'X-Content-Type-Options: nosniff' header field. This instructs browsers not to use content sniffing and MIME type guessing for the given response, and to require the response's Content-Type header field value to match the destination resource. For example, the response to a request for a style is only accepted if the response's Content-Type is 'text/css'. This also enables the use of the Cross-Origin Read Blocking (CORB) functionality by the browser. | 2 |
-| **3.4.5** | Verify that the application sets a referrer policy to prevent leakage of technically sensitive data to third-party services via the 'Referer' HTTP request header field. This can be done using the Referrer-Policy HTTP response header field or via HTML element attributes. Sensitive data could include path and query data in the URL, and for internal non-public applications also the hostname. | 2 |
-| **3.4.6** | Verify that the web application uses the frame-ancestors directive of the Content-Security-Policy header field for every HTTP response to ensure that it cannot be embedded by default and that embedding of specific resources is allowed only when necessary. Note that the X-Frame-Options header field, although supported by browsers, is obsolete and may not be relied upon. | 2 |
-| **3.4.7** | Verify that the Content-Security-Policy header field specifies a location to report violations. | 3 |
-| **3.4.8** | Verify that all HTTP responses that initiate a document rendering (such as responses with Content-Type text/html), include the Cross‑Origin‑Opener‑Policy header field with the same-origin directive or the same-origin-allow-popups directive as required. This prevents attacks that abuse shared access to Window objects, such as tabnabbing and frame counting. | 3 |
+| **3.4.1** | 이 섹션에서는 애플리케이션의 응답을 처리할 때 브라우저의 보안 기능과, 제한 사항을 활성화하기 위해 HTTP 응답에 설정해야 하는 보안 헤더를 설명한다. | 1 |
+| **3.4.2** | 교차 출처 리소스 공유(CORS)의 Access-Control-Allow-Origin 헤더 필드가 애플리케이션의 고정 값인지 확인한다. 만약 출처 Origin HTTP 요청 헤더 필드 값을 사용하고 있다면, 신뢰할 수 있는 출처 목록으로 검증한다. 'Access-Control-Allow-Origin: *' 사용이 필요할 때엔, 응답이 민감한 정보를 포함하지 않는지 확인한다. | 1 |
+| **3.4.3** | HTTP 응답이 Content-Security-Policy 응답 헤더 필드를 가지고 있는지 확인한다. 이는 브라우저가 신뢰하는 콘텐츠나 리소스만 불러오고 실행하도록 하고, 위험한 JavaScript의 실행을 제한한다. 최소한,  object-src 'none' 과 base-uri 'none'이라는 지침, 그리고 허용 목록을 정의하거나 논스, 해쉬의 사용을 포함한다는 전역 정책은 반드시 사용돼야 한다. 3계층 애플리케이션의 경우에는, 논스나 해쉬가 적용된 응답별 정책이 반드시 정의돼야 한다. | 2 |
+| **3.4.4** | 모든 HTTP 응답이 'X-Content-Type-Options: nosniff' 헤더 필드를 포함하는지 확인해야 한다. 이는 브라우저들이 주어진 응답에 대해 콘텐츠 스니핑과 MIME 타입 추측을 하지 않도록, 응답의 Content-Type 헤더 필드 값을 목적지 리소스와 일치하도록 지시한다. 예를 들어서, 응답의 Content-Type이 'text/css'인 스타일만 허용된다고 치자. 이는 기능적으로 브라우저의 Cross-Origin Read Blocking (CORB) 사용 또한 활성화시킨다. | 2 |
+| **3.4.5** | 'Referer' HTTP 요청 헤더 필드를 통해 제 3자 서비스들에 기술적으로 민감한 정보 누출을 막기 위해, 애플리케이션에서 리퍼러 정책을 설정했는지 확인해야 한다. 이는 Referrer-Policy HTTP 응답 헤더 필드나 HTML 속성 항목을 통해 설정할 수 있다. 민감한 데이터는 URL에 있는 경로나 쿼리 데이터, 그리고 내부 비공개 애플리케이션의 경우 hostname도 포함된다. | 2 |
+| **3.4.6** | 웹 애플리케이션이 Content-Security-Policy 헤더 필드의 frame-ancestors를 사용해 모든 HTTP 응답들에 대해 기본적으로 내부 삽입을 할 수 없고, 필요할 때만 특정 리소스에 대해 내부 삽입을 허용하도록 확인한다. X-Frame-Options 헤더 필드가 브라우저에서 지원되더라도, 오래돼서 신뢰할 수 없음을 알아야 한다. | 2 |
+| **3.4.7** | Content-Security-Policy 헤더 필드에 위반 사항을 보고할 영역이 특정되어 있는지 확인해야 한다. | 3 |
+| **3.4.8** | 문서 렌더링을 시작하는 모든 HTTP 요청(Content-Type text/html과 같은 응답)에 same-origin 지시어나 same-origin-allow-popups이 있는 Cross‑Origin‑Opener‑Policy 헤더 필드를 포함하는지 확인해야 한다. 이는 탭내빙(tabnabbing) 및 프레임 카운팅과 같은 Window 객체에 대한 공유 액세스를 악용하는 공격을 방지할 수 있다. | 3 |
 
-## V3.5 Browser Origin Separation
+## V3.5 브라우저 출처 구분
 
-When accepting a request to sensitive functionality on the server side, the application needs to ensure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
+서버 측에서 민감한 기능에 대한 요청을 수락할 때, 애플리케이션은 그 요청이 애플리케이션 자체나 신뢰할 수 있는 당사자에 의해 시작되었는지, 공격자에 의해 위조되지 않았는지 확인해야 한다.
 
-Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state-changing operations, or resource-demanding functionality (such as data export).
+이 섹션에서, 민감한 기능에는 인증된 사용자와 인증되지 않은 사용자의 form post 수락(인증 요청 등), 상태 변경 작업 또는 리소스를 많이 소모하는 기능(데이터 내보내기 등)이 포함된다.
 
-The key protections here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies. Another common protection is the CORS preflight mechanism. This mechanism will be critical for endpoints designed to be called from a different origin, but it can also be a useful request forgery prevention mechanism for endpoints which are not designed to be called from a different origin.
+여기서 핵심 보호 장치는 JavaScript의 동일 출처 정책과 쿠키의 SameSite 로직과 같은 브라우저 보안 정책이다. 또 다른 일반적인 보호 장치는 CORS preflight 메커니즘이다. 이 메커니즘은 다른 출처에서 호출되도록 설계된 엔드포인트에 치명적이지만, 다른 출처에서 호출되도록 설계되지 않은 엔드포인트에 대한 요청 위조 방지 메커니즘으로 유용하게 사용된다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **3.5.1** | Verify that, if the application does not rely on the CORS preflight mechanism to prevent disallowed cross-origin requests to use sensitive functionality, these requests are validated to ensure they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP header fields that are not CORS-safelisted request-header fields. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 1 |
-| **3.5.2** | Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a request which does not trigger a CORS-preflight request. This may require checking the values of the 'Origin' and 'Content-Type' request header fields or using an extra header field that is not a CORS-safelisted header-field. | 1 |
-| **3.5.3** | Verify that HTTP requests to sensitive functionality use appropriate HTTP methods such as POST, PUT, PATCH, or DELETE, and not methods defined by the HTTP specification as "safe" such as HEAD, OPTIONS, or GET. Alternatively, strict validation of the Sec-Fetch-* request header fields can be used to ensure that the request did not originate from an inappropriate cross-origin call, a navigation request, or a resource load (such as an image source) where this is not expected. | 1 |
-| **3.5.4** | Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | 2 |
-| **3.5.5** | Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | 2 |
-| **3.5.6** | Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | 3 |
-| **3.5.7** | Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | 3 |
-| **3.5.8** | Verify that authenticated resources (such as images, videos, scripts, and other documents) can be loaded or embedded on behalf of the user only when intended. This can be accomplished by strict validation of the Sec-Fetch-* HTTP request header fields to ensure that the request did not originate from an inappropriate cross-origin call, or by setting a restrictive Cross-Origin-Resource-Policy HTTP response header field to instruct the browser to block returned content. | 3 |
+| **3.5.1** | 애플리케이션이 허용되지 않은 교차 출처 요청을 통한 민감한 기능의 사용을 막기 위해 CORS preflight 메커니즘에 의존하지 않는지 확인하고, 이런 요청이 애플리케이션 자체에서 시작된건지 증명해야 한다. 이는 anti-forgery 토큰의 사용과 증명이나 CORS-safelisted 요청 헤더 필드가 아닌 확장 HTTP 헤더 필드를 요구하는 것으로 가능하다. 사이트 간 요청 위조 공격(CSRF)으로 알려진 브라우저 기반의 요청 위조 공격에 대한 방어다. | 1 |
+| **3.5.2** | 애플리케이션이 민감한 기능의 허용되지 않은 교차 출처 사용을 막기 위해 CORS preflight 메커니즘에 의존하고 있다면, CORS preflight 요청을 작동하지 않는 요청을 호출할 수 있는지 확인해야 한다. 이는 'Origin'과 'Content-Type' 요청 헤더 필드 값을 확인하거나 CORS-safelisted 헤더 필드가 아닌 확장 필드 사용에 대한 확인이 필요하다. | 1 |
+| **3.5.3** | 민감한 기능이 HTTP 요청으로 POST, PUT, PATCH, DELETE와 같은 적절한 HTTP 방식을 사용하는지, HEAD, OPTIONS, 또는 GET처럼 HTTP 사양이 "안전"으로 정의되지 않는 방식을 사용하는지 확인한다. 또는 Sec-Fetch-* 요청 헤더 필드의 엄격한 검증을 사용하여 요청이 부적절한 교차 출처 호출, 탐색 요청 또는 이미지 소스와 같은 리소스 로드에서 발생하지 않았는지 확인할 수 있다. | 1 |
+| **3.5.4** | 서로 다른 호스트 이름에 별도의 애플리케이션이 호스팅되어 있는지 확인하여 동일한 출처 정책에서 제공하는 제한 사항을 활용한다. 여기에는 한 출처에서 불러온 문서나 스크립트가 다른 출처의 리소스와 상호 작용할 수 있는 방법과 쿠키에서의 호스트 이름 기반 제한 사항이 포함된다. | 2 |
+| **3.5.5** | postMessage 인터페이스를 통해 수신한 메시지의 출처를 신뢰할 수 없거나, 구문이 유효하지 않은 경우, 수신한 메시지가 폐기되는지 확인한다. | 2 |
+| **3.5.6** | Cross-Site Script Inclusion (XSSI) 공격을 피하기 위해, 애플리케이션 아무 곳에서나 JSONP 기능이 활성화되지 않는지 확인한다. | 3 |
+| **3.5.7** | Cross-Site Script Inclusion (XSSI) 공격을 방지하기 위해 JavaScript 파일과 같은 스크립트 리소스 응답에 승인이 필요한 데이터가 포함되지 않았는지 확인한다. | 3 |
+| **3.5.8** | 인증된 리소스(예: 이미지, 비디오, 스크립트 및 기타 문서)가 의도된 경우에만 사용자를 대신하여 불러와지거나 내장될 수 있는지 확인한다. 이는 Sec-Fetch-* HTTP 요청 헤더 필드를 엄격하게 검증하여 요청이 부적절한 교차 출처 호출에서 발생하지 않았는지 확인하거나 브라우저에 반환된 콘텐츠를 차단하도록 지시하는 제한적인 교차 출처 리소스 정책 HTTP 응답 헤더 필드를 설정하여 달성할 수 있다. | 3 |
 
-## V3.6 External Resource Integrity
+## V3.6 외부 리소스 무결성
 
-This section provides guidance for the safe hosting of content on third-party sites.
+이 섹션은 외부 사이트에서 콘텐츠를 안전하게 호스팅하기 위한 지침을 제공한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **3.6.1** | Verify that client-side assets, such as JavaScript libraries, CSS, or web fonts, are only hosted externally (e.g., on a Content Delivery Network) if the resource is static and versioned and Subresource Integrity (SRI) is used to validate the integrity of the asset. If this is not possible, there should be a documented security decision to justify this for each resource. | 3 |
+| **3.6.1** | 클라이언트 측 자산(예: JavaScript 라이브러리, CSS 또는 웹 폰트)이 정적이고 버전이 지정된 경우에만 외부(예: 콘텐츠 전송 네트워크)로만 호스팅되는지 확인하고, 하위 리소스 무결성(SRI)을 사용하여 자산의 무결성을 검증한다. 이것이 불가능하다면 각 리소스에 대해 이를 정당화하기 위해 문서화된 보안 결정이 필요하다. | 3 |
 
-## V3.7 Other Browser Security Considerations
+## V3.7 다른 브라우저 보안 고려사항
 
-This section includes various other security controls and modern browser security features required for client-side browser security.
+이 섹션은 클라이언트 측 브라우저 보안을 위해 요구되는 다양한 보안 통제와 현대 브라우저 보안 특징들을 포함한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **3.7.1** | Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | 2 |
-| **3.7.2** | Verify that the application will only automatically redirect the user to a different hostname or domain (which is not controlled by the application) where the destination appears on an allowlist. | 2 |
-| **3.7.3** | Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | 3 |
-| **3.7.4** | Verify that the application's top-level domain (e.g., site.tld) is added to the public preload list for HTTP Strict Transport Security (HSTS). This ensures that the use of TLS for the application is built directly into the main browsers, rather than relying only on the Strict-Transport-Security response header field. | 3 |
-| **3.7.5** | Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features. | 3 |
+| **3.7.1** | 애플리케이션이 여전히 지원되고 안전하다고 간주되는 클라이언트 측 기술만 사용하는지 확인한다. 이 요구 사항을 충족하지 않는 기술의 예로는 NSAPI 플러그인, Flash, Shockwave, ActiveX, Silverlight, NACL 또는 클라이언트 측 Java applets가 있다. | 2 |
+| **3.7.2** | 애플리케이션이 사용자를 통제하지 못하는 다른 호스트 이름이나 도메인으로 자동으로 리다이렉션할 때, 허용된 목적지로만 리다이렉션 하는지 확인한다. | 2 |
+| **3.7.3** | 사용자가 애플리케이션의 통제 범위를 벗어난 URL로 리다이렉션 될 때 이를 취소할 수 있는 옵션이 있는 알림이 애플리케이션에 표시되는지 확인한다. | 3 |
+| **3.7.4** | 애플리케이션의 최상위 도메인(예: site.tld)가 공공 HSTS preload 목록에 추가되었는지 확인한다. 이렇게 하면 애플리케이션에 TLS를 사용하는 것이 Strict-Transport-Security 응답 헤더 필드에만 의존하지 않고 메인 브라우저에 직접 내장된다. | 3 |
+| **3.7.5** | 애플리케이션에 접근하는 브라우저가 예상한 보안 특징을 가지고 있지 않은 경우, 애플리케이션이 문서에 명시된 대로 동작하는지 확인한다 (유저에게 경고하거나 접근을 차단하는 등). | 3 |
 
-## References
+## 참조
 
-For more information, see also:
+더 많은 정보는 다음을 참조한다.
 
 * [Set-Cookie __Host- prefix details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes)
 * [OWASP Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
