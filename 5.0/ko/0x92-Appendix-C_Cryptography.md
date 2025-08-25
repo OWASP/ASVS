@@ -5,22 +5,22 @@
 이 부록은 다양한 암호화 메커니즘(mechanism)에 대한 승인 수준을 정의한다:
 
 * (A) 승인된 메커니즘은 애플리케이션에서 사용할 수 있다.
-* (L) 기존 메커니즘은 애플리케이션에서 사용해서는 안 되지만, 기존 애플리케이션이나 코드와의 호환성을 위해 제한적으로 사용될 수 있다. 이러한 메커니즘의 사용은 현재 본질적으로 취약점으로 간주되지는 않지만, 가능한 한 빠른 시일 내에 더 안전하고 미래 지향적인 메커니즘으로 대체되어야 한다.
-* (D) 허용되지 않은 메커니즘은 현재 고장난 것으로 간주되거나 충분한 보안을 제공하지 않으므로 사용해서는 안 된다.
+* (L) 기존 메커니즘은 애플리케이션에서 사용해서는 안 되지만, 기존 애플리케이션이나 코드와의 호환성을 위해 제한적으로 사용될 수 있다. 이러한 메커니즘의 사용은 현재 본질적으로 취약점으로 간주하지는 않지만, 가능한 한 빠른 시일 내에 더 안전하고 미래 지향적인 메커니즘으로 대체되어야 한다.
+* (D) 허용되지 않은 메커니즘은 현재 취약한 것으로 간주되거나 충분한 보안을 제공하지 않으므로 사용해서는 안 된다.
 
-이 목록은 특정 애플리케이션의 맥락에서 여러 가지 이유로 재정의 될 수 있으며, 예를 들면 다음과 같다:
+이 목록은 특정 애플리케이션의 맥락에서 여러 가지 이유로 재정의 될 수 있으며, 예를 들어 다음과 같다:
 
-* 암호 기법 분야의 새로운 발전;
+* 암호학 분야의 새로운 발전;
 * 규제 준수.
 
 ## 암호 자산 목록 및 문서화
 
 이 문단은 V11.1 암호 목록 및 문서화에 대한 추가 정보를 제공한다.
 
-알고리즘, 키, 인증서와 같은 암호 자산은 정기적으로 발견되고, 목록화되며, 평가되어야 한다. 3단계에서는 애플리케이션에서 암호 기법의 사용을 식별하기 위해 정적 및 동적 스캐닝을 포함해야 한다. SAST 및 DAST와 같은 도구는 이에 도움이 될 수 있으나, 더 포괄적인 커버리지를 위해서는 전용 도구가 필요할 수 있다. 프리웨어 도구의 예시는 다음과 같다:
+알고리즘, 키, 인증서와 같은 암호 자산은 정기적으로 발견되고, 목록화되며, 평가되어야 한다. 3단계에서는 애플리케이션에서 암호 기법의 사용을 식별하기 위해 정적 및 동적 스캐닝을 포함해야 한다. SAST 및 DAST와 같은 도구는 이에 도움이 될 수 있으나, 더 포괄적인 범위를 위해서는 전용 도구가 필요할 수 있다. 프리웨어 도구의 예시는 다음과 같다:
 
-* [CryptoMon - 네트워크 암호 모니터링 도구 - eBPF 사용, Python으로 작성](https://github.com/Santandersecurityresearch/CryptoMon)
-* [Cryptobom Forge Tool: CodeQL 출력으로부터 종합적인 암호 기법 자재 명세서(Cryptography Bill of Materials; CBOM) 생성](https://github.com/Santandersecurityresearch/cryptobom-forge)
+* [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
+* [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
 
 ## 암호 매개변수의 동등 강도
 
@@ -53,7 +53,7 @@
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | 일반적인 구현에서 사용되며, 예를 들어 [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers)로 설정된 [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom)이 사용된다. | A |
 | `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
 | `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
-| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2), [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) 및 [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web)에서 지원된다. | 단순하고 최소화된 API를 통해 커널의 엔트로피 소스에서 보안 무작위 바이트를 직접 제공한다. 이는 보다 최신 방식이며, 기존 API와 관련된 문제점을 피할 수 있다. | A |
+| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2)은 [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) 및 [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web)에서 지원한다. | 단순하고 최소화된 API를 통해 커널의 엔트로피 소스에서 보안 무작위 바이트를 직접 제공한다. 이는 보다 최신 방식이며, 기존 API와 관련된 문제점을 피할 수 있다. | A |
 
 HMAC-DRBG 또는 Hash-DRBG와 함께 사용되는 기반 해시 함수는 반드시 해당 용도로 승인되어야 한다.
 
@@ -133,9 +133,9 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
-|AEGIS-256 | [AEGIS: 빠른 인증 암호화 알고리즘 (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128 | [AEGIS: 빠른 인증 암호화 알고리즘 (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128L| [AEGIS: 빠른 인증 암호화 알고리즘 (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
+|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
+|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
+|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
 |Encrypt-then-MAC | | A
 |MAC-then-encrypt | | L
 
@@ -161,9 +161,9 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 | SHA-512/256 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
 | SHA-256 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
 | SHAKE256 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
-| BLAKE2s | [BLAKE2: 더 간단하고, 더 작고, MD5만큼 빠른 해시](https://eprint.iacr.org/2013/322) | A | |
-| BLAKE2b | [BLAKE2: 더 간단하고, 더 작고, MD5만큼 빠른 해시](https://eprint.iacr.org/2013/322) | A | |
-| BLAKE3 | [BLAKE3 단일 함수, 어디서나 빠른 해시](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf) | A | |
+| BLAKE2s | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | A | |
+| BLAKE2b | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | A | |
+| BLAKE3 | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf) | A | |
 | SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | HMAC, KDF, RBG, 디지털 서명에 적합하지 않다. |
 | SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | HMAC, KDF, RBG, 디지털 서명에 적합하지 않다. |
 | SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | L | HMAC, KDF, RBG, 디지털 서명에 적합하지 않다. |
@@ -180,7 +180,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 | --- | --------- | ------------------- | ------ |
 | argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
 | scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
-| bcrypt | [미래에 적용 가능한 비밀번호 체계](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
+| bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
@@ -294,6 +294,6 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 
 ## 양자 내성 암호 표준
 
-양자 내성 암호(Post-quantum cryptography; PQC) 구현은 [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd), [FIPS-204](https://csrc.nist.gov/pubs/fips/204/ipd), [FIPS-205](https://csrc.nist.gov/pubs/fips/205/ipd)를 준수해야 한다. 현재 이들 표준에 대해 보안이 강화된 코드 예제나 참조 구현은 아직 많지 않다. 자세한 내용은 [NIST의 첫 세 가지 양자 내성 암호 표준 최종 발표 (2024년 8월)](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards)을 참조하라.
+양자 내성 암호(Post-quantum cryptography; PQC) 구현은 [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd), [FIPS-204](https://csrc.nist.gov/pubs/fips/204/ipd), [FIPS-205](https://csrc.nist.gov/pubs/fips/205/ipd)를 준수해야 한다. 현재 이들 표준에 대해 보안이 강화된 코드 예제나 참조 구현은 아직 많지 않다. 자세한 내용은 [NIST announcement of the first three finalized post-quantum encryption standards (August 2024)](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards)을 참조하라.
 
-제안된 [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) 양자 내성 하이브리드 TLS 키 합의 방식은 [Firefox 132 버전](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/)와 [Chrome 131 버전](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html)과 같은 주요 브라우저에서 지원된다. 이 방식은 암호화 테스트 환경에서 사용하거나, 산업계 또는 정부에서 승인한 라이브러리에서 사용할 수 있다.
+제안된 [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) 양자 내성 하이브리드 TLS 키 합의 방식은 [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/)와 [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html)과 같은 주요 브라우저에서 지원된다. 이 방식은 암호화 테스트 환경에서 사용하거나, 산업계 또는 정부에서 승인한 라이브러리에서 사용할 수 있다.
