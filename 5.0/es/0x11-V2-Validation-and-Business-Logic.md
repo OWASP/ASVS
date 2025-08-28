@@ -1,70 +1,70 @@
-# V2 Validation and Business Logic
+# V2 Validación y lógica de negocio
 
-## Control Objective
+## Objetivo del control
 
-This chapter aims to ensure that a verified application meets the following high-level goals:
+Este capítulo tiene como objetivo garantizar que una aplicación verificada cumpla los siguientes objetivos de alto nivel:
 
-* Input received by the application matches business or functional expectations.
-* The business logic flow is sequential, processed in order, and cannot be bypassed.
-* Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers or adding a million friends one at a time.
-* High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
+* La información que recibe la aplicación cumple con las expectativas de negocio o funcionales.
+* El flujo de lógica de negocio es secuencial, se procesa en orden y no se puede omitir.
+* La lógica de negocio incluye límites y controles para detectar y prevenir ataques automatizados, como por ejemplo transferencias continuas de fondos pequeños o agregar de un millón de amigos a la vez.
+* Los flujos de lógica de negocio de alto valor han considerado casos de abuso y actores maliciosos, cuentan con protección contra suplantación de identidad (spoofing), manipulación (tampering), divulgación de información (information disclosure) y ataques de elevación de privilegios.
 
-## V2.1 Validation and Business Logic Documentation
+## V2.1 Documentación de validación y lógica de negocio
 
-Validation and business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items, so it is clear what needs to be implemented in the application.
+La documentación de validación y lógica de negocio debe definir claramente los límites de la lógica de negocio, reglas de validación y la consistencia contextual de los elementos de datos combinados de modo que quede claro qué debe implementarse en la aplicación.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **2.1.1** | Verify that the application's documentation defines input validation rules for how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, email addresses, telephone numbers, or it could be an internal data format. | 1 |
-| **2.1.2** | Verify that the application's documentation defines how to validate the logical and contextual consistency of combined data items, such as checking that suburb and ZIP code match. | 2 |
-| **2.1.3** | Verify that expectations for business logic limits and validations are documented, including both per-user and globally across the application. | 2 |
+| **2.1.1** | Verifique que la documentación de la aplicación defina las reglas de validación de entrada para comprobar la validez de los datos con respecto a la estructura esperada. Estos pueden ser formatos de datos comunes como números de tarjetas de crédito, direcciones de correo electrónico, números de teléfono, o incluso un formato de datos interno. | 1 |
+| **2.1.2** | Verifique que la documentación de la aplicación defina cómo validar la consistencia lógica y contextual de los elementos de datos combinados, como por ejemplo verificar que el suburbio y el código postal (ZIP) coincidan. | 2 |
+| **2.1.3** | Verifique que las expectativas sobre los límites y validaciones de la lógica de negocio estén documentadas, tanto por los límites por usuario como a nivel global en toda la aplicación. | 2 |
 
-## V2.2 Input Validation
+## V2.2 Validación de entradas
 
-Effective input validation controls enforce business or functional expectations around the type of data the application expects to receive. This ensures good data quality and reduces the attack surface. However, it does not remove or replace the need to use correct encoding, parameterization, or sanitization when using the data in another component or for presenting it for output.
+Los controles eficaces de validación de entrada refuerzan las expectativas de negocio o funcionales en cuanto al tipo de datos que la aplicación espera recibir. Esto garantiza una buena calidad de los datos y reduce la superficie de ataque. Sin embargo, no elimina ni reemplaza la necesidad de usar una codificación, parametrización o sanitización correctas al usar los datos en otro componente o al presentarlos para su salida.
 
-In this context, "input" could come from a wide variety of sources, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, and external APIs.
+En este contexto, la "entrada" podría provenir de una amplia variedad de fuentes, incluidos campos de formulario HTML, solicitudes REST, parámetros de URL, campos de encabezado HTTP, cookies, archivos en disco, bases de datos y API externas.
 
-A business logic control might check that a particular input is a number less than 100. A functional expectation might check that a number is below a certain threshold, as that number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
+Un control de lógica de negocios podría verificar que una entrada particular sea un número menor que 100. Una expectativa funcional podría verificar que un número esté por debajo de un cierto umbral ya que ese número controla cuántas veces se realizará un bucle particular y un número alto podría llevar a un procesamiento excesivo y a una posible condición para denegación de servicio.
 
-While schema validation is not explicitly mandated, it may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces that use JSON or XML.
+Si bien la validación de esquemas no es obligatoria explícitamente, podría ser el mecanismo más eficaz para una cobertura completa de la validación de las API HTTP u otras interfaces que utilizan JSON o XML.
 
-Please note the following points on Schema Validation:
+Tenga en cuenta los siguientes puntos sobre la validación de esquemas:
 
-* The "published version" of the JSON Schema validation specification is considered production-ready, but not strictly speaking "stable." When using JSON Schema validation, ensure there are no gaps with the guidance in the requirements below.
-* Any JSON Schema validation libraries in use should also be monitored and updated if necessary once the standard is formalized.
-* DTD validation should not be used, and framework DTD evaluation should be disabled, to avoid issues with XXE attacks against DTDs.
+* La "versión publicada" de la especificación de validación del esquema JSON se considera lista para producción, pero no estrictamente "estable". Al utilizar la validación del esquema JSON, asegúrese de que no haya incompatibilidades con las directrices de los requisitos a continuación.
+* Cualquier librería de validación del esquema JSON en uso también deben supervisarse y actualizarse si es necesario una vez que se formalice el estándar.
+* No se debe utilizar la validación de DTD y se debe deshabilitar la evaluación de DTD del framework para evitar problemas de ataques XXE contra DTD.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **2.2.1** | Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allow list of values, patterns, and ranges, or be based on comparing the input to an expected structure and logical limits according to predefined rules. For L1, this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input. | 1 |
-| **2.2.2** | Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability and should be encouraged, it must not be relied upon as a security control. | 1 |
-| **2.2.3** | Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | 2 |
+| **2.2.1** | Verifique que la entrada esté validada para cumplir con las expectativas de negocio o funcionales para esa entrada. Esto debe, o bien, usar una validación positiva con una lista de valores permitidos, patrones, rangos, o basarse en la comparación de la entrada con una estructura esperada y límites lógicos según reglas predefinidas. Para L1, esto puede centrarse en la entrada utilizada para tomar decisiones de negocio o de seguridad específicas. Para L2 y superiores, esto debe aplicarse a todas las entradas. | 1 |
+| **2.2.2** | Verifique que la aplicación esté diseñada para aplicar la validación de entrada en una capa de servicio confiable. Si bien la validación del lado del cliente mejora la usabilidad y debe fomentarse, no debe considerarse un control de seguridad. | 1 |
+| **2.2.3** | Verifique que la aplicación garantice que las combinaciones de elementos de datos relacionados sean razonables según las reglas predefinidas. | 2 |
 
-## V2.3 Business Logic Security
+## V2.3 Seguridad de la lógica de negocio
 
-This section considers key requirements to ensure that the application enforces business logic processes in the correct way and is not vulnerable to attacks that exploit the logic and flow of the application.
+Esta sección considera los requerimientos clave para garantizar que la aplicación haga cumplir los procesos de lógica de negocio de la manera correcta y no sea vulnerable a ataques que exploten la lógica y el flujo de la aplicación.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **2.3.1** | Verify that the application will only process business logic flows for the same user in the expected sequential step order and without skipping steps. | 1 |
-| **2.3.2** | Verify that business logic limits are implemented per the application's documentation to avoid business logic flaws being exploited. | 2 |
-| **2.3.3** | Verify that transactions are being used at the business logic level such that either a business logic operation succeeds in its entirety or it is rolled back to the previous correct state. | 2 |
-| **2.3.4** | Verify that business logic level locking mechanisms are used to ensure that limited quantity resources (such as theater seats or delivery slots) cannot be double-booked by manipulating the application's logic. | 2 |
-| **2.3.5** | Verify that high-value business logic flows require multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to classified information, or safety overrides in manufacturing. | 3 |
+| **2.3.1** | Verifique que la aplicación solo procese flujos de lógica de negocio para el mismo usuario en el orden de pasos secuencial esperado y sin omitir pasos. | 1 |
+| **2.3.2** | Verifique que los límites de la lógica de negocio se implementen según la documentación de la aplicación para evitar que se exploten fallas de la lógica de negocio. | 2 |
+| **2.3.3** | Verifique que las transacciones se estén utilizando a nivel de lógica de negocio de tal manera que, o una operación de lógica de negocio finaliza exitosamente en su totalidad o es reversada al estado correcto previo. | 2 |
+| **2.3.4** | Verifique que se utilicen mecanismos de bloqueo a nivel de lógica de negocios para garantizar que recursos de cantidad limitada (como asientos de teatro o franjas horarias de entrega) no se puedan reservar dos veces mediante la manipulación de la lógica de la aplicación. | 2 |
+| **2.3.5** | Verifique que los flujos de lógica de negocio de alto valor requieran la aprobación de múltiples usuarios para evitar acciones no autorizadas o accidentales. Esto podría incluir entre otras cosas, grandes transferencias monetarias, aprobaciones de contratos, acceso a información clasificada o anulaciones de seguridad en manufactura. | 3 |
 
-## V2.4 Anti-automation
+## V2.4 Anti-automatización
 
-This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
+Esta sección incluye controles anti-automatización para garantizar que se requieran interacciones similares a las humanas y se eviten solicitudes automatizadas excesivas.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **2.4.1** | Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, garbage-data creation, quota exhaustion, rate-limit breaches, denial-of-service, or overuse of costly resources. | 2 |
-| **2.4.2** | Verify that business logic flows require realistic human timing, preventing excessively rapid transaction submissions. | 3 |
+| **2.4.1** | Verifique que existan controles anti-automatización para proteger contra llamadas excesivas a funciones de la aplicación que podrían provocar una exfiltración de datos, creación de datos basura, agotamiento de cuotas, violaciones de límites de velocidad, denegación de servicio o uso excesivo de recursos valiosos. | 2 |
+| **2.4.2** | Verificar que los flujos de lógica de negocio requieran tiempos humanos realistas, evitando envíos de transacciones excesivamente rápidos. | 3 |
 
-## References
+## Referencias
 
-For more information, see also:
+Para obtener más información consulte:
 
 * [OWASP Web Security Testing Guide: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
 * [OWASP Web Security Testing Guide: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README)
