@@ -1,4 +1,4 @@
-# What is the ASVS?
+# Что такое ASVS?
 
 Стандарт верификации требований к безопасности приложений (ASVS) определяет требования безопасности для веб-приложений и сервисов, представляя собой ценный ресурс для всех, кто стремится проектировать, разрабатывать и поддерживать безопасные приложения или оценивать их уровень защищённости.
 
@@ -175,24 +175,24 @@ ASVS может быть использован для оценки безопа
 
 Одним из наиболее распространенных вариантов использования Стандарта верификации требований к безопасности приложений является его применение в качестве ресурса для архитекторов безопасности. В настоящее время существует ограниченное количество материалов о том, как построить безопасную архитектуру современного приложения. ASVS может быть использован для восполнения этих пробелов, позволяя архитекторам безопасности выбирать более эффективные меры для решения распространенных проблем, таких как шаблоны защиты данных и стратегии валидации входных данных.Требования, связанные с архитектурой и документацией, будут особенно полезны для этой цели.
 
-### As a Specialized Secure Coding Reference
+### Как специализированное руководство по безопасной разработке
 
-The ASVS can be used as a basis for preparing a secure coding reference during application development, helping developers to make sure that they keep security in mind when they build software. Whilst the ASVS can be the base, organizations should prepare their own specific guidance which is clear and unified and ideally be prepared based on guidance from security engineers or security architects. As an extension to this, organizations are encouraged wherever possible to prepare approved security mechanisms and libraries that can be referenced in the guidance and used by developers.
+ASVS может быть использован как основа для подготовки руководства по безопасной разработке в процессе разработки приложения, помогая разработчикам не упускать из виду аспекты безопасности при создании программного обеспечения. Хотя ASVS может служить основой, организациям следует подготовить свои собственные конкретные руководства, которые являются четкими и унифицированными, и в идеале их следует составлять на основе рекомендаций инженеров или архитекторов безопасности. В развитие этого подхода организациям настоятельно рекомендуется, по возможности, подготовить одобренные механизмы безопасности и библиотеки, на которые можно ссылаться в руководствах и которые разработчики могут использовать.
 
-### As a Guide for Automated Unit and Integration Tests
+### Как руководство по автоматизированному модульному и интеграционному тестированию
 
-The ASVS is designed to be highly testable. Some verifications will be technical where as other requirements (such as the architectural and documentation requirements) may require documentation or architecture review. By building unit and integration tests that test and fuzz for specific and relevant abuse cases related to the requirements that are verifiable by technical means, it should be easier to check that these controls are operating correctly on each build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
+ASVS создавался таким, чтобы его можно было легко протестировать. Некоторые проверки носят технический характер, в то время как другие требования могут потребовать анализа документации или архитектуры. Благодаря модульным и интеграционным тестам, которые проверяют характерные случаи фаззинга и недокументированного использования, связанных с требованиями, поддающимися технической верификации, можно упростить проверку корректности работы этих контролей при каждой сборке. Например, для набора тестов для контроллера входа в систему можно разработать дополнительные тесты, проверяющие атрибут username на совпадение с наиболее распространенными именами пользователей по умолчанию, перебор учетных записей, LDAP- и SQL-инъекции, а также XSS. Аналогично, проверка атрибута password должна включать перебор самых распространенных паролей, оценку длины пароля, вставку нулевого байта, удаление этого атрибута, XSS и многое другое.
 
-### For Secure Development Training
+### Как курс по безопасной разработке
 
-ASVS can also be used to define the characteristics of secure software. Many “secure coding” courses are simply ethical hacking courses with a light smear of coding tips. This may not necessarily help developers to write more secure code. Instead, secure development courses can use the ASVS with a strong focus on the positive mechanisms found in the ASVS, rather than the Top 10 negative things not to do. The ASVS structure also provides a logical structure for walking through the different topics when securing an application.
+ASVS также можно использовать для определения характеристик защищенного программного обеспечения. Многие "курсы безопасной разработки" — это просто курсы по этичному хакингу с легким намеком на советы по безопасной разработке. Не факт, что это как-то поможет разработчикам писать более безопасный код. Вместо этого курсы по безопасной разработке могут использовать ASVS с упором на упреждающие меры, описанные в ASVS, а не на Top 10 того, что делать не надо. Структура ASVS также предоставляет логичную основу для последовательного изучения различных тем, связанных с защитой приложения.
 
-### As a Framework for Guiding the Procurement of Secure Software
+### Как руководство по приобретению безопасного программного обеспечения
 
-The ASVS is a great framework to help with secure software procurement or procurement of custom development services. The buyer can simply set a requirement that the software they wish to procure must be developed at ASVS level X, and request that the seller proves that the software satisfies ASVS level X.
+ASVS — это отличное руководство по приобретению безопасного программного обеспечения или заказных услуг по его разработке. Заказчику достаточно указать требование, что программное обеспечение, которое он хочет приобрести, должно быть разработано на уровне ASVS LX, и потребовать, чтобы Исполнитель доказал, что оно ему соответствует. 
 
-## Applying ASVS in Practice
+## Применение ASVS на практике
 
-Different threats have different motivations. Some industries have unique information and technology assets and domain-specific regulatory compliance requirements.
+Разные угрозы имеют разную мотивацию. В отдельных отраслях имеются уникальные информационные и технологические ресурсы или отраслевые регуляторные требования.
 
-Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
+Организациям настоятельно рекомендуется внимательно изучить риски, присущие характеру их бизнеса, и на их основе и с учетом бизнес-требований определить соответствующий уровень ASVS.
