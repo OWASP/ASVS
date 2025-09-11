@@ -22,69 +22,69 @@
 
 Кроме того, требования, касающиеся одной и той же проблемы безопасности, были объединены там, где это было необходимо.
 
-### Documented Security Decisions
+### Документированные решения по безопасности
 
-While the concept of documented security decisions may appear new in version 5.0, it is an evolution of earlier requirements related to policy application and threat modeling in version 4.0. Previously, some requirements implicitly demanded analysis to inform the implementation of security controls, such as determining permitted network connections.
+Хотя концепция документированных решений по безопасности может показаться новой в версии 5.0, она является развитием более ранних требований, связанных с применением политик и моделированием угроз в версии 4.0. Ранее некоторые требования неявно предполагали проведение анализа для обоснования реализации средств контроля безопасности, такого как определение разрешенных сетевых подключений.
 
-To ensure that necessary information is available for implementation and verification, these expectations are now explicitly defined as documentation requirements, making them clear, actionable, and verifiable.
+Чтобы обеспечить доступность необходимой информации для реализации и проверки, эти ожидания теперь явно определены как требования к документации, делая их понятными, практичными и проверяемыми.
 
-## Structural Changes and New Chapters
+## Структурные изменения и новые главы
 
-Several chapters in version 5.0 introduce entirely new content:
+Несколько глав в версии 5.0 представляют полностью новый контент:
 
-* OAuth and OIDC – Given the widespread adoption of these protocols for access delegation and single sign-on, dedicated requirements have been added to address the diverse scenarios developers may encounter. This area may eventually evolve into a standalone standard, similar to the treatment of Mobile and IoT requirements in previous versions.
-* WebRTC – As this technology gains popularity, its unique security considerations and challenges are now addressed in a dedicated section.
+* OAuth и OIDC – Учитывая широкое распространение этих протоколов для делегирования доступа и единого входа, были добавлены специальные требования для решения разнообразных сценариев, с которыми могут столкнуться разработчики. Эта область может в конечном итоге развиться в самостоятельный стандарт, аналогично тому, как это произошло с требованиями для мобильных устройств и IoT в предыдущих версиях.
+* WebRTC – Поскольку эта технология набирает популярность, ее уникальные проблемы и аспекты безопасности теперь рассматриваются в отдельном разделе.
 
-Efforts have also been made to ensure that chapters and sections are organized around coherent sets of related requirements.
+Также были приложены усилия, чтобы обеспечить организацию глав и разделов вокруг логичных наборов связанных требований.
 
-This restructuring has led to the creation of additional chapters:
+Эта реструктуризация привела к созданию дополнительных глав:
 
-* Self-contained Tokens – Formerly grouped under session management, self-contained tokens are now recognized as a distinct mechanism and a foundational element for stateless communication (such as in OAuth and OIDC). Due to their unique security implications, they are addressed in a dedicated chapter, with some new requirements introduced in version 5.x.
-* Web Frontend Security – With the increasing complexity of browser-based applications and the rise of API-only architectures, frontend security requirements have been separated into their own chapter.
-* Secure Coding and Architecture – New requirements addressing general security practices that did not fit within existing chapters have been grouped here.
+* Автономные токены (Self-contained Tokens) – Ранее относящиеся к управлению сессиями, автономные токены теперь признаны самостоятельным механизмом и базовым элементом для взаимодействия без сохранения состояния (такого как в OAuth и OIDC). Ввиду их уникальных аспектов безопасности, они рассматриваются в отдельной главе с некоторыми новыми требованиями, введенными в версии 5.x.
+* Безопасность веб-интерфейсов (Web Frontend Security) – В связи с растущей сложностью браузерных приложений и распространением API-ориентированных архитектур, требования к безопасности фронтенда были выделены в отдельную главу.
+* Безопасная разработка и архитектура (Secure Coding and Architecture) – Новые требования, касающиеся общих практик безопасности, которые не вписывались в существующие главы, были сгруппированы здесь.
 
-Other organizational changes in version 5.0 were made to clarify intent. For example, input validation requirements were moved alongside business logic, reflecting their role in enforcing business rules, rather than being grouped with sanitization and encoding.
+Другие организационные изменения в версии 5.0 были внесены для уточнения целей. Например, требования к валидации входных данных были помещены рядом с бизнес-логикой, а не с кодировкой и обработкой, отражая их роль в обеспечении соблюдения бизнес-правил.
 
-The former V1 Architecture chapter has been removed. Its initial section contained requirements that were out of scope, while subsequent sections have been redistributed to relevant chapters, with requirements deduplicated and clarified as necessary.
+Бывшая глава V1 «Архитектура, проектирование и моделирование угроз» была удалена. Ее начальный раздел содержал требования, которые выходили за рамки области проверки, в то время как последующие разделы были перераспределены в соответствующие главы, с удалением дубликатов и уточнениями по мере необходимости.
 
-## Removal of Direct Mappings to Other Standards
+## Удаление прямых соответствий с другими стандартами
 
-Direct mappings to other standards have been removed from the main body of the standard. The aim is to prepare a mapping with the OWASP Common Requirement Enumeration (CRE) project, which in turn will link ASVS to a range of OWASP projects and external standards.
+Прямые соответствия другим стандартам были удалены из основного тела стандарта. Цель состоит в подготовке соответствия с проектом OWASP Common Requirement Enumeration (CRE), который, в свою очередь, свяжет ASVS с рядом проектов OWASP и внешними стандартами.
 
-Direct mappings to CWE and NIST are no longer maintained, as explained below.
+Прямые соответствия CWE и NIST более не поддерживаются, как поясняется ниже.
 
-### Reduced Coupling with NIST Digital Identity Guidelines
+### Снижение связи с NIST Digital Identity Guidelines
 
-The NIST [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) have long served as a reference for authentication and authorization controls. In version 4.x, certain chapters were closely aligned with NIST's structure and terminology.
+Рекомендации NIST [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) долгое время служили ориентиром для средств контроля аутентификации и авторизации. В версии 4.x определенные главы были тесно связаны со структурой и терминологией NIST.
 
-While these guidelines remain an important reference, strict alignment introduced challenges, including less widely recognized terminology, duplication of similar requirements, and incomplete mappings. Version 5.0 moves away from this approach to improve clarity and relevance.
+Хотя эти рекомендации остаются важным ориентиром, строгое соответствие создавало проблемы, включая менее распространенную терминологию, дублирование схожих требований и неполные соответствия. Версия 5.0 отходит от этого подхода для повышения ясности и релевантности.
 
-### Moving Away from Common Weakness Enumeration (CWE)
+### Отступление от Common Weakness Enumeration (CWE)
 
-The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) provides a useful taxonomy of software security weaknesses. However, challenges such as category-only CWEs, difficulties in mapping requirements to a single CWE, and the presence of imprecise mappings in version 4.x have led to the decision to discontinue direct CWE mappings in version 5.0.
+[Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) предоставляет полезную систематику уязвимостей программного обеспечения. Однако такие проблемы, как широкие классы CWЕ (category-only CWEs), трудности в сопоставлении требований с отдельным CWE, а также наличие неточных соответствий в версии 4.x, привели к решению отказаться от прямых сопоставлений с CWE в версии 5.0.
 
-## Rethinking Level Definitions
+## Переосмысление определений уровней
 
-Version 4.x described the levels as L1 ("Minimum"), L2 ("Standard"), and L3 ("Advanced"), with the implication that all applications handling sensitive data should meet at least L2.
+Версия 4.x описывала уровни как L1 («Минимальный»), L2 («Стандартный») и L3 («Продвинутый»), с подразумеванием, что все приложения, обрабатывающие конфиденциальные данные, должны соответствовать как минимум L2.
 
-Version 5.0 addresses several issues with this approach which are described in the following paragraphs.
+Версия 5.0 решает несколько проблем этого подхода, которые описаны в следующих параграфах.
 
-As a practical matter, whereas version 4.x used tick marks for level indicators, 5.x uses a simple number on all formats of the standard including markdown, PDF, DOCX, CSV, JSON and XML. For backwards compatibility, legacy versions of the CSV, JSON and XML outputs which still use tick marks are also generated.
+С практической точки зрения, в то время как версия 4.x использовала галочки для обозначения уровней, версия 5.x использует простое число во всех форматах стандарта, включая markdown, PDF, DOCX, CSV, JSON и XML. Для обратной совместимости также генерируются устаревшие версии выводов CSV, JSON и XML, которые все еще используют галочки.
 
-### Easier Entry Level
+### Снижение порога входа
 
-Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier by defining Level 1 primarily around first-layer defense requirements, resulting in clearer and fewer requirements at that level. To demonstrate this numerically, in v4.0.3 there were 128 L1 requirements out of a total of 278 requirements, representing 46%. In 5.0.0 there are 70 L1 requirements out of a total of 345 requirements, representing 20%.
+Обратная связь показала, что большое количество требований Уровня 1 (~120) в сочетании с его обозначением как «минимального» уровня, которого недостаточно для большинства приложений, препятствовало внедрению. Цель версии 5.0 — уменьшить этот барьер за счет определения требований Уровня 1 как первого эшелона защиты, благодаря чему они становятся более четкими и их количество сокращается. Чтобы продемонстрировать это численно, в v4.0.3 было 128 требований L1 из общего числа в 278 требований, что составляет 46%. В 5.0.0 насчитывается 70 требований L1 из общего числа в 345 требований, что составляет 20%.
 
-### The Fallacy of Testability
+### Иллюзия проверяемости
 
-A key factor in selecting controls for Level 1 in version 4.x was their suitability for assessment through "black box" external penetration testing. However, this approach was not fully aligned with the intent of Level 1 as the minimum set of security controls. Some users argued that Level 1 was insufficient for securing applications, while others found it too difficult to test.
+Ключевым фактором при выборе средств контроля для Уровня 1 в версии 4.x была их пригодность для оценки с помощью внешнего тестирования на проникновение по методу "черного ящика". Однако этот подход не был полностью согласован с целью Уровня 1 как минимального набора средств обеспечения безопасности. Некоторые пользователи утверждали, что Уровня 1 недостаточно для защиты приложений, в то время как другие считали его слишком сложным для тестирования.
 
-Relying on testability as a criterion is both relative and, at times, misleading. The fact that a requirement is testable does not guarantee that it can be tested in an automated or straightforward manner. Moreover, the most easily testable requirements are not always those with the greatest security impact or the simplest to implement.
+Опора на проверяемость как на критерий является относительной и, в ряде случаев, вводящей в заблуждение. Тот факт, что требование является проверяемым, не гарантирует, что его можно проверить автоматизированным или простым способом. Более того, наиболее легко проверяемые требования не всегда являются теми, которые оказывают наибольшее влияние на безопасность или которые проще всего реализовать.
 
-As such, in version 5.0, the level decisions were made primarily based on risk reduction and also keeping in mind the effort to implement.
+Таким образом, в версии 5.0 решения об уровнях принимались в первую очередь на основе снижения рисков, а также с учетом усилий по реализации.
 
-### Not Just About Risk
+### Не только оценка рисков
 
-The use of prescriptive, risk-based levels that mandate a specific level for certain applications has proven to be overly rigid. In practice, the prioritization and implementation of security controls depend on multiple factors, including both risk reduction and the effort required for implementation.
+Использование предписывающих уровней, основанных на оценке риска, которые устанавливают определенный уровень для определенных приложений, оказалось слишком жестким. На практике расстановка приоритетов и внедрение средств безопасности зависят от множества факторов, включая как снижение рисков, так и усилия, необходимые для реализации.
 
-Therefore, organizations are encouraged to achieve the level that they feel like they should be achieving based on their maturity and the message they want to send to their users.
+Следовательно, организациям следует стремиться к достижению того уровня, который они считают необходимым, исходя из своей зрелости и ценностей, которые хотят демонстрировать своим клиентам.
