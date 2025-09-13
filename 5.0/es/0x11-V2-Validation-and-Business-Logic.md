@@ -6,7 +6,7 @@ Este capítulo tiene como objetivo garantizar que una aplicación verificada cum
 
 * La información que recibe la aplicación cumple con las expectativas de negocio o funcionales.
 * El flujo de lógica de negocio es secuencial, se procesa en orden y no se puede omitir.
-* La lógica de negocio incluye límites y controles para detectar y prevenir ataques automatizados, como por ejemplo transferencias continuas de fondos pequeños o agregar de un millón de amigos a la vez.
+* La lógica de negocio incluye límites y controles para detectar y prevenir ataques automatizados, como por ejemplo transferencias continuas de pequeños fondos o intentar agregar mas de un millón de amigos a la vez.
 * Los flujos de lógica de negocio de alto valor han considerado casos de abuso y actores maliciosos, cuentan con protección contra suplantación de identidad (spoofing), manipulación (tampering), divulgación de información (information disclosure) y ataques de elevación de privilegios.
 
 ## V2.1 Documentación de validación y lógica de negocio
