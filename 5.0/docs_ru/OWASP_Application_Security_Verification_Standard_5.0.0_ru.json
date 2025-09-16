@@ -588,41 +588,41 @@
       "Shortcode": "V4",
       "Ordinal": 4,
       "ShortName": "API",
-      "Name": "API and Web Service",
+      "Name": "API и Веб-сервис",
       "Items": [
         {
           "Shortcode": "V4.1",
           "Ordinal": 1,
-          "Name": "Generic Web Service Security",
+          "Name": "Общая безопасность веб-сервисов",
           "Items": [
             {
               "Shortcode": "V4.1.1",
               "Ordinal": 1,
-              "Description": "Verify that every HTTP response with a message body contains a Content-Type header field that matches the actual content of the response, including the charset parameter to specify safe character encoding (e.g., UTF-8, ISO-8859-1) according to IANA Media Types, such as \"text/\", \"/+xml\" and \"/xml\".",
+              "Description": "Убедитесь, что каждый HTTP-ответ с телом сообщения содержит заголовок Content-Type, который соответствует фактическому содержимому ответа, таким как \"text/\", \"/+xml\" and \"/xml\", включая параметр charset для указания безопасной кодировки символов (например, UTF-8, ISO-8859-1) согласно IANA Media Types.",
               "L": "1"
             },
             {
               "Shortcode": "V4.1.2",
               "Ordinal": 2,
-              "Description": "Verify that only user-facing endpoints (intended for manual web-browser access) automatically redirect from HTTP to HTTPS, while other services or endpoints do not implement transparent redirects. This is to avoid a situation where a client is erroneously sending unencrypted HTTP requests, but since the requests are being automatically redirected to HTTPS, the leakage of sensitive data goes undiscovered.",
+              "Description": "Убедитесь, что только конечные точки, предназначенные для взаимодействия с пользователем через веб-браузер, автоматически перенаправляют HTTP на HTTPS, в то время как другие сервисы или конечные точки не реализуют прозрачные редиректы. Это необходимо, чтобы избежать ситуации, когда клиент ошибочно отправляет незашифрованные HTTP-запросы, а из-за того, что запрос по HTTP автоматически перенаправляется на HTTPS другим сервисом без обработки на входе, утечка чувствительных данных остаётся незамеченной.",
               "L": "2"
             },
             {
               "Shortcode": "V4.1.3",
               "Ordinal": 3,
-              "Description": "Verify that any HTTP header field used by the application and set by an intermediary layer, such as a load balancer, a web proxy, or a backend-for-frontend service, cannot be overridden by the end-user. Example headers might include X-Real-IP, X-Forwarded-*, or X-User-ID.",
+              "Description": "Убедитесь, что любой HTTP-заголовок, используемый приложением и устанавливаемый промежуточным уровнем, таким как балансировщик нагрузки, веб-прокси или backend-for-frontend сервис, не может быть переопределён конечным пользователем. Примеры заголовков: X-Real-IP, X-Forwarded-*, X-User-ID.",
               "L": "2"
             },
             {
               "Shortcode": "V4.1.4",
               "Ordinal": 4,
-              "Description": "Verify that only HTTP methods that are explicitly supported by the application or its API (including OPTIONS during preflight requests) can be used and that unused methods are blocked.",
+              "Description": "Убедитесь, что разрешены только HTTP-методы, которые явно поддерживаются приложением или его API (включая OPTIONS для preflight-запросов), а неиспользуемые методы заблокированы.",
               "L": "3"
             },
             {
               "Shortcode": "V4.1.5",
               "Ordinal": 5,
-              "Description": "Verify that per-message digital signatures are used to provide additional assurance on top of transport protections for requests or transactions which are highly sensitive or which traverse a number of systems.",
+              "Description": "Убедитесь, что для особо чувствительных запросов или транзакций, проходящих через несколько систем, используются цифровые подписи на уровне сообщений, дополнительно к транспортным средствам защиты.",
               "L": "3"
             }
           ]
@@ -630,36 +630,36 @@
         {
           "Shortcode": "V4.2",
           "Ordinal": 2,
-          "Name": "HTTP Message Structure Validation",
+          "Name": "Валидация структуры HTTP-сообщений",
           "Items": [
             {
               "Shortcode": "V4.2.1",
               "Ordinal": 1,
-              "Description": "Verify that all application components (including load balancers, firewalls, and application servers) determine boundaries of incoming HTTP messages using the appropriate mechanism for the HTTP version to prevent HTTP request smuggling. In HTTP/1.x, if a Transfer-Encoding header field is present, the Content-Length header must be ignored per RFC 2616. When using HTTP/2 or HTTP/3, if a Content-Length header field is present, the receiver must ensure that it is consistent with the length of the DATA frames.",
+              "Description": "Убедитесь, что все компоненты приложения (включая балансировщики нагрузки, файрволы и серверы приложений) определяют границы входящих HTTP-сообщений с использованием механизма, соответствующего версии HTTP, чтобы предотвратить HTTP request smuggling. В HTTP/1.x, если присутствует заголовок Transfer-Encoding, заголовок Content-Length должен игнорироваться согласно RFC 2616. При использовании HTTP/2 или HTTP/3, если присутствует Content-Length, веб-сервер должен убедиться, что он совпадает с длиной DATA-фреймов.",
               "L": "2"
             },
             {
               "Shortcode": "V4.2.2",
               "Ordinal": 2,
-              "Description": "Verify that when generating HTTP messages, the Content-Length header field does not conflict with the length of the content as determined by the framing of the HTTP protocol, in order to prevent request smuggling attacks.",
+              "Description": "Убедитесь, что при генерации HTTP-сообщений заголовок Content-Length не конфликтует с длиной содержимого, определяемой рамками протокола HTTP, чтобы предотвратить HTTP Request Smuggling.",
               "L": "3"
             },
             {
               "Shortcode": "V4.2.3",
               "Ordinal": 3,
-              "Description": "Verify that the application does not send nor accept HTTP/2 or HTTP/3 messages with connection-specific header fields such as Transfer-Encoding to prevent response splitting and header injection attacks.",
+              "Description": "Убедитесь, что приложение не отправляет и не принимает HTTP/2 и HTTP/3 сообщения с заголовками, специфичными для соединения, такими как Transfer-Encoding, чтобы предотвратить HTTP Response Splitting и HTTP Header Injection.",
               "L": "3"
             },
             {
               "Shortcode": "V4.2.4",
               "Ordinal": 4,
-              "Description": "Verify that the application only accepts HTTP/2 and HTTP/3 requests where the header fields and values do not contain any CR (\\r), LF (\\n), or CRLF (\\r\\n) sequences, to prevent header injection attacks.",
+              "Description": "Убедитесь, что приложение принимает HTTP/2 и HTTP/3 запросы только в случае, если поля заголовков и их значения не содержат последовательностей CR (\\r) LF (\\n) или CRLF (\\r\\n), чтобы предотвратить HTTP Header Injection.",
               "L": "3"
             },
             {
               "Shortcode": "V4.2.5",
               "Ordinal": 5,
-              "Description": "Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g., a long cookie header field), which results in the server always responding with an error status.",
+              "Description": "Убедитесь, что если приложение (бекенд или фронтенд) формирует и отправляет запросы, оно использует валидацию, очистку или другие механизмы, чтобы не создавать URI (например, для API-вызовов) или HTTP-заголовки (например, Authorization или Cookie) слишком большой длины, чтобы их не принимал приёмник. Это может привести к отказу в обслуживании, например, при отправке слишком длинного запроса (длинный cookie-заголовок), из-за чего сервер постоянно возвращает ошибку.",
               "L": "3"
             }
           ]
@@ -672,13 +672,13 @@
             {
               "Shortcode": "V4.3.1",
               "Ordinal": 1,
-              "Description": "Verify that a query allowlist, depth limiting, amount limiting, or query cost analysis is used to prevent GraphQL or data layer expression Denial of Service (DoS) as a result of expensive, nested queries.",
+              "Description": "Убедитесь, что используется белый список запросов, ограничение глубины вложенности, ограничение количества или анализ стоимости запроса, чтобы предотвратить DoS-атаки на уровне GraphQL или слоя данных из-за дорогостоящих вложенных запросов.",
               "L": "2"
             },
             {
               "Shortcode": "V4.3.2",
               "Ordinal": 2,
-              "Description": "Verify that GraphQL introspection queries are disabled in the production environment unless the GraphQL API is meant to be used by other parties.",
+              "Description": "Убедитесь, что introspection-запросы GraphQL отключены в продакшен-среде, если GraphQL API не предназначен для использования сторонними клиентами.",
               "L": "2"
             }
           ]
@@ -691,25 +691,25 @@
             {
               "Shortcode": "V4.4.1",
               "Ordinal": 1,
-              "Description": "Verify that WebSocket over TLS (WSS) is used for all WebSocket connections.",
+              "Description": "Убедитесь, что для всех WebSocket-соединений используется WebSocket поверх TLS (WSS).",
               "L": "1"
             },
             {
               "Shortcode": "V4.4.2",
               "Ordinal": 2,
-              "Description": "Verify that, during the initial HTTP WebSocket handshake, the Origin header field is checked against a list of origins allowed for the application.",
+              "Description": "Убедитесь, что при первоначальном HTTP WebSocket handshake заголовок Origin проверяется на соответствие списку разрешённых источников для приложения.",
               "L": "2"
             },
             {
               "Shortcode": "V4.4.3",
               "Ordinal": 3,
-              "Description": "Verify that, if the application's standard session management cannot be used, dedicated tokens are being used for this, which comply with the relevant Session Management security requirements.",
+              "Description": "Убедитесь, что если стандартное управление сессиями приложения не может быть использовано, применяются специальные токены, соответствующие требованиям безопасности управления сессиями",
               "L": "2"
             },
             {
               "Shortcode": "V4.4.4",
               "Ordinal": 4,
-              "Description": "Verify that dedicated WebSocket session management tokens are initially obtained or validated through the previously authenticated HTTPS session when transitioning an existing HTTPS session to a WebSocket channel.",
+              "Description": "Убедитесь, что специальные токены управления сессиями WebSocket изначально получаются или валидируются через ранее аутентифицированную HTTPS-сессию при переходе от HTTPS к WebSocket.",
               "L": "2"
             }
           ]
