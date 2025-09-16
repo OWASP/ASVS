@@ -344,18 +344,18 @@
     {
       "Shortcode": "V3",
       "Ordinal": 3,
-      "ShortName": "Web",
-      "Name": "Web Frontend Security",
+      "ShortName": "Веб",
+      "Name": "Безопасность веб-интерфейса",
       "Items": [
         {
           "Shortcode": "V3.1",
           "Ordinal": 1,
-          "Name": "Web Frontend Security Documentation",
+          "Name": "Документация по безопасности веб-интерфейса",
           "Items": [
             {
               "Shortcode": "V3.1.1",
               "Ordinal": 1,
-              "Description": "Verify that application documentation states the expected security features that browsers using the application must support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It must also define how the application must behave when some of these features are not available (such as warning the user or blocking access).",
+              "Description": "Убедитесь, что в документации приложения описаны ожидаемые функции безопасности, которые должны поддерживать браузеры, использующие приложение (такие как HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP) и другие соответствующие механизмы безопасности HTTP). В документации также должно быть обязательно определено, как приложение должно себя вести, если некоторые из этих функций недоступны (например, предупреждать пользователя или блокировать доступ).",
               "L": "3"
             }
           ]
@@ -363,24 +363,24 @@
         {
           "Shortcode": "V3.2",
           "Ordinal": 2,
-          "Name": "Unintended Content Interpretation",
+          "Name": "Непреднамеренная интерпретация контента",
           "Items": [
             {
               "Shortcode": "V3.2.1",
               "Ordinal": 1,
-              "Description": "Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field.",
+              "Description": "Убедитесь, что реализованы меры безопасности, предотвращающие отображение контента или функций браузерами в HTTP-ответах в некорректном контексте (например, запрос API, загруженный пользователем файл или другой ресурс запрашивается напрямую). Возможные способы контроля включают: не обрабатывать содержимое, если поля заголовка HTTP-запроса (например, Sec-Fetch-*) не указывают на корректность контекста; использование заголовка и значения Content-Security-Policy: sandbox directive; или использование заголовка и значения Content-Disposition: attachment.",
               "L": "1"
             },
             {
               "Shortcode": "V3.2.2",
               "Ordinal": 2,
-              "Description": "Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript.",
+              "Description": "Убедитесь, что данные, предназначенные для отображения в виде текста, а не визуализации в виде HTML, обрабатывается с использованием безопасных функций визуализации (таких как createTextNode или textContent), чтобы предотвратить непреднамеренное выполнение содержимого, такого как HTML или JavaScript.",
               "L": "1"
             },
             {
               "Shortcode": "V3.2.3",
               "Ordinal": 3,
-              "Description": "Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation.",
+              "Description": "Убедитесь, что приложение избегает затирания DOM при использовании JavaScript на стороне клиента, применяя явные объявления переменных, выполняя строгую проверку типов, избегая сохранения глобальных переменных в объекте документа и реализуя изоляцию пространства имен.",
               "L": "3"
             }
           ]
@@ -388,36 +388,36 @@
         {
           "Shortcode": "V3.3",
           "Ordinal": 3,
-          "Name": "Cookie Setup",
+          "Name": "Настройка файлов cookie",
           "Items": [
             {
               "Shortcode": "V3.3.1",
               "Ordinal": 1,
-              "Description": "Verify that cookies have the 'Secure' attribute set, and if the '\\__Host-' prefix is not used for the cookie name, the '__Secure-' prefix must be used for the cookie name.",
+              "Description": "Убедитесь, что у файлов cookie установлен атрибут «Secure», и если префикс '\\__Host‑' не используется в названии cookie, необходимо использовать префикс '__Secure‑'.",
               "L": "1"
             },
             {
               "Shortcode": "V3.3.2",
               "Ordinal": 2,
-              "Description": "Verify that each cookie's 'SameSite' attribute value is set according to the purpose of the cookie, to limit exposure to user interface redress attacks and browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF).",
+              "Description": "Убедитесь, что значение атрибута SameSite каждой cookie установлено в соответствии с назначением cookie, чтобы ограничить подверженность атакам на восстановление пользовательского интерфейса и атакам с подделкой запросов на уровне браузера, обычно называемым подделкой межсайтовых запросов (CSRF).",
               "L": "2"
             },
             {
               "Shortcode": "V3.3.3",
               "Ordinal": 3,
-              "Description": "Verify that cookies have the '__Host-' prefix for the cookie name unless they are explicitly designed to be shared with other hosts.",
+              "Description": "Убедитесь, что cookie имеют префикс «__Host‑» в названии, если только они явно не предназначены для совместного использования с другими хостами.",
               "L": "2"
             },
             {
               "Shortcode": "V3.3.4",
               "Ordinal": 4,
-              "Description": "Verify that if the value of a cookie is not meant to be accessible to client-side scripts (such as a session token), the cookie must have the 'HttpOnly' attribute set and the same value (e. g. session token) must only be transferred to the client via the 'Set-Cookie' header field.",
+              "Description": "Убедитесь, что если значение cookie не должно быть доступно для клиентских скриптов (например, сессионный токен), для cookie должен быть установлен атрибут «HttpOnly», а само значение должно передаваться клиенту только через поле заголовка «Set-Cookie».",
               "L": "2"
             },
             {
               "Shortcode": "V3.3.5",
               "Ordinal": 5,
-              "Description": "Verify that when the application writes a cookie, the cookie name and value length combined are not over 4096 bytes. Overly large cookies will not be stored by the browser and therefore not sent with requests, preventing the user from using application functionality which relies on that cookie.",
+              "Description": "Убедитесь, что при записи cookie приложением общая длина имени и значения cookie не превышает 4096 байт. Слишком большие cookie не будут сохраняться браузером и, следовательно, не будут отправляться с запросами, что помешает пользователю использовать функции приложения, зависящие от этого cookie.",
               "L": "3"
             }
           ]
@@ -425,54 +425,54 @@
         {
           "Shortcode": "V3.4",
           "Ordinal": 4,
-          "Name": "Browser Security Mechanism Headers",
+          "Name": "Заголовки механизма безопасности браузера",
           "Items": [
             {
               "Shortcode": "V3.4.1",
               "Ordinal": 1,
-              "Description": "Verify that a Strict-Transport-Security header field is included on all responses to enforce an HTTP Strict Transport Security (HSTS) policy. A maximum age of at least 1 year must be defined, and for L2 and up, the policy must apply to all subdomains as well.",
+              "Description": "Убедитесь, что поле заголовка Strict‑Transport‑Security включено во все ответы для реализации политики HTTP Strict Transport Security (HSTS). Необходимо указать максимальное время не менее 1 года, а для L2 и выше политика должна применяться также ко всем поддоменам.",
               "L": "1"
             },
             {
               "Shortcode": "V3.4.2",
               "Ordinal": 2,
-              "Description": "Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field is a fixed value by the application, or if the Origin HTTP request header field value is used, it is validated against an allowlist of trusted origins. When 'Access-Control-Allow-Origin: *' needs to be used, verify that the response does not include any sensitive information.",
+              "Description": "Убедитесь, что поле заголовка Cross‑Origin Resource Sharing (CORS) 'Access‑Control‑Allow‑Origin' имеет фиксированное значение, заданное приложением, или, если используется заголовок Origin, оно проверяется по списку доверенных источников. При необходимости использования 'Access‑Control‑Allow‑Origin: *' убедитесь, что ответ не содержит конфиденциальной информации.",
               "L": "1"
             },
             {
               "Shortcode": "V3.4.3",
               "Ordinal": 3,
-              "Description": "Verify that HTTP responses include a Content-Security-Policy response header field which defines directives to ensure the browser only loads and executes trusted content or resources, in order to limit execution of malicious JavaScript. As a minimum, a global policy must be used which includes the directives object-src 'none' and base-uri 'none' and defines either an allowlist or uses nonces or hashes. For an L3 application, a per-response policy with nonces or hashes must be defined.",
+              "Description": "Убедитесь, что HTTP-ответы содержат поле заголовка Content-Security-Policy, которое определяет директивы, гарантирующие загрузку и выполнение браузером только доверенного контента или ресурсов, чтобы ограничить выполнение вредоносного JavaScript. Как минимум, необходимо использовать глобальную политику, включающую директивы object-src «none» и base-uri «none», а также определяющую список разрешенных адресов или использующую одноразовые коды или хэши. Для приложений L3 необходимо определить политику использования 'nonce' или hash-конструкций для каждого ответа.",
               "L": "2"
             },
             {
               "Shortcode": "V3.4.4",
               "Ordinal": 4,
-              "Description": "Verify that all HTTP responses contain an 'X-Content-Type-Options: nosniff' header field. This instructs browsers not to use content sniffing and MIME type guessing for the given response, and to require the response's Content-Type header field value to match the destination resource. For example, the response to a request for a style is only accepted if the response's Content-Type is 'text/css'. This also enables the use of the Cross-Origin Read Blocking (CORB) functionality by the browser.",
+              "Description": "Убедитесь, что все HTTP-ответы содержат поле заголовка «X‑Content‑Type‑Options: nosniff». Это предписывает браузерам не использовать анализ контента и определение типа MIME для данного ответа, а также требовать, чтобы значение поля заголовка Content‑Type в ответе соответствовало целевому ресурсу. Например, ответ на запрос стиля принимается только в том случае, если Content‑Type в ответе — «text/css». Это также позволяет браузеру использовать функцию Cross‑Origin Read Blocking (CORB).",
               "L": "2"
             },
             {
               "Shortcode": "V3.4.5",
               "Ordinal": 5,
-              "Description": "Verify that the application sets a referrer policy to prevent leakage of technically sensitive data to third-party services via the 'Referer' HTTP request header field. This can be done using the Referrer-Policy HTTP response header field or via HTML element attributes. Sensitive data could include path and query data in the URL, and for internal non-public applications also the hostname.",
+              "Description": "Убедитесь, что приложение устанавливает политику реферера для предотвращения утечки технически конфиденциальных данных сторонним сервисам через поле заголовка HTTP-запроса «Referer». Это можно сделать с помощью поля заголовка HTTP-ответа «Referrer‑Policy» или через атрибуты HTML-элемента. Конфиденциальные данные могут включать путь и данные запроса в URL-адресе, а для внутренних непубличных приложений также имя хоста.",
               "L": "2"
             },
             {
               "Shortcode": "V3.4.6",
               "Ordinal": 6,
-              "Description": "Verify that the web application uses the frame-ancestors directive of the Content-Security-Policy header field for every HTTP response to ensure that it cannot be embedded by default and that embedding of specific resources is allowed only when necessary. Note that the X-Frame-Options header field, although supported by browsers, is obsolete and may not be relied upon.",
+              "Description": "Убедитесь, что веб-приложение использует директиву frame‑ancestors поля заголовка Content‑Security‑Policy для каждого HTTP-ответа, чтобы гарантировать невозможность его внедрения по умолчанию и внедрение определённых ресурсов разрешено только при необходимости. Обратите внимание, что поле заголовка X‑Frame‑Options, хотя и поддерживается браузерами, устарело и не может быть использовано в качестве основы.",
               "L": "2"
             },
             {
               "Shortcode": "V3.4.7",
               "Ordinal": 7,
-              "Description": "Verify that the Content-Security-Policy header field specifies a location to report violations.",
+              "Description": "Убедитесь, что в поле заголовка Content‑Security‑Policy указано место, куда следует сообщать о нарушениях.",
               "L": "3"
             },
             {
               "Shortcode": "V3.4.8",
               "Ordinal": 8,
-              "Description": "Verify that all HTTP responses that initiate a document rendering (such as responses with Content-Type text/html), include the Cross‑Origin‑Opener‑Policy header field with the same-origin directive or the same-origin-allow-popups directive as required. This prevents attacks that abuse shared access to Window objects, such as tabnabbing and frame counting.",
+              "Description": "Убедитесь, что все HTTP-ответы, инициирующие рендеринг документа (например, ответы с типом содержимого text/html), включают поле заголовка Cross-Origin-Opener-Policy с директивой same-origin или same-origin-allow-popups (при необходимости). Это предотвращает атаки, злоупотребляющие общим доступом к объектам Window, такие как Tabnabbing и Frame Counting.",
               "L": "3"
             }
           ]
@@ -480,54 +480,54 @@
         {
           "Shortcode": "V3.5",
           "Ordinal": 5,
-          "Name": "Browser Origin Separation",
+          "Name": "Браузерное разделение источников",
           "Items": [
             {
               "Shortcode": "V3.5.1",
               "Ordinal": 1,
-              "Description": "Verify that, if the application does not rely on the CORS preflight mechanism to prevent disallowed cross-origin requests to use sensitive functionality, these requests are validated to ensure they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP header fields that are not CORS-safelisted request-header fields. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF).",
+              "Description": "Убедитесь, что, если приложение не использует механизм предварительной проверки CORS для предотвращения запрещённых кросс-доменных запросов на использование чувствительного функционала, эти запросы валидируются на предмет их происхождения от самого приложения. Это можно сделать, используя и проверяя специальные токены для защиты от подделки или требуя дополнительные поля HTTP-заголовка, не входящие в список 'простых заголовков' (CORS-safelisted request-header). Это необходимо для защиты от атак с подделкой запросов через браузер, широко известных как межсайтовая подделка запросов (CSRF).",
               "L": "1"
             },
             {
               "Shortcode": "V3.5.2",
               "Ordinal": 2,
-              "Description": "Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a request which does not trigger a CORS-preflight request. This may require checking the values of the 'Origin' and 'Content-Type' request header fields or using an extra header field that is not a CORS-safelisted header-field.",
+              "Description": "Убедитесь, что если приложение использует механизм предварительной проверки CORS для предотвращения неразрешённого использования чувствительного функционала между источниками, вызов этого функционала невозможен с помощью запроса, который не запускает предварительную проверку CORS. Для этого может потребоваться проверка значений полей заголовка запроса «Origin» и «Content-Type» или использование дополнительного поля заголовка, не входящего в безопасный список CORS.",
               "L": "1"
             },
             {
               "Shortcode": "V3.5.3",
               "Ordinal": 3,
-              "Description": "Verify that HTTP requests to sensitive functionality use appropriate HTTP methods such as POST, PUT, PATCH, or DELETE, and not methods defined by the HTTP specification as \"safe\" such as HEAD, OPTIONS, or GET. Alternatively, strict validation of the Sec-Fetch-* request header fields can be used to ensure that the request did not originate from an inappropriate cross-origin call, a navigation request, or a resource load (such as an image source) where this is not expected.",
+              "Description": "Убедитесь, что HTTP-запросы к чувствительному функционалу используют соответствующие HTTP-методы, такие как POST, PUT, PATCH или DELETE, а не методы, определённые спецификацией HTTP как «безопасные», такие как HEAD, OPTIONS или GET. В качестве альтернативы можно использовать строгую валидацию полей заголовка запроса Sec‑Fetch‑*, чтобы убедиться, что запрос не исходит из недопустимого кросс-доменного вызова, навигационного запроса или загрузки ресурса (например, источника изображения), где это не ожидается.",
               "L": "1"
             },
             {
               "Shortcode": "V3.5.4",
               "Ordinal": 4,
-              "Description": "Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies.",
+              "Description": "Убедитесь, что отдельные приложения размещены на разных именах хостов, чтобы использовать ограничения, предусмотренные политикой same-origin, включая то, как документы или скрипты, загруженные одним источником, могут взаимодействовать с ресурсами из другого источника, а также ограничения на cookie на основе имени хоста.",
               "L": "2"
             },
             {
               "Shortcode": "V3.5.5",
               "Ordinal": 5,
-              "Description": "Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid.",
+              "Description": "Убедитесь, что сообщения, полученные интерфейсом postMessage, отвергаются, если источник сообщения не является доверенным или если синтаксис сообщения недействителен.",
               "L": "2"
             },
             {
               "Shortcode": "V3.5.6",
               "Ordinal": 6,
-              "Description": "Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks.",
+              "Description": "Убедитесь, что функциональность JSONP не включена нигде в приложении, чтобы избежать атак с использованием межсайтового включения скриптов (XSSI).",
               "L": "3"
             },
             {
               "Shortcode": "V3.5.7",
               "Ordinal": 7,
-              "Description": "Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks.",
+              "Description": "Убедитесь, что данные, требующие авторизации, не включены в ответы ресурсов скриптов, таких как файлы JavaScript, чтобы предотвратить атаки с использованием межсайтового включения скриптов (XSSI).",
               "L": "3"
             },
             {
               "Shortcode": "V3.5.8",
               "Ordinal": 8,
-              "Description": "Verify that authenticated resources (such as images, videos, scripts, and other documents) can be loaded or embedded on behalf of the user only when intended. This can be accomplished by strict validation of the Sec-Fetch-* HTTP request header fields to ensure that the request did not originate from an inappropriate cross-origin call, or by setting a restrictive Cross-Origin-Resource-Policy HTTP response header field to instruct the browser to block returned content.",
+              "Description": "Убедитесь, что аутентифицированные ресурсы (такие как изображения, видео, скрипты и другие документы) могут быть загружены или внедрены от имени пользователя только по назначению. Этого можно добиться путём строгой валидации полей заголовка HTTP-запроса Sec‑Fetch‑*, чтобы убедиться, что запрос не исходит из недопустимого кросс-доменного вызова, или путём установки ограничительного поля заголовка HTTP-ответа Cross‑Origin‑Resource‑Policy, чтобы браузер блокировал возвращаемый контент.",
               "L": "3"
             }
           ]
@@ -535,12 +535,12 @@
         {
           "Shortcode": "V3.6",
           "Ordinal": 6,
-          "Name": "External Resource Integrity",
+          "Name": "Целостность внешних ресурсов",
           "Items": [
             {
               "Shortcode": "V3.6.1",
               "Ordinal": 1,
-              "Description": "Verify that client-side assets, such as JavaScript libraries, CSS, or web fonts, are only hosted externally (e.g., on a Content Delivery Network) if the resource is static and versioned and Subresource Integrity (SRI) is used to validate the integrity of the asset. If this is not possible, there should be a documented security decision to justify this for each resource.",
+              "Description": "Убедитесь, что клиентские ресурсы, такие как библиотеки JavaScript, CSS или веб-шрифты, размещаются только на внешнем сервере (например, в сети доставки контента (Content Delivery Network)), если ресурс статический и имеет версии, а для проверки целостности ресурса используется механизм проверки целостности подресурсов (SRI). Если это невозможно, для каждого ресурса должно быть задокументировано решение по безопасности, обосновывающее это.",
               "L": "3"
             }
           ]
@@ -548,36 +548,36 @@
         {
           "Shortcode": "V3.7",
           "Ordinal": 7,
-          "Name": "Other Browser Security Considerations",
+          "Name": "Другие соображения по безопасности браузера",
           "Items": [
             {
               "Shortcode": "V3.7.1",
               "Ordinal": 1,
-              "Description": "Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets.",
+              "Description": "Убедитесь, что приложение использует только те клиентские технологии, которые по-прежнему поддерживаются и считаются безопасными. Примерами технологий, не соответствующих этому требованию, являются плагины NSAPI, Flash, Shockwave, ActiveX, Silverlight, NACL или клиентские Java-апплеты.",
               "L": "2"
             },
             {
               "Shortcode": "V3.7.2",
               "Ordinal": 2,
-              "Description": "Verify that the application will only automatically redirect the user to a different hostname or domain (which is not controlled by the application) where the destination appears on an allowlist.",
+              "Description": "Убедитесь, что приложение будет автоматически перенаправлять пользователя на другое имя хоста или домен (который не контролируется приложением), только если этот хост или домен указаны в списке разрешенных.",
               "L": "2"
             },
             {
               "Shortcode": "V3.7.3",
               "Ordinal": 3,
-              "Description": "Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation.",
+              "Description": "Убедитесь, что приложение отображает уведомление, что пользователь перенаправляется на URL-адрес, находящийся вне контроля приложения, с возможностью отмены навигации.",
               "L": "3"
             },
             {
               "Shortcode": "V3.7.4",
               "Ordinal": 4,
-              "Description": "Verify that the application's top-level domain (e.g., site.tld) is added to the public preload list for HTTP Strict Transport Security (HSTS). This ensures that the use of TLS for the application is built directly into the main browsers, rather than relying only on the Strict-Transport-Security response header field.",
+              "Description": "Убедитесь, что домен верхнего уровня приложения (например, site.tld) ​​добавлен в публичный список предварительной загрузки (preload list) для HTTP Strict Transport Security (HSTS). Это гарантирует, что использование TLS для приложения будет встроено непосредственно в основные браузеры, а не будет полагаться только на поле заголовка ответа Strict-Transport-Security.",
               "L": "3"
             },
             {
               "Shortcode": "V3.7.5",
               "Ordinal": 5,
-              "Description": "Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features.",
+              "Description": "Убедитесь, что приложение ведет себя так, как описано в документации (например, предупреждает пользователя или блокирует доступ), если браузер, используемый для доступа к приложению, не поддерживает ожидаемые функции безопасности.",
               "L": "3"
             }
           ]
