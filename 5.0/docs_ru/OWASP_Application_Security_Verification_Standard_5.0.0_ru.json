@@ -230,30 +230,30 @@
     {
       "Shortcode": "V2",
       "Ordinal": 2,
-      "ShortName": "Validation",
-      "Name": "Validation and Business Logic",
+      "ShortName": "Валидация",
+      "Name": "Валидация и бизнес-логика",
       "Items": [
         {
           "Shortcode": "V2.1",
           "Ordinal": 1,
-          "Name": "Validation and Business Logic Documentation",
+          "Name": "Документация валидации и бизнес-логики",
           "Items": [
             {
               "Shortcode": "V2.1.1",
               "Ordinal": 1,
-              "Description": "Verify that the application's documentation defines input validation rules for how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, email addresses, telephone numbers, or it could be an internal data format.",
+              "Description": "Убедитесь, что в документации приложения определены правила проверки входных данных на соответствие ожидаемой структуре. Это могут быть распространённые форматы данных, такие как номера кредитных карт, адреса электронной почты, номера телефонов, или внутренний формат данных.",
               "L": "1"
             },
             {
               "Shortcode": "V2.1.2",
               "Ordinal": 2,
-              "Description": "Verify that the application's documentation defines how to validate the logical and contextual consistency of combined data items, such as checking that suburb and ZIP code match.",
+              "Description": "Убедитесь, что в документации приложения указано, как проверять логическую и контекстную согласованность объединенных  данных, например, проверять соответствие района и почтового индекса.",
               "L": "2"
             },
             {
               "Shortcode": "V2.1.3",
               "Ordinal": 3,
-              "Description": "Verify that expectations for business logic limits and validations are documented, including both per-user and globally across the application.",
+              "Description": "Убедитесь, что ожидания относительно ограничений и проверок бизнес-логики задокументированы как для уровня отдельного пользователя, так и для глобального уровня всего приложения.",
               "L": "2"
             }
           ]
@@ -261,24 +261,24 @@
         {
           "Shortcode": "V2.2",
           "Ordinal": 2,
-          "Name": "Input Validation",
+          "Name": "Валидация ввода",
           "Items": [
             {
               "Shortcode": "V2.2.1",
               "Ordinal": 1,
-              "Description": "Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allow list of values, patterns, and ranges, or be based on comparing the input to an expected structure and logical limits according to predefined rules. For L1, this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input.",
+              "Description": "Убедитесь, что входные данные провалидированы для обеспечения соответствия бизнес- или функциональным ожиданиям. Валидация должна осуществляться либо по списку допустимых значений, шаблонов и диапазонов, либо путем сравнения входных данных с ожидаемой структурой и логическими ограничениями в соответствии с предопределенными правилами. Для L1 валидация может быть сосредоточена на входных данных, используемых для принятия конкретных бизнес-решений или решений, связанных с безопасностью. Для L2 и выше это должно применяться ко всем входным данным.",
               "L": "1"
             },
             {
               "Shortcode": "V2.2.2",
               "Ordinal": 2,
-              "Description": "Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability and should be encouraged, it must not be relied upon as a security control.",
+              "Description": "Убедитесь, что приложение разработано с принудительной валидацией входных данных на уровне доверенного сервиса. Хотя проверка на стороне клиента повышает удобство использования и должна поощряться, на неё не следует полагаться как на средство контроля безопасности.",
               "L": "1"
             },
             {
               "Shortcode": "V2.2.3",
               "Ordinal": 3,
-              "Description": "Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules.",
+              "Description": "Убедитесь, что приложение обеспечивает обоснованность комбинаций данных в соответствии с предопределенными правилам. Например: возраст должен соответствовать дате рождения; страна и почтовый индекс; количество товара в заказе и на складе.",
               "L": "2"
             }
           ]
@@ -286,36 +286,36 @@
         {
           "Shortcode": "V2.3",
           "Ordinal": 3,
-          "Name": "Business Logic Security",
+          "Name": "Безопасность бизнес-логики",
           "Items": [
             {
               "Shortcode": "V2.3.1",
               "Ordinal": 1,
-              "Description": "Verify that the application will only process business logic flows for the same user in the expected sequential step order and without skipping steps.",
+              "Description": "Убедитесь, что приложение обрабатывает потоки бизнес-логики для одного и того же пользователя в ожидаемом последовательном порядке шагов и без пропуска шагов.",
               "L": "1"
             },
             {
               "Shortcode": "V2.3.2",
               "Ordinal": 2,
-              "Description": "Verify that business logic limits are implemented per the application's documentation to avoid business logic flaws being exploited.",
+              "Description": "Убедитесь, что ограничения бизнес-логики реализованы в соответствии с документацией приложения, чтобы избежать эксплуатации её недостатков.",
               "L": "2"
             },
             {
               "Shortcode": "V2.3.3",
               "Ordinal": 3,
-              "Description": "Verify that transactions are being used at the business logic level such that either a business logic operation succeeds in its entirety or it is rolled back to the previous correct state.",
+              "Description": "Убедитесь, что транзакции используются на уровне бизнес-логики таким образом, что операция бизнес-логики либо выполняется полностью, либо откатывается к предыдущему корректному состоянию.",
               "L": "2"
             },
             {
               "Shortcode": "V2.3.4",
               "Ordinal": 4,
-              "Description": "Verify that business logic level locking mechanisms are used to ensure that limited quantity resources (such as theater seats or delivery slots) cannot be double-booked by manipulating the application's logic.",
+              "Description": "Убедитесь, что на уровне бизнес-логики используются механизмы блокировки, чтобы гарантировать невозможность двойного бронирования ограниченных по количеству ресурсов (например, мест в театре или слотов доставки) путем манипулирования логикой приложения.",
               "L": "2"
             },
             {
               "Shortcode": "V2.3.5",
               "Ordinal": 5,
-              "Description": "Verify that high-value business logic flows require multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to classified information, or safety overrides in manufacturing.",
+              "Description": "Убедитесь, что для важных потоков бизнес-логики требуется многопользовательское (multi-user) одобрение, чтобы предотвратить несанкционированные или случайные действия. Потоки бизнес-логики могут включать, помимо прочего, крупные денежные переводы, утверждение контрактов, доступ к секретной информации или обход ограничений безопасности на производстве.",
               "L": "3"
             }
           ]
@@ -323,18 +323,18 @@
         {
           "Shortcode": "V2.4",
           "Ordinal": 4,
-          "Name": "Anti-automation",
+          "Name": "Анти-автоматизация",
           "Items": [
             {
               "Shortcode": "V2.4.1",
               "Ordinal": 1,
-              "Description": "Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, garbage-data creation, quota exhaustion, rate-limit breaches, denial-of-service, or overuse of costly resources.",
+              "Description": "Убедитесь, что используются средства противодействия автоматизации для защиты от чрезмерных вызовов функций приложения, которые могут привести к утечке данных, созданию ненужных данных, исчерпанию квот, нарушению ограничений скорости, отказу в обслуживании или чрезмерному использованию дорогостоящих ресурсов.",
               "L": "2"
             },
             {
               "Shortcode": "V2.4.2",
               "Ordinal": 2,
-              "Description": "Verify that business logic flows require realistic human timing, preventing excessively rapid transaction submissions.",
+              "Description": "Убедитесь, что потоки бизнес-логики требуют реалистичного человеческого времени, предотвращая чрезмерно быструю отправку транзакций.",
               "L": "3"
             }
           ]
