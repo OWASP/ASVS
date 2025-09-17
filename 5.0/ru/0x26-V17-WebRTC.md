@@ -65,7 +65,7 @@ Web Real-Time Communication (WebRTC) — технология, обеспечи�
 
 Для дополнительной информации см. также:
 
-* DoS-атака WebRTC DTLS ClientHello лучше всего документирована в записи [блога Enable Security для специалистов по безопасности](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) и соответствующем [техническом документе для разработчиков WebRTC](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+* DoS-атака WebRTC DTLS ClientHello лучше всего документирована [в записи блога Enable Security для специалистов по безопасности](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) и соответствующем [техническом документе для разработчиков WebRTC](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
 * [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
 * [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
 * [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)

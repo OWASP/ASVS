@@ -32,7 +32,7 @@
 
 ## Другие
 
-Следующие web-сайты, скорее всего, также будут полезны для читателей/последователей этого стандарта:
+Следующие веб-сайты, скорее всего, также будут полезны для читателей/последователей этого стандарта:
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
 2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
