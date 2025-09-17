@@ -2528,17 +2528,17 @@
       "Shortcode": "V16",
       "Ordinal": 16,
       "ShortName": "Security",
-      "Name": "Security Logging and Error Handling",
+      "Name": "Журналирование событий безопасности и обработка ошибок",
       "Items": [
         {
           "Shortcode": "V16.1",
           "Ordinal": 1,
-          "Name": "Security Logging Documentation",
+          "Name": "Документация по ведению логов",
           "Items": [
             {
               "Shortcode": "V16.1.1",
               "Ordinal": 1,
-              "Description": "Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled, and for how long logs are kept.",
+              "Description": "Убедитесь в существовании реестра, в котором документируется ведение журнала на каждом уровне технологического стека приложения, включая какие события регистрируются, форматы логов, где хранятся эти журналы, как они используются, как контролируется доступ к ним и как долго хранятся журналы.",
               "L": "2"
             }
           ]
@@ -2546,36 +2546,36 @@
         {
           "Shortcode": "V16.2",
           "Ordinal": 2,
-          "Name": "General Logging",
+          "Name": "Общее журналирование",
           "Items": [
             {
               "Shortcode": "V16.2.1",
               "Ordinal": 1,
-              "Description": "Verify that each log entry includes necessary metadata (such as when, where, who, what) that would allow for a detailed investigation of the timeline when an event happens.",
+              "Description": "Убедитесь, что каждая запись журнала содержит необходимые метаданные (например, когда, где, кто, что), которые позволят провести подробное исследование временной шкалы, когда произошло событие.",
               "L": "2"
             },
             {
               "Shortcode": "V16.2.2",
               "Ordinal": 2,
-              "Description": "Verify that time sources for all logging components are synchronized, and that timestamps in security event metadata use UTC or include an explicit time zone offset. UTC is recommended to ensure consistency across distributed systems and to prevent confusion during daylight saving time transitions.",
+              "Description": "Убедитесь, что все источники времени компонентов системы журналирования синхронизированы, а временные метки в метаданных событий безопасности используют UTC или содержат явное указание смещения часового пояса. Рекомендуется применять UTC для обеспечения согласованности в распределённых системах и предотвращения ошибок при переходе на летнее/зимнее время.",
               "L": "2"
             },
             {
               "Shortcode": "V16.2.3",
               "Ordinal": 3,
-              "Description": "Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory.",
+              "Description": "Убедитесь, что приложение записывает и передаёт логи исключительно в те файлы и сервисы, которые указаны в реестре журналирования.",
               "L": "2"
             },
             {
               "Shortcode": "V16.2.4",
               "Ordinal": 4,
-              "Description": "Verify that logs can be read and correlated by the log processor that is in use, preferably by using a common logging format.",
+              "Description": "Убедитесь, что логи могут быть прочитаны и коррелированы используемой системой обработки журналов, предпочтительно с использованием общего стандартного формата логирования.",
               "L": "2"
             },
             {
               "Shortcode": "V16.2.5",
               "Ordinal": 5,
-              "Description": "Verify that when logging sensitive data, the application enforces logging based on the data's protection level. For example, it may not be allowed to log certain data, such as credentials or payment details. Other data, such as session tokens, may only be logged by being hashed or masked, either in full or partially.",
+              "Description": "Убедитесь, что приложение применяет соответствующие меры защиты при логировании конфиденциальных данных в зависимости от уровня их чувствительности: например, полностью запрещает запись в логи таких данных, как учетные данные или платежные реквизиты, а для других данных (например, сессионных токенов) использует хеширование или частичное/полное маскирование.",
               "L": "2"
             }
           ]
@@ -2583,30 +2583,30 @@
         {
           "Shortcode": "V16.3",
           "Ordinal": 3,
-          "Name": "Security Events",
+          "Name": "Инциденты безопасности",
           "Items": [
             {
               "Shortcode": "V16.3.1",
               "Ordinal": 1,
-              "Description": "Verify that all authentication operations are logged, including successful and unsuccessful attempts. Additional metadata, such as the type of authentication or factors used, should also be collected.",
+              "Description": "Убедитесь, что все операции аутентификации регистрируются, включая успешные и неудачные попытки. Также следует фиксировать дополнительные метаданные, такие как тип аутентификации или использованные факторы проверки.",
               "L": "2"
             },
             {
               "Shortcode": "V16.3.2",
               "Ordinal": 2,
-              "Description": "Verify that failed authorization attempts are logged. For L3, this must include logging all authorization decisions, including logging when sensitive data is accessed (without logging the sensitive data itself).",
+              "Description": "Убедитесь, что ведется журнал неудачных попыток авторизации. Для уровня L3 это должно включать в себя журналирование всех решений об авторизации, включая журналирование доступа к конфиденциальным данным (без регистрации самих конфиденциальных данных).",
               "L": "2"
             },
             {
               "Shortcode": "V16.3.3",
               "Ordinal": 3,
-              "Description": "Verify that the application logs the security events that are defined in the documentation and also logs attempts to bypass the security controls, such as input validation, business logic, and anti-automation.",
+              "Description": "Убедитесь, что приложение регистрирует все события безопасности, определенные в документации, а также фиксирует попытки обхода механизмов защиты, включая проверку входных данных, бизнес-логики и системы защиты от автоматизированных атак.",
               "L": "2"
             },
             {
               "Shortcode": "V16.3.4",
               "Ordinal": 4,
-              "Description": "Verify that the application logs unexpected errors and security control failures such as backend TLS failures.",
+              "Description": "Убедитесь, что приложение регистрирует в журналах неожиданные ошибки и сбои механизмов безопасности, включая, например, ошибки TLS-соединения на стороне сервера.",
               "L": "2"
             }
           ]
@@ -2614,24 +2614,24 @@
         {
           "Shortcode": "V16.4",
           "Ordinal": 4,
-          "Name": "Log Protection",
+          "Name": "Защита журналов",
           "Items": [
             {
               "Shortcode": "V16.4.1",
               "Ordinal": 1,
-              "Description": "Verify that all logging components appropriately encode data to prevent log injection.",
+              "Description": "Убедитесь, что все компоненты системы логирования корректно кодируют данные, чтобы предотвратить атаки типа внедрения в журналы (log injection).",
               "L": "2"
             },
             {
               "Shortcode": "V16.4.2",
               "Ordinal": 2,
-              "Description": "Verify that logs are protected from unauthorized access and cannot be modified.",
+              "Description": "Убедитесь, что логи защищены от неавторизованного доступа и не могут быть модифицированы.",
               "L": "2"
             },
             {
               "Shortcode": "V16.4.3",
               "Ordinal": 3,
-              "Description": "Verify that logs are securely transmitted to a logically separate system for analysis, detection, alerting, and escalation. The aim is to ensure that if the application is breached, the logs are not compromised.",
+              "Description": "Убедитесь, что логи безопасно передаются в логически изолированную систему для анализа, обнаружения угроз, генерации оповещений и эскалации инцидентов. Это гарантирует сохранность журналов даже в случае компрометации основного приложения.",
               "L": "2"
             }
           ]
@@ -2639,30 +2639,30 @@
         {
           "Shortcode": "V16.5",
           "Ordinal": 5,
-          "Name": "Error Handling",
+          "Name": "Обработка ошибок",
           "Items": [
             {
               "Shortcode": "V16.5.1",
               "Ordinal": 1,
-              "Description": "Verify that a generic message is returned to the consumer when an unexpected or security-sensitive error occurs, ensuring no exposure of sensitive internal system data such as stack traces, queries, secret keys, and tokens.",
+              "Description": "Убедитесь, что при возникновении непредвиденной или связанной с безопасностью ошибки пользователю возвращается только общее сообщение, гарантируя отсутствие раскрытия конфиденциальных внутренних данных системы, таких как трассировки стека, запросы, секретные ключи и токены.",
               "L": "2"
             },
             {
               "Shortcode": "V16.5.2",
               "Ordinal": 2,
-              "Description": "Verify that the application continues to operate securely when external resource access fails, for example, by using patterns such as circuit breakers or graceful degradation.",
+              "Description": "Убедитесь, что приложение продолжает работать в безопасном режиме при недоступности внешних ресурсов, используя такие механизмы, как автоматические выключатели (circuit breakers) или плавное снижение функциональности (graceful degradation).",
               "L": "2"
             },
             {
               "Shortcode": "V16.5.3",
               "Ordinal": 3,
-              "Description": "Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail-open conditions such as processing a transaction despite errors resulting from validation logic.",
+              "Description": "Убедитесь, что приложение корректно и безопасно завершает работу при возникновении исключений, предотвращая опасные сценарии по типу \"fail-open\", когда, например, транзакция ошибочно выполняется, несмотря на ошибки в логике валидации.",
               "L": "2"
             },
             {
               "Shortcode": "V16.5.4",
               "Ordinal": 4,
-              "Description": "Verify that a \"last resort\" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that must go to log files and to ensure that an error does not take down the entire application process, leading to a loss of availability.",
+              "Description": "Убедитесь, что определён обработчик ошибок \"крайние меры\", который будет перехватывать все необработанные ошибки. Это необходимо как для предотвращения потери информации об ошибках, которая должна быть записана в файлы журналов, так и для того, чтобы ошибка не остановила весь процесс приложения, что привело бы к потере доступности.",
               "L": "3"
             }
           ]
