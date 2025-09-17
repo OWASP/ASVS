@@ -1179,30 +1179,30 @@
     {
       "Shortcode": "V7",
       "Ordinal": 7,
-      "ShortName": "Session",
-      "Name": "Session Management",
+      "ShortName": "Сессия",
+      "Name": "Управление сессиями",
       "Items": [
         {
           "Shortcode": "V7.1",
           "Ordinal": 1,
-          "Name": "Session Management Documentation",
+          "Name": "Документация по управлению сессиями",
           "Items": [
             {
               "Shortcode": "V7.1.1",
               "Ordinal": 1,
-              "Description": "Verify that the user's session inactivity timeout and absolute maximum session lifetime are documented, are appropriate in combination with other controls, and that the documentation includes justification for any deviations from NIST SP 800-63B re-authentication requirements.",
+              "Description": "Убедитесь, что тайм-аут бездействия и абсолютное максимальное время жизни сессии задокументированы, соответствуют другим контрольным мерам и сопровождаются обоснованием любых отклонений от требований повторной аутентификации NIST SP 800-63B.",
               "L": "2"
             },
             {
               "Shortcode": "V7.1.2",
               "Ordinal": 2,
-              "Description": "Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviors and actions to be taken when the maximum number of active sessions is reached.",
+              "Description": "Убедитесь, что документация определяет допустимое количество одновременных (параллельных) сессий для одного аккаунта, а также поведение системы и действия при достижении этого лимита.",
               "L": "2"
             },
             {
               "Shortcode": "V7.1.3",
               "Ordinal": 3,
-              "Description": "Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other conditions that require re-authentication.",
+              "Description": "Убедитесь, что все системы, создающие и управляющие сессиями пользователей в рамках федеративной идентификации (например, SSO), задокументированы вместе с механизмами координации сроков действия сессий, условий завершения и случаев, требующих повторной аутентификации.",
               "L": "2"
             }
           ]
@@ -1210,30 +1210,30 @@
         {
           "Shortcode": "V7.2",
           "Ordinal": 2,
-          "Name": "Fundamental Session Management Security",
+          "Name": "Базовая безопасность сессий",
           "Items": [
             {
               "Shortcode": "V7.2.1",
               "Ordinal": 1,
-              "Description": "Verify that the application performs all session token verification using a trusted, backend service.",
+              "Description": "Убедитесь, что все проверки сессионных токенов выполняются на доверенной серверной стороне.",
               "L": "1"
             },
             {
               "Shortcode": "V7.2.2",
               "Ordinal": 2,
-              "Description": "Verify that the application uses either self-contained or reference tokens that are dynamically generated for session management, i.e. not using static API secrets and keys.",
+              "Description": "Убедитесь, что приложение использует либо автономные токены, либо ссылочные токены, которые генерируются динамически, не используя статические API-секреты или ключи.",
               "L": "1"
             },
             {
               "Shortcode": "V7.2.3",
               "Ordinal": 3,
-              "Description": "Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy.",
+              "Description": "Убедитесь, что ссылочные токены являются уникальными, создаются с использованием криптографически безопасного генератора псевдослучайных чисел (CSPRNG) и обладают энтропией не менее 128 бит.",
               "L": "1"
             },
             {
               "Shortcode": "V7.2.4",
               "Ordinal": 4,
-              "Description": "Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token.",
+              "Description": "Убедитесь, что при аутентификации пользователя (включая повторную) создается новый токен сессии, а текущий — аннулируется.",
               "L": "1"
             }
           ]
@@ -1241,18 +1241,18 @@
         {
           "Shortcode": "V7.3",
           "Ordinal": 3,
-          "Name": "Session Timeout",
+          "Name": "Тайм-ауты сессии",
           "Items": [
             {
               "Shortcode": "V7.3.1",
               "Ordinal": 1,
-              "Description": "Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions.",
+              "Description": "Убедитесь, что есть тайм-аут бездействия, после которого требуется повторная аутентификация, в соответствии с анализом рисков и документированными решениями.",
               "L": "2"
             },
             {
               "Shortcode": "V7.3.2",
               "Ordinal": 2,
-              "Description": "Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions.",
+              "Description": "Убедитесь, что установлено абсолютное максимальное время жизни сессии, по истечении которого требуется повторная аутентификация, в соответствии с анализом рисков и документированными решениями.",
               "L": "2"
             }
           ]
@@ -1260,36 +1260,36 @@
         {
           "Shortcode": "V7.4",
           "Ordinal": 4,
-          "Name": "Session Termination",
+          "Name": "Завершение сессий",
           "Items": [
             {
               "Shortcode": "V7.4.1",
               "Ordinal": 1,
-              "Description": "Verify that when session termination is triggered (such as logout or expiration), the application disallows any further use of the session. For reference tokens or stateful sessions, this means invalidating the session data at the application backend. Applications using self-contained tokens will need a solution such as maintaining a list of terminated tokens, disallowing tokens produced before a per-user date and time or rotating a per-user signing key.",
+              "Description": "Убедитесь, что после завершения сессии (logout, истечение срока) дальнейшее её использование невозможно. Для ссылочных токенов или сессий с сохранением состояния это означает аннулирование на сервере. Для self-contained токенов необходимо реализовать механизм отзыва, например, список отозванных токенов, проверку времени выпуска или ротацию ключей подписи для каждого пользователя.",
               "L": "1"
             },
             {
               "Shortcode": "V7.4.2",
               "Ordinal": 2,
-              "Description": "Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company).",
+              "Description": "Убедитесь, что при удалении или отключении пользователя все активные сессии немедленно завершаются.",
               "L": "1"
             },
             {
               "Shortcode": "V7.4.3",
               "Ordinal": 3,
-              "Description": "Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update).",
+              "Description": "Убедитесь, что после изменения или удаления факторов аутентификации (например, смена пароля или MFA) приложение предлагает завершить все другие активные сессии.",
               "L": "2"
             },
             {
               "Shortcode": "V7.4.4",
               "Ordinal": 4,
-              "Description": "Verify that all pages that require authentication have easy and visible access to logout functionality.",
+              "Description": "Убедитесь, что на всех страницах, требующих аутентификации, имеется простой и видимый способ выхода.",
               "L": "2"
             },
             {
               "Shortcode": "V7.4.5",
               "Ordinal": 5,
-              "Description": "Verify that application administrators are able to terminate active sessions for an individual user or for all users.",
+              "Description": "Убедитесь, что администраторы могут завершать активные сессии конкретного пользователя или всех пользователей.",
               "L": "2"
             }
           ]
@@ -1297,24 +1297,24 @@
         {
           "Shortcode": "V7.5",
           "Ordinal": 5,
-          "Name": "Defenses Against Session Abuse",
+          "Name": "Защита от злоупотреблений сессией",
           "Items": [
             {
               "Shortcode": "V7.5.1",
               "Ordinal": 1,
-              "Description": "Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery.",
+              "Description": "Убедитесь, что приложение требует полной повторной аутентификации перед изменением чувствительных атрибутов аккаунта, которые могут влиять на аутентификацию (например, email, номер телефона, настройки MFA или данных восстановления доступа).",
               "L": "2"
             },
             {
               "Shortcode": "V7.5.2",
               "Ordinal": 2,
-              "Description": "Verify that users are able to view and (having authenticated again with at least one factor) terminate any or all currently active sessions.",
+              "Description": "Убедитесь, что пользователь может просматривать и (после повторной аутентификации хотя бы по одному фактору) завершать активные сессии.",
               "L": "2"
             },
             {
               "Shortcode": "V7.5.3",
               "Ordinal": 3,
-              "Description": "Verify that the application requires further authentication with at least one factor or secondary verification before performing highly sensitive transactions or operations.",
+              "Description": "Убедитесь, что перед выполнением критически важных операций приложение требует повторной аутентификации (по крайней мере, одного фактора) или дополнительной проверки.",
               "L": "3"
             }
           ]
@@ -1322,18 +1322,18 @@
         {
           "Shortcode": "V7.6",
           "Ordinal": 6,
-          "Name": "Federated Re-authentication",
+          "Name": "Федеративная повторная аутентификация",
           "Items": [
             {
               "Shortcode": "V7.6.1",
               "Ordinal": 1,
-              "Description": "Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached.",
+              "Description": "Убедитесь, что срок действия и завершение сессий между RP и IdP соответствуют документации и включают повторную аутентификацию, если достигнут максимальный допустимый интервал между событиями аутентификации.",
               "L": "2"
             },
             {
               "Shortcode": "V7.6.2",
               "Ordinal": 2,
-              "Description": "Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction.",
+              "Description": "Убедитесь, что создание сессии требует согласия пользователя или явного действия, предотвращающего несанкционированное создание сессий без участия пользователя.",
               "L": "2"
             }
           ]
