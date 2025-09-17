@@ -833,30 +833,30 @@
     {
       "Shortcode": "V6",
       "Ordinal": 6,
-      "ShortName": "Authentication",
-      "Name": "Authentication",
+      "ShortName": "Аутентификация",
+      "Name": "Аутентификация",
       "Items": [
         {
           "Shortcode": "V6.1",
           "Ordinal": 1,
-          "Name": "Authentication Documentation",
+          "Name": "Документация по аутентификации",
           "Items": [
             {
               "Shortcode": "V6.1.1",
               "Ordinal": 1,
-              "Description": "Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation must make clear how these controls are configured and prevent malicious account lockout.",
+              "Description": "Убедитесь, что в документации приложения описано, как используются механизмы, такие как ограничение частоты запросов (rate limiting), защита от автоматизации и адаптивные реакции, для защиты от атак, таких как подстановка учётных данных и перебор паролей. Документация должна ясно описывать конфигурацию этих механизмов и предотвращение злонамеренной блокировки аккаунтов.",
               "L": "1"
             },
             {
               "Shortcode": "V6.1.2",
               "Ordinal": 2,
-              "Description": "Verify that a list of context-specific words is documented in order to prevent their use in passwords. The list could include permutations of organization names, product names, system identifiers, project codenames, department or role names, and similar.",
+              "Description": "Убедитесь, что задокументирован список контекстно-зависимых слов, запрещённых к использованию в паролях. В него могут входить производные от названий организаций, продуктов, идентификаторов систем, кодовых названий проектов, названий отделов или ролей и тому подобное.",
               "L": "2"
             },
             {
               "Shortcode": "V6.1.3",
               "Ordinal": 3,
-              "Description": "Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which must be consistently enforced across them.",
+              "Description": "Убедитесь, что задокументирован список контекстно-зависимых слов, запрещённых к использованию в паролях. В него могут входить производные от названий организаций, продуктов, идентификаторов систем, кодовых названий проектов, названий отделов или ролей и тому подобное.",
               "L": "2"
             }
           ]
@@ -864,78 +864,78 @@
         {
           "Shortcode": "V6.2",
           "Ordinal": 2,
-          "Name": "Password Security",
+          "Name": "Безопасность паролей",
           "Items": [
             {
               "Shortcode": "V6.2.1",
               "Ordinal": 1,
-              "Description": "Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended.",
+              "Description": "Убедитесь, что пользовательские пароли содержат не менее 8 символов. Рекомендуется минимальная длина в 15 символов.",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.2",
               "Ordinal": 2,
-              "Description": "Verify that users can change their password.",
+              "Description": "Убедитесь, что пользователи могут менять свои пароли.",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.3",
               "Ordinal": 3,
-              "Description": "Verify that password change functionality requires the user's current and new password.",
+              "Description": "Убедитесь, что для смены пароля требуется ввести как текущий, так и новый пароль.",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.4",
               "Ordinal": 4,
-              "Description": "Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords which match the application's password policy, e.g. minimum length.",
+              "Description": "Убедитесь, что при регистрации или смене пароля введённый пароль проверяется по списку как минимум из 3000 самых популярных паролей, соответствующих политике (например, минимальной длине).",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.5",
               "Ordinal": 5,
-              "Description": "Verify that passwords of any composition can be used, without rules limiting the type of characters permitted. There must be no requirement for a minimum number of upper or lower case characters, numbers, or special characters.",
+              "Description": "Убедитесь, что допускаются пароли любой структуры, без ограничений на использование определённых символов. Не должно быть требований по обязательному наличию заглавных/строчных букв, цифр или специальных символов.",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.6",
               "Ordinal": 6,
-              "Description": "Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password.",
+              "Description": "Убедитесь, что поля ввода пароля используют type=password для скрытия символов. Разрешено временное отображение всего пароля или последнего введённого символа.",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.7",
               "Ordinal": 7,
-              "Description": "Verify that \"paste\" functionality, browser password helpers, and external password managers are permitted.",
+              "Description": "Убедитесь, что разрешены вставка (paste), использование менеджеров паролей браузера и внешних менеджеров паролей.",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.8",
               "Ordinal": 8,
-              "Description": "Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation.",
+              "Description": "Убедитесь, что пароль проверяется строго в том виде, в котором он был введён пользователем — без обрезки, изменения регистра и других модификаций.",
               "L": "1"
             },
             {
               "Shortcode": "V6.2.9",
               "Ordinal": 9,
-              "Description": "Verify that passwords of at least 64 characters are permitted.",
+              "Description": "Убедитесь, что система позволяет использовать пароли длиной не менее 64 символов.",
               "L": "2"
             },
             {
               "Shortcode": "V6.2.10",
               "Ordinal": 10,
-              "Description": "Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation.",
+              "Description": "Убедитесь, что пароль остаётся действительным, пока не будет скомпрометирован или не будет изменён пользователем. Приложение не должно требовать регулярной смены пароля.",
               "L": "2"
             },
             {
               "Shortcode": "V6.2.11",
               "Ordinal": 11,
-              "Description": "Verify that the documented list of context specific words is used to prevent easy to guess passwords being created.",
+              "Description": "Убедитесь, что используется документированный список контекстно-зависимых слов (например, названия компаний, проектов и т.д.) для предотвращения использования легко угадываемых паролей.",
               "L": "2"
             },
             {
               "Shortcode": "V6.2.12",
               "Ordinal": 12,
-              "Description": "Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords.",
+              "Description": "Убедитесь, что при регистрации или смене пароля проверяется, не входит ли он в список скомпрометированных (утёкших) паролей.",
               "L": "2"
             }
           ]
@@ -943,54 +943,54 @@
         {
           "Shortcode": "V6.3",
           "Ordinal": 3,
-          "Name": "General Authentication Security",
+          "Name": "Общие требования к безопасности аутентификации",
           "Items": [
             {
               "Shortcode": "V6.3.1",
               "Ordinal": 1,
-              "Description": "Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation.",
+              "Description": "Убедитесь, что реализованы меры защиты от атак типа credential stuffing (массовая подстановка учётных данных) и brute-force (перебор паролей), согласно документации по безопасности приложения.",
               "L": "1"
             },
             {
               "Shortcode": "V6.3.2",
               "Ordinal": 2,
-              "Description": "Verify that default user accounts (e.g., \"root\", \"admin\", or \"sa\") are not present in the application or are disabled.",
+              "Description": "Убедитесь, что в приложении отсутствуют или отключены учётные записи по умолчанию (например, \"root\", \"admin\", \"sa\").",
               "L": "1"
             },
             {
               "Shortcode": "V6.3.3",
               "Ordinal": 3,
-              "Description": "Verify that either a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms, must be used in order to access the application. For L3, one of the factors must be a hardware-based authentication mechanism which provides compromise and impersonation resistance against phishing attacks while verifying the intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key or a mobile phone). Relaxing any of the considerations in this requirement requires a fully documented rationale and a comprehensive set of mitigating controls.",
+              "Description": "Убедитесь, что для доступа к приложению используется либо механизм многофакторной аутентификации, либо комбинация однофакторных. Для уровня L3 один из факторов должен быть аппаратным, обеспечивающим защиту от фишинга, устойчивость к компрометации и подтверждение намерения аутентификации через явное действие пользователя (например, нажатие кнопки на FIDO-ключе или телефоне). Ослабление этих требований допускается только при наличии обоснования и компенсирующих мер.",
               "L": "2"
             },
             {
               "Shortcode": "V6.3.4",
               "Ordinal": 4,
-              "Description": "Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently.",
+              "Description": "Убедитесь, что при наличии нескольких путей аутентификации, они все задокументированы, и для них единообразно применяются меры защиты и уровни доверия.",
               "L": "2"
             },
             {
               "Shortcode": "V6.3.5",
               "Ordinal": 5,
-              "Description": "Verify that users are notified of suspicious authentication attempts (successful or unsuccessful). This may include authentication attempts from an unusual location or client, partially successful authentication (only one of multiple factors), an authentication attempt after a long period of inactivity or a successful authentication after several unsuccessful attempts.",
+              "Description": "Убедитесь, что пользователи получают уведомления о подозрительных попытках аутентификации (удачных и неудачных). Это может включать попытки (например, подключения) с необычного устройства или места, частично успешную MFA, попытку после долгого отсутствия или успешную аутентификацию после серии неудачных.",
               "L": "3"
             },
             {
               "Shortcode": "V6.3.6",
               "Ordinal": 6,
-              "Description": "Verify that email is not used as either a single-factor or multi-factor authentication mechanism.",
+              "Description": "Убедитесь, что email не используется ни как однофакторный, ни как многофакторный механизм аутентификации.",
               "L": "3"
             },
             {
               "Shortcode": "V6.3.7",
               "Ordinal": 7,
-              "Description": "Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address.",
+              "Description": "Убедитесь, что пользователи получают уведомление при изменении данных аутентификации, таких как сброс пароля или изменение логина/email.",
               "L": "3"
             },
             {
               "Shortcode": "V6.3.8",
               "Ordinal": 8,
-              "Description": "Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality must also have this protection.",
+              "Description": "Убедитесь, что из сообщений об ошибке, HTTP-кодов ответа или различий во времени ответа нельзя определить, существует ли пользователь с таким логином. Это правило также должно применяться к функциям регистрации и восстановления пароля.",
               "L": "3"
             }
           ]
@@ -998,42 +998,42 @@
         {
           "Shortcode": "V6.4",
           "Ordinal": 4,
-          "Name": "Authentication Factor Lifecycle and Recovery",
+          "Name": "Жизненный цикл и восстановление факторов аутентификации",
           "Items": [
             {
               "Shortcode": "V6.4.1",
               "Ordinal": 1,
-              "Description": "Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password.",
+              "Description": "Убедитесь, что начальные пароли или коды активации, генерируемые системой, создаются с использованием надёжного генератора случайных чисел, соответствуют текущей политике паролей и истекают через короткий период времени либо после первого использования. Эти секреты не должны использоваться как постоянные пароли.",
               "L": "1"
             },
             {
               "Shortcode": "V6.4.2",
               "Ordinal": 2,
-              "Description": "Verify that password hints or knowledge-based authentication (so-called \"secret questions\") are not present.",
+              "Description": "Убедитесь, что в системе отсутствуют подсказки к паролю или вопросы на знание (\"секретные вопросы\").",
               "L": "1"
             },
             {
               "Shortcode": "V6.4.3",
               "Ordinal": 3,
-              "Description": "Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms.",
+              "Description": "Убедитесь, что реализован безопасный процесс сброса забытого пароля, который не обходит активные механизмы многофакторной аутентификации.",
               "L": "2"
             },
             {
               "Shortcode": "V6.4.4",
               "Ordinal": 4,
-              "Description": "Verify that if a multi-factor authentication factor is lost, evidence of identity proofing is performed at the same level as during enrollment.",
+              "Description": "Убедитесь, что реализован безопасный процесс сброса забытого пароля, который не обходит активные механизмы многофакторной аутентификации.",
               "L": "2"
             },
             {
               "Shortcode": "V6.4.5",
               "Ordinal": 5,
-              "Description": "Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary.",
+              "Description": "Убедитесь, что инструкции по обновлению истекающих механизмов аутентификации отправляются заранее, с достаточным запасом времени для выполнения замены, при необходимости с настройкой автоматических напоминаний.",
               "L": "3"
             },
             {
               "Shortcode": "V6.4.6",
               "Ordinal": 6,
-              "Description": "Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password.",
+              "Description": "Убедитесь, что администраторы могут инициировать процесс сброса пароля, но не могут задать или выбрать новый пароль за пользователя. Это исключает ситуацию, при которой администратор знает пароль пользователя.",
               "L": "3"
             }
           ]
@@ -1041,54 +1041,54 @@
         {
           "Shortcode": "V6.5",
           "Ordinal": 5,
-          "Name": "General Multi-factor authentication requirements",
+          "Name": "Общие требования к многофакторной аутентификации",
           "Items": [
             {
               "Shortcode": "V6.5.1",
               "Ordinal": 1,
-              "Description": "Verify that lookup secrets, out-of-band authentication requests or codes, and time-based one-time passwords (TOTPs) are only successfully usable once.",
+              "Description": "Убедитесь, что lookup-секреты, внеполосные коды/запросы и TOTP-коды можно использовать только один раз.",
               "L": "2"
             },
             {
               "Shortcode": "V6.5.2",
               "Ordinal": 2,
-              "Description": "Verify that, when being stored in the application's backend, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more.",
+              "Description": "Убедитесь, что при хранении lookup-секретов с энтропией менее 112 бит (например, 19 случайных буквенно-цифровых символов или 34 случайные цифры) они хэшируются с использованием разрешённого алгоритма хеширования паролей и случайной соли минимум 32 бита. Если у секрета ≥112 бит энтропии — допустимо использовать стандартный хэш.",
               "L": "2"
             },
             {
               "Shortcode": "V6.5.3",
               "Ordinal": 3,
-              "Description": "Verify that lookup secrets, out-of-band authentication code, and time-based one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values.",
+              "Description": "Убедитесь, что lookup-секреты, коды внеполосной аутентификации и сиды для TOTP генерируются с использованием криптографически стойкого генератора случайных чисел (CSPRNG), чтобы избежать предсказуемых значений.",
               "L": "2"
             },
             {
               "Shortcode": "V6.5.4",
               "Ordinal": 4,
-              "Description": "Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient).",
+              "Description": "Убедитесь, что lookup-секреты и внеполосные коды аутентификации имеют минимум 20 бит энтропии (достаточно, например, 4 случайных алфавитно-цифровых символов или 6 случайных цифр).",
               "L": "2"
             },
             {
               "Shortcode": "V6.5.5",
               "Ordinal": 5,
-              "Description": "Verify that out-of-band authentication requests, codes, or tokens, as well as time-based one-time passwords (TOTPs) have a defined lifetime. Out of band requests must have a maximum lifetime of 10 minutes and for TOTP a maximum lifetime of 30 seconds.",
+              "Description": "Убедитесь, что все внеполосные запросы, коды и токены, а также TOTP-коды имеют ограниченный срок действия. Максимум для out-of-band — 10 минут, для TOTP — 30 секунд.",
               "L": "2"
             },
             {
               "Shortcode": "V6.5.6",
               "Ordinal": 6,
-              "Description": "Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss.",
+              "Description": "Убедитесь, что любой фактор аутентификации (включая физические устройства) может быть отозван в случае кражи или утери.",
               "L": "3"
             },
             {
               "Shortcode": "V6.5.7",
               "Ordinal": 7,
-              "Description": "Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know.",
+              "Description": "Убедитесь, что биометрические механизмы аутентификации используются только как вторичный фактор — в сочетании с «чем-то, что вы знаете» или «чем-то, что у вас есть».",
               "L": "3"
             },
             {
               "Shortcode": "V6.5.8",
               "Ordinal": 8,
-              "Description": "Verify that time-based one-time passwords (TOTPs) are checked based on a time source from a trusted service and not from an untrusted or client provided time.",
+              "Description": "Убедитесь, что TOTP-коды проверяются по источнику времени, полученному от доверенного сервиса, а не от клиента или недоверенного источника.",
               "L": "3"
             }
           ]
@@ -1096,30 +1096,30 @@
         {
           "Shortcode": "V6.6",
           "Ordinal": 6,
-          "Name": "Out-of-Band authentication mechanisms",
+          "Name": "Внеполосные механизмы аутентификации",
           "Items": [
             {
               "Shortcode": "V6.6.1",
               "Ordinal": 1,
-              "Description": "Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when the phone number has previously been validated, alternate stronger methods (such as Time based One-time Passwords) are also offered, and the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options.",
+              "Description": "Убедитесь, что механизмы аутентификации через телефонную сеть общего пользования (PSTN) для доставки одноразовых паролей (OTP) по телефону или SMS используются только в случае предварительной валидации номера, при этом предлагаются альтернативные более безопасные методы (например, TOTP), и пользователю сообщаются риски. Для приложений уровня L3 использование телефона и SMS недопустимо.",
               "L": "2"
             },
             {
               "Shortcode": "V6.6.2",
               "Ordinal": 2,
-              "Description": "Verify that out-of-band authentication requests, codes, or tokens are bound to the original authentication request for which they were generated and are not usable for a previous or subsequent one.",
+              "Description": "Убедитесь, что внеполосные запросы, коды или токены привязаны к исходному запросу аутентификации, для которого они были сгенерированы, и не могут быть использованы повторно для других попыток.",
               "L": "2"
             },
             {
               "Shortcode": "V6.6.3",
               "Ordinal": 3,
-              "Description": "Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using rate limiting. Consider also using a code with at least 64 bits of entropy.",
+              "Description": "Убедитесь, что внеполосные механизмы на основе кода защищены от атак методом подбора (brute force) путём применения ограничения частоты запросов (rate limiting). Также рекомендуется использовать коды с энтропией не менее 64 бит.",
               "L": "2"
             },
             {
               "Shortcode": "V6.6.4",
               "Ordinal": 4,
-              "Description": "Verify that, where push notifications are used for multi-factor authentication, rate limiting is used to prevent push bombing attacks. Number matching may also mitigate this risk.",
+              "Description": "Убедитесь, что при использовании push-уведомлений для MFA применяется ограничение частоты (rate limiting), чтобы предотвратить атаки push-бомбинга. Также может помочь механизм сопоставления номеров (number matching).",
               "L": "3"
             }
           ]
@@ -1127,18 +1127,18 @@
         {
           "Shortcode": "V6.7",
           "Ordinal": 7,
-          "Name": "Cryptographic authentication mechanism",
+          "Name": "Криптографические механизмы аутентификации",
           "Items": [
             {
               "Shortcode": "V6.7.1",
               "Ordinal": 1,
-              "Description": "Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification.",
+              "Description": "Убедитесь, что сертификаты, используемые для проверки криптографических утверждений об аутентификации, хранятся таким образом, чтобы исключить возможность их модификации.",
               "L": "3"
             },
             {
               "Shortcode": "V6.7.2",
               "Ordinal": 2,
-              "Description": "Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device.",
+              "Description": "Убедитесь, что nonce (случайная строка), используемая в процессе вызова, имеет длину не менее 64 бит и является статистически уникальной или уникальной на протяжении всего срока службы криптографического устройства.",
               "L": "3"
             }
           ]
@@ -1146,30 +1146,30 @@
         {
           "Shortcode": "V6.8",
           "Ordinal": 8,
-          "Name": "Authentication with an Identity Provider",
+          "Name": "Аутентификация с использованием провайдера идентификаций (IdP)",
           "Items": [
             {
               "Shortcode": "V6.8.1",
               "Ordinal": 1,
-              "Description": "Verify that, if the application supports multiple identity providers (IdPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). The standard mitigation would be for the application to register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IdP.",
+              "Description": "Убедитесь, что при поддержке несколькими IdP, невозможно подделать личность пользователя через другой IdP (например, с тем же user ID). Стандартным способом защиты является регистрация пользователя с использованием сочетания ID самого IdP (в качестве пространства имён) и пользовательского ID внутри IdP.",
               "L": "2"
             },
             {
               "Shortcode": "V6.8.2",
               "Ordinal": 2,
-              "Description": "Verify that the presence and integrity of digital signatures on authentication assertions (for example on JWTs or SAML assertions) are always validated, rejecting any assertions that are unsigned or have invalid signatures.",
+              "Description": "Убедитесь, что наличие и целостность цифровой подписи в утверждениях аутентификации (например, в JWT или SAML) всегда проверяются, а неподписанные или недействительные утверждения отклоняются.",
               "L": "2"
             },
             {
               "Shortcode": "V6.8.3",
               "Ordinal": 3,
-              "Description": "Verify that SAML assertions are uniquely processed and used only once within the validity period to prevent replay attacks.",
+              "Description": "Убедитесь, что SAML-утверждения обрабатываются только один раз в течение периода их действия, чтобы исключить атаки воспроизведения (replay attacks).",
               "L": "2"
             },
             {
               "Shortcode": "V6.8.4",
               "Ordinal": 4,
-              "Description": "Verify that, if an application uses a separate Identity Provider (IdP) and expects specific authentication strength, methods, or recentness for specific functions, the application verifies this using the information returned by the IdP. For example, if OIDC is used, this might be achieved by validating ID Token claims such as 'acr', 'amr', and 'auth_time' (if present). If the IdP does not provide this information, the application must have a documented fallback approach that assumes that the minimum strength authentication mechanism was used (for example, single-factor authentication using username and password).",
+              "Description": "Убедитесь, что если приложение использует внешний поставщик идентификации (IdP) и для определенных функций требуется особый уровень, метод или срок действия аутентификации, то приложение использует данные, возвращаемые IdP, для проверки этих условий. Например, при использовании OIDC можно проверить значения полей ID Token — acr, amr, auth_time (если они есть). Если IdP не предоставляет эти данные, приложение должно иметь документированный план действий по умолчанию, предполагающий использование минимально допустимой силы аутентификации (например, одноступенчатая — логин и пароль).",
               "L": "2"
             }
           ]
