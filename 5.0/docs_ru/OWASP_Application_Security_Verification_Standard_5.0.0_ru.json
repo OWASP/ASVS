@@ -2678,18 +2678,18 @@
         {
           "Shortcode": "V17.1",
           "Ordinal": 1,
-          "Name": "TURN Server",
+          "Name": "TURN-сервер",
           "Items": [
             {
               "Shortcode": "V17.1.1",
               "Ordinal": 1,
-              "Description": "Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses.",
+              "Description": "Убедитесь, что сервис TURN (Traversal Using Relays around NAT) разрешает доступ только к IP-адресам, не зарезервированным для специальных целей (например, внутренние сети, широковещательная рассылка, loopback-адреса). Данное требование применяется как к IPv4, так и к IPv6 адресам.",
               "L": "2"
             },
             {
               "Shortcode": "V17.1.2",
               "Ordinal": 2,
-              "Description": "Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server.",
+              "Description": "Убедитесь, что сервис TURN (Traversal Using Relays around NAT) защищен от исчерпания ресурсов при попытках легитимных пользователей открыть чрезмерное количество портов на сервере.",
               "L": "3"
             }
           ]
@@ -2697,54 +2697,54 @@
         {
           "Shortcode": "V17.2",
           "Ordinal": 2,
-          "Name": "Media",
+          "Name": "Требования к медиасерверам",
           "Items": [
             {
               "Shortcode": "V17.2.1",
               "Ordinal": 1,
-              "Description": "Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is managed and protected based on the documented policy for management of cryptographic keys.",
+              "Description": "Убедитесь, что ключ сертификата Datagram Transport Layer Security (DTLS) управляется и защищается в соответствии с документированной политикой управления криптографическими ключами.",
               "L": "2"
             },
             {
               "Shortcode": "V17.2.2",
               "Ordinal": 2,
-              "Description": "Verify that the media server is configured to use and support approved Datagram Transport Layer Security (DTLS) cipher suites and a secure protection profile for the DTLS Extension for establishing keys for the Secure Real-time Transport Protocol (DTLS-SRTP).",
+              "Description": "Убедитесь, что медиасервер настроен на использование только одобренных наборов шифров Datagram Transport Layer Security (DTLS) и защищенного профиля безопасности для расширения DTLS, применяемого при установке ключей для Secure Real-time Transport Protocol (DTLS-SRTP).",
               "L": "2"
             },
             {
               "Shortcode": "V17.2.3",
               "Ordinal": 3,
-              "Description": "Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams.",
+              "Description": "Убедитесь, что медиасервер проверяет аутентификацию Secure Real-time Transport Protocol (SRTP) для предотвращения атак с внедрением Real-time Transport Protocol (RTP), которые могут привести к отказу в обслуживании (Denial of Service) или вставке поддельного аудио-/видеоконтента в медиапотоки.",
               "L": "2"
             },
             {
               "Shortcode": "V17.2.4",
               "Ordinal": 4,
-              "Description": "Verify that the media server is able to continue processing incoming media traffic when encountering malformed Secure Real-time Transport Protocol (SRTP) packets.",
+              "Description": "Убедитесь, что медиасервер способен продолжать обработку входящего медиатрафика при получении некорректных пакетов Secure Real-time Transport Protocol (SRTP).",
               "L": "2"
             },
             {
               "Shortcode": "V17.2.5",
               "Ordinal": 5,
-              "Description": "Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users.",
+              "Description": "Убедитесь, что медиасервер способен продолжать обработку входящего медиатрафика даже при флуде (массовой атаке) пакетами Secure Real-time Transport Protocol (SRTP) от легитимных пользователей.",
               "L": "3"
             },
             {
               "Shortcode": "V17.2.6",
               "Ordinal": 6,
-              "Description": "Verify that the media server is not susceptible to the \"ClientHello\" Race Condition vulnerability in Datagram Transport Layer Security (DTLS) by checking if the media server is publicly known to be vulnerable or by performing the race condition test.",
+              "Description": "Убедитесь, что медиасервер не подвержен уязвимости \"Гонка ClientHello\" (ClientHello Race Condition) в Datagram Transport Layer Security (DTLS), проверив наличие известных уязвимостей в публичных источниках или выполнив тестирование на воспроизведение условий гонки.",
               "L": "3"
             },
             {
               "Shortcode": "V17.2.7",
               "Ordinal": 7,
-              "Description": "Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users.",
+              "Description": "Убедитесь, что механизмы аудио- и видеозаписи, связанные с медиасервером, способны продолжать обработку входящего медиатрафика даже при флуде (массовой атаке) пакетов Secure Real-time Transport Protocol (SRTP) от легитимных пользователей.",
               "L": "3"
             },
             {
               "Shortcode": "V17.2.8",
               "Ordinal": 8,
-              "Description": "Verify that the Datagram Transport Layer Security (DTLS) certificate is checked against the Session Description Protocol (SDP) fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream.",
+              "Description": "Убедитесь, что сертификат Datagram Transport Layer Security (DTLS) проверяется на соответствие атрибуту отпечатка (fingerprint) в Session Description Protocol (SDP), с немедленным прекращением медиапотока в случае несоответствия — это гарантирует подлинность передаваемых данных.",
               "L": "3"
             }
           ]
@@ -2752,18 +2752,18 @@
         {
           "Shortcode": "V17.3",
           "Ordinal": 3,
-          "Name": "Signaling",
+          "Name": "Сигнализация",
           "Items": [
             {
               "Shortcode": "V17.3.1",
               "Ordinal": 1,
-              "Description": "Verify that the signaling server is able to continue processing legitimate incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level.",
+              "Description": "Убедитесь, что сигнальный сервер способен продолжать обработку легитимных входящих сообщений сигнализации даже в условиях флуд-атаки. Для этого необходимо реализовать механизм ограничения частоты запросов (rate limiting) на уровне сигнализации.",
               "L": "2"
             },
             {
               "Shortcode": "V17.3.2",
               "Ordinal": 2,
-              "Description": "Verify that the signaling server is able to continue processing legitimate signaling messages when encountering malformed signaling message that could cause a denial of service condition. This could include implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.",
+              "Description": "Убедитесь, что сигнальный сервер способен продолжать обработку легитимных сообщений сигнализации даже при получении некорректных сообщений, которые могут вызвать отказ в обслуживании (Denial of Service, DoS). Для этого необходимо реализовать: проверку входных данных (input validation), безопасную обработку целочисленных переполнений (integer overflows), защиту от переполнения буферов (buffer overflows) и другие надежные методы обработки ошибок.",
               "L": "2"
             }
           ]
