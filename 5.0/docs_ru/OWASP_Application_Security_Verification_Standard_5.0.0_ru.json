@@ -2259,23 +2259,23 @@
       "Shortcode": "V14",
       "Ordinal": 14,
       "ShortName": "Data",
-      "Name": "Data Protection",
+      "Name": "Защита информации",
       "Items": [
         {
           "Shortcode": "V14.1",
           "Ordinal": 1,
-          "Name": "Data Protection Documentation",
+          "Name": "Документация по защите информации",
           "Items": [
             {
               "Shortcode": "V14.1.1",
               "Ordinal": 1,
-              "Description": "Verify that all sensitive data created and processed by the application has been identified and classified into protection levels. This includes data that is only encoded and therefore easily decoded, such as Base64 strings or the plaintext payload inside a JWT. Protection levels need to take into account any data protection and privacy regulations and standards which the application is required to comply with.",
+              "Description": "Убедитесь, что все конфиденциальные данные, создаваемые и обрабатываемые приложением, идентифицированы и классифицированы по уровням защиты. Включая закодированные данные, которые легко декодируются, например, строки Base64 или незашифрованные данные в полезной нагрузке JWT. Уровни защиты должны учитывать требования по защите данных и конфиденциальности, которым должно соответствовать приложение.",
               "L": "2"
             },
             {
               "Shortcode": "V14.1.2",
               "Ordinal": 2,
-              "Description": "Verify that all sensitive data protection levels have a documented set of protection requirements. This must include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements.",
+              "Description": "Убедитесь, что для каждого уровня защиты конфиденциальных данных требования к защите задокументированы. Они должны включать (но не ограничиваться) требования по шифрованию, проверке целостности, срокам хранения, способам логирования данных, контролю доступа к чувствительным данным в логах, шифрованию на уровне базы данных, применению технологий повышения конфиденциальности, а также другим требованиям по конфиденциальности.",
               "L": "2"
             }
           ]
@@ -2283,54 +2283,54 @@
         {
           "Shortcode": "V14.2",
           "Ordinal": 2,
-          "Name": "General Data Protection",
+          "Name": "Базовые меры по защите информации",
           "Items": [
             {
               "Shortcode": "V14.2.1",
               "Ordinal": 1,
-              "Description": "Verify that sensitive data is only sent to the server in the HTTP message body or header fields, and that the URL and query string do not contain sensitive information, such as an API key or session token.",
+              "Description": "Убедитесь, что конфиденциальные данные передаются на сервер только в теле HTTP-запроса или в заголовках. URL и строка запроса не должны содержать конфиденциальную информацию, такую как API-ключ или сессионный токен.",
               "L": "1"
             },
             {
               "Shortcode": "V14.2.2",
               "Ordinal": 2,
-              "Description": "Verify that the application prevents sensitive data from being cached in server components, such as load balancers and application caches, or ensures that the data is securely purged after use.",
+              "Description": "Убедитесь, что приложение предотвращает кэширование конфиденциальных данных в серверных компонентах, таких как балансировщики нагрузки и кэши приложений, либо гарантирует их надежное удаление после использования.",
               "L": "2"
             },
             {
               "Shortcode": "V14.2.3",
               "Ordinal": 3,
-              "Description": "Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control.",
+              "Description": "Убедитесь, что заранее определённые конфиденциальные данные не отправляются ненадёжным сторонам (например, системам трекинга пользователей), чтобы предотвратить нежелательный сбор данных вне контроля приложения.",
               "L": "2"
             },
             {
               "Shortcode": "V14.2.4",
               "Ordinal": 4,
-              "Description": "Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level.",
+              "Description": "Убедитесь, что для конфиденциальных данных реализованы меры по шифрованию, проверке целостности, срокам хранения, способам логирования, контролю доступа к данным в логах, а также применяются технологии повышения конфиденциальности в соответствии с документацией для соответствующего уровня защиты данных.",
               "L": "2"
             },
             {
               "Shortcode": "V14.2.5",
               "Ordinal": 5,
-              "Description": "Verify that caching mechanisms are configured to only cache responses which have the expected content type for that resource and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when a non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks.",
+              "Description": "Убедитесь, что механизмы кэширования настроены так, чтобы кэшировать только ответы с ожидаемым типом содержимого для данного ресурса и не содержать конфиденциального динамического контента. При обращении к несуществующему файлу, веб-сервер должен возвращать ответ 404 или 302, а не подменять на другой существующий файл, что позволит предотвратить атаки типа Web Cache Deception.",
               "L": "3"
             },
             {
               "Shortcode": "V14.2.6",
               "Ordinal": 6,
-              "Description": "Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the complete data is required, it should be masked in the user interface unless the user specifically views it.",
+              "Description": "Убедитесь, что приложение возвращает только минимально необходимый объем конфиденциальных данных для выполнения своей функциональности. Например, показывает только часть цифр номера кредитной карты, а не полный номер. Если требуется отображение полных данных, они должны быть замаскированы в пользовательском интерфейсе, пока пользователь специально не запросил их просмотр.",
               "L": "3"
             },
             {
               "Shortcode": "V14.2.7",
               "Ordinal": 7,
-              "Description": "Verify that sensitive information is subject to data retention classification, ensuring that outdated or unnecessary data is deleted automatically, on a defined schedule, or as the situation requires.",
+              "Description": "Убедитесь, что конфиденциальная информация подлежит классификации по срокам хранения, чтобы устаревшие или ненужные данные удалялись автоматически, по расписанию или по мере необходимости.",
               "L": "3"
             },
             {
               "Shortcode": "V14.2.8",
               "Ordinal": 8,
-              "Description": "Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user.",
+              "Description": "Убедитесь, что конфиденциальная информация удаляется из метаданных файлов, загружаемых пользователями, если пользователь явно не согласился на ее хранение.",
               "L": "3"
             }
           ]
@@ -2338,24 +2338,24 @@
         {
           "Shortcode": "V14.3",
           "Ordinal": 3,
-          "Name": "Client-side Data Protection",
+          "Name": "Защита данных на стороне клиента",
           "Items": [
             {
               "Shortcode": "V14.3.1",
               "Ordinal": 1,
-              "Description": "Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The 'Clear-Site-Data' HTTP response header field may be able to help with this but the client-side should also be able to clear up if the server connection is not available when the session is terminated.",
+              "Description": "Убедитесь, что аутентифицированные данные очищаются из клиентского хранилища, например, из DOM браузера, после завершения работы клиента или сессии. Заголовок HTTP-ответа Clear-Site-Data может помочь в этом, но клиентская сторона также должна уметь очищать данные, если соединение с сервером недоступно при завершении сессии.",
               "L": "1"
             },
             {
               "Shortcode": "V14.3.2",
               "Ordinal": 2,
-              "Description": "Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers.",
+              "Description": "Убедитесь, что приложение устанавливает HTTP-заголовки, достаточные для предотвращения кэширования (например, Cache-Control: no-store), чтобы конфиденциальные данные не сохранялись в браузерах.",
               "L": "2"
             },
             {
               "Shortcode": "V14.3.3",
               "Ordinal": 3,
-              "Description": "Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens.",
+              "Description": "Убедитесь, что данные, хранящиеся в браузерном хранилище (например, localStorage, sessionStorage, IndexedDB или cookie), не содержат конфиденциальной информации, за исключением сессионных токенов.",
               "L": "2"
             }
           ]
