@@ -1,6 +1,6 @@
 # V5 Работа с файлами
 
-## Цель контроля
+## Задачи контроля
 
 Использование файлов может нести различные риски для приложения, включая отказ в обслуживании (DoS), несанкционированный доступ и переполнение хранилища. В этой главе приведены требования, для предотвращения этих рисков.
 
@@ -47,7 +47,7 @@
 
 ## Ссылки
 
-Подробнее:
+Для дополнительной информации см. также:
 
 * [OWASP File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
 * [Example of using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)

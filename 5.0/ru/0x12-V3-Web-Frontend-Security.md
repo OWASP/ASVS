@@ -1,6 +1,6 @@
 # V3 Безопасность веб-интерфейса
 
-## Цель контроля
+## Задачи контроля
 
 Эта категория фокусируется на требованиях, направленных на защиту от атак, воспроизводимых через веб-интерфейс. Эти требования не применяются к решениям "машина-машина".
 
@@ -90,7 +90,7 @@
 
 ## Ссылки
 
-Для дополнительной информации смотрите также:
+Для дополнительной информации см. также:
 
 * [Set-Cookie __Host- prefix details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes)
 * [OWASP Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)

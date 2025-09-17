@@ -1,6 +1,6 @@
 # V10 OAuth и OIDC
 
-## Цель контроля
+## Задачи контроля
 
 OAuth2 (в этой главе именуется просто OAuth) — это общепринятый отраслевой стандарт делегированной авторизации. Например, с помощью OAuth клиентское приложение может получить доступ к API (ресурсам сервера) от имени пользователя, если тот дал на это разрешение.
 
@@ -144,7 +144,7 @@ This chapter addresses best current practices for OAuth2 and OIDC aligned with s
 
 ## Ссылки
 
-Для получения дополнительной информации об OAuth см.:
+Для дополнительной информации об OAuth см.:
 
 * [oauth.net](https://oauth.net/)
 * [OWASP OAuth 2.0 Protocol Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)

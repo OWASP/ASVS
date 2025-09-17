@@ -1,6 +1,6 @@
 # V12 Безопасная коммуникация
 
-## Цель контроля
+## Задачи контроля
 
 В этой главе изложены требования, связанные с механизмами защиты данных при передаче, как между клиентом конечного пользователя и серверной частью, так и между компонентами внутренней сервисной архитектуры.
 
@@ -49,7 +49,7 @@
 
 ## Ссылки
 
-Подробнее:
+Для дополнительной информации см. также:
 
 * [OWASP - Transport Layer Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
 * [Mozilla's Server Side TLS configuration guide](https://wiki.mozilla.org/Security/Server_Side_TLS)

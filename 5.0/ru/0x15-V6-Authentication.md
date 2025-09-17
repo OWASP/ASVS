@@ -1,6 +1,6 @@
 # V6 Аутентификация
 
-## Цель контроля
+## Задачи контроля
 
 Аутентификация — это процесс установления или подтверждения подлинности личности или устройства. Он включает в себя проверку заявленных данных, устойчивость к подмене личности и защиту от перехвата или восстановления паролей.
 
@@ -153,7 +153,7 @@ Out-of-Band (внеполосные) механизмы рассматриваю
 
 ## Ссылки
 
-Подробнее:
+Для дополнительной информации см. также:
 
 * [NIST SP 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST SP 800-63B - Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
