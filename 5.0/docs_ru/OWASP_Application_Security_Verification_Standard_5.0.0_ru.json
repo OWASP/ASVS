@@ -2096,36 +2096,36 @@
     {
       "Shortcode": "V13",
       "Ordinal": 13,
-      "ShortName": "Configuration",
-      "Name": "Configuration",
+      "ShortName": "Конфигурация",
+      "Name": "Конфигурация",
       "Items": [
         {
           "Shortcode": "V13.1",
           "Ordinal": 1,
-          "Name": "Configuration Documentation",
+          "Name": "Документация конфигурации",
           "Items": [
             {
               "Shortcode": "V13.1.1",
               "Ordinal": 1,
-              "Description": "Verify that all communication needs for the application are documented. This must include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect.",
+              "Description": "Убедитесь, что все необходимые доступы приложения задокументированы. Сюда должны быть включены как внешние сервисы, от которых зависит приложение, так и сценарии, когда конечный пользователь может задавать адреса для внешнего подключения.",
               "L": "2"
             },
             {
               "Shortcode": "V13.1.2",
               "Ordinal": 2,
-              "Description": "Verify that for each service the application uses, the documentation defines the maximum number of concurrent connections (e.g., connection pool limits) and how the application behaves when that limit is reached, including any fallback or recovery mechanisms, to prevent denial of service conditions.",
+              "Description": "Убедитесь, что для каждого сервиса, используемого приложением, в документации определено максимальное количество одновременных соединений (например, лимиты пула соединений) и описано поведение приложения при достижении этого лимита, включая любые механизмы отказоустойчивости или восстановления, чтобы предотвратить ситуации отказа в обслуживании (DoS).",
               "L": "3"
             },
             {
               "Shortcode": "V13.1.3",
               "Ordinal": 3,
-              "Description": "Verify that the application documentation defines resource‑management strategies for every external system or service it uses (e.g., databases, file handles, threads, HTTP connections). This should include resource‑release procedures, timeout settings, failure handling, and where retry logic is implemented, specifying retry limits, delays, and back‑off algorithms. For synchronous HTTP request–response operations it should mandate short timeouts and either disable retries or strictly limit retries to prevent cascading delays and resource exhaustion.",
+              "Description": "Убедитесь, что в документации приложения определены стратегии управления ресурсами для каждой внешней системы или сервиса, которые оно использует (например, базы данных, файловые дескрипторы, потоки, HTTP-соединения). Стратегии должны включать процедуры освобождения ресурсов, настройки таймаутов, обработку сбоев, а также, если реализована логика повторных попыток, указание лимитов, задержек и алгоритмов back-off. Для синхронных HTTP-запросов должны быть заданы короткие таймауты, а повторные запросы должны быть отключены, либо строго ограничены по числу попыток, чтобы предотвратить каскадные задержки и истощение ресурсов.",
               "L": "3"
             },
             {
               "Shortcode": "V13.1.4",
               "Ordinal": 4,
-              "Description": "Verify that the application's documentation defines the secrets that are critical for the security of the application and a schedule for rotating them, based on the organization's threat model and business requirements.",
+              "Description": "Убедитесь, что в документации приложения определены секреты, критически важные для безопасности приложения, а также установлен график их ротации в соответствии с моделью угроз организации и её бизнес-требованиями.",
               "L": "3"
             }
           ]
@@ -2133,42 +2133,42 @@
         {
           "Shortcode": "V13.2",
           "Ordinal": 2,
-          "Name": "Backend Communication Configuration",
+          "Name": "Конфигурация бэкенд соединений",
           "Items": [
             {
               "Shortcode": "V13.2.1",
               "Ordinal": 1,
-              "Description": "Verify that communications between backend application components that don't support the application's standard user session mechanism, including APIs, middleware, and data layers, are authenticated. Authentication must use individual service accounts, short-term tokens, or certificate-based authentication and not unchanging credentials such as passwords, API keys, or shared accounts with privileged access.",
+              "Description": "Убедитесь, что коммуникации между компонентами бэкенда приложения ( API, промежуточное ПО и уровни данных,), которые не поддерживают стандартный механизм пользовательских сессий, проходят с аутентификацией. Аутентификация должна использовать индивидуальные сервисные аккаунты, краткосрочные токены или аутентификацию на основе сертификатов, а не постоянные учётные данные, такие как пароли, API-ключи или общие аккаунты с привилегированным доступом.",
               "L": "2"
             },
             {
               "Shortcode": "V13.2.2",
               "Ordinal": 2,
-              "Description": "Verify that communications between backend application components, including local or operating system services, APIs, middleware, and data layers, are performed with accounts assigned the least necessary privileges.",
+              "Description": "Убедитесь, что коммуникации между компонентами бэкенда приложения, включая локальные или системные службы, API, промежуточное ПО и уровни данных, выполняются с использованием аккаунтов, которым назначены минимально необходимые привилегии.",
               "L": "2"
             },
             {
               "Shortcode": "V13.2.3",
               "Ordinal": 3,
-              "Description": "Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin).",
+              "Description": "Убедитесь, что если для аутентификации в сервисе используются учётные данные, то используемые потребителем учётные данные не являются стандартными (например, root/root или admin/admin).",
               "L": "2"
             },
             {
               "Shortcode": "V13.2.4",
               "Ordinal": 4,
-              "Description": "Verify that an allowlist is used to define the external resources or systems with which the application is permitted to communicate (e.g., for outbound requests, data loads, or file access). This allowlist can be implemented at the application layer, web server, firewall, or a combination of different layers.",
+              "Description": "Убедитесь, что используется белый список (allowlist) для определения внешних ресурсов или систем, с которыми приложению разрешено взаимодействовать (например, для исходящих запросов, загрузки данных или доступа к файлам). Этот белый список может быть реализован на уровне приложения, веб-сервера, межсетевого экрана или комбинации различных уровней.",
               "L": "2"
             },
             {
               "Shortcode": "V13.2.5",
               "Ordinal": 5,
-              "Description": "Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from.",
+              "Description": "Убедитесь, что веб- или прикладной сервер настроен с белым списком ресурсов или систем, к которым сервер может отправлять запросы или из которых может загружать данные и файлы.",
               "L": "2"
             },
             {
               "Shortcode": "V13.2.6",
               "Ordinal": 6,
-              "Description": "Verify that where the application connects to separate services, it follows the documented configuration for each connection, such as maximum parallel connections, behavior when maximum allowed connections is reached, connection timeouts, and retry strategies.",
+              "Description": "Убедитесь, что при подключении приложения к другим сервисам соблюдается задокументированная конфигурация для каждого соединения, включая максимальное количество параллельных соединений, поведение при достижении их максимума, таймауты и стратегии повторных попыток подключения.",
               "L": "3"
             }
           ]
@@ -2176,30 +2176,30 @@
         {
           "Shortcode": "V13.3",
           "Ordinal": 3,
-          "Name": "Secret Management",
+          "Name": "Управление секретами",
           "Items": [
             {
               "Shortcode": "V13.3.1",
               "Ordinal": 1,
-              "Description": "Verify that a secrets management solution, such as a key vault, is used to securely create, store, control access to, and destroy backend secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For an L3 application, this must involve a hardware-backed solution such as an HSM.",
+              "Description": "Убедитесь, что для безопасного создания, хранения, контроля доступа и уничтожения секретов бэкенда используется решение для управления секретами, например, хранилище ключей (key vault). Секретами могут быть пароли, ключевой материал, интеграции с базами данных и сторонними системами, ключи и seed-значения для токенов с ограниченным временем действия, другие внутренние секреты и API-ключи. Секреты не должны включаться в исходный код приложения или артефакты сборки. Для приложений уровня L3 необходимо использовать аппаратное решение, например, аппаратный модуль безопасности (HSM).",
               "L": "2"
             },
             {
               "Shortcode": "V13.3.2",
               "Ordinal": 2,
-              "Description": "Verify that access to secret assets adheres to the principle of least privilege.",
+              "Description": "Убедитесь, что доступ к секретным ресурсам осуществляется в соответствии с принципом минимально необходимых привилегий (least privilege).",
               "L": "2"
             },
             {
               "Shortcode": "V13.3.3",
               "Ordinal": 3,
-              "Description": "Verify that all cryptographic operations are performed using an isolated security module (such as a vault or hardware security module) to securely manage and protect key material from exposure outside of the security module.",
+              "Description": "Убедитесь, что все криптографические операции выполняются с использованием изолированного модуля безопасности (например, хранилища ключей или аппаратного модуля безопасности), чтобы надежно управлять ключевым материалом и защищать его от утечки за пределы модуля безопасности.",
               "L": "3"
             },
             {
               "Shortcode": "V13.3.4",
               "Ordinal": 4,
-              "Description": "Verify that secrets are configured to expire and be rotated based on the application's documentation.",
+              "Description": "Убедитесь, что секреты настроены на срок действия и ротацию в соответствии с документацией приложения.",
               "L": "3"
             }
           ]
@@ -2207,48 +2207,48 @@
         {
           "Shortcode": "V13.4",
           "Ordinal": 4,
-          "Name": "Unintended Information Leakage",
+          "Name": "Непреднамеренная утечка информации",
           "Items": [
             {
               "Shortcode": "V13.4.1",
               "Ordinal": 1,
-              "Description": "Verify that the application is deployed either without any source control metadata, including the .git or .svn folders, or in a way that these folders are inaccessible both externally and to the application itself.",
+              "Description": "Убедитесь, что приложение развернуто либо без метаданных систем контроля версий (включая папки .git или .svn), либо так, чтобы эти папки были недоступны как извне, так и для самого приложения.",
               "L": "1"
             },
             {
               "Shortcode": "V13.4.2",
               "Ordinal": 2,
-              "Description": "Verify that debug modes are disabled for all components in production environments to prevent exposure of debugging features and information leakage.",
+              "Description": "Убедитесь, что режимы отладки отключены для всех компонентов в промышленной среде, чтобы предотвратить раскрытие функций отладки и утечку информации.",
               "L": "2"
             },
             {
               "Shortcode": "V13.4.3",
               "Ordinal": 3,
-              "Description": "Verify that web servers do not expose directory listings to clients unless explicitly intended.",
+              "Description": "Убедитесь, что веб-серверы не показывают клиентам списки содержимого каталогов, если это явно не предусмотрено.",
               "L": "2"
             },
             {
               "Shortcode": "V13.4.4",
               "Ordinal": 4,
-              "Description": "Verify that using the HTTP TRACE method is not supported in production environments, to avoid potential information leakage.",
+              "Description": "Убедитесь, что метод HTTP TRACE не поддерживается в продуктовой среде, чтобы избежать потенциальной утечки информации.",
               "L": "2"
             },
             {
               "Shortcode": "V13.4.5",
               "Ordinal": 5,
-              "Description": "Verify that documentation (such as for internal APIs) and monitoring endpoints are not exposed unless explicitly intended.",
+              "Description": "Убедитесь, что документация (например, по внутренним API) и мониторинговые эндпоинты не доступны, если это явно не предусмотрено.",
               "L": "2"
             },
             {
               "Shortcode": "V13.4.6",
               "Ordinal": 6,
-              "Description": "Verify that the application does not expose detailed version information of backend components.",
+              "Description": "Убедитесь, что приложение не раскрывает подробную информацию о версиях компонентов бэкенда.",
               "L": "3"
             },
             {
               "Shortcode": "V13.4.7",
               "Ordinal": 7,
-              "Description": "Verify that the web tier is configured to only serve files with specific file extensions to prevent unintentional information, configuration, and source code leakage.",
+              "Description": "Убедитесь, что веб-слой настроен на обслуживание только файлов с определёнными расширениями, чтобы предотвратить непреднамеренную утечку информации, конфигураций и исходного кода.",
               "L": "3"
             }
           ]
