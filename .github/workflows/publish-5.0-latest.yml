@@ -1,0 +1,45 @@
+# This workflow uploads the generated 5.0 documents to the 'latest' GitHub release.
+name: Publish 5.0 Latest to Release
+
+on:
+  workflow_call:
+
+jobs:
+  publish-5-0-latest:
+    runs-on: ubuntu-latest
+    name: Publish 5.0 Latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+      - name: Download 5.0 artifact
+        uses: actions/download-artifact@v4.3.0
+        with:
+          name: ASVS 5.0.0
+          path: ./asvs-5.0-latest
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "datetime=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_OUTPUT
+      - name: Delete existing 'latest' release
+        run: |
+          gh release delete latest --yes || echo "No existing 'latest' release to delete"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Delete existing 'latest' tag
+        run: |
+          git push origin :refs/tags/latest || echo "No existing 'latest' tag to delete"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create fresh 'latest' release
+        run: |
+          gh release create latest \
+            --title "OWASP Application Security Verification Standard (Bleeding Edge)" \
+            --notes "This release is automatically recreated with the latest changes from the master branch of the ASVS project.
+
+          **Generated on:** ${{ steps.timestamp.outputs.datetime }}
+
+          This bleeding-edge version represents the most current state of the ASVS documentation and should be used for testing and preview purposes only. For production use, please refer to the stable releases (The latest stable release is [v5.0.0](https://github.com/OWASP/ASVS/releases/tag/v5.0.0_release)).
+
+          **Note:** This version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience and early access to the latest improvements." \
+            ./asvs-5.0-latest/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
