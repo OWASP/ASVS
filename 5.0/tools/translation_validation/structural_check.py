@@ -1,13 +1,21 @@
+# This script validates that a translated ASVS file maintains the same structural format as the original file.
+# It compares the positions of blank lines between the original and translated files to ensure consistency.
+# Usage:
+#   python structural_check.py --og <original_file> --tr <translated_file>
+# Arguments:
+#   --og : Path to the original ASVS file
+#   --tr : Path to the translated ASVS file
+
 import argparse
 import sys
 
-def get_args():
-    parser = argparse.ArgumentParser(
-        description="Validate that translation has the same structure as the original"
-    )
-    parser.add_argument("--og", required=True, help="Path to original ASVS file")
-    parser.add_argument("--tr", required=True, help="Path to translated ASVS file")
-    return parser.parse_args()
+
+parser = argparse.ArgumentParser(
+    description="Validate that translation has the same structure as the original"
+)
+parser.add_argument("--og", required=True, help="Path to original ASVS file")
+parser.add_argument("--tr", required=True, help="Path to translated ASVS file")
+args = parser.parse_args()
 
 def extract_newlines(text: str):
     """Return list of line numbers that are blank."""
@@ -19,7 +27,7 @@ def check_newlines(orig, trans):
         # Find first mismatch
         for i, (o, t) in enumerate(zip(orig, trans), start=1):
             if o != t:
-                return (False, f"Mismatch at original line {o} vs translated line {t}", len(orig), len(trans))
+                return (False, f"At file {args.og}, mismatch at original line {o} vs translated line {t}", len(orig), len(trans))
         # One list is longer
         return (False, f"Extra newlines starting at line {min(len(orig), len(trans))}", len(orig), len(trans))
     else:
@@ -29,8 +37,6 @@ def check_newlines(orig, trans):
     return (True, None, len(orig), len(trans))
 
 def main():
-    args = get_args()
-
     with open(args.og, encoding="utf-8") as f:
         original_text = f.read()
     with open(args.tr, encoding="utf-8") as f:

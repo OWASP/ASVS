@@ -1,8 +1,11 @@
-"""
-    This script takes 2 different files as argument, extracts the chapter, section and 
-    requirements values (e.g. **1.1.1**) from both and detects if there is a missing
-    or extra requirement in the new version
-"""
+
+# This script validates that requirements in a translated ASVS file maintains the same content and structural format as the original file.
+# It compares the positions of blank lines between the original and translated files to ensure consistency.
+# Usage:
+#   python reg_check.py --og <original_file> --tr <translated_file>
+# Arguments:
+#   --og : Path to the original ASVS file
+#   --tr : Path to the translated ASVS file
 
 import argparse
 import re
