@@ -73,9 +73,7 @@ Sürüm 4.x'te seviye göstergeleri tik işaretleriyle ifade edilirken, 5.x sür
 
 ### Daha Kolay Giriş Seviyesi
 
-Geri bildirimler, yaklaşık 120 maddeden oluşan Seviye 1 gereksinimlerinin, aynı zamanda "minimum" olarak etiketlenip birçok uygulama için yetersiz görülmesi nedeniyle benimsenmesinin zorlaştığını göstermiştir. Sürüm 5.0, bu eşiği düşürmeyi hedefleyerek Seviye 1’i öncelikli olarak ilk savunma katmanına ait gereksinimler etrafında tanımlar ve bu seviyedeki gereksinimleri daha az ve daha net hale getirir.
-
-Sayısal olarak örnek vermek gerekirse sürüm 4.0.3'te 278 gereksinimden 128’i Seviye 1’di (%46). Sürüm 5.0.0'da ise 345 gereksinimden yalnızca 70’i Seviye 1’dir (%20).
+Geri bildirimler, yaklaşık 120 maddeden oluşan Seviye 1 gereksinimlerinin, aynı zamanda "minimum" olarak etiketlenip birçok uygulama için yetersiz görülmesi nedeniyle benimsenmesinin zorlaştığını göstermiştir. Sürüm 5.0, bu eşiği düşürmeyi hedefleyerek Seviye 1’i öncelikli olarak ilk savunma katmanına ait gereksinimler etrafında tanımlar ve bu seviyedeki gereksinimleri daha az ve daha net hale getirir. Sayısal olarak örnek vermek gerekirse sürüm 4.0.3'te 278 gereksinimden 128’i Seviye 1’di (%46). Sürüm 5.0.0'da ise 345 gereksinimden yalnızca 70’i Seviye 1’dir (%20).
 
 ### Test Edilebilirlik Yanılgısı
 

@@ -23,17 +23,24 @@ def extract_newlines(text: str):
 
 def check_newlines(orig, trans):
     """Compare newline positions and return mismatch info"""
+    min_len = min(len(orig), len(trans))
+    for idx in range(min_len):
+        if orig[idx] != trans[idx]:
+            # Report the index and the actual line numbers
+            return (
+                False,
+                f"Mismatch at newline {idx+1}: original blank line at {orig[idx]}, translated blank line at {trans[idx]}",
+                len(orig),
+                len(trans)
+            )
     if len(orig) != len(trans):
-        # Find first mismatch
-        for i, (o, t) in enumerate(zip(orig, trans), start=1):
-            if o != t:
-                return (False, f"At file {args.og}, mismatch at original line {o} vs translated line {t}", len(orig), len(trans))
         # One list is longer
-        return (False, f"Extra newlines starting at line {min(len(orig), len(trans))}", len(orig), len(trans))
-    else:
-        for o, t in zip(orig, trans):
-            if o != t:
-                return (False, f"Mismatch at original line {o} vs translated line {t}", len(orig), len(trans))
+        return (
+            False,
+            f"Extra blank lines in one of the files, starting at newline {min_len+1}",
+            len(orig),
+            len(trans)
+        )
     return (True, None, len(orig), len(trans))
 
 def main():
@@ -48,7 +55,7 @@ def main():
     ok, msg, o_count, t_count = check_newlines(orig_newlines, trans_newlines)
 
     if not ok:
-        print("❌ Newline mismatch detected")
+        print(f"❌ Newline mismatch detected at file {args.og}")
         print(f"   - Original count: {o_count}, Translation count: {t_count}")
         print(f"   - First issue: {msg}")
         print(" To see the other mismatched newline positions, solve the first issue and re-run.")
