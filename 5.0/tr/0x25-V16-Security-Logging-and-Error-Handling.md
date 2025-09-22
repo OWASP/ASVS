@@ -24,6 +24,8 @@ Güvenlik olayları çoğunlukla hassas veriler içerir. Bu tür verilerin dikka
 
 Bu nedenle yalnızca gerekli verilerin loglanması ve log verilerinin diğer hassas varlıklar gibi korunması kritik önemdedir.
 
+Aşağıdaki gereksinimler metadata'nın loglanması, senkronizasyon, biçim ve kontrol için temel gereksinimleri belirler.
+
 | # | Açıklama | Seviye |
 | :---: | :--- | :---: |
 | **16.2.1** | Her bir log girdisinin, olayın ne zaman, nerede, kim tarafından ve ne olduğuna dair detaylı bir zaman çizelgesi oluşturulmasına olanak tanıyacak gerekli meta verileri içerdiği doğrulanmalıdır. | 2 |

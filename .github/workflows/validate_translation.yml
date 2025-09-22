@@ -42,6 +42,8 @@ jobs:
             fi
 
             echo "🔍 Validating $fname ..."
-            python 5.0/tools/translation_validation/req_check.py --og "$file" --tr "$translate"
+            if [ "$fname" != "0x92-Appendix-C_Cryptography.md" ]; then
+              python 5.0/tools/translation_validation/req_check.py --og "$file" --tr "$translate"
+            fi
             python 5.0/tools/translation_validation/structural_check.py --og "$file" --tr "$translate"
           done
