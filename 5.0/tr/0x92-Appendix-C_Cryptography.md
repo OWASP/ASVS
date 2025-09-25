@@ -15,7 +15,7 @@ Bu liste, belirli bir uygulama bağlamında, aşağıdakiler de dahil olmak üze
 
 ## Kriptografik Envanter ve Dokümantasyon
 
-Bu bölüm V11.1 Kriptografik Envanter 
+Bu bölüm V11.1 Kriptografik Envanter
 ve Dokümantasyon için ek bilgi sağlamaktadır.
 
 Algoritmalar, anahtarlar ve sertifikalar gibi tüm kriptografik varlıkların düzenli olarak keşfedildiğinden, envanterinin çıkarıldığından ve değerlendirildiğinden emin olmak önemlidir. Seviye 3 için bu, bir uygulamada kriptografi kullanımını keşfetmek için statik ve dinamik tarama kullanımını içermelidir. SAST ve DAST gibi araçlar bu konuda yardımcı olabilir, ancak daha geniş bir kapsam elde etmek için özel araçlara ihtiyaç duyulması mümkündür. Ücretsiz araç örnekleri şunları içerir:
@@ -45,7 +45,7 @@ Not: Bu bölümde kuantum bilgisayarlarının var olmadığı varsayılmaktadır
 
 ## Rastgele Değerler
 
-Bu bölümde V11.5 Rastgele Değerler 
+Bu bölümde V11.5 Rastgele Değerler
 için ek bilgi sağlanmaktadır.
 
 | İsim | Sürüm/Referans | Notlar | Durum |
@@ -61,7 +61,7 @@ HMAC-DRBG veya Hash-DRBG ile kullanılan temel hash fonksiyonu, bu kullanım iç
 
 ## Şifre (Cipher) Algoritmaları
 
-Bu bölüm V11.3 Şifreleme Algoritmaları 
+Bu bölüm V11.3 Şifreleme Algoritmaları
 için ek bilgi sağlar.
 
 Onaylanan şifre algoritmaları tercih sırasına göre listelenmiştir.
@@ -144,7 +144,7 @@ MAC-then-encrypt'e eski uygulamalarla uyumluluk için hala izin verilmektedir. T
 
 ## Hash Fonksiyonları
 
-Bu bölümde V11.4 Hashing ve Hash Tabanlı Fonksiyonlar 
+Bu bölümde V11.4 Hashing ve Hash Tabanlı Fonksiyonlar
 için ek bilgiler sağlanmaktadır.
 
 ### Genel Kullanım Durumları için Hash Fonksiyonları
@@ -214,7 +214,7 @@ Parola depolama için onaylı parola tabanlı anahtar türetme işlevleri kullan
 
 ## Anahtar Değişim Mekanizmaları (Key Exchange Mechanisms - KEX)
 
-Bu bölümde V11.6 Açık Anahtar Kriptografisi 
+Bu bölümde V11.6 Açık Anahtar Kriptografisi
 için ek bilgi sağlanmaktadır.
 
 ### KEX Şemaları
