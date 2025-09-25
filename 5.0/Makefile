@@ -1,3 +1,4 @@
+# Testing 1
 PROJDIR=$(realpath $(CURDIR))
 BUILDDIR=build
 DISTDIR=dist
