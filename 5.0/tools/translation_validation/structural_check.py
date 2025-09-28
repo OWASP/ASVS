@@ -9,14 +9,6 @@
 import argparse
 import sys
 
-
-parser = argparse.ArgumentParser(
-    description="Validate that translation has the same structure as the original"
-)
-parser.add_argument("--og", required=True, help="Path to original ASVS file")
-parser.add_argument("--tr", required=True, help="Path to translated ASVS file")
-args = parser.parse_args()
-
 def extract_newlines(text: str):
     """Return list of line numbers that are blank."""
     return [i for i, line in enumerate(text.splitlines(), start=1) if line.strip() == ""]
@@ -43,10 +35,10 @@ def check_newlines(orig, trans):
         )
     return (True, None, len(orig), len(trans))
 
-def main():
-    with open(args.og, encoding="utf-8") as f:
+def validate_files(og_path: str, tr_path: str) -> bool:
+    with open(og_path, encoding="utf-8") as f:
         original_text = f.read()
-    with open(args.tr, encoding="utf-8") as f:
+    with open(tr_path, encoding="utf-8") as f:
         translation_text = f.read()
 
     orig_newlines = extract_newlines(original_text)
@@ -55,14 +47,25 @@ def main():
     ok, msg, o_count, t_count = check_newlines(orig_newlines, trans_newlines)
 
     if not ok:
-        print(f"❌ Newline mismatch detected at file {args.og}")
+        print(f"❌ Newline mismatch detected at file {og_path}")
         print(f"   - Original count: {o_count}, Translation count: {t_count}")
         print(f"   - First issue: {msg}")
         print(" To see the other mismatched newline positions, solve the first issue and re-run.")
-        sys.exit(1)
+        return False
     else:
         print(f"✅ Newlines match exactly (count={o_count})")
-        sys.exit(0)
+        return True
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Validate that translation has the same structure as the original"
+    )
+    parser.add_argument("--original", "-o", dest="original", required=True, help="Path to original ASVS file")
+    parser.add_argument("--translated", "-t", dest="translated", required=True, help="Path to translated ASVS file")
+    args = parser.parse_args()
+
+    ok = validate_files(args.original, args.translated)
+    sys.exit(0 if ok else 1)
 
 if __name__ == "__main__":
     main()
