@@ -11,8 +11,6 @@ import argparse
 import re
 import sys
 
-
-
 def extract_special_chars(text: str) -> set[str]:
     """
     Extract non-alphanumeric, non-space, non-markdown special characters.
@@ -62,7 +60,8 @@ def check_reg_count(original: str, translation: str) -> bool:
         print(f"\n⚠️ Extra in translation ({len(extra_reqs)}):")
         for req in sorted(extra_reqs):
             print(f"   - {req}")
-        check = False
+
+  check = False
 
     if check:
         print("✅ All requirements exist in translation.")
@@ -105,6 +104,7 @@ def validate_files(og_path: str, tr_path: str) -> bool:
 
     if not check_reg_count(original_text, translation_text):
         print("Please fix the issues about missing/extra requirements to proceed with other checks.")
+
         return False
 
     if not compare_rows_columns(original_text, translation_text):
