@@ -1,9 +1,6 @@
 
 # This script validates that requirements in a translated ASVS file maintains the same content and structural format as the original file.
 # It compares the positions of blank lines between the original and translated files to ensure consistency.
-#
-# Credit to Ata Seren (@ataseren)
-#
 # Usage:
 #   python reg_check.py --og <original_file> --tr <translated_file>
 # Arguments:
@@ -13,6 +10,16 @@
 import argparse
 import re
 import sys
+
+# Arguments are processed at the beginning to allow function reuse
+parser = argparse.ArgumentParser(
+    description="Validate that all ASVS requirements exist correctly in translation"
+)
+parser.add_argument("--og", required=True, help="Path to original ASVS file")
+parser.add_argument("--tr", required=True, help="Path to translated ASVS file")
+args = parser.parse_args()
+
+
 
 def extract_special_chars(text: str) -> set[str]:
     """
@@ -55,14 +62,13 @@ def check_reg_count(original: str, translation: str) -> bool:
     if missing_reqs:
         print(f"❌ Missing in translation ({len(missing_reqs)}):")
         for req in sorted(missing_reqs):
-            # Filename context will be printed by caller when available
-            print(f"   - {req}")
+            print(f"   - {req} from original file: {args.og}")
         check = False
 
     if extra_reqs:
         print(f"\n⚠️ Extra in translation ({len(extra_reqs)}):")
         for req in sorted(extra_reqs):
-            print(f"   - {req}")
+            print(f"   - {req} at translation file: {args.tr}")
         check = False
 
     if check:
@@ -94,38 +100,23 @@ def compare_rows_columns(original: str, translation: str) -> bool:
         print("✅ All requirement IDs and non-description columns match")
         return True
 
-def validate_files(og_path: str, tr_path: str) -> bool:
-    """Validate requirement presence and non-description column content.
+def main():
 
-    Returns True on success, False otherwise.
-    """
-    with open(og_path, encoding="utf-8") as f:
+    # Read files
+    with open(args.og, encoding="utf-8") as f:
         original_text = f.read()
-    with open(tr_path, encoding="utf-8") as f:
+    with open(args.tr, encoding="utf-8") as f:
         translation_text = f.read()
 
     if not check_reg_count(original_text, translation_text):
         print("Please fix the issues about missing/extra requirements to proceed with other checks.")
-
-        return False
+        sys.exit(1)
 
     if not compare_rows_columns(original_text, translation_text):
         print("Please fix the content mismatches for validation.")
-        return False
+        sys.exit(1)
 
     print("\nAll checks passed successfully.")
-    return True
-
-def main():
-    parser = argparse.ArgumentParser(
-        description="Validate that all ASVS requirements exist correctly in translation"
-    )
-    parser.add_argument("--og", required=True, help="Path to original ASVS file")
-    parser.add_argument("--tr", required=True, help="Path to translated ASVS file")
-    args = parser.parse_args()
-
-    ok = validate_files(args.og, args.tr)
-    sys.exit(0 if ok else 1)
 
     ### Question: I think we shouldn't check special characters, as some languages may not use the same ones but
     ### still be correct. What do you think? Also, the translator may use different characters for parentheses, dashes, etc.

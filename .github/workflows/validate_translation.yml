@@ -23,5 +23,27 @@ jobs:
 
       - name: Run validation scripts
         run: |
-          python 5.0/tools/translation_validation/validate_translation.py \
-            --translated-folder "${{ github.event.inputs.translated_folder }}"
+          set -e
+          ORIGINAL_DIR="5.0/en"
+          TRANSLATED_DIR="5.0/${{ github.event.inputs.translated_folder }}"
+
+          if [ ! -d "$TRANSLATED_DIR" ]; then
+            echo "❌ Translated directory not found: $TRANSLATED_DIR"
+            exit 1
+          fi
+
+          for file in "$ORIGINAL_DIR"/*.md; do
+            fname=$(basename "$file")
+            translate="$TRANSLATED_DIR/$fname"
+
+            if [ ! -f "$translate" ]; then
+              echo "❌ Missing translation for $fname"
+              exit 1
+            fi
+
+            echo "🔍 Validating $fname ..."
+            if [ "$fname" != "0x92-Appendix-C_Cryptography.md" ]; then
+              python 5.0/tools/translation_validation/req_check.py --og "$file" --tr "$translate"
+            fi
+            python 5.0/tools/translation_validation/structural_check.py --og "$file" --tr "$translate"
+          done
