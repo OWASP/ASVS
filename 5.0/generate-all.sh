@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-ALLOWED_LANGS='en'
+ALLOWED_LANGS='en tr'
 
 echo $@
 
