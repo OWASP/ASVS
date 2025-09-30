@@ -2,8 +2,6 @@
 
 We gratefully acknowledge the contributions of the following people who have commented or opened pull requests since the the release of ASVS 4.0.0.
 
-[Error](http://evil.com/returnserror)
-
 If you are aware of any mistakes or would like your name to appear differently, please let us know.
 
 | | | | |
