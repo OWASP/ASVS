@@ -14,6 +14,10 @@ for lang in ${LANGS}; do
   if [[ " $ALLOWED_LANGS " =~ " $lang " ]]; then
 
     vers="5.0.0"
+    if [ ! -d "./docs_$lang" ]; then
+      mkdir "./docs_$lang"
+    fi
+    
     verslong="./docs_$lang/OWASP_Application_Security_Verification_Standard_$vers_$lang"
 
     python3 tools/export.py --format json --language $lang > "$verslong.json"
