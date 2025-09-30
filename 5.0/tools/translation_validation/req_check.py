@@ -60,8 +60,7 @@ def check_reg_count(original: str, translation: str) -> bool:
         print(f"\n⚠️ Extra in translation ({len(extra_reqs)}):")
         for req in sorted(extra_reqs):
             print(f"   - {req}")
-
-  check = False
+        check = False
 
     if check:
         print("✅ All requirements exist in translation.")
