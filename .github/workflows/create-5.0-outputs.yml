@@ -27,4 +27,4 @@ jobs:
       - uses: actions/upload-artifact@v4.3.0
         with:
           name: ASVS 5.0.0
-          path: 5.0/dist/en/
+          path: 5.0/dist/

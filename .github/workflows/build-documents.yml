@@ -34,21 +34,21 @@ jobs:
   build-image:
     if: needs.filters.outputs.docker == 'true'
     needs: filters
-    uses: owasp/asvs/.github/workflows/build-and-publish-docker-image.yml@master
+    uses: ./.github/workflows/build-and-publish-docker-image.yml
 
   build-v4:
     if: ${{ always() && needs.filters.outputs.v4 == 'true' }}
     needs: 
       - build-image
       - filters
-    uses: owasp/asvs/.github/workflows/create-4.0-outputs.yml@master
+    uses: ./.github/workflows/create-4.0-outputs.yml
     
   build-v5:
     if: ${{ always() && needs.filters.outputs.v5 == 'true' }}
     needs: 
       - build-image
       - filters
-    uses: owasp/asvs/.github/workflows/create-5.0-outputs.yml@master
+    uses: ./.github/workflows/create-5.0-outputs.yml
 
   publish-v5-latest:
     if: ${{ always() && github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' && (needs.build-v5.result == 'success') }}

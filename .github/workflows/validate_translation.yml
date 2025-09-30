@@ -1,0 +1,27 @@
+name: Validate ASVS Translation
+
+on:
+  workflow_dispatch:
+    inputs:
+      translated_folder:
+        description: "Name of the folder containing translated files (inside docs/)"
+        required: true
+
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run validation scripts
+        run: |
+          python 5.0/tools/translation_validation/validate_translation.py \
+            --translated-folder "${{ github.event.inputs.translated_folder }}"
