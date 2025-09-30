@@ -6,7 +6,7 @@ TOOLSDIR=tools
 TEMPLATEDIR=templates
 TARGETNAME=OWASP_Application_Security_Verification_Standard_5.0.0_
 
-LANGDIRS=en tr
+LANGDIRS := $(shell cat languages.txt)
 # Add the language directories to the project directory
 # Create build and dist directories and language subdirectories
 BUILDDIR=$(PROJDIR)/build
