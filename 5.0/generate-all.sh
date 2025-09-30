@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-ALLOWED_LANGS='en tr'
+ALLOWED_LANGS=$(tr '\n' ' ' < languages.txt | sed 's/ $//')
 
 echo $@
 
