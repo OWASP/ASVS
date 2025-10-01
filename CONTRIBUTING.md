@@ -28,9 +28,9 @@ We will no longer be accepting changes to the 4.0 folder which is now fixed at t
 
 ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
-* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
-* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
-* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
+* Major release - Full reorganization, almost everything may have changed, including requirement numbers and chapter and section structure. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
+* Minor release - Requirements may be added, removed, split, or merged but overall numbering and the section structure will stay the same with no additions or removals. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0). The restrictions mean that requirements within a sections may not be in ascending level order. Levels may be increased or decreased.
+* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1). A level number may be increased but not decreased.
 
 The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
 
@@ -113,6 +113,8 @@ If you are interested in creating a translation, here are some pointers for how 
         * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
         * Korean, see [#3204](https://github.com/OWASP/ASVS/issues/3204)
         * Russian, see [#3223](https://github.com/OWASP/ASVS/issues/3223)
+        * Spanish, see [#3238](https://github.com/OWASP/ASVS/issues/3238)
+        * Panjabi, see[#3252](https://github.com/OWASP/ASVS/issues/3252)
     * v5.0.0
         * None
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.

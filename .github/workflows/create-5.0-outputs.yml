@@ -7,6 +7,11 @@ on:
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
 
+# Updated versions:
+# docker/login-action@v3.4.0
+# actions/checkout@v4.2.2
+# actions/upload-artifact@v4.4.3
+
 jobs:
   prepare_outputs:
     runs-on: ubuntu-latest
