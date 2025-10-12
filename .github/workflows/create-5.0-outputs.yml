@@ -4,8 +4,20 @@ name: Generate 5.0 Outputs
 on:
   # Scan on workflow call
   workflow_call:
+    inputs:
+      languages:
+        description: 'Languages to build (space-separated, e.g., "en tr")'
+        required: false
+        default: 'en'
+        type: string
   # Scan on-demand through GitHub Actions interface:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      languages:
+        description: 'Languages to build (space-separated, e.g., "en tr")'
+        required: false
+        default: 'en'
+        type: string
 
 # Updated versions:
 # docker/login-action@v3.4.0
@@ -24,6 +36,8 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/checkout@v4.1.1
       - run: make 5.0
+        env:
+          LANGS: ${{ inputs.languages || github.event.inputs.languages || 'en' }}
       - uses: actions/upload-artifact@v4.3.0
         with:
           name: ASVS 5.0.0
