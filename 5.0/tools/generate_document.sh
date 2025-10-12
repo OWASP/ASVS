@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Test 1
 echo "OWASP Markdown Conversion Tool"
 echo ""
 
