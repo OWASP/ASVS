@@ -1,6 +1,9 @@
 
 # This script validates that requirements in a translated ASVS file maintains the same content and structural format as the original file.
 # It compares the positions of blank lines between the original and translated files to ensure consistency.
+#
+# Credit to Ata Seren (@ataseren)
+#
 # Usage:
 #   python reg_check.py --og <original_file> --tr <translated_file>
 # Arguments:
