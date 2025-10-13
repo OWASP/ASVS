@@ -40,6 +40,6 @@ jobs:
           This bleeding-edge version represents the most current state of the ASVS documentation and should be used for testing and preview purposes only. For production use, please refer to the stable releases (The latest stable release is [v5.0.0](https://github.com/OWASP/ASVS/releases/tag/v5.0.0_release)).
 
           **Note:** This version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience and early access to the latest improvements." \
-            ./asvs-5.0-latest/*
+            ./asvs-5.0-latest/en/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
