@@ -15,7 +15,7 @@ jobs:
         uses: actions/download-artifact@v4.3.0
         with:
           name: ASVS 5.0.0
-          path: ./asvs-5.0-latest
+          path: ./asvs-5.0-latest/en
       - name: Generate timestamp
         id: timestamp
         run: echo "datetime=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_OUTPUT
