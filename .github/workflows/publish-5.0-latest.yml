@@ -15,7 +15,7 @@ jobs:
         uses: actions/download-artifact@v4.3.0
         with:
           name: ASVS 5.0.0
-          path: ./asvs-5.0-latest/en
+          path: ./asvs-5.0-latest
       - name: Generate timestamp
         id: timestamp
         run: echo "datetime=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_OUTPUT
@@ -40,6 +40,6 @@ jobs:
           This bleeding-edge version represents the most current state of the ASVS documentation and should be used for testing and preview purposes only. For production use, please refer to the stable releases (The latest stable release is [v5.0.0](https://github.com/OWASP/ASVS/releases/tag/v5.0.0_release)).
 
           **Note:** This version is undergoing constant changes and cannot be relied upon for stability, but is provided for convenience and early access to the latest improvements." \
-            ./asvs-5.0-latest/*
+            ./asvs-5.0-latest/en/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
