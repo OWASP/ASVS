@@ -109,7 +109,10 @@
 
 ### Шифрование ключей
 
-Шифрование ключей (и соответствующее расшифрование ключей) — это метод защиты существующего ключа путём его инкапсуляции с использованием дополнительного механизма шифрования, чтобы исходный ключ не был явно раскрыт, например, во время передачи. Этот дополнительный ключ, используемый для защиты исходного ключа, называется ключом обёртывания (wrap key).
+Шифрование ключа (key wrap) и соответствующее расшифрование ключа (key unwrap) — это метод защиты существующего ключа путём его инкапсуляции с использованием дополнительного механизма шифрования, чтобы исходный ключ не был явно раскрыт, например, во время передачи. Этот дополнительный ключ, используемый для защиты исходного ключа, называется ключом обёртывания (wrap key).
+
+Эта операция может выполняться в случае необходимости защиты ключей в местах, которые считаются недоверенными, а также для передачи конфиденциальных ключей по ненадежным сетям или внутри приложений.
+Однако перед началом процедуры шифрования/расшифрования ключей необходимо оценить характер исходного ключа (например, идентичность и назначение). Это может повлиять на безопасность и соответствие требованиям как исходных (до передачи), так и целевых систем/приложений, включая требования по аудиту действий с ключами (например, подпись) и хранению ключей.
 
 В частности, для шифрования ключей ОБЯЗАТЕЛЬНО должен использоваться алгоритм AES-256, соответствующий [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) и с учётом перспективных мер защиты от квантовых угроз. Режимы шифрования с использованием AES применяются в следующем порядке предпочтения:
 
@@ -128,16 +131,16 @@ AES-192 и AES-128 МОГУТ использоваться, если того т
 
 MAC-then-encrypt по-прежнему разрешен для совместимости со старыми приложениями. Он используется в TLS версии 1.2 со старыми наборами шифров.
 
-| Схема AEAD | Ссылка | Статус
+| Схема AEAD | Ссылка | Статус |
 |--------------------------|---------|-----|
-|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
-|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
-|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
-|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|Encrypt-then-MAC | | A
-|MAC-then-encrypt | | L
+|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
+|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
+|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
+|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|Encrypt-then-MAC | | A |
+|MAC-then-encrypt | | L |
 
 ## Хэш-функции
 
