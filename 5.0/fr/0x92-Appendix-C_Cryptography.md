@@ -4,9 +4,9 @@ Le chapitre « Cryptographie » va au-delà de la simple définition des bonne
 
 Cette annexe définit le niveau d'approbation des différents mécanismes cryptographiques :
 
-* Les mécanismes *Approuvés* (A) peuvent être utilisés dans les applications.
-* Les mécanismes *Hérités* (L) ne devraient pas être utilisés dans les applications, mais peuvent néanmoins être utilisés uniquement pour assurer la compatibilité avec les applications ou le code existants. Bien que l'utilisation de ces mécanismes ne soit pas actuellement considérée comme une vulnérabilité en soi, ils devraient être remplacés par des mécanismes plus sûrs et évolutifs dès que possible.
-* Les mécanismes *Interdits* (D) ne devraient pas être utilisés car ils sont actuellement considérés comme cassés ou n'offrent pas une sécurité suffisante.
+* Les mécanismes _Approuvés_ (A) peuvent être utilisés dans les applications.
+* Les mécanismes _Hérités_ (L) ne devraient pas être utilisés dans les applications, mais peuvent néanmoins être utilisés uniquement pour assurer la compatibilité avec les applications ou le code existants. Bien que l'utilisation de ces mécanismes ne soit pas actuellement considérée comme une vulnérabilité en soi, ils devraient être remplacés par des mécanismes plus sûrs et évolutifs dès que possible.
+* Les mécanismes _Interdits_ (D) ne devraient pas être utilisés car ils sont actuellement considérés comme cassés ou n'offrent pas une sécurité suffisante.
 
 Cette liste peut être modifiée dans le contexte d'une application donnée pour diverses raisons, notamment :
 
