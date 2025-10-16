@@ -23,7 +23,6 @@ Pour toute réutilisation ou distribution, vous devez indiquer clairement aux au
 | Elar Lang             | Josh C Grossman  |
 | Jim Manico            | Daniel Cuthbert  |
 
-
 ## Groupes de travail
 
 |                 |                   |                    |                  |
