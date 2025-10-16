@@ -41,7 +41,7 @@ La gestion des secrets est une tâche de configuration essentielle pour garantir
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **13.3.1** | Vérifiez qu'une solution de gestion des secrets, telle qu'un coffre-fort de clés, est utilisée pour créer, stocker, contrôler l'accès et détruire en toute sécurité les secrets backend. Ceux-ci peuvent inclure des mots de passe, du matériel de clé, des intégrations avec des bases de données et des systèmes tiers, des clés et des graines pour des jetons temporels, d'autres secrets internes et des clés API. Les secrets ne doivent pas être inclus dans le code source de l'application ni dans les artefacts de build. Pour une application L3, cela doit impliquer une solution matérielle telle qu'un HSM. | 2 |
-| **13.3.2** | Vérifiez que l’accès aux ressources secrètes respecte le principe du moindre privilège. | 2 | v5.0.be-14.8.4 |
+| **13.3.2** | Vérifiez que l’accès aux ressources secrètes respecte le principe du moindre privilège. | 2 |
 | **13.3.3** | Vérifiez que toutes les opérations cryptographiques sont effectuées à l'aide d'un module de sécurité isolé (tel qu'un coffre-fort ou un module de sécurité matériel) pour gérer et protéger en toute sécurité le matériel clé contre toute exposition en dehors du module de sécurité. | 3 |
 | **13.3.4** | Vérifiez que les secrets sont configurés pour expirer et être renouvelés en fonction de la documentation de l'application. | 3 |
 

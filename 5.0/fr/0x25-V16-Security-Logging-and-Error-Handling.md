@@ -68,7 +68,7 @@ Cette section définit les exigences visant à garantir que les applications éc
 | # | Description | Niveau |
 | :---: | :--- | :---: |
 | **16.5.1** | Vérifiez qu'un message générique est renvoyé au consommateur lorsqu'une erreur inattendue ou sensible à la sécurité se produit, garantissant ainsi l'absence d'exposition de données système internes sensibles telles que les traces de pile, les requêtes, les clés secrètes et les jetons. | 2 |
-| **16.5.2** | Vérifiez que l'application continue de fonctionner en toute sécurité lorsque l'accès aux ressources externes échoue, par exemple, en utilisant des modèles tels que des disjoncteurs ou une dégradation progressive. | 2 | v5.0.be-7.4.4 |
+| **16.5.2** | Vérifiez que l'application continue de fonctionner en toute sécurité lorsque l'accès aux ressources externes échoue, par exemple, en utilisant des modèles tels que des disjoncteurs ou une dégradation progressive. | 2 |
 | **16.5.3** | Vérifiez que l'application échoue proprement et sécurisée, y compris lorsqu'une exception se produit, en évitant les accès en cas d'erreur telles que le traitement d'une transaction malgré les erreurs résultant de la logique de validation. | 2 |
 | **16.5.4** | Vérifiez qu'un gestionnaire d'erreurs de « dernier recours » est défini pour intercepter toutes les exceptions non gérées. Cela permet d'éviter la perte des informations d'erreur qui doivent être loguées dans les fichiers journaux et de garantir qu'une erreur ne paralyse pas l'ensemble du processus applicatif, entraînant une perte de disponibilité. | 3 |
 
