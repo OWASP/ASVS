@@ -45,7 +45,8 @@ Remarque : cette section suppose qu'aucun ordinateur quantique n'existe ; si u
 
 ## Valeurs aléatoires
 
-Cette section fournit des informations supplémentaires sur les valeurs aléatoires de la version 11.5.
+Cette section fournit des informations supplémentaires
+sur les valeurs aléatoires de la version 11.5.
 
 | Nom | Version/Référence | Notes | Statut |
 |:-:|:-:|:-:|:-:|
@@ -60,7 +61,8 @@ La fonction de hachage sous-jacente utilisée avec HMAC-DRBG ou Hash-DRBG doit �
 
 ## Algorithmes de chiffrement
 
-Cette section fournit des informations supplémentaires sur les algorithmes de chiffrement V11.3.
+Cette section fournit des informations supplémentaires
+sur les algorithmes de chiffrement V11.3.
 
 Les algorithmes de chiffrement approuvés sont classés par ordre de préférence.
 
@@ -110,7 +112,6 @@ Remarques :
 L'encapsulation (et le déchiffrement) d'une clé cryptographique est une méthode de protection d'une clé existante par encapsulation (c'est-à-dire par encapsulation) grâce à un mécanisme de chiffrement supplémentaire, afin que la clé d'origine ne soit pas exposée de manière visible, par exemple lors d'un transfert. Cette clé supplémentaire, utilisée pour protéger la clé d'origine, est appelée clé d'encapsulation.
 
 Cette opération peut être effectuée lorsqu'il est souhaitable de protéger des clés dans des emplacements jugés non fiables, ou d'envoyer des clés sensibles sur des réseaux non fiables ou au sein d'applications.
-
 Cependant, il est important de bien comprendre la nature (par exemple, l'identité et la finalité) de la clé d'origine avant de s'engager dans une procédure d'encapsulation/déchiffrement, car cela peut avoir des répercussions sur les systèmes/applications sources et cibles en termes de sécurité, et notamment de conformité, ce qui peut inclure des pistes d'audit de la fonction d'une clé (par exemple, la signature) ainsi qu'un stockage approprié des clés.
 
 Plus précisément, AES-256 doit être utilisé pour l'encapsulation des clés, conformément à la norme NIST SP 800-38F (https://csrc.nist.gov/pubs/sp/800/38/f/final) et en tenant compte des dispositions prospectives contre la menace quantique. Les modes de chiffrement utilisant AES sont les suivants, par ordre de préférence :
@@ -143,7 +144,8 @@ La méthode « MAC puis chiffrer » est toujours autorisée pour des raisons d
 
 ## Fonctions de hachage
 
-Cette section fournit des informations supplémentaires sur le hachage V11.4 et les fonctions basées sur le hachage.
+Cette section fournit des informations supplémentaires
+sur le hachage V11.4 et les fonctions basées sur le hachage.
 
 ### Fonctions de hachage pour les cas d'utilisation généraux
 
@@ -189,9 +191,31 @@ Pour un hachage sécurisé des mots de passe, des fonctions de hachage dédiées
 
 Les fonctions de dérivation de clés basées sur des mots de passe approuvées peuvent être utilisées pour le stockage des mots de passe.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Mécanismes d'échange de clés
 
-Cette section fournit des informations complémentaires sur la cryptographie à clé publique V11.6.
+Cette section fournit des informations complémentaires
+sur la cryptographie à clé publique V11.6.
 
 ### Systèmes KEX
 
