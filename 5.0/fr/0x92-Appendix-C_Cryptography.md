@@ -15,7 +15,8 @@ Cette liste peut être modifiée dans le contexte d'une application donnée pour
 
 ## Inventaire et documentation cryptographiques
 
-Cette section fournit des informations complémentaires sur l'inventaire et la documentation cryptographiques V11.1.
+Cette section fournit des informations complémentaires
+sur l'inventaire et la documentation cryptographiques V11.1.
 
 Il est important de s'assurer que tous les actifs cryptographiques, tels que les algorithmes, les clés et les certificats, sont régulièrement découverts, inventoriés et évalués. Pour le niveau 3, cela devrait inclure l'utilisation d'analyses statiques et dynamiques pour découvrir l'utilisation de la cryptographie dans une application. Des outils tels que les SAST et DAST peuvent être utiles, mais des outils dédiés pourraient être nécessaires pour une couverture plus complète. Voici quelques exemples d'outils gratuits :
 

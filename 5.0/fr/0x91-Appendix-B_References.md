@@ -22,6 +22,10 @@ Il existe un mappage vers l'ASVS qui peut être trouvé ici : [https://cheatshe
 2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
 3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
 
+## Projets Internet des objets de l'OWASP
+
+1. OWASP Internet of Things Project: [https://owasp.org/www-project-internet-of-things/](https://owasp.org/www-project-internet-of-things/)
+
 ## Projets sans serveur OWASP
 
 1. OWASP Serverless Project : [https://owasp.org/www-project-serverless-top-10/](https://owasp.org/www-project-serverless-top-10/)
