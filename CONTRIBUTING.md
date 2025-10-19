@@ -108,7 +108,6 @@ If you are interested in creating a translation, here are some pointers for how 
         * Persian (Farsi), [#3172](https://github.com/OWASP/ASVS/issues/3172)
         * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
         * Portuguese, see [#3182](https://github.com/OWASP/ASVS/issues/3182)
-        * French, see [#3188](https://github.com/OWASP/ASVS/issues/3188)
         * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
         * Korean, see [#3204](https://github.com/OWASP/ASVS/issues/3204)
         * Spanish, see [#3238](https://github.com/OWASP/ASVS/issues/3238)
@@ -116,6 +115,7 @@ If you are interested in creating a translation, here are some pointers for how 
     * v5.0.0
         * [Turkish](./5.0/tr/)
         * [Russian](./5.0/ru/)
+        * [French](./5.0/fr/)
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
 * We would request that you base your translation on the 5.0/en folder in the v5.0.0 branch as this is now static at the 5.0.0 version.
