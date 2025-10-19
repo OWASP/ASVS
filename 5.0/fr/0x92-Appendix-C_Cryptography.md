@@ -191,26 +191,26 @@ Pour un hachage sécurisé des mots de passe, des fonctions de hachage dédiées
 
 Les fonctions de dérivation de clés basées sur des mots de passe approuvées peuvent être utilisées pour le stockage des mots de passe.
 
+## Fonctions de dérivations de clés (KDFs)
 
+### Fonctions de dérivations de clés générales
 
+| KDF              | Référence                                                                                     | Statut |
+| ---------------- | --------------------------------------------------------------------------------------------- | ------ |
+| HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
+| TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
+| KDFs à base de MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
+| KDFs à base de SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174), [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
 
+### Fonctions de dérivations de clés à base de mot de passe
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| KDF | Référence | Paramètres requis | Statut |
+| --- | --------- | ------------------- | ------ |
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 210,000 | A |
+| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 600,000 | A |
+| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 1,300,000 | L |
 
 ## Mécanismes d'échange de clés
 
