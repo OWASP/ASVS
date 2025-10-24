@@ -1,47 +1,47 @@
-# Appendix D: Recommendations
+# 부록 D: 권장 사항
 
-## Introduction
+## 소개
 
-Whilst preparing version 5.0 of the Application Security Verification Standard (ASVS), it became clear that there were a number of existing and newly suggested items that shouldn't be included as requirements in 5.0. This may have been because they were not in scope for ASVS as per the definition for 5.0 or alternatively it was felt that while they were a good idea, they could not be made mandatory.
+애플리케이션 보안 검증 표준(Application Security Verification Standard; ASVS) 버전 5.0을 준비하면서, 몇 가지 기존 항목과 새로이 제안된 항목들이 버전 5.0의 요구사항으로서 포함되기에 부적절하다는 점이 확실해졌다. 이는 버전 5.0의 정의에 따라 해당 항목들이 더는 ASVS의 범위에 있지 않거나, 유용하지만 필수 사항으로 지정하기에는 어려움이 있기 때문이다.
 
-Not wanting to lose all these items entirely, some have been captured in this appendix.
+해당 항목들이 누락되지 않도록 일부 항목을 본 부록에 수록하였다.
 
-## Recommended, in-scope mechanisms
+## 권장되는 범위 내 매커니즘
 
-The following items are in-scope for ASVS. They should not be made mandatory but it is strongly recommended to consider them as part of a secure application.
+다음 항목들은 ASVS의 범위 내에 있으며, 필수적이지는 않으나 안전한 애플리케이션의 일부로서 고려하는 것이 강력하게 권장된다.
 
-* A password strength meter should provided to help users set a stronger password.
-* Create a publicly available security.txt file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues.
-* Client-side input validation should be enforced in addition to validation at a trusted service layer as this provides a good opportunity to discover when someone has bypassed client-side controls in an attempt to attack the application.
-* Prevent accidentally accessible and sensitive pages from appearing in search engines using a robots.txt file, the X-Robots-Tag response header or a robots html meta tag.
-* When using GraphQL, implement authorization logic at the business logic layer instead of the GraphQL or resolver layer to avoid having to handle authorization on every separate interface.
+* 사용자들이 더 강력한 비밀번호를 설정할 수 있도록 비밀번호 강도 측정기(password strength meter)를 제공하는 것이 권장된다.
+* 애플리케이션의 루트 또는 .well-known 디렉터리에 공개적으로 접근 가능한 security.txt 파일을 생성하여, 보안 문제에 관해 소유자에게 연락할 수 있는 링크 또는 이메일 주소를 명확히 정의해야 한다.
+* 신뢰할 수 있는 서비스 계층에서의 검증과 함께 클라이언츠 측에서의 입력값 검증을 강제하는 것이 권장된다. 이는 누군가가 애플리케이션을 공격하기 위해 클라이언트 측 통제의 우회 여부를 탐지할 수 있는 기회를 제공한다.
+* robots.txt 파일, X-Robots-Tag 응답 헤더 또는 robots html meta tag를 사용하여 우연히 접근될 수 있는 민감한 페이지가 검색 엔진에 노출되는 것을 막아야 한다.
+* GraphQL을 사용하는 경우, 모든 개별 인터페이스마다의 권한 부여를 관리하지 않아도 않도록 GraphQL이나 리졸버 계층이 아닌 비즈니스 로직 계층에서 권한 부여 로직을 구현해야 한다.
 
-References:
+참조:
 
-* [More information on security.txt including a link to the RFC](https://securitytxt.org/)
+* [security.txt에 관한 자세한 정보(RFC 링크 포함)](https://securitytxt.org/)
 
-## Software Security principles
+## 소프트웨어 보안 원칙
 
-The following items were previously in ASVS but are not really requirements. Rather they are principles to consider when implementing security controls that when followed will lead to more robust controls. These include:
+다음의 항목들은 ASVS의 이전 버전에 포함되어 있었으나 실제 요구사항은 아니다. 보안 통제를 구현할 때 고려해야 할 원칙에 가까우며, 이를 따랐을 때 더 강건한 보안 통제를 구현할 수 있다. 해당하는 항목은 다음과 같다:
 
-* Security controls should be centralized, simple (economy of design), verifiably secure, and reusable. This should avoid duplicate, missing, or ineffective controls.
-* Wherever possible, use previously written and well-vetted security control implementations rather than relying on implementing controls from scratch.
-* Ideally, a single access control mechanism should be used to access protected data and resources. All requests should pass through this single mechanism to avoid copy and paste or insecure alternative paths.
-* Attribute or feature-based access control is a recommended pattern whereby the code checks the user's authorization for a feature or data item rather than just their role. Permissions should still be allocated using roles.
+* 보안 통제는 중앙집중화되고, 단순하고(설계의 경제성), 검증 가능하도록 안전하며, 재사용 가능할 것이 권장된다. 이로써 중복, 누락, 또는 비효율적인 통제를 방지할 수 있다.
+* 통제를 처음부터 구현하기보다는, 가능한 사전에 작성되어 있으며 철저히 검증된 보안 통제 구현을 사용하는 것이 좋다.
+* 이상적으로 보호된 데이터와 리소스에 접근할 때 단일 접근 통제 매커니즘을 사용하는 것이 권장된다. 복사, 붙여넣기 또는 안전하지 않은 대체 경로를 방지하기 위해 모든 요청은 해당 단일 매커니즘을 통과하는 것이 권장된다.
+* 속성 기반 또는 기능 기반의 접근 통제는 권장되는 패턴이며, 이 패턴에서는 코드가 단순히 사용자의 역할만 확인하기 보다는 기능이나 데이터 항목에 대한 사용자의 권한을 검사한다. 권한은 여전히 역할 기반으로 할당하는 것이 권장된다.
 
-## Software Security processes
+## 소프트웨어 보안 프로세스
 
-There are a number of security processes which were removed from ASVS 5.0 but are still a good idea. The OWASP SAMM project may be a good source for how to effectively implement these processes. The items which were previously in ASVS include:
+몇 가지의 보안 프로세스는 ASVS 5.0에서 제외되었지만 여전히 유용하다. 이 프로세스들을 효과적으로 구현하는 방법은 OWASP SAMM 프로젝트에서 확인할 수 있다. 이전 버전의 ASVS에 포함되었던 항목은 다음과 같다:
 
-* Verify the use of a secure software development lifecycle that addresses security in all stages of development.
-* Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing.
-* Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile"
-* Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers.
-* Verify that an ongoing process exists to ensure that the application source code is free from backdoors, malicious code (e.g., salami attacks, logic bombs, time bombs), and undocumented or hidden features (e.g., Easter eggs, insecure debugging tools). Complying with this section is not possible without complete access to source code, including third-party libraries, and is therefore probably only suitable for applications requiring the very highest levels of security.
-* Verify that mechanisms are in place to detect and respond to configuration drift in deployed environments. This may include using immutable infrastructure, automated redeployment from a secure baseline, or drift detection tools that compare current state against approved configurations.
-* Verify that configuration hardening is performed on all third-party products, libraries, frameworks, and services as per their individual recommendations.
+* 모든 개발 단계에서 보안을 다루는 안전한 소프트웨어 개발 생명 주기를 사용하고 있는지 확인해야 한다.
+* 모든 설계 변경 또는 스프린트 계획에서의 위협 모델링이 사용되는지 확인해야 한다. 이는 위협을 식별하고, 대응책을 계획하고, 적절한 위험 대응을 촉진하며, 보안 검사를 안내하기 위함이다.
+* 모든 사용자 스토리와 기능이 보안 제약 조건을 포함하는지 확인해야 한다. 보안 제약 조건의 예시는 다음과 같다. "사용자로서, 나는 나의 프로필을 조회하고 수정할 수 있어야 한다. 또한 나는 다른 사람의 프로필을 조회하거나 수정할 수 없어야 한다."
+* 모든 개발자와 테스터가 시큐어 코딩 체크리스트, 보안 요구사항, 가이드라인 또는 정책을 사용할 수 있는지 확인해야 한다.
+* 애플리케이션 소스 코드가 백도어, 악성 코드(예: 살라미 공격, 논리 폭탄, 시한 폭탄), 문서화되지 않았거나 숨겨진 기능(예: 이스터 에그, 안전하지 않은 디버깅 도구)로부터 안전함을 확인하는 프로세스가 지속적으로 수행되고 있는지 확인해야 한다. 이를 준수하기 위해서는 서드 파티 라이브러리를 포함한 소스 코드에 대한 완전한 접근이 필요하므로 최고 수준의 보안을 요구하는 애플리케이션에만 적합할 가능성이 크다.
+* 배포된 환경에서 설정 편차를 탐지하고 응답할 수 있는 매커니즘이 존재하는지 확인해야 한다. 이는 불변 인프라의 사용, 안전 기준선에서의 자동화된 재배포, 승인된 설정과 현재의 상태를 비교하는 드리프트 탐지 도구(drift detection tools)를 포함할 수 있다.
+* 모든 서드파티 제품, 라이브러리, 프레임워크 및 서비스에 대해, 개별적인 권장 사항에 따라 보안 강화가 수행되는지 확인해야 한다.
 
-References:
+참조:
 
 * [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
 * [OWASP Threat modeling](https://owasp.org/www-community/Application_Threat_Modeling)
