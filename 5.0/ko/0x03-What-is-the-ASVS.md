@@ -1,195 +1,195 @@
-# What is the ASVS?
+# ASVS란 무엇인가?
 
-The Application Security Verification Standard (ASVS) defines security requirements for web applications and services, and it is a valuable resource for anyone aiming to design, develop, and maintain secure applications or evaluate their security.
+애플리케이션 보안 검증 표준(Application Security Verification Standard; ASVS)은 웹 애플리케이션 및 서비스의 보안 요구사항을 정의하며, 안전한 애플리케이션을 설계, 개발, 유지보수하거나 보안을 평가하는 모든 사람에게 유용한 자료이다.
 
-This chapter outlines the essential aspects of using the ASVS, including its scope, the structure of its priority-based levels, and the primary use cases for the standard.
+이 장은 ASVS 활용의 핵심 요소를 다루며, 여기에는 범위, 우선순위 기반 레벨 구조, 표준의 주요 사용 사례가 포함된다.
 
-## Scope of the ASVS
+## ASVS의 범위
 
-The scope of the ASVS is defined by its name: Application, Security, Verification, and Standard. It establishes which requirements are included or excluded, with the overarching goal of identifying the security principles that must be achieved. The scope also considers documentation requirements, which serve as the foundation for implementation requirements.
+ASVS의 범위는 명칭인 애플리케이션, 보안, 검증, 표준에 의해 정의된다. 이는 궁극적으로 달성해야 하는 보안 원칙을 식별하는 목표를 가지고 포함되거나 제외되는 요구사항을 설정한다. 또한 이 범위는 구현 요구사항의 토대 역할을 하는 문서화 요구사항을 고려한다.
 
-There is no such thing as scope for attackers. Therefore, ASVS requirements should be evaluated alongside guidance for other aspects of the application lifecycle, including CI/CD processes, hosting, and operational activities.
+공격자에게는 범위라는 개념이 존재하지 않는다. 따라서 ASVS 요구사항은 CI/CD 프로세스, 호스팅, 운영 활동을 포함한 애플리케이션 수명 주기의 다른 측면에 대한 지침과 함께 평가되어야 한다.
 
-### Application
+### 애플리케이션
 
-ASVS defines an "application" as the software product being developed, into which security controls must be integrated. ASVS does not prescribe development lifecycle activities or dictate how the application should be built via a CI/CD pipeline; instead, it specifies the security outcomes that must be achieved within the product itself.
+ASVS는 "애플리케이션"을 보안 제어 기능이 통합되어야 하는 개발 중인 소프트웨어 제품으로 정의한다. ASVS는 개발 수명 주기 활동을 규정하거나 CI/CD 파이프라인을 통해 애플리케이션이 구축되는 방식을 지시하지 않는다. 대신 제품이 달성해야 하는 보안 목표를 명시한다.
 
-Components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application for those specific purposes, as some security controls depend directly on them or can be implemented through them. These components should be considered for requirements related to cached responses, rate limiting, or restricting incoming and outgoing connections based on source and destination.
+웹 애플리케이션 방화벽(Web Application Firewall; WAF), 로드 밸런서 또는 프록시와 같이 HTTP 트래픽을 처리, 수정 또는 검검증하는 구성 요소는 일부 보안 제어 기능이 해당 요소에 직접 의존하거나 해당 요소를 통해 구현될 수 있으므로 특정 목적을 위해 애플리케이션의 일부로 간주될 수 있다. 이러한 구성 요소는 캐시된 응답, 속도 제한 또는 원본과 대상에 기반한 인바운드(inbound) 및 아웃바운드(outbound) 연결 제한과 관련된 요구사항에 대해 고려되어야 한다.
 
-Conversely, ASVS generally excludes requirements that are not directly relevant to the application or where configuration is outside the application's responsibility. For example, DNS issues are typically managed by a separate team or function.
+반대로 ASVS는 애플리케이션과 직접 관련이 없거나 구성이 애플리케이션의 책임 범위를 벗어나는 요구사항을 일반적으로 제외한다. 예를 들어, DNS 문제는 일반적으로 별도의 팀 또는 기능에 의해 관리된다.
 
-Similarly, while the application is responsible for how it consumes input and produces output, if an external process interacts with the application or its data, it is considered out of scope for ASVS. For instance, backing up the application or its data is usually the responsibility of an external process and is not controlled by the application or its developers.
+마찬가지로, 애플리케이션이 입력을 소비하고 출력을 생성하는 방식에 대한 책임이 있지만, 외부 프로세스가 애플리케이션 또는 해당 데이터와 상호작용을 하는 경우 ASVS의 범위를 벗어나는 것으로 간주한다. 예를 들어, 애플리케이션 또는 해당 데이터 백업은 일반적으로 외부 프로세스의 책임이며 애플리케이션 또는 개발자가 제어하지 않는다.
 
-### Security
+### 보안
 
-Every requirement must have a demonstrable impact on security. The absence of a requirement must result in a less secure application, and implementing the requirement must reduce either the likelihood or the impact of a security risk.
+모든 요구사항은 보안에 실질적인 영향을 미쳐야 하며, 그 효과가 입증 가능해야 한다. 요구사항이 누락되면 애플리케이션의 보안 수준이 저하되며, 요구사항을 구현하면 보안 위험의 발생 가능성 또는 영향을 감소시켜야 한다.
 
-All other considerations, such as functional aspects, code style, or policy requirements, are out of scope.
+기능적 측면, 코드 스타일 또는 정책 요구사항과 같은 다른 모든 고려 사항은 범위에 포함되지 않는다.
 
-### Verification
+### 검증
 
-The requirement must be verifiable, and the verification must result in a "fail" or "pass" decision.
+해당 요구사항은 검증 가능해야 하며, 검증 결과는 "실패" 또는 "통과"여야 한다.
 
-### Standard
+### 표준
 
-The ASVS is designed to be a collection of security requirements to be implemented to comply with the standard. This means that requirements are limited to defining the security goal to achieve that. Other related information can be built on top of ASVS or linked via mappings.
+ASVS는 표준을 준수하기 위해 구현되어야 하는 보안 요구사항의 집합으로 설계되었다. 이는 요구사항이 해당 보안 목표를 달성하기 위한 보안 목표 정의에 제한된다는 의미이다. 기타 관련 정보는 ASVS를 기반으로 확장하거나, 매핑 문서를 통해 연결할 수 있다.
 
-Specifically, OWASP has many projects, and the ASVS deliberately avoids overlapping with the content in other projects. For example, developers may have a question, "how do I implement a particular requirement in my particular technology or environment," and this should be covered by the Cheat Sheet Series project. Verifiers may have a question "how do I test this requirement in this environment," and this should be covered by the Web Security Testing Guide project.
+특히 OWASP는 많은 프로젝트를 가지고 있으며, ASVS는 다른 프로젝트의 내용과 중복되는 것을 계획적으로 피한다. 예를 들어, 개발자는 "특정 기술 또는 환경에서 특정 요구사항을 어떻게 구현해야 하는가"라는 질문을 할 수 있으며, 이는 Cheat Sheet Series 프로젝트에서 다루어져야 한다. 검증자는 "이 환경에서 이 요구사항을 어떻게 테스트해야 하는가"라는 질문을 할 수 있으며, 이는 Web Security Testing Guide 프로젝트에서 다룬다.
 
-Whilst the ASVS is not just intended for security experts to use, it does expect the reader to have technical knowledge to understand the content or the ability to research particular concepts.
+ASVS는 보안 전문가만이 사용하도록 의도된 것은 아니지만, 독자가 내용을 이해하거나 특정 개념을 조사하기 위해 필요한 기술적 지식을 갖추고 있음을 전제한다.
 
-### Requirement
+### 요구사항
 
-The word requirement is used specifically in the ASVS as it describes what must be achieved to satisfy it. The ASVS only contains requirements (must) and does not contain recommendations (should) as the main condition.
+"요구사항"이라는 단어는 ASVS에서 이를 충족하기 위해 무엇을 달성해야 하는지를 설명하므로 특별히 사용된다. ASVS는 주요 조건으로서 요구사항(must)만 포함하며 권고 사항(should)은 포함하지 않는다. 
 
-In other words, recommendations, whether they are just one of many possible options to solve a problem or code style considerations, do not satisfy the definition to be a requirement.
+다시 말해, 권고 사항은 문제를 해결하기 위한 여러 가능한 옵션 중 하나이거나 코드 스타일 고려사항일 뿐 요구사항을 충족하지 않는다.
 
-ASVS requirements are intended to address specific security principles without being too implementation or technology-specific, at the same time, being self-explanatory as to why they exist. This also means that requirements are not built around a particular verification method or implementation.
+ASVS 요구사항은 구현이나 기술에 너무 구애받지 않으면서도 존재하는 이유를 자명하게 설명하면서 특정 보안 원칙을 다루도록 의도되었다. 이는 또한 요구사항이 특정 검증 방법이나 구현을 중심으로 구축되지 않음을 의미한다.
 
-### Documented security decisions
+### 문서화된 보안 결정
 
-In software security, planning security design and the mechanisms to be used early on will lead to a more consistent and reliable implementation in the finished product or feature.
+소프트웨어 보안에서 보안 설계 및 사용할 메커니즘을 조기에 계획하면 완성된 제품 또는 기능에서 더 일관되고 신뢰할 수 있는 구현으로 이어진다. 
 
-Additionally, for certain requirements, implementation will be complicated and very specific to an application's needs. Common examples include permissions, input validation, and protective controls around different levels of sensitive data.
+또한 특정 요구사항의 경우, 구현이 복잡하고 애플리케이션의 필요에 매우 특화될 수 있다. 일반적인 예시로는 권한, 입력 유효성 검사, 다양한 수준의 민감한 데이터에 대한 보호 제어 기능이 포함된다.
 
-To account for this, rather than sweeping statements like "all data must be encrypted" or trying to cover every possible use case in a requirement, documentation requirements were included which mandate that the application developer's approach and configuration to these sorts of controls must be documented. This can then be reviewed for appropriateness and then the actual implementation can be compared to the documentation to assess whether the implementation matches expectations.
+이를 고려하여 "모든 데이터는 암호화되어야 한다"와 같은 포괄적인 진술이나 요구사항에서 모든 가능한 사용 사례를 아우르려고 하기보다는, 애플리케이션 개발자가 이러한 제어 기능을 어떻게 접근하고 구성하는지를 문서화하도록 요구하는 것이 포함되었다. 이렇게 문서화된 내용을 기반으로 적절성을 검토할 수 있으며, 실제 구현이 기대치와 일치하는지도 비교하여 평가할 수 있다.
 
-These requirements are intended to document the decisions which the organization developing the application has taken regarding how to implement certain security requirements.
+이러한 요구사항은 애플리케이션을 개발하는 조직이 특정 보안 요구사항을 구현하는 방법에 대해 내린 결정을 문서화하기 위한 것이다. 
 
-Documentation requirements are always in the first section of a chapter (although not every chapter has them) and always have a related implementation requirement where the decisions that are documented should actually be put into place. The point here is that verifying that the documentation is in place and that the actual implementation are two separate activities.
+문서화된 요구사항은 항상 장의 첫 번째 절에 위치하며 모든 장에 포함되는 것은 아니다. 또한 해당 내용이 실제로 구현되어야 한다는 관련 구현 요건이 항상 존재한다. 문서가 존재하는지를 검증하는 활동과, 그것이 실제로 구현되었는지를 검증하는 활동은 별개의 작업이다.
 
-There are two key drivers for including these requirements. The first driver is that a security requirement will often involve enforcing rules e.g., what kind of file types are allowed to be uploaded, what business controls should be enforced, what are the allowed characters for a particular field. These rules will differ for every application, and therefore, the ASVS cannot prescriptively define what they should be, nor will a cheat sheet or more detailed response help in this case. Similarly, without these decisions being documented, it will not be possible to perform verification of the requirements that implement these decisions.
+이러한 요구사항을 포함하는 데에는 두 가지 주요 동인이 있다. 첫 번째 동인은 보안 요구사항이 종종 파일 유형 허용 범위, 적용해야 할 비즈니스 제어 기능, 특정 필드에 허용되는 문자 등 규칙 적용을 수반한다는 것이다. 이러한 규칙은 애플리케이션마다 다르므로 ASVS는 이를 규정적으로 정의할 수 없으며, 치트 시트 또는 더 자세한 응답도 이 경우에 도움이 되지 않는다. 마찬가지로, 이러한 결정이 문서화되지 않으면 이러한 결정을 구현하는 요구사항에 대한 검증을 수행할 수 없다. 
 
-The second driver is that for certain requirements, it is important to provide an application development with flexibility regarding how to address particular security challenges. For example, in previous ASVS versions, session timeout rules were very prescriptive. Practically speaking, many applications, especially those that are consumer-facing, have much more relaxed rules and prefer to implement other mitigation controls instead. Documentation requirements, therefore, explicitly allow for flexibility around this.
+두 번째 동인은 특정 요구사항의 경우 특정 보안 과제를 해결하는 방법에 대해 애플리케이션 개발에 유연성을 제공하는 것이 중요하다는 것이다. 예를 들어, 이전 ASVS 버전에서는 세션 타임아웃 규칙이 매우 규정적이었다. 실용적으로 볼 때, 특히 소비자 대상 애플리케이션의 많은 경우 훨씬 더 완화된 규칙을 가지며 대신 다른 완화 제어 기능을 구현하는 것을 선호한다. 따라서 문서화 요구사항은 이에 대한 유연성을 명시적으로 허용한다.
 
-Clearly, it is not expected that individual developers will be making and documenting these decisions but rather the organization as a whole will be taking those decisions and making sure that they are communicated to developers who then make sure to follow them.
+개별 개발자가 이러한 결정을 내리고 문서화할 것으로 기대되는 것은 아니다. 이러한 결정은 조직 전체가 내리고, 이를 개발자에게 전달하여 따르도록 하는 것이 바람직하다.
 
-Providing developers with specifications and designs for new features and functionality is a standard part of software development. Similarly, developers are expected to use common components and user interface mechanisms rather than just making their own decisions each time. As such, extending this to security should not be seen as surprising or controversial.
+개발자에게 새로운 기능에 대한 사양과 설계를 제공하는 것은 소프트웨어 개발의 표준적인 부분이다. 마찬가지로, 개발자는 매번 주관적으로 결정하기보다는 공통 컴포넌트와 사용자 인터페이스 메커니즘을 사용하는 것이 기대된다. 따라서 이를 보안에 확장하는 것은 놀랍거나 논란의 여지가 있는 것으로 간주되지 않아야 한다.  
 
-There is also flexibility around how to achieve this. Security decisions might be documented in a literal document, which developers are expected to refer to. Alternatively, security decisions could be documented and implemented in a common code library that all developers are mandated to use. In both cases, the desired result is achieved.
+이를 달성하는 방법에도 유연성이 있다. 보안 결정은 개발자가 참조해야 하는 문서 형태로 문서화될 수 있다. 또는 모든 개발자가 의무적으로 사용해야 하는 공통 코드 라이브러리에 보안 결정이 문서화되고 구현될 수 있다. 두 경우 모두 원하는 결과가 달성된다.
 
-## Application Security Verification Levels
+## 애플리케이션 보안 검증 레벨
 
-The ASVS defines three security verification levels, with each level increasing in depth and complexity. The general aim is for organizations to start with the first level to address the most critical security concerns, and then move up to the higher levels according to the organization and application needs. Levels may be presented as L1, L2, and L3 in the document and in requirement texts.
+ASVS는 깊이와 복잡성이 증가하는 세 가지 보안 검증 레벨을 정의한다. 일반적인 목표는 조직이 가장 중요한 보안 문제를 해결하기 위해 첫 번째 레벨부터 시작한 다음, 조직 및 애플리케이션 요구사항에 따라 더 높은 레벨로 진행하는 것이다. 레벨은 문서와 요구사항 텍스트에서 L1, L2, L3로 표시될 수 있다. 
 
-Each ASVS level indicates the security requirements that are required to achieve from that level, with the higher remaining level requirements as recommendations.
+각 ASVS 레벨은 해당 레벨에서 달성해야 하는 보안 요구사항을 나타내며, 남은 더 높은 레벨의 요구사항은 권고 사항으로 간주된다. 
 
-In order to avoid duplicate requirements or requirements that are no longer relevant at higher levels, some requirements apply to a particular level but have more stringent conditions for higher levels.
+중복되는 요구사항이나 더 높은 레벨에서 더 이상 관련 없는 요구사항을 피하기 위해 일부 요구사항은 특정 레벨에 적용되지만, 더 높은 레벨에서는 더 엄격한 조건을 가진다.
 
-### Level evaluation
+### 레벨 평가
 
-Levels are defined by priority-based evaluation of each requirement based on experience implementing and testing security requirements. The main focus is on comparing risk reduction with the effort to implement the requirement. Another key factor is to keep a low barrier to entry.
+레벨은 보안 요구사항 구현 및 테스트 경험을 바탕으로 각 요구사항을 우선순위에 따라 평가하여 정의된다. 주요 초점은 위험 감소와 요구사항 구현 노력 간의 비교에 있다. 또 다른 주요 요인은 진입 장벽을 낮게 유지하는 것이다. 
 
-Risk reduction considers the extent to which the requirement reduces the level of security risk within the application, taking into account the classic Confidentiality, Integrity, and Availability impact factors as well as considering whether this is a primary layer of defense or whether it would be considered defense in depth.
+위험 감소는 요구사항이 애플리케이션 내 보안 위험 수준을 얼마나 줄이는지 고려하며, 고전적인 기밀성, 무결성, 가용성 영향 요인을 고려하고 이것이 주요 방어 계층인지 또는 심층 방어로 간주될 수 있는지를 고려한다. 
 
-The rigorous discussions around both the criteria and the leveling decisions have resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+기준과 레벨링 결정에 대한 엄격한 논의 결과는 대부분의 경우에 유효해야 하는 할당이 도출되었지만, 모든 상황에 100% 적합하지 않을 수 있음을 인정한다. 이는 특정 경우에 조직이 자체적인 특정 위험 고려 사항에 따라 더 높은 레벨의 요구사항을 더 일찍 우선순위로 지정할 수 있음을 의미한다.
 
-The types of requirements in each level could be characterized as follows.
+각 레벨의 요구사항 유형은 다음과 같이 특징지어질 수 있다.
 
-### Level 1
+### 레벨 1
 
-This level contains the minimum requirements to consider when securing an application and represents a critical starting point. This level contains around 20% of the ASVS requirements. The goal for this level is to have as few requirements as possible, to decrease the barrier to entry.
+이 레벨은 애플리케이션을 보호할 때 고려해야 할 최소 요구사항을 포함하며, 중요한 시작점을 나타낸다. 이 레벨은 ASVS 요구사항의 약 20%를 포함한다. 이 레벨의 목표는 가능한 한 적은 요구사항을 포함하여 진입 장벽을 낮추는 것이다. 
 
-These requirements are generally critical or basic, first-layer of defense requirements for preventing common attacks that do not require other vulnerabilities or preconditions to be exploitable.
+이러한 요구사항은 일반적으로 다른 취약점이나 사전 조건이 필요 없이 악용될 수 있는 일반적인 공격을 방지하기 위한 중요하거나 기본적인 첫 번째 방어 계층 요구사항이다. 
 
-In addition to the first layer of defense requirements, some requirements have less of an impact at higher levels, such as requirements related to passwords. Those are more important for Level 1, as from higher levels, the multi-factor authentication requirements become relevant.
+첫 번째 방어 계층 요구사항 외에도, 비밀번호 관련 요구사항과 같이 더 높은 레벨에서는 영향이 적은 일부 요구사항이 있다. 이러한 요구사항은 레벨 1에서 더 중요하며, 더 높은 레벨부터는 다중 요소 인증 요구사항이 관련성을 가진다.
 
-Level 1 is not necessarily penetration testable by an external tester without internal access to documentation or code (such as "black box" testing), although the lower number of requirements should make it easier to verify.
+레벨 1은 내부 문서나 코드 접근 권한 없이(예: "블랙 박스(black box)" 테스트) 외부 테스터가 침투 테스트를 수행할 수 있는 것은 아니지만, 요구사항 수가 적으므로 검증이 더 쉬워야 한다.
 
-### Level 2
+### 레벨 2
 
-Most applications should be striving to achieve this level of security. Around 50% of the requirements in the ASVS are L2 meaning that an application needs to implement around 70% of the requirements in the ASVS (all of the L1 and L2 requirements) in order to comply with L2.
+이러한 요구사항은 일반적으로 덜 흔한 공격 또는 일반적인 공격에 대한 더 복잡한 보호 기능과 관련된다. 이는 여전히 첫 번째 방어 계층일 수 있으며, 공격이 성공하기 위한 특정 사전 조건이 필요할 수 있다.
 
-These requirements generally relate to either less common attacks or more complicated protections against common attacks. They may still be a first layer of defense, or they may require certain preconditions for the attack to be successful.
+이러한 요구사항은 일반적으로 덜 흔한 공격 또는 일반적인 공격에 대한 더 복잡한 보호 기능과 관련된다. 이는 여전히 첫 번째 방어 계층일 수 있으며, 공격이 성공하기 위한 특정 사전 조건이 필요할 수 있다.
 
-### Level 3
+### 레벨 3
 
-This level should be the goal for applications looking to demonstrate the highest levels of security and provides the final ~30% of requirements to comply with.
+이 레벨은 최고 수준의 보안을 입증하고자 하는 애플리케이션의 목표가 되어야 하며, 준수해야 하는 나머지 약 30%의 요구사항을 제공한다. 
 
-Requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls.
+이 섹션의 요구사항은 일반적으로 심층 방어 메커니즘 또는 기타 유용하지만 구현하기 어려운 제어 기능이다.
 
-### Which level to achieve
+### 달성해야 할 레벨
 
-The priority-based levels are intended to provide a reflection of the application security maturity of the organization and the application. Rather than the ASVS prescriptively stating what level an application should be at, an organization should analyze its risks and decide what level it believes it should be at, depending on the sensitivity of the application and of course, the expectations of the application's users.
+우선순위 기반 레벨은 조직 및 애플리케이션의 애플리케이션 보안 성숙도를 반영하는 역할을 한다. ASVS가 애플리케이션이 어떤 레벨에 있어야 한다고 규정적으로 명시하기보다는, 조직은 애플리케이션의 민감도와 애플리케이션 사용자들의 기대치를 고려하여 자체 위험을 분석하고 어떤 레벨에 있어야 한다고 판단하는지 결정해야 한다. 
 
-For example, an early-stage startup that is only collecting limited sensitive data may decide to focus on Level 1 for its initial security goals, but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
+예를 들어, 제한된 민감 데이터를 수집하는 초기 스타트업은 초기 보안 목표로 레벨 1에 집중하기로 결정할 수 있지만, 은행은 온라인 뱅킹 애플리케이션에 대해 고객에게 레벨 3 미만의 수준을 정당화하기 어려울 수 있다.
 
-## How to use the ASVS
+## ASVS 사용 방법
 
-### The structure of the ASVS
+### ASVS의 구조
 
-The ASVS is made up of a total of around 350 requirements which are divided into 17 chapters, each of which is further divided into sections.
+ASVS는 총 약 350개의 요구사항으로 구성되며, 이는 17개 장으로 나뉘고 각 장은 다시 섹션으로 세분된다. 
 
-The aim of the chapter and section division is to simplify choosing or filtering out chapters and sections based on the what is relevant for the application. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
+장 및 섹션 분할의 목표는 애플리케이션에 적합한 것을 기반으로 장 및 섹션을 선택하거나 필터링하는 것을 단순화하는 것이다. 예를 들어, 머신 투 머신(machine-to-machine) API의 경우 웹 프론트엔드와 관련된 V3 장의 요구사항은 관련성이 없을 것이다. OAuth 또는 WebRTC를 사용하지 않는다면 해당 장도 무시될 수 있다.
 
-### Release strategy
+### 릴리스 전략
 
-ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
+ASVS 릴리스는 "Major.Minor.Patch" 패턴을 따르며, 숫자는 해당 릴리스 내에서 변경된 내용에 대한 정보를 제공한다. 주요 릴리스에서는 첫 번째 숫자가 변경되고, 마이너 릴리스에서는 두 번째 숫자가 변경되며, 패치 릴리스에서는 세 번째 숫자가 변경된다.
 
-* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
-* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
-* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
+* 주요 릴리스 - 전체 재편성, 요구사항 번호를 포함하여 거의 모든 것이 변경될 수 있다. 규정 준수 재평가가 필요하다 (예: 4.0.3 -> 5.0.0).
+* 마이너 릴리스 - 요구사항이 추가되거나 제거될 수 있지만, 전체 번호는 동일하게 유지된다. 규정 준수 재평가가 필요하지만, 더 쉬워야 한다 (예: 5.0.0 -> 5.1.0).
+* 패치 릴리스 - 요구사항이 제거되거나(예: 중복되거나 오래된 경우) 덜 엄격하게 변경될 수 있지만, 이전 릴리스를 준수했던 애플리케이션은 패치 릴리스 또한 준수할 것이다 (예: 5.0.0 -> 5.0.1).
 
-The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
+위 내용은 ASVS의 요구사항에 특별히 관련된다. 주변 텍스트 및 부록과 같은 다른 콘텐츠의 변경은 주요 변경(breaking change)으로 간주되지 않는다.
 
-### Flexibility with the ASVS
+### ASVS의 유연성
 
-Several of the points described above, such as documentation requirements and the levels mechanism, provide the ability to use the ASVS in a more flexible and organization-specific way.
+문서화 요구사항 및 레벨 메커니즘과 같이 위에서 설명된 여러 사항은 ASVS를 더 유연하고 조직 특유의 방식으로 사용할 수 있는 기능을 제공한다. 
 
-Additionally, organizations are strongly encouraged to create an organization- or domain-specific fork that adjusts requirements based on the specific characteristics and risk levels of their applications. However, it is important to maintain traceability so that passing requirement 4.1.1 means the same across all versions.
+또한 조직은 애플리케이션의 특정 특성 및 위험 수준에 따라 요구사항을 조정하는 조직 또는 도메인별 포크(fork)를 생성하는 것이 강력히 권장된다. 그러나 요구사항 4.1.1을 통과하는 것이 모든 버전에서 동일한 의미를 갖도록 추적성을 유지하는 것이 중요하다.
 
-Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, WebSockets, SOAP, if unused). An organization-specific ASVS version or supplement is also a good place to provide organization-specific implementation guidance, detailing libraries or resources to use when complying with requirements.
+이상적으로는 각 조직이 관련 없는 섹션(예: GraphQL, WebSockets, SOAP, 사용하지 않는 경우)을 생략하여 자체 맞춤형 ASVS를 생성해야 한다. 조직별 ASVS 버전 또는 보충 자료는 요구사항 준수 시 사용할 라이브러리 또는 리소스를 자세히 설명하는 조직별 구현 지침을 제공하기에도 좋은 장소이다.
 
-### How to Reference ASVS Requirements
+### ASVS 요구사항 참조 방법
 
-Each requirement has an identifier in the format `<chapter>.<section>.<requirement>`, where each element is a number. For example, `1.11.3`.
+각 요구사항은 <chapter>.<section>.<requirement> 형식의 식별자를 가지며, 각 요소는 숫자이다. 예를 들어, 1.11.3.
 
-* The `<chapter>` value corresponds to the chapter from which the requirement comes; for example, all `1.#.#` requirements are from the 'Encoding and Sanitization' chapter.
-* The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.2.#` requirements are in the 'Injection Prevention' section of the 'Encoding and Sanitization' chapter.
-* The `<requirement>` value identifies the specific requirement within the chapter and section, for example, `1.2.5` which as of version 5.0.0 of this standard is:
+* <chapter> 값은 요구사항이 속한 장에 해당한다. 예를 들어, 모든 1.#.# 요구사항은 '인코딩 및 새니티제이션(Encoding and Sanitization)' 장에 속한다.
+* <section> 값은 해당 장 내에서 요구사항이 나타나는 섹션에 해당한다. 예를 들어: 모든 1.2.# 요구사항은 '인코딩 및 새니티제이션' 장의 '인젝션 방지(Injection Prevention)' 섹션에 속한다.
+* <requirement> 값은 장 및 섹션 내의 특정 요구사항을 식별한다. 예를 들어, 이 표준의 버전 5.0.0을 기준으로 1.2.5는 다음과 같다:
 
-> Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
+> 애플리케이션이 OS 명령 주입(OS command injection)으로부터 보호하고 운영 체제 호출이 매개변수화된 OS 쿼리를 사용하거나 문맥별 명령줄 출력 인코딩을 사용하는지 검증한다.
 
-Since the identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v5.0.0-1.2.5` would be understood to mean specifically the 5th requirement in the 'Injection Prevention' section of the 'Encoding and Sanitization' chapter from version 5.0.0. (This could be summarized as `v<version>-<requirement_identifier>`.)
+식별자는 표준 버전 간에 변경될 수 있으므로, 다른 문서, 보고서 또는 도구에서 다음 형식을 사용하는 것이 바람직하다:  'v<version>-<chapter>.<section>.<requirement>' 여기서 'version'은 ASVS 버전 태그이다. 예를 들어: ‘v5.0.0-1.2.5'는 버전 5.0.0의 '인코딩 및 새니티제이션' 장의 '인젝션 방지' 섹션에 있는 특정 5번째 요구사항을 의미하는 것으로 이해될 것이다. (이는 v<version>-<requirement_identifier>로 요약될 수 있다.)
 
-Note: The `v` preceding the version number in the format should always be lowercase.
+참고: 형식의 버전 번호 앞에 오는 'v'는 항상 소문자여야 한다.
 
-If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. As the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
+식별자가 'v<version>' 요소를 포함하지 않고 사용되는 경우, 이는 최신 애플리케이션 보안 검증 표준 콘텐츠를 참조하는 것으로 가정해야 한다. 표준이 성장하고 변경됨에 따라 이는 문제가 되므로, 작성자 또는 개발자는 버전 요소를 포함해야 한다. 
 
-ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
+ASVS 요구사항 목록은 CSV, JSON 및 기타 형식으로 제공되며, 이는 참조 또는 프로그래밍적 사용에 유용할 수 있다.
 
-### Forking the ASVS
+### ASVS 포크
 
-Organizations can benefit from adopting ASVS by choosing one of the three levels or by creating a domain-specific fork that adjusts requirements per application risk level. This type of fork is encouraged, provided that it maintains traceability so that passing requirement 4.1.1 means the same across all versions.
+조직은 세 가지 레벨 중 하나를 선택하거나 애플리케이션 위험 수준에 따라 요구사항을 조정하는 도메인별 포크를 생성하여 ASVS 채택으로부터 이점을 얻을 수 있다. 이러한 유형의 포크는 요구사항 4.1.1을 통과하는 것이 모든 버전에서 동일한 의미를 갖도록 추적성을 유지하는 경우 권장된다. 
 
-Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, Websockets, SOAP, if unused). Forking should start with ASVS Level 1 as a baseline, advancing to Levels 2 or 3 based on the application’s risk.
+이상적으로는 각 조직이 관련 없는 섹션(예: GraphQL, WebSockets, SOAP, 사용하지 않는 경우)을 생략하여 자체 맞춤형 ASVS를 생성해야 한다. 포크는 ASVS 레벨 1을 기준으로 시작하여 애플리케이션의 위험에 따라 레벨 2 또는 3으로 진행해야 한다.
 
-## Use cases for the ASVS
+## ASVS의 사용 사례
 
-The ASVS can be used to assess the security of an application and this is explored in more depth in the next chapter. However, several other potential uses for the ASVS (or a forked version) have been identified.
+ASVS는 애플리케이션의 보안을 평가하는 데 사용될 수 있으며, 이는 다음 장에서 더 자세히 다루어진다. 그러나 ASVS(또는 포크된 버전)의 다른 잠재적 사용 사례가 여러 가지 확인되었다.
 
-### As Detailed Security Architecture Guidance
+### 상세 보안 아키텍처 지침으로서
 
-One of the more common uses for the Application Security Verification Standard is as a resource for security architects. There are limited resources available for how to build a secure application architecture, especially with modern applications. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies. The architecture and documentation requirements will be particularly useful for this.
+애플리케이션 보안 검증 표준의 더 일반적인 용도 중 하나는 보안 아키텍트(security architect)를 위한 자료로 활용되는 것이다. 특히 최신 애플리케이션에서 보안 애플리케이션 아키텍처를 구축하는 방법에 대한 자료는 제한적이다. ASVS는 데이터 보호 패턴 및 입력 유효성 검사 전략과 같은 일반적인 문제에 대해 보안 아키텍트가 더 나은 제어 기능을 선택할 수 있도록 하여 이러한 격차를 채우는 데 사용될 수 있다. 아키텍처 및 문서화 요구사항은 특히 이 용도에 유용할 것이다.
 
-### As a Specialized Secure Coding Reference
+### 전문 보안 코딩 참조 자료로서
 
-The ASVS can be used as a basis for preparing a secure coding reference during application development, helping developers to make sure that they keep security in mind when they build software. Whilst the ASVS can be the base, organizations should prepare their own specific guidance which is clear and unified and ideally be prepared based on guidance from security engineers or security architects. As an extension to this, organizations are encouraged wherever possible to prepare approved security mechanisms and libraries that can be referenced in the guidance and used by developers.
+ASVS는 애플리케이션 개발 중 보안 코딩 참조 자료를 준비하기 위한 기반으로 사용될 수 있으며, 개발자가 소프트웨어를 구축할 때 보안을 염두에 두도록 돕는다. ASVS가 기반이 될 수 있지만, 조직은 명확하고 통일된 자체적인 특정 지침을 준비하는 것이 권장되며, 이상적으로는 보안 엔지니어 또는 보안 아키텍트의 지침을 기반으로 준비되어야 한다. 이의 연장선상에서, 조직은 가능한 한 지침에 참조되고 개발자가 사용할 수 있는 승인된 보안 메커니즘 및 라이브러리를 준비하는 것이 권장된다.
 
-### As a Guide for Automated Unit and Integration Tests
+### 자동화된 단위 및 통합 테스트를 위한 가이드로서
 
-The ASVS is designed to be highly testable. Some verifications will be technical where as other requirements (such as the architectural and documentation requirements) may require documentation or architecture review. By building unit and integration tests that test and fuzz for specific and relevant abuse cases related to the requirements that are verifiable by technical means, it should be easier to check that these controls are operating correctly on each build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
+ASVS는 높은 테스트 가능성을 가지도록 설계되었다. 일부 검증은 기술적일 수 있지만, 다른 요구사항(아키텍처 및 문서화 요구사항 등)은 문서 또는 아키텍처 검토를 필요로 할 수 있다. 기술적 수단으로 검증 가능한 요구사항과 관련된 특정 및 관련 악용 사례에 대해 테스트하고 퍼징(fuzzing)하는 단위(unit) 및 통합(integration) 테스트를 구축함으로써, 각 빌드에서 이러한 제어 기능이 올바르게 작동하는지 확인하기가 더 쉬워야 한다. 예를 들어, 로그인 컨트롤러의 테스트 스위트(test suite)에 대해 추가 테스트를 작성하여 일반적인 기본 사용자 이름, 계정 열거(account enumeration), 무차별 대입(brute forcing), LDAP 및 SQL 주입(injection), XSS에 대한 사용자 이름 매개변수를 테스트할 수 있다. 마찬가지로, 비밀번호 매개변수에 대한 테스트에는 일반적인 비밀번호, 비밀번호 길이, 널 바이트(null byte) 주입, 매개변수 제거, XSS 등이 포함되어야 한다.
 
-### For Secure Development Training
+### 보안 개발 교육을 위해
 
-ASVS can also be used to define the characteristics of secure software. Many “secure coding” courses are simply ethical hacking courses with a light smear of coding tips. This may not necessarily help developers to write more secure code. Instead, secure development courses can use the ASVS with a strong focus on the positive mechanisms found in the ASVS, rather than the Top 10 negative things not to do. The ASVS structure also provides a logical structure for walking through the different topics when securing an application.
+ASVS는 보안 소프트웨어의 특성을 정의하는 데도 사용될 수 있다. 많은 "보안 코딩" 과정은 단순히 코딩 팁이 약간 섞인 윤리적 해킹 과정에 불과하다. 이는 개발자가 더 안전한 코드를 작성하는 데 반드시 도움이 되지 않을 수 있다. 대신, 보안 개발 과정은 하지 말아야 할 "Top 10"과 같은 부정적인 사항보다는 ASVS에서 발견되는 긍정적인 메커니즘에 강력히 초점을 맞춰 ASVS를 사용할 수 있다. ASVS 구조는 애플리케이션을 보호할 때 다양한 주제를 다루는 논리적인 구조 또한 제공한다.
 
-### As a Framework for Guiding the Procurement of Secure Software
+### 보안 소프트웨어 조달을 위한 프레임워크로서
 
-The ASVS is a great framework to help with secure software procurement or procurement of custom development services. The buyer can simply set a requirement that the software they wish to procure must be developed at ASVS level X, and request that the seller proves that the software satisfies ASVS level X.
+ASVS는 보안 소프트웨어 조달 또는 맞춤형 개발 서비스 조달에 도움이 되는 훌륭한 프레임워크이다. 구매자는 조달하고자 하는 소프트웨어가 ASVS 레벨 X로 개발되어야 한다는 요구사항을 설정하고, 판매자에게 해당 소프트웨어가 ASVS 레벨 X를 충족함을 증명하도록 요청할 수 있다.
 
-## Applying ASVS in Practice
+## ASVS 실전 적용
 
-Different threats have different motivations. Some industries have unique information and technology assets and domain-specific regulatory compliance requirements.
+다양한 위협은 각기 다른 동기를 가진다. 일부 산업은 고유한 정보 및 기술 자산과 도메인별 규제 준수 요구사항을 가진다. 
 
-Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
+조직은 비즈니스 특성을 기반으로 고유한 위험 특성을 깊이 살펴보고, 해당 위험과 비즈니스 요구사항을 기반으로 적절한 ASVS 레벨을 결정하는 것이 강력히 권장된다.
