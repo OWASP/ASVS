@@ -156,7 +156,7 @@ The following table lists hash functions approved in general cryptographic use c
 * Hash function with less than 254 bit of output have insufficient collision resistance and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
 
 | Hash function | Reference | Status | Restrictions |
-| -------------- | ------------------------------------------------------------- |--|--|
+| ----- | ----------- | -- | ----------- |
 | SHA3-512 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
 | SHA-512 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
 | SHA3-384 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
