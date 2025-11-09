@@ -1,91 +1,91 @@
-# V7 Session Management
+# V7 세션 관리
 
-## Control Objective
+## 제어 목표
 
-Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are met:
+세션 관리 메커니즘은 상태 비저장(stateless) 통신 프로토콜(예: HTTP)을 사용할 때에도, 애플리케이션이 시간 경과에 따라 사용자와 장치 간의 상호작용을 연계할 수 있도록 한다. 최신 애플리케이션은 서로 다른 특성과 목적을 가진 여러 세션 토큰을 사용할 수 있다. 안전한 세션 관리 시스템은 공격자가 피해자의 세션을 획득, 사용 또는 악용하지 못하도록 방지한다. 세션을 유지하는 애플리케이션은 다음의 상위 수준 세션 관리 요구사항을 반드시 충족해야 한다.
 
-* Sessions are unique to each individual and cannot be guessed or shared.
-* Sessions are invalidated when no longer required and are timed out during periods of inactivity.
+- 세션은 각 개인에게 고유하며, 추측되거나 공유될 수 없어야 한다.
+- 세션은 더 이상 필요하지 않을 때 무효화되며, 비활성 상태가 지속되면 시간 초과되어야 한다.
 
-Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focusing on common threats and commonly exploited authentication weaknesses.
+이 장의 많은 요구사항은 [NIST SP 800-63 디지털 신원 지침](https://pages.nist.gov/800-63-4/) 중 일부 제어 항목과 관련이 있으며, 일반적인 위협 및 자주 악용되는 인증 취약점에 초점을 맞춘다.
 
-Note that requirements for specific implementation details of certain session management mechanisms can be found elsewhere:
+특정 세션 관리 메커니즘의 구현 세부사항에 대한 요구사항은 다른 장에서 확인할 수 있다.
 
-* HTTP Cookies are a common mechanism for securing session tokens. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
-* Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
+- HTTP 쿠키는 세션 토큰을 보호하는 데 일반적으로 사용되는 메커니즘이다. 쿠키에 대한 구체적 보안 요구사항은 “웹 프론트엔드 보안” 장에서 확인할 수 있다.
+- 자체 포함 토큰은 세션을 유지하는 수단으로 자주 사용된다. 자체 포함 토큰에 대한 구체적 보안 요구사항은 “자체 포함 토큰” 장에서 확인할 수 있다.ㅋㄱ
 
-## V7.1 Session Management Documentation
+## V7.1 세션 관리 문서화
 
-There is no single pattern that suits all applications. Therefore, it is not feasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application.
+모든 애플리케이션에 동일하게 적용할 수 있는 단일 패턴은 존재하지 않는다. 따라서 모든 경우에 적합한 범위와 한계를 보편적으로 정의하는 것은 불가능하다. 세션 처리를 구현하고 테스트하기 전에, 이와 관련된 보안 결정을 문서화한 위험 분석을 반드시 수행해야 한다. 이는 세션 관리 시스템이 애플리케이션의 특정 요구사항에 맞게 조정되도록 보장한다.
 
-Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements. Interaction with any Single Sign-on (SSO) mechanisms in use should also be considered.
+상태 유지형(stateful) 또는 상태 비저장형(stateless) 세션 메커니즘 중 어느 것을 선택하더라도, 선택한 솔루션이 모든 관련 보안 요구사항을 충족할 수 있음을 입증하기 위해 분석은 반드시 완전하게 이루어지고 문서화되어야 한다. 또한 사용 중인 SSO(Single Sign-on) 메커니즘과의 상호작용도 고려하는 것을 권장한다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **7.1.1** | Verify that the user's session inactivity timeout and absolute maximum session lifetime are documented, are appropriate in combination with other controls, and that the documentation includes justification for any deviations from NIST SP 800-63B re-authentication requirements. | 2 |
-| **7.1.2** | Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviors and actions to be taken when the maximum number of active sessions is reached. | 2 |
-| **7.1.3** | Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other conditions that require re-authentication. | 2 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **7.1.1** | 사용자의 세션 비활성 시간 초과 및 절대 최대 세션 수명에 대한 문서가 존재하고, 다른 제어와의 조합에서 적절하며, NIST SP 800-63B 재인증 요구사항에서 벗어날 시 그 근거가 문서에 포함되어 있는지 검증한다. | 2 |
+| **7.1.2** | 문서가 하나의 계정에서 허용되는 동시(병렬) 세션 수와 활성 세션 수의 최대값에 도달했을 때의 의도된 동작과 수행할 조치를 정의하는지 검증한다. | 2 |
+| **7.1.3** | 통합 신원 관리 생태계(예: SSO 시스템)의 일부로 사용자 세션을 생성하고 관리하는 모든 시스템이 문서화되어 있으며, 세션 수명, 종료, 재인증이 필요한 기타 조건을 조율하기 위한 제어가 포함되어 있는지 검증한다. | 2 |
 
-## V7.2 Fundamental Session Management Security
+## V7.2 기본 세션 관리 보안
 
-This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated and validated.
+이 절은 세션 토큰이 안전하게 생성되고 검증되도록 하는 세션 보안의 필수 요구사항을 다룬다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **7.2.1** | Verify that the application performs all session token verification using a trusted, backend service. | 1 |
-| **7.2.2** | Verify that the application uses either self-contained or reference tokens that are dynamically generated for session management, i.e. not using static API secrets and keys. | 1 |
-| **7.2.3** | Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 |
-| **7.2.4** | Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | 1 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **7.2.1** | 애플리케이션이 모든 세션 토큰 검증을 신뢰할 수 있는 백엔드 서비스에서 수행하는지 검증한다. | 1 |
+| **7.2.2** | 애플리케이션이 세션 관리를 위해 정적 API 시크릿이나 키가 아닌, 자체 포함 토큰 또는 참조 토큰을 동적으로 생성하여 사용하는지 검증한다. | 1 |
+| **7.2.3** | 참조 토큰이 사용자 세션을 나타내는 데 사용되는 경우, 그 토큰이 고유하고, 암호학적으로 안전한 의사난수 생성기(CSPRNG)를 사용해 생성되며 최소 128비트의 엔트로피를 갖는지 검증한다. | 1 |
+| **7.2.4** | 애플리케이션이 사용자 인증(재인증 포함) 시 새로운 세션 토큰을 생성하고 기존 세션 토큰을 종료하는지 검증한다. | 1 |
 
-## V7.3 Session Timeout
+## V7.3 세션 타임아웃
 
-Session timeout mechanisms serve to minimize the window of opportunity for session hijacking and other forms of session abuse. Timeouts must satisfy documented security decisions.
+세션 타임아웃 메커니즘은 세션 하이재킹 및 기타 세션 악용 가능성을 최소화한다. 타임아웃 설정은 반드시 문서화된 보안 결정에 부합해야 한다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **7.3.1** | Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
-| **7.3.2** | Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **7.3.1** | 위험 분석 및 문서화된 보안 결정에 따라 재인증을 강제하는 비활성 시간 초과가 존재하는지 검증한다. | 2 |
+| **7.3.2** | 위험 분석 및 문서화된 보안 결정에 따라 재인증을 강제하는 절대 최대 세션 수명이 존재하는지 검증한다. | 2 |
 
-## V7.4 Session Termination
+## V7.4 세션 종료
 
-Session termination may be handled either by the application itself or by the SSO provider if the SSO provider is handling session management instead of the application. It may be necessary to decide whether the SSO provider is in scope when considering the requirements in this section as some may be controlled by the provider.
+세션 종료는 애플리케이션 자체에서 처리할 수도 있고, 애플리케이션 대신 SSO 제공자가 세션 관리를 담당하는 경우 SSO 제공자에서 처리할 수도 있다.이 절의 요구사항을 고려할 때, 일부는 SSO 제공자가 제어할 수 있으므로 SSO 제공자가 범위(scope)에 포함되는지 여부를 결정해야 한다.
 
-Session termination should result in requiring re-authentication and be effective across the application, federated login (if present), and any relying parties.
+세션 종료는 재인증이 필요하도록 하고, 이는 애플리케이션, 통합 로그인(존재하는 경우), 그리고 모든 의존 서비스에 걸쳐 효과적으로 적용됨이 권장된다.
 
-For stateful session mechanisms, termination typically involves invalidating the session on the backend. In the case of self-contained tokens, additional measures are required to revoke or block these tokens, as they may otherwise remain valid until expiration.
+상태 유지형 세션 메커니즘에서는 종료 시 백엔드에서 세션을 무효화하는 것이 일반적이다. 자체 포함 토큰의 경우, 토큰이 만료 시까지 계속 유효할 수 있으므로 이를 취소하거나 차단하기 위한 추가 조치가 필요하다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **7.4.1** | Verify that when session termination is triggered (such as logout or expiration), the application disallows any further use of the session. For reference tokens or stateful sessions, this means invalidating the session data at the application backend. Applications using self-contained tokens will need a solution such as maintaining a list of terminated tokens, disallowing tokens produced before a per-user date and time or rotating a per-user signing key. | 1 |
-| **7.4.2** | Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 |
-| **7.4.3** | Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 |
-| **7.4.4** | Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 |
-| **7.4.5** | Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 2 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **7.4.1** | 로그아웃이나 만료와 같이 세션 종료가 트리거될 때, 애플리케이션이 해당 세션의 추가 사용을 허용하지 않는지 검증한다. 참조 토큰 또는 상태 유지형 세션의 경우, 이는 애플리케이션 백엔드에서 세션 데이터를 무효화하는 것을 의미한다. 자체 포함 토큰을 사용하는 애플리케이션은 종료된 토큰 목록 유지, 사용자별 날짜·시간 이전에 발급된 토큰 거부, 사용자별 서명 키 회전과 같은 방법을 사용해야 한다. | 1 |
+| **7.4.2** | 사용자 계정이 비활성화되거나 삭제될 때(예: 직원 퇴사), 애플리케이션이 모든 활성 세션을 종료하는지 검증한다. | 1 |
+| **7.4.3** | 비밀번호 재설정·복구를 통한 변경, MFA 설정 변경 등 어떤 인증 요소라도 성공적으로 변경 또는 제거한 후, 모든 다른 활성 세션을 종료할 수 있는 옵션을 제공하는지 검증한다. | 2 |
+| **7.4.4** | 인증이 필요한 모든 페이지의 로그아웃 기능에 접근하는 것이 쉽고 잘 보이는지 검증한다. | 2 |
+| **7.4.5** | 애플리케이션 관리자가 개별 사용자 또는 모든 사용자의 활성 세션을 종료할 수 있는지 검증한다. | 2 |
 
-## V7.5 Defenses Against Session Abuse
+## V7.5 세션 악용 방어
 
-This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors that rely on the existence and capabilities of active user sessions. For example, using malicious content execution to force an authenticated victim browser to perform an action using the victim's session.
+이 절은 하이재킹되었거나, 활성 사용자 세션의 존재와 권한을 악용하는 벡터를 통해 남용될 수 있는 활성 세션의 위험을 완화하기 위한 요구사항을 제시한다. 예를 들어, 악성 콘텐츠 실행을 통해 인증된 피해자 브라우저가 피해자의 세션을 사용하여 동작을 수행하게 만드는 경우가 있다.
 
-Note that the level-specific guidance in the "Authentication" chapter should be taken into account when considering requirements in this section.
+이 절의 요구사항을 고려할 때, “인증(Authentication)” 장의 레벨별 지침을 함께 참고해야 한다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **7.5.1** | Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 |
-| **7.5.2** | Verify that users are able to view and (having authenticated again with at least one factor) terminate any or all currently active sessions. | 2 |
-| **7.5.3** | Verify that the application requires further authentication with at least one factor or secondary verification before performing highly sensitive transactions or operations. | 3 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **7.5.1** | 이메일 주소, 전화번호, MFA 구성, 계정 복구에 사용되는 기타 정보 등 인증에 영향을 줄 수 있는 민감한 계정 속성을 변경하기 전에 전체 재인증을 요구하는지 검증한다. | 2 |
+| **7.5.2** | 사용자가 현재 활성 세션을 전체 또는 일부 확인하고(최소 요소 한 개에 대한 인증을 다시 수행한 후) 종료할 수 있는지 검증한다. | 2 |
+| **7.5.3** | 매우 민감한 거래나 작업을 수행하기 전에 최소 한 요소 인증 또는 2차 검증을 요구하는지 검증한다. | 3 |
 
-## V7.6 Federated Re-authentication
+## V7.6 페더레이션 재인증
 
-This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
+이 절은 신뢰 당사자(Relying Party;RP) 또는 ID 공급자(Identity Provider; IDP) 코드를 작성하는 경우에 적용된다. 요구사항은 [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) 연방·인증서 발급 지침에서 파생되었다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **7.6.1** | Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 |
-| **7.6.2** | Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 |
+| # | 설명 | 레벨 |
+| --- | --- | --- |
+| **7.6.1** | RP와 IdP 간 세션 수명과 종료가 문서대로 동작하며, IdP 인증 이벤트 간의 최대 시간이 도달하는 경우 등 필요한 시점에 재인증을 요구하는지 검증한다. | 2 |
+| **7.6.2** | 세션 생성 시 사용자 동의 또는 명시적 동작을 요구하여, 사용자 상호작용 없이 새로운 애플리케이션 세션이 생성되지 않도록 하는지 검증한다. | 2 |
 
-## References
+## 참고
 
-For more information, see also:
+더 많은 정보:
 
-* [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
-* [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+- [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
+- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
