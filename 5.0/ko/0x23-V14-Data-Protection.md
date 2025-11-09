@@ -45,6 +45,7 @@
 | **14.3.3** | 브라우저 저장소(localStorage, sessionStorage, IndexedDB, 쿠키)에 저장되는 데이터에는 세션 토큰을 제외한 민감 데이터가 포함되지 않도록 검증한다. | 2 |
 
 ## References
+
 ## 참조
 
 자세한 내용은 다음을 참조한다:
