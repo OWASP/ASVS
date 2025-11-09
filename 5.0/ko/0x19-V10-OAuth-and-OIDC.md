@@ -126,8 +126,7 @@ ID 토큰 플로우(코드 플로우가 아닌)을 사용하는 경우, 액세�
 | # | 설명 | 레벨 |
 | :---: | :--- | :---: |
 | **10.6.1** | OpenID 공급자는 response_mode 파라미터 값으로'code', 'ciba', 'id_token' 또는 'id_token code' 만 허용하는지 검증해야 한다. 이 중 'id_token code'(OIDC 하이브리드 플로우)보다는 'code'가 선호되며, 'token'(모든 암시적 플로우)은 사용되어서는 안 된다. | 2 |
-| **10.6.2** | OpenID 공급자가 강제 로그아웃을 통한 서비스 거부 공격을 완화하는지 검증해야 한다. 신뢰 당사자로 부터 시작된 로그아웃 요청에 id_token_hint 등의 파라미터가 포함되어 있는 경우, 이를 검증하거나 최종 사용자로부터 명시적인 확인을 받아야 한다.
-
+| **10.6.2** | OpenID 공급자가 강제 로그아웃을 통한 서비스 거부 공격을 완화하는지 검증해야 한다. 신뢰 당사자로 부터 시작된 로그아웃 요청에 id_token_hint 등의 파라미터가 포함되어 있는 경우, 이를 검증하거나 최종 사용자로부터 명시적인 확인을 받아야 한다. | 2 |
 
 ## V10.7 동의 관리
 
@@ -161,8 +160,8 @@ ASVS에서 OAuth 관련 요구사항은 다음의 공개 및 초안 상태 RFC�
 * [RFC9396 OAuth 2.0 확장된 인가 요청](https://datatracker.ietf.org/doc/html/rfc9396)
 * [RFC9449 OAuth 2.0 PoP(Demonstrating Proof of Possession)](https://datatracker.ietf.org/doc/html/rfc9449)
 * [RFC9700 OAuth 2.0 보안을 위한 현재 모범 사례](https://datatracker.ietf.org/doc/html/rfc9700)
-* [브라우저 기반 애플리케이션을 위한 OAuth 2.0 초안](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)
-* [OAuth 2.1 인가 프레임워크 초안](https://datatr.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)
+* [브라우저 기반 애플리케이션을 위한 OAuth 2.0 초안](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)<!-- recheck on release -->
+* [OAuth 2.1 인가 프레임워크 초안](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)<!-- recheck on release -->
 
 OpenID Connect에 대한 자세한 내용은 다음을 참조한다:
 

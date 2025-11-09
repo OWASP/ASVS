@@ -14,9 +14,9 @@ WebRTC 시장은 크게 세 개의 분야로 나눌 수 있다:
 
 보안 요구사항은 이곳에 제시되어 있으며 우선적으로 다음과 같은 제품 개발자, CPaaS와 서비스 제공자 초점이 맞추고 있다:
 
-- WebRTC 애플리케이션을 만들기 위해 오픈 소스 솔루션 활용
-- 인프라스트럭처에서 부분적으로 상용 WebRTC 제품 사용
-- 내부적으로 개발된 WebRTC 솔루션을 사용하거나 유기적인 서비스 제품에 다양한 컴포넌트를 통합
+* WebRTC 애플리케이션을 만들기 위해 오픈 소스 솔루션 활용
+* 인프라스트럭처에서 부분적으로 상용 WebRTC 제품 사용
+* 내부적으로 개발된 WebRTC 솔루션을 사용하거나 유기적인 서비스 제품에 다양한 컴포넌트를 통합
 
 보안 요구사항은 예외적으로 CPaaS 에서 제공하는 SDK와 API를 사용하는 개발자들에게는 적용되지 않는다는 것을 알아두어야 한다. CPaaS 제공자는 당사 플랫폼의 보안 우려점에 대한 일반적인 책임이 있으며 ASVS 같은 일반적인 보안 표준은 그들의 수요를 모두 충족하지 못할 수 있다.
 
@@ -65,11 +65,11 @@ WebRTC 시장은 크게 세 개의 분야로 나눌 수 있다:
 
 자세한 내용은 다음을 참조한다:
 
-- The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
-- [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
-- [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
-- [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)
-- [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
-- [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
-- [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
-- [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)
+* The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+* [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
+* [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
+* [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)
+* [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
+* [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
+* [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
+* [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)

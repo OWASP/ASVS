@@ -4,8 +4,8 @@
 
 권한 부여는 허가된 소비자(사용자, 서버, 기타 클라이언트)에게만 접근을 허용하는 것을 보장한다. 최소 권한의 원칙(PLOP)을 적용하기 위해, 검증된 애플리케이션은 반드시 다음의 상위 수준 요구사항을 충족해야 한다:
 
-- 권한 부여 규칙을 문서화하며, 문서에는 의사 결정 요소와 환경적 맥락을 포함한다.
-- 소비자는 자신에게 부여된 권한으로 허용된 자원에만 접근할 수 있는 것이 권장된다.
+* 권한 부여 규칙을 문서화하며, 문서에는 의사 결정 요소와 환경적 맥락을 포함한다.
+* 소비자는 자신에게 부여된 권한으로 허용된 자원에만 접근할 수 있는 것이 권장된다.
 
 ## V8.1 권한 부여 문서화
 
@@ -52,5 +52,5 @@
 
 자세한 내용은 다음을 참조한다:
 
-- [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
-- [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
+* [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
+* [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
