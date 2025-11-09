@@ -1,11 +1,11 @@
----	
-name: Standard ASVS issue	
+---
+name: Standard ASVS issue
 about: This template should be used for all ASVS issues.
-title: ''	
-labels: ''	
-assignees: ''	
+title: ''
+labels: ''
+assignees: ''
 
----	
+---
 <!---
 BEFORE YOU OPEN AN ISSUE:	
 - If you have a question about content, make sure you are looking at the raw .md files which contain the master version of the text and not in the CSV, JSON, XLSX, PDF, DOCX files which are derived from this.	
