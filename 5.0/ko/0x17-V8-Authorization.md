@@ -50,7 +50,7 @@
 
 ## 참조
 
-자세한 내용은 다음을 참조한다:
+더 많은 정보는 다음을 참고한다:
 
 * [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
 * [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
