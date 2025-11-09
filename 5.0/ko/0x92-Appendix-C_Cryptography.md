@@ -49,7 +49,7 @@
 추가 정보를 제공한다.
 
 | 이름 | 버전/참조 | 비고 | 상태 |
-|:-:|:-:|:-:|:-:|
+|:---|:----|:----|:-:|
 | `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), iOS, Android, 그리고 다른 Linux 기반 POSIX 운영체제에서도 사용된다. [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539)를 기반으로 한다. | ChaCha20 스트림을 활용한다. iOS의 [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) 및 Android의 [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom)에서 각각 올바른 설정이 적용된 상태로 제공된다. | A |
 | `/dev/urandom` | 무작위 데이터를 제공하는 Linux 커널의 특수 파일 | 하드웨어 난수를 통해 고품질의 엔트로피 소스를 제공한다. | A |
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | 일반적인 구현에서 사용되며, 예를 들어 [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers)로 설정된 [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom)이 사용된다. | A |
@@ -67,7 +67,7 @@ HMAC-DRBG 또는 Hash-DRBG와 함께 사용되는 기반 해시 함수는 반드
 승인된 암호 알고리즘은 선호도 순서로 제시되어 있다.
 
 | 대칭키 알고리즘 | 참조 | 상태 |
-|--|--|--|
+| ------ | ------ |:-:|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | A |
 | Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | A |
 | XChaCha20 | [XChaCha20 Draft](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-xchacha-03) | A |
@@ -117,7 +117,7 @@ AES와 같은 블록 암호는 다양한 운용 모드와 함께 사용할 수 �
 특히, 키 래핑에는 [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final)를 준수하고 양자 위협에 대비한 향후 권고 사항을 고려하여 반드시 AES-256을 사용해야 한다. AES를 사용하는 암호 모드는 선호도 순서로 제시되어 있다:
 
 | 키 래핑 | 참조 | 상태 |
-|--|--|--|
+|--|--|:-:|
 | KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 | KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 
@@ -132,7 +132,7 @@ AES-192와 AES-128은 사용 사례에서 필요할 경우 사용할 수 있지�
 MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 위해 여전히 허용된다. 이 방식은 TLS 1.2에서 구식 암호 제품군(cipher suites)과 함께 사용된다.
 
 | AEAD 메커니즘 | 참조 | 상태 |
-|--------------------------|---------|-----|
+|---|---------|:-:|
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
@@ -156,7 +156,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 * 출력 길이가 254비트 미만인 해시 함수는 충돌 저항성이 불충분하므로 디지털 서명 또는 충돌 저항성이 필요한 다른 애플리케이션에 사용해서는 안 된다. 다른 용도의 경우, 호환성 및 검증을 위해서만 레거시 시스템에서 제한적으로 사용할 수 있지만, 새로운 설계에서는 사용해서는 안 된다.
 
 | 해시 함수 | 참조 | 상태 | 제한 사항 |
-| -------------- | ------------------------------------------------------------- |--|--|
+| ------ | ----------- |:-:| ---------- |
 | SHA3-512 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
 | SHA-512 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
 | SHA3-384 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
@@ -181,9 +181,13 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 안전한 비밀번호 해싱을 위해서는 전용 해시 함수를 반드시 사용해야 한다. 이러한 느린 해싱(slow-hashing) 알고리즘은 비밀번호 크래킹의 연산 난이도를 높여 무차별 대입 공격과 사전 대입 공격을 완화한다.
 
 | KDF | 참조 | 필수 매개변수 | 상태 |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
@@ -196,7 +200,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 ### 범용 키 유도 함수
 
 | KDF              | 참조                                                                                     | 상태 |
-| ---------------- | --------------------------------------------------------------------------------------------- | ------ |
+| ---------------- | -------- |:-:|
 | HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
 | TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
 | MD5 기반 KDFs   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
@@ -205,9 +209,13 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 ### 비밀번호 기반 키 유도 함수
 
 | KDF | 참조 | 필수 매개변수 | 상태 |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
@@ -222,7 +230,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 모든 키 교환 체계에서 최소 112비트 이상의 보안 강도를 반드시 보장해야 하며, 구현 시 아래 표의 매개변수 선택을 따라야 한다.
 
 | 체계 | 도메인 매개변수 | 순방향 보안 | 상태 |
-|--|--|--|--|
+|--|--|--|:-:|
 | 유한체 디피-헬만(Finite Field Diffie-Hellman; FFDH) | L >= 3072 & N >= 256 | 예 | A |
 | 타원 곡선 디피-헬만(Elliptic Curve Diffie-Hellman; ECDH) | f >= 256-383 | 예 | A |
 | RSA-PKCS#1 v1.5 기반 암호화 키 전송 | | 아니오 | D |
@@ -240,7 +248,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 다음 그룹들은 디피-헬만 키 교환 구현 시 승인된 그룹이다. 보안 강도에 대한 상세 내용은 [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) 부록 D 및 [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)에 문서화되어 있다.
 
 | 그룹            | 상태 |
-|------------------|--------|
+|------------------|:------:|
 | P-224, secp224r1 | A      |
 | P-256, secp256r1 | A      |
 | P-384, secp384r1 | A      |
@@ -270,26 +278,26 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 
 메시지 인증 코드(MAC)는 메시지의 무결성과 진위 여부를 검증하기 위해 사용되는 암호학적 구성 요소이다. MAC은 메시지와 비밀 키를 입력으로 받아 고정 길이의 태그(MAC 값)를 생성한다. MAC는 TLS, SSL 등과 같은 보안 통신 프로토콜에서 널리 사용되며, 통신 당사자 간에 교환되는 메시지가 인증되었고 변경되지 않았음을 보장한다.
 
-| MAC 알고리즘 | 참조                                                                                 | 상태 | 제한 사항 |
-| --------------| ----------------------------------------------------------------------------------------- | -------| ------------ |
-| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| BLAKE3 (keyed_hash mode) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
-| AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
-| AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
-| Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
-| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L | |
-| HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      | |
+| MAC 알고리즘 | 참조                                                                                 | 상태 |
+| ----------    | --------------- |:-:|
+| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A |
+| KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A |
+| BLAKE3 (keyed_hash mode) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A |
+| AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A |
+| AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A |
+| Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A |
+| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L |
+| HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
 
 ## 디지털 서명
 
 서명 체계는 반드시 [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)에서 승인한 키 크기와 매개변수를 사용해야 한다.
 
 | 서명 알고리즘            | 참조                                                  | 상태 |
-| ------------------------------ | ---------------------------------------------------------- | ------ |
+| ------------------------------ | ---------------------------------------------              | :-:    |
 | EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | A      |
 | XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | A      |
 | ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
