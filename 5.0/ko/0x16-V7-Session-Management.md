@@ -4,15 +4,15 @@
 
 세션 관리 메커니즘은 상태 비저장(stateless) 통신 프로토콜(예: HTTP)을 사용할 때에도, 애플리케이션이 시간 경과에 따라 사용자와 장치 간의 상호작용을 연계할 수 있도록 한다. 최신 애플리케이션은 서로 다른 특성과 목적을 가진 여러 세션 토큰을 사용할 수 있다. 안전한 세션 관리 시스템은 공격자가 피해자의 세션을 획득, 사용 또는 악용하지 못하도록 방지한다. 세션을 유지하는 애플리케이션은 다음의 상위 수준 세션 관리 요구사항을 반드시 충족해야 한다.
 
-- 세션은 각 개인에게 고유하며, 추측되거나 공유될 수 없어야 한다.
-- 세션은 더 이상 필요하지 않을 때 무효화되며, 비활성 상태가 지속되면 시간 초과되어야 한다.
+* 세션은 각 개인에게 고유하며, 추측되거나 공유될 수 없어야 한다.
+* 세션은 더 이상 필요하지 않을 때 무효화되며, 비활성 상태가 지속되면 시간 초과되어야 한다.
 
 이 장의 많은 요구사항은 [NIST SP 800-63 디지털 신원 지침](https://pages.nist.gov/800-63-4/) 중 일부 제어 항목과 관련이 있으며, 일반적인 위협 및 자주 악용되는 인증 취약점에 초점을 맞춘다.
 
 특정 세션 관리 메커니즘의 구현 세부사항에 대한 요구사항은 다른 장에서 확인할 수 있다.
 
-- HTTP 쿠키는 세션 토큰을 보호하는 데 일반적으로 사용되는 메커니즘이다. 쿠키에 대한 구체적 보안 요구사항은 “웹 프론트엔드 보안” 장에서 확인할 수 있다.
-- 자체 포함 토큰은 세션을 유지하는 수단으로 자주 사용된다. 자체 포함 토큰에 대한 구체적 보안 요구사항은 “자체 포함 토큰” 장에서 확인할 수 있다.ㅋㄱ
+* HTTP 쿠키는 세션 토큰을 보호하는 데 일반적으로 사용되는 메커니즘이다. 쿠키에 대한 구체적 보안 요구사항은 “웹 프론트엔드 보안” 장에서 확인할 수 있다.
+* 자체 포함 토큰은 세션을 유지하는 수단으로 자주 사용된다. 자체 포함 토큰에 대한 구체적 보안 요구사항은 “자체 포함 토큰” 장에서 확인할 수 있다.
 
 ## V7.1 세션 관리 문서화
 
@@ -87,5 +87,5 @@
 
 더 많은 정보:
 
-- [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
+* [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
 - [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
