@@ -56,7 +56,7 @@ WebSocket은 단일 TCP 연결을 통해 동시에 양방향 통신 채널을 �
 
 ## 참조
 
-자세한 내용은 다음을 참조한다:
+자세한 내용은 다음을 참고한다:
 
 * [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
 * Resources on GraphQL Authorization from [graphql.org](https://graphql.org/learn/authorization/) and [Apollo](https://www.apollographql.com/docs/apollo-server/security/authentication/#authorization-methods).
