@@ -1,68 +1,68 @@
-# V13 Configuration
+# V13 설정
 
-## Control Objective
+## 제어 목표
 
-The application's default configuration must be secure for use on the Internet.
+인터넷상에서 사용하기 위해 애플리케이션의 기본 설정은 안전해야 한다.
 
-This chapter provides guidance on the various configurations necessary to achieve this, including those applied during development, build, and deployment.
+이 챕터에서는 이를 달성하기 위해 개발, 빌드, 배포 과정에서 적용되는 설정들을 비롯한 여러 설정에 대한 가이던스를 제공한다. 
 
-Topics covered include preventing data leakage, securely managing communication between components, and protecting secrets.
+이 주제는 데이터 유출 방지, 컴포넌트 간의 안전한 의사소통, 비밀 정보 보호 등을 다룬다.
 
-## V13.1 Configuration Documentation
+## V13.1 설정 문서
 
-This section outlines documentation requirements for how the application communicates with internal and external services, as well as techniques to prevent loss of availability due to service inaccessibility. It also addresses documentation related to secrets.
+이 섹션은 서비스 비접근성으로 인한 가용성 손실을 방지하는 기술을 포함하여, 애플리케이션이 내부, 외부 서비스와 통신을 하기 위한 요구사항들의 문서화에 대해 간략히 서술하고 있다. 또한 비밀 정보와 관련된 문서화에 대해서도 다루고 있다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **13.1.1** | Verify that all communication needs for the application are documented. This must include external services which the application relies upon and cases where an end user might be able to provide an external location to which the application will then connect. | 2 |
-| **13.1.2** | Verify that for each service the application uses, the documentation defines the maximum number of concurrent connections (e.g., connection pool limits) and how the application behaves when that limit is reached, including any fallback or recovery mechanisms, to prevent denial of service conditions. | 3 |
-| **13.1.3** | Verify that the application documentation defines resource‑management strategies for every external system or service it uses (e.g., databases, file handles, threads, HTTP connections). This should include resource‑release procedures, timeout settings, failure handling, and where retry logic is implemented, specifying retry limits, delays, and back‑off algorithms. For synchronous HTTP request–response operations it should mandate short timeouts and either disable retries or strictly limit retries to prevent cascading delays and resource exhaustion. | 3 |
-| **13.1.4** | Verify that the application's documentation defines the secrets that are critical for the security of the application and a schedule for rotating them, based on the organization's threat model and business requirements. | 3 |
+| **13.1.1** | 애플리케이션의 모든 통신 요구사항이 문서화 되어 있는지를 검증한다. 이는 애플리케이션이 의존하는 외부 서비스나, 사용자가 애플리케이션이 연결할 외부 위치를 제공하는 경우들을 포함한다. | 2 |
+| **13.1.2** | 애플리케이션이 사용하는 각각의 서비스들에 대해, 문서가 최대 동시 연결 수(연결 풀 제한)를 정의하고 있는지, 그리고 그 한계에 다다랐을 때 폴백(fallback)이나 복구 메커니즘 등을 포함하여, DoS 공격을 방지하기 위해 애플리케이션이 어떻게 동작하는지를 검증한다. | 3 |
+| **13.1.3** | 애플리케이션 문서가 모든 외부 시스템이나 애플리케이션이 사용하는 서비스(예시: 데이터베이스, 파일 핸들, 스레드, HTTP 연결)들에 대한 자원-관리 전략을 정의하고 있는지 검증한다.이는 자원-해제 프로시저, 시간초과 설정, 오류 핸들링을 포함하며, 재시도 로직이 구현된 경우 재시도 제한과 지연, 백-오프 알고리즘을 명시해야 한다. 동기 HTTP 요청-응답 명령에 대해서는 짧은 타임아웃에 더해 재시도의 비활성화 혹은 연쇄적인 지연과 자원 고갈을 방지하기 위한 재시도의 엄격한 제한을 의무화해야 한다. | 3 |
+| **13.1.4** | 애플리케이션 문서가 조직의 위협 모델과 사업적 요구사항에 기반하여, 애플리케이션의 보안과 비밀 정보들의 주기적 갱신 일정에 치명적인 비밀 정보들을 정의하고 있는지 검증한다. | 3 |
 
-## V13.2 Backend Communication Configuration
+## V13.2 백엔드 통신 설정
 
-Applications interact with multiple services, including APIs, databases, or other components. These may be considered internal to the application but not included in the application's standard access control mechanisms, or they may be entirely external. In either case, it is necessary to configure the application to interact securely with these components and, if required, protect that configuration.
+애플리케이션들은 여러 API, 데이터베이스 또는 다른 컴포넌트 등과 함께 상호작용한다. 이것들은 애플리케이션의 표준 접근 제어 메커니즘에 포함되어 있기보다 애플리케이션 내부에 존재한다고 고려되거나, 혹은 완전 외부에 존재한다고 여겨진다. 각각의 경우 모두 이 컴포넌트들과 안전하게 상호작용하고, 또 유사시 그 설정을 보호하는 도록 애플리케이션을 설정하는 것이 필수적이다.
 
-Note: The "Secure Communication" chapter provides guidance for encryption in transit.
+참고: “안전한 통신” 챕터는 전송의 암호화를 위한 가이던스를 제공한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **13.2.1** | Verify that communications between backend application components that don't support the application's standard user session mechanism, including APIs, middleware, and data layers, are authenticated. Authentication must use individual service accounts, short-term tokens, or certificate-based authentication and not unchanging credentials such as passwords, API keys, or shared accounts with privileged access. | 2 |
-| **13.2.2** | Verify that communications between backend application components, including local or operating system services, APIs, middleware, and data layers, are performed with accounts assigned the least necessary privileges. | 2 |
-| **13.2.3** | Verify that if a credential has to be used for service authentication, the credential being used by the consumer is not a default credential (e.g., root/root or admin/admin). | 2 |
-| **13.2.4** | Verify that an allowlist is used to define the external resources or systems with which the application is permitted to communicate (e.g., for outbound requests, data loads, or file access). This allowlist can be implemented at the application layer, web server, firewall, or a combination of different layers. | 2 |
-| **13.2.5** | Verify that the web or application server is configured with an allowlist of resources or systems to which the server can send requests or load data or files from. | 2 |
-| **13.2.6** | Verify that where the application connects to separate services, it follows the documented configuration for each connection, such as maximum parallel connections, behavior when maximum allowed connections is reached, connection timeouts, and retry strategies. | 3 |
+| **13.2.1** | API나 미들웨어와 같은 애플리케이션의 표준 사용자 세션 메커니즘을 지원하지 않는 백엔드 애플리케이션 컴포넌트와 데이터 계층 사이의 통신이 인증되어 있는지를 검증한다. 인증은 반드시 개별적인 서비스 계정과 단기간 토큰, 또는 인증서 기반 인증을 사용하고 비밀번호, API 키, 또는 접근 권한이 부여된 공유 계정 등의 자격 증명을 변경하지 않아선 안 된다.  | 2 |
+| **13.2.2** | 로컬 또는 운영체제 서비스, API, 미들웨어, 그리고 데이터 계층을 포함한 백엔드 애플리케이션 컴포넌트 간의 통신이 최소 필요 권한이 할당된 계정들로 수행되는지 검증한다. | 2 |
+| **13.2.3** | 만약 자격 증명이 서비스 인증을 위해 필요하다면, 소비자로부터 사용되는 그 자격 증명이 기본 자격 증명이 아님을 검증한다. (예시: root/root 또는 admin/admin) | 2 |
+| **13.2.4** | 얼로우리스트가 애플리케이션의 통신이 허가된 외부 리소스나 시스템을 정의하기 위해 사용되는지 검증한다. (예시: 아웃바운드 요청, 데이터 로드, 파일 접근). 이 얼로우리스트는 애플리케이션 계층, 웹 서버, 방화벽 또는 다른 여러 계층의 조합으로 구현할 수 있다.   | 2 |
+| **13.2.5** | 웹이나 애플리케이션 서버에 요청을 보내거나 데이터나 파일을 로드 할 수 있는  리소스 또는 시스템의 얼로우리스트가 설정되어 있는지를 검증한다. | 2 |
+| **13.2.6** | 애플리케이션이 별도의 서비스와 연결할 때, 각 연결이 최대 병렬연결, 최대 연결 도달 시의 동작, 연결 타임아웃, 재시도 전략 등 문서화된 설정에 따르는지 검증한다. | 3 |
 
-## V13.3 Secret Management
+## V13.3 비밀 정보 관리
 
-Secret management is an essential configuration task to ensure the protection of data used in the application. Specific requirements for cryptography can be found in the "Cryptography" chapter, but this section focuses on the management and handling aspects of secrets.
+비밀 정보 관리는 애플리케이션에서 사용되는 데이터를 보호하기 위해 필수적인 설정이다. 암호에 대한 특정 요구사항들은 “암호” 챕터에서 찾아볼 수 있고, 이 섹션에서는 비밀 정보들의 관리와 취급의 측면에 초점을 둔다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **13.3.1** | Verify that a secrets management solution, such as a key vault, is used to securely create, store, control access to, and destroy backend secrets. These could include passwords, key material, integrations with databases and third-party systems, keys and seeds for time-based tokens, other internal secrets, and API keys. Secrets must not be included in application source code or included in build artifacts. For an L3 application, this must involve a hardware-backed solution such as an HSM. | 2 |
-| **13.3.2** | Verify that access to secret assets adheres to the principle of least privilege. | 2 |
-| **13.3.3** | Verify that all cryptographic operations are performed using an isolated security module (such as a vault or hardware security module) to securely manage and protect key material from exposure outside of the security module. | 3 |
-| **13.3.4** | Verify that secrets are configured to expire and be rotated based on the application's documentation. | 3 |
+| **13.3.1** | 키 볼트와 같은 비밀 정보 관리 솔루션이 백엔드 비밀 정보들을 만들고 저장하고, 접근을 제어하고, 파기하기 위해 사용되고 있는지 검증한다. 이는 비밀번호, 키 재료, 데이터베이스와 서드 파티 시스템의 통합, 시간-기반 토큰을 위한 키와 시드, 그리고 API 키들을 포함할 수 있다. 비밀 정보들은 애플리케이션 소스 코드 내부나, 빌드 아티팩트에 포함되어서는 안 된다. L3 애플리케이션에 대해서는, 반드시 HSM과 같은 하드웨어 기반 솔루션을 사용해야 한다. | 2 |
+| **13.3.2** | 비밀 정보 자원들에 대한 접근이 최소 권한의 원칙을 고수하는지 검증한다. | 2 |
+| **13.3.3** | 보안 모듈에 대한 외부의 노출로부터 안전하게 키 재료를 관리하고 보호하기 위해 모든 암호 연산이 고립된 보안 모듈(볼트나, 하드웨어 보안 모듈 등)을 사용하여 수행되는지 검증한다. | 3 |
+| **13.3.4** | 애플리케이션의 문서를 기반으로 비밀 정보들이 만료되고 갱신되도록 설정되었는지 검증한다. | 3 |
 
-## V13.4 Unintended Information Leakage
+## V13.4 의도하지 않은 정보 노출
 
-Production configurations should be hardened to avoid disclosing unnecessary data. Many of these issues are rarely rated as significant risks but are often chained with other vulnerabilities. If these issues are not present by default, it raises the bar for attacking an application.
+운영환경 설정은 불필요한 데이터가 공개되는 것을 피하기 위해 강화되어야 한다. 의도하지 않은 정보의 노출은 심각한 위협으로 평가되지는 않지만 자주 다른 취약점들과 연계된다. 이러한 문제들이 기본적으로 존재하지 않으면 애플리케이션에 대한 공격 난이도를 높일 수 있다.
 
-For example, hiding the version of server-side components does not eliminate the need to patch all components, and disabling folder listing does not remove the need to use authorization controls or keep files away from the public folder, but it raises the bar.
+예를 들어 서버단 컴포넌트의 버전 정보를 숨긴다고 해서 모든 컴포넌트를 패치할 필요가 없어지는 것은 아니지만, 또 폴더 목록 보기를 비활성화한다고 인증 제어를 사용하거나 공용 폴더로부터 파일을 제거할 필요가 없어지는 것은 아니지만, 이는 공격의 난이도를 높인다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **13.4.1** | Verify that the application is deployed either without any source control metadata, including the .git or .svn folders, or in a way that these folders are inaccessible both externally and to the application itself. | 1 |
-| **13.4.2** | Verify that debug modes are disabled for all components in production environments to prevent exposure of debugging features and information leakage. | 2 |
-| **13.4.3** | Verify that web servers do not expose directory listings to clients unless explicitly intended. | 2 |
-| **13.4.4** | Verify that using the HTTP TRACE method is not supported in production environments, to avoid potential information leakage. | 2 |
-| **13.4.5** | Verify that documentation (such as for internal APIs) and monitoring endpoints are not exposed unless explicitly intended. | 2 |
-| **13.4.6** | Verify that the application does not expose detailed version information of backend components. | 3 |
-| **13.4.7** | Verify that the web tier is configured to only serve files with specific file extensions to prevent unintentional information, configuration, and source code leakage. | 3 |
+| **13.4.1** | 애플리케이션이 .git 이나 .svn 폴더 같은 소스 코드 관리 메타데이터 없이 배포되었는지, 또는 이 폴더들이 외부적으로든 애플리케이션 자체에서든 접근할 수 없도록 배포되었는지 검증한다.  | 1 |
+| **13.4.2** | 실제 운영환경에서 디버깅 기능 노출이나 정보 누출을 방지하기 위해, 모든 컴포넌트에서 디버그 모드가 비활성화되어 있는지 검증한다. | 2 |
+| **13.4.3** | 분명히 의도된 것이 아닌 이상 웹 서버가 폴더 목록을 클라이언트에게 노출하지 않는지 검증한다. | 2 |
+| **13.4.4** | 잠재적인 정보 누출을 방지하기 위해 실제 운영환경에서 HTTP TRACE 메소드 사용이 지원되지 않는지 검증한다.  | 2 |
+| **13.4.5** | 분명히 의도된 것이 아닌 이상 문서(내부 API 같은)와 모니터링 엔드포인트가 노출되지 않는지 검증한다. | 2 |
+| **13.4.6** | 애플리케이션이 백엔드 컴포넌트의 자세한 버전 정보를 노출하지 않는지 검증한다. | 3 |
+| **13.4.7** | 웹 계층이 의도적이지 않은 정보, 설정, 소스코드 누출을 방지하기 위해 특정 파일 확장자만 서비스하도록 설정되었는지 검증한다. | 3 |
 
-## References
+## 참조
 
-For more information, see also:
+더 많은 정보는 다음을 참고한다:
 
 * [OWASP Web Security Testing Guide: Configuration and Deployment Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing)
