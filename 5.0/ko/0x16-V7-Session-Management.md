@@ -76,7 +76,7 @@
 
 ## V7.6 페더레이션 재인증
 
-이 절은 Relying Party(RP) 또는 Identity Provider(IdP) 코드를 작성하는 경우에 적용된다. 요구사항은 [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) 연방·인증서 발급 지침에서 파생되었다.
+이 절은 신뢰 당사자(Relying Party;RP) 또는 ID 공급자(Identity Provider; IDP) 코드를 작성하는 경우에 적용된다. 요구사항은 [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) 연방·인증서 발급 지침에서 파생되었다.
 
 | # | 설명 | 레벨 |
 | --- | --- | --- |
