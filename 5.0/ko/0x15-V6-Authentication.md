@@ -1,159 +1,158 @@
-# V6 Authentication
+# V6 인증
 
-## Control Objective
+## 제어 목표
 
-Authentication is the process of establishing or confirming the authenticity of an individual or device. It involves verifying claims made by a person or about a device, ensuring resistance to impersonation, and preventing the recovery or interception of passwords.
+인증은 개인이나 장치의 진위를 확립하거나 확인하는 과정이다. 이는 사용자가 주장하는 바 또는 장치에 대한 주장을 검증하며, 위장 행위에 대한 저항성을 보장하고 비밀번호의 복구나 가로채기를 방지하는 것을 포함한다.
 
-[NIST SP 800-63](https://pages.nist.gov/800-63-3/) is a modern, evidence-based standard that is valuable for organizations worldwide, but is particularly relevant to US agencies and those interacting with US agencies.
+[NIST SP 800-63](https://pages.nist.gov/800-63-3/)은 전 세계 조직에 유용한 현대적이고 증거 기반의 표준이나, 특히 미국 정부 기관 및 미국 정부 기관과 상호작용하는 조직에 매우 관련성이 높다.
 
-While many of the requirements in this chapter are based on the second section of the standard (known as NIST SP 800-63B "Digital Identity Guidelines - Authentication and Lifecycle Management"), the chapter focuses on common threats and frequently exploited authentication weaknesses. It does not attempt to comprehensively cover every point in the standard. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
+이 장의 요구사항 중 많은 것은 표준의 두 번째 섹션(NIST SP 800-63B “디지털 신원 지침 - 인증 및 수명 주기 관리”)을 기반으로 하지만, 본 장은 보편적인 위협과 자주 악용되는 인증 취약점에 초점을 맞춘다. 또한 표준의 모든 항목을 포괄적으로 다루지는 않는다. 완전한 NIST SP 800-63 준수가 필요한 경우 반드시 원문을 참고해야 한다.
 
-Additionally, NIST SP 800-63 terminology may sometimes differ, and this chapter often uses more commonly understood terminology to improve clarity.
-
-A common feature of more advanced applications is the ability to adapt authentication stages required based on various risk factors. This feature is covered in the "Authorization" chapter, since these mechanisms also need to be considered for authorization decisions.
+추가적으로, NIST SP 800-63의 용어와는 일부 경우 다를 수 있으며, 본 장은 명확성을 높이기 위해 더 일반적으로 이해되는 용어를 사용한다. 보다 발전된 애플리케이션의 일반적 기능 중 하나는 다양한 위험 요인에 따라 요구되는 인증 단계를 조정할 수 있는 능력이다. 이러한 기능은 권한 부여 결정에도 고려되어야 하므로 “권한 부여” 장에서 다룬다.
 
 ## V6.1 Authentication Documentation
 
-This section contains requirements detailing the authentication documentation that should be maintained for an application. This is crucial for implementing and assessing how the relevant authentication controls should be configured.
+본 섹션은 애플리케이션에서 유지해야 하는 인증 문서화에 대한 요구사항을 포함한다. 이는 관련 인증 제어가 어떻게 구성되어야 하는지를 구현하고 평가하는 데 핵심적이다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
+| :---: | :---: | :---: |
+| **6.1.1** | 인증 문서가 크리덴셜 스터핑, 비밀번호 무차별 대입 공격 등을 방어하기 위해 속도 제한, 자동화 방지, 적응형 응답(adaptive response)과 같은 제어가 어떻게 사용되는지를 정의한다. 또한, 이러한 제어가 어떻게 구성되는지와 악의적으로 계정을 잠그는 것을 방지하는 방법을 명확히 하는지 검증한다. | 1 |
+| **6.1.2** | 조직명, 제품명, 시스템 식별자, 프로젝트 코드명, 부서명 또는 역할명 등 문맥적으로 특정된 단어의 변형을 포함하여, 비밀번호에 사용되지 않도록 문서화된 단어 목록이 있는지 검증한다. | 2 |
+| **6.1.3** | 애플리케이션이 여러 인증 경로를 포함하는 경우, 이들 모두가 문서화되어 있으며 각 경로에 대해 일관되게 적용되는 보안 제어와 인증 강도가 정의되어 있는지 검증한다. | 2 |
+
+## V6.2 비밀번호 보안
+
+비밀번호는 NIST SP 800-63에서 “기억된 비밀(Memorized Secret)”로 불리며, 비밀번호, 암호구절(passphrase), PIN, 잠금 패턴, 특정 이미지 요소 선택 등을 포함한다. 일반적으로 “알고 있는 것(something you know)”으로 간주되며, 단일 요소 인증 방식으로 자주 사용된다.
+
+이 섹션은 비밀번호가 안전하게 생성되고 처리되도록 하기 위한 요구사항을 포함한다. 대부분의 요구사항은 L1에 속하는데, 이는 해당 수준에서 가장 중요하기 때문이다. L2 이상부터는 다중요소 인증 메커니즘이 요구되며, 이때 비밀번호는 그 요소 중 하나로 사용될 수 있다.
+
+본 섹션의 요구사항은 주로 [NIST 가이드라인](https://pages.nist.gov/800-63-3/sp800-63b.html)의 [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver)와 관련된다.
+
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **6.1.1** | Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation must make clear how these controls are configured and prevent malicious account lockout. | 1 |
-| **6.1.2** | Verify that a list of context-specific words is documented in order to prevent their use in passwords. The list could include permutations of organization names, product names, system identifiers, project codenames, department or role names, and similar. | 2 |
-| **6.1.3** | Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which must be consistently enforced across them. | 2 |
+| **6.2.1** | 사용자가 설정하는 비밀번호가 최소 8자 이상이어야 하며, 최소 15자 이상을 강력히 권장하는지 검증한다. | 1 |
+| **6.2.2** | 사용자가 비밀번호를 변경할 수 있는지 검증한다. | 1 |
+| **6.2.3** | 비밀번호 변경 기능이 사용자의 현재 비밀번호와 새 비밀번호를 요구하는지 검증한다. | 1 |
+| **6.2.4** | 계정 등록 또는 비밀번호 변경 시 제출된 비밀번호가 최소 3000개의 상위 비밀번호 목록과 비교 및 검사되는지, 이때 애플리케이션 비밀번호 정책(예: 최소 길이)을 만족하는지 검증한다. | 1 |
+| **6.2.5** | 비밀번호는 어떤 구성도 허용되며, 허용되는 문자 유형에 대한 제한이 없는지 검증한다. 대/소문자, 숫자, 특수문자에 대한 최소 개수 요구사항이 없어야 한다. | 1 |
+| **6.2.6** | 비밀번호 입력 필드가 type=password를 사용하여 입력을 마스킹하는지 검증한다. 애플리케이션은 사용자가 전체 비밀번호나 마지막 입력 문자를 일시적으로 볼 수 있도록 허용할 수 있다. | 1 |
+| **6.2.7** | 붙여넣기 기능, 브라우저 비밀번호 도우미, 외부 비밀번호 관리자의 사용이 허용되는지 검증한다. | 1 |
+| **6.2.8** | 애플리케이션이 비밀번호를 사용자로부터 수신한 그대로 검증하며, 대소문자 변경이나 잘림(truncation)과 같은 수정 없이 처리하는지 검증한다. | 1 |
+| **6.2.9** | 비밀번호가 최소 64자까지 허용되는지 검증한다. | 2 |
+| **6.2.10** | 사용자의 비밀번호는 손상되었음이 발견되거나 사용자가 교체할 때까지 유효하며, 애플리케이션이 주기적인 자격 증명 교체를 요구하지 않는지 검증한다. | 2 |
+| **6.2.11** | 문서화된 문맥별 단어 목록을 사용하여 추측하기 쉬운 비밀번호가 생성되지 않도록 하는지 검증한다. | 2 |
+| **6.2.12** | 계정 등록 또는 비밀번호 변경 시 제출된 비밀번호가 유출된 비밀번호 집합과 비교 및 검사되는지 검증한다. | 2 |
 
-## V6.2 Password Security
 
-Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, passphrases, PINs, unlock patterns, and picking the correct kitten or another image element. They are generally considered "something you know" and are often used as a single-factor authentication mechanism.
+## V6.3 일반 인증 보안
 
-As such, this section contains requirements for making sure that passwords are created and handled securely. Most of the requirements are L1 as they are most important at that level. From L2 onwards, multi-factor authentication mechanisms are required, where passwords may be one of those factors.
+이 섹션은 인증 메커니즘의 보안에 대한 일반 요구사항을 포함하며, 레벨별로 상이한 기대치를 제시한다. L2 애플리케이션은 다중요소 인증(MFA)을 반드시 사용해야 한다. L3 애플리케이션은 반드시 검증된 신뢰 실행 환경(Trusted Execution Environment, TEE)에서 수행되는 하드웨어 기반 인증을 사용해야 한다. 여기에는 장치에 종속된 패스키(device-bound passkeys), eIDAS 높은 수준(Level of Assurance, LoA High)의 강제 인증기, NIST 인증기 보증 수준 3(Authenticator Assurance Level 3, AAL3)을 충족하는 인증기, 또는 이에 상응하는 메커니즘이 포함될 수 있다.
 
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+이는 비교적 강력한 MFA 요구이지만, 사용자를 보호하기 위해 이에 대한 인증 수준을 높이는 것은 필수적이다. 이러한 요구사항을 완화하려는 모든 시도는, 인증과 관련된 위험을 어떻게 완화할 것인지에 대한 명확한 계획을 반드시 수반해야 하며, 이때 NIST의 지침과 해당 주제에 대한 연구 결과를 고려해야 한다.
 
-| # | Description | Level |
+출시 시점 기준으로, NIST SP 800-63은 이메일을 인증 메커니즘([아카이브](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11))으로 [허용하지 않는다](https://pages.nist.gov/800-63-FAQ/#q-b11)는 점에 유의해야 한다.
+
+이 섹션의 요구사항은 [NIST 가이드라인](https://pages.nist.gov/800-63-3/sp800-63b.html)의 다양한 절과 관련이 있으며, 여기에는 [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling), and [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding) 등이 포함된다.
+
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **6.2.1** | Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | 1 |
-| **6.2.2** | Verify that users can change their password. | 1 |
-| **6.2.3** | Verify that password change functionality requires the user's current and new password. | 1 |
-| **6.2.4** | Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords which match the application's password policy, e.g. minimum length. | 1 |
-| **6.2.5** | Verify that passwords of any composition can be used, without rules limiting the type of characters permitted. There must be no requirement for a minimum number of upper or lower case characters, numbers, or special characters. | 1 |
-| **6.2.6** | Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | 1 |
-| **6.2.7** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | 1 |
-| **6.2.8** | Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 1 |
-| **6.2.9** | Verify that passwords of at least 64 characters are permitted. | 2 |
-| **6.2.10** | Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | 2 |
-| **6.2.11** | Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | 2 |
-| **6.2.12** | Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | 2 |
+| **6.3.1** | 애플리케이션의 보안 문서에 따라 크리덴셜 스터핑 및 비밀번호 무차별 대입 공격을 방지하기 위한 제어가 구현되어 있는지 검증한다. | 1 |
+| **6.3.2** | “root”, “admin”, “sa”와 같은 기본 사용자 계정이 애플리케이션에 존재하지 않거나 비활성화되어 있는지 검증한다. | 1 |
+| **6.3.3** | 애플리케이션 접근 시 반드시 MFA 또는 단일 요소 인증 메커니즘의 조합을 사용하는지 검증한다. L3의 경우, 인증을 수행하려는 사용자의 의도를 검증하기 위해 사용자가 직접 수행하는 동작(예: FIDO 하드웨어 키 또는 모바일 기기에서 버튼을 누르는 행위)을 요구함으로써, 피싱 공격에 대한 침해 및 위장 저항성을 제공하는 하드웨어 기반 인증 메커니즘이 반드시 하나의 요소로 포함되어야 한다. 이 요구사항에서 고려 사항을 완화하려는 경우, 완전히 문서화된 근거와 포괄적인 보완 통제가 반드시 수반되어야 한다. | 2 |
+| **6.3.4** | 여러 인증 경로가 존재하는 경우, 문서화되지 않은 경로가 없어야 하며 보안 제어와 인증 강도가 일관되게 적용되는지 검증한다. | 2 |
+| **6.3.5** | 사용자가 의심스러운 인증 시도에 대해 성공 여부와 관계 없이 알림을 제공받는지 검증한다. 여기에는 비정상적인 위치나 클라이언트에서의 인증 시도, 부분적으로만 성공한 인증(여러 요소 중 하나만 성공한 경우), 장기간 비활성 상태 이후의 인증 시도, 또는 여러 번의 인증 실패 후 성공한 인증이 포함될 수 있다. | 3 |
+| **6.3.6** | 이메일이 단일 또는 다중 요소 인증 메커니즘으로 사용되지 않는지 검증한다. | 3 |
+| **6.3.7** | 자격 증명 재설정, 사용자명/이메일 수정 등 인증 관련 정보 변경 이후 사용자에게 통지되는지 검증한다. | 3 |
+| **6.3.8** | 오류 메시지, HTTP 응답 코드, 응답 시간 차이 등을 통해 유효한 사용자를 유추할 수 없으며, 비밀번호 등록/찾기 기능에도 동일한 보호가 적용되는지 검증한다. | 3 |
 
-## V6.3 General Authentication Security
 
-This section contains general requirements for the security of authentication mechanisms as well as setting out the different expectations for levels. L2 applications must force the use of multi-factor authentication (MFA). L3 applications must use hardware-based authentication, performed in an attested and trusted execution environment (TEE). This could include device-bound passkeys, eIDAS Level of Assurance (LoA) High enforced authenticators, authenticators with NIST Authenticator Assurance Level 3 (AAL3) assurance, or an equivalent mechanism.
+## V6.4 인증 요소 수명 주기 및 복구
 
-While this is a relatively aggressive stance on MFA, it is critical to raise the bar around this to protect users, and any attempt to relax these requirements should be accompanied by a clear plan on how the risks around authentication will be mitigated, taking into account NIST's guidance and research on the topic.
+인증 요소는 비밀번호, 소프트 토큰, 하드웨어 토큰, 생체 인식 장치 등을 포함할 수 있다. 이들의 수명주기를 안전하게 처리하는 것은 애플리케이션 보안에 매우 중요하며, 본 섹션은 관련 요구사항을 다룬다.
 
-Note that at the time of release, NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism ([archived copy](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
+본 섹션의 요구사항은 주로 [NIST 가이드라인](https://pages.nist.gov/800-63-3/sp800-63b.html)의 [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver), [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement)과 관련된다.
 
-The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling), and [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
-
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **6.3.1** | Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | 1 |
-| **6.3.2** | Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 |
-| **6.3.3** | Verify that either a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms, must be used in order to access the application. For L3, one of the factors must be a hardware-based authentication mechanism which provides compromise and impersonation resistance against phishing attacks while verifying the intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key or a mobile phone). Relaxing any of the considerations in this requirement requires a fully documented rationale and a comprehensive set of mitigating controls. | 2 |
-| **6.3.4** | Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 |
-| **6.3.5** | Verify that users are notified of suspicious authentication attempts (successful or unsuccessful). This may include authentication attempts from an unusual location or client, partially successful authentication (only one of multiple factors), an authentication attempt after a long period of inactivity or a successful authentication after several unsuccessful attempts. | 3 |
-| **6.3.6** | Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 |
-| **6.3.7** | Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 3 |
-| **6.3.8** | Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality must also have this protection. | 3 |
-
-## V6.4 Authentication Factor Lifecycle and Recovery
-
-Authentication factors may include passwords, soft tokens, hardware tokens, and biometric devices. Securely handling the lifecycle of these mechanisms is critical to the security of an application, and this section includes requirements related to this.
-
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
-
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **6.4.1** | Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 |
-| **6.4.2** | Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | 1 |
-| **6.4.3** | Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 2 |
-| **6.4.4** | Verify that if a multi-factor authentication factor is lost, evidence of identity proofing is performed at the same level as during enrollment. | 2 |
-| **6.4.5** | Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 3 |
-| **6.4.6** | Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 3 |
+| **6.4.1** | 시스템이 생성하는 초기 비밀번호나 활성화 코드가 안전하게 난수로 생성되며, 기존 비밀번호 정책을 따르고, 짧은 기간 내 또는 최초 사용 시 만료되는지 검증한다. 초기 비밀번호는 장기 비밀번호로 허용되지 않아야 한다. | 1 |
+| **6.4.2** | 비밀번호 힌트나 지식 기반 인증(“비밀 질문”)이 존재하지 않는지 검증한다. | 1 |
+| **6.4.3** | 분실된 비밀번호에 대한 재설정 절차가 안전하게 구현되며, MFA를 우회하지 않는지 검증한다. | 2 |
+| **6.4.4** | MFA 요소 분실 시, 등록 시와 동일 수준의 신원 증명이 수행되는지 검증한다. | 2 |
+| **6.4.5** | 만료 예정인 인증 메커니즘에 대한 갱신 안내가 충분한 시간 전에 발송되며, 필요한 경우 자동 알림이 구성되는지 검증한다 | 3 |
+| **6.4.6** | 관리자가 사용자 비밀번호 재설정 절차를 시작할 수 있으나, 사용자의 비밀번호를 직접 변경하거나 지정할 수 없는지 검증한다. 이는 관리자가 사용자의 비밀번호를 알지 못하도록 한다. | 3 |
 
 ## V6.5 General Multi-factor authentication requirements
 
-This section provides general guidance that will be relevant to various different multi-factor authentication methods.
+이 섹션은 다양한 다중요소 인증 방식에 적용될 수 있는 일반적인 지침을 제공한다.
 
-The mechanisms include:
+여기에는 다음 메커니즘이 포함된다:
+* 룩업 시크릿 (Lookup Secrets)
+* 시간 기반 일회용 비밀번호(Time based One-time Passwords, TOTPs)
+* 대역 외 메커니즘(Out-of-Band mechanisms)
 
-* Lookup Secrets
-* Time based One-time Passwords (TOTPs)
-* Out-of-Band mechanisms
+룩업 시크릿은 미리 생성된 비밀 코드 목록으로, 거래 승인 번호(Transaction Authorization Numbers, TAN), 소셜 미디어 복구 코드, 또는 무작위 값이 들어 있는 격자(grid)와 유사하다. 이러한 인증 메커니즘은 의도적으로 기억하기 어려워, 어딘가에 저장해야 하므로 “소유하고 있는 것(something you have)”으로 간주된다.
 
-Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. This type of authentication mechanism is considered "something you have" because the codes are deliberately not memorable so will need to be stored somewhere.
+시간 기반 일회용 비밀번호(TOTPs)는 지속적으로 변경되는 의사난수 기반의 일회용 챌린지를 표시하는 물리적 또는 소프트 토큰이다. 이러한 인증 메커니즘 역시 “소유하고 있는 것(something you have)”으로 간주된다. 다중요소 TOTPs는 단일요소 TOTPs와 유사하지만, 최종 일회용 비밀번호(OTP)를 생성하기 위해 유효한 PIN 코드, 생체 인식 해제, USB 삽입 또는 NFC 페어링, 혹은 거래 서명 계산기와 같은 추가 값을 입력해야 한다.
 
-Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have". Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing, or some additional value (such as transaction signing calculators) to be entered to create the final One-time Password (OTP).
+대역 외 메커니즘(Out-of-Band mechanisms)의 세부 사항은 다음 섹션에서 제공된다.
 
-Details on out-of-band mechanisms will be provided in the next section.
+본 섹션의 요구사항은 주로 [NIST 가이드라인](https://pages.nist.gov/800-63-3/sp800-63b.html)[&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets)의 [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), 그리고 [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics)와 관련된다.
 
-The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
-
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **6.5.1** | Verify that lookup secrets, out-of-band authentication requests or codes, and time-based one-time passwords (TOTPs) are only successfully usable once. | 2 |
-| **6.5.2** | Verify that, when being stored in the application's backend, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 |
-| **6.5.3** | Verify that lookup secrets, out-of-band authentication code, and time-based one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 |
-| **6.5.4** | Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 |
-| **6.5.5** | Verify that out-of-band authentication requests, codes, or tokens, as well as time-based one-time passwords (TOTPs) have a defined lifetime. Out of band requests must have a maximum lifetime of 10 minutes and for TOTP a maximum lifetime of 30 seconds. | 2 |
-| **6.5.6** | Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 |
-| **6.5.7** | Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 |
-| **6.5.8** | Verify that time-based one-time passwords (TOTPs) are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 |
+| **6.5.1** | 조회 secret, 대역 외 인증 요청 및 코드, 시간 기반 일회용 비밀번호가 단 한 번만 성공적으로 사용 가능한지 검증한다. | 2 |
+| **6.5.2** | 애플리케이션 백엔드에 저장될 때, 엔트로피가 112비트 미만인 룩업 시크릿(예: 무작위 영숫자 19자 또는 무작위 숫자 34자)은 32비트 무작위 솔트(salt)를 포함하는 사전 승인된 비밀번호 저장용 해시 알고리즘으로 해시되는지 검증한다. 룩업 시크릿이 112비트 이상의 엔트로피를 가진 경우에는 표준 해시 함수를 사용할 수 있다. | 2 |
+| **6.5.3** | 룩업 시크릿, 대역 외 인증 코드, 그리고 시간 기반 일회용 비밀번호의 시드가 예측 가능한 값을 피하기 위해 암호학적으로 안전한 의사난수 생성기(CSPRNG)를 사용하여 생성되는지 검증한다.  | 2 |
+| **6.5.4** | 룩업 시크릿과 대역 외 인증 코드가 최소 20비트의 엔트로피를 가지는지 검증한다. 일반적으로 무작위 영숫자 4자 또는 무작위 숫자 6자가 충분하다. | 2 |
+| **6.5.5** | 대역 외 인증 요청, 코드 또는 토큰과 시간 기반 일회용 비밀번호가 정의된 수명을 가지는지 검증한다. 대역 외 요청의 최대 수명은 10분이어야 하며, TOTP의 최대 수명은 30초이어야 한다. | 2 |
+| **6.5.6** | 도난이나 기타 손실의 경우 모든 인증 요소(물리적 장치 포함)를 해지할 수 있는지 검증한다. | 3 |
+| **6.5.7** | 생체 인식 인증 메커니즘은 반드시 보조 요소로만 사용되어야 하며, “소유하고 있는 것” 또는 “알고 있는 것” 중 하나와 함께 사용되는지 검증한다. | 3 |
+| **6.5.8** | 시간 기반 일회용 비밀번호는 신뢰할 수 있는 서비스의 시간 소스를 기준으로 검증되어야 하며, 신뢰할 수 없거나 클라이언트에서 제공한 시간을 기반으로 해서는 안 된다. | 3 |
 
-## V6.6 Out-of-Band authentication mechanisms
+## V6.6 대역 외(Out-of-Band) 인증 메커니즘
 
-This usually involves the authentication server communicating with a physical device over a secure secondary channel. For example, sending push notifications to mobile devices. This type of authentication mechanism is considered "something you have".
+이는 보통 인증 서버가 보안이 보장된 보조 채널을 통해 물리적 장치와 통신하는 방식을 포함한다. 예를 들어, 모바일 기기에 푸시 알림을 전송하는 경우가 있다. 이러한 유형의 인증 메커니즘은 “소유하고 있는 것”으로 간주된다.
 
-Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently considered to be ["restricted" authentication mechanisms](https://pages.nist.gov/800-63-FAQ/#q-b01) by NIST and should be deprecated in favor of Time based One-time Passwords (TOTPs), a cryptographic mechanism, or similar. NIST SP 800-63B [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network) recommends addressing the risks of device swap, SIM change, number porting, or other abnormal behavior, if telephone or SMS out-of-band authentication absolutely has to be supported. While this ASVS section does not mandate this as a requirement, not taking these precautions for a sensitive L2 app or an L3 app should be seen as a significant red flag.
+전자메일이나 VOIP와 같은 안전하지 않은 대역 외 인증 메커니즘은 허용되지 않는다. PSTN과 SMS 인증은 현재 NIST에 의해 [“제한된” 인증 메커니즘](https://pages.nist.gov/800-63-FAQ/#q-b01)으로 간주되며, 시간 기반 일회용 비밀번호나 암호학적 메커니즘 또는 유사한 방식으로 대체되어야 한다. NIST SP 800-63B의 [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network)에서는 전화나 SMS 기반 대역 외 인증을 반드시 지원해야 하는 경우, 디바이스 교체, SIM 변경, 번호 이동 또는 기타 비정상적 행위의 위험을 다룰 것을 권장한다. 본 섹션은 이를 필수 요구사항으로 명시하지는 않지만, 민감한 L2 애플리케이션이나 L3 애플리케이션에서 이러한 예방 조치를 취하지 않는 것은 심각한 위험 신호로 간주되어야 한다.
 
-Note that NIST has also recently provided guidance which [discourages the use of push notifications](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/#fig-3). While this ASVS section does not do so, it is important to be aware of the risks of "push bombing".
+또한 NIST는 최근 [푸시 알림 사용을 권장하지 않는 지침](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/#fig-3)을 제공했다. 이 ASVS 절은 이를 요구사항으로 규정하지 않지만, “푸시 폭탄(push bombing)” 공격 위험을 인지하는 것이 중요하다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **6.6.1** | Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when the phone number has previously been validated, alternate stronger methods (such as Time based One-time Passwords) are also offered, and the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 |
-| **6.6.2** | Verify that out-of-band authentication requests, codes, or tokens are bound to the original authentication request for which they were generated and are not usable for a previous or subsequent one. | 2 |
-| **6.6.3** | Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using rate limiting. Consider also using a code with at least 64 bits of entropy. | 2 |
-| **6.6.4** | Verify that, where push notifications are used for multi-factor authentication, rate limiting is used to prevent push bombing attacks. Number matching may also mitigate this risk. | 3 |
+| **6.6.1** | 공중 교환 전화망(PSTN)을 사용하여 전화나 SMS를 통해 일회용 비밀번호(OTPs)를 전달하는 인증 메커니즘은, 해당 전화번호가 사전에 검증되었을 때만 제공되어야 하며, 더 강력한 대체 방법(예: 시간 기반 일회용 비밀번호)도 제공되어야 하고, 서비스는 사용자에게 이러한 보안 위험에 대한 정보를 제공해야 한다. L3 애플리케이션의 경우, 전화와 SMS는 옵션으로 제공되어서는 안 된다. | 2 |
+| **6.6.2** | 대역 외 인증 요청, 코드 또는 토큰은 생성된 원래 인증 요청에만 바인딩되어야 하며, 이전이나 이후의 요청에는 사용할 수 없어야 한다. | 2 |
+| **6.6.3** | 코드 기반 대역 외 인증 메커니즘이 속도 제한 등을 통해 무차별 대입 공격으로부터 보호되는지 검증한다. 또한 최소 64비트 이상의 엔트로피를 가진 코드를 사용하는 것도 고려해야한다. | 2 |
+| **6.6.4** | 다중요소 인증에 푸시 알림이 사용되는 경우, 푸시 폭탄(push bombing) 공격을 방지하기 위해 속도 제한을 적용해야 한다. 또한 숫자 일치 기법 역시 이 위험을 완화할 수 있다. | 3 |
 
-## V6.7 Cryptographic authentication mechanism
+## V6.7 암호학적 인증 메커니즘
 
-Cryptographic authentication mechanisms include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authentication server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key. The requirements in this section provide implementation-specific guidance for these mechanisms, with guidance on cryptographic algorithms being covered in the "Cryptography" chapter.
+암호학적 인증 메커니즘에는 스마트카드나 FIDO 키가 포함되며, 사용자가 인증을 완료하기 위해 암호 장치를 컴퓨터에 연결하거나 페어링해야 한다. 인증 서버는 챌린지 논스(challenge nonce)를 암호 장치나 소프트웨어로 전송하며, 해당 장치나 소프트웨어는 안전하게 저장된 암호 키를 기반으로 응답을 계산한다. 본 섹션의 요구사항은 이러한 메커니즘에 대한 구현별 지침을 제공하며, 암호 알고리즘에 대한 지침은 “암호학(Cryptography)” 장에서 다룬다.
 
-Where shared or secret keys are used for cryptographic authentication, these should be stored using the same mechanisms as other system secrets, as documented in the "Secret Management" section in the "Configuration" chapter.
+암호학적 인증에 공유 키나 비밀 키가 사용되는 경우, 이는 “구성(Configuration)” 장의 “비밀 관리(Secret Management)” 섹션에 문서화된 것과 동일한 메커니즘을 사용하여 저장되어야 한다.
 
-The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+본 섹션의 요구사항은 주로 [NIST 가이드라인](https://pages.nist.gov/800-63-3/sp800-63b.html) [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv)에 해당한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **6.7.1** | Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 |
-| **6.7.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 |
+| **6.7.1** | 암호학적 인증 단언(assertion)을 검증하는 데 사용되는 인증서는 수정으로부터 보호되는 방식으로 저장되는지 검증한다. | 3 |
+| **6.7.2** | 챌린지 논스(nonce)는 최소 64비트 길이여야 하며, 통계적으로 고유하거나 해당 암호 장치의 수명 동안 고유해야 한다. | 3 |
 
-## V6.8 Authentication with an Identity Provider
+## V6.8 ID 제공자(IdP)를 통한 인증
 
-Identity Providers (IdPs) provide federated identity for users. Users will often have more than one identity with multiple IdPs, such as an enterprise identity using Azure AD, Okta, Ping Identity, or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name just a few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the IdP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throwaway identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
+ID 제공자(IdP)는 사용자에게 통합 신원을 제공한다. 사용자는 종종 여러 IdP와 함께 여러 개의 신원을 보유하고 있다. 예를 들어, Azure AD, Okta, Ping Identity 또는 Google과 같은 기업용 IdP를 통한 기업 신원, 그리고 Facebook, Twitter, Google, WeChat과 같은 소비자용 IdP를 통한 개인 신원을 동시에 가질 수 있다. (이 목록은 특정 기업이나 서비스를 보증하는 것이 아니라, 많은 사용자가 이미 여러 신원을 보유하고 있다는 현실을 개발자가 고려하도록 권장하는 것이다.) 조직은 IdP의 신원 증명 강도를 기준으로 기존 사용자 신원과의 통합을 고려해야 한다. 예를 들어, 정부 기관은 가짜 혹은 일회성 ID를 쉽게 만들 수 있기 때문에 민감한 시스템의 로그인에 소셜 미디어 신원을 허용하지 않을 가능성이 큰 반면, 모바일 게임 회사는 활동적인 플레이어 기반을 확장하기 위해 주요 소셜 미디어 플랫폼과의 통합이 필요할 수 있다.
 
-Secure use of external identity providers requires careful configuration and verification to prevent identity spoofing or forged assertions. This section provides requirements to address these risks.
+외부 IdP를 안전하게 사용하려면 신원 위조(identity spoofing)나 위조된 단언(assertion)을 방지하기 위한 세심한 구성과 검증이 필요하다. 이 섹션은 이러한 위험을 해결하기 위한 요구사항을 제공한다.
 
-| # | Description | Level |
+| # | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **6.8.1** | Verify that, if the application supports multiple identity providers (IdPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). The standard mitigation would be for the application to register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IdP. | 2 |
-| **6.8.2** | Verify that the presence and integrity of digital signatures on authentication assertions (for example on JWTs or SAML assertions) are always validated, rejecting any assertions that are unsigned or have invalid signatures. | 2 |
-| **6.8.3** | Verify that SAML assertions are uniquely processed and used only once within the validity period to prevent replay attacks. | 2 |
-| **6.8.4** | Verify that, if an application uses a separate Identity Provider (IdP) and expects specific authentication strength, methods, or recentness for specific functions, the application verifies this using the information returned by the IdP. For example, if OIDC is used, this might be achieved by validating ID Token claims such as 'acr', 'amr', and 'auth_time' (if present). If the IdP does not provide this information, the application must have a documented fallback approach that assumes that the minimum strength authentication mechanism was used (for example, single-factor authentication using username and password). | 2 |
+| **6.8.1** | 애플리케이션이 다중 ID 제공자(IdP)를 지원하는 경우, 사용자의 신원이 다른 지원 IdP를 통해 위조될 수 없는지 검증한다. (예: 동일한 사용자 식별자를 사용하는 방식). 표준적인 대응책은 애플리케이션이 IdP ID(네임스페이스 역할)와 IdP 내 사용자 ID의 조합을 사용하여 사용자를 등록하고 식별하는 것이다. | 2 |
+| **6.8.2** | 인증 단언(예: JWT 또는 SAML 단언)의 디지털 서명이 존재하고 무결성이 항상 유지되는지를 검증한다. 서명이 없거나 유효하지 않은 단언은 거부해야 한다. | 2 |
+| **6.8.3** | SAML 단언이 재생 공격의 방지를 위해 고유하게 처리되는지, 유효 기간 내에 단 한 번만 사용되는지 검증한다. | 2 |
+| **6.8.4** | 애플리케이션이 별도의 ID 제공자(IdP)를 사용하고 특정 기능에 대해 특정 인증 강도, 방식, 또는 최근성을 요구하는 경우, 애플리케이션은 IdP가 반환한 정보를 사용하여 이를 검증해야 한다. 예를 들어, OIDC가 사용되는 경우, 이는 ‘acr’, ‘amr’, ‘auth_time’(존재하는 경우)과 같은 ID 토큰 클레임을 검증함으로써 달성할 수 있다. IdP가 이 정보를 제공하지 않는 경우, 애플리케이션은 최소 강도의 인증 메커니즘(예: 사용자 이름과 비밀번호를 사용하는 단일요소 인증)이 사용되었다고 가정하는 문서화된 대체 접근법을 가져야 한다. | 2 |
 
-## References
+## 참조
 
-For more information, see also:
+더 많은 정보 :
 
 * [NIST SP 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST SP 800-63B - Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
