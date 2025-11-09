@@ -48,9 +48,9 @@
 | **8.4.1** | 다중 테넌트 애플리케이션이 교차 테넌트 제어를 사용하여, 소비자의 작업이 권한이 없는 다른 테넌트에 영향을 미치지 않도록 하는지 검증한다. | 2 |
 | **8.4.2** | 관리 인터페이스 접근이 연속적인 소비자 신원 검증, 장치 보안 상태 평가, 맥락 기반 위험 분석 등 복수의 보안 계층을 포함하는지 검증한다. 네트워크 위치나 신뢰된 엔드포인트가 무단 접근 가능성을 줄일 수는 있더라도, 단독으로 권한 부여 판단의 유일한 요소가 되어서는 안 된다. | 3 |
 
-## 참고
+## 참조
 
-더 많은 정보:
+자세한 내용은 다음을 참조한다:
 
 - [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
 - [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
