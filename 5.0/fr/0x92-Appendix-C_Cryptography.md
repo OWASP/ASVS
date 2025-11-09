@@ -49,7 +49,7 @@ Cette section fournit des informations supplémentaires
 sur les valeurs aléatoires de la version 11.5.
 
 | Nom | Version/Référence | Notes | Statut |
-|:-:|:-:|:-:|:-:|
+|:---|:----|:----|:-:|
 | `/dev/random` | Linux 4.8+ [(oct. 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), également présent dans iOS, Android et d'autres systèmes d'exploitation POSIX basés sur Linux. Basé sur [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | Utilise le flux ChaCha20. Trouvé dans iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) et Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) avec les paramètres corrects fournis pour chacun. | A |
 | `/dev/urandom` | Fichier spécial du noyau Linux pour fournir des données aléatoires | Fournit des sources d'entropie de haute qualité à partir du caractère aléatoire matériel | A |
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | Tel qu'utilisé dans les implémentations courantes, telles que [l'API Windows CNG `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) définie par [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers). | A |
@@ -67,7 +67,7 @@ sur les algorithmes de chiffrement V11.3.
 Les algorithmes de chiffrement approuvés sont classés par ordre de préférence.
 
 | Algorithmes à clé symétrique | Référence | Statut |
-|--|--|--|
+| ------ | ------ |:-:|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | A |
 | Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | A |
 | XChaCha20 | [XChaCha20 Draft](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-xchacha-03) | A |
@@ -117,7 +117,7 @@ Cependant, il est important de bien comprendre la nature (par exemple, l'identit
 Plus précisément, AES-256 doit être utilisé pour l'encapsulation des clés, conformément à la norme NIST SP 800-38F (https://csrc.nist.gov/pubs/sp/800/38/f/final) et en tenant compte des dispositions prospectives contre la menace quantique. Les modes de chiffrement utilisant AES sont les suivants, par ordre de préférence :
 
 | Enveloppement de clé | Référence | Statut |
-|--|--|--|
+|--|--|:-:|
 | KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 | KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 
@@ -132,7 +132,7 @@ L'application doit de préférence utiliser un schéma AEAD approuvé. Elle peut
 La méthode « MAC puis chiffrer » est toujours autorisée pour des raisons de compatibilité avec les applications existantes. Elle est utilisée dans TLS v1.2 avec les anciennes suites de chiffrement.
 
 | Mécanisme AEAD | Référence | Statut |
-|--------------------------|---------|-----|
+|---|---------|:-:|
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
@@ -156,7 +156,7 @@ Le tableau suivant répertorie les fonctions de hachage approuvées pour les cas
 * Les fonctions de hachage dont le résultat est inférieur à 254 bits présentent une résistance aux collisions insuffisante et ne doivent pas être utilisées pour la signature numérique ou d'autres applications nécessitant une résistance aux collisions. Pour d'autres utilisations, elles peuvent être utilisées à des fins de compatibilité et de vérification UNIQUEMENT avec les systèmes existants, mais ne doivent pas être utilisées dans les nouvelles conceptions.
 
 | Fonction de hachage | Référence | Statut | Restrictions |
-| -------------- | ------------------------------------------------------------- |--|--|
+| ------ | ----------- |:-:| ---------- |
 | SHA3-512 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
 | SHA-512 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
 | SHA3-384 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
@@ -181,9 +181,13 @@ Le tableau suivant répertorie les fonctions de hachage approuvées pour les cas
 Pour un hachage sécurisé des mots de passe, des fonctions de hachage dédiées doivent être utilisées. Ces algorithmes de hachage lent atténuent les attaques par force brute et par dictionnaire en augmentant la difficulté de calcul du craquage des mots de passe.
 
 | KDF | Référence | Paramètres requis | Statut |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | coût ≥ 10 | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 600,000 | A |
@@ -196,7 +200,7 @@ Les fonctions de dérivation de clés basées sur des mots de passe approuvées 
 ### Fonctions de dérivations de clés générales
 
 | KDF              | Référence                                                                                     | Statut |
-| ---------------- | --------------------------------------------------------------------------------------------- | ------ |
+| ---------------- | -------- |:-:|
 | HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
 | TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
 | KDFs à base de MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
@@ -205,9 +209,13 @@ Les fonctions de dérivation de clés basées sur des mots de passe approuvées 
 ### Fonctions de dérivations de clés à base de mot de passe
 
 | KDF | Référence | Paramètres requis | Statut |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | itérations ≥ 1,300,000 | L |
@@ -222,7 +230,7 @@ sur la cryptographie à clé publique V11.6.
 Une force de sécurité de 112 bits ou plus DOIT être garantie pour tous les méthodes d'échange de clés, et leur mise en œuvre DOIT suivre les choix de paramètres dans le tableau suivant.
 
 | Schéma | Paramètres du domaine | Confidentialité persistante | Statut |
-|--|--|--|--|
+|--|--|--|:-:|
 | Diffie-Hellman à corps finis (FFDH) | L >= 3072 et N >= 256 | Oui | A |
 | Courbe elliptique Diffie-Hellman (ECDH) | f >= 256-383 | Oui | A |
 | Transport de clés chiffrées avec RSA-PKCS#1 v1.5 | | Non | D |
@@ -240,7 +248,7 @@ Toute nouvelle implémentation NE DOIT PAS utiliser de schéma non conforme aux 
 Les groupes suivants sont approuvés pour la mise en œuvre de l'échange de clés Diffie-Hellman. Les niveaux de sécurité sont décrits dans la norme NIST SP 800-56A (https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), l'annexe D et la norme NIST SP 800-57, partie 1, révision 5 (https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
 | Groupe           | Statut |
-|------------------|--------|
+|------------------|:------:|
 | P-224, secp224r1 | A      |
 | P-256, secp256r1 | A      |
 | P-384, secp384r1 | A      |
@@ -270,26 +278,26 @@ Les groupes suivants sont approuvés pour la mise en œuvre de l'échange de cl�
 
 Les codes d'authentification de message (MAC) sont des structures cryptographiques permettant de vérifier l'intégrité et l'authenticité d'un message. Un MAC prend en entrée un message et une clé secrète et génère une étiquette de taille fixe (la valeur MAC). Les MAC sont largement utilisés dans les protocoles de communication sécurisés (par exemple, TLS/SSL) pour garantir l'authenticité et l'intégrité des messages échangés entre les parties.
 
-| Algorithme MAC | Référence | Statut | Restrictions |
-| --------------| ----------------------------------------------------------------------------------------- | -------| ------------ |
-| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| BLAKE3 (mode keyed_hash) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
-| AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) et [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
-| AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
-| Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
-| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L | |
-| HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      | |
+| Algorithme MAC | Référence | Statut |
+| ----------    | --------------- |:-:|
+| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A |
+| KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A |
+| BLAKE3 (mode keyed_hash) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A |
+| AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) et [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A |
+| AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A |
+| Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A |
+| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) et [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L |
+| HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
 
 ## Signatures numériques
 
 Les schémas de signature DOIVENT utiliser des tailles de clés et des paramètres approuvés conformément à la norme [NIST SP 800-57 Partie 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
 | Algorithme de signature        | Référence                                                  | Statut |
-| ------------------------------ | ---------------------------------------------------------- | ------ |
+| ------------------------------ | ---------------------------------------------              | :-:    |
 | EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | A      |
 | XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | A      |
 | ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
