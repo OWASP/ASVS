@@ -99,7 +99,7 @@ AES 및 CHACHA20을 기반으로 구축된 인증 암호화 알고리즘은 현�
 
 ## 참조
 
-더 많은 정보는 다음을 참조한다:
+더 많은 정보는 다음을 참고한다:
 
 * [OWASP 웹 보안 테스팅 가이드: 취약한 암호화 테스트](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography)
 * [OWASP 암호화 저장 치트 시트](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)

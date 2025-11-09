@@ -49,7 +49,7 @@
 추가 정보를 제공한다.
 
 | 이름 | 버전/참조 | 비고 | 상태 |
-|:---|:----|:----|:-:|
+|:-:|:-:|:-:|:-:|
 | `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), iOS, Android, 그리고 다른 Linux 기반 POSIX 운영체제에서도 사용된다. [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539)를 기반으로 한다. | ChaCha20 스트림을 활용한다. iOS의 [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) 및 Android의 [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom)에서 각각 올바른 설정이 적용된 상태로 제공된다. | A |
 | `/dev/urandom` | 무작위 데이터를 제공하는 Linux 커널의 특수 파일 | 하드웨어 난수를 통해 고품질의 엔트로피 소스를 제공한다. | A |
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | 일반적인 구현에서 사용되며, 예를 들어 [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers)로 설정된 [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom)이 사용된다. | A |
@@ -199,23 +199,22 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 
 ### 범용 키 유도 함수
 
-| KDF              | 참조                                                                                     | 상태 |
+| KDF              | 참조                                                                                           | 상태 |
 | ---------------- | -------- |:-:|
 | HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
 | TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
-| MD5 기반 KDFs   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
-| SHA-1 기반 KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
+| MD5 기반 KDFs     | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
+| SHA-1 기반 KDFs   | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
 
 ### 비밀번호 기반 키 유도 함수
 
 | KDF | 참조 | 필수 매개변수 | 상태 |
 | ---------- | --------- | ------------ |:-:|
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
-|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
-|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
-|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
-|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
+| argon2id   | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|            |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+| scrypt     | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|            |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|            |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
@@ -229,7 +228,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 
 모든 키 교환 체계에서 최소 112비트 이상의 보안 강도를 반드시 보장해야 하며, 구현 시 아래 표의 매개변수 선택을 따라야 한다.
 
-| 체계 | 도메인 매개변수 | 순방향 보안 | 상태 |
+| 스키마 | 도메인 매개변수 | 순방향 보안 | 상태 |
 |--|--|--|:-:|
 | 유한체 디피-헬만(Finite Field Diffie-Hellman; FFDH) | L >= 3072 & N >= 256 | 예 | A |
 | 타원 곡선 디피-헬만(Elliptic Curve Diffie-Hellman; ECDH) | f >= 256-383 | 예 | A |

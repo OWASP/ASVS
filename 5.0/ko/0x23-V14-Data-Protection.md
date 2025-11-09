@@ -44,11 +44,9 @@
 | **14.3.2** | 애플리케이션이 브라우저에서 민감한 데이터가 캐시되지 않도록, (Cache-Control: no-store)충분한 캐시 방지 HTTP 응답 헤더 필드를 설정을 검증한다. | 2 |
 | **14.3.3** | 브라우저 저장소(localStorage, sessionStorage, IndexedDB, 쿠키)에 저장되는 데이터에는 세션 토큰을 제외한 민감 데이터가 포함되지 않도록 검증한다. | 2 |
 
-## References
-
 ## 참조
 
-자세한 내용은 다음을 참조한다:
+자세한 내용은 다음을 참고한다:
 
 * [Consider using the Security Headers website to check security and anti-caching header fields](https://securityheaders.com/)
 * [Documentation about anti-caching headers by Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)

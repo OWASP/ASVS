@@ -31,6 +31,6 @@ OAuth 및 OIDC에 대한 구체적인 요구사항은 별도의 장 V10 OAuth an
 
 ## 참조
 
-더 많은 정보는 다음을 참조한다:
+더 많은 정보는 다음을 참고한다:
 
 * [OWASP JSON Web Token Cheat Sheet for Java Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (유용한 일반 지침 포함)

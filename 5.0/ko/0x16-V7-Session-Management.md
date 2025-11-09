@@ -83,9 +83,9 @@
 | **7.6.1** | RP와 IdP 간 세션 수명과 종료가 문서대로 동작하며, IdP 인증 이벤트 간의 최대 시간이 도달하는 경우 등 필요한 시점에 재인증을 요구하는지 검증한다. | 2 |
 | **7.6.2** | 세션 생성 시 사용자 동의 또는 명시적 동작을 요구하여, 사용자 상호작용 없이 새로운 애플리케이션 세션이 생성되지 않도록 하는지 검증한다. | 2 |
 
-## 참고
+## 참조
 
-더 많은 정보:
+더 많은 정보는 다음을 참고한다:
 
 * [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
 * [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
