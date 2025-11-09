@@ -71,5 +71,5 @@ WebRTC 시장은 크게 세 개의 분야로 나눌 수 있다:
 * [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)
 * [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
 * [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
-- [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
-- [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)
+* [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
+* [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)
