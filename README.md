@@ -52,7 +52,13 @@ The OWASP Community effort with regards to translations is a best effort. Whilst
 
 If you think you can help with translations, or indeed ensuring the current list of translations below are correct, we'd love for you to join the community and make the ASVS amazing for all. For more information on translating the ASVS see the [translations section of CONTRIBUTING.md](CONTRIBUTING.md#translations).
 
-There are currently no translations for version v5.0.0. Historic translations of the v4.x versions can be found in the [TRANSLATIONS.md file](4.0/TRANSLATIONS.md) in the 4.0 folder.
+Currently available translations:
+
+* [OWASP Application Security Verification Standard 5.0.0 Turkish (PDF)](5.0/OWASP_Application_Security_Verification_Standard_5.0.0_tr.pdf) and [other formats](5.0/docs_tr). (Thanks to [Ata Seren](https://github.com/ataseren))
+* [OWASP Application Security Verification Standard 5.0.0 Russian (PDF)](5.0/OWASP_Application_Security_Verification_Standard_5.0.0_ru.pdf) and [other formats](5.0/docs_ru). (Thanks to [Khalina Daria](https://github.com/whitealisia), [Shnayder Eugenia](https://github.com/ZhenyaShnayder), [Smirnov Vyacheslav](https://github.com/Borgc), [Mukovkin Dmitry](https://github.com/shipko), [Nadezhda](https://github.com/yoshtvoumed), [Fomin Danil](https://github.com/EvtDanya), Sluzhevsky Anton, [Zolotarev Maxim](https://github.com/kibertard), [Gorky Kirill](https://github.com/ToxicSnail), [Nosenko Aleksei](https://github.com/avnosenko))
+* [OWASP Application Security Verification Standard 5.0.0 French (PDF)](5.0/OWASP_Application_Security_Verification_Standard_5.0.0_fr.pdf) and [other formats](5.0/docs_fr). (Thanks to [Cédric Lallier](https://github.com/clallier94), [Alexandre Joly](https://github.com/inaz0), [Michael Vacarella](https://github.com/Aif4thah), [Sebastien Gioria](https://github.com/SPoint42) and [Gabriel Corona](https://github.com/randomstuff))
+
+Historic translations of the v4.x versions can be found in the [TRANSLATIONS.md file](4.0/TRANSLATIONS.md) in the 4.0 folder.
 
 ## How To Reference ASVS Requirements
 
