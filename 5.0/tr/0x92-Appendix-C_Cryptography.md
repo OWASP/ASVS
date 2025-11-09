@@ -49,7 +49,7 @@ Bu bölümde V11.5 Rastgele Değerler
 için ek bilgi sağlanmaktadır.
 
 | İsim | Sürüm/Referans | Notlar | Durum |
-|:-:|:-:|:-:|:-:|
+|:---|:----|:----|:-:|
 | `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), , iOS, Android ve diğer Linux tabanlı POSIX işletim sistemlerinde de bulunur. [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) temel alınmıştır. | ChaCha20 akışını kullanır. iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) ve Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) içinde her biri için sağlanan doğru ayarlarla bulunur.| A |
 | `/dev/urandom` | Linux çekirdeğinin rastgele veri sağlamak için özel dosyası | Donanım rastgeleliğinden gelen yüksek kaliteli, entropi kaynakları sağlar | A |
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) gibi yaygın uygulamalarda kullanıldığı gibi, [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers) tarafından ayarlanır. | A |
@@ -67,7 +67,7 @@ için ek bilgi sağlar.
 Onaylanan şifre algoritmaları tercih sırasına göre listelenmiştir.
 
 | Simetrik Anahtar Algoritmaları | Referans | Durum |
-|--|--|--|
+| ------ | ------ |:-:|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | A |
 | Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | A |
 | XChaCha20 | [XChaCha20 Draft](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-xchacha-03) | A |
@@ -132,7 +132,7 @@ Uygulama tercihen onaylı bir AEAD şeması kullanmalıdır. Alternatif olarak o
 MAC-then-encrypt'e eski uygulamalarla uyumluluk için hala izin verilmektedir. TLS v1.2'de eski şifre takımları ile kullanılır.
 
 | AEAD mekanizması | Referans | Durum |
-|--------------------------|---------|-----|
+|---|---------|:-:|
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
 |ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
@@ -156,7 +156,7 @@ Aşağıdaki tabloda, dijital imzalar gibi genel kriptografik kullanım durumlar
 * 254 bitten daha az çıktıya sahip hash fonksiyonların çakışma direnci yetersizdir ve dijital imza veya çakışma direnci gerektiren diğer uygulamalar için kullanılmamalıdır. Diğer kullanımlar için, sadece eski sistemlerle uyumluluk ve doğrulama için kullanılabilirler, ancak yeni tasarımlarda kullanılmamalıdırlar.
 
 | Hash fonksiyonu | Referans | Durum | Kısıtlamalar |
-| -------------- | ------------------------------------------------------------- |--|--|
+| ------ | ----------- |:-:| ---------- |
 | SHA3-512 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
 | SHA-512 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
 | SHA3-384 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
@@ -181,9 +181,13 @@ Aşağıdaki tabloda, dijital imzalar gibi genel kriptografik kullanım durumlar
 Güvenli parola hashleme için özel hash fonksiyonları kullanılmalıdır. Bu yavaş hash algoritmaları, parola kırmanın hesaplama zorluğunu artırarak kaba kuvvet ve sözlük saldırılarını azaltır.
 
 | KDF | Referans | Gerekli Parametreler | Durum |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
@@ -196,7 +200,7 @@ Parola depolama için onaylı parola tabanlı anahtar türetme işlevleri kullan
 ### Genel Anahtar Türetme Fonksiyonları
 
 | KDF              | Referanslar                                                                                     | Durum |
-| ---------------- | --------------------------------------------------------------------------------------------- | ------ |
+| ---------------- | -------- |:-:|
 | HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
 | TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
 | MD5-based KDFs   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
@@ -205,9 +209,13 @@ Parola depolama için onaylı parola tabanlı anahtar türetme işlevleri kullan
 ### Parola Tabanlı Anahtar Türetme İşlevleri
 
 | KDF | Referans | Gerekli Parametreler | Durum |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
@@ -222,7 +230,7 @@ için ek bilgi sağlanmaktadır.
 Tüm anahtar değişimi şemaları için 112 bit veya üzeri bir güvenlik gücü sağlanmalıdır ve bunların uygulanması aşağıdaki tablodaki parametre seçeneklerini takip etmelidir.
 
 | Şema | Etki Alanı Parametreleri | İleriye Yönelik Gizlilik | Durum |
-|--|--|--|--|
+|--|--|--|:-:|
 | Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Evet | A |
 | Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Evet | A |
 | Encrypted key transport with RSA-PKCS#1 v1.5 | | Hayır | D |
@@ -240,7 +248,7 @@ Herhangi bir yeni uygulama [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/5
 Aşağıdaki gruplar Diffie-Hellman anahtar değişimi uygulamaları için onaylanmıştır. Güvenlik güçleri [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Ek D ve [NIST SP 800-57 Bölüm 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)'de belgelenmiştir.
 
 | Group            | Status |
-|------------------|--------|
+|------------------|:------:|
 | P-224, secp224r1 | A      |
 | P-256, secp256r1 | A      |
 | P-384, secp384r1 | A      |
@@ -270,26 +278,26 @@ Aşağıdaki gruplar Diffie-Hellman anahtar değişimi uygulamaları için onayl
 
 Mesaj Kimlik Doğrulama Kodları (MAC), bir mesajın bütünlüğünü ve gerçekliğini doğrulamak için kullanılan kriptografik yapılardır. Bir MAC, girdi olarak bir mesaj ve gizli bir anahtar alır ve sabit boyutlu bir etiket (MAC değeri) üretir. MAC'ler güvenli iletişim protokollerinde (örneğin TLS/SSL) taraflar arasında değiş tokuş edilen mesajların gerçek ve bozulmamış olmasını sağlamak için yaygın olarak kullanılır.
 
-| MAC Algoritması | Referans                                                                                | Durum | Kısıtlamalar |
-| --------------| ----------------------------------------------------------------------------------------- | -------| ------------ |
-| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A | |
-| KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A | |
-| BLAKE3 (keyed_hash mode) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A | |
-| AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A | |
-| AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A | |
-| Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A | |
-| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L | |
-| HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      | |
+| MAC Algoritması | Referans                                                                                | Durum |
+| ----------    | --------------- |:-:|
+| HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| HMAC-SHA-512  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
+| KMAC128       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A |
+| KMAC256       | [NIST SP 800-185](https://csrc.nist.gov/pubs/sp/800/185/final)                             | A |
+| BLAKE3 (keyed_hash mode) | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf)  | A |
+| AES-CMAC      | [RFC 4493](https://datatracker.ietf.org/doc/html/rfc4493) & [NIST SP 800-38B](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38b.pdf) | A |
+| AES-GMAC      | [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf)            | A |
+| Poly1305-AES  | [The Poly1305-AES message-authentication code](https://cr.yp.to/mac/poly1305-20050329.pdf)                  | A |
+| HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L |
+| HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
 
 ## Dijital İmzalar
 
 İmza şemaları [NIST SP 800-57 Bölüm 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final) uyarınca onaylanmış anahtar boyutlarını ve parametrelerini kullanmalıdır.
 
 | İmza Algoritması               | Referans                                                   | Durum  |
-| ------------------------------ | ---------------------------------------------------------- | ------ |
+| ------------------------------ | ---------------------------------------------              | :-:    |
 | EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | A      |
 | XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | A      |
 | ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
