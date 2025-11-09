@@ -160,8 +160,8 @@ ASVS에서 OAuth 관련 요구사항은 다음의 공개 및 초안 상태 RFC�
 * [RFC9396 OAuth 2.0 확장된 인가 요청](https://datatracker.ietf.org/doc/html/rfc9396)
 * [RFC9449 OAuth 2.0 PoP(Demonstrating Proof of Possession)](https://datatracker.ietf.org/doc/html/rfc9449)
 * [RFC9700 OAuth 2.0 보안을 위한 현재 모범 사례](https://datatracker.ietf.org/doc/html/rfc9700)
-* [브라우저 기반 애플리케이션을 위한 OAuth 2.0 초안](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)
-* [OAuth 2.1 인가 프레임워크 초안](https://datatr.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)
+* [브라우저 기반 애플리케이션을 위한 OAuth 2.0 초안](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)<!-- recheck on release -->
+* [OAuth 2.1 인가 프레임워크 초안](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)<!-- recheck on release -->
 
 OpenID Connect에 대한 자세한 내용은 다음을 참조한다:
 
