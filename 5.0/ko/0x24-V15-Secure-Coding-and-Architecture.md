@@ -67,3 +67,11 @@
 | **15.4.3** | 스레드가 서로를 기다리거나 무한 재시도에 빠지지 않도록 일관된 락 사용을 보장하고, 락 관리 로직을 리소스 관리 책임 코드 내부에 유지하여 외부 클래스 및 코드가 우발적·악의적으로 락을 변경하지 못하도록 하는지 확인해야 한다.                                                                        |  3  |
 | **15.4.4** | **스레드 풀** 활용 등 **리소스 할당 정책**을 통해 공정한 리소스 접근을 보장하고, 우선순위가 낮은 스레드도 합리적 시간 내 진행될 수 있게 하여 **스레드 기아**를 방지하는지 확인해야 한다.                                                                                             |  3  |
 
+## 참조
+
+자세한 내용은 다음을 참조한다:
+
+* [OWASP Prototype Pollution Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Prototype_Pollution_Prevention_Cheat_Sheet.html)
+* [OWASP Mass Assignment Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
+* [OWASP CycloneDX Bill of Materials Specification](https://owasp.org/www-project-cyclonedx/)
+* [OWASP Web Security Testing Guide: Testing for HTTP Parameter Pollution](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution
