@@ -1,75 +1,75 @@
 # V17 WebRTC
 
-## Control Objective
+## 제어 목표
 
-Web Real-Time Communication (WebRTC) enables real-time voice, video, and data exchange in modern applications. As adoption increases, securing WebRTC infrastructure becomes critical. This section provides security requirements for stakeholders who develop, host, or integrate WebRTC systems.
+웹 실시간 통신(WebRTC)은 최신 애플리케이션에서 음성과 동영상 및 데이터를 실시간으로 교환할 수 있도록 한다. 도입이 늘어남에 따라 WebRTC 인프라스트럭처 보안이 점점 중요해지고 있다. 이 섹션은 WebRTC 시스템을 개발, 제공, 혹은 통합하는 이해관계자들에게 보안 요구사항을 제공한다.
 
-The WebRTC market can be broadly categorized into three segments:
+WebRTC 시장은 크게 세 개의 분야로 나눌 수 있다:
 
-1. Product Developers: Proprietary and open-source vendors that create and supply WebRTC products and solutions. Their focus is on developing robust and secure WebRTC technologies that can be used by others.
+1. 제품 개발자: WebRTC 제품과 솔루션을 제작하고 공급하는 소유자나 오픈 소스 벤더이다. 그들은 다른 사람들이 사용할 수 있는 강건하고 안전한 WebRTC 기술을 개발하는 것이 목표이다.
 
-2. Communication Platforms as a Service (CPaaS): Providers that offer APIs, SDKs, and the necessary infrastructure or platforms to enable WebRTC functionalities. CPaaS providers may use products from the first category or develop their own WebRTC software to offer these services.
+2. 서비스형 통신 플랫폼 (CPaaS): WebRTC 기능을 가능하게 하기 위한 API, SDK와 필수적인 인프라스트럭처 혹은 플랫품을 제공하는 제공자이다. CPaaS 제공자는 서비스를 제공하기 위해 첫번째 분야의 제품을 사용하거나 자체 개발한 WebRTC 소프트웨어를 사용할 수 있다.
 
-3. Service Providers: Organizations that leverage products from product developers or CPaaS providers, or develop their own WebRTC solutions. They create and implement applications for online conferencing, healthcare, e-learning, and other domains where real-time communication is crucial.
+3. 서비스 제공자: 제품 개발자 혹은 CPaaS 제공자의 제품, 또는 자체 개발한 WebRTC 솔루션을 개발하고 활용하는 조직이다. 이런 조직은 온라인 컨퍼런스나 헬스케어, e-러닝 등 다양한 도메인에서 실시간 통신이 필요한 애플리케이션을 제작하고 구현한다.
 
-The security requirements outlined here are primarily focused on Product Developers, CPaaS, and Service Providers who:
+보안 요구사항은 이곳에 제시되어 있으며 우선적으로 다음과 같은 제품 개발자, CPaaS와 서비스 제공자 초점이 맞추고 있다:
 
-* Utilize open-source solutions to build their WebRTC applications.
-* Use commercial WebRTC products as part of their infrastructure.
-* Use internally developed WebRTC solutions or integrate various components into a cohesive service offering.
+- WebRTC 애플리케이션을 만들기 위해 오픈 소스 솔루션 활용
+- 인프라스트럭처에서 부분적으로 상용 WebRTC 제품 사용
+- 내부적으로 개발된 WebRTC 솔루션을 사용하거나 유기적인 서비스 제품에 다양한 컴포넌트를 통합
 
-It is important to note that these security requirements do not apply to developers who exclusively use SDKs and APIs provided by CPaaS vendors. For such developers, the CPaaS providers are typically responsible for most of the underlying security concerns within their platforms, and a generic security standard like ASVS may not fully address their needs.
+보안 요구사항은 예외적으로 CPaaS 에서 제공하는 SDK와 API를 사용하는 개발자들에게는 적용되지 않는다는 것을 알아두어야 한다. CPaaS 제공자는 당사 플랫폼의 보안 우려점에 대한 일반적인 책임이 있으며 ASVS 같은 일반적인 보안 표준은 그들의 수요를 모두 충족하지 못할 수 있다.
 
-## V17.1 TURN Server
+## V17.1 TURN 서버
 
-This section defines security requirements for systems that operate their own TURN (Traversal Using Relays around NAT) servers. TURN servers assist in relaying media in restrictive network environments but can pose risks if misconfigured. These controls focus on secure address filtering and protection against resource exhaustion.
+이 섹션은 고유의 TURN(Traversal Using Relays around NAT)을 실행하는 시스템을 위한 보안 요구사항을 정의 한다. TURN 서버는 제한된 네트워크 환경에서 미디어 중계를 보조하는데, 설정이 잘못된 경우 위험을 초래할 수 있다. 이 제어는 안전한 주소 필터링과 자원 고갈을 방지하는데 초첨을 맞추고 있다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **17.1.1** | Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | 2 |
-| **17.1.2** | Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. | 3 |
+|     #      | 설명                                                                                                                                                                    | Level |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: |
+| **17.1.1** | Traversal Using Relays around NAT(TURN) 서비스가 특정 목적을 위해 보존된 주소(예: 내부 네트워크, 브로드캐스트, 루프백)를 제외한 주소에 대해서만 접근을 허용하도록 한다. |   2   |
+| **17.1.2** | Traversal Using Relays around NAT(TURN) 서비스가 정당한 사용자의 TURN 서버 포트의 대량 개방 시 자원고갈에 취약하지 않도록 한다.                                         |   3   |
 
-## V17.2 Media
+## V17.2 미디어
 
-These requirements only apply to systems that host their own WebRTC media servers, such as Selective Forwarding Units (SFUs), Multipoint Control Units (MCUs), recording servers, or gateway servers. Media servers handle and distribute media streams, making their security critical to protect communication between peers. Safeguarding media streams is paramount in WebRTC applications to prevent eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
+이러한 요구사항은 선택적 포워딩 유닛 (SFUs, Selective Forwarding Units), 다중점 제어 유닛 (MCUs, Multipoint Control Units), 기록 서버 혹은 게이트웨이 서버 등 고유의 WebRTC 미디어 서버를 호스팅하는 시스템에게만 적용된다. 미디어 서버는 미디어 스트림을 처리하고 배포하므로, 피어 간 통신을 보호하기 위한 서버 보안이 매우 중요하다. 사용자 프라이버시와 통신 품질을 위협할 수 있는 도청, 변조, 서비스 거부 공격을 방지하기 위해 WebRTC 애플리케이션에서 미디어 스트림 보호는 최우선 과제이다.
 
-In particular, it is necessary to implement protections against flood attacks such as rate limiting, validating timestamps, using synchronized clocks to match real-time intervals, and managing buffers to prevent overflow and maintain proper timing. If packets for a particular media session arrive too quickly, excess packets should be dropped. It is also important to protect the system from malformed packets by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
+특히, 속도 제한, 타임스탬프 검증, 실시간 간격 일치를 위한 동기화된 시계 사용, 오버플로우 방지 및 적절한 타이밍 유지를 위한 버퍼 관리와 같은 플러드 공격에 대한 보호 장치를 구현해야 한다. 특정 미디어 세션의 패킷이 너무 빠르게 도착할 경우 초과 패킷은 삭제되어야 한다. 또한 입력 검증 구현, 정수 오버플로우 안전 처리, 버퍼 오버플로우 방지 및 기타 견고한 오류 처리 기법을 통해 시스템이 잘못된 형식의 패킷으로부터 보호받는 것이 중요하다.
 
-Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements.
+중간 미디어 서버의 개입 없이 웹 브라우저 간 피어 투 피어 미디어 통신에만 의존하는 시스템은 이러한 특정 미디어 관련 보안 요구사항에서 제외된다.
 
-This section refers to the use of Datagram Transport Layer Security (DTLS) in the context of WebRTC. A requirement related to having a documented policy for the management of cryptographic keys can be found in the "Cryptography" chapter. Information on approved cryptographic methods can be found either in the Cryptography Appendix of the ASVS or in documents such as NIST SP 800‑52 Rev. 2 or BSI TR‑02102‑2 (Version 2025‑01).
+이 섹션은 WebRTC 환경에서 데이터그램 전송 계층 보안(DTLS)의 사용을 다룬다. 암호화 키 관리에 대한 문서화된 정책 수립과 관련된 요구사항은 "암호화" 장에서 확인할 수 있다. 승인된 암호화 방법에 대한 정보는 ASVS의 암호화 부록 또는 NIST SP 800‑52 Rev. 2 or BSI TR‑02102‑2 (Version 2025‑01) 등의 문서에서 확인할 수 있다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **17.2.1** | Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is managed and protected based on the documented policy for management of cryptographic keys. | 2 |
-| **17.2.2** | Verify that the media server is configured to use and support approved Datagram Transport Layer Security (DTLS) cipher suites and a secure protection profile for the DTLS Extension for establishing keys for the Secure Real-time Transport Protocol (DTLS-SRTP). | 2 |
-| **17.2.3** | Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | 2 |
-| **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed Secure Real-time Transport Protocol (SRTP) packets. | 2 |
-| **17.2.5** | Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 |
-| **17.2.6** | Verify that the media server is not susceptible to the "ClientHello" Race Condition vulnerability in Datagram Transport Layer Security (DTLS) by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | 3 |
-| **17.2.7** | Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 |
-| **17.2.8** | Verify that the Datagram Transport Layer Security (DTLS) certificate is checked against the Session Description Protocol (SDP) fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 |
+|     #      | 설명                                                                                                                                                                                                                                       | Level |
+| :--------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: |
+| **17.2.1** | 데이터그램 전송 계층 보안(DTLS) 인증서의 키가 암호화 키 관리에 대한 문서화된 정책에 따라 관리되고 보호되는지 확인해야 한다.                                                                                                                |   2   |
+| **17.2.2** | 미디어 서버가 승인된 데이터그램 전송 계층 보안(DTLS) 암호 모음을 사용하고 지원하도록 구성되었는지, 그리고 보안 실시간 전송 프로토콜(DTLS-SRTP)을 위한 키 생성에 사용되는 DTLS 확장을 위한 안전한 보호 프로파일을 구성했는지 확인해야 한다. |   2   |
+| **17.2.3** | 미디어 서버에서 보안 실시간 전송 프로토콜(SRTP) 인증이 선택되어 있는지 확인한다. 이를 통해 실시간 전송 프로토콜(RTP) 삽입 공격으로 인한 서비스 거부 상태 발생 또는 오디오/비디오 미디어가 미디어 스트림에 삽입되는 것을 방지할 수 있다.    |   2   |
+| **17.2.4** | 미디어 서버가 잘못된 형식의 보안 실시간 전송 프로토콜(SRTP) 패킷을 접했을 때도 수신 미디어 트래픽 처리를 계속할 수 있는지 확인해야 한다.                                                                                                   |   2   |
+| **17.2.5** | 미디어 서버가 정상 사용자로부터의 보안 실시간 전송 프로토콜(SRTP) 패킷이 대량으로 유입되는 상황에서도 수신 미디어 트래픽 처리를 계속할 수 있는지 확인해야 한다.                                                                            |   3   |
+| **17.2.6** | 미디어 서버가 Datagram Transport Layer Security(DTLS)의 “ClientHello” 경합 조건 취약점에 노출되지 않았는지 확인해야 한다. 이를 위해 해당 미디어 서버가 공개적으로 취약한 것으로 알려져 있는지 확인하거나 경합 조건 테스트를 수행해야 한다. |   3   |
+| **17.2.7** | 미디어 서버와 연결된 모든 오디오 또는 비디오 녹화 장치가 합법적인 사용자로부터의 보안 실시간 전송 프로토콜(SRTP) 패킷이 대량으로 유입되는 상황에서도 수신 미디어 트래픽 처리를 계속할 수 있는지 확인해야 한다.                             |   3   |
+| **17.2.8** | 데이터그램 전송 계층 보안(DTLS) 인증서가 세션 설명 프로토콜(SDP) 지문 속성과 대조되어 검증되었는지 확인하고, 검증이 실패할 경우 미디어 스트림을 종료하여 미디어 스트림의 진위성을 보장해야 한다.                                           |   3   |
 
-## V17.3 Signaling
+## V17.3 신호 처리
 
-This section defines requirements for systems that operate their own WebRTC signaling servers. Signaling coordinates peer-to-peer communication and must be resilient against attacks that could disrupt session establishment or control.
+이 섹션은 자체 WebRTC 신호 서버를 운영하는 시스템에 대한 요구 사항을 정의한다. 신호는 피어 투 피어 통신을 조정하며, 세션 설정 또는 제어를 방해할 수 있는 공격에 대해 복원력을 가져야 한다.
 
-To ensure secure signaling, systems must handle malformed inputs gracefully and remain available under load.
+안전한 신호 처리를 보장하기 위해 시스템은 잘못된 형식의 입력을 우아하게 처리하고 부하 상태에서도 가용성을 유지해야 한다.
 
-| # | Description | Level |
-| :---: | :--- | :---: |
-| **17.3.1** | Verify that the signaling server is able to continue processing legitimate incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level. | 2 |
-| **17.3.2** | Verify that the signaling server is able to continue processing legitimate signaling messages when encountering malformed signaling message that could cause a denial of service condition. This could include implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques. | 2 |
+|     #      | 설명                                                                                                                                                                                                                                                                          | Level |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---: |
+| **17.3.1** | 신호 서버가 플러드 공격 중에도 합법적인 수신 신호 메시지 처리를 계속할 수 있는지 확인해야 한다. 이는 신호 수준에서 속도 제한을 구현함으로써 달성되어야 한다.                                                                                                                  |   2   |
+| **17.3.2** | 서비스 거부 상태를 유발할 수 있는 잘못된 형식의 신호 메시지를 접했을 때 신호 서버가 정상적인 신호 메시지 처리를 계속할 수 있는지 확인해야 한다. 여기에는 입력 검증 구현, 정수 오버플로우 안전 처리, 버퍼 오버플로우 방지 및 기타 강력한 오류 처리 기법 적용이 포함될 수 있다. |   2   |
 
-## References
+## 참조
 
-For more information, see also:
+자세한 내용은 다음을 참조한다:
 
-* The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
-* [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
-* [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
-* [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)
-* [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
-* [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
-* [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
-* [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)
+- The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+- [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
+- [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
+- [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)
+- [RFC 8825 - Overview: Real-Time Protocols for Browser-Based Applications](https://www.rfc-editor.org/info/rfc8825)
+- [RFC 8826 - Security Considerations for WebRTC](https://www.rfc-editor.org/info/rfc8826)
+- [RFC 8827 - WebRTC Security Architecture](https://www.rfc-editor.org/info/rfc8827)
+- [DTLS-SRTP Protection Profiles](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml)
