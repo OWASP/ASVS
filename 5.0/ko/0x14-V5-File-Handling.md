@@ -47,7 +47,7 @@
 
 ## 참조
 
-더 많은 정보는 다음을 참조한다:
+더 많은 정보는 다음을 참고한다:
 
 * [OWASP File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
 * [Example of using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)
