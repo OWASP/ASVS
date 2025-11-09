@@ -1,77 +1,77 @@
-# V15 Secure Coding and Architecture
+# V15 보안 코딩 및 아키텍처
 
-## Control Objective
+## 제어 목표
 
-Many ASVS requirements either relate to a particular area of security, such as authentication or authorization, or pertain to a particular type of application functionality, such as logging or file handling.
+많은 ASVS 요구사항은 인증 및 권한 부와 같은 특정 보안 영역에 관련되거나, 로깅 및 파일 처리와 같은 특정 애플리케이션 기능과 관련되어 있다.
 
-This chapter provides general security requirements to consider when designing and developing applications. These requirements focus not only on clean architecture and code quality but also on specific architecture and coding practices necessary for application security.
+이번 장에서는 애플리케이션을 설계하고 개발할 때 고려해야 하는 일반적인 보안 요구사항을 제시한다. 이러한 요구사항은 클린 아키텍처와 코드 품질뿐만 아니라, 애플리케이션 보안을 위해 필요한 구체적인 아키텍처 설계 및 코드 작성 관행에도 중점을 둔다.
 
-## V15.1 Secure Coding and Architecture Documentation
+## V15.1 보안 코딩 및 아키텍처 문서화
 
-Many requirements for establishing a secure and defensible architecture depend on clear documentation of decisions made regarding the implementation of specific security controls and the components used within the application.
+보안적이고 방어 가능한 아키텍처를 수립하기 위한 많은 요구사항은, 특정 보안 통제의 구현 및 애플리케이션에서 사용되는 구성요소에 대한 의사결정이 명확하게 문서화되어 있는지에 따라 달려 있다.
 
-This section outlines the documentation requirements, including identifying components considered to contain "dangerous functionality" or to be "risky components."
+이 장에서는 위험한 기능(dangerous functionality)을 포함하거나 위험한 구성요소(risky components)로 간주되는 항목을 식별하는 것을 포함하여, 문서화에 필요한 요구사항을 설명한다.
 
-A component with "dangerous functionality" may be an internally developed or third-party component that performs operations such as deserialization of untrusted data, raw file or binary data parsing, dynamic code execution, or direct memory manipulation. Vulnerabilities in these types of operations pose a high risk of compromising the application and potentially exposing its underlying infrastructure.
+위험한 기능을 가진 구성요소는 내부적으로 개발되었거나 서드파티 구성요소일 수 있으며, 신뢰할 수 없는 데이터의 역직렬화(deserialization), 원시 파일 또는 바이너리 데이터 파싱, 동적 코드 실행, 메모리 직접 조작 등의 작업을 수행할 수 있다. 이러한 유형의 작업에서 발생하는 취약점은 애플리케이션을 손상시키고 그 기반 인프라를 노출시킬 수 있는 높은 위험을 초래한다.
 
-A "risky component" is a 3rd party library (i.e., not internally developed) with missing or poorly implemented security controls around its development processes or functionality. Examples include components that are poorly maintained, unsupported, at the end-of-life stage, or have a history of significant vulnerabilities.
+위험한 구성요소는 개발 프로세스나 기능에 대한 보안 통제가 없거나 부실하게 구현된 서드파티 라이브러리를 의미하며, 내부적으로 개발되지 않은 구성요소를 포함한다. 예를 들어, 유지 관리가 제대로 이루어지지 않거나, 지원이 종료되었거나, 생명주기가 끝났거나, 심각한 취약점 이력이 있는 구성요소가 이에 해당한다.
 
-This section also emphasizes the importance of defining appropriate timeframes for addressing vulnerabilities in third-party components.
+또한 이 장에서는 서드파티 구성요소에 취약점이 발견됐을 때, 이를 얼마나 빨리 해결할 것인지에 대한 대응 기한을 명확히 정하는 것이 중요하다는 점을 강조한다.
 
-| # | Description | Level |
+| 번호 | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **15.1.1** | Verify that application documentation defines risk based remediation time frames for 3rd party component versions with vulnerabilities and for updating libraries in general, to minimize the risk from these components. | 1 |
-| **15.1.2** | Verify that an inventory catalog, such as software bill of materials (SBOM), is maintained of all third-party libraries in use, including verifying that components come from pre-defined, trusted, and continually maintained repositories. | 2 |
-| **15.1.3** | Verify that the application documentation identifies functionality which is time-consuming or resource-demanding. This must include how to prevent a loss of availability due to overusing this functionality and how to avoid a situation where building a response takes longer than the consumer's timeout. Potential defenses may include asynchronous processing, using queues, and limiting parallel processes per user and per application. | 2 |
-| **15.1.4** | Verify that application documentation highlights third-party libraries which are considered to be "risky components". | 3 |
-| **15.1.5** | Verify that application documentation highlights parts of the application where "dangerous functionality" is being used. | 3 |
+| **15.1.1** | 애플리케이션 문서에 취약점이 존재하는 서드파티 구성요소 버전 및 일반적인 라이브러리 업데이트에 대해, 해당 구성요소로부터 발생할 수 있는 위험을 최소화하기 위한 위험 기반 대응 기한이 정의되어 있는지 확인해야 한다. | 1 |
+| **15.1.2** | 사용 중인 모든 서드파티 라이브러리에 대해 소프트웨어 자재 명세서(SBOM)와 같은 인벤토리가 유지되고 있으며, 해당 구성요소가 사전에 정의된 신뢰할 수 있고 지속적으로 관리되는 저장소에서 제공되는지 확인해야 한다. | 2 |
+| **15.1.3** | 애플리케이션 문서에 시간 소모가 크거나 리소스 소비가 많은 기능이 식별되어 있으며, 해당 기능의 과도한 사용으로 인해 가용성이 손실되지 않도록 하는 방법과, 응답 생성이 소비자의 타임아웃보다 오래 걸리는 상황을 방지하는 방법이 포함되어 있는지 확인해야 한다. 가능한 방어 전략에는 비동기 처리, 큐(queue) 사용, 사용자 및 애플리케이션 단위의 병렬 처리 제한 등이 있다. | 2 |
+| **15.1.4** | 애플리케이션 문서에 위험한 구성요소로 간주되는 서드파티 라이브러리가 강조되어 있는지 확인해야 한다. | 3 |
+| **15.1.5** | 애플리케이션 문서에 위험한 기능을 사용하는 애플리케이션의 부분이 강조되어 있는지 확인해야 한다. | 3 |
 
-## V15.2 Security Architecture and Dependencies
+## V15.2 보안 아키텍처 및 종속성
 
-This section includes requirements for handling risky, outdated, or insecure dependencies and components through dependency management.
+이 장에서는 종속성 관리(dependency management)를 통해 위험하거나 구식이거나 보안에 취약한 종속성과 구성요소를 다루기 위한 요구사항을 포함한다.
 
-It also includes using architectural-level techniques such as sandboxing, encapsulation, containerization, and network isolation to reduce the impact of using "dangerous operations" or "risky components" (as defined in the previous section) and prevent loss of availability due to overusing resource-demanding functionality.
+또한, 앞 장에서 정의한 "위험한 동작"이나 "위험한 구성요소"의 사용으로 인한 영향을 줄이기 위해 샌드박싱, 캡슐화, 컨테이너화, 네트워크 격리와 같은 아키텍처 수준의 기법을 활용하는 방법도 포함된다. 이러한 기법은 리소스을 과도하게 사용하는 기능 때문에 발생할 수 있는 가용성 저하를 예방하는 데에도 도움이 된다.
 
-| # | Description | Level |
+| 번호 | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **15.2.1** | Verify that the application only contains components which have not breached the documented update and remediation time frames. | 1 |
-| **15.2.2** | Verify that the application has implemented defenses against loss of availability due to functionality which is time-consuming or resource-demanding, based on the documented security decisions and strategies for this. | 2 |
-| **15.2.3** | Verify that the production environment only includes functionality that is required for the application to function, and does not expose extraneous functionality such as test code, sample snippets, and development functionality. | 2 |
-| **15.2.4** | Verify that third-party components and all of their transitive dependencies are included from the expected repository, whether internally owned or an external source, and that there is no risk of a dependency confusion attack. | 3 |
-| **15.2.5** | Verify that the application implements additional protections around parts of the application which are documented as containing "dangerous functionality" or using third-party libraries considered to be "risky components". This could include techniques such as sandboxing, encapsulation, containerization or network level isolation to delay and deter attackers who compromise one part of an application from pivoting elsewhere in the application. | 3 |
+| **15.2.1** | 애플리케이션이 문서화된 업데이트 및 대응 기한을 위반하지 않은 구성요소만 포함하고 있는지 확인해야 한다. | 1 |
+| **15.2.2** | 애플리케이션이 시간 소모가 크거나 리소스 소비가 많은 기능의 과도한 사용으로 인한 가용성 손실을 방지하기 위해, 해당 기능에 대한 문서화된 보안 결정 및 전략을 기반으로 방어 조치를 구현하고 있는지 확인해야 한다. | 2 |
+| **15.2.3** | 운영 환경에 애플리케이션 기능 수행에 필요한 기능만 포함되어 있으며, 테스트 코드, 샘플 코드, 개발용 기능 등 불필요한 기능이 노출되지 않도록 구성되어 있는지 확인해야 한다. | 2 |
+| **15.2.4** | 서드파티 구성요소 및 그 모든 전이 종속성(transitive dependencies)이 내부 또는 외부의 예상된 저장소에서 가져며, 의존성 혼동(dependency confusion) 공격의 위험이 없는지 확인해야 한다. | 3 |
+| **15.2.5** | 애플리케이션이 위험한 기능을 포함하거나 위험한 구성요소를 사용하는 부분에 대해 샌드박싱, 캡슐화, 컨테이너화, 네트워크 수준 격리와 같은 추가적인 보호 기법을 구현하여, 애플리케이션의 한 부분이 침해되더라도 공격자가 다른 영역으로 확산하지 못하도록 지연 및 차단하고 있는지 확인해야 한다. | 3 |
 
-## V15.3 Defensive Coding
+## V15.3 방어적(Defensive) 코딩
 
-This section covers vulnerability types, including type juggling, prototype pollution, and others, which result from using insecure coding patterns in a particular language. Some may not be relevant to all languages, whereas others will have language-specific fixes or may relate to how a particular language or framework handles a feature such as HTTP parameters. It also considers the risk of not cryptographically validating application updates.
+이 장에서는 특정 프로그래밍 언어에서 비안전한 코딩 패턴을 사용할 때 발생할 수 있는 취약점 유형을 다룬다. 여기에는 타입 혼용(type juggling), 프로토타입 오염(prototype pollution) 등이 포함되며, 일부는 모든 언어에 적용되지 않지만, 다른 일부는 특정 언어 또는 프레임워크가 HTTP 파라미터와 같은 기능을 처리하는 방식과 관련될 수 있으며, 언어별 대응 방안이 존재할 수 있다. 또한 애플리케이션 업데이트 시 암호학적 검증을 수행하지 않는 것과 관련된 위험도 포함된다.
 
-It also considers the risks associated with using objects to represent data items and accepting and returning these via external APIs. In this case, the application must ensure that data fields that should not be writable are not modified by user input (mass assignment) and that the API is selective about what data fields get returned. Where field access depends on a user's permissions, this should be considered in the context of the field-level access control requirement in the Authorization chapter.
+또한, 객체를 사용하여 데이터를 표현하고 외부 API를 통해 이를 수신하거나 반환하는 경우에 발생할 수 있는 위험도 고려한다. 이 경우, 애플리케이션은 사용자 입력에 의해 수정되어서는 안 되는 데이터 필드가 변경되지 않도록 보장해야 하며(mass assignment), API는 반환할 데이터 필드를 선택적으로 제한해야 한다. 데이터 필드 접근이 사용자의 권한에 따라 달라지는 경우, 이는 권한 부여 챕터의 필드 수준 접근 통제 요구사항과 함께 고려되어야 한다.
 
-| # | Description | Level |
+| 번호 | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **15.3.1** | Verify that the application only returns the required subset of fields from a data object. For example, it should not return an entire data object, as some individual fields should not be accessible to users. | 1 |
-| **15.3.2** | Verify that where the application backend makes calls to external URLs, it is configured to not follow redirects unless it is intended functionality. | 2 |
-| **15.3.3** | Verify that the application has countermeasures to protect against mass assignment attacks by limiting allowed fields per controller and action, e.g., it is not possible to insert or update a field value when it was not intended to be part of that action. | 2 |
-| **15.3.4** | Verify that all proxying and middleware components transfer the user's original IP address correctly using trusted data fields that cannot be manipulated by the end user, and the application and web server use this correct value for logging and security decisions such as rate limiting, taking into account that even the original IP address may not be reliable due to dynamic IPs, VPNs, or corporate firewalls. | 2 |
-| **15.3.5** | Verify that the application explicitly ensures that variables are of the correct type and performs strict equality and comparator operations. This is to avoid type juggling or type confusion vulnerabilities caused by the application code making an assumption about a variable type. | 2 |
-| **15.3.6** | Verify that JavaScript code is written in a way that prevents prototype pollution, for example, by using Set() or Map() instead of object literals. | 2 |
-| **15.3.7** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (query string, body parameters, cookies, or header fields). | 2 |
+| **15.3.1** | 애플리케이션이 데이터 객체에서 필요한 필드만 선택적으로 반환하고 있는지 확인해야 한다. 예를 들어, 일부 필드는 사용자에게 노출되어서는 안 되므로 전체 데이터 객체를 반환해서는 안 된다. | 1 |
+| **15.3.2** | 애플리케이션 백엔드에서 외부 URL로 요청을 보낼 때, 의도된 기능이 아닌 경우 리디렉션을 따르지 않도록 구성되어 있는지 확인해야 한다. | 2 |
+| **15.3.3** | 애플리케이션이 각 컨트롤러 및 액션 단위로 허용된 필드를 제한함으로써, 대량 할당(mass assignment) 공격에 대한 방어가 구현되어 있는지 확인해야 한다. 예를 들어, 특정 동작에 포함되지 않은 필드 값을 삽입하거나 수정할 수 없어야 한다. | 2 |
+| **15.3.4** | 모든 프록시 및 미들웨어 구성요소가 사용자의 원래 IP 주소를 신뢰 가능한 데이터 필드를 통해 정확하게 전달하고 있으며, 애플리케이션과 웹 서버가 이 값을 로그 기록이나 속도 제한(rate limiting)과 같은 보안 결정에 사용하는지 확인해야 한다. 단, 동적 IP, VPN, 방화벽 등으로 인해 원래 IP조차 완전히 신뢰할 수 없는 점도 고려해야 한다. | 2 |
+| **15.3.5** | 애플리케이션이 변수의 타입이 올바른지 명시적으로 확인하고, 엄격한 동등성 비교 및 연산자를 사용하여 타입 혼용(type juggling) 또는 타입 혼동(type confusion)으로 인한 취약점을 방지하고 있는지 확인해야 한다. | 2 |
+| **15.3.6** | JavaScript 코드가 프로토타입 오염(prototype pollution)을 방지할 수 있도록 작성되어 있는지 확인해야 한다. 예를 들어, 객체 리터럴 대신 `Set()` 또는 `Map()`을 사용하는 방식이 권장된다. | 2 |
+| **15.3.7** | 애플리케이션이 HTTP 파라미터 오염(HTTP parameter pollution) 공격에 대한 방어를 구현하고 있는지 확인해야 한다. 특히, 애플리케이션 프레임워크가 요청 파라미터의 출처(쿼리 스트링, 본문, 쿠키, 헤더)를 구분하지 않는 경우 이를 고려해야 한다. | 2 |
 
-## V15.4 Safe Concurrency
+## V15.4 안전한 동시성
 
-Concurrency issues such as race conditions, time-of-check to time-of-use (TOCTOU) vulnerabilities, deadlocks, livelocks, thread starvation, and improper synchronization can lead to unpredictable behavior and security risks. This section includes various techniques and strategies to help mitigate these risks.
+경쟁 상태(race condition), 검사-사용 시점 불일치(TOCTOU), 교착 상태, 라이락(livelock), 스레드 기아(thread starvation), 부적절한 동기화 등 동시성 이슈는 예측 불가능한 동작과 보안 위험을 초래할 수 있다. 이 장에서는 이러한 위험을 완화하기 위한 기법과 전략을 제시한다.
 
-| # | Description | Level |
+| 번호 | 설명 | 레벨 |
 | :---: | :--- | :---: |
-| **15.4.1** | Verify that shared objects in multi-threaded code (such as caches, files, or in-memory objects accessed by multiple threads) are accessed safely by using thread-safe types and synchronization mechanisms like locks or semaphores to avoid race conditions and data corruption. | 3 |
-| **15.4.2** | Verify that checks on a resource's state, such as its existence or permissions, and the actions that depend on them are performed as a single atomic operation to prevent time-of-check to time-of-use (TOCTOU) race conditions. For example, checking if a file exists before opening it, or verifying a user’s access before granting it. | 3 |
-| **15.4.3** | Verify that locks are used consistently to avoid threads getting stuck, whether by waiting on each other or retrying endlessly, and that locking logic stays within the code responsible for managing the resource to ensure locks cannot be inadvertently or maliciously modified by external classes or code. | 3 |
-| **15.4.4** | Verify that resource allocation policies prevent thread starvation by ensuring fair access to resources, such as by leveraging thread pools, allowing lower-priority threads to proceed within a reasonable timeframe. | 3 |
+| **15.4.1** | 다중 스레드 코드에서 캐시, 파일, 다수 스레드가 접근하는 메모리 내 객체 등 공유 객체에 접근할 때, 스레드 세이프(thread-safe) 타입과 락·세마포어 같은 동기화 메커니즘을 사용하여 경쟁 상태와 데이터 손상을 피하고 안전하게 접근하는지 확인해야 한다.                                                 |  3  |
+| **15.4.2** | 리소스의 존재 여부나 권한과 같은 상태 검사와, 그 검사 결과에 의존하는 동작이 단일(atomic) 연산으로 수행되어 TOCTOU 경쟁 상태를 방지하는지 확인해야 한다. (예: 파일을 열기 전에 존재 여부를 확인하는 작업과 파일 열기 동작을 분리하지 않기, 접근 권한 검증과 권한 부여를 동일 트랜잭션/원자적 구간에서 수행하기) |  3  |
+| **15.4.3** | 스레드가 서로를 기다리거나 무한 재시도에 빠지지 않도록 일관된 락 사용을 보장하고, 락 관리 로직을 리소스 관리 책임 코드 내부에 유지하여 외부 클래스 및 코드가 우발적·악의적으로 락을 변경하지 못하도록 하는지 확인해야 한다.                                                                        |  3  |
+| **15.4.4** | **스레드 풀** 활용 등 **리소스 할당 정책**을 통해 공정한 리소스 접근을 보장하고, 우선순위가 낮은 스레드도 합리적 시간 내 진행될 수 있게 하여 **스레드 기아**를 방지하는지 확인해야 한다.                                                                                             |  3  |
 
-## References
+## 참조
 
-For more information, see also:
+자세한 내용은 다음을 참조한다:
 
 * [OWASP Prototype Pollution Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Prototype_Pollution_Prevention_Cheat_Sheet.html)
 * [OWASP Mass Assignment Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
 * [OWASP CycloneDX Bill of Materials Specification](https://owasp.org/www-project-cyclonedx/)
-* [OWASP Web Security Testing Guide: Testing for HTTP Parameter Pollution](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution)
+* [OWASP Web Security Testing Guide: Testing for HTTP Parameter Pollution](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution
