@@ -61,9 +61,9 @@ WebRTC 시장은 크게 세 개의 분야로 나눌 수 있다:
 | **17.3.1** | 신호 서버가 플러드 공격 중에도 합법적인 수신 신호 메시지 처리를 계속할 수 있는지 확인해야 한다. 이는 신호 수준에서 속도 제한을 구현함으로써 달성되어야 한다.                                                                                                                  |   2   |
 | **17.3.2** | 서비스 거부 상태를 유발할 수 있는 잘못된 형식의 신호 메시지를 접했을 때 신호 서버가 정상적인 신호 메시지 처리를 계속할 수 있는지 확인해야 한다. 여기에는 입력 검증 구현, 정수 오버플로우 안전 처리, 버퍼 오버플로우 방지 및 기타 강력한 오류 처리 기법 적용이 포함될 수 있다. |   2   |
 
-## References
+## 참조
 
-아래에서 더 자세한 정보 확인:
+자세한 내용은 다음을 참조한다:
 
 - The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
 - [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
