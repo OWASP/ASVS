@@ -181,9 +181,13 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 안전한 비밀번호 해싱을 위해서는 전용 해시 함수를 반드시 사용해야 한다. 이러한 느린 해싱(slow-hashing) 알고리즘은 비밀번호 크래킹의 연산 난이도를 높여 무차별 대입 공격과 사전 대입 공격을 완화한다.
 
 | KDF | 참조 | 필수 매개변수 | 상태 |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
+| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914)   | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
@@ -205,9 +209,12 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 ### 비밀번호 기반 키 유도 함수
 
 | KDF | 참조 | 필수 매개변수 | 상태 |
-| --- | --------- | ------------------- | ------ |
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1<br>t = 2: m ≥ 19456 (19 MiB), p = 1<br>t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8<br>p = 2: N ≥ 2^16 (64 MiB), r = 8<br>p ≥ 3: N ≥ 2^15 (32 MiB), r = 8 | A |
+| ---------- | --------- | ------------ |:-:|
+| argon2id   | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
+|            |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
+| scrypt     | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
+|            |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
+|            |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
 | PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
