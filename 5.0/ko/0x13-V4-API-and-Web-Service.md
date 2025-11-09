@@ -54,9 +54,9 @@ WebSocket은 단일 TCP 연결을 통해 동시에 양방향 통신 채널을 �
 | **4.4.3** | 애플리케이션의 표준 세션 관리를 사용할 수 없는 경우, 관련 세션 관리 보안 요구 사항을 준수하는 전용 토큰이 사용되고 있는지 확인한다. | 2 |
 | **4.4.4** | 기존 HTTPS 세션을 WebSocket 채널로 전환할 때 이전에 인증된 HTTPS 세션을 통해 전용 WebSocket 세션 관리 토큰을 처음 얻거나 검증하는지 확인한다. | 2 |
 
-## 참고
+## 참조
 
-더 많은 정보를 위해서는 아래의 링크를 확인하면 된다.
+자세한 내용은 다음을 참조한다:
 
 * [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
 * Resources on GraphQL Authorization from [graphql.org](https://graphql.org/learn/authorization/) and [Apollo](https://www.apollographql.com/docs/apollo-server/security/authentication/#authorization-methods).
