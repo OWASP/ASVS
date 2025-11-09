@@ -49,7 +49,7 @@
 
 ## 참조
 
-자세한 내용은 다음을 참조하세요:
+더 많은 정보는 다음을 참고한다:
 
 * [OWASP - TLS 참고자료](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
 * [Mozilla's 서버측 TLS 구성 가이드](https://wiki.mozilla.org/Security/Server_Side_TLS)
