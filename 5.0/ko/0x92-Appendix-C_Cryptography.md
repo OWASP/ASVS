@@ -4,9 +4,9 @@
 
 이 부록은 다양한 암호화 메커니즘(mechanism)에 대한 승인 수준을 정의한다:
 
-* (A) 승인된 메커니즘은 애플리케이션에서 사용할 수 있다.
-* (L) 기존 메커니즘은 애플리케이션에서 사용해서는 안 되지만, 기존 애플리케이션이나 코드와의 호환성을 위해 제한적으로 사용될 수 있다. 이러한 메커니즘의 사용은 현재 본질적으로 취약점으로 간주하지는 않지만, 가능한 한 빠른 시일 내에 더 안전하고 미래 지향적인 메커니즘으로 대체되어야 한다.
-* (D) 허용되지 않은 메커니즘은 현재 취약한 것으로 간주되거나 충분한 보안을 제공하지 않으므로 사용해서는 안 된다.
+* 승인된 메커니즘(A)은 애플리케이션에서 사용할 수 있다.
+* 기존 메커니즘(L)은 애플리케이션에서 사용해서는 안 되지만, 기존 애플리케이션이나 코드와의 호환성을 위해 제한적으로 사용될 수 있다. 이러한 메커니즘의 사용은 현재 본질적으로 취약점으로 간주하지는 않지만, 가능한 한 빠른 시일 내에 더 안전하고 미래 지향적인 메커니즘으로 대체되어야 한다.
+* 허용되지 않은 메커니즘(D)은 현재 취약한 것으로 간주되거나 충분한 보안을 제공하지 않으므로 사용해서는 안 된다.
 
 이 목록은 특정 애플리케이션의 맥락에서 여러 가지 이유로 재정의 될 수 있으며, 예를 들어 다음과 같다:
 
@@ -16,6 +16,7 @@
 ## 암호 자산 목록 및 문서화
 
 이 문단은 V11.1 암호 목록 및 문서화에 대한 추가 정보를 제공한다.
+
 
 알고리즘, 키, 인증서와 같은 암호 자산은 정기적으로 발견되고, 목록화되며, 평가되어야 한다. 3단계에서는 애플리케이션에서 암호 기법의 사용을 식별하기 위해 정적 및 동적 스캐닝을 포함해야 한다. SAST 및 DAST와 같은 도구는 이에 도움이 될 수 있으나, 더 포괄적인 범위를 위해서는 전용 도구가 필요할 수 있다. 프리웨어 도구의 예시는 다음과 같다:
 
@@ -46,6 +47,7 @@
 
 이 문단은 V11.5 무작위 값에 대한 추가 정보를 제공한다.
 
+
 | 이름 | 버전/참조 | 비고 | 상태 |
 |:-:|:-:|:-:|:-:|
 | `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), iOS, Android, 그리고 다른 Linux 기반 POSIX 운영체제에서도 사용된다. [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539)를 기반으로 한다. | ChaCha20 스트림을 활용한다. iOS의 [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) 및 Android의 [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom)에서 각각 올바른 설정이 적용된 상태로 제공된다. | A |
@@ -60,6 +62,7 @@ HMAC-DRBG 또는 Hash-DRBG와 함께 사용되는 기반 해시 함수는 반드
 ## 암호 알고리즘
 
 이 문단은 V11.3 암호화 알고리즘에 대한 추가 정보를 제공한다.
+
 
 승인된 암호 알고리즘은 선호도 순서로 제시되어 있다.
 
@@ -130,18 +133,19 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 
 | AEAD 메커니즘 | 참조 | 상태
 |--------------------------|---------|-----|
-|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A
-|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A
-|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A
-|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A
-|Encrypt-then-MAC | | A
-|MAC-then-encrypt | | L
+|AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
+|AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
+|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
+|AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
+|Encrypt-then-MAC | | A |
+|MAC-then-encrypt | | L |
 
 ## 해시 함수
 
 이 문단은 V11.4 해싱과 해시 기반 함수에 대한 추가 정보를 제공한다.
+
 
 ### 범용 해시 함수
 
@@ -211,6 +215,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 ## 키 교환 메커니즘
 
 이 문단은 V11.6 공개 키 암호에 대한 추가 정보를 제공한다.
+
 
 ### 키 교환 체계
 
@@ -290,7 +295,7 @@ MAC 후 암호화는 방식은 레거시 애플리케이션과의 호환성을 �
 | ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
 | RSA-RSSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | A      |
 | RSA-SSA-PKCS#1 v1.5            | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | D      |
-| DSA (키 길이 무관)             | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
+| DSA (키 길이 무관)                | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
 
 ## 양자 내성 암호 표준
 
