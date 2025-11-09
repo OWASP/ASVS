@@ -153,7 +153,7 @@ ID 제공자(IdP)는 사용자에게 통합 신원을 제공한다. 사용자는
 
 ## 참조
 
-더 많은 정보 :
+더 많은 정보는 다음을 참고한다:
 
 * [NIST SP 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST SP 800-63B - Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
