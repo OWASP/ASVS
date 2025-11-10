@@ -25,6 +25,8 @@ Organizations who have allowed contributors to spend significant time working on
 
 [<img src="./images/supporters/manicode.svg" height=105>](https://www.manicode.com)
 
+[<img src="./images/supporters/dbg.png" height=105>](https://www.drtcyber.com/about-dbg)
+
 ## Primary supporters
 
 Organizations who have donated $7,000 or more to the project via OWASP. Supporter will be listed in this section for 3 years from the date of the donation.
