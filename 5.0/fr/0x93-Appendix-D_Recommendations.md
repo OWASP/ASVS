@@ -44,6 +44,6 @@ Plusieurs processus de sécurité ont été supprimés d'ASVS 5.0, mais restent 
 Références:
 
 * [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
-* [OWASP Threat modeling](https://owasp.org/www-community/Application_Threat_Modeling)
+* [OWASP Threat modeling](https://owasp.org/www-project-threat-model/)
 * [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/securityengineering/sdl/)
