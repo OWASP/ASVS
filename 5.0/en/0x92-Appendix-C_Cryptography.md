@@ -5,7 +5,7 @@ The "Cryptography" chapter goes beyond simply defining best practices. It aims t
 This appendix defines the level of approval for different cryptographic mechanisms:
 
 * Approved (A) mechanisms can be used in applications.
-* Legacy mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code only. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
+* Legacy mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
 * Disallowed mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
 
 This list may be overridden in the context of a given application for various reasons including:
@@ -27,7 +27,7 @@ It is important to ensure that all cryptographic assets, such as algorithms, key
 
 The relative security strengths for various cryptographic systems are in this table (from [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final), p.71):
 
-| Security Strength | Symmetric Key Algorithms | Finite Field | Integer Factorization | Elliptic Curve |
+| Security Strength | Symmetric Key Algorithms | Finite Field | Integer Factorisation | Elliptic Curve |
 |--|--|--|--|--|
 | <= 80 | 2TDEA | L = 1024 <br> N = 160 | k = 1024 | f = 160-223 |
 | 112 | 3TDEA   | L = 2048 <br> N = 224 | k = 2048 | f = 224-255 |
@@ -38,7 +38,7 @@ The relative security strengths for various cryptographic systems are in this ta
 Example of applications:
 
 * Finite Field Cryptography: DSA, FFDH, MQV
-* Integer Factorization Cryptography: RSA
+* Integer Factorisation Cryptography: RSA
 * Elliptic Curve Cryptography: ECDSA, EdDSA, ECDH, MQV
 
 Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
@@ -153,7 +153,7 @@ The following table lists hash functions approved in general cryptographic use c
 
 * Approved hash functions provide strong collision resistance and are suitable for high-security applications.
 * Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
-* Hash function with less than 254 bit of output have insufficient collision resistance and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
+* Hash function with less than 254 bit of output have insufficient collision resistancea and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
 
 | Hash function | Reference | Status | Restrictions |
 | ------ | ----------- |:-:| ---------- |
@@ -306,6 +306,6 @@ Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57
 
 ## Post-Quantum Encryption Standards
 
-Post-quantum cryptography (PQC) implementations should follow [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd), [FIPS-204](https://csrc.nist.gov/pubs/fips/204/ipd), and [FIPS-205](https://csrc.nist.gov/pubs/fips/205/ipd). At this time, there are not many hardened code examples or reference implementations available for these standards. For further details, see the [NIST announcement of the first three finalized post-quantum encryption standards (August 2024)](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards).
+PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there is minimal hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
 The proposed [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) post-quantum hybrid TLS key agreement method is supported by major browsers such as [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). It may be used in cryptographic testing environments or when available within industry- or government-approved libraries.

@@ -20,7 +20,7 @@ If you are aware of any mistakes or would like your name to appear differently, 
 | Roel Storms ([roelstorms](https://github.com/roelstorms)) | Jeroen Willemsen ([commjoen](https://github.com/commjoen)) | [anonymous-31](https://github.com/anonymous-31) | Kamran Saifullah ([deFr0ggy](https://github.com/deFr0ggy))  |
 | Steve Springett ([stevespringett](https://github.com/stevespringett)) | Spyros ([northdpole](https://github.com/northdpole)) | Hans Herrera ([hansphp](https://github.com/hansphp)) | [Marx314](https://github.com/Marx314)  |
 | [CarlosAllendes](https://github.com/CarlosAllendes) | Yonah Russ ([yruss972](https://github.com/yruss972)) | Sander Maijers ([sanmai-NL](https://github.com/sanmai-NL)) | Luboš Bretschneider  ([bretik](https://github.com/bretik))  |
-| Eva Sarafianou ([esarafianou](https://github.com/esarafianou)) | Ata Seren [ataseren](https://github.com/ataseren) | Steve Thomas ([Sc00bz](https://github.com/Sc00bz)) | Dominique RIGHETTO ([righettod](https://github.com/righettod))  |
+| Eva Sarafianou ([esarafianou](https://github.com/esarafianou)) | [ataseren](https://github.com/ataseren) | Steve Thomas ([Sc00bz](https://github.com/Sc00bz)) | Dominique RIGHETTO ([righettod](https://github.com/righettod))  |
 | Steven van der Baan ([svdb-ncc](https://github.com/svdb-ncc)) | Michael Vacarella ([Aif4thah](https://github.com/Aif4thah)) | Tonimir Kisasondi ([tkisason](https://github.com/tkisason)) | Stefan Streichsbier ([streichsbaer](https://github.com/streichsbaer))  |
 | [hi-unc1e](https://github.com/hi-unc1e) | sb3k ([starbuck3000](https://github.com/starbuck3000)) | [mario-platt](https://github.com/mario-platt) | Devdatta Akhawe ([devd](https://github.com/devd))  |
 | Michael Gissing ([scolytus](https://github.com/scolytus)) | Jet Anderson ([thatsjet](https://github.com/thatsjet)) | Dave Wichers ([davewichers](https://github.com/davewichers)) | Jonny Schnittger ([JonnySchnittger](https://github.com/JonnySchnittger))  |
@@ -68,4 +68,4 @@ If you are aware of any mistakes or would like your name to appear differently, 
 | Lyz ([lyz-code](https://github.com/lyz-code)) | Martin Riedel ([mrtnrdl](https://github.com/mrtnrdl)) | KIM Jaesuck ([tcaesvk](https://github.com/tcaesvk)) | Barbara Schachner ([bschach](https://github.com/bschach))  |
 | René Reuter ([AresSec](https://github.com/AresSec)) | [carhackpils](https://github.com/carhackpils) | Tyler ([tyler2cr](https://github.com/tyler2cr)) | Hugo ([hasousa](https://github.com/hasousa))  |
 | Wouter Bloeyaert ([Someniak](https://github.com/Someniak)) | Mark de Rijk ([markderijkinfosec](https://github.com/markderijkinfosec)) | Ramin ([picohub](https://github.com/picohub)) | Philip D. Turner ([philipdturner](https://github.com/philipdturner))  |
-| Will Chatham ([willc](https://github.com/willc)) | | | |
+| Will Chatham ([willc](https://github.com/willc))  |
