@@ -1,1 +1,1 @@
-en tr ru fr
+en tr ru fr ko
