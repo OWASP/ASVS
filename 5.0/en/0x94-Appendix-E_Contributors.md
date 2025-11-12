@@ -68,4 +68,4 @@ If you are aware of any mistakes or would like your name to appear differently, 
 | Lyz ([lyz-code](https://github.com/lyz-code)) | Martin Riedel ([mrtnrdl](https://github.com/mrtnrdl)) | KIM Jaesuck ([tcaesvk](https://github.com/tcaesvk)) | Barbara Schachner ([bschach](https://github.com/bschach))  |
 | René Reuter ([AresSec](https://github.com/AresSec)) | [carhackpils](https://github.com/carhackpils) | Tyler ([tyler2cr](https://github.com/tyler2cr)) | Hugo ([hasousa](https://github.com/hasousa))  |
 | Wouter Bloeyaert ([Someniak](https://github.com/Someniak)) | Mark de Rijk ([markderijkinfosec](https://github.com/markderijkinfosec)) | Ramin ([picohub](https://github.com/picohub)) | Philip D. Turner ([philipdturner](https://github.com/philipdturner))  |
-| Will Chatham ([willc](https://github.com/willc))  |
+| Will Chatham ([willc](https://github.com/willc))  | | | |
