@@ -28,19 +28,20 @@ We will no longer be accepting changes to the 4.0 folder which is now fixed at t
 
 ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
-* Major release - Full reorganization, almost everything may have changed, including requirement numbers and chapter and section structure. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
-* Minor release - Requirements may be added, removed, split, or merged but overall numbering and the section structure will stay the same with no additions or removals. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0). The restrictions mean that requirements within a sections may not be in ascending level order. Levels may be increased or decreased.
-* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1). A level number may be increased but not decreased.
+* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
+* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
+* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
 
 The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
 
 ## How can I help?
 
-We would be glad to receive feedback to help us to further enhance the ASVS. Note however that having had intensive efforts to get out the recent release, there may be some delays in responses. Be assured that all issues will eventually be reviewed.
+We would be glad to receive feedback to help us to further enhance the ASVS.
 
-At this stage, we are most likely to immediately accept changes to surrounding text and other content such as the appendices which is not considered a breaking change for release purposes.
+At this stage, we are accepting the following types of changes:
 
-The next ASVS release is likely to be a "patch" release containing changes which are considered "non-breaking". This means that requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well. We are open to integrating changes that satisfy this definition although we need to decide on a tracking mechanism, which may also lead to a delay. 
+* Changes to surrounding text and other content such as the appendices which is not be considered to be a breaking change for release purposes.
+* Changes which are considered "non-breaking" for an ASVS "patch" release. This means that requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well.
 
 If you feel there are other important changes but they would be considered breaking for a patch release, you are welcome to open an issue but please note that the issue may not be progressed until we are considering a new minor or major release, for which there is currently no fixed timeline.
 
@@ -99,7 +100,7 @@ Tags in old (v4.0.3) mapping file:
 
 We are now keen to receive translations for v5.0.0 of ASVS!
 
-Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintenance easier. 
+Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintainance easier. 
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
 
@@ -109,13 +110,13 @@ If you are interested in creating a translation, here are some pointers for how 
         * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
         * Portuguese, see [#3182](https://github.com/OWASP/ASVS/issues/3182)
         * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
+        * Korean, see [#3204](https://github.com/OWASP/ASVS/issues/3204)
         * Spanish, see [#3238](https://github.com/OWASP/ASVS/issues/3238)
         * Panjabi, see[#3252](https://github.com/OWASP/ASVS/issues/3252)
     * v5.0.0
         * [Turkish](./5.0/tr/)
         * [Russian](./5.0/ru/)
         * [French](./5.0/fr/)
-        * [Korean](./5.0/ko/)
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
 * We would request that you base your translation on the 5.0/en folder in the v5.0.0 branch as this is now static at the 5.0.0 version.
