@@ -90,7 +90,7 @@ v4.0.3-2.1.5:
 v4.0.3-2.1.6:
   tag-v5.0.0: MOVED TO v5.0.0-6.2.3
 v4.0.3-2.1.7:
-  tag-v5.0.0: MODIFIED, MOVED TO v5.0.0-6.2.4, SPLIT TO v5.0.0-6.2.12
+  tag-v5.0.0: MODIFIED, MOVED TO v5.0.0-6.2.4, SPLIT TO v5.0.0-6.2.10, v5.0.0-6.2.12
 v4.0.3-2.1.8:
   tag-v5.0.0: DELETED, INSUFFICIENT IMPACT
 v4.0.3-2.1.9:
