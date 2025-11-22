@@ -1,3 +1,5 @@
+<div dir="rtl" style="text-align: justify; line-height: 2;">
+
 # V1 Encoding and Sanitization
 
 ## هدف
@@ -101,3 +103,4 @@ encode و escape خروجی‌ها زمان دریافت ورودی‌های ح�
 * [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 * [An Exploration of JSON Interoperability Vulnerabilities](https://bishopfox.com/blog/json-interoperability-vulnerabilities)
 * [Orange Tsai - A New Era of SSRF Exploiting URL Parser In Trending Programming Languages](https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf)
+</div>
