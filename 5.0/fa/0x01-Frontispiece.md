@@ -1,4 +1,4 @@
-<div dir="rtl">
+<div dir="rtl" style="text-align: justify; line-height: 2;">
 
   # صفحه اصلی
 
