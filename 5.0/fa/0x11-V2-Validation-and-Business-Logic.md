@@ -1,3 +1,5 @@
+<div dir="rtl" style="text-align: justify; line-height: 2;">
+
 # V2 Validation and Business Logic
 
 ## هدف
@@ -73,3 +75,4 @@ This section includes anti-automation controls to ensure that human-like interac
 * جلوگیری از خودکارسازی (Anti-automation) را می‌توان به روش‌های مختلفی انجام داد، از جمله با استفاده از [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
 * [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [JSON Schema](https://json-schema.org/specification.html)
+</div>
