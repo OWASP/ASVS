@@ -1,3 +1,5 @@
+<div dir="rtl" style="text-align: justify; line-height: 2;">
+
 # V3 امنیت رابط کاربری وب (Web Frontend Security)
 
 ## هدف کنترلی
@@ -99,3 +101,4 @@
 * [OWASP Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 * [HSTS Browser Preload List submission form](https://hstspreload.org/)
 * [OWASP DOM Clobbering Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_Clobbering_Prevention_Cheat_Sheet.html)
+</div>
