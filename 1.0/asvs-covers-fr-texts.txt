@@ -66,10 +66,10 @@ Attribution. You must attribute the work in the manner specified by the author o
 
 Share Alike. - If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible license.
 
-OWASP The Open Web Application Security Project
+OWASP The Open Worldwide Application Security Project
 OWASP Projet de sécurité des applications web
 
-The Open Web Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible", so that people and organizations can make informed decisions about application security risks. Everyone is free to participate in OWASP and all of our materials are available under a free and open software license. The OWASP Foundation is a 501c3 not for profit charitable organization that ensures the ongoing availability and support for our work.
+The Open Worldwide Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security "visible", so that people and organizations can make informed decisions about application security risks. Everyone is free to participate in OWASP and all of our materials are available under a free and open software license. The OWASP Foundation is a 501c3 not for profit charitable organization that ensures the ongoing availability and support for our work.
 Le projet de sécurité des applications web (OWASP) est une communauté mondiale libre et ouverte, focalisée sur l'amélioration de la sécurité des applications logicielles. Notre mission est de rendre la sécurité des applications "visible", de sorte à ce que les gens et les organisations, puissent prendre des décisions éclairées à propos des risques de sécurité liés aux applications. Chacun est libre de participer au projet OWASP, et tous nos produits sont disponibles sous une licence logicielle libre et ouverte. La fondation OWASP organisation à but non lucratif qui assure la disponibilité continue de notre travail.
 
 

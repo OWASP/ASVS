@@ -34,7 +34,7 @@
 * **ORM: Object Relational Mapping** - Eine Zuordnung von Daten in relationalen Datenbanken zu objektorientierten Programmcode.
 * **OS: Operating System** - Betriebssystem
 * **OTP: One Time Password** - Passwort zur einmaligen Verwendung
-* **OWASP: Open Web Application Security Project** - Eine weltweite, freie und offene Gemeinschaft, die sich mit der Verbesserung der Sicherheit von Anwendungssoftware befasst. Unsere Mission ist es, die Anwendungssicherheit sichtbar zu machen, damit Menschen und Organisationen fundierte Entscheidungen in Bezug auf Anwendungssicherheitsrisiken treffen können. Siehe: https://www.owasp.org/
+* **OWASP: Open Worldwide Application Security Project** - Eine weltweite, freie und offene Gemeinschaft, die sich mit der Verbesserung der Sicherheit von Anwendungssoftware befasst. Unsere Mission ist es, die Anwendungssicherheit sichtbar zu machen, damit Menschen und Organisationen fundierte Entscheidungen in Bezug auf Anwendungssicherheitsrisiken treffen können. Siehe: https://www.owasp.org/
 * **Padding Oracle Angriff** - Angriff auf Software zur Verschlüsselung, der mit Hilfe der aufgefüllten Blocks (Padding) Schlüssel errät.
 * **PBKDF2: Password Based Key Derivation Function 2** - Ein Algorithmus, der aus einem Passwort und einem Zufallswert einen kryptografischen Schlüssel ableitet
 * **Personenbezogene Daten** - sind Informationen, die allein oder zusammen mit anderen Informationen verwendet werden können, um eine einzelne Person zu identifizieren.
