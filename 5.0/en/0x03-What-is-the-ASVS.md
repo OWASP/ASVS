@@ -120,7 +120,7 @@ For example, an early-stage startup that is only collecting limited sensitive da
 
 The ASVS is made up of a total of around 350 requirements which are divided into 17 chapters, each of which is further divided into sections.
 
-The aim of the chapter and section division is to simplify choosing or filtering out chapters and sections based on the what is relevant for the application. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
+The aim of the chapter and section division is to simplify choosing or filtering out chapters and sections based on what is relevant for the application. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
 
 ### Release strategy
 
