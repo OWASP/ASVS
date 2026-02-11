@@ -75,18 +75,25 @@ Every requirement ID must be a hyperlink.
 
 Use only first two segments (`Major.Minor`).
 
+Process:
+
+1. Extract the `Major.Minor` reference from the requirement ID.
+2. Look up the corresponding URL in `linklookup.md`.
+3. Use the URL from the lookup as the hyperlink target.
+
 Format:
 
-[https://appsecg.host/](https://appsecg.host/).
+[VisibleText](URLFromLinkLookup)
 
-Examples:
+Example process:
 
-- `5.2.1` → [https://appsecg.host/5.2](https://appsecg.host/5.2)
-- `13.3.1` → [https://appsecg.host/13.3](https://appsecg.host/13.3)
+- Requirement ID: `5.2.1` → Extract `5.2`
+- Look up `5.2` in `linklookup.md` → Returns `https://github.com/OWASP/ASVS/blob/master/5.0/en/0x14-V5-File-Handling.md#v52-file-upload-and-content`
+- Final hyperlink: `[5.2.1](https://github.com/OWASP/ASVS/blob/master/5.0/en/0x14-V5-File-Handling.md#v52-file-upload-and-content)`
 
 Visible text remains full ID.
 
-Failure to hyperlink is a formatting violation.
+Failure to hyperlink or use correct URL from `linklookup.csv` is a formatting violation.
 
 ---
 
