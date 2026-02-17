@@ -28,9 +28,9 @@ We will no longer be accepting changes to the 4.0 folder which is now fixed at t
 
 ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
-* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
-* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
-* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
+* Major release - Full reorganization, almost everything may have changed, including requirement numbers and chapter and section structure. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
+* Minor release - Requirements may be added, removed, split, or merged but overall numbering and the section structure will stay the same with no additions or removals. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0). The restrictions mean that requirements within a sections may not be in ascending level order. Levels may be increased or decreased.
+* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1). A level number may be increased but not decreased.
 
 The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
 
@@ -105,22 +105,22 @@ If you are interested in creating a translation, here are some pointers for how 
 
 * Please first of all search the repository to see if there is already a translation for your proposed language. We currently have completed or in-progress translations in the following languages (but please search anyway in case this list is superseded!):
     * In-progress
-        * Turkish, see [#3171](https://github.com/OWASP/ASVS/issues/3171)
         * Persian (Farsi), [#3172](https://github.com/OWASP/ASVS/issues/3172)
         * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
         * Portuguese, see [#3182](https://github.com/OWASP/ASVS/issues/3182)
-        * French, see [#3188](https://github.com/OWASP/ASVS/issues/3188)
         * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
-        * Korean, see [#3204](https://github.com/OWASP/ASVS/issues/3204)
-        * Russian, see [#3223](https://github.com/OWASP/ASVS/issues/3223)
         * Spanish, see [#3238](https://github.com/OWASP/ASVS/issues/3238)
+        * Panjabi, see[#3252](https://github.com/OWASP/ASVS/issues/3252)
     * v5.0.0
-        * None
+        * [Turkish](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/tr/)
+        * [Russian](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ru/)
+        * [French](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/fr/)
+        * [Korean](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ko/)
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
-* We would request that you base your translation on the 5.0/en folder in the v5.0.0 branch as this is now static at the 5.0.0 version.
+* We would request that you **specifically base your translation** on the 5.0/en folder from the **v5.0.0** branch as this is now static at the 5.0.0 version.
 * In order to start a translation, please start by forking the ASVS repository.
-* Take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation.
+* Checkout the **v5.0.0** branch. take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation.
 * You can then edit the markdown files to include your translation rather than the original English.
 * When you have completed the translation, please open a Pull Request against the v5.0.0 ASVS branch and one of the leaders will look at integrating it.
 * The leader will also use the relevant scripts to create the documents from the raw markdown (or you can if you want to save us some trouble).
