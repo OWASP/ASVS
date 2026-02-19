@@ -27,3 +27,6 @@ This major revision has been developed with several key principles in mind:
 Just as securing an application is never truly finished, neither is the ASVS. Although Version 5.0 is a major release, development continues. This release allows the wider community to benefit from the improvements and additions which have been accumulated but also lays the groundwork for future enhancements. This could include community-driven efforts to create implementation and verification guidance built on top of the core requirement set.
 
 ASVS 5.0 is designed to serve as a reliable foundation for secure software development. The community is invited to adopt, contribute, and build upon this standard to collectively advance the state of application security.
+
+<!-- TEST: This broken link should be detected by the URL checker and removed before merging -->
+[This link is intentionally broken](https://example.com/this-page-does-not-exist-test-url-checker-12345)
