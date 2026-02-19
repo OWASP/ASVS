@@ -17,30 +17,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
 
-      - name: Set options
-        id: options
+      - name: Install markdown-link-check
+        run: npm i -g markdown-link-check@3.14.2
+
+      - name: Determine files to check
+        id: files
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "check-modified-files-only=yes" >> $GITHUB_OUTPUT
-            echo "use-verbose-mode=yes" >> $GITHUB_OUTPUT
+            git diff --name-only --diff-filter=AM origin/${{ github.base_ref }} -- 5.0/ | grep '\.md$' > /tmp/files_to_check.txt || true
+            echo "mode=modified" >> $GITHUB_OUTPUT
           else
-            echo "check-modified-files-only=no" >> $GITHUB_OUTPUT
-            echo "use-verbose-mode=no" >> $GITHUB_OUTPUT
+            find 5.0 -name '*.md' -not -path './node_modules/*' > /tmp/files_to_check.txt
+            echo "mode=all" >> $GITHUB_OUTPUT
           fi
-
-      - name: Debug - run markdown-link-check directly
-        run: |
-          npm i -g markdown-link-check@3.14.2
-          echo "--- Testing with broken link file ---"
-          markdown-link-check 5.0/en/0x02-Preface.md --config .github/workflows/config/url-checker-config.json -v || true
-          echo "--- Exit code: $? ---"
+          echo "Checking files (mode: $(cat $GITHUB_OUTPUT | grep mode | cut -d= -f2)):"
+          cat /tmp/files_to_check.txt
 
       - name: Check URLs
-        uses: tcort/github-action-markdown-link-check@v1
-        with:
-          check-modified-files-only: ${{ steps.options.outputs.check-modified-files-only }}
-          config-file: .github/workflows/config/url-checker-config.json
-          folder-path: '5.0'
-          use-quiet-mode: no
-          use-verbose-mode: yes
+        run: |
+          ERROR_FOUND=0
+          while IFS= read -r file; do
+            if [ -n "$file" ]; then
+              markdown-link-check "$file" --config .github/workflows/config/url-checker-config.json -q || ERROR_FOUND=1
+            fi
+          done < /tmp/files_to_check.txt
+
+          if [ "$ERROR_FOUND" -eq 1 ]; then
+            echo ""
+            echo "ERROR: Dead links were found!"
+            exit 1
+          else
+            echo ""
+            echo "All links are good!"
+          fi
