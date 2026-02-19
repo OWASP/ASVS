@@ -29,11 +29,18 @@ jobs:
             echo "use-verbose-mode=no" >> $GITHUB_OUTPUT
           fi
 
+      - name: Debug - run markdown-link-check directly
+        run: |
+          npm i -g markdown-link-check@3.14.2
+          echo "--- Testing with broken link file ---"
+          markdown-link-check 5.0/en/0x02-Preface.md --config .github/workflows/config/url-checker-config.json -v || true
+          echo "--- Exit code: $? ---"
+
       - name: Check URLs
         uses: tcort/github-action-markdown-link-check@v1
         with:
           check-modified-files-only: ${{ steps.options.outputs.check-modified-files-only }}
           config-file: .github/workflows/config/url-checker-config.json
           folder-path: '5.0'
-          use-quiet-mode: yes
-          use-verbose-mode: ${{ steps.options.outputs.use-verbose-mode }}
+          use-quiet-mode: no
+          use-verbose-mode: yes
