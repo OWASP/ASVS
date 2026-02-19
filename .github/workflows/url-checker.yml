@@ -30,7 +30,7 @@ jobs:
           fi
 
       - name: Check URLs
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        uses: tcort/github-action-markdown-link-check@v1
         with:
           check-modified-files-only: ${{ steps.options.outputs.check-modified-files-only }}
           config-file: .github/workflows/config/url-checker-config.json
