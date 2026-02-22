@@ -72,7 +72,7 @@ When a patch release comes along, we do the following:
 
 * Create a branch for the patch release
 * Reverse all requirement changes in the patch branch which are not acceptable for a patch based on the tag on the requirement (guided by tags).
-* Manually review the changes which are being reversed out to see if we want to cherry pick some non-breaking changes that were within a requiremnt which also has breaking changes.
+* Manually review the changes which are being reversed out to see if we want to cherry pick some non-breaking changes that were within a requirement which also has breaking changes.
 * Remove all tagging from the patch branch and bring the tag details into a separate file representing the changes in this release to act as release notes.
 * Remove tags from requirements in the bleeding edge branch for changes that went into the patch branch. Tags should be relative to the previous release.
 
