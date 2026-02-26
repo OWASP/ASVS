@@ -104,7 +104,7 @@ Notes:
 
 * All encrypted messages must be authenticated. For ANY use of CBC mode there MUST be an associated hashing MAC algorithm to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used. The only application where encryption without a MAC algorithm is allowed is disk encryption.
 * If CBC is used, it shall be guaranteed that the verification of the padding is performed in constant time.
-* When using CCM-8, the MAC tag only has 64 bits of security. This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
+* When using CCM-8, the MAC tag only has 64 bits of security. This does not conform to requirement 11.2.3 which requires at least 128 bits of security.
 * Disk encryption is considered out of scope for the ASVS. Therefore this appendix does not list any approved method for disk encryption. For this usage, encryption without authentication is usually accepted and the XTS, XEX and LRW modes are typically used.
 
 ### Key Wrapping
