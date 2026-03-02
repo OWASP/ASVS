@@ -37,6 +37,8 @@ jobs:
           cat /tmp/files_to_check.txt
 
       - name: Check URLs
+        id: linkcheck
+        continue-on-error: true
         run: |
           set -o pipefail
           ERROR_FOUND=0
@@ -56,7 +58,7 @@ jobs:
           fi
 
       - name: Retry status-0 failures with curl
-        if: failure()
+        if: steps.linkcheck.outcome == 'failure'
         run: |
           echo "Retrying status-0 (connection failure) URLs with curl..."
           DEAD_LINKS=0
@@ -65,7 +67,7 @@ jobs:
           grep -oP '\[✖\] \Khttps?://\S+(?= → Status: 0)' /tmp/link-check-output.txt > /tmp/status0-urls.txt || true
 
           if [ ! -s /tmp/status0-urls.txt ]; then
-            echo "No status-0 failures found to retry."
+            echo "No status-0 failures found to retry - all failures are genuine dead links."
             exit 1
           fi
 
