@@ -38,6 +38,7 @@ jobs:
 
       - name: Check URLs
         run: |
+          set -o pipefail
           ERROR_FOUND=0
           while IFS= read -r file; do
             if [ -n "$file" ]; then
