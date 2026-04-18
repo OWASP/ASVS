@@ -1,4 +1,4 @@
-# OWASP Application Security Verification Standard
+# OWASP Application Security Verification Standar
 
 <img src="https://owasp.org/www-project-application-security-verification-standard/assets/images/OWASP_ASVS_Linkedin_Banner-01.jpg" width="700px">
 
@@ -80,3 +80,4 @@ If identifiers are used without including the `v<version>` element then they sho
 ## License
 
 The entire project content is under the **[Creative Commons Attribution-Share Alike v4.0](https://creativecommons.org/licenses/by-sa/4.0/)** license.
+
