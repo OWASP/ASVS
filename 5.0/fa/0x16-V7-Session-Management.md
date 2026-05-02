@@ -4,15 +4,15 @@
 
 مکانیزم‌های مدیریت نشست (Session Management Mechanisms) به برنامه‌ها این امکان را می‌دهند که تعاملات کاربر و دستگاه را در طول زمان، حتی هنگام استفاده از پروتکل‌های stateless (مانند HTTP)، با یکدیگر مرتبط کنند. برنامه‌های مدرن ممکن است از چندین توکن نشست (Session Token) با ویژگی‌ها و اهداف متفاوت استفاده کنند. یک سیستم مدیریت نشست ایمن، سیستمی است که از به‌دست آوردن، استفاده یا سوءاستفاده مهاجم از نشست قربانی جلوگیری می‌کند. برنامه‌هایی که نشست‌ها را نگهداری می‌کنند باید اطمینان حاصل کنند که الزامات سطح‌بالای زیر در مدیریت نشست رعایت شده‌اند:
 
-- نشست‌ها برای هر کاربر(شخص) منحصر به فرد هستند و نمی‌توان آن‌ها را حدس زد یا به اشتراک گذاشت.
-- نشست‌ها زمانی که دیگر مورد نیاز نیستند، باطل می‌شوند و در دوره‌های عدم فعالیت، منقضی می‌گردند.
+* نشست‌ها برای هر کاربر(شخص) منحصر به فرد هستند و نمی‌توان آن‌ها را حدس زد یا به اشتراک گذاشت.
+* نشست‌ها زمانی که دیگر مورد نیاز نیستند، باطل می‌شوند و در دوره‌های عدم فعالیت، منقضی می‌گردند.
 
 بسیاری از الزامات مطرح‌شده در این فصل به کنترل‌های انتخاب‌شده از [دستورالعمل‌های هویت دیجیتال NIST SP 800-63](https://pages.nist.gov/800-63-4/) مربوط می‌شوند و بر تهدیدات رایج و ضعف‌های متداول در احراز هویت که معمولاً مورد سوءاستفاده قرار می‌گیرند، تمرکز دارند.
 
 توجه داشته باشید که الزامات مربوط به جزئیات پیاده‌سازی خاصِ برخی از مکانیزم‌های مدیریت نشست را می‌توان در منابع دیگری یافت:
 
-- HTTP Cookie‌ها یک مکانیزم مشترک برای امن سازی توکن‌های نشست هستند. الزامات امنیتی خاصی برای کوکی‌ها در بخش "Web Frontend Security" قرار داده شده است.
-- توکن های Self-contained به عنوان روشی برای نگهداری نشست‌ها بطور مکرر مورد استفاده قرار می‌گیرند. الزامات امنیتی خاصی در بخش "Self-contained Tokens" قرار داده شده است.
+* HTTP Cookie‌ها یک مکانیزم مشترک برای امن سازی توکن‌های نشست هستند. الزامات امنیتی خاصی برای کوکی‌ها در بخش "Web Frontend Security" قرار داده شده است.
+* توکن های Self-contained به عنوان روشی برای نگهداری نشست‌ها بطور مکرر مورد استفاده قرار می‌گیرند. الزامات امنیتی خاصی در بخش "Self-contained Tokens" قرار داده شده است.
 
 ## V7.1 Session Management Documentation
 
@@ -87,5 +87,5 @@
 
 برای اطلاعات بیشتر، همچنین به منابع زیر مراجعه کنید:
 
-- [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
-- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+* [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
+* [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
