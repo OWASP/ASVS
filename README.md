@@ -9,7 +9,7 @@ This work is licensed under a
 
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg
 
@@ -31,7 +31,7 @@ We gratefully recognize the organizations who have supported the project either 
 
 ## Project Leaders and Working Group
 
-The project is led by the four project leaders [Daniel Cuthbert](https://github.com/danielcuthbert), [Jim Manico](https://github.com/jmanico), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
+The project is led by the three project leaders [Daniel Cuthbert](https://github.com/danielcuthbert), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
 
 They are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), [Iman Sharafaldin](https://github.com/ImanSharaf), [Ryan Armstrong](https://github.com/ryarmst), [Gabriel Corona](https://github.com/randomstuff), [Tobias Ahnoff](https://github.com/TobiasAhnoff), and [Eden Yardeni](https://github.com/cronchie). 
 
