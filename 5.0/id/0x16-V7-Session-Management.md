@@ -1,91 +1,91 @@
-# V7 Session Management
+# V7 Manajemen Sesi
 
-## Control Objective
+## Tujuan Kontrol
 
-Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are met:
+Mekanisme manajemen sesi memungkinkan aplikasi untuk menghubungkan interaksi pengguna dan perangkat dari waktu ke waktu, bahkan ketika menggunakan protokol komunikasi stateless (seperti HTTP). Aplikasi modern dapat menggunakan beberapa token sesi dengan karakteristik dan tujuan yang berbeda. Sistem manajemen sesi yang aman adalah sistem yang mencegah penyerang mendapatkan, memanfaatkan, atau menyalahgunakan sesi korban. Aplikasi yang memelihara sesi harus memastikan bahwa persyaratan manajemen sesi tingkat tinggi berikut ini terpenuhi:
 
-* Sessions are unique to each individual and cannot be guessed or shared.
-* Sessions are invalidated when no longer required and are timed out during periods of inactivity.
+* Sesi bersifat unik untuk setiap individu dan tidak dapat ditebak atau dibagikan.
+* Sesi dinyatakan tidak berlaku ketika tidak lagi diperlukan dan di-timeout selama periode tidak aktif.
 
-Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focusing on common threats and commonly exploited authentication weaknesses.
+Banyak persyaratan dalam bab ini berkaitan dengan kontrol [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) yang dipilih, dengan fokus pada ancaman umum dan kelemahan autentikasi yang sering dieksploitasi.
 
-Note that requirements for specific implementation details of certain session management mechanisms can be found elsewhere:
+Perhatikan bahwa persyaratan untuk detail implementasi spesifik dari mekanisme manajemen sesi tertentu dapat ditemukan di tempat lain:
 
-* HTTP Cookies are a common mechanism for securing session tokens. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
-* Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
+* HTTP Cookies adalah mekanisme umum untuk mengamankan token sesi. Persyaratan keamanan spesifik untuk cookies dapat ditemukan di bab "Web Frontend Security".
+* Self-contained tokens sering digunakan sebagai cara untuk memelihara sesi. Persyaratan keamanan spesifik dapat ditemukan di bab "Self-contained Tokens".
 
-## V7.1 Session Management Documentation
+## V7.1 Dokumentasi Manajemen Sesi
 
-There is no single pattern that suits all applications. Therefore, it is not feasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application.
+Tidak ada pola tunggal yang cocok untuk semua aplikasi. Oleh karena itu, tidaklah layak untuk menetapkan batasan dan limit universal yang sesuai untuk semua kasus. Analisis risiko dengan keputusan keamanan yang terdokumentasi terkait penanganan sesi harus dilakukan sebagai prasyarat sebelum implementasi dan pengujian. Ini memastikan bahwa sistem manajemen sesi disesuaikan dengan kebutuhan spesifik aplikasi.
 
-Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements. Interaction with any Single Sign-on (SSO) mechanisms in use should also be considered.
+Terlepas dari apakah mekanisme sesi stateful atau "stateless" yang dipilih, analisis harus lengkap dan terdokumentasi untuk menunjukkan bahwa solusi yang dipilih mampu memenuhi semua persyaratan keamanan yang relevan. Interaksi dengan mekanisme Single Sign-on (SSO) yang digunakan juga harus dipertimbangkan.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **7.1.1** | Verify that the user's session inactivity timeout and absolute maximum session lifetime are documented, are appropriate in combination with other controls, and that the documentation includes justification for any deviations from NIST SP 800-63B re-authentication requirements. | 2 |
-| **7.1.2** | Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviors and actions to be taken when the maximum number of active sessions is reached. | 2 |
-| **7.1.3** | Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other conditions that require re-authentication. | 2 |
+| **7.1.1** | Verifikasi bahwa session inactivity timeout dan masa berlaku sesi maksimum absolut pengguna telah terdokumentasi, sesuai jika dikombinasikan dengan kontrol lainnya, dan dokumentasi tersebut mencakup justifikasi untuk setiap penyimpangan dari persyaratan autentikasi ulang NIST SP 800-63B. | 2 |
+| **7.1.2** | Verifikasi bahwa dokumentasi menetapkan berapa banyak sesi konkuren (paralel) yang diizinkan untuk satu akun serta perilaku dan tindakan yang dimaksudkan untuk diambil ketika jumlah maksimum sesi aktif tercapai. | 2 |
+| **7.1.3** | Verifikasi bahwa semua sistem yang membuat dan mengelola sesi pengguna sebagai bagian dari ekosistem federated identity management (seperti sistem SSO) didokumentasikan bersama dengan kontrol untuk mengoordinasikan masa berlaku sesi, penghentian sesi, dan kondisi lain apa pun yang memerlukan autentikasi ulang. | 2 |
 
-## V7.2 Fundamental Session Management Security
+## V7.2 Keamanan Manajemen Sesi Fundamental
 
-This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated and validated.
+Bagian ini memenuhi persyaratan esensial sesi yang aman dengan memverifikasi bahwa token sesi dibuat dan divalidasi secara aman.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **7.2.1** | Verify that the application performs all session token verification using a trusted, backend service. | 1 |
-| **7.2.2** | Verify that the application uses either self-contained or reference tokens that are dynamically generated for session management, i.e. not using static API secrets and keys. | 1 |
-| **7.2.3** | Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 |
-| **7.2.4** | Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | 1 |
+| **7.2.1** | Verifikasi bahwa aplikasi melakukan semua verifikasi token sesi menggunakan layanan backend yang tepercaya. | 1 |
+| **7.2.2** | Verifikasi bahwa aplikasi menggunakan self-contained tokens atau reference tokens yang dibuat secara dinamis untuk manajemen sesi, yaitu tidak menggunakan API secrets dan kunci statis. | 1 |
+| **7.2.3** | Verifikasi bahwa jika reference tokens digunakan untuk merepresentasikan sesi pengguna, token tersebut bersifat unik dan dibuat menggunakan cryptographically secure pseudo-random number generator (CSPRNG) serta memiliki setidaknya 128 bit entropi. | 1 |
+| **7.2.4** | Verifikasi bahwa aplikasi membuat token sesi baru pada saat autentikasi pengguna, termasuk autentikasi ulang, dan mengakhiri token sesi yang sedang berjalan. | 1 |
 
-## V7.3 Session Timeout
+## V7.3 Waktu Habis Sesi
 
-Session timeout mechanisms serve to minimize the window of opportunity for session hijacking and other forms of session abuse. Timeouts must satisfy documented security decisions.
+Mekanisme session timeout berfungsi untuk meminimalkan jendela peluang bagi session hijacking dan bentuk penyalahgunaan sesi lainnya. Timeout harus memenuhi keputusan keamanan yang terdokumentasi.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **7.3.1** | Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
-| **7.3.2** | Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
+| **7.3.1** | Verifikasi bahwa terdapat inactivity timeout sehingga autentikasi ulang diterapkan sesuai dengan analisis risiko dan keputusan keamanan yang terdokumentasi. | 2 |
+| **7.3.2** | Verifikasi bahwa terdapat masa berlaku sesi maksimum absolut sehingga autentikasi ulang diterapkan sesuai dengan analisis risiko dan keputusan keamanan yang terdokumentasi.. | 2 |
 
-## V7.4 Session Termination
+## V7.4 Pengakhiran Sesi
 
-Session termination may be handled either by the application itself or by the SSO provider if the SSO provider is handling session management instead of the application. It may be necessary to decide whether the SSO provider is in scope when considering the requirements in this section as some may be controlled by the provider.
+Pengakhiran sesi dapat ditangani baik oleh aplikasi itu sendiri maupun oleh penyedia SSO jika penyedia SSO menangani manajemen sesi alih-alih aplikasi. Mungkin perlu diputuskan apakah penyedia SSO termasuk dalam ruang lingkup saat mempertimbangkan persyaratan di bagian ini karena beberapa di antaranya mungkin dikendalikan oleh penyedia tersebut.
 
-Session termination should result in requiring re-authentication and be effective across the application, federated login (if present), and any relying parties.
+Pengakhiran sesi seharusnya mengakibatkan perlunya autentikasi ulang dan berlaku efektif di seluruh aplikasi, login federasi (jika ada), dan semua relying party.
 
-For stateful session mechanisms, termination typically involves invalidating the session on the backend. In the case of self-contained tokens, additional measures are required to revoke or block these tokens, as they may otherwise remain valid until expiration.
+Untuk mekanisme sesi stateful, pengakhiran biasanya melibatkan invalidasi sesi di backend. Dalam kasus self-contained tokens, langkah-langkah tambahan diperlukan untuk mencabut atau memblokir token-token ini, karena jika tidak, token tersebut mungkin tetap valid hingga masa berlakunya habis.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **7.4.1** | Verify that when session termination is triggered (such as logout or expiration), the application disallows any further use of the session. For reference tokens or stateful sessions, this means invalidating the session data at the application backend. Applications using self-contained tokens will need a solution such as maintaining a list of terminated tokens, disallowing tokens produced before a per-user date and time or rotating a per-user signing key. | 1 |
-| **7.4.2** | Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 |
-| **7.4.3** | Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 |
-| **7.4.4** | Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 |
-| **7.4.5** | Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 2 |
+| **7.4.1** | Verifikasi bahwa ketika pengakhiran sesi dipicu (seperti logout atau kedaluwarsa), aplikasi tidak mengizinkan penggunaan sesi lebih lanjut. Untuk reference tokens atau sesi stateful, ini berarti menginvalidasi data sesi di backend aplikasi. Aplikasi yang menggunakan self-contained tokens memerlukan solusi seperti memelihara daftar token yang diakhiri, tidak mengizinkan token yang dibuat sebelum tanggal dan waktu per pengguna, atau merotasi signing key per pengguna. | 1 |
+| **7.4.2** | Verifikasi bahwa aplikasi mengakhiri semua sesi aktif ketika akun pengguna dinonaktifkan atau dihapus (seperti karyawan yang meninggalkan perusahaan). | 1 |
+| **7.4.3** | Verifikasi bahwa aplikasi memberikan opsi untuk mengakhiri semua sesi aktif lainnya setelah berhasil mengubah atau menghapus faktor autentikasi apa pun (termasuk penggantian kata sandi melalui reset atau recovery dan, jika ada, pembaruan pengaturan MFA). | 2 |
+| **7.4.4** | Verifikasi bahwa semua halaman yang memerlukan autentikasi memiliki akses yang mudah dan terlihat ke fungsionalitas logout. | 2 |
+| **7.4.5** | Verifikasi bahwa administrator aplikasi dapat mengakhiri sesi aktif untuk seorang pengguna individual atau untuk semua pengguna. | 2 |
 
-## V7.5 Defenses Against Session Abuse
+## V7.5 Upaya Pencegahan Penyalahgunaan Sesi
 
-This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors that rely on the existence and capabilities of active user sessions. For example, using malicious content execution to force an authenticated victim browser to perform an action using the victim's session.
+Bagian ini menyediakan persyaratan untuk memitigasi risiko yang ditimbulkan oleh sesi aktif yang dibajak atau disalahgunakan melalui vektor yang mengandalkan keberadaan dan kapabilitas sesi pengguna yang aktif. Sebagai contoh, menggunakan eksekusi konten berbahaya untuk memaksa browser korban yang terautentikasi melakukan suatu tindakan menggunakan sesi korban.
 
-Note that the level-specific guidance in the "Authentication" chapter should be taken into account when considering requirements in this section.
+Perhatikan bahwa panduan spesifik level di bab "Authentication" harus dipertimbangkan saat mempertimbangkan persyaratan di bagian ini.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **7.5.1** | Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 |
-| **7.5.2** | Verify that users are able to view and (having authenticated again with at least one factor) terminate any or all currently active sessions. | 2 |
-| **7.5.3** | Verify that the application requires further authentication with at least one factor or secondary verification before performing highly sensitive transactions or operations. | 3 |
+| **7.5.1** | Verifikasi bahwa aplikasi memerlukan autentikasi ulang penuh sebelum mengizinkan modifikasi pada atribut akun sensitif yang dapat memengaruhi autentikasi seperti alamat email, nomor telepon, konfigurasi MFA, atau informasi lain yang digunakan dalam pemulihan akun. | 2 |
+| **7.5.2** | Verifikasi bahwa pengguna dapat melihat dan (setelah mengautentikasi ulang dengan setidaknya satu faktor) mengakhiri sebagian atau semua sesi yang sedang aktif. | 2 |
+| **7.5.3** | Verifikasi bahwa aplikasi memerlukan autentikasi lebih lanjut dengan setidaknya satu faktor atau verifikasi sekunder sebelum melakukan transaksi atau operasi yang sangat sensitif. | 3 |
 
-## V7.6 Federated Re-authentication
+## V7.6 Otentikasi Ulang Terintegrasi
 
-This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
+Bagian ini berkaitan dengan mereka yang menulis kode Relying Party (RP) atau Identity Provider (IdP). Persyaratan ini berasal dari [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) untuk Federation & Assertions.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **7.6.1** | Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 |
-| **7.6.2** | Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 |
+| **7.6.1** | Verifikasi bahwa masa berlaku sesi dan pengakhiran sesi antara Relying Parties (RPs) dan Identity Providers (IdPs) berperilaku sesuai yang didokumentasikan, memerlukan autentikasi ulang seperlunya seperti ketika waktu maksimum antara peristiwa autentikasi IdP tercapai. | 2 |
+| **7.6.2** | Verifikasi bahwa pembuatan sesi memerlukan persetujuan pengguna atau tindakan eksplisit, mencegah pembuatan sesi aplikasi baru tanpa interaksi pengguna. | 2 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
 * [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
 * [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
