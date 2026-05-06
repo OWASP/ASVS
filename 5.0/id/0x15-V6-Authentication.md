@@ -131,7 +131,7 @@ Mekanisme otentikasi kriptografi mencakup kartu pintar atau kunci FIDO, di mana 
 
 Apabila kunci bersama atau kunci rahasia digunakan untuk otentikasi kriptografi, kunci-kunci ini harus disimpan menggunakan mekanisme yang sama seperti rahasia sistem lainnya, sebagaimana didokumentasikan dalam bagian "Secret Management" di bab "Configuration".
 
-Persyaratan di bagian ini sebagian besar berkaitan dengan [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Persyaratan di bagian ini sebagian besar berkaitan dengan [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) dari [Panduan NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 | # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
