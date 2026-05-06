@@ -1,90 +1,90 @@
-# Changes Compared to v4.x
+# Perubahan Dibandingkan dengan v4.x
 
-## Introduction
+## Pengantar
 
-Users familiar with version 4.x of the standard may find it helpful to review the key changes introduced in version 5.0, including updates in content, scope, and underlying philosophy.
+Pengguna yang sudah familiar dengan standar versi 4.x mungkin akan merasa terbantu dengan meninjau perubahan-perubahan utama yang diperkenalkan dalam versi 5.0, termasuk pembaruan dalam konten, cakupan, dan filosofi yang mendasarinya.
 
-Of the 286 requirements in version 4.0.3, only 11 remain unchanged, while 15 have undergone minor grammatical adjustments without altering their meaning. In total 109 requirements (38%) are no longer separate requirements in version 5.0 with 50 simply being deleted, 28 removed as duplicates and 31 merged into other requirements. The rest have been revised in some way. Even requirements that were not substantively modified have different identifiers due to reordering or restructuring.
+Dari 286 persyaratan dalam versi 4.0.3, hanya 11 yang tetap tidak berubah, sementara 15 mengalami penyesuaian tata bahasa kecil tanpa mengubah maknanya. Secara total, 109 persyaratan (38%) tidak lagi menjadi persyaratan terpisah dalam versi 5.0, dengan 50 di antaranya dihapus, 28 dihapus karena duplikat, dan 31 digabungkan ke dalam persyaratan lain. Sisanya telah direvisi dalam beberapa hal. Bahkan persyaratan yang tidak dimodifikasi secara substansial memiliki pengenal yang berbeda karena penataan ulang atau restrukturisasi.
 
-To facilitate adoption of version 5.0, mapping documents are provided to help users trace how requirements from version 4.x correspond to those in version 5.0. These mappings are not tied to release versioning and may be updated or clarified as needed.
+Untuk mempermudah adopsi versi 5.0, dokumen pemetaan disediakan untuk membantu pengguna melacak bagaimana persyaratan dari versi 4.x sesuai dengan persyaratan di versi 5.0. Pemetaan ini tidak terikat pada versi rilis dan dapat diperbarui atau diklarifikasi sesuai kebutuhan.
 
-## Requirement Philosophy
+## Filosofi Persyaratan
 
-### Scope and Focus
+### Cakupan dan Fokus
 
-Version 4.x included requirements that did not align with the intended scope of the standard; these have been removed. Requirements that did not meet the scope criteria for 5.0 or were not verifiable have also been excluded.
+Versi 4.x mencakup persyaratan yang tidak sesuai dengan ruang lingkup standar yang dimaksud; persyaratan tersebut telah dihapus. Persyaratan yang tidak memenuhi kriteria ruang lingkup untuk versi 5.0 atau tidak dapat diverifikasi juga telah dikecualikan.
 
-### Emphasis on Security Goals Over Mechanisms
+### Penekanan pada Tujuan Keamanan di Atas Mekanisme
 
-In version 4.x, many requirements focused on specific mechanisms rather than the underlying security objectives. In version 5.0, requirements are centered on security goals, referencing particular mechanisms only when they are the sole practical solution, or providing them as examples or supplementary guidance.
+Pada versi 4.x, banyak persyaratan berfokus pada mekanisme spesifik daripada tujuan keamanan yang mendasar. Pada versi 5.0, persyaratan berpusat pada tujuan keamanan, hanya merujuk pada mekanisme tertentu ketika itu adalah satu-satunya solusi praktis, atau menyediakannya sebagai contoh atau panduan tambahan.
 
-This approach recognizes that multiple methods may exist to achieve a given security objective, and avoids unnecessary prescriptiveness that could limit organizational flexibility.
+Pendekatan ini mengakui bahwa mungkin ada beberapa metode untuk mencapai tujuan keamanan tertentu, dan menghindari preskriptifitas yang tidak perlu yang dapat membatasi fleksibilitas organisasi.
 
-Additionally, requirements addressing the same security concern have been consolidated where appropriate.
+Selain itu, persyaratan yang membahas masalah keamanan yang sama telah dikonsolidasikan jika sesuai.
 
-### Documented Security Decisions
+### Keputusan Keamanan yang Terdokumentasi
 
-While the concept of documented security decisions may appear new in version 5.0, it is an evolution of earlier requirements related to policy application and threat modeling in version 4.0. Previously, some requirements implicitly demanded analysis to inform the implementation of security controls, such as determining permitted network connections.
+Meskipun konsep keputusan keamanan yang terdokumentasi mungkin terlihat baru dalam versi 5.0, ini merupakan evolusi dari persyaratan sebelumnya yang terkait dengan penerapan kebijakan dan pemodelan ancaman dalam versi 4.0. Sebelumnya, beberapa persyaratan secara implisit menuntut analisis untuk menginformasikan implementasi kontrol keamanan, seperti menentukan koneksi jaringan yang diizinkan.
 
-To ensure that necessary information is available for implementation and verification, these expectations are now explicitly defined as documentation requirements, making them clear, actionable, and verifiable.
+Untuk memastikan bahwa informasi yang diperlukan tersedia untuk implementasi dan verifikasi, harapan-harapan ini sekarang secara eksplisit didefinisikan sebagai persyaratan dokumentasi, sehingga menjadi jelas, dapat ditindaklanjuti, dan dapat diverifikasi.
 
-## Structural Changes and New Chapters
+## Perubahan Struktur dan Bab Baru
 
-Several chapters in version 5.0 introduce entirely new content:
+Beberapa bab dalam versi 5.0 memperkenalkan konten yang sepenuhnya baru:
 
-* OAuth and OIDC – Given the widespread adoption of these protocols for access delegation and single sign-on, dedicated requirements have been added to address the diverse scenarios developers may encounter. This area may eventually evolve into a standalone standard, similar to the treatment of Mobile and IoT requirements in previous versions.
-* WebRTC – As this technology gains popularity, its unique security considerations and challenges are now addressed in a dedicated section.
+* OAuth dan OIDC – Mengingat adopsi luas protokol ini untuk delegasi akses dan single sign-on, persyaratan khusus telah ditambahkan untuk mengatasi beragam skenario yang mungkin dihadapi pengembang. Area ini pada akhirnya dapat berkembang menjadi standar mandiri, serupa dengan perlakuan terhadap persyaratan Mobile dan IoT pada versi sebelumnya.
+* WebRTC – Seiring meningkatnya popularitas teknologi ini, pertimbangan dan tantangan keamanannya yang unik kini dibahas dalam bagian khusus.
 
-Efforts have also been made to ensure that chapters and sections are organized around coherent sets of related requirements.
+Upaya juga telah dilakukan untuk memastikan bahwa bab dan bagian disusun berdasarkan serangkaian persyaratan terkait yang koheren.
 
-This restructuring has led to the creation of additional chapters:
+Restrukturisasi ini telah menyebabkan terciptanya bab-bab tambahan:
 
-* Self-contained Tokens – Formerly grouped under session management, self-contained tokens are now recognized as a distinct mechanism and a foundational element for stateless communication (such as in OAuth and OIDC). Due to their unique security implications, they are addressed in a dedicated chapter, with some new requirements introduced in version 5.x.
-* Web Frontend Security – With the increasing complexity of browser-based applications and the rise of API-only architectures, frontend security requirements have been separated into their own chapter.
-* Secure Coding and Architecture – New requirements addressing general security practices that did not fit within existing chapters have been grouped here.
+* Token Mandiri – Sebelumnya dikelompokkan dalam manajemen sesi, token mandiri kini diakui sebagai mekanisme yang berbeda dan elemen dasar untuk komunikasi tanpa status (seperti dalam OAuth dan OIDC). Karena implikasi keamanannya yang unik, token ini dibahas dalam bab khusus, dengan beberapa persyaratan baru yang diperkenalkan dalam versi 5.x.
+* Keamanan Antarmuka Web – Dengan meningkatnya kompleksitas aplikasi berbasis browser dan munculnya arsitektur berbasis API saja, persyaratan keamanan antarmuka web telah dipisahkan ke dalam bab tersendiri.
+* Pengkodean dan Arsitektur yang Aman – Persyaratan baru yang membahas praktik keamanan umum yang tidak sesuai dengan bab-bab yang ada telah dikelompokkan di sini.
 
-Other organizational changes in version 5.0 were made to clarify intent. For example, input validation requirements were moved alongside business logic, reflecting their role in enforcing business rules, rather than being grouped with sanitization and encoding.
+Perubahan organisasi lainnya dalam versi 5.0 dilakukan untuk memperjelas maksud. Misalnya, persyaratan validasi input dipindahkan bersama logika bisnis, mencerminkan peran mereka dalam menegakkan aturan bisnis, daripada dikelompokkan dengan sanitasi dan pengkodean.
 
-The former V1 Architecture chapter has been removed. Its initial section contained requirements that were out of scope, while subsequent sections have been redistributed to relevant chapters, with requirements deduplicated and clarified as necessary.
+Bab Arsitektur V1 sebelumnya telah dihapus. Bagian awalnya berisi persyaratan yang berada di luar cakupan, sementara bagian selanjutnya telah didistribusikan kembali ke bab-bab yang relevan, dengan persyaratan yang dihilangkan duplikatnya dan diklarifikasi seperlunya.
 
-## Removal of Direct Mappings to Other Standards
+## Penghapusan Pemetaan Langsung ke Standar Lain
 
-Direct mappings to other standards have been removed from the main body of the standard. The aim is to prepare a mapping with the OWASP Common Requirement Enumeration (CRE) project, which in turn will link ASVS to a range of OWASP projects and external standards.
+Pemetaan langsung ke standar lain telah dihapus dari bagian utama standar ini. Tujuannya adalah untuk mempersiapkan pemetaan dengan proyek OWASP Common Requirement Enumeration (CRE), yang pada gilirannya akan menghubungkan ASVS dengan berbagai proyek OWASP dan standar eksternal.
 
-Direct mappings to CWE and NIST are no longer maintained, as explained below.
+Pemetaan langsung ke CWE dan NIST tidak lagi dipelihara, seperti yang dijelaskan di bawah ini.
 
-### Reduced Coupling with NIST Digital Identity Guidelines
+### Mengurangi Keterkaitan dengan Pedoman Identitas Digital NIST
 
-The NIST [Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) have long served as a reference for authentication and authorization controls. In version 4.x, certain chapters were closely aligned with NIST's structure and terminology.
+Pedoman [Identitas Digital NIST (SP 800-63)](https://pages.nist.gov/800-63-3/) telah lama berfungsi sebagai referensi untuk kontrol otentikasi dan otorisasi. Pada versi 4.x, bab-bab tertentu diselaraskan secara erat dengan struktur dan terminologi NIST.
 
-While these guidelines remain an important reference, strict alignment introduced challenges, including less widely recognized terminology, duplication of similar requirements, and incomplete mappings. Version 5.0 moves away from this approach to improve clarity and relevance.
+Meskipun pedoman ini tetap menjadi referensi penting, penyelarasan yang ketat menimbulkan tantangan, termasuk terminologi yang kurang dikenal secara luas, duplikasi persyaratan serupa, dan pemetaan yang tidak lengkap. Versi 5.0 beralih dari pendekatan ini untuk meningkatkan kejelasan dan relevansi.
 
-### Moving Away from Common Weakness Enumeration (CWE)
+### Menjauh dari Enumerasi Kelemahan Umum (CWE)
 
-The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) provides a useful taxonomy of software security weaknesses. However, challenges such as category-only CWEs, difficulties in mapping requirements to a single CWE, and the presence of imprecise mappings in version 4.x have led to the decision to discontinue direct CWE mappings in version 5.0.
+[Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) menyediakan taksonomi yang berguna untuk kelemahan keamanan perangkat lunak. Namun, tantangan seperti CWE yang hanya berdasarkan kategori, kesulitan dalam memetakan persyaratan ke satu CWE, dan adanya pemetaan yang tidak tepat pada versi 4.x telah menyebabkan keputusan untuk menghentikan pemetaan CWE langsung pada versi 5.0.
 
-## Rethinking Level Definitions
+## Memikirkan Kembali Definisi Level
 
-Version 4.x described the levels as L1 ("Minimum"), L2 ("Standard"), and L3 ("Advanced"), with the implication that all applications handling sensitive data should meet at least L2.
+Versi 4.x mendeskripsikan level-level tersebut sebagai L1 ("Minimum"), L2 ("Standar"), dan L3 ("Lanjutan"), dengan implikasi bahwa semua aplikasi yang menangani data sensitif setidaknya harus memenuhi level L2.
 
-Version 5.0 addresses several issues with this approach which are described in the following paragraphs.
+Versi 5.0 mengatasi beberapa masalah dengan pendekatan ini yang dijelaskan dalam paragraf-paragraf berikut.
 
-As a practical matter, whereas version 4.x used tick marks for level indicators, 5.x uses a simple number on all formats of the standard including markdown, PDF, DOCX, CSV, JSON and XML. For backwards compatibility, legacy versions of the CSV, JSON and XML outputs which still use tick marks are also generated.
+Secara praktis, sementara versi 4.x menggunakan tanda centang untuk indikator level, versi 5.x menggunakan angka sederhana pada semua format standar termasuk markdown, PDF, DOCX, CSV, JSON, dan XML. Untuk kompatibilitas mundur, versi lama dari output CSV, JSON, dan XML yang masih menggunakan tanda centang juga dihasilkan.
 
-### Easier Entry Level
+### Tingkat Pemula yang Lebih Mudah
 
-Feedback indicated that the large number of Level 1 requirements (~120), combined with its designation as the "minimum" level that is not good enough for most applications, discouraged adoption. Version 5.0 aims to lower this barrier by defining Level 1 primarily around first-layer defense requirements, resulting in clearer and fewer requirements at that level. To demonstrate this numerically, in v4.0.3 there were 128 L1 requirements out of a total of 278 requirements, representing 46%. In 5.0.0 there are 70 L1 requirements out of a total of 345 requirements, representing 20%.
+Umpan balik menunjukkan bahwa banyaknya persyaratan Level 1 (~120), ditambah dengan penunjukannya sebagai level "minimum" yang tidak cukup baik untuk sebagian besar aplikasi, menghambat adopsi. Versi 5.0 bertujuan untuk menurunkan hambatan ini dengan mendefinisikan Level 1 terutama di sekitar persyaratan pertahanan lapisan pertama, sehingga menghasilkan persyaratan yang lebih jelas dan lebih sedikit pada level tersebut. Untuk menunjukkan hal ini secara numerik, dalam v4.0.3 terdapat 128 persyaratan L1 dari total 278 persyaratan, yang mewakili 46%. Dalam 5.0.0 terdapat 70 persyaratan L1 dari total 345 persyaratan, yang mewakili 20%.
 
-### The Fallacy of Testability
+### Kekeliruan Keterujian
 
-A key factor in selecting controls for Level 1 in version 4.x was their suitability for assessment through "black box" external penetration testing. However, this approach was not fully aligned with the intent of Level 1 as the minimum set of security controls. Some users argued that Level 1 was insufficient for securing applications, while others found it too difficult to test.
+Faktor kunci dalam memilih kontrol untuk Level 1 di versi 4.x adalah kesesuaiannya untuk penilaian melalui pengujian penetrasi eksternal "kotak hitam". Namun, pendekatan ini tidak sepenuhnya selaras dengan tujuan Level 1 sebagai rangkaian kontrol keamanan minimum. Beberapa pengguna berpendapat bahwa Level 1 tidak cukup untuk mengamankan aplikasi, sementara yang lain menganggapnya terlalu sulit untuk diuji.
 
-Relying on testability as a criterion is both relative and, at times, misleading. The fact that a requirement is testable does not guarantee that it can be tested in an automated or straightforward manner. Moreover, the most easily testable requirements are not always those with the greatest security impact or the simplest to implement.
+Mengandalkan kemampuan uji sebagai kriteria bersifat relatif dan, terkadang, menyesatkan. Fakta bahwa suatu persyaratan dapat diuji tidak menjamin bahwa persyaratan tersebut dapat diuji secara otomatis atau langsung. Terlebih lagi, persyaratan yang paling mudah diuji tidak selalu merupakan persyaratan yang memiliki dampak keamanan terbesar atau yang paling mudah diimplementasikan.
 
-As such, in version 5.0, the level decisions were made primarily based on risk reduction and also keeping in mind the effort to implement.
+Oleh karena itu, dalam versi 5.0, keputusan level dibuat terutama berdasarkan pengurangan risiko dan juga dengan mempertimbangkan upaya implementasi.
 
-### Not Just About Risk
+### Bukan Hanya Soal Risiko
 
-The use of prescriptive, risk-based levels that mandate a specific level for certain applications has proven to be overly rigid. In practice, the prioritization and implementation of security controls depend on multiple factors, including both risk reduction and the effort required for implementation.
+Penggunaan tingkatan preskriptif berbasis risiko yang mewajibkan tingkat tertentu untuk aplikasi tertentu telah terbukti terlalu kaku. Dalam praktiknya, prioritas dan implementasi kontrol keamanan bergantung pada banyak faktor, termasuk pengurangan risiko dan upaya yang dibutuhkan untuk implementasi.
 
-Therefore, organizations are encouraged to achieve the level that they feel like they should be achieving based on their maturity and the message they want to send to their users.
+Oleh karena itu, organisasi didorong untuk mencapai tingkat yang mereka rasa pantas dicapai berdasarkan kematangan mereka dan pesan yang ingin mereka sampaikan kepada pengguna mereka.
