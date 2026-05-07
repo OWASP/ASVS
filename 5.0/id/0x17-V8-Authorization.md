@@ -1,56 +1,56 @@
-# V8 Authorization
+# V8 Otorisasi
 
-## Control Objective
+## Tujuan Kontrol
 
-Authorization ensures that access is granted only to permitted consumers (users, servers, and other clients). To enforce the Principle of Least Privilege (POLP), verified applications must meet the following high-level requirements:
+Otorisasi memastikan bahwa akses hanya diberikan kepada konsumen yang diizinkan (pengguna, server, dan klien lainnya). Untuk menegakkan *Principle of Least Privilege* (POLP), aplikasi yang diverifikasi harus memenuhi persyaratan tingkat tinggi berikut:
 
-* Document authorization rules, including decision-making factors and environmental contexts.
-* Consumers should have access only to resources permitted by their defined entitlements.
+* Dokumentasikan aturan otorisasi, termasuk faktor pengambilan keputusan dan konteks lingkungan.
+* Konsumen seharusnya hanya memiliki akses ke sumber daya yang diizinkan oleh hak yang ditetapkan untuk mereka.
 
-## V8.1 Authorization Documentation
+## V8.1 Dokumentasi Otorisasi
 
-Comprehensive authorization documentation is essential to ensure that security decisions are consistently applied, auditable, and aligned with organizational policies. This reduces the risk of unauthorized access by making security requirements clear and actionable for developers, administrators, and testers.
+Dokumentasi otorisasi yang komprehensif sangat penting untuk memastikan bahwa keputusan keamanan diterapkan secara konsisten, dapat diaudit, dan selaras dengan kebijakan organisasi. Ini mengurangi risiko akses tidak sah dengan membuat persyaratan keamanan menjadi jelas dan dapat ditindaklanjuti oleh pengembang, administrator, dan penguji.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **8.1.1** | Verify that authorization documentation defines rules for restricting function-level and data-specific access based on consumer permissions and resource attributes. | 1 |
-| **8.1.2** | Verify that authorization documentation defines rules for field-level access restrictions (both read and write) based on consumer permissions and resource attributes. Note that these rules might depend on other attribute values of the relevant data object, such as state or status. | 2 |
-| **8.1.3** | Verify that the application's documentation defines the environmental and contextual attributes (including but not limited to, time of day, user location, IP address, or device) that are used in the application to make security decisions, including those pertaining to authentication and authorization. | 3 |
-| **8.1.4** | Verify that authentication and authorization documentation defines how environmental and contextual factors are used in decision-making, in addition to function-level, data-specific, and field-level authorization. This should include the attributes evaluated, thresholds for risk, and actions taken (e.g., allow, challenge, deny, step-up authentication). | 3 |
+| **8.1.1** | Verifikasi bahwa dokumentasi otorisasi mendefinisikan aturan untuk membatasi akses function-level dan data-specific berdasarkan izin konsumen dan atribut sumber daya. | 1 |
+| **8.1.2** | Verifikasi bahwa dokumentasi otorisasi mendefinisikan aturan untuk pembatasan akses field-level (baik baca maupun tulis) berdasarkan izin konsumen dan atribut sumber daya. Perhatikan bahwa aturan ini mungkin bergantung pada nilai atribut lain dari objek data yang relevan, seperti state atau status. | 2 |
+| **8.1.3** | Verifikasi bahwa dokumentasi aplikasi mendefinisikan atribut lingkungan dan kontekstual (termasuk namun tidak terbatas pada, waktu, lokasi pengguna, alamat IP, atau perangkat) yang digunakan dalam aplikasi untuk membuat keputusan keamanan, termasuk yang berkaitan dengan autentikasi dan otorisasi. | 3 |
+| **8.1.4** | Verifikasi bahwa dokumentasi autentikasi dan otorisasi mendefinisikan bagaimana faktor lingkungan dan kontekstual digunakan dalam pengambilan keputusan, selain otorisasi function-level, data-specific, dan field-level. Ini harus mencakup atribut yang dievaluasi, ambang batas risiko, dan tindakan yang diambil (misalnya, izinkan, tantang, tolak, step-up authentication). | 3 |
 
-## V8.2 General Authorization Design
+## V8.2 Desain Otorisasi Umum
 
-Implementing granular authorization controls at the function, data, and field levels ensures that consumers can access only what has been explicitly granted to them.
+Menerapkan kontrol otorisasi granular pada level fungsi, data, dan field memastikan bahwa konsumen hanya dapat mengakses apa yang telah secara eksplisit diberikan kepada mereka.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **8.2.1** | Verify that the application ensures that function-level access is restricted to consumers with explicit permissions. | 1 |
-| **8.2.2** | Verify that the application ensures that data-specific access is restricted to consumers with explicit permissions to specific data items to mitigate insecure direct object reference (IDOR) and broken object level authorization (BOLA). | 1 |
-| **8.2.3** | Verify that the application ensures that field-level access is restricted to consumers with explicit permissions to specific fields to mitigate broken object property level authorization (BOPLA). | 2 |
-| **8.2.4** | Verify that adaptive security controls based on a consumer's environmental and contextual attributes (such as time of day, location, IP address, or device) are implemented for authentication and authorization decisions, as defined in the application's documentation. These controls must be applied when the consumer tries to start a new session and also during an existing session. | 3 |
+| **8.2.1** | Verifikasi bahwa aplikasi memastikan akses function-level dibatasi hanya untuk konsumen dengan izin eksplisit. | 1 |
+| **8.2.2** | Verifikasi bahwa aplikasi memastikan akses data-specific dibatasi hanya untuk konsumen dengan izin eksplisit ke item data tertentu untuk memitigasi insecure direct object reference (IDOR) dan broken object level authorization (BOLA). | 1 |
+| **8.2.3** | Verifikasi bahwa aplikasi memastikan akses field-level dibatasi hanya untuk konsumen dengan izin eksplisit ke field tertentu untuk memitigasi broken object property level authorization (BOPLA). | 2 |
+| **8.2.4** | Verifikasi bahwa kontrol keamanan adaptif berdasarkan atribut lingkungan dan kontekstual konsumen (seperti waktu, lokasi, alamat IP, atau perangkat) diimplementasikan untuk keputusan autentikasi dan otorisasi, seperti yang didefinisikan dalam dokumentasi aplikasi. Kontrol ini harus diterapkan ketika konsumen mencoba memulai sesi baru dan juga selama sesi berlangsung. | 3 |
 
-## V8.3 Operation Level Authorization
+## V8.3 Otorisasi Tingkat Operasi
 
-The immediate application of authorization changes in the appropriate tier of an application's architecture is crucial to preventing unauthorized actions, especially in dynamic environments.
+Penerapan segera perubahan otorisasi di tier yang sesuai dalam arsitektur aplikasi sangat penting untuk mencegah tindakan yang tidak sah, terutama dalam lingkungan yang dinamis.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **8.3.1** | Verify that the application enforces authorization rules at a trusted service layer and doesn't rely on controls that an untrusted consumer could manipulate, such as client-side JavaScript. | 1 |
-| **8.3.2** | Verify that changes to values on which authorization decisions are made are applied immediately. Where changes cannot be applied immediately, (such as when relying on data in self-contained tokens), there must be mitigating controls to alert when a consumer performs an action when they are no longer authorized to do so and revert the change. Note that this alternative would not mitigate information leakage. | 3 |
-| **8.3.3** | Verify that access to an object is based on the originating subject's (e.g. consumer's) permissions, not on the permissions of any intermediary or service acting on their behalf. For example, if a consumer calls a web service using a self-contained token for authentication, and the service then requests data from a different service, the second service will use the consumer's token, rather than a machine-to-machine token from the first service, to make permission decisions. | 3 |
+| **8.3.1** | Verifikasi bahwa aplikasi menegakkan aturan otorisasi di lapisan layanan tepercaya dan tidak bergantung pada kontrol yang dapat dimanipulasi oleh konsumen yang tidak tepercaya, seperti JavaScript sisi klien. | 1 |
+| **8.3.2** | Verifikasi bahwa perubahan pada nilai yang menjadi dasar keputusan otorisasi diterapkan segera. Jika perubahan tidak dapat diterapkan segera, (seperti ketika bergantung pada data di self-contained tokens), harus ada kontrol mitigasi untuk memberi peringatan ketika konsumen melakukan tindakan saat mereka tidak lagi berwenang untuk melakukannya dan mengembalikan perubahan tersebut. Perhatikan bahwa alternatif ini tidak akan memitigasi kebocoran informasi. | 3 |
+| **8.3.3** | Verifikasi bahwa akses ke suatu objek didasarkan pada izin subjek asal (misalnya konsumen), bukan pada izin perantara atau layanan apa pun yang bertindak atas nama mereka. Sebagai contoh, jika konsumen memanggil layanan web menggunakan self-contained token untuk autentikasi, dan layanan tersebut kemudian meminta data dari layanan lain, layanan kedua akan menggunakan token konsumen, bukan token machine-to-machine dari layanan pertama, untuk membuat keputusan izin. | 3 |
 
-## V8.4 Other Authorization Considerations
+## V8.4 Pertimbangan Otorisasi Lainnya
 
-Additional considerations for authorization, particularly for administrative interfaces and multi-tenant environments, help prevent unauthorized access.
+Pertimbangan tambahan untuk otorisasi, khususnya untuk antarmuka administratif dan lingkungan multi-tenant, membantu mencegah akses tanpa izin.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **8.4.1** | Verify that multi-tenant applications use cross-tenant controls to ensure consumer operations will never affect tenants with which they do not have permissions to interact. | 2 |
-| **8.4.2** | Verify that access to administrative interfaces incorporates multiple layers of security, including continuous consumer identity verification, device security posture assessment, and contextual risk analysis, ensuring that network location or trusted endpoints are not the sole factors for authorization even though they may reduce the likelihood of unauthorized access. | 3 |
+| **8.4.1** | Pastikan bahwa aplikasi multi-tenant menggunakan kontrol lintas-tenant untuk menjamin bahwa operasi konsumen tidak akan pernah memengaruhi tenant yang tidak memiliki izin untuk berinteraksi dengannya. | 2 |
+| **8.4.2** | Pastikan bahwa akses ke antarmuka administratif menggabungkan beberapa lapisan keamanan, termasuk *continuous consumer identity verification*, penilaian *device security posture*, dan *contextual risk analysis*, untuk memastikan bahwa lokasi jaringan atau *trusted endpoints* bukan merupakan satu-satunya faktor otorisasi meskipun hal tersebut dapat mengurangi kemungkinan akses yang tidak sah. | 3 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi selengkapnya, lihat juga:
 
 * [OWASP Web Security Testing Guide: Authorization](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing)
 * [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
