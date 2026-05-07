@@ -1,50 +1,50 @@
-# V10 OAuth and OIDC
+# V10 OAuth dan OIDC
 
-## Control Objective
+## Tujuan Kontrol
 
-OAuth2 (referred to as OAuth in this chapter) is an industry-standard framework for delegated authorization. For example, using OAuth, a client application can obtain access to APIs (server resources) on a user's behalf, provided the user has authorized the client application to do so.
+OAuth2 (disebut sebagai OAuth dalam bab ini) adalah kerangka kerja standar industri untuk *delegated authorization*. Sebagai contoh, dengan menggunakan OAuth, sebuah aplikasi klien dapat memperoleh akses ke API (*server resources*) atas nama pengguna, asalkan pengguna tersebut telah memberikan otorisasi kepada aplikasi klien untuk melakukannya.
 
-By itself, OAuth is not designed for user authentication. The OpenID Connect (OIDC) framework extends OAuth by adding a user identity layer on top of OAuth. OIDC provides support for features including standardized user information, Single Sign-On (SSO), and session management. As OIDC is an extension of OAuth, the OAuth requirements in this chapter also apply to OIDC.
+Secara mandiri, OAuth tidak dirancang untuk autentikasi pengguna. Kerangka kerja *OpenID Connect (OIDC)* memperluas OAuth dengan menambahkan lapisan identitas pengguna di atas OAuth. OIDC memberikan dukungan untuk fitur-fitur termasuk informasi pengguna yang terstandarisasi, *Single Sign-On (SSO)*, dan manajemen sesi. Karena OIDC adalah ekstensi dari OAuth, persyaratan OAuth dalam bab ini juga berlaku untuk OIDC.
 
-The following roles are defined in OAuth:
+Peran-peran berikut didefinisikan dalam OAuth:
 
-* The OAuth client is the application that attempts to obtain access to server resources (e.g., by calling an API using the issued access token). The OAuth client is often a server-side application.
-    * A confidential client is a client capable of maintaining the confidentiality of the credentials it uses to authenticate itself with the authorization server.
-    * A public client is not capable of maintaining the confidentiality of credentials for authenticating with the authorization server. Therefore, instead of authenticating itself (e.g., using 'client_id' and 'client_secret' parameters), it only identifies itself (using a 'client_id' parameter).
-* The OAuth resource server (RS) is the server API exposing resources to OAuth clients.
-* The OAuth authorization server (AS) is a server application that issues access tokens to OAuth clients. These access tokens allow OAuth clients to access RS resources, either on behalf of an end-user or on the OAuth client's own behalf. The AS is often a separate application, but (if appropriate) it may be integrated into a suitable RS.
-* The resource owner (RO) is the end-user who authorizes OAuth clients to obtain limited access to resources hosted on the resource server on their behalf. The resource owner consents to this delegated authorization by interacting with the authorization server.
+* Klien OAuth adalah aplikasi yang mencoba untuk mendapatkan akses ke *server resources* (misalnya, dengan memanggil API menggunakan *access token* yang telah diterbitkan). Klien OAuth sering kali berupa aplikasi berbasis *server-side*.
+    * *Confidential client* adalah klien yang mampu menjaga kerahasiaan kredensial yang digunakannya untuk melakukan autentikasi ke *authorization server*.
+    * *Public client* tidak mampu menjaga kerahasiaan kredensial untuk autentikasi ke *authorization server*. Oleh karena itu, alih-alih melakukan autentikasi (misalnya, menggunakan parameter '*client_id*' dan '*client_secret*'), klien ini hanya mengidentifikasi dirinya sendiri (menggunakan parameter '*client_id*').   
+* *OAuth resource server* (*RS*) adalah API server yang mengekspos sumber daya ke *OAuth clients*.
+* *OAuth authorization server* (*AS*) adalah sebuah aplikasi server yang menerbitkan *access tokens* kepada *OAuth clients*. *Access tokens* ini memungkinkan *OAuth clients* untuk mengakses sumber daya *RS*, baik atas nama *end-user* maupun atas nama *OAuth client* itu sendiri. *AS* sering kali merupakan aplikasi yang terpisah, namun (jika sesuai) dapat juga diintegrasikan ke dalam *RS* yang memadai.
+* *Resource owner* (*RO*) adalah *end-user* yang memberikan otorisasi kepada *OAuth clients* untuk memperoleh akses terbatas ke sumber daya yang dihosting di *resource server* atas nama mereka. *Resource owner* memberikan persetujuan untuk *delegated authorization* ini dengan berinteraksi dengan *authorization server*.
 
-The following roles are defined in OIDC:
+Peran-peran berikut didefinisikan dalam OIDC:
 
-* The relying party (RP) is the client application requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
-* The OpenID Provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to an RP. The OP may be the identity provider (IdP), but in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
+* *Relying party* (*RP*) adalah aplikasi klien yang meminta autentikasi *end-user* melalui *OpenID Provider*. *RP* mengambil peran sebagai *OAuth client*.
+* *OpenID Provider* (*OP*) adalah *OAuth AS* yang mampu melakukan autentikasi *end-user* dan memberikan *OIDC claims* kepada *RP*. *OP* bisa jadi merupakan *identity provider* (*IdP*), namun dalam skenario federasi, *OP* dan *identity provider* (tempat *end-user* melakukan autentikasi) bisa saja merupakan aplikasi server yang berbeda.
 
-OAuth and OIDC were initially designed for third-party applications. Today, they are often used by first-party applications as well. However, when used in first-party scenarios, such as authentication and session management, the protocol adds some complexity, which may introduce new security challenges.
+*OAuth* dan *OIDC* pada awalnya dirancang untuk aplikasi pihak ketiga (*third-party applications*). Saat ini, keduanya juga sering digunakan oleh aplikasi pihak pertama (*first-party applications*). Namun, ketika digunakan dalam skenario pihak pertama, seperti untuk autentikasi dan manajemen sesi, protokol tersebut menambah kompleksitas tertentu yang mungkin menghadirkan tantangan keamanan baru.
 
-OAuth and OIDC can be used for many types of applications, but the focus for ASVS and the requirements in this chapter is on web applications and APIs.
+*OAuth* dan *OIDC* dapat digunakan untuk berbagai jenis aplikasi, namun fokus untuk *ASVS* dan persyaratan dalam bab ini adalah pada aplikasi web dan *APIs*.
 
-Since OAuth and OIDC can be considered logic on top of web technologies, general requirements from other chapters always apply, and this chapter cannot be taken out of context.
+Karena *OAuth* dan *OIDC* dapat dianggap sebagai logika di atas teknologi web, persyaratan umum dari bab-bab lain selalu berlaku, dan bab ini tidak dapat dipisahkan dari konteks tersebut.
 
-This chapter addresses best current practices for OAuth2 and OIDC aligned with specifications found at <https://oauth.net/2/> and <https://openid.net/developers/specs/>. Even if RFCs are considered mature, they are updated frequently. Thus, it is important to align with the latest versions when applying the requirements in this chapter. See the references section for more details.
+Bab ini membahas praktik terbaik saat ini untuk *OAuth2* dan *OIDC* yang selaras dengan spesifikasi yang ditemukan di <https://oauth.net/2/> dan <https://openid.net/developers/specs/>. Meskipun *RFC* dianggap sudah matang, mereka sering diperbarui. Oleh karena itu, penting untuk menyelaraskan dengan versi terbaru saat menerapkan persyaratan dalam bab ini. Lihat bagian referensi untuk rincian lebih lanjut.
 
-Given the complexity of the area, it is vitally important for a secure OAuth or OIDC solution to use well-known industry-standard authorization servers and apply the recommended security configuration.
+Mengingat kompleksitas di bidang ini, sangatlah penting bagi solusi *OAuth* atau *OIDC* yang aman untuk menggunakan server otorisasi standar industri yang sudah dikenal luas dan menerapkan konfigurasi keamanan yang direkomendasikan.
 
-Terminology used in this chapter aligns with OAuth RFCs and OIDC specifications, but note that OIDC terminology is only used for OIDC-specific requirements; otherwise, OAuth terminology is used.
+Terminologi yang digunakan dalam bab ini selaras dengan *OAuth RFCs* dan spesifikasi *OIDC*, namun perlu dicatat bahwa terminologi *OIDC* hanya digunakan untuk persyaratan khusus *OIDC*; jika tidak, maka terminologi *OAuth* yang digunakan.
 
-In the context of OAuth and OIDC, the term "token" in this chapter refers to:
+Dalam konteks *OAuth* dan *OIDC*, istilah *token* dalam bab ini merujuk pada:
 
-* Access tokens, which shall only be consumed by the RS and can either be reference tokens that are validated using introspection or self-contained tokens that are validated using some key material.
-* Refresh tokens, which shall only be consumed by the authorization server that issued the token.
-* OIDC ID Tokens, which shall only be consumed by the client that triggered the authorization flow.
+* *Access tokens*, yang hanya boleh dikonsumsi oleh *RS* dan dapat berupa *reference tokens* yang divalidasi menggunakan *introspection* atau *self-contained tokens* yang divalidasi menggunakan beberapa materi kunci.
+* *Refresh tokens*, yang hanya boleh dikonsumsi oleh *authorization server* yang menerbitkan token tersebut.
+* *OIDC ID Tokens*, yang hanya boleh dikonsumsi oleh klien yang memicu *authorization flow*.
 
-The risk levels for some of the requirements in this chapter depend on whether the client is a confidential client or regarded as a public client. Since using strong client authentication mitigates many attack vectors, a few requirements might be relaxed when using a confidential client for L1 applications.
+Tingkat risiko untuk beberapa persyaratan dalam bab ini bergantung pada apakah klien tersebut merupakan *confidential client* atau dianggap sebagai *public client*. Karena penggunaan *strong client authentication* memitigasi banyak vektor serangan, beberapa persyaratan mungkin diperlonggar ketika menggunakan *confidential client* untuk aplikasi *L1*.
 
-## V10.1 Generic OAuth and OIDC Security
+## V10.1 Keamanan OAuth dan OIDC Generik
 
-This section covers generic architectural requirements that apply to all applications using OAuth or OIDC.
+Bagian ini mencakup persyaratan arsitektur umum yang berlaku untuk semua aplikasi yang menggunakan *OAuth* atau *OIDC*.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
 | **10.1.1** | Verify that tokens are only sent to components that strictly need them. For example, when using a backend-for-frontend pattern for browser-based JavaScript applications, access and refresh tokens shall only be accessible for the backend. | 2 |
 | **10.1.2** | Verify that the client only accepts values from the authorization server (such as the authorization code or ID Token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce', are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | 2 |

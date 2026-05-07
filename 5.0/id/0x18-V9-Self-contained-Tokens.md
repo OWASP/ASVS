@@ -1,36 +1,36 @@
 # V9 Self-contained Tokens
 
-## Control Objective
+## Tujuan Kontrol
 
-The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It refers to a token containing data or claims on which a receiving service will rely to make security decisions. This should be differentiated from a simple token containing only an identifier, which a receiving service uses to look up data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
+Konsep **self-contained token** disebutkan dalam RFC 6749 OAuth 2.0 asli dari tahun 2012. Istilah ini merujuk pada sebuah token yang berisi data atau *claims* yang akan diandalkan oleh layanan penerima untuk membuat keputusan keamanan. Hal ini harus dibedakan dari token sederhana yang hanya berisi sebuah pengenal (*identifier*), yang digunakan oleh layanan penerima untuk mencari data secara lokal. Contoh paling umum dari *self-contained tokens* adalah *JSON Web Tokens (JWTs)* dan *SAML assertions*.
 
-The use of self-contained tokens has become very widespread, even outside of OAuth and OIDC. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process, and this chapter provides specific details of the mechanisms that applications should have in place to prevent them.
+Penggunaan **self-contained tokens** telah menjadi sangat luas, bahkan di luar OAuth dan OIDC. Pada saat yang sama, keamanan mekanisme ini bergantung pada kemampuan untuk memvalidasi integritas token dan memastikan bahwa token tersebut valid untuk konteks tertentu. Terdapat banyak celah (*pitfalls*) dalam proses ini, dan bab ini memberikan rincian spesifik mengenai mekanisme yang harus diterapkan oleh aplikasi untuk mencegah hal tersebut.
 
-## V9.1 Token source and integrity
+## V9.1 Sumber dan integritas token
 
-This section includes requirements to ensure that the token has been produced by a trusted party and has not been tampered with.
+Bagian ini mencakup persyaratan untuk memastikan bahwa token telah dibuat oleh pihak yang tepercaya dan belum dimodifikasi oleh pihak yang tidak berwenang.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **9.1.1** | Verify that self-contained tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | 1 |
-| **9.1.2** | Verify that only algorithms on an allowlist can be used to create and verify self-contained tokens, for a given context. The allowlist must include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and must not include the 'None' algorithm. If both symmetric and asymmetric must be supported, additional controls will be needed to prevent key confusion. | 1 |
-| **9.1.3** | Verify that key material that is used to validate self-contained tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | 1 |
+| **9.1.1** | Pastikan bahwa **self-contained tokens** divalidasi menggunakan tanda tangan digital atau MAC untuk melindungi dari modifikasi sebelum menerima konten token tersebut. | 1 |
+| **9.1.2** | Pastikan bahwa hanya algoritma dalam *allowlist* yang dapat digunakan untuk membuat dan memvalidasi **self-contained tokens**, untuk konteks tertentu. *Allowlist* tersebut harus mencakup algoritma yang diizinkan, idealnya hanya algoritma simetris atau asimetris saja, dan tidak boleh menyertakan algoritma '**None**'. Jika algoritma simetris dan asimetris harus didukung secara bersamaan, diperlukan kontrol tambahan untuk mencegah terjadinya *key confusion*. | 1 |
+| **9.1.3** | Pastikan bahwa materi kunci yang digunakan untuk memvalidasi **self-contained tokens** berasal dari sumber yang telah dikonfigurasi sebelumnya secara tepercaya (*trusted pre-configured sources*) untuk penerbit token, guna mencegah penyerang menentukan sumber dan kunci yang tidak tepercaya. Untuk **JWTs** dan struktur **JWS** lainnya, *header* seperti '**jku**', '**x5u**', dan '**jwk**' harus divalidasi terhadap *allowlist* dari sumber yang tepercaya. | 1 |
 
-## V9.2 Token content
+## V9.2 Konten token
 
-Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within its validity period and that it is intended for use by the receiving service and for the purpose for which it was presented. This helps avoid insecure cross-usage between different services or with different token types from the same issuer.
+Sebelum membuat keputusan keamanan berdasarkan konten dari sebuah **self-contained token**, perlu dilakukan validasi bahwa token tersebut diberikan dalam masa berlakunya (*validity period*) dan memang ditujukan untuk digunakan oleh layanan penerima serta untuk tujuan awal token tersebut diberikan. Hal ini membantu menghindari penggunaan silang yang tidak aman (*insecure cross-usage*) antar layanan yang berbeda atau dengan jenis token yang berbeda dari penerbit yang sama.
 
-Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
+Persyaratan khusus untuk OAuth dan OIDC dibahas dalam bab khusus.
 
-| # | Description | Level |
+| # | Deskripsi | Tingkat |
 | :---: | :--- | :---: |
-| **9.2.1** | Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs, the claims 'nbf' and 'exp' must be verified. | 1 |
-| **9.2.2** | Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID Tokens can be used for proving user authentication. | 2 |
-| **9.2.3** | Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | 2 |
-| **9.2.4** | Verify that, if a token issuer uses the same private key for issuing tokens to different audiences, the issued tokens contain an audience restriction that uniquely identifies the intended audiences. This will prevent a token from being reused with an unintended audience. If the audience identifier is dynamically provisioned, the token issuer must validate these audiences in order to make sure that they do not result in audience impersonation. | 2 |
+| **9.2.1** | Pastikan bahwa jika rentang waktu validitas ada di dalam data token, token dan isinya hanya diterima jika waktu verifikasi berada dalam rentang waktu validitas ini. Sebagai contoh, untuk **JWTs**, *claims* '**nbf**' (*not before*) dan '**exp**' (*expiration*) harus diverifikasi. | 1 |
+| **9.2.2** | Pastikan bahwa layanan yang menerima token memvalidasi bahwa token tersebut adalah tipe yang benar dan dimaksudkan untuk tujuan yang sesuai sebelum menerima konten token. Sebagai contoh, hanya **access tokens** yang dapat diterima untuk keputusan otorisasi dan hanya **ID Tokens** yang dapat digunakan untuk membuktikan autentikasi pengguna. | 2 |
+| **9.2.3** | Pastikan bahwa layanan hanya menerima token yang memang ditujukan untuk digunakan pada layanan tersebut (**audience**). Untuk **JWTs**, hal ini dapat dicapai dengan memvalidasi *claim* '**aud**' terhadap *allowlist* yang didefinisikan di dalam layanan. | 2 |
+| **9.2.4** | Pastikan bahwa jika penerbit token menggunakan *private key* yang sama untuk menerbitkan token ke **audience** yang berbeda, token yang diterbitkan harus berisi batasan *audience* yang secara unik mengidentifikasi *audience* yang dituju. Hal ini akan mencegah token digunakan kembali pada *audience* yang tidak dimaksudkan. Jika pengenal *audience* disediakan secara dinamis, penerbit token harus memvalidasi *audience* tersebut untuk memastikan tidak terjadi *audience impersonation*. | 2 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi selengkapnya, lihat juga:
 
-* [OWASP JSON Web Token Cheat Sheet for Java Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (but has useful general guidance)
+* [CheatSheet Singkat OWASP JSON Web Token untuk Java](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (tetapi memiliki panduan umum yang bermanfaat.)
