@@ -1,8 +1,8 @@
-# Appendix E - Contributors
+# Lampiran E - Kontributor
 
-We gratefully acknowledge the contributions of the following people who have commented or opened pull requests since the the release of ASVS 4.0.0.
+Kami dengan penuh rasa terima kasih mengakui kontribusi dari orang-orang berikut yang telah memberikan komentar atau membuka permintaan pull request sejak dirilisnya ASVS 4.0.0.
 
-If you are aware of any mistakes or would like your name to appear differently, please let us know.
+Jika Anda mengetahui adanya kesalahan atau ingin nama Anda ditampilkan secara berbeda, mohon beri tahu kami.
 
 | | | | |
 |---|---|---|---|
