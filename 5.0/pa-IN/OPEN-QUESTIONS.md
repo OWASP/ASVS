@@ -142,6 +142,56 @@ This document collects terminology decisions made during the Panjabi (pa-IN) tra
 | **Reasoning** | Same logic as Q2 (IDOR/BOLA/BOPLA). Industry-standard acronyms; inline expansion would clutter requirement-table cells. Consistency: matches the Q2 decision pattern |
 | **Reviewer notes** | _to be filled_ |
 
+## Q12 — Bilingual structure: dual-block vs code-switched (CORPUS-WIDE — highest priority)
+
+| | |
+|---|---|
+| **Decision** | Which bilingual structure should the whole corpus use? |
+| **Status** | **OPEN — deferred to community review (highest-priority structural question)** |
+
+Two structures currently coexist in the committed chapters. This is the single most important thing for reviewers to weigh in on, because it affects every chapter going forward.
+
+**Pattern A — dual-block (English-first, full Panjabi mirror below)**
+
+Used in: `0x01`, `0x02`, `0x14`, `0x17`, `0x18`, `0x21`
+
+```markdown
+## V5 File Handling
+## V5 ਫ਼ਾਈਲ ਪ੍ਰਬੰਧਨ
+
+The use of files can present a variety of risks...
+
+ਫ਼ਾਈਲਾਂ ਦੀ ਵਰਤੋਂ ਐਪਲੀਕੇਸ਼ਨ ਲਈ ਕਈ ਤਰ੍ਹਾਂ ਦੇ ਖ਼ਤਰੇ...
+
+| # | Description | Level |   ← English requirement table
+| # | ਵੇਰਵਾ | ਪੱਧਰ |        ← parallel Panjabi requirement table
+```
+
+- A non-English-reading Panjabi developer can read the Panjabi block end-to-end.
+- The English block is preserved verbatim for cross-reference and technical precision.
+- This is the structure the project's public rationale commits to: *"every section is bilingual. English first, Panjabi immediately below."*
+- Cost: roughly doubles file length; more to maintain when upstream English changes.
+
+**Pattern B — code-switched single-block (Panjabi-primary, English terms inline)**
+
+Used in: `0x04`, `0x05`
+
+```markdown
+# v4.x ਦੇ ਮੁਕਾਬਲੇ ਤਬਦੀਲੀਆਂ (Changes Compared to v4.x)
+
+Version 4.0.3 ਦੀਆਂ 286 requirements ਵਿੱਚੋਂ, ਸਿਰਫ਼ 11 ਬਿਨਾਂ ਤਬਦੀਲੀ ਦੇ ਰਹਿ ਗਈਆਂ ਹਨ...
+```
+
+- More compact; reads naturally for a bilingual developer comfortable with English technical terms.
+- A Panjabi-only reader cannot read it cleanly (English nouns are load-bearing), and there is no separate English block to cross-reference.
+- Diverges from the public rationale's stated promise.
+
+**Recommendation from the translator:** Pattern A, for consistency with the project's stated bilingual-readability goal. If the community agrees, `0x04` and `0x05` will be re-translated into Pattern A. If the community prefers Pattern B for intro/meta chapters (and Pattern A for normative requirement chapters), that mixed convention will be documented in `TRANSLATION-NOTES.md` and applied deliberately rather than by accident.
+
+**Reviewer ask:** State a preference — (a) Pattern A everywhere, (b) Pattern B everywhere, or (c) mixed-by-chapter-type with explicit rules. This decision is currently *unmade*; the two patterns in the corpus today are an artifact of different drafting passes, not a deliberate choice.
+
+| **Reviewer notes** | _to be filled_ |
+
 ---
 
 ## Resolved questions

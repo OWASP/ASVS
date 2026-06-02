@@ -6,7 +6,28 @@
 **Lead Translator:** Gurvinder Singh ([@GeeksikhSecurity](https://github.com/GeeksikhSecurity))
 **Script:** Gurmukhi (ਗੁਰਮੁਖੀ) · **ISO Code:** pa-IN
 **Spelling Convention:** "Panjabi" per Sikhri.org and Panjab Digital Library standards
-**Co-Author:** Claude Opus 4.6 (AI-assisted translation with human oversight)
+**Co-Author:** Claude Opus 4.8 (AI-assisted translation with human oversight)
+
+> **For a focused, shareable reviewer briefing, see [`REVIEWER-NOTES.md`](./REVIEWER-NOTES.md).** That file is the recommended starting point for anyone you ask to review. This document is the longer-form plan and phase roadmap.
+
+---
+
+## Current status (2026-06-02)
+
+**8 chapters Complete, 2 In Progress, 24 commits on the PR.**
+
+| Complete | In Progress | Pending |
+|---|---|---|
+| 0x01 Frontispiece | 0x03 What-is-the-ASVS | V1, V2, V3, V4, V7, V10, V11, V13, V14, V15, V16, V17 |
+| 0x02 Preface | 0x15 V6 Authentication | Appendices A–E, 0x00 header |
+| 0x04 Assessment & Certification | | |
+| 0x05 For Users of 4.0 | | |
+| 0x14 V5 File Handling | | |
+| 0x17 V8 Authorization | | |
+| 0x18 V9 Self-contained Tokens | | |
+| 0x21 V12 Secure Communication | | |
+
+**Cadence:** 2–3 chapters/week, small-first sequencing. **Open decisions:** 12 in [`OPEN-QUESTIONS.md`](./OPEN-QUESTIONS.md) — Q12 (bilingual structure) is the highest-priority and is deferred to community review.
 
 ---
 
