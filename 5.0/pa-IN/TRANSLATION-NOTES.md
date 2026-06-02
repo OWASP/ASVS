@@ -64,7 +64,7 @@ Key decisions on how security terms are handled in this translation:
 |----------|------|----------|-----------|
 | 1 | Security | ਸੁਰੱਖਿਆ (surakkhiā) — Translate | Well-established Panjabi word |
 | 2 | Authentication | ਪ੍ਰਮਾਣੀਕਰਨ (pramāṇīkaran) — Translate | Standard academic Panjabi |
-| 3 | SQL Injection | ਐੱਸ.ਕਿਊ.ਐੱਲ. ਇੰਜੈਕਸ਼ਨ — Transliterate | No Panjabi equivalent; technical term |
+| 3 | SQL Injection | ਐੱਸ.ਕਿਊ.ਐੱਲ। ਇੰਜੈਕਸ਼ਨ — Transliterate | No Panjabi equivalent; technical term |
 | 4 | OWASP | Retain English | Global brand; add ਓਵਾਸਪ pronunciation |
 | 5 | Cross-Site Scripting | ਕਰਾਸ-ਸਾਈਟ ਸਕ੍ਰਿਪਟਿੰਗ — Transliterate | Technical term, XSS acronym retained |
 | 6 | Vulnerability | ਕਮਜ਼ੋਰੀ (kamzorī) — Translate | Common Panjabi word for weakness |

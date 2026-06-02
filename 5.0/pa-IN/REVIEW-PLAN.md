@@ -36,7 +36,7 @@ Every section follows a consistent bilingual pattern for reviewer clarity:
 
 English paragraph text here.
 
-ਪੰਜਾਬੀ ਅਨੁਵਾਦ ਇੱਥੇ (with parenthetical English for key terms).
+ਪੰਜਾਬੀ ਅਨੁਵਾਦ ਇੱਥੇ (with parenthetical English for key terms)।
 ```
 
 Key conventions:
@@ -54,7 +54,7 @@ Each term in the README glossary is tagged with one of four categories:
 | Tag | Meaning | Example |
 |-----|---------|---------|
 | **T** | Translated | Authentication → ਪ੍ਰਮਾਣੀਕਰਨ |
-| **L** | Loan word (transliterated) | API → ਏ.ਪੀ.ਆਈ. |
+| **L** | Loan word (transliterated) | API → ਏ.ਪੀ.ਆਈ। |
 | **R** | Retained in English | OWASP, SQL, XSS |
 | **H** | Hybrid (Panjabi + English) | SQL Injection → SQL ਇੰਜੈਕਸ਼ਨ |
 

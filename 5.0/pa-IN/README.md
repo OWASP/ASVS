@@ -5,13 +5,13 @@
 [![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Panjabi Translation](https://img.shields.io/badge/Translation-Panjabi-orange)](https://github.com/GeeksikhSecurity/ASVS)
 
-ਇਹ OWASP Application Security Verification Standard (ASVS) ਸੰਸਕਰਣ 5.0 ਦਾ ਅਧਿਕਾਰਤ ਪੰਜਾਬੀ ਅਨੁਵਾਦ ਹੈ.
+ਇਹ OWASP Application Security Verification Standard (ASVS) ਸੰਸਕਰਣ 5.0 ਦਾ ਅਧਿਕਾਰਤ ਪੰਜਾਬੀ ਅਨੁਵਾਦ ਹੈ।
 
 This is the official Panjabi translation of the OWASP Application Security Verification Standard (ASVS) version 5.0.
 
 ## ਬਾਰੇ | About
 
-The OWASP ASVS ਇੱਕ ਸੁਰੱਖਿਆ ਮਿਆਰ ਹੈ ਜੋ ਸੁਰੱਖਿਅਤ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੇ ਡਿਜ਼ਾਈਨ, ਵਿਕਾਸ ਅਤੇ ਟੈਸਟਿੰਗ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ.
+The OWASP ASVS ਇੱਕ ਸੁਰੱਖਿਆ ਮਿਆਰ ਹੈ ਜੋ ਸੁਰੱਖਿਅਤ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੇ ਡਿਜ਼ਾਈਨ, ਵਿਕਾਸ ਅਤੇ ਟੈਸਟਿੰਗ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।
 
 ## ਅਨੁਵਾਦ ਟੀਮ | Translation Team
 
@@ -22,11 +22,11 @@ The OWASP ASVS ਇੱਕ ਸੁਰੱਖਿਆ ਮਿਆਰ ਹੈ ਜੋ ਸੁ
 
 🚧 **ਕੰਮ ਜਾਰੀ ਹੈ | Work in Progress**
 
-ਵੇਰਵਿਆਂ ਲਈ [TRANSLATION-NOTES.md](TRANSLATION-NOTES.md) ਵੇਖੋ. | See [TRANSLATION-NOTES.md](TRANSLATION-NOTES.md) for details.
+ਵੇਰਵਿਆਂ ਲਈ [TRANSLATION-NOTES.md](TRANSLATION-NOTES.md) ਵੇਖੋ। | See [TRANSLATION-NOTES.md](TRANSLATION-NOTES.md) for details.
 
 ## ਅਨੁਵਾਦ ਸੰਮੇਲਨ | Translation Conventions
 
-ਇਹ ਅਨੁਵਾਦ **ਦੋਭਾਸ਼ੀ (bilingual)** ਫਾਰਮੈਟ ਵਰਤਦਾ ਹੈ — ਹਰੇਕ ਅੰਗਰੇਜ਼ੀ ਪੈਰਾਗ੍ਰਾਫ਼ ਤੋਂ ਬਾਅਦ ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ) ਅਨੁਵਾਦ ਦਿੱਤਾ ਗਿਆ ਹੈ.
+ਇਹ ਅਨੁਵਾਦ **ਦੋਭਾਸ਼ੀ (bilingual)** ਫਾਰਮੈਟ ਵਰਤਦਾ ਹੈ — ਹਰੇਕ ਅੰਗਰੇਜ਼ੀ ਪੈਰਾਗ੍ਰਾਫ਼ ਤੋਂ ਬਾਅਦ ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ) ਅਨੁਵਾਦ ਦਿੱਤਾ ਗਿਆ ਹੈ।
 
 This translation uses a **bilingual** format — each English paragraph is followed by its Panjabi (Gurmukhi) translation.
 
@@ -95,7 +95,7 @@ This translation uses a **bilingual** format — each English paragraph is follo
 | Threat | ਖ਼ਤਰਾ | khatrā | T |
 | Attack | ਹਮਲਾ | hamlā | T |
 | Injection | ਇੰਜੈਕਸ਼ਨ | iṅjaikshan | L |
-| SQL Injection (SQLi) | ਐੱਸ.ਕਿਊ.ਐੱਲ. ਇੰਜੈਕਸ਼ਨ | ais.kiū.ail. iṅjaikshan | L |
+| SQL Injection (SQLi) | ਐੱਸ.ਕਿਊ.ਐੱਲ। ਇੰਜੈਕਸ਼ਨ | ais.kiū.ail. iṅjaikshan | L |
 | Cross-Site Scripting (XSS) | ਕਰਾਸ-ਸਾਈਟ ਸਕ੍ਰਿਪਟਿੰਗ | karās-sāīṭ skripṭiṅg | L |
 | Server-side Request Forgery (SSRF) | ਸਰਵਰ-ਪੱਖੀ ਬੇਨਤੀ ਜਾਅਲਸਾਜ਼ੀ | sarvar-pakkhī bentī jāalsāzī | H |
 | Brute Force | ਬਰੂਟ ਫੋਰਸ | barūṭ fors | L |
@@ -113,7 +113,7 @@ This translation uses a **bilingual** format — each English paragraph is follo
 | Integrity | ਅਖੰਡਤਾ | akhaṇḍatā | T |
 | Availability | ਉਪਲਬਧਤਾ | upalabdhatā | T |
 
-### ਵੈੱਬ ਅਤੇ ਏ.ਪੀ.ਆਈ. | Web & API
+### ਵੈੱਬ ਅਤੇ ਏ.ਪੀ.ਆਈ। | Web & API
 
 | English | ਗੁਰਮੁਖੀ | Romanized / ਰੋਮਨ ਲਿਪੀ | ਕਿਸਮ |
 |---------|---------|----------------------|:---:|
@@ -147,25 +147,25 @@ This translation uses a **bilingual** format — each English paragraph is follo
 | Acronym | Full Form | ਗੁਰਮੁਖੀ ਉਚਾਰਨ |
 |---------|-----------|------------|
 | OWASP | Open Worldwide Application Security Project | ਓਵਾਸਪ |
-| ASVS | Application Security Verification Standard | ਏ.ਐਸ.ਵੀ.ਐਸ. |
-| API | Application Programming Interface | ਏ.ਪੀ.ਆਈ. |
+| ASVS | Application Security Verification Standard | ਏ.ਐਸ.ਵੀ.ਐਸ। |
+| API | Application Programming Interface | ਏ.ਪੀ.ਆਈ। |
 | HTTP / HTTPS | HyperText Transfer Protocol (Secure) | ਐੱਚ.ਟੀ.ਟੀ.ਪੀ.(ਐੱਸ.) |
-| TLS | Transport Layer Security | ਟੀ.ਐੱਲ.ਐੱਸ. |
-| JWT | JSON Web Token | ਜੇ.ਡਬਲਯੂ.ਟੀ. |
+| TLS | Transport Layer Security | ਟੀ.ਐੱਲ.ਐੱਸ। |
+| JWT | JSON Web Token | ਜੇ.ਡਬਲਯੂ.ਟੀ। |
 | OAuth | Open Authorization | ਓਅਥ |
-| OIDC | OpenID Connect | ਓ.ਆਈ.ਡੀ.ਸੀ. |
-| SAML | Security Assertion Markup Language | ਐੱਸ.ਏ.ਐੱਮ.ਐੱਲ. |
-| MFA | Multi-factor Authentication | ਐੱਮ.ਐੱਫ਼.ਏ. |
-| NIST | National Institute of Standards and Technology | ਐੱਨ.ਆਈ.ਐੱਸ.ਟੀ. |
-| CWE | Common Weakness Enumeration | ਸੀ.ਡਬਲਯੂ.ਈ. |
-| SIEM | Security Information and Event Management | ਐੱਸ.ਆਈ.ਈ.ਐੱਮ. |
-| WebRTC | Web Real-Time Communication | ਵੈੱਬਆਰ.ਟੀ.ਸੀ. |
+| OIDC | OpenID Connect | ਓ.ਆਈ.ਡੀ.ਸੀ। |
+| SAML | Security Assertion Markup Language | ਐੱਸ.ਏ.ਐੱਮ.ਐੱਲ। |
+| MFA | Multi-factor Authentication | ਐੱਮ.ਐੱਫ਼.ਏ। |
+| NIST | National Institute of Standards and Technology | ਐੱਨ.ਆਈ.ਐੱਸ.ਟੀ। |
+| CWE | Common Weakness Enumeration | ਸੀ.ਡਬਲਯੂ.ਈ। |
+| SIEM | Security Information and Event Management | ਐੱਸ.ਆਈ.ਈ.ਐੱਮ। |
+| WebRTC | Web Real-Time Communication | ਵੈੱਬਆਰ.ਟੀ.ਸੀ। |
 
 > **ਪੂਰੀ ਸ਼ਬਦਾਵਲੀ** (152+ ਸ਼ਬਦ) ਲਈ ਵੇਖੋ: [OWASP ASVS Glossary (JSON)](https://github.com/GeeksikhSecurity/ASVS/blob/panjabi-translation-v5/5.0/pa-IN/asvs_glossary.json)
 
 ## ਯੋਗਦਾਨ | Contributing
 
-ਅਸੀਂ ਪੰਜਾਬੀ ਬੋਲਣ ਵਾਲੇ ਸੁਰੱਖਿਆ ਪੇਸ਼ੇਵਰਾਂ ਦਾ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ.
+ਅਸੀਂ ਪੰਜਾਬੀ ਬੋਲਣ ਵਾਲੇ ਸੁਰੱਖਿਆ ਪੇਸ਼ੇਵਰਾਂ ਦਾ ਸਵਾਗਤ ਕਰਦੇ ਹਾਂ।
 
 We welcome contributions from Panjabi-speaking security professionals.
 
