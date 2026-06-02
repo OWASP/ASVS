@@ -115,3 +115,39 @@ Publish workflow: Claude Code → `git push origin main` → Vercel auto-deploy
 ├── V5-V14, V50-V52/           ← Phase C (May-July 2026)
 └── Appendices/                 ← Phase D (August 2026)
 ```
+
+---
+
+## Sentence-ending punctuation (MANDATORY)
+
+Panjabi (Gurmukhi-script) prose uses the **Indic danda `।` (U+0964)** as
+sentence terminator — never the Western period `.`. The double-danda
+`॥` (U+0965) is reserved for verse separation in Gurbani quotations and
+should not be used in technical prose.
+
+### Rule
+
+- Every Panjabi sentence ends with `।` followed by a space or end-of-line
+- Sentences that end with a parenthetical also use `।` after the closing
+  paren: `(ਜਿਵੇਂ, RFC 6266 ਦੇ ਅਨੁਸਾਰ)।` — not `(ਜਿਵੇਂ, RFC 6266 ਦੇ ਅਨੁਸਾਰ).`
+- Bullet-list items and table cells follow the same rule when their content
+  is a Panjabi sentence
+
+### Exceptions (Western `.` retained)
+
+- ASCII digits and version numbers: `5.0`, `5.2.1`, `v5.0.0`
+- URLs, file extensions, English abbreviations
+- English text on lines that contain no Gurmukhi
+- Decimal numbers and percentages
+
+### R4 codepoint allowlist
+
+The danda is in the Devanagari Unicode block (U+0900-U+097F) but Unicode
+allocates it as shared Indic punctuation. The corpus-rigor R4 check
+explicitly excludes U+0964 and U+0965 from the contamination test. Using
+`।` does not violate Devanagari purity.
+
+### Applied corpus-wide
+
+Commit `bdda1806` (2026-06-02) applied this rule across 8 files, 127
+substitutions. New translations must honor this rule from creation.
