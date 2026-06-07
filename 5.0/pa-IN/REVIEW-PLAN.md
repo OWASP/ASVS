@@ -63,7 +63,7 @@ English paragraph text here.
 Key conventions:
 - English paragraph first, Panjabi translation immediately below
 - Technical terms preserved in English with Gurmukhi transliteration on first use
-- Gurmukhi numerals used for version numbers (e.g., ੫.੦ for 5.0)
+- Western numerals in technical prose, including version numbers (e.g., 5.0, not ੫.੦)
 - No Devanagari script — all Unicode validated as clean Gurmukhi
 
 ---

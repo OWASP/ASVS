@@ -1,6 +1,6 @@
 # OWASP Application Security Verification Standard 5.0 - Panjabi
 
-## ਓਵਾਸਪ ਐਪਲੀਕੇਸ਼ਨ ਸੁਰੱਖਿਆ ਤਸਦੀਕ ਮਿਆਰ ੫.੦
+## ਓਵਾਸਪ ਐਪਲੀਕੇਸ਼ਨ ਸੁਰੱਖਿਆ ਤਸਦੀਕ ਮਿਆਰ 5.0
 
 [![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Panjabi Translation](https://img.shields.io/badge/Translation-Panjabi-orange)](https://github.com/GeeksikhSecurity/ASVS)

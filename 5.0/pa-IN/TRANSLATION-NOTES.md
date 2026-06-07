@@ -83,7 +83,7 @@ For each translated file, verify:
 - [ ] **Proper nouns**: Names kept in English (not transliterated)
 - [ ] **Requirement IDs**: Unchanged (e.g., **6.2.1** stays as-is)
 - [ ] **Link validity**: All hyperlinks preserved from English source
-- [ ] **Gurmukhi numerals**: Used where appropriate (੧, ੨, ੩... for Panjabi text)
+- [ ] **Numerals**: Western digits in technical prose, incl. version numbers (5.0, not ੫.੦)
 
 ## Translation Guidelines
 - Maintain technical accuracy

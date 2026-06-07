@@ -5,6 +5,12 @@
 OWASP ASVS 5.0 Panjabi (pa-IN) translation. Bilingual English/Gurmukhi format.
 Repository: `GeeksikhSecurity/ASVS` branch `panjabi-translation-v5`
 
+> **Canonical rule set:** [`TRANSLATION-RULES.md`](TRANSLATION-RULES.md) is the
+> authoritative source for all translation decisions (script, orthography,
+> numerals, romanization, T/L/R/H terminology, Gurmat safety, bilingual
+> structure). This file is the operational companion; if the two ever diverge,
+> `TRANSLATION-RULES.md` wins.
+
 ## Spelling
 
 Use **"Panjabi"** (not "Punjabi") per Sikhri.org and Panjab Digital Library standards.
@@ -73,9 +79,9 @@ Adapted from the Gurmat-Centered Bilingual Prompt (Google Doc ID: 1G23l0TJ9594K0
 
 ---
 
-## Gurmukhi Numerals
+## Numerals
 
-Use Gurmukhi numerals for ASVS version references: ੫.੦ (not 5.0)
+Use Western numerals in technical prose, including version numbers: 5.0 (not ੫.੦). See `TRANSLATION-RULES.md` §2.
 
 ---
 
