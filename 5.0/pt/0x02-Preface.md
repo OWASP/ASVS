@@ -1,29 +1,29 @@
-# Preface
+# Prefácio
 
-Welcome to the Application Security Verification Standard (ASVS) Version 5.0.
+Bem-vindo à Versão 5.0 do Padrão de Verificação de Segurança de Aplicações (ASVS).
 
-## Introduction
+## Introdução
 
-Originally launched in 2008 through a global community collaboration, the ASVS defines a comprehensive set of security requirements for designing, developing, and testing modern web applications and services.
+Lançado originalmente em 2008 por meio de uma colaboração da comunidade global, o ASVS define um conjunto abrangente de requisitos de segurança para projetar, desenvolver e testar aplicações e serviços web modernos.
 
-Following the release of ASVS 4.0 in 2019 and its minor update (v4.0.3) in 2021, Version 5.0 represents a significant milestone—modernized to reflect the latest advances in software security.
+Após o lançamento do ASVS 4.0 em 2019 e sua pequena atualização (v4.0.3) em 2021, a Versão 5.0 representa um marco significativo — modernizada para refletir os mais recentes avanços na segurança de software.
 
-ASVS 5.0 is the result of extensive contributions from project leaders, working group members, and the wider OWASP community to update and improve this important standard.
+O ASVS 5.0 é o resultado de extensas contribuições de líderes de projetos, membros do grupo de trabalho e da comunidade OWASP em geral para atualizar e melhorar este importante padrão.
 
-## Principles behind version 5.0
+## Princípios por trás da versão 5.0
 
-This major revision has been developed with several key principles in mind:
+Esta grande revisão foi desenvolvida com vários princípios-chave em mente:
 
-* Refined Scope and Focus: This version of the standard has been designed to align more directly with the foundational pillars in its name: Application, Security, Verification, and Standard. Requirements have been rewritten to emphasize the prevention of security flaws rather than mandating specific technical implementations. Requirement texts are intended to be self-explanatory, explaining why they exist.
+* Escopo e Foco Refinados: Esta versão do padrão foi projetada para se alinhar mais diretamente com os pilares fundamentais em seu nome: Aplicação (Application), Segurança (Security), Verificação (Verification) e Padrão (Standard). Os requisitos foram reescritos para enfatizar a prevenção de falhas de segurança, em vez de exigir implementações técnicas específicas. Os textos dos requisitos pretendem ser autoexplicativos, justificando o motivo de sua existência.
 
-* Support for Documented Security Decisions: ASVS 5.0 introduces requirements for documenting key security decisions. This enhances traceability and supports context-sensitive implementations, allowing organizations to tailor their security posture to their specific needs and risks.
+* Suporte para Decisões de Segurança Documentadas: O ASVS 5.0 introduz requisitos para documentar as principais decisões de segurança. Isso melhora a rastreabilidade e oferece suporte a implementações sensíveis ao contexto, permitindo que as organizações adaptem sua postura de segurança às suas necessidades e riscos específicos.
 
-* Updated Levels: While ASVS retains its three-tier model, the level definitions have evolved to make the ASVS easier to adopt. Level 1 is designed as the initial step to adopting the ASVS, providing the first layer of defense. Level 2 represents a comprehensive view of standard security practices, and Level 3 addresses advanced, high-assurance requirements.
+* Níveis Atualizados: Embora o ASVS mantenha seu modelo de três camadas, as definições de nível evoluíram para tornar o ASVS mais fácil de adotar. O Nível 1 é projetado como o passo inicial para a adoção do ASVS, fornecendo a primeira camada de defesa. O Nível 2 representa uma visão abrangente das práticas padrão de segurança, e o Nível 3 aborda requisitos avançados e de alta garantia.
 
-* Restructured and Expanded Content: ASVS 5.0 includes approximately 350 requirements across 17 chapters. Chapters have been reorganized for clarity and usability. A two-way mapping between v4.0 and v5.0 is provided to facilitate migration.
+* Conteúdo Reestruturado e Expandido: O ASVS 5.0 inclui aproximadamente 350 requisitos distribuídos em 17 capítulos. Os capítulos foram reorganizados para maior clareza e usabilidade. Um mapeamento bidirecional entre as versões 4.0 e 5.0 é fornecido para facilitar a migração.
 
-## Looking ahead
+## Olhando para o futuro
 
-Just as securing an application is never truly finished, neither is the ASVS. Although Version 5.0 is a major release, development continues. This release allows the wider community to benefit from the improvements and additions which have been accumulated but also lays the groundwork for future enhancements. This could include community-driven efforts to create implementation and verification guidance built on top of the core requirement set.
+Assim como a segurança de uma aplicação nunca está verdadeiramente terminada, o ASVS também não está. Embora a Versão 5.0 seja um lançamento importante, o desenvolvimento continua. Este lançamento permite que a comunidade em geral se beneficie das melhorias e adições que foram acumuladas, mas também estabelece as bases para aprimoramentos futuros. Isso pode incluir esforços impulsionados pela comunidade para criar guias de implementação e verificação construídos sobre o conjunto central de requisitos.
 
-ASVS 5.0 is designed to serve as a reliable foundation for secure software development. The community is invited to adopt, contribute, and build upon this standard to collectively advance the state of application security.
+O ASVS 5.0 foi projetado para servir como uma base confiável para o desenvolvimento seguro de software. A comunidade está convidada a adotar, contribuir e construir sobre este padrão para avançar coletivamente o estado da segurança de aplicações.

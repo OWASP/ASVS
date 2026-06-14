@@ -1,36 +1,36 @@
-# V9 Self-contained Tokens
+# V9 Tokens Autocontidos (Self-contained Tokens)
 
-## Control Objective
+## Objetivo de Controle
 
-The concept of a self-contained token is mentioned in the original RFC 6749 OAuth 2.0 from 2012. It refers to a token containing data or claims on which a receiving service will rely to make security decisions. This should be differentiated from a simple token containing only an identifier, which a receiving service uses to look up data locally. The most common examples of self-contained tokens are JSON Web Tokens (JWTs) and SAML assertions.
+O conceito de um token autocontido (self-contained token) é mencionado no RFC 6749 original do OAuth 2.0 de 2012. Refere-se a um token contendo dados ou claims (reivindicações) nos quais um serviço receptor se baseará para tomar decisões de segurança. Isso deve ser diferenciado de um token simples contendo apenas um identificador, o qual um serviço receptor usa para pesquisar os dados localmente. Os exemplos mais comuns de tokens autocontidos são os JSON Web Tokens (JWTs) e as asserções SAML.
 
-The use of self-contained tokens has become very widespread, even outside of OAuth and OIDC. At the same time, the security of this mechanism relies on the ability to validate the integrity of the token and to ensure that the token is valid for a particular context. There are many pitfalls with this process, and this chapter provides specific details of the mechanisms that applications should have in place to prevent them.
+O uso de tokens autocontidos tornou-se muito difundido, mesmo fora do OAuth e OIDC. Ao mesmo tempo, a segurança desse mecanismo depende da capacidade de validar a integridade do token e de garantir que o token seja válido para um contexto particular. Existem muitas armadilhas com este processo, e este capítulo fornece detalhes específicos sobre os mecanismos que as aplicações devem ter para evitá-las.
 
-## V9.1 Token source and integrity
+## V9.1 Origem e Integridade do Token
 
-This section includes requirements to ensure that the token has been produced by a trusted party and has not been tampered with.
+Esta seção inclui requisitos para garantir que o token tenha sido produzido por uma parte confiável e não tenha sido adulterado.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **9.1.1** | Verify that self-contained tokens are validated using their digital signature or MAC to protect against tampering before accepting the token's contents. | 1 |
-| **9.1.2** | Verify that only algorithms on an allowlist can be used to create and verify self-contained tokens, for a given context. The allowlist must include the permitted algorithms, ideally only either symmetric or asymmetric algorithms, and must not include the 'None' algorithm. If both symmetric and asymmetric must be supported, additional controls will be needed to prevent key confusion. | 1 |
-| **9.1.3** | Verify that key material that is used to validate self-contained tokens is from trusted pre-configured sources for the token issuer, preventing attackers from specifying untrusted sources and keys. For JWTs and other JWS structures, headers such as 'jku', 'x5u', and 'jwk' must be validated against an allowlist of trusted sources. | 1 |
+| **9.1.1** | Verifique se os tokens autocontidos são validados usando sua assinatura digital ou MAC para proteger contra adulteração antes de aceitar o conteúdo do token. | 1 |
+| **9.1.2** | Verifique se apenas algoritmos em uma lista de permissões (allowlist) podem ser usados para criar e verificar tokens autocontidos para um determinado contexto. A lista de permissões deve incluir os algoritmos permitidos, idealmente apenas algoritmos simétricos ou assimétricos, e não deve incluir o algoritmo 'None'. Se ambos, simétricos e assimétricos, precisarem ser suportados, controles adicionais serão necessários para evitar a confusão de chaves (key confusion). | 1 |
+| **9.1.3** | Verifique se o material criptográfico (key material) que é usado para validar tokens autocontidos vem de fontes confiáveis pré-configuradas para o emissor do token, evitando que atacantes especifiquem fontes e chaves não confiáveis. Para JWTs e outras estruturas JWS, cabeçalhos como 'jku', 'x5u' e 'jwk' devem ser validados contra uma lista de permissões de fontes confiáveis. | 1 |
 
-## V9.2 Token content
+## V9.2 Conteúdo do Token
 
-Before making security decisions based on the content of a self-contained token, it is necessary to validate that the token has been presented within its validity period and that it is intended for use by the receiving service and for the purpose for which it was presented. This helps avoid insecure cross-usage between different services or with different token types from the same issuer.
+Antes de tomar decisões de segurança baseadas no conteúdo de um token autocontido, é necessário validar se o token foi apresentado dentro de seu período de validade e se destina-se ao uso pelo serviço receptor e para o propósito para o qual foi apresentado. Isso ajuda a evitar o uso cruzado inseguro (cross-usage) entre diferentes serviços ou com diferentes tipos de token do mesmo emissor.
 
-Specific requirements for OAuth and OIDC are covered in the dedicated chapter.
+Requisitos específicos para OAuth e OIDC são abordados no capítulo dedicado.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **9.2.1** | Verify that, if a validity time span is present in the token data, the token and its content are accepted only if the verification time is within this validity time span. For example, for JWTs, the claims 'nbf' and 'exp' must be verified. | 1 |
-| **9.2.2** | Verify that the service receiving a token validates the token to be the correct type and is meant for the intended purpose before accepting the token's contents. For example, only access tokens can be accepted for authorization decisions and only ID Tokens can be used for proving user authentication. | 2 |
-| **9.2.3** | Verify that the service only accepts tokens which are intended for use with that service (audience). For JWTs, this can be achieved by validating the 'aud' claim against an allowlist defined in the service. | 2 |
-| **9.2.4** | Verify that, if a token issuer uses the same private key for issuing tokens to different audiences, the issued tokens contain an audience restriction that uniquely identifies the intended audiences. This will prevent a token from being reused with an unintended audience. If the audience identifier is dynamically provisioned, the token issuer must validate these audiences in order to make sure that they do not result in audience impersonation. | 2 |
+| **9.2.1** | Verifique se, caso haja um intervalo de tempo de validade presente nos dados do token, o token e seu conteúdo sejam aceitos apenas se o tempo de verificação estiver dentro deste intervalo de tempo de validade. Por exemplo, para JWTs, as claims 'nbf' e 'exp' devem ser verificadas. | 1 |
+| **9.2.2** | Verifique se o serviço que recebe um token valida que o token seja do tipo correto e tenha o propósito pretendido antes de aceitar os conteúdos do token. Por exemplo, apenas tokens de acesso (access tokens) podem ser aceitos para decisões de autorização e apenas ID Tokens podem ser usados para provar a autenticação do usuário. | 2 |
+| **9.2.3** | Verifique se o serviço apenas aceita tokens que são destinados ao uso com esse serviço (audiência). Para JWTs, isso pode ser alcançado validando a claim 'aud' em relação a uma lista de permissões definida no serviço. | 2 |
+| **9.2.4** | Verifique se, caso um emissor de token use a mesma chave privada para emitir tokens para públicos diferentes, os tokens emitidos contenham uma restrição de audiência (audience restriction) que identifique unicamente as audiências pretendidas. Isso evitará que um token seja reutilizado com um público não intencional. Se o identificador de audiência for provisionado dinamicamente, o emissor do token deverá validar essas audiências para garantir que não resultem em falsificação de audiência (audience impersonation). | 2 |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
-* [OWASP JSON Web Token Cheat Sheet for Java Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (but has useful general guidance)
+* [OWASP JSON Web Token Cheat Sheet for Java Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (embora tenha orientações gerais úteis)

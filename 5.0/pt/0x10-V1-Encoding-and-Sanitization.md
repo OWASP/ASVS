@@ -1,91 +1,91 @@
-# V1 Encoding and Sanitization
+# V1 Codificação e Sanitização
 
-## Control Objective
+## Objetivo de Controle
 
-This chapter addresses the most common web application security weaknesses related to the unsafe processing of untrusted data. Such weaknesses can result in various technical vulnerabilities, where untrusted data is interpreted according to the syntax rules of the relevant interpreter.
+Este capítulo aborda as fraquezas de segurança de aplicações web mais comuns relacionadas ao processamento inseguro de dados não confiáveis. Tais fraquezas podem resultar em várias vulnerabilidades técnicas, onde dados não confiáveis são interpretados de acordo com as regras de sintaxe do interpretador relevante.
 
-For modern web applications, it is always best to use safer APIs, such as parameterized queries, auto-escaping, or templating frameworks. Otherwise, carefully performed output encoding, escaping, or sanitization becomes critical to the application's security.
+Para aplicações web modernas, é sempre melhor usar APIs mais seguras, como consultas parametrizadas, auto-escaping ou frameworks de template. Caso contrário, a codificação de saída, o escaping ou a sanitização realizados de forma cuidadosa tornam-se críticos para a segurança da aplicação.
 
-Input validation serves as a defense-in-depth mechanism to protect against unexpected or dangerous content. However, since its primary purpose is to ensure that incoming content matches functional and business expectations, requirements related to this can be found in the "Validation and Business Logic" chapter.
+A validação de entrada serve como um mecanismo de defesa em profundidade para proteger contra conteúdo inesperado ou perigoso. No entanto, como seu objetivo principal é garantir que o conteúdo recebido corresponda às expectativas funcionais e de negócios, os requisitos relacionados a isso podem ser encontrados no capítulo "Validação e Lógica de Negócios" (Validation and Business Logic).
 
-## V1.1 Encoding and Sanitization Architecture
+## V1.1 Arquitetura de Codificação e Sanitização
 
-In the sections below, syntax-specific or interpreter-specific requirements for safely processing unsafe content to avoid security vulnerabilities are provided. The requirements in this section cover the order in which this processing should occur and where it should take place. They also aim to ensure that whenever data is stored, it remains in its original state and is not stored in an encoded or escaped form (e.g., HTML encoding), to prevent double encoding issues.
+Nas seções abaixo, são fornecidos requisitos específicos de sintaxe ou específicos de interpretador para o processamento seguro de conteúdo inseguro, a fim de evitar vulnerabilidades de segurança. Os requisitos nesta seção cobrem a ordem em que esse processamento deve ocorrer e onde ele deve ser realizado. Eles também visam garantir que, sempre que os dados forem armazenados, eles permaneçam em seu estado original e não sejam armazenados em formato codificado ou com escape (por exemplo, codificação HTML), para evitar problemas de codificação dupla (double encoding).
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **1.1.1** | Verify that input is decoded or unescaped into a canonical form only once, it is only decoded when encoded data in that form is expected, and that this is done before processing the input further, for example it is not performed after input validation or sanitization. | 2 |
-| **1.1.2** | Verify that the application performs output encoding and escaping either as a final step before being used by the interpreter for which it is intended or by the interpreter itself. | 2 |
+| **1.1.1** | Verifique se a entrada é decodificada ou desescapada (unescaped) para uma forma canônica apenas uma vez, se é decodificada apenas quando os dados codificados nessa forma são esperados, e se isso é feito antes de processar a entrada posteriormente (por exemplo, não é realizado após a validação ou sanitização da entrada). | 2 |
+| **1.1.2** | Verifique se a aplicação realiza a codificação e o escaping de saída como uma etapa final antes de ser usada pelo interpretador ao qual se destina, ou pelo próprio interpretador. | 2 |
 
-## V1.2 Injection Prevention
+## V1.2 Prevenção de Injeção
 
-Output encoding or escaping, performed close to or adjacent to a potentially dangerous context, is critical to the security of any application. Typically, output encoding and escaping are not persisted, but are instead used to render output safe for immediate use in the appropriate interpreter. Attempting to perform this too early may result in malformed content or render the encoding or escaping ineffective.
+A codificação ou escaping de saída, realizada próxima ou adjacente a um contexto potencialmente perigoso, é crítica para a segurança de qualquer aplicação. Normalmente, a codificação e o escaping de saída não são persistidos, mas são usados para tornar a saída segura para uso imediato no interpretador apropriado. Tentar realizar isso muito cedo pode resultar em conteúdo malformado ou tornar a codificação ou o escaping ineficazes.
 
-In many cases, software libraries include safe or safer functions that perform this automatically, although it is necessary to ensure that they are correct for the current context.
+Em muitos casos, as bibliotecas de software incluem funções seguras ou mais seguras que realizam isso automaticamente, embora seja necessário garantir que elas estejam corretas para o contexto atual.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **1.2.1** | Verify that output encoding for an HTTP response, HTML document, or XML document is relevant for the context required, such as encoding the relevant characters for HTML elements, HTML attributes, HTML comments, CSS, or HTTP header fields, to avoid changing the message or document structure. | 1 |
-| **1.2.2** | Verify that when dynamically building URLs, untrusted data is encoded according to its context (e.g., URL encoding or base64url encoding for query or path parameters). Ensure that only safe URL protocols are permitted (e.g., disallow javascript: or data:). | 1 |
-| **1.2.3** | Verify that output encoding or escaping is used when dynamically building JavaScript content (including JSON), to avoid changing the message or document structure (to avoid JavaScript and JSON injection). | 1 |
-| **1.2.4** | Verify that data selection or database queries (e.g., SQL, HQL, NoSQL, Cypher) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from SQL Injection and other database injection attacks. This is also relevant when writing stored procedures. | 1 |
-| **1.2.5** | Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. | 1 |
-| **1.2.6** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. | 2 |
-| **1.2.7** | Verify that the application is protected against XPath injection attacks by using query parameterization or precompiled queries. | 2 |
-| **1.2.8** | Verify that LaTeX processors are configured securely (such as not using the "--shell-escape" flag) and an allowlist of commands is used to prevent LaTeX injection attacks. | 2 |
-| **1.2.9** | Verify that the application escapes special characters in regular expressions (typically using a backslash) to prevent them from being misinterpreted as metacharacters. | 2 |
-| **1.2.10** | Verify that the application is protected against CSV and Formula Injection. The application must follow the escaping rules defined in RFC 4180 sections 2.6 and 2.7 when exporting CSV content. Additionally, when exporting to CSV or other spreadsheet formats (such as XLS, XLSX, or ODF), special characters (including '=', '+', '-', '@', '\t' (tab), and '\0' (null character)) must be escaped with a single quote if they appear as the first character in a field value. | 3 |
+| **1.2.1** | Verifique se a codificação de saída para uma resposta HTTP, documento HTML ou documento XML é relevante para o contexto exigido, como codificar os caracteres relevantes para elementos HTML, atributos HTML, comentários HTML, CSS ou campos de cabeçalho HTTP, para evitar alterar a mensagem ou a estrutura do documento. | 1 |
+| **1.2.2** | Verifique se, ao construir URLs dinamicamente, os dados não confiáveis são codificados de acordo com seu contexto (por exemplo, codificação de URL ou codificação base64url para parâmetros de consulta ou de caminho). Garanta que apenas protocolos de URL seguros sejam permitidos (por exemplo, proibir javascript: ou data:). | 1 |
+| **1.2.3** | Verifique se a codificação ou escaping de saída é usado ao construir conteúdo JavaScript dinamicamente (incluindo JSON), para evitar a alteração da mensagem ou da estrutura do documento (para evitar a injeção de JavaScript e JSON). | 1 |
+| **1.2.4** | Verifique se a seleção de dados ou consultas a bancos de dados (por exemplo, SQL, HQL, NoSQL, Cypher) usam consultas parametrizadas, ORMs, entity frameworks ou são de outra forma protegidas contra injeção de SQL e outros ataques de injeção de banco de dados. Isso também é relevante ao escrever procedimentos armazenados (stored procedures). | 1 |
+| **1.2.5** | Verifique se a aplicação protege contra injeção de comando no sistema operacional (OS) e se as chamadas de sistema operacional usam consultas de OS parametrizadas ou usam codificação de saída de linha de comando contextual. | 1 |
+| **1.2.6** | Verifique se a aplicação protege contra vulnerabilidades de injeção de LDAP, ou se controles de segurança específicos para prevenir a injeção de LDAP foram implementados. | 2 |
+| **1.2.7** | Verifique se a aplicação é protegida contra ataques de injeção de XPath através do uso de parametrização de consultas ou consultas pré-compiladas. | 2 |
+| **1.2.8** | Verifique se os processadores LaTeX estão configurados com segurança (como não usar a flag "--shell-escape") e se uma lista de permissões (allowlist) de comandos é usada para evitar ataques de injeção LaTeX. | 2 |
+| **1.2.9** | Verifique se a aplicação escapa caracteres especiais em expressões regulares (geralmente usando uma barra invertida) para evitar que sejam mal interpretados como metacaracteres. | 2 |
+| **1.2.10** | Verifique se a aplicação está protegida contra injeção de CSV e Fórmulas. A aplicação deve seguir as regras de escaping definidas na RFC 4180 seções 2.6 e 2.7 ao exportar conteúdo CSV. Adicionalmente, ao exportar para CSV ou outros formatos de planilha (como XLS, XLSX ou ODF), caracteres especiais (incluindo '=', '+', '-', '@', '\t' (tab) e '\0' (caractere nulo)) devem ser escapados com uma aspa simples se aparecerem como o primeiro caractere em um valor de campo. | 3 |
 
-Note: Using parameterized queries or escaping SQL is not always sufficient. Query parts such as table and column names (including "ORDER BY" column names) cannot be escaped. Including escaped user-supplied data in these fields results in failed queries or SQL injection.
+Nota: O uso de consultas parametrizadas ou o escape de SQL nem sempre é suficiente. Partes da consulta, como nomes de tabelas e colunas (incluindo nomes de colunas "ORDER BY"), não podem ser escapadas. A inclusão de dados escapados fornecidos pelo usuário nesses campos resulta em falhas nas consultas ou injeção de SQL.
 
-## V1.3 Sanitization
+## V1.3 Sanitização
 
-The ideal protection against using untrusted content in an unsafe context is to use context-specific encoding or escaping, which maintains the same semantic meaning of the unsafe content but renders it safe for use in that particular context, as discussed in more detail in the previous section.
+A proteção ideal contra o uso de conteúdo não confiável em um contexto inseguro é usar codificação ou escaping específicos do contexto, o que mantém o mesmo significado semântico do conteúdo inseguro, mas o torna seguro para uso naquele contexto específico, conforme discutido com mais detalhes na seção anterior.
 
-Where this is not possible, sanitization becomes necessary, removing potentially dangerous characters or content. In some cases, this may change the semantic meaning of the input, but for security reasons, there may be no alternative.
+Onde isso não for possível, a sanitização se torna necessária, removendo caracteres ou conteúdos potencialmente perigosos. Em alguns casos, isso pode alterar o significado semântico da entrada, mas, por razões de segurança, pode não haver alternativa.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **1.3.1** | Verify that all untrusted HTML input from WYSIWYG editors or similar is sanitized using a well-known and secure HTML sanitization library or framework feature. | 1 |
-| **1.3.2** | Verify that the application avoids the use of eval() or other dynamic code execution features such as Spring Expression Language (SpEL). Where there is no alternative, any user input being included must be sanitized before being executed. | 1 |
-| **1.3.3** | Verify that data being passed to a potentially dangerous context is sanitized beforehand to enforce safety measures, such as only allowing characters which are safe for this context and trimming input which is too long. | 2 |
-| **1.3.4** | Verify that user-supplied Scalable Vector Graphics (SVG) scriptable content is validated or sanitized to contain only tags and attributes (such as draw graphics) that are safe for the application, e.g., do not contain scripts and foreignObject. | 2 |
-| **1.3.5** | Verify that the application sanitizes or disables user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | 2 |
-| **1.3.6** | Verify that the application protects against Server-side Request Forgery (SSRF) attacks, by validating untrusted data against an allowlist of protocols, domains, paths and ports and sanitizing potentially dangerous characters before using the data to call another service. | 2 |
-| **1.3.7** | Verify that the application protects against template injection attacks by not allowing templates to be built based on untrusted input. Where there is no alternative, any untrusted input being included dynamically during template creation must be sanitized or strictly validated. | 2 |
-| **1.3.8** | Verify that the application appropriately sanitizes untrusted input before use in Java Naming and Directory Interface (JNDI) queries and that JNDI is configured securely to prevent JNDI injection attacks. | 2 |
-| **1.3.9** | Verify that the application sanitizes content before it is sent to memcache to prevent injection attacks. | 2 |
-| **1.3.10** | Verify that format strings which might resolve in an unexpected or malicious way when used are sanitized before being processed. | 2 |
-| **1.3.11** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | 2 |
-| **1.3.12** | Verify that regular expressions are free from elements causing exponential backtracking, and ensure untrusted input is sanitized to mitigate ReDoS or Runaway Regex attacks. | 3 |
+| **1.3.1** | Verifique se todas as entradas HTML não confiáveis provenientes de editores WYSIWYG ou similares são sanitizadas usando uma biblioteca de sanitização HTML conhecida e segura ou um recurso de framework. | 1 |
+| **1.3.2** | Verifique se a aplicação evita o uso de eval() ou de outros recursos de execução dinâmica de código, como a Spring Expression Language (SpEL). Onde não houver alternativa, qualquer entrada do usuário a ser incluída deve ser sanitizada antes de ser executada. | 1 |
+| **1.3.3** | Verifique se os dados que estão sendo passados para um contexto potencialmente perigoso são sanitizados previamente para aplicar medidas de segurança, como permitir apenas caracteres seguros para esse contexto e cortar entradas muito longas (trimming). | 2 |
+| **1.3.4** | Verifique se o conteúdo de script Scalable Vector Graphics (SVG) fornecido pelo usuário é validado ou sanitizado para conter apenas tags e atributos (como gráficos de desenho) que são seguros para a aplicação, por exemplo, não conter scripts e foreignObject. | 2 |
+| **1.3.5** | Verifique se a aplicação sanitiza ou desabilita o conteúdo fornecido pelo usuário para linguagens de template com suporte a scripts ou expressões, como Markdown, folhas de estilo CSS ou XSL, BBCode ou similares. | 2 |
+| **1.3.6** | Verifique se a aplicação protege contra ataques de Falsificação de Solicitação do Lado do Servidor (Server-side Request Forgery - SSRF), validando dados não confiáveis em relação a uma lista de permissões (allowlist) de protocolos, domínios, caminhos e portas, e sanitizando caracteres potencialmente perigosos antes de usar os dados para chamar outro serviço. | 2 |
+| **1.3.7** | Verifique se a aplicação protege contra ataques de injeção de template não permitindo que templates sejam criados com base em entradas não confiáveis. Onde não houver alternativa, qualquer entrada não confiável sendo incluída dinamicamente durante a criação do template deve ser sanitizada ou estritamente validada. | 2 |
+| **1.3.8** | Verifique se a aplicação sanitiza apropriadamente as entradas não confiáveis antes de usá-las em consultas do Java Naming and Directory Interface (JNDI) e se o JNDI está configurado com segurança para evitar ataques de injeção JNDI. | 2 |
+| **1.3.9** | Verifique se a aplicação sanitiza o conteúdo antes de ser enviado ao memcache para prevenir ataques de injeção. | 2 |
+| **1.3.10** | Verifique se as format strings (strings de formatação), que podem ser resolvidas de maneira inesperada ou maliciosa quando usadas, são sanitizadas antes de serem processadas. | 2 |
+| **1.3.11** | Verifique se a aplicação sanitiza a entrada do usuário antes de passá-la aos sistemas de e-mail para proteger contra injeção SMTP ou IMAP. | 2 |
+| **1.3.12** | Verifique se as expressões regulares estão livres de elementos que causam retrocesso exponencial (exponential backtracking) e certifique-se de que a entrada não confiável seja sanitizada para mitigar ataques de ReDoS ou Runaway Regex. | 3 |
 
-## V1.4 Memory, String, and Unmanaged Code
+## V1.4 Memória, String e Código Não Gerenciado (Unmanaged Code)
 
-The following requirements address risks associated with unsafe memory use, which generally apply when the application uses a systems language or unmanaged code.
+Os requisitos a seguir abordam os riscos associados ao uso inseguro de memória, que geralmente se aplicam quando a aplicação usa uma linguagem de sistemas ou código não gerenciado (unmanaged code).
 
-In some cases, it may be possible to achieve this by setting compiler flags that enable buffer overflow protections and warnings, including stack randomization and data execution prevention, and that break the build if unsafe pointer, memory, format string, integer, or string operations are found.
+Em alguns casos, é possível conseguir isso definindo flags do compilador que habilitam proteções e avisos contra estouro de buffer (buffer overflow), incluindo randomização de pilha e prevenção de execução de dados, e que quebram a build se operações inseguras de ponteiro, memória, format string, inteiros ou strings forem encontradas.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **1.4.1** | Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows. | 2 |
-| **1.4.2** | Verify that sign, range, and input validation techniques are used to prevent integer overflows. | 2 |
-| **1.4.3** | Verify that dynamically allocated memory and resources are released, and that references or pointers to freed memory are removed or set to null to prevent dangling pointers and use-after-free vulnerabilities. | 2 |
+| **1.4.1** | Verifique se a aplicação usa aritmética de ponteiros, cópia de memória mais segura e strings com segurança de memória para detectar ou prevenir estouros de pilha (stack), buffer ou heap. | 2 |
+| **1.4.2** | Verifique se técnicas de validação de sinal, intervalo e entrada são usadas para evitar estouros de inteiros (integer overflows). | 2 |
+| **1.4.3** | Verifique se a memória e os recursos alocados dinamicamente são liberados e se as referências ou ponteiros para a memória liberada são removidos ou definidos como nulos (null) para evitar ponteiros pendentes (dangling pointers) e vulnerabilidades de uso após a liberação (use-after-free). | 2 |
 
-## V1.5 Safe Deserialization
+## V1.5 Desserialização Segura
 
-The conversion of data from a stored or transmitted representation into actual application objects (deserialization) has historically been the cause of various code injection vulnerabilities. It is important to perform this process carefully and safely to avoid these types of issues.
+A conversão de dados de uma representação armazenada ou transmitida em objetos reais da aplicação (desserialização) tem sido historicamente a causa de várias vulnerabilidades de injeção de código. É importante executar esse processo com cuidado e segurança para evitar esses tipos de problemas.
 
-In particular, certain methods of deserialization have been identified by programming language or framework documentation as insecure and cannot be made safe with untrusted data. For each mechanism in use, careful due diligence should be performed.
+Em particular, certos métodos de desserialização foram identificados pela documentação da linguagem de programação ou do framework como inseguros e não podem se tornar seguros com dados não confiáveis. Para cada mecanismo em uso, deve-se realizar uma diligência cuidadosa.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **1.5.1** | Verify that the application configures XML parsers to use a restrictive configuration and that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks. | 1 |
-| **1.5.2** | Verify that deserialization of untrusted data enforces safe input handling, such as using an allowlist of object types or restricting client-defined object types, to prevent deserialization attacks. Deserialization mechanisms that are explicitly defined as insecure must not be used with untrusted input. | 2 |
-| **1.5.3** | Verify that different parsers used in the application for the same data type (e.g., JSON parsers, XML parsers, URL parsers), perform parsing in a consistent way and use the same character encoding mechanism to avoid issues such as JSON Interoperability vulnerabilities or different URI or file parsing behavior being exploited in Remote File Inclusion (RFI) or Server-side Request Forgery (SSRF) attacks. | 3 |
+| **1.5.1** | Verifique se a aplicação configura parsers XML para usar uma configuração restritiva e se recursos inseguros, como a resolução de entidades externas, estão desabilitados para prevenir ataques de Entidade Externa XML (XML eXternal Entity - XXE). | 1 |
+| **1.5.2** | Verifique se a desserialização de dados não confiáveis impõe tratamento seguro de entrada, como o uso de uma lista de permissões (allowlist) de tipos de objetos ou a restrição de tipos de objetos definidos pelo cliente, para evitar ataques de desserialização. Mecanismos de desserialização explicitamente definidos como inseguros não devem ser usados com entradas não confiáveis. | 2 |
+| **1.5.3** | Verifique se diferentes parsers usados na aplicação para o mesmo tipo de dado (por exemplo, parsers JSON, parsers XML, parsers de URL), realizam o parsing de forma consistente e usam o mesmo mecanismo de codificação de caracteres para evitar problemas como vulnerabilidades de Interoperabilidade JSON ou comportamento diferente na análise de URI ou arquivos sendo explorados em ataques de Inclusão Remota de Arquivo (RFI) ou Falsificação de Solicitação do Lado do Servidor (SSRF). | 3 |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
 * [OWASP LDAP Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html)
 * [OWASP Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
@@ -96,7 +96,7 @@ For more information, see also:
 * [DOMPurify - Client-side HTML Sanitization Library](https://github.com/cure53/DOMPurify)
 * [RFC4180 - Common Format and MIME Type for Comma-Separated Values (CSV) Files](https://datatracker.ietf.org/doc/html/rfc4180#section-2)
 
-For more information, specifically on deserialization or parsing issues, please see:
+Para obter mais informações, especificamente sobre problemas de desserialização ou parsing, consulte:
 
 * [OWASP Deserialization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
 * [An Exploration of JSON Interoperability Vulnerabilities](https://bishopfox.com/blog/json-interoperability-vulnerabilities)

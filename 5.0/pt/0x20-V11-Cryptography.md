@@ -1,105 +1,105 @@
-# V11 Cryptography
+# V11 Criptografia
 
-## Control Objective
+## Objetivo de Controle
 
-The objective of this chapter is to define best practices for the general use of cryptography, as well as to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches. It encourages the following:
+O objetivo deste capítulo é definir as melhores práticas para o uso geral da criptografia, bem como incutir uma compreensão fundamental dos princípios criptográficos e inspirar uma mudança em direção a abordagens mais resilientes e modernas. Ele incentiva o seguinte:
 
-* Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
-* Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
-* Maintaining a secure cryptographic key management system with appropriate access controls and auditing.
-* Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
-* Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
+* Implementar sistemas criptográficos robustos que falhem de forma segura (fail securely), que se adaptem às ameaças em evolução e que sejam preparados para o futuro (future-proof).
+* Utilizar mecanismos criptográficos que sejam ao mesmo tempo seguros e alinhados com as melhores práticas do setor.
+* Manter um sistema seguro de gerenciamento de chaves criptográficas com controles de acesso e auditoria apropriados.
+* Avaliar regularmente o cenário criptográfico para verificar novos riscos e adaptar algoritmos de acordo.
+* Descobrir e gerenciar os casos de uso de criptografia ao longo de todo o ciclo de vida da aplicação para garantir que todos os ativos criptográficos sejam contabilizados e protegidos.
 
-In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in Appendix C - Cryptography Standards. This includes algorithms and modes that are considered "approved" for the purposes of the requirements in this chapter.
+Além de delinear princípios gerais e melhores práticas, este documento também fornece informações técnicas mais detalhadas sobre os requisitos no Apêndice C - Padrões de Criptografia. Isso inclui algoritmos e modos que são considerados "aprovados" para os propósitos dos requisitos deste capítulo.
 
-Requirements that use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
+Requisitos que usam criptografia para resolver um problema separado, como gerenciamento de segredos ou segurança de comunicações, estarão em partes diferentes do padrão.
 
-## V11.1 Cryptographic Inventory and Documentation
+## V11.1 Inventário e Documentação Criptográfica
 
-Applications need to be designed with strong cryptographic architecture to protect data assets according to their classification. Encrypting everything is wasteful; not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high-level design, design sprints, or architectural spikes. Designing cryptography "on the fly" or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
+As aplicações precisam ser projetadas com uma forte arquitetura criptográfica para proteger os ativos de dados de acordo com sua classificação. Criptografar tudo é um desperdício; não criptografar nada é uma negligência legal. Um equilíbrio deve ser alcançado, geralmente durante o design da arquitetura ou o design de alto nível (high-level design), design sprints ou architectural spikes. Projetar a criptografia "no improviso" ou fazer adequações retroativas (retrofitting) custará inevitavelmente muito mais para implementar de forma segura do que construí-la desde o início.
 
-It is important to ensure that all cryptographic assets are regularly discovered, inventoried, and assessed. Please see the appendix for more information on how this can be done.
+É importante garantir que todos os ativos criptográficos sejam descobertos, inventariados e avaliados regularmente. Por favor, consulte o apêndice para mais informações sobre como isso pode ser feito.
 
-The need to future-proof cryptographic systems against the eventual rise of quantum computing is also critical. Post-Quantum Cryptography (PQC) refers to cryptographic algorithms designed to remain secure against attacks by quantum computers, which are expected to break widely used algorithms such as RSA and elliptic curve cryptography (ECC).
+A necessidade de proteger sistemas criptográficos no futuro contra o eventual surgimento da computação quântica também é fundamental. A Criptografia Pós-Quântica (Post-Quantum Cryptography - PQC) refere-se a algoritmos criptográficos projetados para permanecerem seguros contra ataques por computadores quânticos, que têm a expectativa de quebrar os algoritmos amplamente usados, como o RSA e a Criptografia de Curva Elíptica (ECC).
 
-Please see the appendix for current guidance on vetted PQC primitives and standards.
+Por favor, consulte o apêndice para orientações atuais sobre primitivas PQC validadas e padrões.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **11.1.1** | Verify that there is a documented policy for management of cryptographic keys and a cryptographic key lifecycle that follows a key management standard such as NIST SP 800-57. This should include ensuring that keys are not overshared (for example, with more than two entities for shared secrets and more than one entity for private keys). | 2 |
-| **11.1.2** | Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It must also document where keys can and cannot be used in the system, and the types of data that can and cannot be protected using the keys. | 2 |
-| **11.1.3** | Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | 3 |
-| **11.1.4** | Verify that a cryptographic inventory is maintained. This must include a documented plan that outlines the migration path to new cryptographic standards, such as post-quantum cryptography, in order to react to future threats. | 3 |
+| **11.1.1** | Verifique se há uma política documentada para o gerenciamento de chaves criptográficas e um ciclo de vida da chave criptográfica que siga um padrão de gerenciamento de chaves como o NIST SP 800-57. Isso deve incluir a garantia de que as chaves não sejam supercompartilhadas (overshared) (por exemplo, com mais de duas entidades para segredos compartilhados e mais de uma entidade para chaves privadas). | 2 |
+| **11.1.2** | Verifique se um inventário criptográfico é realizado, mantido, atualizado regularmente e se inclui todas as chaves criptográficas, algoritmos e certificados usados pela aplicação. Ele também deve documentar onde as chaves podem ou não ser usadas no sistema e os tipos de dados que podem ou não ser protegidos usando as chaves. | 2 |
+| **11.1.3** | Verifique se mecanismos de descoberta criptográfica são empregados para identificar todas as instâncias de criptografia no sistema, incluindo operações de criptografia, hashing e assinatura. | 3 |
+| **11.1.4** | Verifique se um inventário criptográfico é mantido. Ele deve incluir um plano documentado que descreve o caminho de migração para os novos padrões de criptografia, como a criptografia pós-quântica, a fim de reagir a ameaças futuras. | 3 |
 
-## V11.2 Secure Cryptography Implementation
+## V11.2 Implementação Segura de Criptografia
 
-This section defines the requirements for the selection, implementation, and ongoing management of core cryptographic algorithms for an application. The objective is to ensure that only robust, industry-accepted cryptographic primitives are deployed, in alignment with current standards (e.g., NIST, ISO/IEC) and best practices. Organizations must ensure that each cryptographic component is selected based on peer-reviewed evidence and practical security testing.
+Esta seção define os requisitos para a seleção, implementação e gerenciamento contínuo dos principais algoritmos criptográficos de uma aplicação. O objetivo é garantir que apenas primitivas criptográficas robustas e aceitas no setor sejam implantadas, em alinhamento com as normas vigentes (por exemplo, NIST, ISO/IEC) e melhores práticas. As organizações devem garantir que cada componente criptográfico seja selecionado com base em evidências revisadas por pares (peer-reviewed) e testes de segurança práticos.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **11.2.1** | Verify that industry-validated implementations (including libraries and hardware-accelerated implementations) are used for cryptographic operations. | 2 |
-| **11.2.2** | Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC, or hashing algorithms, key lengths, rounds, ciphers and modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This will allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 |
-| **11.2.3** | Verify that all cryptographic primitives utilize a minimum of 128-bits of security based on the algorithm, key size, and configuration. For example, a 256-bit ECC key provides roughly 128 bits of security where RSA requires a 3072-bit key to achieve 128 bits of security. | 2 |
-| **11.2.4** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | 3 |
-| **11.2.5** | Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | 3 |
+| **11.2.1** | Verifique se implementações validadas pela indústria (incluindo bibliotecas e implementações aceleradas por hardware) são usadas para operações criptográficas. | 2 |
+| **11.2.2** | Verifique se a aplicação é projetada com agilidade criptográfica (crypto agility), de tal forma que números aleatórios, criptografia autenticada, MAC ou algoritmos de hash, comprimentos de chave, rodadas (rounds), cifras e modos possam ser reconfigurados, atualizados ou trocados a qualquer momento, para proteger contra quebras criptográficas. Da mesma forma, também deve ser possível substituir chaves e senhas e criptografar novamente os dados. Isso permitirá a realização de upgrades transparentes (seamless) para a criptografia pós-quântica (PQC), assim que implementações de alta garantia (high-assurance) de esquemas ou padrões aprovados de PQC estiverem amplamente disponíveis. | 2 |
+| **11.2.3** | Verifique se todas as primitivas criptográficas utilizam um mínimo de 128 bits de segurança com base no algoritmo, no tamanho da chave e na configuração. Por exemplo, uma chave ECC de 256 bits fornece cerca de 128 bits de segurança, ao passo que o RSA requer uma chave de 3072 bits para alcançar 128 bits de segurança. | 2 |
+| **11.2.4** | Verifique se todas as operações criptográficas têm tempo constante (constant-time), sem operações de 'curto-circuito' em comparações, cálculos ou retornos, para evitar o vazamento de informações. | 3 |
+| **11.2.5** | Verifique se todos os módulos criptográficos falham com segurança (fail securely), e se os erros são tratados de maneira a não permitir o surgimento de vulnerabilidades, como ataques de Padding Oracle. | 3 |
 
-## V11.3 Encryption Algorithms
+## V11.3 Algoritmos de Criptografia
 
-Authenticated encryption algorithms built on AES and CHACHA20 form the backbone of modern cryptographic practice.
+Os algoritmos de criptografia autenticada construídos em AES e CHACHA20 formam a espinha dorsal da prática criptográfica moderna.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **11.3.1** | Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | 1 |
-| **11.3.2** | Verify that only approved ciphers and modes such as AES with GCM are used. | 1 |
-| **11.3.3** | Verify that encrypted data is protected against unauthorized modification preferably by using an approved authenticated encryption method or by combining an approved encryption method with an approved MAC algorithm. | 2 |
-| **11.3.4** | Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key and data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 |
-| **11.3.5** | Verify that any combination of an encryption algorithm and a MAC algorithm is operating in encrypt-then-MAC mode. | 3 |
+| **11.3.1** | Verifique se os modos de bloco inseguros (por exemplo, ECB) e os esquemas de preenchimento fracos (weak padding schemes, por exemplo, PKCS#1 v1.5) não são usados. | 1 |
+| **11.3.2** | Verifique se apenas as cifras e modos aprovados, como o AES com GCM, são usados. | 1 |
+| **11.3.3** | Verifique se os dados criptografados estão protegidos contra modificações não autorizadas preferencialmente através do uso de um método de criptografia autenticada aprovado ou da combinação de um método de criptografia aprovado com um algoritmo MAC aprovado. | 2 |
+| **11.3.4** | Verifique se os nonces, vetores de inicialização e outros números de uso único (single-use numbers) não são usados para mais de um par de chave de criptografia e elemento de dado. O método de geração deve ser adequado ao algoritmo em uso. | 3 |
+| **11.3.5** | Verifique se qualquer combinação de um algoritmo de criptografia com um algoritmo MAC está operando no modo encrypt-then-MAC (criptografa-depois-MAC). | 3 |
 
-## V11.4 Hashing and Hash-based Functions
+## V11.4 Hashing e Funções Baseadas em Hash
 
-Cryptographic hashes are used in a wide variety of cryptographic protocols, such as digital signatures, HMAC, key derivation functions (KDF), random bit generation, and password storage. The security of the cryptographic system is only as strong as the underlying hash functions used. This section outlines the requirements for using secure hash functions in cryptographic operations.
+Os hashes criptográficos são usados em uma ampla variedade de protocolos criptográficos, como assinaturas digitais, HMAC, funções de derivação de chaves (KDF), geração aleatória de bits e armazenamento de senhas. A segurança do sistema criptográfico depende da força das funções hash subjacentes usadas. Esta seção descreve os requisitos para o uso de funções hash seguras em operações criptográficas.
 
-For password storage, as well as the cryptography appendix, the [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) will also provide useful context and guidance.
+Para o armazenamento de senhas, além do apêndice de criptografia, o [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) também fornecerá contexto e orientações úteis.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **11.4.1** | Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Disallowed hash functions, such as MD5, must not be used for any cryptographic purpose. | 1 |
-| **11.4.2** | Verify that passwords are stored using an approved, computationally intensive, key derivation function (also known as a "password hashing function"), with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks sufficiently challenging for the required level of security. | 2 |
-| **11.4.3** | Verify that hash functions used in digital signatures, as part of data authentication or data integrity are collision resistant and have appropriate bit-lengths. If collision resistance is required, the output length must be at least 256 bits. If only resistance to second pre-image attacks is required, the output length must be at least 128 bits. | 2 |
-| **11.4.4** | Verify that the application uses approved key derivation functions with key stretching parameters when deriving secret keys from passwords. The parameters in use must balance security and performance to prevent brute-force attacks from compromising the resulting cryptographic key. | 2 |
+| **11.4.1** | Verifique se apenas funções hash aprovadas são usadas para casos de uso gerais de criptografia, incluindo assinaturas digitais, HMAC, KDF e geração aleatória de bits. Funções de hash não permitidas, como o MD5, não devem ser usadas para nenhum propósito criptográfico. | 1 |
+| **11.4.2** | Verifique se as senhas são armazenadas usando uma função de derivação de chave aprovada e de processamento intensivo (também conhecida como "função de hash de senha"), com parâmetros configurados de acordo com a orientação atual. As configurações devem equilibrar segurança e desempenho a fim de tornar os ataques de força bruta suficientemente desafiadores para o nível exigido de segurança. | 2 |
+| **11.4.3** | Verifique se as funções hash usadas em assinaturas digitais, como parte da autenticação de dados ou integridade de dados, são resistentes à colisão e possuem os comprimentos de bits adequados. Se for exigida a resistência à colisão, o tamanho da saída deverá ser de, no mínimo, 256 bits. Se apenas a resistência aos ataques de segunda pré-imagem (second pre-image attacks) for exigida, o tamanho da saída deverá ser de, no mínimo, 128 bits. | 2 |
+| **11.4.4** | Verifique se a aplicação usa funções de derivação de chave aprovadas com parâmetros de key stretching (alongamento de chave) ao derivar chaves secretas de senhas. Os parâmetros em uso devem equilibrar segurança e desempenho para evitar que ataques de força bruta comprometam a chave criptográfica resultante. | 2 |
 
-## V11.5 Random Values
+## V11.5 Valores Aleatórios
 
-Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets.
+A Geração de Números Pseudoaleatórios Criptograficamente Segura (CSPRNG) é incrivelmente difícil de fazer da forma correta. Em geral, boas fontes de entropia dentro de um sistema esgotarão rapidamente se usadas em excesso, mas as fontes com menos aleatoriedade podem levar a chaves e segredos previsíveis.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **11.5.1** | Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | 2 |
-| **11.5.2** | Verify that the random number generation mechanism in use is designed to work securely, even under heavy demand. | 3 |
+| **11.5.1** | Verifique se todos os números e strings aleatórios que se destinam a não serem adivinháveis devem ser gerados usando um gerador de números pseudoaleatórios criptograficamente seguro (CSPRNG) e têm pelo menos 128 bits de entropia. Note que UUIDs não respeitam esta condição. | 2 |
+| **11.5.2** | Verifique se o mecanismo de geração de números aleatórios em uso foi projetado para funcionar de forma segura, mesmo sob alta demanda. | 3 |
 
-## V11.6 Public Key Cryptography
+## V11.6 Criptografia de Chave Pública
 
-Public Key Cryptography will be used where it is not possible or not desirable to share a secret key between multiple parties.
+A Criptografia de Chave Pública será usada onde não for possível ou indesejável compartilhar uma chave secreta entre várias partes.
 
-As part of this, there exists a need for approved key exchange mechanisms, such as Diffie-Hellman and Elliptic Curve Diffie-Hellman (ECDH) to ensure that the cryptosystem remains secure against modern threats. The "Secure Communication" chapter provides requirements for TLS so the requirements in this section are intended for situations where Public Key Cryptography is being used in use cases other than TLS.
+Como parte disso, existe a necessidade de mecanismos aprovados para a troca de chaves, como Diffie-Hellman e Curva Elíptica de Diffie-Hellman (ECDH), para garantir que o sistema criptográfico permaneça seguro contra ameaças modernas. O capítulo "Comunicação Segura" fornece os requisitos para o TLS, de forma que os requisitos nesta seção se destinam a situações em que a Criptografia de Chave Pública esteja sendo usada em casos de uso distintos do TLS.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **11.6.1** | Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. Key generation algorithms must not generate insecure keys vulnerable to known attacks, for example, RSA keys which are vulnerable to Fermat factorization. | 2 |
-| **11.6.2** | Verify that approved cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This will prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 3 |
+| **11.6.1** | Verifique se apenas modos de operação e algoritmos criptográficos aprovados são usados para geração de chaves, seeding, geração e verificação de assinatura digital. Os algoritmos de geração de chaves não devem gerar chaves inseguras que sejam vulneráveis a ataques conhecidos, por exemplo, as chaves RSA que são vulneráveis à fatoração de Fermat. | 2 |
+| **11.6.2** | Verifique se os algoritmos criptográficos aprovados são usados para a troca de chaves (como o Diffie-Hellman), com foco em garantir que os mecanismos de troca de chaves utilizem parâmetros seguros. Isso evitará ataques ao processo de estabelecimento da chave que poderiam levar a ataques adversary-in-the-middle ou a quebras criptográficas. | 3 |
 
-## V11.7 In-Use Data Cryptography
+## V11.7 Criptografia de Dados Em Uso
 
-Protecting data while it is being processed is paramount. Techniques such as full memory encryption, encryption of data in transit, and ensuring data is encrypted as quickly as possible after use is recommended.
+Proteger os dados enquanto estão sendo processados é primordial. O uso de técnicas como criptografia completa de memória, criptografia de dados em trânsito e assegurar que os dados sejam criptografados o mais rápido possível após o uso, é recomendado.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **11.7.1** | Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | 3 |
-| **11.7.2** | Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | 3 |
+| **11.7.1** | Verifique se o uso de criptografia completa de memória está habilitado para proteger os dados sensíveis enquanto estiverem em uso, impedindo o acesso por usuários ou processos não autorizados. | 3 |
+| **11.7.2** | Verifique se a minimização de dados garante a exposição de apenas a menor quantidade de dados durante o processamento, e assegure que os dados sejam criptografados imediatamente após o uso ou logo que for possível. | 3 |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
 * [OWASP Web Security Testing Guide: Testing for Weak Cryptography](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography)
 * [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)

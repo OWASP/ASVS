@@ -1,55 +1,55 @@
-# V12 Secure Communication
+# V12 Comunicação Segura
 
-## Control Objective
+## Objetivo de Controle
 
-This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end-user client and a backend service, as well as between internal and backend services.
+Este capítulo inclui requisitos relacionados aos mecanismos específicos que devem estar em vigor para proteger dados em trânsito, tanto entre um cliente (usuário final) e um serviço backend, quanto entre serviços internos e os de backend.
 
-The general concepts promoted by this chapter include:
+Os conceitos gerais promovidos por este capítulo incluem:
 
-* Ensuring that communications are encrypted externally, and ideally internally as well.
-* Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
-* Ensuring that communications are not being intercepted by unauthorized parties through the use of signed certificates.
+* Garantir que as comunicações sejam criptografadas externamente e, idealmente, internamente também.
+* Configurar mecanismos de criptografia utilizando as diretrizes mais recentes, incluindo os algoritmos e cifras preferidos.
+* Assegurar que as comunicações não sejam interceptadas por partes não autorizadas através do uso de certificados assinados.
 
-In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in Appendix C - Cryptography Standards.
+Além de delinear princípios gerais e melhores práticas, o ASVS também fornece informações técnicas aprofundadas sobre a força criptográfica no Apêndice C - Padrões de Criptografia.
 
-## V12.1 General TLS Security Guidance
+## V12.1 Orientação Geral de Segurança TLS
 
-This section provides initial guidance on how to secure TLS communications. Up-to-date tools should be used to review TLS configuration on an ongoing basis.
+Esta seção fornece orientações iniciais sobre como proteger as comunicações TLS. Ferramentas atualizadas devem ser utilizadas para revisar a configuração TLS de maneira contínua.
 
-While the use of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development, and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and the use of separate TLS certificates in different environments should be employed if possible.
+Embora o uso de certificados curinga (wildcard certificates) para o TLS não seja inerentemente inseguro, o comprometimento de um certificado que é implantado em todos os ambientes proprietários (ex., produção, homologação, desenvolvimento e testes) pode levar ao comprometimento da postura de segurança das aplicações que o utilizam. A proteção adequada, o gerenciamento e o uso de certificados TLS distintos em diferentes ambientes devem ser empregados, sempre que possível.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **12.1.1** | Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol must be the preferred option. | 1 |
-| **12.1.2** | Verify that only recommended cipher suites are enabled, with the strongest cipher suites set as preferred. L3 applications must only support cipher suites which provide forward secrecy. | 2 |
-| **12.1.3** | Verify that the application validates that mTLS client certificates are trusted before using the certificate identity for authentication or authorization. | 2 |
-| **12.1.4** | Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | 3 |
-| **12.1.5** | Verify that Encrypted Client Hello (ECH) is enabled in the application's TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | 3 |
+| **12.1.1** | Verifique se apenas as versões mais recentes recomendadas do protocolo TLS estão habilitadas, como TLS 1.2 e TLS 1.3. A versão mais recente do protocolo TLS deve ser a opção preferida. | 1 |
+| **12.1.2** | Verifique se apenas as suites de criptografia recomendadas estão habilitadas, com as suites mais fortes definidas como preferidas. As aplicações L3 devem suportar exclusivamente cipher suites (suites de cifras) que forneçam forward secrecy (sigilo de encaminhamento perfeito). | 2 |
+| **12.1.3** | Verifique se a aplicação valida se os certificados de cliente mTLS são confiáveis antes de usar a identidade do certificado para autenticação ou autorização. | 2 |
+| **12.1.4** | Verifique se a revogação adequada de certificado, como o Online Certificate Status Protocol (OCSP) Stapling, está habilitada e configurada. | 3 |
+| **12.1.5** | Verifique se o Encrypted Client Hello (ECH) está habilitado nas configurações TLS da aplicação para evitar a exposição de metadados sensíveis, como o Server Name Indication (SNI), durante os processos de handshake TLS. | 3 |
 
-## V12.2 HTTPS Communication with External Facing Services
+## V12.2 Comunicação HTTPS com Serviços Voltados Para a Internet (External Facing Services)
 
-Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publicly trusted certificates.
+Garanta que todo o tráfego HTTP para serviços voltados externamente expostos pela aplicação seja enviado com criptografia, utilizando certificados confiáveis publicamente.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **12.2.1** | Verify that TLS is used for all connectivity between a client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. | 1 |
-| **12.2.2** | Verify that external facing services use publicly trusted TLS certificates. | 1 |
+| **12.2.1** | Verifique se o TLS é usado em todas as conectividades entre um cliente e serviços HTTP voltados externamente, e não faz retrocesso (fallback) para comunicações inseguras ou não criptografadas. | 1 |
+| **12.2.2** | Verifique se os serviços voltados externamente utilizam certificados TLS que são publicamente confiáveis. | 1 |
 
-## V12.3 General Service to Service Communication Security
+## V12.3 Segurança da Comunicação Geral Serviço-a-Serviço
 
-Server communications (both internal and external) involve more than just HTTP. Connections to and from other systems must also be secure, ideally using TLS.
+As comunicações dos servidores (tanto as internas quanto as externas) envolvem muito mais do que apenas HTTP. As conexões de e para outros sistemas também devem ser seguras, utilizando idealmente o TLS.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **12.3.1** | Verify that an encrypted protocol such as TLS is used for all inbound and outbound connections to and from the application, including monitoring systems, management tools, remote access and SSH, middleware, databases, mainframes, partner systems, or external APIs. The server must not fall back to insecure or unencrypted protocols. | 2 |
-| **12.3.2** | Verify that TLS clients validate certificates received before communicating with a TLS server. | 2 |
-| **12.3.3** | Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services within the application, and does not fall back to insecure or unencrypted communications. | 2 |
-| **12.3.4** | Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. | 2 |
-| **12.3.5** | Verify that services communicating internally within a system (intra-service communications) use strong authentication to ensure that each endpoint is verified. Strong authentication methods, such as TLS client authentication, must be employed to ensure identity, using public-key infrastructure and mechanisms that are resistant to replay attacks. For microservice architectures, consider using a service mesh to simplify certificate management and enhance security. | 3 |
+| **12.3.1** | Verifique se um protocolo criptografado como o TLS é usado para todas as conexões de entrada e de saída da aplicação, incluindo os sistemas de monitoramento, ferramentas de gerenciamento, acesso remoto e SSH, middleware, bancos de dados, mainframes, sistemas de parceiros ou APIs externas. O servidor não deve retornar a protocolos inseguros ou não criptografados. | 2 |
+| **12.3.2** | Verifique se os clientes TLS validam os certificados recebidos antes de se comunicarem com um servidor TLS. | 2 |
+| **12.3.3** | Verifique se o TLS ou outro mecanismo adequado de criptografia de transporte é utilizado em todas as conectividades entre os serviços internos baseados em HTTP na aplicação, e não faz retrocesso (fallback) para comunicações inseguras ou não criptografadas. | 2 |
+| **12.3.4** | Verifique se as conexões TLS entre os serviços internos utilizam certificados confiáveis. Onde certificados autoassinados (self-signed) ou gerados internamente forem utilizados, o serviço consumidor deve ser configurado para confiar apenas em CAs internas específicas e em certificados autoassinados específicos. | 2 |
+| **12.3.5** | Verifique se os serviços que se comunicam internamente em um sistema (comunicações intra-serviço) usam autenticação forte para garantir a verificação de cada endpoint. Métodos de autenticação fortes, como a autenticação de cliente TLS, devem ser empregados para assegurar a identidade, usando infraestrutura de chave pública e mecanismos que são resistentes a ataques de repetição (replay attacks). Para as arquiteturas de microserviços, considere o uso de uma malha de serviços (service mesh) para simplificar o gerenciamento de certificados e aprimorar a segurança. | 3 |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
 * [OWASP - Transport Layer Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
 * [Mozilla's Server Side TLS configuration guide](https://wiki.mozilla.org/Security/Server_Side_TLS)

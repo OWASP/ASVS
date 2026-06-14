@@ -1,91 +1,91 @@
-# V7 Session Management
+# V7 Gerenciamento de Sessão
 
-## Control Objective
+## Objetivo de Controle
 
-Session management mechanisms allow applications to correlate user and device interactions over time, even when using stateless communication protocols (such as HTTP). Modern applications may use multiple session tokens with distinct characteristics and purposes. A secure session management system is one that prevents attackers from obtaining, utilizing, or otherwise abusing a victim's session. Applications maintaining sessions must ensure that the following high-level session management requirements are met:
+Os mecanismos de gerenciamento de sessão permitem que as aplicações correlacionem as interações do usuário e do dispositivo ao longo do tempo, mesmo ao usar protocolos de comunicação sem estado (como o HTTP). Aplicações modernas podem usar vários tokens de sessão com características e propósitos distintos. Um sistema de gerenciamento de sessão seguro é aquele que impede que invasores obtenham, utilizem ou, de outra forma, abusem da sessão de uma vítima. Aplicações que mantêm sessões devem garantir que os seguintes requisitos de alto nível de gerenciamento de sessão sejam atendidos:
 
-* Sessions are unique to each individual and cannot be guessed or shared.
-* Sessions are invalidated when no longer required and are timed out during periods of inactivity.
+* As sessões são exclusivas de cada indivíduo e não podem ser adivinhadas ou compartilhadas.
+* As sessões são invalidadas quando não são mais necessárias e expiram durante períodos de inatividade.
 
-Many of the requirements in this chapter relate to selected [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) controls, focusing on common threats and commonly exploited authentication weaknesses.
+Muitos dos requisitos neste capítulo estão relacionados aos controles selecionados do [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/), concentrando-se em ameaças comuns e fraquezas de autenticação frequentemente exploradas.
 
-Note that requirements for specific implementation details of certain session management mechanisms can be found elsewhere:
+Observe que os requisitos para detalhes de implementação específicos de determinados mecanismos de gerenciamento de sessão podem ser encontrados em outras partes:
 
-* HTTP Cookies are a common mechanism for securing session tokens. Specific security requirements for cookies can be found in the "Web Frontend Security" chapter.
-* Self-contained tokens are frequently used as a way of maintaining sessions. Specific security requirements can be found in the "Self-contained Tokens" chapter.
+* Cookies HTTP são um mecanismo comum para proteger tokens de sessão. Os requisitos específicos de segurança para cookies podem ser encontrados no capítulo "Segurança de Frontend Web" (Web Frontend Security).
+* Tokens autocontidos (Self-contained tokens) são frequentemente usados como uma forma de manter sessões. Requisitos de segurança específicos podem ser encontrados no capítulo "Tokens Autocontidos" (Self-contained Tokens).
 
-## V7.1 Session Management Documentation
+## V7.1 Documentação de Gerenciamento de Sessão
 
-There is no single pattern that suits all applications. Therefore, it is not feasible to define universal boundaries and limits that suit all cases. A risk analysis with documented security decisions related to session handling must be conducted as a prerequisite to implementation and testing. This ensures that the session management system is tailored to the specific requirements of the application.
+Não existe um padrão único que atenda a todas as aplicações. Portanto, não é viável definir fronteiras e limites universais que sirvam para todos os casos. Uma análise de risco com decisões de segurança documentadas relacionadas ao tratamento de sessões deve ser conduzida como um pré-requisito para implementação e teste. Isso garante que o sistema de gerenciamento de sessão seja adaptado aos requisitos específicos da aplicação.
 
-Regardless of whether a stateful or "stateless" session mechanism is chosen, the analysis must be complete and documented to demonstrate that the selected solution is capable of satisfying all relevant security requirements. Interaction with any Single Sign-on (SSO) mechanisms in use should also be considered.
+Independentemente de ser escolhido um mecanismo de sessão stateful ou "stateless" (sem estado), a análise deve ser completa e documentada para demonstrar que a solução selecionada é capaz de satisfazer todos os requisitos de segurança relevantes. A interação com quaisquer mecanismos de Single Sign-on (SSO) em uso também deve ser considerada.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **7.1.1** | Verify that the user's session inactivity timeout and absolute maximum session lifetime are documented, are appropriate in combination with other controls, and that the documentation includes justification for any deviations from NIST SP 800-63B re-authentication requirements. | 2 |
-| **7.1.2** | Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviors and actions to be taken when the maximum number of active sessions is reached. | 2 |
-| **7.1.3** | Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other conditions that require re-authentication. | 2 |
+| **7.1.1** | Verifique se o tempo limite de inatividade da sessão do usuário e o tempo de vida (lifetime) máximo absoluto da sessão estão documentados, são apropriados em combinação com outros controles e se a documentação inclui justificativa para quaisquer desvios dos requisitos de reautenticação do NIST SP 800-63B. | 2 |
+| **7.1.2** | Verifique se a documentação define quantas sessões concorrentes (paralelas) são permitidas para uma conta, bem como os comportamentos e as ações pretendidas a serem tomadas quando o número máximo de sessões ativas for alcançado. | 2 |
+| **7.1.3** | Verifique se todos os sistemas que criam e gerenciam sessões de usuário como parte de um ecossistema de gerenciamento de identidade federada (como sistemas SSO) estão documentados juntamente com os controles para coordenar tempos de vida das sessões, encerramento e quaisquer outras condições que exijam reautenticação. | 2 |
 
-## V7.2 Fundamental Session Management Security
+## V7.2 Segurança Fundamental do Gerenciamento de Sessão
 
-This section satisfies the essential requirements of secure sessions by verifying that session tokens are securely generated and validated.
+Esta seção atende aos requisitos essenciais de sessões seguras verificando se os tokens de sessão são gerados e validados com segurança.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **7.2.1** | Verify that the application performs all session token verification using a trusted, backend service. | 1 |
-| **7.2.2** | Verify that the application uses either self-contained or reference tokens that are dynamically generated for session management, i.e. not using static API secrets and keys. | 1 |
-| **7.2.3** | Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 |
-| **7.2.4** | Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | 1 |
+| **7.2.1** | Verifique se a aplicação realiza toda a verificação do token de sessão usando um serviço de backend confiável. | 1 |
+| **7.2.2** | Verifique se a aplicação usa tokens autocontidos ou de referência gerados dinamicamente para o gerenciamento de sessão, ou seja, não usando chaves e segredos estáticos de API. | 1 |
+| **7.2.3** | Verifique se, caso tokens de referência sejam usados para representar sessões de usuário, eles são únicos e gerados usando um gerador de números pseudoaleatórios criptograficamente seguro (CSPRNG) e possuem pelo menos 128 bits de entropia. | 1 |
+| **7.2.4** | Verifique se a aplicação gera um novo token de sessão no momento da autenticação do usuário, incluindo a reautenticação, e encerra o token de sessão atual. | 1 |
 
-## V7.3 Session Timeout
+## V7.3 Tempo Limite de Sessão (Session Timeout)
 
-Session timeout mechanisms serve to minimize the window of opportunity for session hijacking and other forms of session abuse. Timeouts must satisfy documented security decisions.
+Mecanismos de timeout (tempo limite) de sessão servem para minimizar a janela de oportunidade para sequestro de sessão (session hijacking) e outras formas de abuso de sessão. Os timeouts devem satisfazer as decisões de segurança documentadas.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **7.3.1** | Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
-| **7.3.2** | Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
+| **7.3.1** | Verifique se existe um tempo limite (timeout) de inatividade de modo que a reautenticação seja forçada de acordo com a análise de risco e as decisões de segurança documentadas. | 2 |
+| **7.3.2** | Verifique se existe um tempo de vida (lifetime) máximo absoluto para a sessão, de forma que a reautenticação seja forçada de acordo com a análise de risco e as decisões de segurança documentadas. | 2 |
 
-## V7.4 Session Termination
+## V7.4 Encerramento da Sessão
 
-Session termination may be handled either by the application itself or by the SSO provider if the SSO provider is handling session management instead of the application. It may be necessary to decide whether the SSO provider is in scope when considering the requirements in this section as some may be controlled by the provider.
+O encerramento da sessão pode ser tratado pela própria aplicação ou pelo provedor de SSO, caso o provedor de SSO esteja lidando com o gerenciamento de sessão em vez da aplicação. Pode ser necessário decidir se o provedor de SSO está no escopo ao considerar os requisitos nesta seção, pois alguns deles podem ser controlados pelo provedor.
 
-Session termination should result in requiring re-authentication and be effective across the application, federated login (if present), and any relying parties.
+O encerramento da sessão deve resultar na exigência de reautenticação e ser eficaz em toda a aplicação, login federado (se presente) e quaisquer relying parties (partes confiáveis).
 
-For stateful session mechanisms, termination typically involves invalidating the session on the backend. In the case of self-contained tokens, additional measures are required to revoke or block these tokens, as they may otherwise remain valid until expiration.
+Para mecanismos de sessão stateful, o encerramento normalmente envolve a invalidação da sessão no backend. No caso de tokens autocontidos, medidas adicionais são necessárias para revogar ou bloquear esses tokens, pois de outra forma eles poderiam permanecer válidos até a expiração.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **7.4.1** | Verify that when session termination is triggered (such as logout or expiration), the application disallows any further use of the session. For reference tokens or stateful sessions, this means invalidating the session data at the application backend. Applications using self-contained tokens will need a solution such as maintaining a list of terminated tokens, disallowing tokens produced before a per-user date and time or rotating a per-user signing key. | 1 |
-| **7.4.2** | Verify that the application terminates all active sessions when a user account is disabled or deleted (such as an employee leaving the company). | 1 |
-| **7.4.3** | Verify that the application gives the option to terminate all other active sessions after a successful change or removal of any authentication factor (including password change via reset or recovery and, if present, an MFA settings update). | 2 |
-| **7.4.4** | Verify that all pages that require authentication have easy and visible access to logout functionality. | 2 |
-| **7.4.5** | Verify that application administrators are able to terminate active sessions for an individual user or for all users. | 2 |
+| **7.4.1** | Verifique se, quando o encerramento da sessão é acionado (como em caso de logout ou expiração), a aplicação proíbe qualquer uso adicional da sessão. Para tokens de referência ou sessões stateful, isso significa invalidar os dados da sessão no backend da aplicação. As aplicações que usam tokens autocontidos precisarão de uma solução como manter uma lista de tokens encerrados, proibir tokens produzidos antes de uma data e hora por usuário ou rotacionar a chave de assinatura por usuário. | 1 |
+| **7.4.2** | Verifique se a aplicação encerra todas as sessões ativas quando uma conta de usuário é desativada ou excluída (como quando um funcionário deixa a empresa). | 1 |
+| **7.4.3** | Verifique se a aplicação fornece a opção de encerrar todas as outras sessões ativas após uma mudança ou remoção bem-sucedida de qualquer fator de autenticação (incluindo alteração de senha via redefinição ou recuperação e, se presente, atualização de configurações de MFA). | 2 |
+| **7.4.4** | Verifique se todas as páginas que requerem autenticação têm um acesso fácil e visível à funcionalidade de logout. | 2 |
+| **7.4.5** | Verifique se os administradores da aplicação conseguem encerrar sessões ativas para um usuário individual ou para todos os usuários. | 2 |
 
-## V7.5 Defenses Against Session Abuse
+## V7.5 Defesas Contra o Abuso de Sessão
 
-This section provides requirements to mitigate the risk posed by active sessions that are either hijacked or abused through vectors that rely on the existence and capabilities of active user sessions. For example, using malicious content execution to force an authenticated victim browser to perform an action using the victim's session.
+Esta seção fornece requisitos para mitigar o risco representado por sessões ativas que sejam sequestradas ou abusadas por meio de vetores que dependem da existência e das capacidades das sessões de usuário ativas. Por exemplo, usando a execução de conteúdo malicioso para forçar um navegador de vítima autenticado a executar uma ação utilizando a sessão da vítima.
 
-Note that the level-specific guidance in the "Authentication" chapter should be taken into account when considering requirements in this section.
+Note que a orientação específica por nível no capítulo "Autenticação" (Authentication) deve ser levada em consideração ao avaliar os requisitos desta seção.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **7.5.1** | Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 |
-| **7.5.2** | Verify that users are able to view and (having authenticated again with at least one factor) terminate any or all currently active sessions. | 2 |
-| **7.5.3** | Verify that the application requires further authentication with at least one factor or secondary verification before performing highly sensitive transactions or operations. | 3 |
+| **7.5.1** | Verifique se a aplicação exige uma reautenticação completa antes de permitir modificações em atributos sensíveis da conta que possam afetar a autenticação, como endereço de e-mail, número de telefone, configuração de MFA ou outras informações usadas na recuperação da conta. | 2 |
+| **7.5.2** | Verifique se os usuários são capazes de visualizar e (tendo se autenticado novamente com pelo menos um fator) encerrar qualquer ou todas as sessões ativas no momento. | 2 |
+| **7.5.3** | Verifique se a aplicação exige uma autenticação posterior com pelo menos um fator ou verificação secundária antes de executar transações ou operações altamente confidenciais. | 3 |
 
-## V7.6 Federated Re-authentication
+## V7.6 Reautenticação Federada
 
-This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
+Esta seção se relaciona àqueles que escrevem o código da Relying Party (RP) ou do Provedor de Identidade (IdP). Esses requisitos são derivados do [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) para Federação e Asserções.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **7.6.1** | Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 |
-| **7.6.2** | Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 |
+| **7.6.1** | Verifique se o tempo de vida e o encerramento da sessão entre Relying Parties (RPs) e Provedores de Identidade (IdPs) se comportam conforme o documentado, exigindo a reautenticação conforme necessário, como, por exemplo, quando o tempo máximo entre os eventos de autenticação do IdP é atingido. | 2 |
+| **7.6.2** | Verifique se a criação de uma sessão requer o consentimento do usuário ou uma ação explícita, prevenindo a criação de novas sessões na aplicação sem interação do usuário. | 2 |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
 * [OWASP Web Security Testing Guide: Session Management Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/06-Session_Management_Testing)
 * [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)

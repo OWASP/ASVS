@@ -1,96 +1,96 @@
-# V3 Web Frontend Security
+# V3 Segurança de Frontend Web
 
-## Control Objective
+## Objetivo de Controle
 
-This category focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
+Esta categoria concentra-se em requisitos projetados para proteger contra ataques executados via um frontend web. Estes requisitos não se aplicam a soluções máquina a máquina (machine-to-machine).
 
-## V3.1 Web Frontend Security Documentation
+## V3.1 Documentação de Segurança de Frontend Web
 
-This section outlines the browser security features that should be specified in the application's documentation.
+Esta seção descreve os recursos de segurança do navegador que devem ser especificados na documentação da aplicação.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **3.1.1** | Verify that application documentation states the expected security features that browsers using the application must support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It must also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | 3 |
+| **3.1.1** | Verifique se a documentação da aplicação declara os recursos de segurança esperados que os navegadores que usam a aplicação devem suportar (como HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP) e outros mecanismos de segurança HTTP relevantes). Deve também definir como a aplicação deve se comportar quando alguns desses recursos não estiverem disponíveis (como avisar o usuário ou bloquear o acesso). | 3 |
 
-## V3.2 Unintended Content Interpretation
+## V3.2 Interpretação Não Intencional de Conteúdo
 
-Rendering content or functionality in an incorrect context can result in malicious content being executed or displayed.
+Renderizar conteúdo ou funcionalidade em um contexto incorreto pode resultar na execução ou exibição de conteúdo malicioso.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **3.2.1** | Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field. | 1 |
-| **3.2.2** | Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 |
-| **3.2.3** | Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | 3 |
+| **3.2.1** | Verifique se há controles de segurança em vigor para evitar que navegadores renderizem conteúdo ou funcionalidades de respostas HTTP em um contexto incorreto (por exemplo, quando uma API, um arquivo enviado pelo usuário ou outro recurso é solicitado diretamente). Possíveis controles poderiam incluir: não servir o conteúdo a menos que campos de cabeçalho da requisição HTTP (como Sec-Fetch-\*) indiquem que é o contexto correto, usar a diretiva sandbox do campo de cabeçalho Content-Security-Policy ou usar o tipo de disposição attachment no campo de cabeçalho Content-Disposition. | 1 |
+| **3.2.2** | Verifique se o conteúdo que deve ser exibido como texto, e não renderizado como HTML, é processado usando funções de renderização seguras (como createTextNode ou textContent) para evitar a execução não intencional de conteúdo como HTML ou JavaScript. | 1 |
+| **3.2.3** | Verifique se a aplicação evita a sobrescrita do DOM (DOM clobbering) ao usar JavaScript no lado do cliente (client-side), empregando declarações explícitas de variáveis, realizando verificação estrita de tipo, evitando armazenar variáveis globais no objeto document e implementando isolamento de namespace. | 3 |
 
-## V3.3 Cookie Setup
+## V3.3 Configuração de Cookies
 
-This section outlines requirements for securely configuring sensitive cookies to provide a higher level of assurance that they were created by the application itself and to prevent their contents from leaking or being inappropriately modified.
+Esta seção descreve os requisitos para configurar cookies sensíveis com segurança, a fim de fornecer um maior nível de garantia de que foram criados pela própria aplicação e para evitar que seus conteúdos vazem ou sejam modificados inadequadamente.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **3.3.1** | Verify that cookies have the 'Secure' attribute set, and if the '\__Host-' prefix is not used for the cookie name, the '__Secure-' prefix must be used for the cookie name. | 1 |
-| **3.3.2** | Verify that each cookie's 'SameSite' attribute value is set according to the purpose of the cookie, to limit exposure to user interface redress attacks and browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 2 |
-| **3.3.3** | Verify that cookies have the '__Host-' prefix for the cookie name unless they are explicitly designed to be shared with other hosts. | 2 |
-| **3.3.4** | Verify that if the value of a cookie is not meant to be accessible to client-side scripts (such as a session token), the cookie must have the 'HttpOnly' attribute set and the same value (e. g. session token) must only be transferred to the client via the 'Set-Cookie' header field. | 2 |
-| **3.3.5** | Verify that when the application writes a cookie, the cookie name and value length combined are not over 4096 bytes. Overly large cookies will not be stored by the browser and therefore not sent with requests, preventing the user from using application functionality which relies on that cookie. | 3 |
+| **3.3.1** | Verifique se os cookies possuem o atributo 'Secure' definido, e caso o prefixo '\__Host-' não seja usado no nome do cookie, o prefixo '__Secure-' deve ser usado para o nome do cookie. | 1 |
+| **3.3.2** | Verifique se o valor do atributo 'SameSite' de cada cookie é configurado de acordo com o propósito do cookie, para limitar a exposição a ataques de distorção de interface de usuário (user interface redress) e ataques de falsificação de requisição baseados em navegador, comumente conhecidos como falsificação de requisição entre sites (Cross-Site Request Forgery - CSRF). | 2 |
+| **3.3.3** | Verifique se os cookies possuem o prefixo '__Host-' para o nome do cookie, a menos que sejam explicitamente projetados para serem compartilhados com outros hosts. | 2 |
+| **3.3.4** | Verifique se o valor de um cookie não deve ser acessível a scripts do lado do cliente (como um token de sessão), o cookie deve ter o atributo 'HttpOnly' definido e o mesmo valor (ex. token de sessão) deve ser transferido ao cliente apenas através do campo de cabeçalho 'Set-Cookie'. | 2 |
+| **3.3.5** | Verifique se quando a aplicação grava um cookie, o comprimento combinado do nome e do valor do cookie não ultrapassa 4096 bytes. Cookies excessivamente grandes não serão armazenados pelo navegador e, portanto, não serão enviados com requisições, impedindo o usuário de utilizar as funcionalidades da aplicação que dependem desse cookie. | 3 |
 
-## V3.4 Browser Security Mechanism Headers
+## V3.4 Cabeçalhos de Mecanismos de Segurança do Navegador
 
-This section describes which security headers should be set on HTTP responses to enable browser security features and restrictions when handling responses from the application.
+Esta seção descreve quais cabeçalhos de segurança devem ser definidos nas respostas HTTP para habilitar os recursos e as restrições de segurança do navegador ao processar as respostas da aplicação.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **3.4.1** | Verify that a Strict-Transport-Security header field is included on all responses to enforce an HTTP Strict Transport Security (HSTS) policy. A maximum age of at least 1 year must be defined, and for L2 and up, the policy must apply to all subdomains as well. | 1 |
-| **3.4.2** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field is a fixed value by the application, or if the Origin HTTP request header field value is used, it is validated against an allowlist of trusted origins. When 'Access-Control-Allow-Origin: *' needs to be used, verify that the response does not include any sensitive information. | 1 |
-| **3.4.3** | Verify that HTTP responses include a Content-Security-Policy response header field which defines directives to ensure the browser only loads and executes trusted content or resources, in order to limit execution of malicious JavaScript. As a minimum, a global policy must be used which includes the directives object-src 'none' and base-uri 'none' and defines either an allowlist or uses nonces or hashes. For an L3 application, a per-response policy with nonces or hashes must be defined. | 2 |
-| **3.4.4** | Verify that all HTTP responses contain an 'X-Content-Type-Options: nosniff' header field. This instructs browsers not to use content sniffing and MIME type guessing for the given response, and to require the response's Content-Type header field value to match the destination resource. For example, the response to a request for a style is only accepted if the response's Content-Type is 'text/css'. This also enables the use of the Cross-Origin Read Blocking (CORB) functionality by the browser. | 2 |
-| **3.4.5** | Verify that the application sets a referrer policy to prevent leakage of technically sensitive data to third-party services via the 'Referer' HTTP request header field. This can be done using the Referrer-Policy HTTP response header field or via HTML element attributes. Sensitive data could include path and query data in the URL, and for internal non-public applications also the hostname. | 2 |
-| **3.4.6** | Verify that the web application uses the frame-ancestors directive of the Content-Security-Policy header field for every HTTP response to ensure that it cannot be embedded by default and that embedding of specific resources is allowed only when necessary. Note that the X-Frame-Options header field, although supported by browsers, is obsolete and may not be relied upon. | 2 |
-| **3.4.7** | Verify that the Content-Security-Policy header field specifies a location to report violations. | 3 |
-| **3.4.8** | Verify that all HTTP responses that initiate a document rendering (such as responses with Content-Type text/html), include the Cross‑Origin‑Opener‑Policy header field with the same-origin directive or the same-origin-allow-popups directive as required. This prevents attacks that abuse shared access to Window objects, such as tabnabbing and frame counting. | 3 |
+| **3.4.1** | Verifique se o campo de cabeçalho Strict-Transport-Security está incluído em todas as respostas para forçar uma política HTTP Strict Transport Security (HSTS). A validade máxima (maximum age) de pelo menos 1 ano deve ser definida e, para L2 e superior, a política também deve se aplicar a todos os subdomínios. | 1 |
+| **3.4.2** | Verifique se o campo de cabeçalho Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin possui um valor fixo atribuído pela aplicação ou, se o valor do campo de cabeçalho Origin da requisição HTTP for usado, ele é validado com base em uma lista de permissões (allowlist) de origens confiáveis. Quando 'Access-Control-Allow-Origin: *' precisar ser usado, verifique se a resposta não inclui informações sensíveis. | 1 |
+| **3.4.3** | Verifique se as respostas HTTP incluem um campo de cabeçalho de resposta Content-Security-Policy que define diretivas para garantir que o navegador apenas carregue e execute conteúdos ou recursos confiáveis, a fim de limitar a execução de JavaScript malicioso. Como mínimo, uma política global deve ser usada, a qual inclui as diretivas object-src 'none' e base-uri 'none', e define uma lista de permissões ou usa nonces ou hashes. Para uma aplicação L3, deve ser definida uma política por resposta com nonces ou hashes. | 2 |
+| **3.4.4** | Verifique se todas as respostas HTTP contêm um campo de cabeçalho 'X-Content-Type-Options: nosniff'. Isso instrui os navegadores a não utilizarem a adivinhação do tipo MIME (content sniffing) para a resposta dada, e exige que o valor do campo de cabeçalho Content-Type da resposta corresponda ao recurso de destino. Por exemplo, a resposta para a requisição de um estilo só é aceita se o Content-Type da resposta for 'text/css'. Isso também permite o uso da funcionalidade Cross-Origin Read Blocking (CORB) pelo navegador. | 2 |
+| **3.4.5** | Verifique se a aplicação define uma política de referência (referrer policy) para evitar o vazamento de dados tecnicamente sensíveis para serviços de terceiros através do campo de cabeçalho HTTP da requisição 'Referer'. Isso pode ser feito usando o campo de cabeçalho de resposta HTTP Referrer-Policy ou por meio de atributos de elemento HTML. Dados sensíveis podem incluir caminho e dados de consulta na URL e, para aplicações internas não públicas, o nome do host (hostname) também. | 2 |
+| **3.4.6** | Verifique se a aplicação web usa a diretiva frame-ancestors do campo de cabeçalho Content-Security-Policy para toda resposta HTTP para garantir que ela não possa ser incorporada (embedded) por padrão, e que a incorporação de recursos específicos seja permitida apenas quando necessário. Note que o campo de cabeçalho X-Frame-Options, embora suportado por navegadores, está obsoleto e não deve ser confiado. | 2 |
+| **3.4.7** | Verifique se o campo de cabeçalho Content-Security-Policy especifica um local para relatar violações. | 3 |
+| **3.4.8** | Verifique se todas as respostas HTTP que iniciam a renderização de um documento (como respostas com Content-Type text/html) incluem o campo de cabeçalho Cross‑Origin‑Opener‑Policy com a diretiva same-origin ou a diretiva same-origin-allow-popups, conforme exigido. Isso evita ataques que abusam do acesso compartilhado a objetos Window, como tabnabbing e contagem de frames (frame counting). | 3 |
 
-## V3.5 Browser Origin Separation
+## V3.5 Separação de Origem no Navegador
 
-When accepting a request to sensitive functionality on the server side, the application needs to ensure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
+Ao aceitar uma solicitação de funcionalidade sensível no lado do servidor, a aplicação precisa garantir que a solicitação seja iniciada pela própria aplicação ou por uma parte confiável e não tenha sido forjada por um atacante.
 
-Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state-changing operations, or resource-demanding functionality (such as data export).
+Funcionalidades sensíveis neste contexto podem incluir o recebimento de posts de formulários para usuários autenticados e não autenticados (como uma solicitação de autenticação), operações que mudam o estado (state-changing) ou funcionalidades que demandam recursos (como exportação de dados).
 
-The key protections here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies. Another common protection is the CORS preflight mechanism. This mechanism will be critical for endpoints designed to be called from a different origin, but it can also be a useful request forgery prevention mechanism for endpoints which are not designed to be called from a different origin.
+As principais proteções aqui são as políticas de segurança do navegador, como a Same Origin Policy (Política de Mesma Origem) para JavaScript e também a lógica do SameSite para cookies. Outra proteção comum é o mecanismo de CORS preflight. Esse mecanismo será fundamental para os endpoints projetados para serem chamados de uma origem diferente, mas também pode ser um mecanismo útil de prevenção contra falsificação de solicitações para endpoints que não foram projetados para serem chamados de uma origem diferente.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **3.5.1** | Verify that, if the application does not rely on the CORS preflight mechanism to prevent disallowed cross-origin requests to use sensitive functionality, these requests are validated to ensure they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP header fields that are not CORS-safelisted request-header fields. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 1 |
-| **3.5.2** | Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a request which does not trigger a CORS-preflight request. This may require checking the values of the 'Origin' and 'Content-Type' request header fields or using an extra header field that is not a CORS-safelisted header-field. | 1 |
-| **3.5.3** | Verify that HTTP requests to sensitive functionality use appropriate HTTP methods such as POST, PUT, PATCH, or DELETE, and not methods defined by the HTTP specification as "safe" such as HEAD, OPTIONS, or GET. Alternatively, strict validation of the Sec-Fetch-* request header fields can be used to ensure that the request did not originate from an inappropriate cross-origin call, a navigation request, or a resource load (such as an image source) where this is not expected. | 1 |
-| **3.5.4** | Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | 2 |
-| **3.5.5** | Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | 2 |
-| **3.5.6** | Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | 3 |
-| **3.5.7** | Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | 3 |
-| **3.5.8** | Verify that authenticated resources (such as images, videos, scripts, and other documents) can be loaded or embedded on behalf of the user only when intended. This can be accomplished by strict validation of the Sec-Fetch-* HTTP request header fields to ensure that the request did not originate from an inappropriate cross-origin call, or by setting a restrictive Cross-Origin-Resource-Policy HTTP response header field to instruct the browser to block returned content. | 3 |
+| **3.5.1** | Verifique se, caso a aplicação não dependa do mecanismo de CORS preflight para impedir que requisições cross-origin não permitidas usem funcionalidades sensíveis, essas requisições sejam validadas para garantir que sejam originadas na própria aplicação. Isso pode ser feito usando e validando tokens antifalsificação ou exigindo campos de cabeçalho HTTP adicionais que não sejam campos de cabeçalho listados como seguros (CORS-safelisted). O objetivo é defender contra ataques de falsificação de solicitações baseadas no navegador, conhecidos como falsificação de solicitação entre sites (Cross-Site Request Forgery - CSRF). | 1 |
+| **3.5.2** | Verifique se, caso a aplicação dependa do mecanismo de CORS preflight para evitar o uso cross-origin não permitido de funcionalidades sensíveis, não seja possível chamar a funcionalidade com uma solicitação que não acione uma requisição de CORS-preflight. Isso pode exigir a verificação dos valores dos campos de cabeçalho de requisição 'Origin' e 'Content-Type' ou o uso de um campo de cabeçalho extra que não seja CORS-safelisted. | 1 |
+| **3.5.3** | Verifique se as solicitações HTTP a funcionalidades sensíveis usam métodos HTTP apropriados como POST, PUT, PATCH ou DELETE, e não métodos definidos pela especificação HTTP como "seguros" (safe), como HEAD, OPTIONS ou GET. Alternativamente, uma validação estrita dos campos de cabeçalho de requisição Sec-Fetch-* pode ser usada para garantir que a solicitação não tenha se originado de uma chamada cross-origin inadequada, de uma solicitação de navegação ou do carregamento de um recurso (como fonte de imagem) onde isso não é esperado. | 1 |
+| **3.5.4** | Verifique se as aplicações distintas estão hospedadas em hostnames diferentes para aproveitar as restrições fornecidas pela política de mesma origem (same-origin policy), incluindo a forma como os documentos ou scripts carregados por uma origem podem interagir com os recursos de outra origem e as restrições baseadas no hostname dos cookies. | 2 |
+| **3.5.5** | Verifique se as mensagens recebidas pela interface postMessage são descartadas caso a origem da mensagem não seja confiável, ou se a sintaxe da mensagem for inválida. | 2 |
+| **3.5.6** | Verifique se a funcionalidade JSONP não está habilitada em nenhuma parte da aplicação para evitar ataques de Inclusão de Script Entre Sites (Cross-Site Script Inclusion - XSSI). | 3 |
+| **3.5.7** | Verifique se os dados que requerem autorização não estão incluídos em respostas de recursos de script, como arquivos JavaScript, para evitar ataques de Inclusão de Script Entre Sites (Cross-Site Script Inclusion - XSSI). | 3 |
+| **3.5.8** | Verifique se os recursos autenticados (como imagens, vídeos, scripts e outros documentos) podem ser carregados ou incorporados (embedded) em nome do usuário apenas quando pretendido. Isso pode ser alcançado através da validação estrita dos campos de cabeçalho de requisição HTTP Sec-Fetch-* para garantir que a requisição não se originou de uma chamada cross-origin inapropriada, ou através da definição de um campo de cabeçalho restritivo de resposta HTTP Cross-Origin-Resource-Policy para instruir o navegador a bloquear o conteúdo retornado. | 3 |
 
-## V3.6 External Resource Integrity
+## V3.6 Integridade de Recursos Externos
 
-This section provides guidance for the safe hosting of content on third-party sites.
+Esta seção fornece orientações para a hospedagem segura de conteúdo em sites de terceiros.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **3.6.1** | Verify that client-side assets, such as JavaScript libraries, CSS, or web fonts, are only hosted externally (e.g., on a Content Delivery Network) if the resource is static and versioned and Subresource Integrity (SRI) is used to validate the integrity of the asset. If this is not possible, there should be a documented security decision to justify this for each resource. | 3 |
+| **3.6.1** | Verifique se ativos do lado do cliente (client-side assets), como bibliotecas JavaScript, CSS ou fontes da web (web fonts), são hospedados externamente (ex., em uma Content Delivery Network - CDN) apenas se o recurso for estático e versionado, e se a Integridade de Sub-recurso (Subresource Integrity - SRI) for usada para validar a integridade do ativo. Se isso não for possível, deve haver uma decisão de segurança documentada para justificar isso para cada recurso. | 3 |
 
-## V3.7 Other Browser Security Considerations
+## V3.7 Outras Considerações de Segurança do Navegador
 
-This section includes various other security controls and modern browser security features required for client-side browser security.
+Esta seção inclui vários outros controles de segurança e recursos de segurança de navegadores modernos exigidos para a segurança do navegador do lado do cliente (client-side).
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **3.7.1** | Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | 2 |
-| **3.7.2** | Verify that the application will only automatically redirect the user to a different hostname or domain (which is not controlled by the application) where the destination appears on an allowlist. | 2 |
-| **3.7.3** | Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | 3 |
-| **3.7.4** | Verify that the application's top-level domain (e.g., site.tld) is added to the public preload list for HTTP Strict Transport Security (HSTS). This ensures that the use of TLS for the application is built directly into the main browsers, rather than relying only on the Strict-Transport-Security response header field. | 3 |
-| **3.7.5** | Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features. | 3 |
+| **3.7.1** | Verifique se a aplicação usa apenas tecnologias do lado do cliente (client-side) que ainda são suportadas e consideradas seguras. Exemplos de tecnologias que não atendem a este requisito incluem plug-ins NSAPI, Flash, Shockwave, ActiveX, Silverlight, NACL ou miniaplicativos (applets) Java do lado do cliente. | 2 |
+| **3.7.2** | Verifique se a aplicação redirecionará automaticamente o usuário para um hostname ou domínio diferente (que não seja controlado pela aplicação) apenas se o destino constar em uma lista de permissões (allowlist). | 2 |
+| **3.7.3** | Verifique se a aplicação exibe uma notificação quando o usuário está sendo redirecionado para um URL fora do controle da aplicação, com a opção de cancelar a navegação. | 3 |
+| **3.7.4** | Verifique se o domínio de nível superior da aplicação (ex., site.tld) é adicionado à lista pública de pré-carregamento (preload list) para o HTTP Strict Transport Security (HSTS). Isso garante que o uso de TLS para a aplicação seja integrado diretamente aos principais navegadores, em vez de depender apenas do campo de cabeçalho de resposta Strict-Transport-Security. | 3 |
+| **3.7.5** | Verifique se a aplicação se comporta conforme o documentado (como avisar o usuário ou bloquear o acesso) caso o navegador usado para acessar a aplicação não suporte os recursos de segurança esperados. | 3 |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
 * [Set-Cookie __Host- prefix details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes)
 * [OWASP Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)

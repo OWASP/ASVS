@@ -1,47 +1,47 @@
-# Appendix D: Recommendations
+# Apêndice D: Recomendações
 
-## Introduction
+## Introdução
 
-Whilst preparing version 5.0 of the Application Security Verification Standard (ASVS), it became clear that there were a number of existing and newly suggested items that shouldn't be included as requirements in 5.0. This may have been because they were not in scope for ASVS as per the definition for 5.0 or alternatively it was felt that while they were a good idea, they could not be made mandatory.
+Durante a preparação da versão 5.0 do Application Security Verification Standard (ASVS), ficou claro que havia uma série de itens existentes e novos sugeridos que não deveriam ser incluídos como requisitos na versão 5.0. Isso pode ter ocorrido porque eles não estavam no escopo do ASVS de acordo com a definição da versão 5.0 ou, alternativamente, porque embora se sentisse que eram uma boa ideia, não poderiam ser tornados obrigatórios.
 
-Not wanting to lose all these items entirely, some have been captured in this appendix.
+Não querendo perder todos esses itens inteiramente, alguns foram capturados neste apêndice.
 
-## Recommended, in-scope mechanisms
+## Mecanismos recomendados, dentro do escopo
 
-The following items are in-scope for ASVS. They should not be made mandatory but it is strongly recommended to consider them as part of a secure application.
+Os itens a seguir estão no escopo do ASVS. Eles não devem ser tornados obrigatórios, mas é altamente recomendável considerá-los como parte de uma aplicação segura.
 
-* A password strength meter should provided to help users set a stronger password.
-* Create a publicly available security.txt file at the root or .well-known directory of the application that clearly defines a link or e-mail address for people to contact owners about security issues.
-* Client-side input validation should be enforced in addition to validation at a trusted service layer as this provides a good opportunity to discover when someone has bypassed client-side controls in an attempt to attack the application.
-* Prevent accidentally accessible and sensitive pages from appearing in search engines using a robots.txt file, the X-Robots-Tag response header or a robots html meta tag.
-* When using GraphQL, implement authorization logic at the business logic layer instead of the GraphQL or resolver layer to avoid having to handle authorization on every separate interface.
+* Um medidor de força de senha (password strength meter) deve ser fornecido para ajudar os usuários a definir uma senha mais forte.
+* Crie um arquivo security.txt publicamente disponível na raiz ou diretório .well-known da aplicação que defina claramente um link ou endereço de e-mail para as pessoas entrarem em contato com os proprietários sobre problemas de segurança.
+* A validação de entrada no lado do cliente (client-side) deve ser aplicada, além da validação em uma camada de serviço confiável, pois isso fornece uma boa oportunidade para descobrir quando alguém burlou os controles no lado do cliente na tentativa de atacar a aplicação.
+* Evite que páginas acidentalmente acessíveis e sensíveis apareçam nos mecanismos de busca usando um arquivo robots.txt, o cabeçalho de resposta X-Robots-Tag ou uma meta tag html robots.
+* Ao usar GraphQL, implemente a lógica de autorização na camada de lógica de negócios (business logic layer) em vez da camada do GraphQL ou do resolver para evitar a necessidade de tratar a autorização em cada interface separada.
 
-References:
+Referências:
 
 * [More information on security.txt including a link to the RFC](https://securitytxt.org/)
 
-## Software Security principles
+## Princípios de Segurança de Software
 
-The following items were previously in ASVS but are not really requirements. Rather they are principles to consider when implementing security controls that when followed will lead to more robust controls. These include:
+Os itens a seguir estavam anteriormente no ASVS, mas na verdade não são requisitos. Em vez disso, são princípios a serem considerados ao implementar controles de segurança que, quando seguidos, levarão a controles mais robustos. Eles incluem:
 
-* Security controls should be centralized, simple (economy of design), verifiably secure, and reusable. This should avoid duplicate, missing, or ineffective controls.
-* Wherever possible, use previously written and well-vetted security control implementations rather than relying on implementing controls from scratch.
-* Ideally, a single access control mechanism should be used to access protected data and resources. All requests should pass through this single mechanism to avoid copy and paste or insecure alternative paths.
-* Attribute or feature-based access control is a recommended pattern whereby the code checks the user's authorization for a feature or data item rather than just their role. Permissions should still be allocated using roles.
+* Os controles de segurança devem ser centralizados, simples (economia de design), sabidamente seguros e reutilizáveis. Isso deve evitar controles duplicados, ausentes ou ineficazes.
+* Sempre que possível, use implementações de controle de segurança previamente escritas e bem examinadas (well-vetted), em vez de depender da implementação de controles a partir do zero.
+* Idealmente, um único mecanismo de controle de acesso deve ser usado para acessar dados e recursos protegidos. Todas as requisições devem passar por esse único mecanismo para evitar caminhos alternativos do tipo copiar e colar ou inseguros.
+* O controle de acesso baseado em atributos ou recursos (feature-based) é um padrão recomendado pelo qual o código verifica a autorização do usuário para um recurso ou item de dados, em vez de apenas sua função (role). As permissões ainda devem ser alocadas usando as roles.
 
-## Software Security processes
+## Processos de Segurança de Software
 
-There are a number of security processes which were removed from ASVS 5.0 but are still a good idea. The OWASP SAMM project may be a good source for how to effectively implement these processes. The items which were previously in ASVS include:
+Existem vários processos de segurança que foram removidos do ASVS 5.0, mas ainda são uma boa ideia. O projeto OWASP SAMM pode ser uma boa fonte sobre como implementar efetivamente esses processos. Os itens que estavam anteriormente no ASVS incluem:
 
-* Verify the use of a secure software development lifecycle that addresses security in all stages of development.
-* Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing.
-* Verify that all user stories and features contain functional security constraints, such as "As a user, I should be able to view and edit my profile. I should not be able to view or edit anyone else's profile"
-* Verify availability of a secure coding checklist, security requirements, guideline, or policy to all developers and testers.
-* Verify that an ongoing process exists to ensure that the application source code is free from backdoors, malicious code (e.g., salami attacks, logic bombs, time bombs), and undocumented or hidden features (e.g., Easter eggs, insecure debugging tools). Complying with this section is not possible without complete access to source code, including third-party libraries, and is therefore probably only suitable for applications requiring the very highest levels of security.
-* Verify that mechanisms are in place to detect and respond to configuration drift in deployed environments. This may include using immutable infrastructure, automated redeployment from a secure baseline, or drift detection tools that compare current state against approved configurations.
-* Verify that configuration hardening is performed on all third-party products, libraries, frameworks, and services as per their individual recommendations.
+* Verifique o uso de um ciclo de vida de desenvolvimento de software seguro que aborde a segurança em todas as etapas do desenvolvimento.
+* Verifique o uso de modelagem de ameaças (threat modeling) para cada mudança de design ou planejamento de sprint para identificar ameaças, planejar contramedidas, facilitar respostas apropriadas a riscos e guiar testes de segurança.
+* Verifique se todas as histórias de usuários (user stories) e funcionalidades (features) contêm restrições funcionais de segurança, como "Como usuário, eu devo ser capaz de visualizar e editar meu perfil. Eu não devo ser capaz de visualizar ou editar o perfil de mais ninguém."
+* Verifique a disponibilidade de uma lista de verificação de codificação segura, requisitos de segurança, diretrizes ou políticas para todos os desenvolvedores e testadores.
+* Verifique se existe um processo contínuo para garantir que o código-fonte da aplicação esteja livre de backdoors, código malicioso (por exemplo, ataques salami, bombas lógicas, bombas-relógio) e recursos não documentados ou ocultos (por exemplo, Easter eggs, ferramentas de depuração inseguras). Estar em conformidade com esta seção não é possível sem acesso total ao código-fonte, incluindo bibliotecas de terceiros, e portanto, provavelmente é adequado apenas para aplicações que exigem os mais altos níveis de segurança.
+* Verifique se existem mecanismos para detectar e responder ao desvio de configuração (configuration drift) em ambientes implantados. Isso pode incluir o uso de infraestrutura imutável (immutable infrastructure), reimplantação automatizada a partir de uma base segura (secure baseline) ou ferramentas de detecção de desvio que comparam o estado atual em relação a configurações aprovadas.
+* Verifique se o fortalecimento de configurações (configuration hardening) é executado em todos os produtos de terceiros, bibliotecas, frameworks e serviços conforme suas recomendações individuais.
 
-References:
+Referências:
 
 * [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
 * [OWASP Threat modeling](https://owasp.org/www-community/Application_Threat_Modeling)

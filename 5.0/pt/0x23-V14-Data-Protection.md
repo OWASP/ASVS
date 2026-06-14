@@ -1,52 +1,52 @@
-# V14 Data Protection
+# V14 Proteção de Dados
 
-## Control Objective
+## Objetivo de Controle
 
-Applications cannot account for all usage patterns and user behaviors, and should therefore implement controls to limit unauthorized access to sensitive data on client devices.
+As aplicações não conseguem contabilizar todos os padrões de uso e comportamentos dos usuários e devem, portanto, implementar controles para limitar o acesso não autorizado a dados sensíveis nos dispositivos dos clientes.
 
-This chapter includes requirements related to defining what data needs to be protected, how it should be protected, and specific mechanisms to implement or pitfalls to avoid.
+Este capítulo inclui requisitos relacionados a definir quais dados precisam ser protegidos, como eles devem ser protegidos e mecanismos específicos a serem implementados ou armadilhas a serem evitadas.
 
-Another consideration for data protection is bulk extraction, modification, or excessive usage. Each system's requirements are likely to be very different, so determining what is "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Validation and Business Logic" chapter.
+Outra consideração para a proteção de dados é a extração em massa, modificação ou uso excessivo. Os requisitos de cada sistema provavelmente serão muito diferentes, de modo que determinar o que é "anormal" deve levar em consideração o modelo de ameaças e o risco de negócios. Do ponto de vista do ASVS, a detecção desses problemas é tratada no capítulo "Registro de Segurança e Tratamento de Erros" e o estabelecimento de limites é tratado no capítulo "Validação e Lógica de Negócios".
 
-## V14.1 Data Protection Documentation
+## V14.1 Documentação de Proteção de Dados
 
-A key prerequisite for being able to protect data is to categorize what data should be considered sensitive. There are likely to be several different levels of sensitivity, and for each level, the controls required to protect data at that level will be different.
+Um pré-requisito essencial para conseguir proteger os dados é categorizar quais dados devem ser considerados sensíveis. Provavelmente haverá diferentes níveis de sensibilidade e, para cada nível, os controles necessários para proteger os dados nesse nível serão diferentes.
 
-There are various privacy regulations and laws that affect how applications must approach the storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation, but rather focuses on key technical considerations for protecting sensitive data. Please consult local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
+Existem vários regulamentos e leis de privacidade que afetam a forma como as aplicações devem abordar o armazenamento, uso e transmissão de informações pessoais sensíveis. Esta seção não tenta mais duplicar esses tipos de proteção de dados ou legislação de privacidade, mas foca em considerações técnicas chave para proteger dados sensíveis. Por favor, consulte as leis e regulamentos locais, e consulte um especialista em privacidade qualificado ou um advogado, conforme necessário.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **14.1.1** | Verify that all sensitive data created and processed by the application has been identified and classified into protection levels. This includes data that is only encoded and therefore easily decoded, such as Base64 strings or the plaintext payload inside a JWT. Protection levels need to take into account any data protection and privacy regulations and standards which the application is required to comply with. | 2 |
-| **14.1.2** | Verify that all sensitive data protection levels have a documented set of protection requirements. This must include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | 2 |
+| **14.1.1** | Verifique se todos os dados sensíveis criados e processados pela aplicação foram identificados e classificados em níveis de proteção. Isso inclui dados que são apenas codificados e, portanto, facilmente decodificados, como strings Base64 ou a carga (payload) em texto simples (plaintext) dentro de um JWT. Os níveis de proteção precisam levar em consideração quaisquer regulamentações e normas de proteção de dados e privacidade com os quais a aplicação é obrigada a cumprir. | 2 |
+| **14.1.2** | Verifique se todos os níveis de proteção de dados sensíveis têm um conjunto documentado de requisitos de proteção. Isso deve incluir (mas não se limitar a) requisitos relacionados a criptografia geral, verificação de integridade, retenção, como os dados devem ser registrados (logged), controles de acesso a dados sensíveis em registros, criptografia em nível de banco de dados, tecnologias de privacidade e melhoria de privacidade a serem usadas e outros requisitos de confidencialidade. | 2 |
 
-## V14.2 General Data Protection
+## V14.2 Proteção Geral de Dados
 
-This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leakage, but there is also a general requirement to implement protection controls based on the protection level required for each data item.
+Esta seção contém vários requisitos práticos relacionados à proteção de dados. A maioria é específica a problemas particulares, como o vazamento de dados não intencional, mas há também um requisito geral para implementar controles de proteção baseados no nível de proteção exigido para cada item de dados.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **14.2.1** | Verify that sensitive data is only sent to the server in the HTTP message body or header fields, and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 |
-| **14.2.2** | Verify that the application prevents sensitive data from being cached in server components, such as load balancers and application caches, or ensures that the data is securely purged after use. | 2 |
-| **14.2.3** | Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 |
-| **14.2.4** | Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 |
-| **14.2.5** | Verify that caching mechanisms are configured to only cache responses which have the expected content type for that resource and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when a non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 |
-| **14.2.6** | Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the complete data is required, it should be masked in the user interface unless the user specifically views it. | 3 |
-| **14.2.7** | Verify that sensitive information is subject to data retention classification, ensuring that outdated or unnecessary data is deleted automatically, on a defined schedule, or as the situation requires. | 3 |
-| **14.2.8** | Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 |
+| **14.2.1** | Verifique se dados sensíveis são enviados ao servidor apenas no corpo da mensagem HTTP ou em campos de cabeçalho, e que a URL e a query string (string de consulta) não contenham informações sensíveis, como uma chave de API ou um token de sessão. | 1 |
+| **14.2.2** | Verifique se a aplicação evita que dados sensíveis sejam armazenados em cache em componentes do servidor, como balanceadores de carga e caches de aplicação, ou garante que os dados sejam eliminados com segurança após o uso. | 2 |
+| **14.2.3** | Verifique se dados sensíveis definidos não são enviados a partes não confiáveis (por exemplo, rastreadores de usuário/user trackers) para prevenir a coleta indesejada de dados fora do controle da aplicação. | 2 |
+| **14.2.4** | Verifique se os controles em torno de dados sensíveis relacionados à criptografia, verificação de integridade, retenção, como os dados devem ser registrados (logged), controles de acesso em torno de dados sensíveis em logs, tecnologias de privacidade e melhoria de privacidade, são implementados conforme definido na documentação para o nível de proteção de dados específico. | 2 |
+| **14.2.5** | Verifique se os mecanismos de cache são configurados para armazenar em cache apenas respostas que possuam o content type (tipo de conteúdo) esperado para aquele recurso e não contenham conteúdo dinâmico e sensível. O servidor web deve retornar uma resposta 404 ou 302 quando um arquivo inexistente for acessado, em vez de retornar um arquivo válido diferente. Isso deve evitar ataques de Engano de Cache Web (Web Cache Deception attacks). | 3 |
+| **14.2.6** | Verifique se a aplicação retorna apenas os dados sensíveis mínimos necessários para a funcionalidade da aplicação. Por exemplo, retornar apenas alguns dos dígitos de um número de cartão de crédito e não o número completo. Se os dados completos forem exigidos, eles deverão ser mascarados na interface do usuário a menos que o usuário os visualize especificamente. | 3 |
+| **14.2.7** | Verifique se as informações sensíveis estão sujeitas à classificação de retenção de dados, garantindo que os dados desatualizados ou desnecessários sejam excluídos automaticamente, em um cronograma definido ou conforme a situação exigir. | 3 |
+| **14.2.8** | Verifique se as informações sensíveis são removidas dos metadados de arquivos enviados por usuários, a menos que o usuário tenha consentido com o armazenamento. | 3 |
 
-## V14.3 Client-side Data Protection
+## V14.3 Proteção de Dados no Lado do Cliente (Client-side)
 
-This section contains requirements preventing data from leaking in specific ways at the client or user agent side of an application.
+Esta seção contém requisitos para prevenir que dados vazem de maneiras específicas no lado do cliente ou agente do usuário (user agent) de uma aplicação.
 
-| # | Description | Level |
+| # | Descrição | Nível |
 | :---: | :--- | :---: |
-| **14.3.1** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The 'Clear-Site-Data' HTTP response header field may be able to help with this but the client-side should also be able to clear up if the server connection is not available when the session is terminated. | 1 |
-| **14.3.2** | Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 2 |
-| **14.3.3** | Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens. | 2 |
+| **14.3.1** | Verifique se os dados autenticados são apagados do armazenamento do cliente, como o DOM do navegador, após o cliente ou a sessão ser finalizada. O campo de cabeçalho de resposta HTTP 'Clear-Site-Data' pode ajudar com isso, mas o lado do cliente também deve conseguir limpar os dados se a conexão com o servidor não estiver disponível quando a sessão for encerrada. | 1 |
+| **14.3.2** | Verifique se a aplicação define campos de cabeçalho de resposta HTTP anticanche adequados (ex., Cache-Control: no-store) para que dados sensíveis não sejam cacheados em navegadores. | 2 |
+| **14.3.3** | Verifique se os dados armazenados no armazenamento do navegador (como localStorage, sessionStorage, IndexedDB ou cookies) não contêm dados sensíveis, com exceção de tokens de sessão. | 2 |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
 * [Consider using the Security Headers website to check security and anti-caching header fields](https://securityheaders.com/)
 * [Documentation about anti-caching headers by Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
