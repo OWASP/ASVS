@@ -42,10 +42,6 @@ Organizations who have donated $3,000 or more to the project via OWASP. Supporte
 Organizations who have donated $500 or more to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
 <!--65-->
 
-<!--[<img src="./images/supporters/oneconsult.svg" height=65](https://www.oneconsult.com)-->
-
-[<img src="./images/supporters/forwardseclogo.jpg" height=65>](https://forwardsecurity.com/)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="./images/supporters/omegapointlogo.png" height=65>](https://en.omegapoint.se/)
-
 ## Associate supporters 
 
 Organizations who have donated another amount to the project via OWASP. Supporter will be listed in this section for 1 year from the date of the donation.
