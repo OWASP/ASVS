@@ -13,16 +13,14 @@ OAuth2 (که در این فصل با عنوان OAuth از آن یاد می‌ش
     * یک Public Client توانایی حفظ محرمانگی اعتبارنامه‌ها (Credentials) برای احراز هویت در برابر Authorization Server را ندارد. بنابراین، به جای احراز هویت خود (برای مثال با استفاده از پارامترهای client_id و client_secret)، صرفاً خودش را شناسایی می‌کند (با استفاده از پارامتر client_id)
 * OAuth Resource Server (RS) سروری است که از طریق API، منابع را در اختیار OAuth Clients قرار می‌دهد.
 * OAuth Authorization Server (AS) یک برنامه‌ی سرور است که به OAuth Clients توکن‌های دسترسی (Access Tokens) صادر می‌کند. این توکن‌ها به OAuth Clients امکان می‌دهند تا به منابع موجود در RS دسترسی پیدا کنند؛ یا به نمایندگی از کاربر نهایی (End-User)، یا به نمایندگی از خود OAuth Client. معمولاً AS یک برنامه‌ی مجزا است، اما در صورت لزوم می‌تواند در یک RS مناسب نیز ادغام شود.
-* Resource Owner (RO) همان کاربر نهایی (End-User) است که به OAuth Clients اجازه می‌دهد تا به نمایندگی از او، دسترسی محدودی به منابع موجود روی Resource Server داشته باشند.
-  Resource Owner با تعامل با Authorization Server، رضایت خود را برای این واگذاری مجوز دسترسی (Delegated Authorization) اعلام می‌کند.
+* Resource Owner (RO) همان کاربر نهایی (End-User) است که به OAuth Clients اجازه می‌دهد تا به نمایندگی از او، دسترسی محدودی به منابع موجود روی Resource Server داشته باشند. Resource Owner با تعامل با Authorization Server، رضایت خود را برای این واگذاری مجوز دسترسی (Delegated Authorization) اعلام می‌کند.
 
 نقش‌های زیر در OIDC تعریف شده‌اند:
 
 * Relying Party (RP) برنامه‌ی کاربری (Client Application) است که از طریق OpenID Provider درخواست احراز هویت کاربر نهایی (End-User) را می‌دهد. این نقش در واقع همان نقش یک OAuth Client را بر عهده دارد.
 * OpenID Provider (OP) یک OAuth AS است که توانایی احراز هویت کاربر نهایی (End-User) را دارد و اطلاعات هویتی (OIDC Claims) را در اختیار RP قرار می‌دهد.OP می‌تواند همان Identity Provider (IdP) باشد، اما در سناریوهای فدراسیونی (Federated Scenarios)، OP و Identity Provider (جایی که کاربر نهایی احراز هویت می‌شود) ممکن است دو برنامه‌ی سرور جداگانه باشند.
 
-OAuth و OIDC در ابتدا برای برنامه‌های سوم‌شخص (Third-Party Applications) طراحی شده بودند.
-امروزه، این پروتکل‌ها به‌طور گسترده در برنامه‌های اول‌شخص (First-Party Applications) نیز مورد استفاده قرار می‌گیرند. با این حال، هنگام استفاده در سناریوهای اول‌شخص مانند احراز هویت (Authentication) و مدیریت نشست (Session Management) این پروتکل‌ها پیچیدگی‌هایی را به همراه می‌آورند که ممکن است چالش‌های امنیتی جدیدی ایجاد کنند.
+OAuth و OIDC در ابتدا برای برنامه‌های سوم‌شخص (Third-Party Applications) طراحی شده بودند. امروزه، این پروتکل‌ها به‌طور گسترده در برنامه‌های اول‌شخص (First-Party Applications) نیز مورد استفاده قرار می‌گیرند. با این حال، هنگام استفاده در سناریوهای اول‌شخص مانند احراز هویت (Authentication) و مدیریت نشست (Session Management) این پروتکل‌ها پیچیدگی‌هایی را به همراه می‌آورند که ممکن است چالش‌های امنیتی جدیدی ایجاد کنند.
 
 OAuth وOIDC را می‌توان در انواع مختلف برنامه‌ها به کار برد، اما تمرکز در ASVS و همچنین الزامات مطرح‌شده در این فصل، بر روی برنامه‌های وب (Web Applications) و رابط‌های برنامه‌نویسی کاربردی (APIs) است.
 
