@@ -18,21 +18,22 @@ Copyright © 2008-2025 The OWASP Foundation.
 
 ## سرپرستان پروژه
 
-|                       |                  |                  |
-|---------------------- |----------------- |----------------- |
-| Daniel Cuthbert       | Elar Lang        | Josh C Grossman  |
+|                       |                  |
+|---------------------- |----------------- |
+| Elar Lang       | Josh C Grossman |
+| Jim Manico      | Daniel Cuthbert |
 
 ## گروه کاری
 
-|                |                |                  |                |
-| -------------- | -------------- | ---------------- | -------------- |
+|                 |                   |                    |                  |
+|---------------- |------------------ |------------------- |----------------- |
 | Tobias Ahnoff  | Ralph Andalis  | Ryan Armstrong   | Gabriel Corona |
 | Meghan Jacquot | Shanni Prutchi | Iman Sharafaldin | Eden Yardeni   |
 
 ## سایر همکاران اصلی
 
-|                   |              |
-| ----------------- | ------------ |
+|                   |                   |
+|-------------------|-------------------|
 | Sjoerd Langkemper | Isaac Lewis  |
 | Mark Carney       | Sandro Gauci |
 
