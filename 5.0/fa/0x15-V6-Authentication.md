@@ -53,7 +53,7 @@
 
 توجه داشته باشید که در زمان انتشار این سند، استاندارد NIST SP 800-63 استفاده از ایمیل را به عنوان یک مکانیزم احراز هویت [قابل قبول نمی‌داند](https://pages.nist.gov/800-63-FAQ/#q-b11).([archived copy](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
 
-الزامات این بخش به بخش‌های مختلفی از راهنمای [NIST's Guidance]([https://pages.nist.gov/800-63-3/sp800-63b.html) مربوط می‌شوند، از جمله بندهای [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types)، [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types)، [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling) و [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
+الزامات این بخش به بخش‌های مختلفی از راهنمای [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html) مربوط می‌شوند، از جمله بندهای [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types)، [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types)، [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling) و [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
 
 | # | Description | Level |
 | :---: | :--- | :---: |
