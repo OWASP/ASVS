@@ -7,18 +7,6 @@ assignees: ''
 
 ---
 <!---
-
-*************************************************************************************
-IMPORTANT:
-*************************************************************************************
-As of now (8th May 2025 we are in the final stages of preparing version 5.0)
-
-We therefore may no longer be able to incorporate changes into this version.
-
-Please feel free to open your issue anyway so that it can be handled in the future
-and thanks in advance for your understanding.
-*************************************************************************************
-
 BEFORE YOU OPEN AN ISSUE:
 - If you have a question about content, make sure you are looking at the raw .md files which contain the master version of the text and not in the CSV, JSON, XLSX, PDF, DOCX files which are derived from this.
 - Please search the issues in case your question has been discussed before.

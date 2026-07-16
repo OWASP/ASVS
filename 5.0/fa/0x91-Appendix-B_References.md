@@ -1,6 +1,6 @@
 # Appendix B: References
 
-The following OWASP projects are most likely to be useful to users/adopters of this standard:
+پروژه‌های زیر از OWASP به‌احتمال زیاد برای کاربران و استفاده‌کنندگان این استاندارد مفید خواهند بود:
 
 ## OWASP Core Projects
 
@@ -12,9 +12,9 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 
 ## OWASP Cheat Sheet Series project
 
-[This project](https://owasp.org/www-project-cheat-sheets/) has several cheat sheets that will be relevant to different topics in the ASVS.
+[این پروژه](https://owasp.org/www-project-cheat-sheets/) دارای چندین برگه راهنما (Cheat Sheet) می‌باشد که برای موضوعات مختلف در ASVS مرتبط و کاربردی خواهند بود.
 
-There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
+نگاشتی به ASVS وجود دارد که می‌توان آن را در اینجا پیدا کرد:  [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
 
 ## Mobile Security Related Projects
 
@@ -32,8 +32,8 @@ There is a mapping to the ASVS which can be found here: [https://cheatsheetserie
 
 ## Others
 
-Similarly, the following websites are most likely to be useful to users/adopters of this standard
+به‌طور مشابه، وب‌سایت‌های زیر به‌احتمال زیاد برای کاربران و استفاده‌کنندگان این استاندارد مفید خواهند بود.
 
-1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
-2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
-3. PCI Security Standards: [https://www.pcisecuritystandards.org/standards/](https://www.pcisecuritystandards.org/standards/)
+1. SecLists Github: https://github.com/danielmiessler/SecLists
+2. MITRE Common Weakness Enumeration: https://cwe.mitre.org/
+3. PCI Security Standards: https://www.pcisecuritystandards.org/standards/

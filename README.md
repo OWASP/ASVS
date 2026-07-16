@@ -9,7 +9,7 @@ This work is licensed under a
 
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg
 
@@ -25,13 +25,13 @@ Originally launched in 2008 through a global community collaboration, the ASVS d
 
 Following the release of ASVS 4.0 in 2019 and its minor update (v4.0.3) in 2021, Version 5.0 represents a significant milestone—modernized to reflect the latest advances in software security.
 
-We gratefully recognise the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
+We gratefully recognize the organizations who have supported the project either through significant time provision or financially on our "[Supporters](SUPPORTERS.md)" page!
 
 **Please [log issues](https://github.com/OWASP/ASVS/issues) if you find any bugs or if you have ideas. We may subsequently ask you to [open a pull request](https://github.com/OWASP/ASVS/pulls) based on the discussion in the issue. We are also actively looking for [translations of the 5.n branch](CONTRIBUTING.md#translations).**
 
 ## Project Leaders and Working Group
 
-The project is led by the four project leaders [Daniel Cuthbert](https://github.com/danielcuthbert), [Jim Manico](https://github.com/jmanico), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
+The project is led by the three project leaders [Daniel Cuthbert](https://github.com/danielcuthbert), [Josh Grossman](https://github.com/tghosth), and [Elar Lang](https://github.com/elarlang).
 
 They are supported by the ASVS Working Group which consists of [Shanni Prutchi](https://github.com/EnigmaRosa), [Ralph Andalis](https://github.com/csfreak92), [Meghan Jacquot](https://github.com/meghanjacquot), [Iman Sharafaldin](https://github.com/ImanSharaf), [Ryan Armstrong](https://github.com/ryarmst), [Gabriel Corona](https://github.com/randomstuff), [Tobias Ahnoff](https://github.com/TobiasAhnoff), and [Eden Yardeni](https://github.com/cronchie). 
 

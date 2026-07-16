@@ -14,7 +14,7 @@ Whilst the output scripts can also be run locally, this may not be currently sta
 
 **Note:** This method is still in testing and may or may not function depending on your environment and underlying Operating System.
 
-Stabilising this is on our todo list but not a top priority.
+Stabilizing this is on our todo list but not a top priority.
 
 ### Document Compilation Instructions
 1. Install Docker on your computer (see instructions for different architectures [in the Docker docs](https://docs.docker.com/engine/install/))

@@ -2,7 +2,7 @@
 
 Versions:
 
-* v4.0.3 - latest v4 ralease
+* v4.0.3 - latest v4 release
 * v5.0.be - "bleeding edge" version for v5.0 development, where all v4.0 structure and numbers were kept directly or as placeholders
 * v5.0 - v5.0 after re-structuring and re-numbering everything
 
