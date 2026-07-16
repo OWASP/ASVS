@@ -1,8 +1,8 @@
 # Appendix E - Contributors
 
-We gratefully acknowledge the contributions of the following people who have commented or opened pull requests since the the release of ASVS 4.0.0.
+ما با سپاسگزاری از مشارکت افراد زیر که از زمان انتشار نسخه ۴.۰.۰ ASVS نظر داده‌اند یا درخواست‌های ادغام (Pull Request) باز کرده‌اند، قدردانی می‌کنیم.
 
-If you are aware of any mistakes or would like your name to appear differently, please let us know.
+اگر از وجود هرگونه خطایی آگاه هستید یا ترجیح می‌دهید نام شما به شکلی متفاوت نمایش داده شود، لطفاً به ما اطلاع دهید.
 
 | | | | |
 | --- | --- | --- | --- |
