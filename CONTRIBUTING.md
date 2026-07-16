@@ -28,71 +28,22 @@ We will no longer be accepting changes to the 4.0 folder which is now fixed at t
 
 ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
 
-* Major release - Full reorganization, almost everything may have changed, including requirement numbers and chapter and section structure. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
-* Minor release - Requirements may be added, removed, split, or merged but overall numbering and the section structure will stay the same with no additions or removals. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0). The restrictions mean that requirements within a sections may not be in ascending level order. Levels may be increased or decreased.
-* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1). A level number may be increased but not decreased.
+* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
+* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
+* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
 
 The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
 
-### Change control
-
-In order to make it easier to track changes made on the bleeding edge version of ASVS and prepare new releases, we will follow the following conventions.
-
-We will make changes on the bleeding edge branch which would be acceptable for minor and patch releases however we will add tags which make clear whether the type of change is breaking or not for a patch. We will not currently make changes that would not be acceptable for a minor release. This basically means no new sections and not requirement moving.
-
-Tags will start with either:
-
-* `M` - The change is acceptable for a major release
-* `I` - The change is acceptable for a minor release
-* `P` - The change is acceptable for a patch release
-
-The following tags will be used, their meaning should be should be clear and they will be added to the start of the requirement description.
-
-* Patch tags:
-  * `[P:WEAKENED]`
-  * `[P:DELETED]`
-  * `[P:WORDING]`
-* Minor tags:
-  * `[I:ADDED]`
-  * `[I:STRENGTHENED]`
-  * `[I:TRANSFORMED]` (This means the meaning has been entirely changed)
-  * `[I:MERGED_TO x.y.z ]` (ID defines where the requirement has gone)
-  * `[I:MERGED_FROM x.y.z, x.y.w]` (IDs define which requirements have been merged into the current one)
-  * `[I:SPLIT_TO x.y.z, x.y.w]` (IDs define where the requirement has been split to)
-  * `[I:SPLIT_FROM x.y.z]` (This is like an addition except that the ID defines where the requirement has been split from)
-* Major tags (not to be used until we are not going to make any more minor or patch releases before a major release):
-  * `[M:MOVED_FROM x.y.z]` (ID defines where the requirement has come from)
-  * `[M:MOVED_TO x.y.z]` (ID defines where the requirement has gone)
-
-### Release process
-
-#### Patch release
-
-When a patch release comes along, we do the following:
-
-* Create a branch for the patch release
-* Reverse all requirement changes in the patch branch which are not acceptable for a patch based on the tag on the requirement (guided by tags).
-* Manually review the changes which are being reversed out to see if we want to cherry pick some non-breaking changes that were within a requirement which also has breaking changes.
-* Remove all tagging from the patch branch and bring the tag details into a separate file representing the changes in this release to act as release notes.
-* Remove tags from requirements in the bleeding edge branch for changes that went into the patch branch. Tags should be relative to the previous release.
-
-#### Minor release
-
-When a minor release comes along, we do the following:
-
-* Create a branch for the minor release
-* Remove all tagging from the minor release branch and bring the tag details into a separate file representing the changes in this release to act as release notes.
-* Remove tags from requirements in the bleeding edge branch. Tags should be relative to the previous release.
-
-#### Major release
-
-This will be more complicated and will be defined when we get there.
-
 ## How can I help?
 
-We would be glad to receive feedback to help us to further enhance the ASVS. Whilst there may be some delays in responses, be assured that all issues will eventually be reviewed.
+We would be glad to receive feedback to help us to further enhance the ASVS.
 
-We are most likely to immediately accept changes to surrounding text and other content such as the appendices which is not considered a breaking change for release purposes but we will also start integrating changes that would require a patch or minor release. For major changes such as moves, you are welcome to open an issue but please note that the issue may not be progressed until we are considering a new major release, for which there is currently no fixed timeline.
+At this stage, we are accepting the following types of changes:
+
+* Changes to surrounding text and other content such as the appendices which is not be considered to be a breaking change for release purposes.
+* Changes which are considered "non-breaking" for an ASVS "patch" release. This means that requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well.
+
+If you feel there are other important changes but they would be considered breaking for a patch release, you are welcome to open an issue but please note that the issue may not be progressed until we are considering a new minor or major release, for which there is currently no fixed timeline.
 
 ## Additional Details for Helping
 
@@ -112,11 +63,44 @@ The mappings in the [mappings folder](https://github.com/OWASP/ASVS/tree/master/
 
 If you are comfortable that your query has not been previously discussed, you can open an issue. Please try and include the ASVS requirement number and text you are talking about in the issue to save having to jump back and forth and please carry out all discussion in the associated issue and not in a PR discussion.
 
+<!-- COMMENTING OUT FOR FUTURE USE
+
+  * Mapping from v4.0.3 to v5.0.0:
+    * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v4.0.3_to_v5.0.0.yml> - mapping file
+    * <https://asvs.dev/mapping_v4.0.3_to_v5.0.0.html> - formatted output
+  * Mapping from v5.0.0 to v4.0.3:
+    * <https://github.com/OWASP/ASVS/blob/master/5.0/mappings/mapping_v5.0.0_to_v4.0.3.yml> - mapping file
+    * <https://asvs.dev/mapping_v5.0.0_to_v4.0.3.html> - formatted output
+
+Tags in new (v5.0.0) mapping file:
+
+  * `ADDED` - new requirement
+  * `MOVED FROM x.y.z` - reference to the requirement number from v4.0.3. Must have a matching `MOVE TO` tag in the old mapping file.
+    * `GRAMMAR` - indicates that there are grammar or language corrections in the moved requirement, which don't change the requirement's meaning.
+    * `MODIFIED` - indicates that the meaning of the moved requirement was changed (more than just a language or grammar change).
+  * `SPLIT FROM x.y.z` - the v4.0.3 requirement was split to multiple requirements in v5.0.0. Must have a matching `SPLIT TO` in the old mapping file.
+  * `MERGED FROM x.y.z` - the v4.0.3 requirement has been merged with another requirement for v5.0.0. Must have a matching `MERGED TO` tag in the old mapping file.
+  * `COVERS x.y.z` - the v5.0.0 requirement covers the content of this v4.0.3 requirement. Must have a matching `COVERED BY x.y.z` tag in the old mapping file.
+
+Tags in old (v4.0.3) mapping file:
+
+  * `DELETED` - the v4.0.3 requirement is deleted in the new version, with a reason.
+    * `DELETED, NOT IN SCOPE` - requirement has been decided to be out of the redefined scope of ASVS.
+    * `DELETED, INCORRECT` - requirement was invalid or provided inadvisable advice.
+    * `DELETED, NOT PRACTICAL` - the requirement was not practical (enough) to implement in reality.
+    * `DELETED, INSUFFICIENT IMPACT` - the requirement provided insufficient benefit to be worthwhile.
+    * `DELETED, MERGED TO x.y.z` - the requirement was merged to another requirement for v5.0.0. Must have a matching `MERGED FROM` tag in the new mapping file.
+    * `DELETED, COVERED BY x.y.z` - the requirement was a duplicate of or is covered by another requirement in v5.0.0. Must have a matching `COVERS` tag in the new mapping file.
+  * `MOVED TO x.y.z` - reference to the requirement number from v5.0.0. Must have a matching `MOVED FROM` tag in the new version
+  * `SPLIT TO x.y.z, i.j.k` - the v4.0.3 requirement is divided into multiple requirements in v5.0.0. Must have matching `SPLIT FROM` tags in the new mapping file.
+
+-->
+
 ## Translations
 
 We are now keen to receive translations for v5.0.0 of ASVS!
 
-Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintenance easier. 
+Note that we are ONLY accepting translations based on markdown and not preformatted translations in Word or PDF format to make tracking and maintainance easier. 
 
 If you are interested in creating a translation, here are some pointers for how you can help us:
 
@@ -135,9 +119,9 @@ If you are interested in creating a translation, here are some pointers for how 
         * [Korean](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ko/)
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
-* We would request that you **specifically base your translation** on the 5.0/en folder from the **v5.0.0** branch as this is now static at the 5.0.0 version.
+* We would request that you base your translation on the 5.0/en folder in the v5.0.0 branch as this is now static at the 5.0.0 version.
 * In order to start a translation, please start by forking the ASVS repository.
-* Checkout the **v5.0.0** branch. take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation.
+* Take a copy of the /en folder and rename it to the 2 character language code which will be used for the translation.
 * You can then edit the markdown files to include your translation rather than the original English.
 * When you have completed the translation, please open a Pull Request against the v5.0.0 ASVS branch and one of the leaders will look at integrating it.
 * The leader will also use the relevant scripts to create the documents from the raw markdown (or you can if you want to save us some trouble).
