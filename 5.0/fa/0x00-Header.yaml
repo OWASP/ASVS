@@ -11,7 +11,7 @@
     geometry: "left=2cm,right=2cm,top=3cm,bottom=3cm"
     lang: fa
     dir: rtl
-    mainfont: "Noto Sans Arabic"
-    sansfont: "Noto Sans Arabic"
+    mainfont: "Amiri"
+    sansfont: "Amiri"
 ---
 

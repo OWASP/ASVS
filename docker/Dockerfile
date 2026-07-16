@@ -57,6 +57,11 @@ RUN for font in source-sans source-serif source-code-pro; do \
     done
 RUN mkdir adobe-fonts
 RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
+RUN curl -L --retry 5 \
+    "https://github.com/aliftype/amiri/releases/download/1.003/Amiri-1.003.zip" \
+    --output amiri.zip \
+    && unzip amiri.zip \
+    && find $PWD/ -path "*/Amiri-1.003/*.ttf" -exec install -m644 {} adobe-fonts/ \;
 RUN rm -rf $PWD/source*
 
 FROM base_${WITH_CERT} as pandoc_base
