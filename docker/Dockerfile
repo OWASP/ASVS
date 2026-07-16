@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apk add --update \
     alpine-sdk \
     fontconfig \
+    font-noto-arabic \
     font-noto-cjk \
     freetype \
     lua5.3 \

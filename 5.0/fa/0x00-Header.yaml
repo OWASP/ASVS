@@ -9,8 +9,9 @@
     toc: true
     toc-own-page: true
     geometry: "left=2cm,right=2cm,top=3cm,bottom=3cm"
-    CJKmainfont: "Noto Sans CJK JP"
-    mainfont: "Source Serif 4"
-    sansfont: "Source Sans 3"
+    lang: fa
+    dir: rtl
+    mainfont: "Noto Sans Arabic"
+    sansfont: "Noto Sans Arabic"
 ---
 
