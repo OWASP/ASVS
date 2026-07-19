@@ -35,7 +35,7 @@ jobs:
       - name: Get changed files (PR only)
         if: github.event_name == 'pull_request'
         id: files
-        uses: tj-actions/changed-files@v46
+        uses: tj-actions/changed-files@v47
         with:
           files: |
             5.0/en/**/*.md
