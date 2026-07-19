@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
       - name: Download 5.0 artifact
-        uses: actions/download-artifact@v4.3.0
+        uses: actions/download-artifact@v8.0.1
         with:
           name: ASVS 5.0.0
           path: ./asvs-5.0-latest
