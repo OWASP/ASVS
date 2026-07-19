@@ -17,7 +17,7 @@ The following roles are defined in OAuth:
 
 The following roles are defined in OIDC:
 
-* The relying party (RP) is the client application requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
+* The relying party (RP) is the client applicasdasdasdation requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
 * The OpenID Provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to an RP. The OP may be the identity provider (IdP), but in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
 
 OAuth and OIDC were initially designed for third-party applications. Today, they are often used by first-party applications as well. However, when used in first-party scenarios, such as authentication and session management, the protocol adds some complexity, which may introduce new security challenges.
