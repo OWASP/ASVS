@@ -17,7 +17,7 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v7
       - run: make 4.0
       - uses: actions/upload-artifact@v4.4.3
         with:
