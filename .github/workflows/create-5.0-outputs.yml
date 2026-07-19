@@ -38,7 +38,7 @@ jobs:
       - run: make 5.0
         env:
           LANGS: ${{ inputs.languages || github.event.inputs.languages || 'en' }}
-      - uses: actions/upload-artifact@v4.3.0
+      - uses: actions/upload-artifact@v7.0.1
         with:
           name: ASVS 5.0.0
           path: 5.0/dist/
