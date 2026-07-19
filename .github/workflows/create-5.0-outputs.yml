@@ -34,7 +34,7 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v7
       - run: make 5.0
         env:
           LANGS: ${{ inputs.languages || github.event.inputs.languages || 'en' }}
