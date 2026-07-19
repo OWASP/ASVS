@@ -148,8 +148,7 @@ Cada requisito tem um identificador no formato `<capítulo>.<seção>.<requisito
 * O valor `<seção>` corresponde à seção dentro daquele capítulo onde o requisito aparece, por exemplo: todos os requisitos `1.2.#` estão na seção 'Prevenção de Injeção' (Injection Prevention) do capítulo 'Codificação e Sanitização'.
 * O valor `<requisito>` identifica o requisito específico dentro do capítulo e seção, por exemplo, `1.2.5` que a partir da versão 5.0.0 deste padrão é:
 
-> Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
-*(Verifique se a aplicação protege contra injeção de comando no sistema operacional (OS) e se as chamadas de sistema operacional usam consultas de OS parametrizadas ou usam codificação de saída de linha de comando contextual).*
+> Verifique se a aplicação protege contra injeção de comando no sistema operacional (OS) e se as chamadas de sistema operacional usam consultas de OS parametrizadas ou usam codificação de saída de linha de comando contextual.
 
 Como os identificadores podem mudar entre versões do padrão, é preferível que outros documentos, relatórios ou ferramentas usem o seguinte formato: `v<versão>-<capítulo>.<seção>.<requisito>`, onde: 'versão' é a tag da versão do ASVS. Por exemplo: `v5.0.0-1.2.5` seria entendido como especificamente o 5º requisito na seção 'Prevenção de Injeção' do capítulo 'Codificação e Sanitização' da versão 5.0.0. (Isso poderia ser resumido como `v<versão>-<identificador_do_requisito>`.)
 
