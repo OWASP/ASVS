@@ -14,7 +14,8 @@ local function align_table_right(table)
 end
 
 function Pandoc(document)
-  if pandoc.utils.stringify(document.meta.dir) ~= "rtl" then
+  local direction = document.meta.dir
+  if direction == nil or pandoc.utils.stringify(direction) ~= "rtl" then
     return document
   end
 
