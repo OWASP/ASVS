@@ -1,0 +1,3057 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:e6408b1b-5c30-4368-8c27-914af7f725c9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-19T06:02:44+00:00",
+    "licenses": [
+      {
+        "license": {
+          "id": "CC-BY-SA-4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt"
+        }
+      }
+    ],
+    "supplier": {
+      "name": "OWASP Foundation",
+      "url": [
+        "https://owasp.org"
+      ]
+    }
+  },
+  "declarations": {
+    "standards": [
+      {
+        "bom-ref": "ASVS-",
+        "name": "Application Security Verification Standard (ASVS)",
+        "version": "",
+        "description": "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.",
+        "owner": "Application Security Verification Standard Project",
+        "requirements": [
+          {
+            "bom-ref": "V1",
+            "identifier": "V1",
+            "title": "Codificação e Sanitização"
+          },
+          {
+            "bom-ref": "V1.1",
+            "identifier": "V1.1",
+            "title": "Arquitetura de Codificação e Sanitização",
+            "parent": "V1"
+          },
+          {
+            "bom-ref": "V1.1.1",
+            "identifier": "V1.1.1",
+            "text": "Verifique se a entrada é decodificada ou desescapada (unescaped) para uma forma canônica apenas uma vez, se é decodificada apenas quando os dados codificados nessa forma são esperados, e se isso é feito antes de processar a entrada posteriormente (por exemplo, não é realizado após a validação ou sanitização da entrada).",
+            "parent": "V1.1"
+          },
+          {
+            "bom-ref": "V1.1.2",
+            "identifier": "V1.1.2",
+            "text": "Verifique se a aplicação realiza a codificação e o escaping de saída como uma etapa final antes de ser usada pelo interpretador ao qual se destina, ou pelo próprio interpretador.",
+            "parent": "V1.1"
+          },
+          {
+            "bom-ref": "V1.2",
+            "identifier": "V1.2",
+            "title": "Prevenção de Injeção",
+            "parent": "V1"
+          },
+          {
+            "bom-ref": "V1.2.1",
+            "identifier": "V1.2.1",
+            "text": "Verifique se a codificação de saída para uma resposta HTTP, documento HTML ou documento XML é relevante para o contexto exigido, como codificar os caracteres relevantes para elementos HTML, atributos HTML, comentários HTML, CSS ou campos de cabeçalho HTTP, para evitar alterar a mensagem ou a estrutura do documento.",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.2",
+            "identifier": "V1.2.2",
+            "text": "Verifique se, ao construir URLs dinamicamente, os dados não confiáveis são codificados de acordo com seu contexto (por exemplo, codificação de URL ou codificação base64url para parâmetros de consulta ou de caminho). Garanta que apenas protocolos de URL seguros sejam permitidos (por exemplo, proibir javascript: ou data:).",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.3",
+            "identifier": "V1.2.3",
+            "text": "Verifique se a codificação ou escaping de saída é usado ao construir conteúdo JavaScript dinamicamente (incluindo JSON), para evitar a alteração da mensagem ou da estrutura do documento (para evitar a injeção de JavaScript e JSON).",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.4",
+            "identifier": "V1.2.4",
+            "text": "Verifique se a seleção de dados ou consultas a bancos de dados (por exemplo, SQL, HQL, NoSQL, Cypher) usam consultas parametrizadas, ORMs, entity frameworks ou são de outra forma protegidas contra injeção de SQL e outros ataques de injeção de banco de dados. Isso também é relevante ao escrever procedimentos armazenados (stored procedures).",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.5",
+            "identifier": "V1.2.5",
+            "text": "Verifique se a aplicação protege contra injeção de comando no sistema operacional (OS) e se as chamadas de sistema operacional usam consultas de OS parametrizadas ou usam codificação de saída de linha de comando contextual.",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.6",
+            "identifier": "V1.2.6",
+            "text": "Verifique se a aplicação protege contra vulnerabilidades de injeção de LDAP, ou se controles de segurança específicos para prevenir a injeção de LDAP foram implementados.",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.7",
+            "identifier": "V1.2.7",
+            "text": "Verifique se a aplicação é protegida contra ataques de injeção de XPath através do uso de parametrização de consultas ou consultas pré-compiladas.",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.8",
+            "identifier": "V1.2.8",
+            "text": "Verifique se os processadores LaTeX estão configurados com segurança (como não usar a flag \"--shell-escape\") e se uma lista de permissões (allowlist) de comandos é usada para evitar ataques de injeção LaTeX.",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.9",
+            "identifier": "V1.2.9",
+            "text": "Verifique se a aplicação escapa caracteres especiais em expressões regulares (geralmente usando uma barra invertida) para evitar que sejam mal interpretados como metacaracteres.",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.2.10",
+            "identifier": "V1.2.10",
+            "text": "Verifique se a aplicação está protegida contra injeção de CSV e Fórmulas. A aplicação deve seguir as regras de escaping definidas na RFC 4180 seções 2.6 e 2.7 ao exportar conteúdo CSV. Adicionalmente, ao exportar para CSV ou outros formatos de planilha (como XLS, XLSX ou ODF), caracteres especiais (incluindo '=', '+', '-', '@', '\\t' (tab) e '\\0' (caractere nulo)) devem ser escapados com uma aspa simples se aparecerem como o primeiro caractere em um valor de campo.",
+            "parent": "V1.2"
+          },
+          {
+            "bom-ref": "V1.3",
+            "identifier": "V1.3",
+            "title": "Sanitização",
+            "parent": "V1"
+          },
+          {
+            "bom-ref": "V1.3.1",
+            "identifier": "V1.3.1",
+            "text": "Verifique se todas as entradas HTML não confiáveis provenientes de editores WYSIWYG ou similares são sanitizadas usando uma biblioteca de sanitização HTML conhecida e segura ou um recurso de framework.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.2",
+            "identifier": "V1.3.2",
+            "text": "Verifique se a aplicação evita o uso de eval() ou de outros recursos de execução dinâmica de código, como a Spring Expression Language (SpEL). Onde não houver alternativa, qualquer entrada do usuário a ser incluída deve ser sanitizada antes de ser executada.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.3",
+            "identifier": "V1.3.3",
+            "text": "Verifique se os dados que estão sendo passados para um contexto potencialmente perigoso são sanitizados previamente para aplicar medidas de segurança, como permitir apenas caracteres seguros para esse contexto e cortar entradas muito longas (trimming).",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.4",
+            "identifier": "V1.3.4",
+            "text": "Verifique se o conteúdo de script Scalable Vector Graphics (SVG) fornecido pelo usuário é validado ou sanitizado para conter apenas tags e atributos (como gráficos de desenho) que são seguros para a aplicação, por exemplo, não conter scripts e foreignObject.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.5",
+            "identifier": "V1.3.5",
+            "text": "Verifique se a aplicação sanitiza ou desabilita o conteúdo fornecido pelo usuário para linguagens de template com suporte a scripts ou expressões, como Markdown, folhas de estilo CSS ou XSL, BBCode ou similares.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.6",
+            "identifier": "V1.3.6",
+            "text": "Verifique se a aplicação protege contra ataques de Falsificação de Solicitação do Lado do Servidor (Server-side Request Forgery - SSRF), validando dados não confiáveis em relação a uma lista de permissões (allowlist) de protocolos, domínios, caminhos e portas, e sanitizando caracteres potencialmente perigosos antes de usar os dados para chamar outro serviço.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.7",
+            "identifier": "V1.3.7",
+            "text": "Verifique se a aplicação protege contra ataques de injeção de template não permitindo que templates sejam criados com base em entradas não confiáveis. Onde não houver alternativa, qualquer entrada não confiável sendo incluída dinamicamente durante a criação do template deve ser sanitizada ou estritamente validada.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.8",
+            "identifier": "V1.3.8",
+            "text": "Verifique se a aplicação sanitiza apropriadamente as entradas não confiáveis antes de usá-las em consultas do Java Naming and Directory Interface (JNDI) e se o JNDI está configurado com segurança para evitar ataques de injeção JNDI.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.9",
+            "identifier": "V1.3.9",
+            "text": "Verifique se a aplicação sanitiza o conteúdo antes de ser enviado ao memcache para prevenir ataques de injeção.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.10",
+            "identifier": "V1.3.10",
+            "text": "Verifique se as format strings (strings de formatação), que podem ser resolvidas de maneira inesperada ou maliciosa quando usadas, são sanitizadas antes de serem processadas.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.11",
+            "identifier": "V1.3.11",
+            "text": "Verifique se a aplicação sanitiza a entrada do usuário antes de passá-la aos sistemas de e-mail para proteger contra injeção SMTP ou IMAP.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.3.12",
+            "identifier": "V1.3.12",
+            "text": "Verifique se as expressões regulares estão livres de elementos que causam retrocesso exponencial (exponential backtracking) e certifique-se de que a entrada não confiável seja sanitizada para mitigar ataques de ReDoS ou Runaway Regex.",
+            "parent": "V1.3"
+          },
+          {
+            "bom-ref": "V1.4",
+            "identifier": "V1.4",
+            "title": "Memória, String e Código Não Gerenciado (Unmanaged Code)",
+            "parent": "V1"
+          },
+          {
+            "bom-ref": "V1.4.1",
+            "identifier": "V1.4.1",
+            "text": "Verifique se a aplicação usa aritmética de ponteiros, cópia de memória mais segura e strings com segurança de memória para detectar ou prevenir estouros de pilha (stack), buffer ou heap.",
+            "parent": "V1.4"
+          },
+          {
+            "bom-ref": "V1.4.2",
+            "identifier": "V1.4.2",
+            "text": "Verifique se técnicas de validação de sinal, intervalo e entrada são usadas para evitar estouros de inteiros (integer overflows).",
+            "parent": "V1.4"
+          },
+          {
+            "bom-ref": "V1.4.3",
+            "identifier": "V1.4.3",
+            "text": "Verifique se a memória e os recursos alocados dinamicamente são liberados e se as referências ou ponteiros para a memória liberada são removidos ou definidos como nulos (null) para evitar ponteiros pendentes (dangling pointers) e vulnerabilidades de uso após a liberação (use-after-free).",
+            "parent": "V1.4"
+          },
+          {
+            "bom-ref": "V1.5",
+            "identifier": "V1.5",
+            "title": "Desserialização Segura",
+            "parent": "V1"
+          },
+          {
+            "bom-ref": "V1.5.1",
+            "identifier": "V1.5.1",
+            "text": "Verifique se a aplicação configura parsers XML para usar uma configuração restritiva e se recursos inseguros, como a resolução de entidades externas, estão desabilitados para prevenir ataques de Entidade Externa XML (XML eXternal Entity - XXE).",
+            "parent": "V1.5"
+          },
+          {
+            "bom-ref": "V1.5.2",
+            "identifier": "V1.5.2",
+            "text": "Verifique se a desserialização de dados não confiáveis impõe tratamento seguro de entrada, como o uso de uma lista de permissões (allowlist) de tipos de objetos ou a restrição de tipos de objetos definidos pelo cliente, para evitar ataques de desserialização. Mecanismos de desserialização explicitamente definidos como inseguros não devem ser usados com entradas não confiáveis.",
+            "parent": "V1.5"
+          },
+          {
+            "bom-ref": "V1.5.3",
+            "identifier": "V1.5.3",
+            "text": "Verifique se diferentes parsers usados na aplicação para o mesmo tipo de dado (por exemplo, parsers JSON, parsers XML, parsers de URL), realizam o parsing de forma consistente e usam o mesmo mecanismo de codificação de caracteres para evitar problemas como vulnerabilidades de Interoperabilidade JSON ou comportamento diferente na análise de URI ou arquivos sendo explorados em ataques de Inclusão Remota de Arquivo (RFI) ou Falsificação de Solicitação do Lado do Servidor (SSRF).",
+            "parent": "V1.5"
+          },
+          {
+            "bom-ref": "V2",
+            "identifier": "V2",
+            "title": "Validação e Lógica de Negócios"
+          },
+          {
+            "bom-ref": "V2.1",
+            "identifier": "V2.1",
+            "title": "Documentação de Validação e Lógica de Negócios",
+            "parent": "V2"
+          },
+          {
+            "bom-ref": "V2.1.1",
+            "identifier": "V2.1.1",
+            "text": "Verifique se a documentação da aplicação define regras de validação de entrada para saber como verificar a validade de itens de dados em relação a uma estrutura esperada. Pode ser formatos de dados comuns, como números de cartão de crédito, endereços de e-mail, números de telefone, ou pode ser um formato de dados interno.",
+            "parent": "V2.1"
+          },
+          {
+            "bom-ref": "V2.1.2",
+            "identifier": "V2.1.2",
+            "text": "Verifique se a documentação da aplicação define como validar a consistência lógica e contextual de itens de dados combinados, como verificar se o bairro e o CEP (ZIP code) correspondem.",
+            "parent": "V2.1"
+          },
+          {
+            "bom-ref": "V2.1.3",
+            "identifier": "V2.1.3",
+            "text": "Verifique se as expectativas em relação aos limites da lógica de negócios e às validações estão documentadas, incluindo tanto as restrições por usuário quanto as aplicadas globalmente em toda a aplicação.",
+            "parent": "V2.1"
+          },
+          {
+            "bom-ref": "V2.2",
+            "identifier": "V2.2",
+            "title": "Validação de Entrada",
+            "parent": "V2"
+          },
+          {
+            "bom-ref": "V2.2.1",
+            "identifier": "V2.2.1",
+            "text": "Verifique se a entrada é validada para impor expectativas funcionais ou de negócios para aquela entrada. Isso deve usar validação positiva em relação a uma lista de permissões (allowlist) de valores, padrões e intervalos, ou ser baseado na comparação da entrada com uma estrutura esperada e limites lógicos de acordo com regras predefinidas. Para L1, o foco pode ser na entrada que é usada para tomar decisões específicas de negócios ou segurança. Para L2 e superior, isso deve se aplicar a todas as entradas.",
+            "parent": "V2.2"
+          },
+          {
+            "bom-ref": "V2.2.2",
+            "identifier": "V2.2.2",
+            "text": "Verifique se a aplicação é projetada para aplicar a validação de entrada em uma camada de serviço confiável. Embora a validação no lado do cliente (client-side validation) melhore a usabilidade e deva ser incentivada, não se deve confiar nela como um controle de segurança.",
+            "parent": "V2.2"
+          },
+          {
+            "bom-ref": "V2.2.3",
+            "identifier": "V2.2.3",
+            "text": "Verifique se a aplicação garante que combinações de itens de dados relacionados sejam razoáveis de acordo com as regras predefinidas.",
+            "parent": "V2.2"
+          },
+          {
+            "bom-ref": "V2.3",
+            "identifier": "V2.3",
+            "title": "Segurança da Lógica de Negócios",
+            "parent": "V2"
+          },
+          {
+            "bom-ref": "V2.3.1",
+            "identifier": "V2.3.1",
+            "text": "Verifique se a aplicação processará fluxos da lógica de negócios para o mesmo usuário apenas na ordem sequencial de etapas esperada e sem pular etapas.",
+            "parent": "V2.3"
+          },
+          {
+            "bom-ref": "V2.3.2",
+            "identifier": "V2.3.2",
+            "text": "Verifique se os limites da lógica de negócios são implementados conforme a documentação da aplicação para evitar que falhas da lógica de negócios sejam exploradas.",
+            "parent": "V2.3"
+          },
+          {
+            "bom-ref": "V2.3.3",
+            "identifier": "V2.3.3",
+            "text": "Verifique se as transações estão sendo usadas no nível da lógica de negócios, de tal forma que uma operação da lógica de negócios tenha sucesso na sua totalidade ou seja revertida (rolled back) para o estado correto anterior.",
+            "parent": "V2.3"
+          },
+          {
+            "bom-ref": "V2.3.4",
+            "identifier": "V2.3.4",
+            "text": "Verifique se mecanismos de bloqueio (locking) no nível da lógica de negócios são usados para garantir que recursos de quantidade limitada (como assentos de teatro ou horários de entrega) não possam ser reservados duplamente pela manipulação da lógica da aplicação.",
+            "parent": "V2.3"
+          },
+          {
+            "bom-ref": "V2.3.5",
+            "identifier": "V2.3.5",
+            "text": "Verifique se fluxos de lógica de negócios de alto valor exigem aprovação multiusuário para evitar ações não autorizadas ou acidentais. Isso pode incluir, mas não se limita a, grandes transferências financeiras, aprovações de contratos, acesso a informações confidenciais ou anulações de segurança (safety overrides) na manufatura.",
+            "parent": "V2.3"
+          },
+          {
+            "bom-ref": "V2.4",
+            "identifier": "V2.4",
+            "title": "Antiautomação",
+            "parent": "V2"
+          },
+          {
+            "bom-ref": "V2.4.1",
+            "identifier": "V2.4.1",
+            "text": "Verifique se há controles de antiautomação em vigor para proteger contra chamadas excessivas a funções da aplicação que podem levar a exfiltração de dados, criação de dados lixo (garbage-data), esgotamento de cotas, violações de limite de taxa (rate-limit), negação de serviço ou uso excessivo de recursos caros.",
+            "parent": "V2.4"
+          },
+          {
+            "bom-ref": "V2.4.2",
+            "identifier": "V2.4.2",
+            "text": "Verifique se os fluxos da lógica de negócios requerem temporização humana realista, evitando envios de transações excessivamente rápidos.",
+            "parent": "V2.4"
+          },
+          {
+            "bom-ref": "V3",
+            "identifier": "V3",
+            "title": "Segurança de Frontend Web"
+          },
+          {
+            "bom-ref": "V3.1",
+            "identifier": "V3.1",
+            "title": "Documentação de Segurança de Frontend Web",
+            "parent": "V3"
+          },
+          {
+            "bom-ref": "V3.1.1",
+            "identifier": "V3.1.1",
+            "text": "Verifique se a documentação da aplicação declara os recursos de segurança esperados que os navegadores que usam a aplicação devem suportar (como HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP) e outros mecanismos de segurança HTTP relevantes). Deve também definir como a aplicação deve se comportar quando alguns desses recursos não estiverem disponíveis (como avisar o usuário ou bloquear o acesso).",
+            "parent": "V3.1"
+          },
+          {
+            "bom-ref": "V3.2",
+            "identifier": "V3.2",
+            "title": "Interpretação Não Intencional de Conteúdo",
+            "parent": "V3"
+          },
+          {
+            "bom-ref": "V3.2.1",
+            "identifier": "V3.2.1",
+            "text": "Verifique se há controles de segurança em vigor para evitar que navegadores renderizem conteúdo ou funcionalidades de respostas HTTP em um contexto incorreto (por exemplo, quando uma API, um arquivo enviado pelo usuário ou outro recurso é solicitado diretamente). Possíveis controles poderiam incluir: não servir o conteúdo a menos que campos de cabeçalho da requisição HTTP (como Sec-Fetch-\\*) indiquem que é o contexto correto, usar a diretiva sandbox do campo de cabeçalho Content-Security-Policy ou usar o tipo de disposição attachment no campo de cabeçalho Content-Disposition.",
+            "parent": "V3.2"
+          },
+          {
+            "bom-ref": "V3.2.2",
+            "identifier": "V3.2.2",
+            "text": "Verifique se o conteúdo que deve ser exibido como texto, e não renderizado como HTML, é processado usando funções de renderização seguras (como createTextNode ou textContent) para evitar a execução não intencional de conteúdo como HTML ou JavaScript.",
+            "parent": "V3.2"
+          },
+          {
+            "bom-ref": "V3.2.3",
+            "identifier": "V3.2.3",
+            "text": "Verifique se a aplicação evita a sobrescrita do DOM (DOM clobbering) ao usar JavaScript no lado do cliente (client-side), empregando declarações explícitas de variáveis, realizando verificação estrita de tipo, evitando armazenar variáveis globais no objeto document e implementando isolamento de namespace.",
+            "parent": "V3.2"
+          },
+          {
+            "bom-ref": "V3.3",
+            "identifier": "V3.3",
+            "title": "Configuração de Cookies",
+            "parent": "V3"
+          },
+          {
+            "bom-ref": "V3.3.1",
+            "identifier": "V3.3.1",
+            "text": "Verifique se os cookies possuem o atributo 'Secure' definido, e caso o prefixo '\\__Host-' não seja usado no nome do cookie, o prefixo '__Secure-' deve ser usado para o nome do cookie.",
+            "parent": "V3.3"
+          },
+          {
+            "bom-ref": "V3.3.2",
+            "identifier": "V3.3.2",
+            "text": "Verifique se o valor do atributo 'SameSite' de cada cookie é configurado de acordo com o propósito do cookie, para limitar a exposição a ataques de distorção de interface de usuário (user interface redress) e ataques de falsificação de requisição baseados em navegador, comumente conhecidos como falsificação de requisição entre sites (Cross-Site Request Forgery - CSRF).",
+            "parent": "V3.3"
+          },
+          {
+            "bom-ref": "V3.3.3",
+            "identifier": "V3.3.3",
+            "text": "Verifique se os cookies possuem o prefixo '__Host-' para o nome do cookie, a menos que sejam explicitamente projetados para serem compartilhados com outros hosts.",
+            "parent": "V3.3"
+          },
+          {
+            "bom-ref": "V3.3.4",
+            "identifier": "V3.3.4",
+            "text": "Verifique se o valor de um cookie não deve ser acessível a scripts do lado do cliente (como um token de sessão), o cookie deve ter o atributo 'HttpOnly' definido e o mesmo valor (ex. token de sessão) deve ser transferido ao cliente apenas através do campo de cabeçalho 'Set-Cookie'.",
+            "parent": "V3.3"
+          },
+          {
+            "bom-ref": "V3.3.5",
+            "identifier": "V3.3.5",
+            "text": "Verifique se quando a aplicação grava um cookie, o comprimento combinado do nome e do valor do cookie não ultrapassa 4096 bytes. Cookies excessivamente grandes não serão armazenados pelo navegador e, portanto, não serão enviados com requisições, impedindo o usuário de utilizar as funcionalidades da aplicação que dependem desse cookie.",
+            "parent": "V3.3"
+          },
+          {
+            "bom-ref": "V3.4",
+            "identifier": "V3.4",
+            "title": "Cabeçalhos de Mecanismos de Segurança do Navegador",
+            "parent": "V3"
+          },
+          {
+            "bom-ref": "V3.4.1",
+            "identifier": "V3.4.1",
+            "text": "Verifique se o campo de cabeçalho Strict-Transport-Security está incluído em todas as respostas para forçar uma política HTTP Strict Transport Security (HSTS). A validade máxima (maximum age) de pelo menos 1 ano deve ser definida e, para L2 e superior, a política também deve se aplicar a todos os subdomínios.",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.4.2",
+            "identifier": "V3.4.2",
+            "text": "Verifique se o campo de cabeçalho Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin possui um valor fixo atribuído pela aplicação ou, se o valor do campo de cabeçalho Origin da requisição HTTP for usado, ele é validado com base em uma lista de permissões (allowlist) de origens confiáveis. Quando 'Access-Control-Allow-Origin: *' precisar ser usado, verifique se a resposta não inclui informações sensíveis.",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.4.3",
+            "identifier": "V3.4.3",
+            "text": "Verifique se as respostas HTTP incluem um campo de cabeçalho de resposta Content-Security-Policy que define diretivas para garantir que o navegador apenas carregue e execute conteúdos ou recursos confiáveis, a fim de limitar a execução de JavaScript malicioso. Como mínimo, uma política global deve ser usada, a qual inclui as diretivas object-src 'none' e base-uri 'none', e define uma lista de permissões ou usa nonces ou hashes. Para uma aplicação L3, deve ser definida uma política por resposta com nonces ou hashes.",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.4.4",
+            "identifier": "V3.4.4",
+            "text": "Verifique se todas as respostas HTTP contêm um campo de cabeçalho 'X-Content-Type-Options: nosniff'. Isso instrui os navegadores a não utilizarem a adivinhação do tipo MIME (content sniffing) para a resposta dada, e exige que o valor do campo de cabeçalho Content-Type da resposta corresponda ao recurso de destino. Por exemplo, a resposta para a requisição de um estilo só é aceita se o Content-Type da resposta for 'text/css'. Isso também permite o uso da funcionalidade Cross-Origin Read Blocking (CORB) pelo navegador.",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.4.5",
+            "identifier": "V3.4.5",
+            "text": "Verifique se a aplicação define uma política de referência (referrer policy) para evitar o vazamento de dados tecnicamente sensíveis para serviços de terceiros através do campo de cabeçalho HTTP da requisição 'Referer'. Isso pode ser feito usando o campo de cabeçalho de resposta HTTP Referrer-Policy ou por meio de atributos de elemento HTML. Dados sensíveis podem incluir caminho e dados de consulta na URL e, para aplicações internas não públicas, o nome do host (hostname) também.",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.4.6",
+            "identifier": "V3.4.6",
+            "text": "Verifique se a aplicação web usa a diretiva frame-ancestors do campo de cabeçalho Content-Security-Policy para toda resposta HTTP para garantir que ela não possa ser incorporada (embedded) por padrão, e que a incorporação de recursos específicos seja permitida apenas quando necessário. Note que o campo de cabeçalho X-Frame-Options, embora suportado por navegadores, está obsoleto e não deve ser confiado.",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.4.7",
+            "identifier": "V3.4.7",
+            "text": "Verifique se o campo de cabeçalho Content-Security-Policy especifica um local para relatar violações.",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.4.8",
+            "identifier": "V3.4.8",
+            "text": "Verifique se todas as respostas HTTP que iniciam a renderização de um documento (como respostas com Content-Type text/html) incluem o campo de cabeçalho Cross‑Origin‑Opener‑Policy com a diretiva same-origin ou a diretiva same-origin-allow-popups, conforme exigido. Isso evita ataques que abusam do acesso compartilhado a objetos Window, como tabnabbing e contagem de frames (frame counting).",
+            "parent": "V3.4"
+          },
+          {
+            "bom-ref": "V3.5",
+            "identifier": "V3.5",
+            "title": "Separação de Origem no Navegador",
+            "parent": "V3"
+          },
+          {
+            "bom-ref": "V3.5.1",
+            "identifier": "V3.5.1",
+            "text": "Verifique se, caso a aplicação não dependa do mecanismo de CORS preflight para impedir que requisições cross-origin não permitidas usem funcionalidades sensíveis, essas requisições sejam validadas para garantir que sejam originadas na própria aplicação. Isso pode ser feito usando e validando tokens antifalsificação ou exigindo campos de cabeçalho HTTP adicionais que não sejam campos de cabeçalho listados como seguros (CORS-safelisted). O objetivo é defender contra ataques de falsificação de solicitações baseadas no navegador, conhecidos como falsificação de solicitação entre sites (Cross-Site Request Forgery - CSRF).",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.5.2",
+            "identifier": "V3.5.2",
+            "text": "Verifique se, caso a aplicação dependa do mecanismo de CORS preflight para evitar o uso cross-origin não permitido de funcionalidades sensíveis, não seja possível chamar a funcionalidade com uma solicitação que não acione uma requisição de CORS-preflight. Isso pode exigir a verificação dos valores dos campos de cabeçalho de requisição 'Origin' e 'Content-Type' ou o uso de um campo de cabeçalho extra que não seja CORS-safelisted.",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.5.3",
+            "identifier": "V3.5.3",
+            "text": "Verifique se as solicitações HTTP a funcionalidades sensíveis usam métodos HTTP apropriados como POST, PUT, PATCH ou DELETE, e não métodos definidos pela especificação HTTP como \"seguros\" (safe), como HEAD, OPTIONS ou GET. Alternativamente, uma validação estrita dos campos de cabeçalho de requisição Sec-Fetch-* pode ser usada para garantir que a solicitação não tenha se originado de uma chamada cross-origin inadequada, de uma solicitação de navegação ou do carregamento de um recurso (como fonte de imagem) onde isso não é esperado.",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.5.4",
+            "identifier": "V3.5.4",
+            "text": "Verifique se as aplicações distintas estão hospedadas em hostnames diferentes para aproveitar as restrições fornecidas pela política de mesma origem (same-origin policy), incluindo a forma como os documentos ou scripts carregados por uma origem podem interagir com os recursos de outra origem e as restrições baseadas no hostname dos cookies.",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.5.5",
+            "identifier": "V3.5.5",
+            "text": "Verifique se as mensagens recebidas pela interface postMessage são descartadas caso a origem da mensagem não seja confiável, ou se a sintaxe da mensagem for inválida.",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.5.6",
+            "identifier": "V3.5.6",
+            "text": "Verifique se a funcionalidade JSONP não está habilitada em nenhuma parte da aplicação para evitar ataques de Inclusão de Script Entre Sites (Cross-Site Script Inclusion - XSSI).",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.5.7",
+            "identifier": "V3.5.7",
+            "text": "Verifique se os dados que requerem autorização não estão incluídos em respostas de recursos de script, como arquivos JavaScript, para evitar ataques de Inclusão de Script Entre Sites (Cross-Site Script Inclusion - XSSI).",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.5.8",
+            "identifier": "V3.5.8",
+            "text": "Verifique se os recursos autenticados (como imagens, vídeos, scripts e outros documentos) podem ser carregados ou incorporados (embedded) em nome do usuário apenas quando pretendido. Isso pode ser alcançado através da validação estrita dos campos de cabeçalho de requisição HTTP Sec-Fetch-* para garantir que a requisição não se originou de uma chamada cross-origin inapropriada, ou através da definição de um campo de cabeçalho restritivo de resposta HTTP Cross-Origin-Resource-Policy para instruir o navegador a bloquear o conteúdo retornado.",
+            "parent": "V3.5"
+          },
+          {
+            "bom-ref": "V3.6",
+            "identifier": "V3.6",
+            "title": "Integridade de Recursos Externos",
+            "parent": "V3"
+          },
+          {
+            "bom-ref": "V3.6.1",
+            "identifier": "V3.6.1",
+            "text": "Verifique se ativos do lado do cliente (client-side assets), como bibliotecas JavaScript, CSS ou fontes da web (web fonts), são hospedados externamente (ex., em uma Content Delivery Network - CDN) apenas se o recurso for estático e versionado, e se a Integridade de Sub-recurso (Subresource Integrity - SRI) for usada para validar a integridade do ativo. Se isso não for possível, deve haver uma decisão de segurança documentada para justificar isso para cada recurso.",
+            "parent": "V3.6"
+          },
+          {
+            "bom-ref": "V3.7",
+            "identifier": "V3.7",
+            "title": "Outras Considerações de Segurança do Navegador",
+            "parent": "V3"
+          },
+          {
+            "bom-ref": "V3.7.1",
+            "identifier": "V3.7.1",
+            "text": "Verifique se a aplicação usa apenas tecnologias do lado do cliente (client-side) que ainda são suportadas e consideradas seguras. Exemplos de tecnologias que não atendem a este requisito incluem plug-ins NSAPI, Flash, Shockwave, ActiveX, Silverlight, NACL ou miniaplicativos (applets) Java do lado do cliente.",
+            "parent": "V3.7"
+          },
+          {
+            "bom-ref": "V3.7.2",
+            "identifier": "V3.7.2",
+            "text": "Verifique se a aplicação redirecionará automaticamente o usuário para um hostname ou domínio diferente (que não seja controlado pela aplicação) apenas se o destino constar em uma lista de permissões (allowlist).",
+            "parent": "V3.7"
+          },
+          {
+            "bom-ref": "V3.7.3",
+            "identifier": "V3.7.3",
+            "text": "Verifique se a aplicação exibe uma notificação quando o usuário está sendo redirecionado para um URL fora do controle da aplicação, com a opção de cancelar a navegação.",
+            "parent": "V3.7"
+          },
+          {
+            "bom-ref": "V3.7.4",
+            "identifier": "V3.7.4",
+            "text": "Verifique se o domínio de nível superior da aplicação (ex., site.tld) é adicionado à lista pública de pré-carregamento (preload list) para o HTTP Strict Transport Security (HSTS). Isso garante que o uso de TLS para a aplicação seja integrado diretamente aos principais navegadores, em vez de depender apenas do campo de cabeçalho de resposta Strict-Transport-Security.",
+            "parent": "V3.7"
+          },
+          {
+            "bom-ref": "V3.7.5",
+            "identifier": "V3.7.5",
+            "text": "Verifique se a aplicação se comporta conforme o documentado (como avisar o usuário ou bloquear o acesso) caso o navegador usado para acessar a aplicação não suporte os recursos de segurança esperados.",
+            "parent": "V3.7"
+          },
+          {
+            "bom-ref": "V4",
+            "identifier": "V4",
+            "title": "API e Web Service"
+          },
+          {
+            "bom-ref": "V4.1",
+            "identifier": "V4.1",
+            "title": "Segurança Genérica de Web Service",
+            "parent": "V4"
+          },
+          {
+            "bom-ref": "V4.1.1",
+            "identifier": "V4.1.1",
+            "text": "Verifique se toda resposta HTTP com um corpo de mensagem contém um campo de cabeçalho Content-Type que corresponda ao conteúdo real da resposta, incluindo o parâmetro charset para especificar uma codificação de caracteres segura (ex., UTF-8, ISO-8859-1) de acordo com os Tipos de Mídia da IANA, como \"text/\", \"/+xml\" e \"/xml\".",
+            "parent": "V4.1"
+          },
+          {
+            "bom-ref": "V4.1.2",
+            "identifier": "V4.1.2",
+            "text": "Verifique se apenas endpoints voltados ao usuário (destinados ao acesso manual por navegador web) redirecionam automaticamente de HTTP para HTTPS, enquanto outros serviços ou endpoints não implementam redirecionamentos transparentes. Isso serve para evitar uma situação em que um cliente envia erroneamente requisições HTTP não criptografadas, mas como as requisições são redirecionadas automaticamente para HTTPS, o vazamento de dados sensíveis passa despercebido.",
+            "parent": "V4.1"
+          },
+          {
+            "bom-ref": "V4.1.3",
+            "identifier": "V4.1.3",
+            "text": "Verifique se qualquer campo de cabeçalho HTTP usado pela aplicação e definido por uma camada intermediária, como um balanceador de carga, um proxy web ou um serviço backend-for-frontend, não pode ser substituído (overridden) pelo usuário final. Exemplos de cabeçalhos podem incluir X-Real-IP, X-Forwarded-* ou X-User-ID.",
+            "parent": "V4.1"
+          },
+          {
+            "bom-ref": "V4.1.4",
+            "identifier": "V4.1.4",
+            "text": "Verifique se apenas os métodos HTTP explicitamente suportados pela aplicação ou por sua API (incluindo OPTIONS durante requisições preflight) podem ser usados e se os métodos não utilizados estão bloqueados.",
+            "parent": "V4.1"
+          },
+          {
+            "bom-ref": "V4.1.5",
+            "identifier": "V4.1.5",
+            "text": "Verifique se assinaturas digitais por mensagem são usadas para fornecer garantia adicional, além das proteções de transporte, para requisições ou transações que são altamente sensíveis ou que atravessam vários sistemas.",
+            "parent": "V4.1"
+          },
+          {
+            "bom-ref": "V4.2",
+            "identifier": "V4.2",
+            "title": "Validação da Estrutura da Mensagem HTTP",
+            "parent": "V4"
+          },
+          {
+            "bom-ref": "V4.2.1",
+            "identifier": "V4.2.1",
+            "text": "Verifique se todos os componentes da aplicação (incluindo balanceadores de carga, firewalls e servidores de aplicação) determinam os limites das mensagens HTTP de entrada usando o mecanismo apropriado para a versão do HTTP, a fim de evitar falsificação de requisição HTTP (HTTP request smuggling). No HTTP/1.x, se um campo de cabeçalho Transfer-Encoding estiver presente, o cabeçalho Content-Length deve ser ignorado conforme a RFC 2616. Ao usar HTTP/2 ou HTTP/3, se um campo de cabeçalho Content-Length estiver presente, o receptor deve garantir que seja consistente com o comprimento dos frames DATA.",
+            "parent": "V4.2"
+          },
+          {
+            "bom-ref": "V4.2.2",
+            "identifier": "V4.2.2",
+            "text": "Verifique se, ao gerar mensagens HTTP, o campo de cabeçalho Content-Length não entra em conflito com o comprimento do conteúdo determinado pelo enquadramento (framing) do protocolo HTTP, a fim de evitar ataques de request smuggling.",
+            "parent": "V4.2"
+          },
+          {
+            "bom-ref": "V4.2.3",
+            "identifier": "V4.2.3",
+            "text": "Verifique se a aplicação não envia nem aceita mensagens HTTP/2 ou HTTP/3 com campos de cabeçalho específicos da conexão, como Transfer-Encoding, para evitar ataques de response splitting e injeção de cabeçalho.",
+            "parent": "V4.2"
+          },
+          {
+            "bom-ref": "V4.2.4",
+            "identifier": "V4.2.4",
+            "text": "Verifique se a aplicação aceita apenas requisições HTTP/2 e HTTP/3 onde os campos de cabeçalho e valores não contêm nenhuma sequência CR (\\r), LF (\\n) ou CRLF (\\r\\n), para evitar ataques de injeção de cabeçalho.",
+            "parent": "V4.2"
+          },
+          {
+            "bom-ref": "V4.2.5",
+            "identifier": "V4.2.5",
+            "text": "Verifique se, caso a aplicação (backend ou frontend) construa e envie requisições, ela usa validação, sanitização ou outros mecanismos para evitar a criação de URIs (como para chamadas de API) ou campos de cabeçalho de requisição HTTP (como Authorization ou Cookie) que sejam longos demais para serem aceitos pelo componente receptor. Isso poderia causar uma negação de serviço, como ao enviar uma requisição excessivamente longa (ex., um campo de cabeçalho de cookie longo), resultando no servidor sempre respondendo com um status de erro.",
+            "parent": "V4.2"
+          },
+          {
+            "bom-ref": "V4.3",
+            "identifier": "V4.3",
+            "title": "GraphQL",
+            "parent": "V4"
+          },
+          {
+            "bom-ref": "V4.3.1",
+            "identifier": "V4.3.1",
+            "text": "Verifique se uma lista de permissões (allowlist) de consultas, limitação de profundidade, limitação de quantidade ou análise de custo de consulta é usada para evitar Negação de Serviço (DoS) de expressão na camada de dados ou GraphQL como resultado de consultas aninhadas e custosas.",
+            "parent": "V4.3"
+          },
+          {
+            "bom-ref": "V4.3.2",
+            "identifier": "V4.3.2",
+            "text": "Verifique se as consultas de introspecção do GraphQL estão desabilitadas no ambiente de produção, a menos que a API do GraphQL seja destinada a ser usada por terceiros.",
+            "parent": "V4.3"
+          },
+          {
+            "bom-ref": "V4.4",
+            "identifier": "V4.4",
+            "title": "WebSocket",
+            "parent": "V4"
+          },
+          {
+            "bom-ref": "V4.4.1",
+            "identifier": "V4.4.1",
+            "text": "Verifique se o WebSocket over TLS (WSS) é usado para todas as conexões WebSocket.",
+            "parent": "V4.4"
+          },
+          {
+            "bom-ref": "V4.4.2",
+            "identifier": "V4.4.2",
+            "text": "Verifique se, durante o handshake inicial do WebSocket HTTP, o campo de cabeçalho Origin é verificado em relação a uma lista de origens permitidas para a aplicação.",
+            "parent": "V4.4"
+          },
+          {
+            "bom-ref": "V4.4.3",
+            "identifier": "V4.4.3",
+            "text": "Verifique se, caso o gerenciamento de sessão padrão da aplicação não possa ser usado, tokens dedicados estão sendo usados para isso, os quais cumprem os requisitos de segurança relevantes de Gerenciamento de Sessão.",
+            "parent": "V4.4"
+          },
+          {
+            "bom-ref": "V4.4.4",
+            "identifier": "V4.4.4",
+            "text": "Verifique se os tokens dedicados de gerenciamento de sessão do WebSocket são inicialmente obtidos ou validados por meio da sessão HTTPS previamente autenticada ao fazer a transição de uma sessão HTTPS existente para um canal WebSocket.",
+            "parent": "V4.4"
+          },
+          {
+            "bom-ref": "V5",
+            "identifier": "V5",
+            "title": "Manipulação de Arquivos"
+          },
+          {
+            "bom-ref": "V5.1",
+            "identifier": "V5.1",
+            "title": "Documentação de Manipulação de Arquivos",
+            "parent": "V5"
+          },
+          {
+            "bom-ref": "V5.1.1",
+            "identifier": "V5.1.1",
+            "text": "Verifique se a documentação define os tipos de arquivos permitidos, as extensões de arquivo esperadas e o tamanho máximo (incluindo o tamanho descompactado) para cada recurso de upload. Além disso, certifique-se de que a documentação especifique como os arquivos são tornados seguros para que os usuários finais façam download e os processem, como, por exemplo, o comportamento da aplicação quando um arquivo malicioso é detectado.",
+            "parent": "V5.1"
+          },
+          {
+            "bom-ref": "V5.2",
+            "identifier": "V5.2",
+            "title": "Upload de Arquivo e Conteúdo",
+            "parent": "V5"
+          },
+          {
+            "bom-ref": "V5.2.1",
+            "identifier": "V5.2.1",
+            "text": "Verifique se a aplicação aceitará apenas arquivos de um tamanho que possa processar sem causar perda de desempenho ou um ataque de negação de serviço.",
+            "parent": "V5.2"
+          },
+          {
+            "bom-ref": "V5.2.2",
+            "identifier": "V5.2.2",
+            "text": "Verifique se, quando a aplicação aceita um arquivo, seja individualmente ou dentro de um arquivo compactado como um zip, ela verifica se a extensão do arquivo corresponde a uma extensão esperada e valida se o conteúdo corresponde ao tipo representado pela extensão. Isso inclui, mas não se limita a, verificar os 'magic bytes' (bytes mágicos) iniciais, realizar a reescrita de imagem e usar bibliotecas especializadas para validação de conteúdo de arquivo. Para L1, o foco pode ser apenas nos arquivos que são usados para tomar decisões específicas de negócios ou segurança. Para L2 e superior, isso deve se aplicar a todos os arquivos sendo aceitos.",
+            "parent": "V5.2"
+          },
+          {
+            "bom-ref": "V5.2.3",
+            "identifier": "V5.2.3",
+            "text": "Verifique se a aplicação verifica os arquivos compactados (ex., zip, gz, docx, odt) em relação ao tamanho máximo não compactado permitido e em relação ao número máximo de arquivos antes de descompactar o arquivo.",
+            "parent": "V5.2"
+          },
+          {
+            "bom-ref": "V5.2.4",
+            "identifier": "V5.2.4",
+            "text": "Verifique se uma cota de tamanho de arquivo e um número máximo de arquivos por usuário são aplicados para garantir que um único usuário não possa encher o armazenamento com muitos arquivos ou arquivos excessivamente grandes.",
+            "parent": "V5.2"
+          },
+          {
+            "bom-ref": "V5.2.5",
+            "identifier": "V5.2.5",
+            "text": "Verifique se a aplicação não permite o upload de arquivos compactados contendo links simbólicos (symlinks), a menos que isso seja especificamente exigido (nesse caso, será necessário impor uma lista de permissões dos arquivos que podem ser vinculados via symlink).",
+            "parent": "V5.2"
+          },
+          {
+            "bom-ref": "V5.2.6",
+            "identifier": "V5.2.6",
+            "text": "Verifique se a aplicação rejeita imagens enviadas com um tamanho de pixel maior que o máximo permitido, para evitar ataques de inundação de pixels (pixel flood).",
+            "parent": "V5.2"
+          },
+          {
+            "bom-ref": "V5.3",
+            "identifier": "V5.3",
+            "title": "Armazenamento de Arquivos",
+            "parent": "V5"
+          },
+          {
+            "bom-ref": "V5.3.1",
+            "identifier": "V5.3.1",
+            "text": "Verifique se os arquivos carregados ou gerados por entrada não confiável e armazenados em uma pasta pública não são executados como código de programa no lado do servidor quando acessados diretamente por uma requisição HTTP.",
+            "parent": "V5.3"
+          },
+          {
+            "bom-ref": "V5.3.2",
+            "identifier": "V5.3.2",
+            "text": "Verifique se, quando a aplicação cria caminhos de arquivo para operações de arquivo, em vez de usar nomes de arquivo enviados pelo usuário, ela usa dados gerados internamente ou confiáveis. Se os nomes de arquivo enviados pelo usuário ou os metadados do arquivo precisarem ser usados, validação e sanitização estritas devem ser aplicadas. Isso visa proteger contra ataques de path traversal, inclusão de arquivo local ou remoto (LFI, RFI) e falsificação de solicitação do lado do servidor (SSRF).",
+            "parent": "V5.3"
+          },
+          {
+            "bom-ref": "V5.3.3",
+            "identifier": "V5.3.3",
+            "text": "Verifique se o processamento de arquivos no lado do servidor, como a descompactação de arquivos, ignora as informações de caminho fornecidas pelo usuário para evitar vulnerabilidades como zip slip.",
+            "parent": "V5.3"
+          },
+          {
+            "bom-ref": "V5.4",
+            "identifier": "V5.4",
+            "title": "Download de Arquivos",
+            "parent": "V5"
+          },
+          {
+            "bom-ref": "V5.4.1",
+            "identifier": "V5.4.1",
+            "text": "Verifique se a aplicação valida ou ignora os nomes de arquivo enviados pelo usuário, inclusive em um JSON, JSONP ou parâmetro de URL, e especifica um nome de arquivo no campo de cabeçalho Content-Disposition na resposta.",
+            "parent": "V5.4"
+          },
+          {
+            "bom-ref": "V5.4.2",
+            "identifier": "V5.4.2",
+            "text": "Verifique se os nomes de arquivos servidos (por exemplo, em campos de cabeçalho de resposta HTTP ou anexos de e-mail) são codificados ou sanitizados (por exemplo, seguindo a RFC 6266) para preservar a estrutura do documento e prevenir ataques de injeção.",
+            "parent": "V5.4"
+          },
+          {
+            "bom-ref": "V5.4.3",
+            "identifier": "V5.4.3",
+            "text": "Verifique se os arquivos obtidos de fontes não confiáveis são verificados por scanners antivírus para evitar a veiculação de conteúdo malicioso conhecido.",
+            "parent": "V5.4"
+          },
+          {
+            "bom-ref": "V6",
+            "identifier": "V6",
+            "title": "Autenticação"
+          },
+          {
+            "bom-ref": "V6.1",
+            "identifier": "V6.1",
+            "title": "Documentação de Autenticação",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.1.1",
+            "identifier": "V6.1.1",
+            "text": "Verifique se a documentação da aplicação define como os controles, como limitação de taxa (rate limiting), antiautomação e resposta adaptativa, são usados para se defender contra ataques como preenchimento de credenciais (credential stuffing) e força bruta de senha. A documentação deve deixar claro como esses controles são configurados e impedir o bloqueio malicioso de contas (account lockout).",
+            "parent": "V6.1"
+          },
+          {
+            "bom-ref": "V6.1.2",
+            "identifier": "V6.1.2",
+            "text": "Verifique se uma lista de palavras específicas do contexto está documentada para impedir o seu uso em senhas. A lista pode incluir permutações de nomes da organização, nomes de produtos, identificadores de sistema, codinomes de projeto, nomes de departamentos ou funções, e similares.",
+            "parent": "V6.1"
+          },
+          {
+            "bom-ref": "V6.1.3",
+            "identifier": "V6.1.3",
+            "text": "Verifique se, caso a aplicação inclua vários caminhos de autenticação, todos estejam documentados juntamente com os controles de segurança e a força de autenticação que devem ser aplicados consistentemente em todos eles.",
+            "parent": "V6.1"
+          },
+          {
+            "bom-ref": "V6.2",
+            "identifier": "V6.2",
+            "title": "Segurança de Senha",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.2.1",
+            "identifier": "V6.2.1",
+            "text": "Verifique se as senhas definidas pelo usuário têm pelo menos 8 caracteres de comprimento, embora um mínimo de 15 caracteres seja fortemente recomendado.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.2",
+            "identifier": "V6.2.2",
+            "text": "Verifique se os usuários podem alterar sua senha.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.3",
+            "identifier": "V6.2.3",
+            "text": "Verifique se a funcionalidade de alteração de senha exige a senha atual e a nova senha do usuário.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.4",
+            "identifier": "V6.2.4",
+            "text": "Verifique se as senhas enviadas durante o registro da conta ou na alteração da senha são verificadas em um conjunto disponível de, pelo menos, as 3000 senhas mais comuns que correspondem à política de senha da aplicação, por exemplo, o comprimento mínimo.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.5",
+            "identifier": "V6.2.5",
+            "text": "Verifique se senhas de qualquer composição podem ser usadas, sem regras que limitem o tipo de caracteres permitidos. Não deve haver requisito para um número mínimo de letras maiúsculas ou minúsculas, números ou caracteres especiais.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.6",
+            "identifier": "V6.2.6",
+            "text": "Verifique se os campos de entrada de senha usam type=password para mascarar a entrada. As aplicações podem permitir que o usuário visualize temporariamente toda a senha mascarada ou o último caractere digitado da senha.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.7",
+            "identifier": "V6.2.7",
+            "text": "Verifique se a funcionalidade de \"colar\" (paste), ajudantes de senha de navegador e gerenciadores de senha externos são permitidos.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.8",
+            "identifier": "V6.2.8",
+            "text": "Verifique se a aplicação verifica a senha do usuário exatamente como recebida dele, sem nenhuma modificação como truncamento ou transformação de maiúsculas e minúsculas (case transformation).",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.9",
+            "identifier": "V6.2.9",
+            "text": "Verifique se senhas de pelo menos 64 caracteres são permitidas.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.10",
+            "identifier": "V6.2.10",
+            "text": "Verifique se a senha de um usuário permanece válida até que seja descoberta como comprometida ou o usuário a troque. A aplicação não deve exigir a rotação periódica de credenciais.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.11",
+            "identifier": "V6.2.11",
+            "text": "Verifique se a lista documentada de palavras específicas do contexto é usada para evitar que senhas fáceis de adivinhar sejam criadas.",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.2.12",
+            "identifier": "V6.2.12",
+            "text": "Verifique se as senhas enviadas durante o registro da conta ou alterações de senha são verificadas em relação a um conjunto de senhas vazadas (breached passwords).",
+            "parent": "V6.2"
+          },
+          {
+            "bom-ref": "V6.3",
+            "identifier": "V6.3",
+            "title": "Segurança Geral de Autenticação",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.3.1",
+            "identifier": "V6.3.1",
+            "text": "Verifique se os controles para prevenir ataques, como preenchimento de credenciais e força bruta de senha, são implementados de acordo com a documentação de segurança da aplicação.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.3.2",
+            "identifier": "V6.3.2",
+            "text": "Verifique se contas de usuário padrão (ex., \"root\", \"admin\" ou \"sa\") não estão presentes na aplicação ou estão desativadas.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.3.3",
+            "identifier": "V6.3.3",
+            "text": "Verifique se um mecanismo de autenticação multifator ou uma combinação de mecanismos de autenticação de fator único deve ser usado para acessar a aplicação. Para o L3, um dos fatores deve ser um mecanismo de autenticação baseado em hardware que ofereça resistência contra comprometimento e falsificação (impersonation) contra ataques de phishing, enquanto verifica a intenção de autenticar por meio da exigência de uma ação iniciada pelo usuário (como o pressionamento de um botão em uma chave de hardware FIDO ou telefone celular). Relaxar qualquer uma das considerações neste requisito exige uma justificativa totalmente documentada e um conjunto abrangente de controles mitigadores.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.3.4",
+            "identifier": "V6.3.4",
+            "text": "Verifique se, caso a aplicação inclua vários caminhos de autenticação, não há caminhos não documentados e que os controles de segurança e a força de autenticação são impostos consistentemente.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.3.5",
+            "identifier": "V6.3.5",
+            "text": "Verifique se os usuários são notificados sobre tentativas suspeitas de autenticação (bem-sucedidas ou mal-sucedidas). Isso pode incluir tentativas de autenticação de um local ou cliente incomum, autenticação parcialmente bem-sucedida (apenas um dos múltiplos fatores), uma tentativa de autenticação após um longo período de inatividade ou uma autenticação bem-sucedida após várias tentativas malsucedidas.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.3.6",
+            "identifier": "V6.3.6",
+            "text": "Verifique se o e-mail não é usado como mecanismo de autenticação de fator único nem multifator.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.3.7",
+            "identifier": "V6.3.7",
+            "text": "Verifique se os usuários são notificados após atualizações de detalhes de autenticação, como redefinições de credenciais ou modificação do nome de usuário ou endereço de e-mail.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.3.8",
+            "identifier": "V6.3.8",
+            "text": "Verifique se usuários válidos não podem ser deduzidos de desafios de autenticação malsucedidos, como baseando-se em mensagens de erro, códigos de resposta HTTP ou diferentes tempos de resposta. A funcionalidade de registro e esquecimento de senha também deve ter essa proteção.",
+            "parent": "V6.3"
+          },
+          {
+            "bom-ref": "V6.4",
+            "identifier": "V6.4",
+            "title": "Ciclo de Vida e Recuperação do Fator de Autenticação",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.4.1",
+            "identifier": "V6.4.1",
+            "text": "Verifique se as senhas iniciais geradas pelo sistema ou códigos de ativação são gerados aleatoriamente de forma segura, seguem a política de senha existente e expiram após um curto período ou depois de serem usados inicialmente. Esses segredos iniciais não podem se tornar a senha de longo prazo.",
+            "parent": "V6.4"
+          },
+          {
+            "bom-ref": "V6.4.2",
+            "identifier": "V6.4.2",
+            "text": "Verifique se não estão presentes dicas de senha ou autenticação baseada em conhecimento (as chamadas \"perguntas secretas\").",
+            "parent": "V6.4"
+          },
+          {
+            "bom-ref": "V6.4.3",
+            "identifier": "V6.4.3",
+            "text": "Verifique se um processo seguro para a redefinição de uma senha esquecida está implementado, o qual não ignora (bypass) nenhum mecanismo de autenticação multifator habilitado.",
+            "parent": "V6.4"
+          },
+          {
+            "bom-ref": "V6.4.4",
+            "identifier": "V6.4.4",
+            "text": "Verifique se, em caso de perda de um fator de autenticação multifator, a comprovação de identidade é realizada no mesmo nível que durante a inscrição (enrollment).",
+            "parent": "V6.4"
+          },
+          {
+            "bom-ref": "V6.4.5",
+            "identifier": "V6.4.5",
+            "text": "Verifique se as instruções de renovação para os mecanismos de autenticação que expiram são enviadas com tempo suficiente para serem realizadas antes que o antigo mecanismo expire, configurando lembretes automatizados se necessário.",
+            "parent": "V6.4"
+          },
+          {
+            "bom-ref": "V6.4.6",
+            "identifier": "V6.4.6",
+            "text": "Verifique se os usuários administrativos podem iniciar o processo de redefinição de senha para o usuário, mas que isso não permita que eles alterem ou escolham a senha do usuário. Isso evita uma situação em que eles conheçam a senha do usuário.",
+            "parent": "V6.4"
+          },
+          {
+            "bom-ref": "V6.5",
+            "identifier": "V6.5",
+            "title": "Requisitos Gerais de Autenticação Multifator",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.5.1",
+            "identifier": "V6.5.1",
+            "text": "Verifique se os segredos de consulta, solicitações ou códigos de autenticação out-of-band e senhas de uso único baseadas em tempo (TOTPs) podem ser usados com sucesso apenas uma vez.",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.5.2",
+            "identifier": "V6.5.2",
+            "text": "Verifique se, quando armazenados no backend da aplicação, os segredos de consulta com menos de 112 bits de entropia (19 caracteres alfanuméricos aleatórios ou 34 dígitos aleatórios) recebem hash usando um algoritmo aprovado de hash para armazenamento de senhas que incorpore um salt aleatório de 32 bits. Uma função de hash padrão pode ser usada se o segredo tiver 112 bits de entropia ou mais.",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.5.3",
+            "identifier": "V6.5.3",
+            "text": "Verifique se os segredos de consulta, código de autenticação out-of-band e sementes de senha de uso único baseada em tempo são gerados usando um Gerador de Números Pseudoaleatórios Criptograficamente Seguro (CSPRNG) para evitar valores previsíveis.",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.5.4",
+            "identifier": "V6.5.4",
+            "text": "Verifique se os segredos de consulta e os códigos de autenticação out-of-band têm um mínimo de 20 bits de entropia (normalmente 4 caracteres alfanuméricos aleatórios ou 6 dígitos aleatórios são suficientes).",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.5.5",
+            "identifier": "V6.5.5",
+            "text": "Verifique se as solicitações de autenticação out-of-band, códigos ou tokens, bem como as senhas de uso único baseadas em tempo (TOTPs) têm uma vida útil (lifetime) definida. As solicitações out-of-band devem ter uma vida útil máxima de 10 minutos e as TOTPs uma vida útil máxima de 30 segundos.",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.5.6",
+            "identifier": "V6.5.6",
+            "text": "Verifique se qualquer fator de autenticação (incluindo dispositivos físicos) pode ser revogado em caso de roubo ou outra perda.",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.5.7",
+            "identifier": "V6.5.7",
+            "text": "Verifique se os mecanismos de autenticação biométrica são usados ​​apenas como fatores secundários em conjunto com algo que você possui ou algo que você sabe.",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.5.8",
+            "identifier": "V6.5.8",
+            "text": "Verifique se as senhas de uso único baseadas em tempo (TOTPs) são checadas com base em uma fonte de tempo de um serviço confiável e não de um tempo não confiável ou fornecido pelo cliente.",
+            "parent": "V6.5"
+          },
+          {
+            "bom-ref": "V6.6",
+            "identifier": "V6.6",
+            "title": "Mecanismos de Autenticação Fora de Banda (Out-of-Band)",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.6.1",
+            "identifier": "V6.6.1",
+            "text": "Verifique se os mecanismos de autenticação usando a Rede Telefônica Pública Comutada (PSTN) para entregar Senhas de Uso Único (OTPs) via telefone ou SMS são oferecidos apenas quando o número de telefone foi validado previamente, se métodos alternativos e mais fortes (como Senhas de Uso Único Baseadas em Tempo) também são oferecidos e se o serviço fornece informações sobre seus riscos de segurança aos usuários. Para aplicações L3, telefone e SMS não devem estar disponíveis como opções.",
+            "parent": "V6.6"
+          },
+          {
+            "bom-ref": "V6.6.2",
+            "identifier": "V6.6.2",
+            "text": "Verifique se as solicitações de autenticação out-of-band, códigos ou tokens estão vinculados à solicitação de autenticação original para a qual foram gerados e não são utilizáveis para uma solicitação anterior ou subsequente.",
+            "parent": "V6.6"
+          },
+          {
+            "bom-ref": "V6.6.3",
+            "identifier": "V6.6.3",
+            "text": "Verifique se um mecanismo de autenticação out-of-band baseado em código está protegido contra ataques de força bruta usando limitação de taxa (rate limiting). Considere também o uso de um código com pelo menos 64 bits de entropia.",
+            "parent": "V6.6"
+          },
+          {
+            "bom-ref": "V6.6.4",
+            "identifier": "V6.6.4",
+            "text": "Verifique se, quando notificações push são usadas para autenticação multifator, a limitação de taxa é usada para evitar ataques de bombardeio de push (push bombing). A correspondência de números (number matching) também pode mitigar esse risco.",
+            "parent": "V6.6"
+          },
+          {
+            "bom-ref": "V6.7",
+            "identifier": "V6.7",
+            "title": "Mecanismos de Autenticação Criptográfica",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.7.1",
+            "identifier": "V6.7.1",
+            "text": "Verifique se os certificados usados para verificar afirmações (assertions) de autenticação criptográfica são armazenados de forma que os proteja contra modificações.",
+            "parent": "V6.7"
+          },
+          {
+            "bom-ref": "V6.7.2",
+            "identifier": "V6.7.2",
+            "text": "Verifique se o nonce de desafio tem pelo menos 64 bits de comprimento, e é estatisticamente único ou único durante toda a vida útil do dispositivo criptográfico.",
+            "parent": "V6.7"
+          },
+          {
+            "bom-ref": "V6.8",
+            "identifier": "V6.8",
+            "title": "Autenticação com um Provedor de Identidade (Identity Provider)",
+            "parent": "V6"
+          },
+          {
+            "bom-ref": "V6.8.1",
+            "identifier": "V6.8.1",
+            "text": "Verifique se, caso a aplicação suporte múltiplos provedores de identidade (IdPs), a identidade do usuário não pode ser falsificada (spoofed) por meio de outro provedor de identidade suportado (por exemplo, usando o mesmo identificador de usuário). A mitigação padrão seria a aplicação registrar e identificar o usuário usando uma combinação do ID do IdP (servindo como um namespace) e o ID do usuário no IdP.",
+            "parent": "V6.8"
+          },
+          {
+            "bom-ref": "V6.8.2",
+            "identifier": "V6.8.2",
+            "text": "Verifique se a presença e a integridade de assinaturas digitais em asserções de autenticação (por exemplo, em JWTs ou asserções SAML) são sempre validadas, rejeitando quaisquer asserções que não estejam assinadas ou possuam assinaturas inválidas.",
+            "parent": "V6.8"
+          },
+          {
+            "bom-ref": "V6.8.3",
+            "identifier": "V6.8.3",
+            "text": "Verifique se asserções SAML são processadas de maneira única e usadas apenas uma vez dentro do período de validade para prevenir ataques de repetição (replay attacks).",
+            "parent": "V6.8"
+          },
+          {
+            "bom-ref": "V6.8.4",
+            "identifier": "V6.8.4",
+            "text": "Verifique se, caso uma aplicação use um Provedor de Identidade (IdP) separado e espere uma força de autenticação, métodos ou atualidade específicos para funções específicas, a aplicação verifique isso usando as informações retornadas pelo IdP. Por exemplo, se o OIDC for usado, isso pode ser obtido validando as claims (reivindicações) do ID Token, como 'acr', 'amr' e 'auth_time' (se presentes). Se o IdP não fornecer essas informações, a aplicação deve ter uma abordagem de contingência documentada que assume que o mecanismo de autenticação de força mínima foi usado (por exemplo, autenticação de fator único usando nome de usuário e senha).",
+            "parent": "V6.8"
+          },
+          {
+            "bom-ref": "V7",
+            "identifier": "V7",
+            "title": "Gerenciamento de Sessão"
+          },
+          {
+            "bom-ref": "V7.1",
+            "identifier": "V7.1",
+            "title": "Documentação de Gerenciamento de Sessão",
+            "parent": "V7"
+          },
+          {
+            "bom-ref": "V7.1.1",
+            "identifier": "V7.1.1",
+            "text": "Verifique se o tempo limite de inatividade da sessão do usuário e o tempo de vida (lifetime) máximo absoluto da sessão estão documentados, são apropriados em combinação com outros controles e se a documentação inclui justificativa para quaisquer desvios dos requisitos de reautenticação do NIST SP 800-63B.",
+            "parent": "V7.1"
+          },
+          {
+            "bom-ref": "V7.1.2",
+            "identifier": "V7.1.2",
+            "text": "Verifique se a documentação define quantas sessões concorrentes (paralelas) são permitidas para uma conta, bem como os comportamentos e as ações pretendidas a serem tomadas quando o número máximo de sessões ativas for alcançado.",
+            "parent": "V7.1"
+          },
+          {
+            "bom-ref": "V7.1.3",
+            "identifier": "V7.1.3",
+            "text": "Verifique se todos os sistemas que criam e gerenciam sessões de usuário como parte de um ecossistema de gerenciamento de identidade federada (como sistemas SSO) estão documentados juntamente com os controles para coordenar tempos de vida das sessões, encerramento e quaisquer outras condições que exijam reautenticação.",
+            "parent": "V7.1"
+          },
+          {
+            "bom-ref": "V7.2",
+            "identifier": "V7.2",
+            "title": "Segurança Fundamental do Gerenciamento de Sessão",
+            "parent": "V7"
+          },
+          {
+            "bom-ref": "V7.2.1",
+            "identifier": "V7.2.1",
+            "text": "Verifique se a aplicação realiza toda a verificação do token de sessão usando um serviço de backend confiável.",
+            "parent": "V7.2"
+          },
+          {
+            "bom-ref": "V7.2.2",
+            "identifier": "V7.2.2",
+            "text": "Verifique se a aplicação usa tokens autocontidos ou de referência gerados dinamicamente para o gerenciamento de sessão, ou seja, não usando chaves e segredos estáticos de API.",
+            "parent": "V7.2"
+          },
+          {
+            "bom-ref": "V7.2.3",
+            "identifier": "V7.2.3",
+            "text": "Verifique se, caso tokens de referência sejam usados para representar sessões de usuário, eles são únicos e gerados usando um gerador de números pseudoaleatórios criptograficamente seguro (CSPRNG) e possuem pelo menos 128 bits de entropia.",
+            "parent": "V7.2"
+          },
+          {
+            "bom-ref": "V7.2.4",
+            "identifier": "V7.2.4",
+            "text": "Verifique se a aplicação gera um novo token de sessão no momento da autenticação do usuário, incluindo a reautenticação, e encerra o token de sessão atual.",
+            "parent": "V7.2"
+          },
+          {
+            "bom-ref": "V7.3",
+            "identifier": "V7.3",
+            "title": "Tempo Limite de Sessão (Session Timeout)",
+            "parent": "V7"
+          },
+          {
+            "bom-ref": "V7.3.1",
+            "identifier": "V7.3.1",
+            "text": "Verifique se existe um tempo limite (timeout) de inatividade de modo que a reautenticação seja forçada de acordo com a análise de risco e as decisões de segurança documentadas.",
+            "parent": "V7.3"
+          },
+          {
+            "bom-ref": "V7.3.2",
+            "identifier": "V7.3.2",
+            "text": "Verifique se existe um tempo de vida (lifetime) máximo absoluto para a sessão, de forma que a reautenticação seja forçada de acordo com a análise de risco e as decisões de segurança documentadas.",
+            "parent": "V7.3"
+          },
+          {
+            "bom-ref": "V7.4",
+            "identifier": "V7.4",
+            "title": "Encerramento da Sessão",
+            "parent": "V7"
+          },
+          {
+            "bom-ref": "V7.4.1",
+            "identifier": "V7.4.1",
+            "text": "Verifique se, quando o encerramento da sessão é acionado (como em caso de logout ou expiração), a aplicação proíbe qualquer uso adicional da sessão. Para tokens de referência ou sessões stateful, isso significa invalidar os dados da sessão no backend da aplicação. As aplicações que usam tokens autocontidos precisarão de uma solução como manter uma lista de tokens encerrados, proibir tokens produzidos antes de uma data e hora por usuário ou rotacionar a chave de assinatura por usuário.",
+            "parent": "V7.4"
+          },
+          {
+            "bom-ref": "V7.4.2",
+            "identifier": "V7.4.2",
+            "text": "Verifique se a aplicação encerra todas as sessões ativas quando uma conta de usuário é desativada ou excluída (como quando um funcionário deixa a empresa).",
+            "parent": "V7.4"
+          },
+          {
+            "bom-ref": "V7.4.3",
+            "identifier": "V7.4.3",
+            "text": "Verifique se a aplicação fornece a opção de encerrar todas as outras sessões ativas após uma mudança ou remoção bem-sucedida de qualquer fator de autenticação (incluindo alteração de senha via redefinição ou recuperação e, se presente, atualização de configurações de MFA).",
+            "parent": "V7.4"
+          },
+          {
+            "bom-ref": "V7.4.4",
+            "identifier": "V7.4.4",
+            "text": "Verifique se todas as páginas que requerem autenticação têm um acesso fácil e visível à funcionalidade de logout.",
+            "parent": "V7.4"
+          },
+          {
+            "bom-ref": "V7.4.5",
+            "identifier": "V7.4.5",
+            "text": "Verifique se os administradores da aplicação conseguem encerrar sessões ativas para um usuário individual ou para todos os usuários.",
+            "parent": "V7.4"
+          },
+          {
+            "bom-ref": "V7.5",
+            "identifier": "V7.5",
+            "title": "Defesas Contra o Abuso de Sessão",
+            "parent": "V7"
+          },
+          {
+            "bom-ref": "V7.5.1",
+            "identifier": "V7.5.1",
+            "text": "Verifique se a aplicação exige uma reautenticação completa antes de permitir modificações em atributos sensíveis da conta que possam afetar a autenticação, como endereço de e-mail, número de telefone, configuração de MFA ou outras informações usadas na recuperação da conta.",
+            "parent": "V7.5"
+          },
+          {
+            "bom-ref": "V7.5.2",
+            "identifier": "V7.5.2",
+            "text": "Verifique se os usuários são capazes de visualizar e (tendo se autenticado novamente com pelo menos um fator) encerrar qualquer ou todas as sessões ativas no momento.",
+            "parent": "V7.5"
+          },
+          {
+            "bom-ref": "V7.5.3",
+            "identifier": "V7.5.3",
+            "text": "Verifique se a aplicação exige uma autenticação posterior com pelo menos um fator ou verificação secundária antes de executar transações ou operações altamente confidenciais.",
+            "parent": "V7.5"
+          },
+          {
+            "bom-ref": "V7.6",
+            "identifier": "V7.6",
+            "title": "Reautenticação Federada",
+            "parent": "V7"
+          },
+          {
+            "bom-ref": "V7.6.1",
+            "identifier": "V7.6.1",
+            "text": "Verifique se o tempo de vida e o encerramento da sessão entre Relying Parties (RPs) e Provedores de Identidade (IdPs) se comportam conforme o documentado, exigindo a reautenticação conforme necessário, como, por exemplo, quando o tempo máximo entre os eventos de autenticação do IdP é atingido.",
+            "parent": "V7.6"
+          },
+          {
+            "bom-ref": "V7.6.2",
+            "identifier": "V7.6.2",
+            "text": "Verifique se a criação de uma sessão requer o consentimento do usuário ou uma ação explícita, prevenindo a criação de novas sessões na aplicação sem interação do usuário.",
+            "parent": "V7.6"
+          },
+          {
+            "bom-ref": "V8",
+            "identifier": "V8",
+            "title": "Autorização"
+          },
+          {
+            "bom-ref": "V8.1",
+            "identifier": "V8.1",
+            "title": "Documentação de Autorização",
+            "parent": "V8"
+          },
+          {
+            "bom-ref": "V8.1.1",
+            "identifier": "V8.1.1",
+            "text": "Verifique se a documentação de autorização define regras para restringir o acesso em nível de função e específico a dados com base nas permissões do consumidor e nos atributos do recurso.",
+            "parent": "V8.1"
+          },
+          {
+            "bom-ref": "V8.1.2",
+            "identifier": "V8.1.2",
+            "text": "Verifique se a documentação de autorização define regras para restrições de acesso em nível de campo (tanto para leitura quanto escrita) com base nas permissões do consumidor e atributos do recurso. Note que essas regras podem depender de outros valores de atributos do objeto de dados relevante, como estado ou status.",
+            "parent": "V8.1"
+          },
+          {
+            "bom-ref": "V8.1.3",
+            "identifier": "V8.1.3",
+            "text": "Verifique se a documentação da aplicação define os atributos ambientais e contextuais (incluindo, mas não se limitando a, hora do dia, localização do usuário, endereço IP ou dispositivo) que são usados na aplicação para tomar decisões de segurança, incluindo as pertinentes à autenticação e autorização.",
+            "parent": "V8.1"
+          },
+          {
+            "bom-ref": "V8.1.4",
+            "identifier": "V8.1.4",
+            "text": "Verifique se a documentação de autenticação e autorização define como fatores ambientais e contextuais são usados na tomada de decisões, além da autorização em nível de função, específica a dados e em nível de campo. Isso deve incluir os atributos avaliados, os limites de risco e as ações tomadas (ex., permitir, desafiar, negar, autenticação step-up).",
+            "parent": "V8.1"
+          },
+          {
+            "bom-ref": "V8.2",
+            "identifier": "V8.2",
+            "title": "Design Geral de Autorização",
+            "parent": "V8"
+          },
+          {
+            "bom-ref": "V8.2.1",
+            "identifier": "V8.2.1",
+            "text": "Verifique se a aplicação garante que o acesso em nível de função seja restrito a consumidores com permissões explícitas.",
+            "parent": "V8.2"
+          },
+          {
+            "bom-ref": "V8.2.2",
+            "identifier": "V8.2.2",
+            "text": "Verifique se a aplicação garante que o acesso específico a dados seja restrito a consumidores com permissões explícitas a itens de dados específicos para mitigar referência direta insegura a objeto (IDOR) e autorização em nível de objeto quebrada (BOLA).",
+            "parent": "V8.2"
+          },
+          {
+            "bom-ref": "V8.2.3",
+            "identifier": "V8.2.3",
+            "text": "Verifique se a aplicação garante que o acesso em nível de campo seja restrito a consumidores com permissões explícitas a campos específicos para mitigar autorização em nível de propriedade de objeto quebrada (BOPLA).",
+            "parent": "V8.2"
+          },
+          {
+            "bom-ref": "V8.2.4",
+            "identifier": "V8.2.4",
+            "text": "Verifique se os controles de segurança adaptativos baseados nos atributos ambientais e contextuais do consumidor (como hora do dia, localização, endereço IP ou dispositivo) são implementados para decisões de autenticação e autorização, conforme definido na documentação da aplicação. Esses controles devem ser aplicados quando o consumidor tentar iniciar uma nova sessão e também durante uma sessão existente.",
+            "parent": "V8.2"
+          },
+          {
+            "bom-ref": "V8.3",
+            "identifier": "V8.3",
+            "title": "Autorização em Nível de Operação",
+            "parent": "V8"
+          },
+          {
+            "bom-ref": "V8.3.1",
+            "identifier": "V8.3.1",
+            "text": "Verifique se a aplicação impõe as regras de autorização em uma camada de serviço confiável e não depende de controles que um consumidor não confiável possa manipular, como JavaScript no lado do cliente.",
+            "parent": "V8.3"
+          },
+          {
+            "bom-ref": "V8.3.2",
+            "identifier": "V8.3.2",
+            "text": "Verifique se as alterações aos valores sobre os quais as decisões de autorização são tomadas são aplicadas imediatamente. Nos casos onde as mudanças não podem ser aplicadas imediatamente (como quando se depende de dados em tokens autocontidos), deve haver controles mitigadores para alertar quando um consumidor realizar uma ação para a qual ele não está mais autorizado a fazer, e para reverter a mudança. Note que essa alternativa não mitigaria o vazamento de informações.",
+            "parent": "V8.3"
+          },
+          {
+            "bom-ref": "V8.3.3",
+            "identifier": "V8.3.3",
+            "text": "Verifique se o acesso a um objeto é baseado nas permissões do sujeito (ex., consumidor) originador, não nas permissões de qualquer intermediário ou serviço atuando em nome deles. Por exemplo, se um consumidor chama um web service usando um token autocontido para autenticação, e o serviço então solicita dados de um serviço diferente, o segundo serviço usará o token do consumidor, em vez de um token machine-to-machine do primeiro serviço, para tomar decisões de permissão.",
+            "parent": "V8.3"
+          },
+          {
+            "bom-ref": "V8.4",
+            "identifier": "V8.4",
+            "title": "Outras Considerações sobre Autorização",
+            "parent": "V8"
+          },
+          {
+            "bom-ref": "V8.4.1",
+            "identifier": "V8.4.1",
+            "text": "Verifique se aplicações multilocatário (multi-tenant) usam controles cruzados de inquilinos (cross-tenant) para garantir que as operações do consumidor nunca afetem inquilinos com os quais eles não têm permissão para interagir.",
+            "parent": "V8.4"
+          },
+          {
+            "bom-ref": "V8.4.2",
+            "identifier": "V8.4.2",
+            "text": "Verifique se o acesso a interfaces administrativas incorpora várias camadas de segurança, incluindo a verificação contínua da identidade do consumidor, avaliação da postura de segurança do dispositivo e análise de risco contextual, garantindo que a localização da rede ou endpoints confiáveis não sejam os únicos fatores para a autorização, embora possam reduzir a probabilidade de acesso não autorizado.",
+            "parent": "V8.4"
+          },
+          {
+            "bom-ref": "V9",
+            "identifier": "V9",
+            "title": "Tokens Autocontidos (Self-contained Tokens)"
+          },
+          {
+            "bom-ref": "V9.1",
+            "identifier": "V9.1",
+            "title": "Origem e Integridade do Token",
+            "parent": "V9"
+          },
+          {
+            "bom-ref": "V9.1.1",
+            "identifier": "V9.1.1",
+            "text": "Verifique se os tokens autocontidos são validados usando sua assinatura digital ou MAC para proteger contra adulteração antes de aceitar o conteúdo do token.",
+            "parent": "V9.1"
+          },
+          {
+            "bom-ref": "V9.1.2",
+            "identifier": "V9.1.2",
+            "text": "Verifique se apenas algoritmos em uma lista de permissões (allowlist) podem ser usados para criar e verificar tokens autocontidos para um determinado contexto. A lista de permissões deve incluir os algoritmos permitidos, idealmente apenas algoritmos simétricos ou assimétricos, e não deve incluir o algoritmo 'None'. Se ambos, simétricos e assimétricos, precisarem ser suportados, controles adicionais serão necessários para evitar a confusão de chaves (key confusion).",
+            "parent": "V9.1"
+          },
+          {
+            "bom-ref": "V9.1.3",
+            "identifier": "V9.1.3",
+            "text": "Verifique se o material criptográfico (key material) que é usado para validar tokens autocontidos vem de fontes confiáveis pré-configuradas para o emissor do token, evitando que atacantes especifiquem fontes e chaves não confiáveis. Para JWTs e outras estruturas JWS, cabeçalhos como 'jku', 'x5u' e 'jwk' devem ser validados contra uma lista de permissões de fontes confiáveis.",
+            "parent": "V9.1"
+          },
+          {
+            "bom-ref": "V9.2",
+            "identifier": "V9.2",
+            "title": "Conteúdo do Token",
+            "parent": "V9"
+          },
+          {
+            "bom-ref": "V9.2.1",
+            "identifier": "V9.2.1",
+            "text": "Verifique se, caso haja um intervalo de tempo de validade presente nos dados do token, o token e seu conteúdo sejam aceitos apenas se o tempo de verificação estiver dentro deste intervalo de tempo de validade. Por exemplo, para JWTs, as claims 'nbf' e 'exp' devem ser verificadas.",
+            "parent": "V9.2"
+          },
+          {
+            "bom-ref": "V9.2.2",
+            "identifier": "V9.2.2",
+            "text": "Verifique se o serviço que recebe um token valida que o token seja do tipo correto e tenha o propósito pretendido antes de aceitar os conteúdos do token. Por exemplo, apenas tokens de acesso (access tokens) podem ser aceitos para decisões de autorização e apenas ID Tokens podem ser usados para provar a autenticação do usuário.",
+            "parent": "V9.2"
+          },
+          {
+            "bom-ref": "V9.2.3",
+            "identifier": "V9.2.3",
+            "text": "Verifique se o serviço apenas aceita tokens que são destinados ao uso com esse serviço (audiência). Para JWTs, isso pode ser alcançado validando a claim 'aud' em relação a uma lista de permissões definida no serviço.",
+            "parent": "V9.2"
+          },
+          {
+            "bom-ref": "V9.2.4",
+            "identifier": "V9.2.4",
+            "text": "Verifique se, caso um emissor de token use a mesma chave privada para emitir tokens para públicos diferentes, os tokens emitidos contenham uma restrição de audiência (audience restriction) que identifique unicamente as audiências pretendidas. Isso evitará que um token seja reutilizado com um público não intencional. Se o identificador de audiência for provisionado dinamicamente, o emissor do token deverá validar essas audiências para garantir que não resultem em falsificação de audiência (audience impersonation).",
+            "parent": "V9.2"
+          },
+          {
+            "bom-ref": "V10",
+            "identifier": "V10",
+            "title": "OAuth e OIDC"
+          },
+          {
+            "bom-ref": "V10.1",
+            "identifier": "V10.1",
+            "title": "Segurança Genérica de OAuth e OIDC",
+            "parent": "V10"
+          },
+          {
+            "bom-ref": "V10.1.1",
+            "identifier": "V10.1.1",
+            "text": "Verifique se os tokens são enviados apenas aos componentes que estritamente necessitam deles. Por exemplo, ao usar o padrão backend-for-frontend para aplicações JavaScript baseadas no navegador, os tokens de acesso e de atualização devem estar acessíveis apenas para o backend.",
+            "parent": "V10.1"
+          },
+          {
+            "bom-ref": "V10.1.2",
+            "identifier": "V10.1.2",
+            "text": "Verifique se o cliente apenas aceita valores do servidor de autorização (como o authorization code ou ID Token) se esses valores resultarem de um fluxo de autorização que foi iniciado pela mesma sessão do user agent e transação. Isso exige que segredos gerados pelo cliente, como o 'code_verifier' do proof key for code exchange (PKCE), o 'state' ou o 'nonce' do OIDC, não sejam adivinháveis, sejam específicos para a transação e estejam vinculados de forma segura tanto ao cliente quanto à sessão do user agent na qual a transação foi iniciada.",
+            "parent": "V10.1"
+          },
+          {
+            "bom-ref": "V10.2",
+            "identifier": "V10.2",
+            "title": "Cliente OAuth",
+            "parent": "V10"
+          },
+          {
+            "bom-ref": "V10.2.1",
+            "identifier": "V10.2.1",
+            "text": "Verifique se, caso o code flow seja usado, o cliente OAuth tem proteção contra ataques de falsificação de requisição baseados em navegador, comumente conhecidos como falsificação de requisição entre sites (Cross-Site Request Forgery - CSRF), que disparam solicitações de token, seja usando a funcionalidade proof key for code exchange (PKCE) ou verificando o parâmetro 'state' que foi enviado na solicitação de autorização.",
+            "parent": "V10.2"
+          },
+          {
+            "bom-ref": "V10.2.2",
+            "identifier": "V10.2.2",
+            "text": "Verifique se, caso o cliente OAuth possa interagir com mais de um servidor de autorização, ele possui uma defesa contra ataques de confusão (mix-up attacks). Por exemplo, ele pode exigir que o servidor de autorização retorne o valor do parâmetro 'iss' e validá-lo na resposta de autorização e na resposta de token.",
+            "parent": "V10.2"
+          },
+          {
+            "bom-ref": "V10.2.3",
+            "identifier": "V10.2.3",
+            "text": "Verifique se o cliente OAuth solicita apenas os escopos (ou outros parâmetros de autorização) necessários nas solicitações ao servidor de autorização.",
+            "parent": "V10.2"
+          },
+          {
+            "bom-ref": "V10.3",
+            "identifier": "V10.3",
+            "title": "Servidor de Recursos OAuth",
+            "parent": "V10"
+          },
+          {
+            "bom-ref": "V10.3.1",
+            "identifier": "V10.3.1",
+            "text": "Verifique se o servidor de recursos aceita apenas tokens de acesso que são destinados para uso com aquele serviço (audiência). A audiência (audience) pode ser incluída em um token de acesso estruturado (como a claim 'aud' no JWT), ou pode ser verificada usando o endpoint de introspecção do token.",
+            "parent": "V10.3"
+          },
+          {
+            "bom-ref": "V10.3.2",
+            "identifier": "V10.3.2",
+            "text": "Verifique se o servidor de recursos impõe decisões de autorização baseadas em claims do token de acesso que definem a autorização delegada. Se claims como 'sub', 'scope' e 'authorization_details' estiverem presentes, eles devem fazer parte da decisão.",
+            "parent": "V10.3"
+          },
+          {
+            "bom-ref": "V10.3.3",
+            "identifier": "V10.3.3",
+            "text": "Verifique se, caso uma decisão de controle de acesso exija a identificação de um usuário único a partir de um token de acesso (JWT ou resposta de introspecção de token relacionada), o servidor de recursos identifica o usuário a partir de claims que não possam ser reatribuídas a outros usuários. Normalmente, isso significa usar uma combinação das claims 'iss' e 'sub'.",
+            "parent": "V10.3"
+          },
+          {
+            "bom-ref": "V10.3.4",
+            "identifier": "V10.3.4",
+            "text": "Verifique se, caso o servidor de recursos exija força, métodos ou atualidade de autenticação específicos, ele verifica se o token de acesso apresentado satisfaz essas restrições. Por exemplo, se presentes, usando as claims OIDC 'acr', 'amr' e 'auth_time', respectivamente.",
+            "parent": "V10.3"
+          },
+          {
+            "bom-ref": "V10.3.5",
+            "identifier": "V10.3.5",
+            "text": "Verifique se o servidor de recursos impede o uso de tokens de acesso roubados ou a repetição (replay) de tokens de acesso (de partes não autorizadas) exigindo tokens de acesso restritos ao remetente (sender-constrained access tokens), seja via Mutual TLS para OAuth 2 ou OAuth 2 Demonstration of Proof of Possession (DPoP).",
+            "parent": "V10.3"
+          },
+          {
+            "bom-ref": "V10.4",
+            "identifier": "V10.4",
+            "title": "Servidor de Autorização OAuth",
+            "parent": "V10"
+          },
+          {
+            "bom-ref": "V10.4.1",
+            "identifier": "V10.4.1",
+            "text": "Verifique se o servidor de autorização valida as URIs de redirecionamento (redirect URIs) com base em uma lista de permissões específica do cliente contendo URIs pré-registradas, usando comparação exata de strings.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.2",
+            "identifier": "V10.4.2",
+            "text": "Verifique se, caso o servidor de autorização retorne o código de autorização (authorization code) na resposta de autorização, este possa ser usado apenas uma vez para uma solicitação de token. Para a segunda solicitação válida com um código de autorização que já foi usado para emitir um token de acesso, o servidor de autorização deve rejeitar a solicitação de token e revogar quaisquer tokens emitidos relacionados ao código de autorização.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.3",
+            "identifier": "V10.4.3",
+            "text": "Verifique se o código de autorização tem vida útil curta. A vida útil máxima pode ser de até 10 minutos para aplicações L1 e L2 e de até 1 minuto para aplicações L3.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.4",
+            "identifier": "V10.4.4",
+            "text": "Verifique se, para um determinado cliente, o servidor de autorização permite apenas o uso de tipos de concessão (grants) que este cliente precisa utilizar. Note que os grants 'token' (Implicit flow) e 'password' (Resource Owner Password Credentials flow) não devem mais ser usados.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.5",
+            "identifier": "V10.4.5",
+            "text": "Verifique se o servidor de autorização mitiga os ataques de replay de token de atualização (refresh token) para clientes públicos, preferencialmente usando tokens de atualização restritos ao remetente (sender-constrained), ou seja, Demonstrating Proof of Possession (DPoP) ou Tokens de Acesso Vinculados a Certificado usando mutual TLS (mTLS). Para aplicações L1 e L2, a rotação de token de atualização (refresh token rotation) pode ser usada. Se a rotação de token de atualização for usada, o servidor de autorização deve invalidar o token de atualização após o uso e revogar todos os tokens de atualização para aquela autorização se um token de atualização já usado e invalidado for fornecido.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.6",
+            "identifier": "V10.4.6",
+            "text": "Verifique se, caso o grant do tipo 'code' seja usado, o servidor de autorização mitiga os ataques de interceptação do código de autorização exigindo o proof key for code exchange (PKCE). Para solicitações de autorização, o servidor de autorização deve exigir um valor 'code_challenge' válido e não deve aceitar o valor 'code_challenge_method' como 'plain'. Para uma solicitação de token, ele deve exigir a validação do parâmetro 'code_verifier'.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.7",
+            "identifier": "V10.4.7",
+            "text": "Verifique se, caso o servidor de autorização suporte registro dinâmico de cliente não autenticado (unauthenticated dynamic client registration), ele mitiga o risco de aplicações clientes maliciosas. Ele deve validar os metadados do cliente, como quaisquer URIs registradas, garantir o consentimento do usuário e avisar o usuário antes de processar uma solicitação de autorização com uma aplicação cliente não confiável.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.8",
+            "identifier": "V10.4.8",
+            "text": "Verifique se os tokens de atualização possuem uma expiração absoluta, inclusive se a expiração contínua (sliding expiration) de token de atualização for aplicada.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.9",
+            "identifier": "V10.4.9",
+            "text": "Verifique se os tokens de atualização e os tokens de acesso de referência podem ser revogados por um usuário autorizado usando a interface do usuário do servidor de autorização, para mitigar o risco de clientes maliciosos ou tokens roubados.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.10",
+            "identifier": "V10.4.10",
+            "text": "Verifique se o cliente confidencial é autenticado para as solicitações backchannel entre o cliente e o servidor de autorização, como solicitações de token, solicitações de autorização enviadas por push (PAR) e solicitações de revogação de token.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.11",
+            "identifier": "V10.4.11",
+            "text": "Verifique se a configuração do servidor de autorização atribui apenas os escopos (scopes) necessários ao cliente OAuth.",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.12",
+            "identifier": "V10.4.12",
+            "text": "Verifique se, para um determinado cliente, o servidor de autorização permite apenas o valor de 'response_mode' que este cliente precisa utilizar. Por exemplo, fazendo com que o servidor de autorização valide esse valor em relação aos valores esperados ou usando solicitações de autorização enviadas por push (PAR) ou JWT-secured Authorization Request (JAR).",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.13",
+            "identifier": "V10.4.13",
+            "text": "Verifique se o grant type 'code' é sempre usado em conjunto com as pushed authorization requests (PAR).",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.14",
+            "identifier": "V10.4.14",
+            "text": "Verifique se o servidor de autorização emite apenas tokens de acesso restritos ao remetente (sender-constrained - Proof-of-Possession), seja com tokens de acesso vinculados a certificados usando mutual TLS (mTLS) ou tokens de acesso vinculados a DPoP (Demonstration of Proof of Possession).",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.15",
+            "identifier": "V10.4.15",
+            "text": "Verifique se, para um cliente no lado do servidor (server-side, que não é executado no dispositivo do usuário final), o servidor de autorização garante que o valor do parâmetro 'authorization_details' provenha do backend do cliente e que o usuário não o tenha adulterado. Por exemplo, exigindo o uso de uma pushed authorization request (PAR) ou JWT-secured Authorization Request (JAR).",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.4.16",
+            "identifier": "V10.4.16",
+            "text": "Verifique se o cliente é confidencial e o servidor de autorização exige o uso de métodos de autenticação de cliente fortes (baseados em criptografia de chave pública e resistentes a ataques de replay), como mutual TLS ('tls_client_auth', 'self_signed_tls_client_auth') ou JWT de chave privada ('private_key_jwt').",
+            "parent": "V10.4"
+          },
+          {
+            "bom-ref": "V10.5",
+            "identifier": "V10.5",
+            "title": "Cliente OIDC",
+            "parent": "V10"
+          },
+          {
+            "bom-ref": "V10.5.1",
+            "identifier": "V10.5.1",
+            "text": "Verifique se o cliente (como Relying Party) mitiga os ataques de replay do ID Token. Por exemplo, garantindo que a claim 'nonce' no ID Token corresponda ao valor 'nonce' enviado na solicitação de autenticação para o Provedor OpenID (no OAuth2 referido como a solicitação de autorização enviada ao servidor de autorização).",
+            "parent": "V10.5"
+          },
+          {
+            "bom-ref": "V10.5.2",
+            "identifier": "V10.5.2",
+            "text": "Verifique se o cliente identifica o usuário de forma única a partir das claims do ID Token, geralmente a claim 'sub', a qual não pode ser reatribuída a outros usuários (no escopo de um provedor de identidade).",
+            "parent": "V10.5"
+          },
+          {
+            "bom-ref": "V10.5.3",
+            "identifier": "V10.5.3",
+            "text": "Verifique se o cliente rejeita as tentativas de um servidor de autorização malicioso de se passar por outro servidor de autorização através de metadados do servidor de autorização. O cliente deve rejeitar os metadados do servidor de autorização se o URL do emissor (issuer) nos metadados do servidor de autorização não corresponder exatamente ao URL do emissor pré-configurado esperado pelo cliente.",
+            "parent": "V10.5"
+          },
+          {
+            "bom-ref": "V10.5.4",
+            "identifier": "V10.5.4",
+            "text": "Verifique se o cliente valida se o ID Token tem a intenção de ser usado para aquele cliente (audiência), verificando se a claim 'aud' do token é igual ao valor 'client_id' para o cliente.",
+            "parent": "V10.5"
+          },
+          {
+            "bom-ref": "V10.5.5",
+            "identifier": "V10.5.5",
+            "text": "Verifique se, ao usar o logout back-channel do OIDC, a Relying Party mitiga a negação de serviço através de logout forçado e confusão cruzada de JWT (cross-JWT confusion) no fluxo de logout. O cliente deve verificar se o token de logout está digitado corretamente com um valor de 'logout+jwt', se contém a claim 'event' com o nome de membro correto e se não contém uma claim 'nonce'. Note que também é recomendado ter uma expiração curta (por exemplo, 2 minutos).",
+            "parent": "V10.5"
+          },
+          {
+            "bom-ref": "V10.6",
+            "identifier": "V10.6",
+            "title": "Provedor OpenID",
+            "parent": "V10"
+          },
+          {
+            "bom-ref": "V10.6.1",
+            "identifier": "V10.6.1",
+            "text": "Verifique se o Provedor OpenID permite apenas os valores 'code', 'ciba', 'id_token' ou 'id_token code' para o modo de resposta (response mode). Note que 'code' é preferível a 'id_token code' (o fluxo Híbrido OIDC) e 'token' (qualquer fluxo Implícito) não deve ser usado.",
+            "parent": "V10.6"
+          },
+          {
+            "bom-ref": "V10.6.2",
+            "identifier": "V10.6.2",
+            "text": "Verifique se o Provedor OpenID mitiga a negação de serviço através de logout forçado. Obtendo a confirmação explícita do usuário final ou, se presente, validando os parâmetros na solicitação de logout (iniciada pela Relying Party), como o 'id_token_hint'.",
+            "parent": "V10.6"
+          },
+          {
+            "bom-ref": "V10.7",
+            "identifier": "V10.7",
+            "title": "Gerenciamento de Consentimento",
+            "parent": "V10"
+          },
+          {
+            "bom-ref": "V10.7.1",
+            "identifier": "V10.7.1",
+            "text": "Verifique se o servidor de autorização garante que o usuário consente com cada solicitação de autorização. Se a identidade do cliente não puder ser assegurada, o servidor de autorização deve sempre solicitar explicitamente o consentimento do usuário.",
+            "parent": "V10.7"
+          },
+          {
+            "bom-ref": "V10.7.2",
+            "identifier": "V10.7.2",
+            "text": "Verifique se, quando o servidor de autorização solicita o consentimento do usuário, ele apresenta informações suficientes e claras sobre ao que se está consentindo. Quando aplicável, isso deve incluir a natureza das autorizações solicitadas (geralmente com base no escopo, servidor de recursos, detalhes de autorização do Rich Authorization Requests - RAR), a identidade da aplicação autorizada e a vida útil dessas autorizações.",
+            "parent": "V10.7"
+          },
+          {
+            "bom-ref": "V10.7.3",
+            "identifier": "V10.7.3",
+            "text": "Verifique se o usuário pode revisar, modificar e revogar os consentimentos que o usuário concedeu através do servidor de autorização.",
+            "parent": "V10.7"
+          },
+          {
+            "bom-ref": "V11",
+            "identifier": "V11",
+            "title": "Criptografia"
+          },
+          {
+            "bom-ref": "V11.1",
+            "identifier": "V11.1",
+            "title": "Inventário e Documentação Criptográfica",
+            "parent": "V11"
+          },
+          {
+            "bom-ref": "V11.1.1",
+            "identifier": "V11.1.1",
+            "text": "Verifique se há uma política documentada para o gerenciamento de chaves criptográficas e um ciclo de vida da chave criptográfica que siga um padrão de gerenciamento de chaves como o NIST SP 800-57. Isso deve incluir a garantia de que as chaves não sejam supercompartilhadas (overshared) (por exemplo, com mais de duas entidades para segredos compartilhados e mais de uma entidade para chaves privadas).",
+            "parent": "V11.1"
+          },
+          {
+            "bom-ref": "V11.1.2",
+            "identifier": "V11.1.2",
+            "text": "Verifique se um inventário criptográfico é realizado, mantido, atualizado regularmente e se inclui todas as chaves criptográficas, algoritmos e certificados usados pela aplicação. Ele também deve documentar onde as chaves podem ou não ser usadas no sistema e os tipos de dados que podem ou não ser protegidos usando as chaves.",
+            "parent": "V11.1"
+          },
+          {
+            "bom-ref": "V11.1.3",
+            "identifier": "V11.1.3",
+            "text": "Verifique se mecanismos de descoberta criptográfica são empregados para identificar todas as instâncias de criptografia no sistema, incluindo operações de criptografia, hashing e assinatura.",
+            "parent": "V11.1"
+          },
+          {
+            "bom-ref": "V11.1.4",
+            "identifier": "V11.1.4",
+            "text": "Verifique se um inventário criptográfico é mantido. Ele deve incluir um plano documentado que descreve o caminho de migração para os novos padrões de criptografia, como a criptografia pós-quântica, a fim de reagir a ameaças futuras.",
+            "parent": "V11.1"
+          },
+          {
+            "bom-ref": "V11.2",
+            "identifier": "V11.2",
+            "title": "Implementação Segura de Criptografia",
+            "parent": "V11"
+          },
+          {
+            "bom-ref": "V11.2.1",
+            "identifier": "V11.2.1",
+            "text": "Verifique se implementações validadas pela indústria (incluindo bibliotecas e implementações aceleradas por hardware) são usadas para operações criptográficas.",
+            "parent": "V11.2"
+          },
+          {
+            "bom-ref": "V11.2.2",
+            "identifier": "V11.2.2",
+            "text": "Verifique se a aplicação é projetada com agilidade criptográfica (crypto agility), de tal forma que números aleatórios, criptografia autenticada, MAC ou algoritmos de hash, comprimentos de chave, rodadas (rounds), cifras e modos possam ser reconfigurados, atualizados ou trocados a qualquer momento, para proteger contra quebras criptográficas. Da mesma forma, também deve ser possível substituir chaves e senhas e criptografar novamente os dados. Isso permitirá a realização de upgrades transparentes (seamless) para a criptografia pós-quântica (PQC), assim que implementações de alta garantia (high-assurance) de esquemas ou padrões aprovados de PQC estiverem amplamente disponíveis.",
+            "parent": "V11.2"
+          },
+          {
+            "bom-ref": "V11.2.3",
+            "identifier": "V11.2.3",
+            "text": "Verifique se todas as primitivas criptográficas utilizam um mínimo de 128 bits de segurança com base no algoritmo, no tamanho da chave e na configuração. Por exemplo, uma chave ECC de 256 bits fornece cerca de 128 bits de segurança, ao passo que o RSA requer uma chave de 3072 bits para alcançar 128 bits de segurança.",
+            "parent": "V11.2"
+          },
+          {
+            "bom-ref": "V11.2.4",
+            "identifier": "V11.2.4",
+            "text": "Verifique se todas as operações criptográficas têm tempo constante (constant-time), sem operações de 'curto-circuito' em comparações, cálculos ou retornos, para evitar o vazamento de informações.",
+            "parent": "V11.2"
+          },
+          {
+            "bom-ref": "V11.2.5",
+            "identifier": "V11.2.5",
+            "text": "Verifique se todos os módulos criptográficos falham com segurança (fail securely), e se os erros são tratados de maneira a não permitir o surgimento de vulnerabilidades, como ataques de Padding Oracle.",
+            "parent": "V11.2"
+          },
+          {
+            "bom-ref": "V11.3",
+            "identifier": "V11.3",
+            "title": "Algoritmos de Criptografia",
+            "parent": "V11"
+          },
+          {
+            "bom-ref": "V11.3.1",
+            "identifier": "V11.3.1",
+            "text": "Verifique se os modos de bloco inseguros (por exemplo, ECB) e os esquemas de preenchimento fracos (weak padding schemes, por exemplo, PKCS#1 v1.5) não são usados.",
+            "parent": "V11.3"
+          },
+          {
+            "bom-ref": "V11.3.2",
+            "identifier": "V11.3.2",
+            "text": "Verifique se apenas as cifras e modos aprovados, como o AES com GCM, são usados.",
+            "parent": "V11.3"
+          },
+          {
+            "bom-ref": "V11.3.3",
+            "identifier": "V11.3.3",
+            "text": "Verifique se os dados criptografados estão protegidos contra modificações não autorizadas preferencialmente através do uso de um método de criptografia autenticada aprovado ou da combinação de um método de criptografia aprovado com um algoritmo MAC aprovado.",
+            "parent": "V11.3"
+          },
+          {
+            "bom-ref": "V11.3.4",
+            "identifier": "V11.3.4",
+            "text": "Verifique se os nonces, vetores de inicialização e outros números de uso único (single-use numbers) não são usados para mais de um par de chave de criptografia e elemento de dado. O método de geração deve ser adequado ao algoritmo em uso.",
+            "parent": "V11.3"
+          },
+          {
+            "bom-ref": "V11.3.5",
+            "identifier": "V11.3.5",
+            "text": "Verifique se qualquer combinação de um algoritmo de criptografia com um algoritmo MAC está operando no modo encrypt-then-MAC (criptografa-depois-MAC).",
+            "parent": "V11.3"
+          },
+          {
+            "bom-ref": "V11.4",
+            "identifier": "V11.4",
+            "title": "Hashing e Funções Baseadas em Hash",
+            "parent": "V11"
+          },
+          {
+            "bom-ref": "V11.4.1",
+            "identifier": "V11.4.1",
+            "text": "Verifique se apenas funções hash aprovadas são usadas para casos de uso gerais de criptografia, incluindo assinaturas digitais, HMAC, KDF e geração aleatória de bits. Funções de hash não permitidas, como o MD5, não devem ser usadas para nenhum propósito criptográfico.",
+            "parent": "V11.4"
+          },
+          {
+            "bom-ref": "V11.4.2",
+            "identifier": "V11.4.2",
+            "text": "Verifique se as senhas são armazenadas usando uma função de derivação de chave aprovada e de processamento intensivo (também conhecida como \"função de hash de senha\"), com parâmetros configurados de acordo com a orientação atual. As configurações devem equilibrar segurança e desempenho a fim de tornar os ataques de força bruta suficientemente desafiadores para o nível exigido de segurança.",
+            "parent": "V11.4"
+          },
+          {
+            "bom-ref": "V11.4.3",
+            "identifier": "V11.4.3",
+            "text": "Verifique se as funções hash usadas em assinaturas digitais, como parte da autenticação de dados ou integridade de dados, são resistentes à colisão e possuem os comprimentos de bits adequados. Se for exigida a resistência à colisão, o tamanho da saída deverá ser de, no mínimo, 256 bits. Se apenas a resistência aos ataques de segunda pré-imagem (second pre-image attacks) for exigida, o tamanho da saída deverá ser de, no mínimo, 128 bits.",
+            "parent": "V11.4"
+          },
+          {
+            "bom-ref": "V11.4.4",
+            "identifier": "V11.4.4",
+            "text": "Verifique se a aplicação usa funções de derivação de chave aprovadas com parâmetros de key stretching (alongamento de chave) ao derivar chaves secretas de senhas. Os parâmetros em uso devem equilibrar segurança e desempenho para evitar que ataques de força bruta comprometam a chave criptográfica resultante.",
+            "parent": "V11.4"
+          },
+          {
+            "bom-ref": "V11.5",
+            "identifier": "V11.5",
+            "title": "Valores Aleatórios",
+            "parent": "V11"
+          },
+          {
+            "bom-ref": "V11.5.1",
+            "identifier": "V11.5.1",
+            "text": "Verifique se todos os números e strings aleatórios que se destinam a não serem adivinháveis devem ser gerados usando um gerador de números pseudoaleatórios criptograficamente seguro (CSPRNG) e têm pelo menos 128 bits de entropia. Note que UUIDs não respeitam esta condição.",
+            "parent": "V11.5"
+          },
+          {
+            "bom-ref": "V11.5.2",
+            "identifier": "V11.5.2",
+            "text": "Verifique se o mecanismo de geração de números aleatórios em uso foi projetado para funcionar de forma segura, mesmo sob alta demanda.",
+            "parent": "V11.5"
+          },
+          {
+            "bom-ref": "V11.6",
+            "identifier": "V11.6",
+            "title": "Criptografia de Chave Pública",
+            "parent": "V11"
+          },
+          {
+            "bom-ref": "V11.6.1",
+            "identifier": "V11.6.1",
+            "text": "Verifique se apenas modos de operação e algoritmos criptográficos aprovados são usados para geração de chaves, seeding, geração e verificação de assinatura digital. Os algoritmos de geração de chaves não devem gerar chaves inseguras que sejam vulneráveis a ataques conhecidos, por exemplo, as chaves RSA que são vulneráveis à fatoração de Fermat.",
+            "parent": "V11.6"
+          },
+          {
+            "bom-ref": "V11.6.2",
+            "identifier": "V11.6.2",
+            "text": "Verifique se os algoritmos criptográficos aprovados são usados para a troca de chaves (como o Diffie-Hellman), com foco em garantir que os mecanismos de troca de chaves utilizem parâmetros seguros. Isso evitará ataques ao processo de estabelecimento da chave que poderiam levar a ataques adversary-in-the-middle ou a quebras criptográficas.",
+            "parent": "V11.6"
+          },
+          {
+            "bom-ref": "V11.7",
+            "identifier": "V11.7",
+            "title": "Criptografia de Dados Em Uso",
+            "parent": "V11"
+          },
+          {
+            "bom-ref": "V11.7.1",
+            "identifier": "V11.7.1",
+            "text": "Verifique se o uso de criptografia completa de memória está habilitado para proteger os dados sensíveis enquanto estiverem em uso, impedindo o acesso por usuários ou processos não autorizados.",
+            "parent": "V11.7"
+          },
+          {
+            "bom-ref": "V11.7.2",
+            "identifier": "V11.7.2",
+            "text": "Verifique se a minimização de dados garante a exposição de apenas a menor quantidade de dados durante o processamento, e assegure que os dados sejam criptografados imediatamente após o uso ou logo que for possível.",
+            "parent": "V11.7"
+          },
+          {
+            "bom-ref": "V12",
+            "identifier": "V12",
+            "title": "Comunicação Segura"
+          },
+          {
+            "bom-ref": "V12.1",
+            "identifier": "V12.1",
+            "title": "Orientação Geral de Segurança TLS",
+            "parent": "V12"
+          },
+          {
+            "bom-ref": "V12.1.1",
+            "identifier": "V12.1.1",
+            "text": "Verifique se apenas as versões mais recentes recomendadas do protocolo TLS estão habilitadas, como TLS 1.2 e TLS 1.3. A versão mais recente do protocolo TLS deve ser a opção preferida.",
+            "parent": "V12.1"
+          },
+          {
+            "bom-ref": "V12.1.2",
+            "identifier": "V12.1.2",
+            "text": "Verifique se apenas as suites de criptografia recomendadas estão habilitadas, com as suites mais fortes definidas como preferidas. As aplicações L3 devem suportar exclusivamente cipher suites (suites de cifras) que forneçam forward secrecy (sigilo de encaminhamento perfeito).",
+            "parent": "V12.1"
+          },
+          {
+            "bom-ref": "V12.1.3",
+            "identifier": "V12.1.3",
+            "text": "Verifique se a aplicação valida se os certificados de cliente mTLS são confiáveis antes de usar a identidade do certificado para autenticação ou autorização.",
+            "parent": "V12.1"
+          },
+          {
+            "bom-ref": "V12.1.4",
+            "identifier": "V12.1.4",
+            "text": "Verifique se a revogação adequada de certificado, como o Online Certificate Status Protocol (OCSP) Stapling, está habilitada e configurada.",
+            "parent": "V12.1"
+          },
+          {
+            "bom-ref": "V12.1.5",
+            "identifier": "V12.1.5",
+            "text": "Verifique se o Encrypted Client Hello (ECH) está habilitado nas configurações TLS da aplicação para evitar a exposição de metadados sensíveis, como o Server Name Indication (SNI), durante os processos de handshake TLS.",
+            "parent": "V12.1"
+          },
+          {
+            "bom-ref": "V12.2",
+            "identifier": "V12.2",
+            "title": "Comunicação HTTPS com Serviços Voltados Para a Internet (External Facing Services)",
+            "parent": "V12"
+          },
+          {
+            "bom-ref": "V12.2.1",
+            "identifier": "V12.2.1",
+            "text": "Verifique se o TLS é usado em todas as conectividades entre um cliente e serviços HTTP voltados externamente, e não faz retrocesso (fallback) para comunicações inseguras ou não criptografadas.",
+            "parent": "V12.2"
+          },
+          {
+            "bom-ref": "V12.2.2",
+            "identifier": "V12.2.2",
+            "text": "Verifique se os serviços voltados externamente utilizam certificados TLS que são publicamente confiáveis.",
+            "parent": "V12.2"
+          },
+          {
+            "bom-ref": "V12.3",
+            "identifier": "V12.3",
+            "title": "Segurança da Comunicação Geral Serviço-a-Serviço",
+            "parent": "V12"
+          },
+          {
+            "bom-ref": "V12.3.1",
+            "identifier": "V12.3.1",
+            "text": "Verifique se um protocolo criptografado como o TLS é usado para todas as conexões de entrada e de saída da aplicação, incluindo os sistemas de monitoramento, ferramentas de gerenciamento, acesso remoto e SSH, middleware, bancos de dados, mainframes, sistemas de parceiros ou APIs externas. O servidor não deve retornar a protocolos inseguros ou não criptografados.",
+            "parent": "V12.3"
+          },
+          {
+            "bom-ref": "V12.3.2",
+            "identifier": "V12.3.2",
+            "text": "Verifique se os clientes TLS validam os certificados recebidos antes de se comunicarem com um servidor TLS.",
+            "parent": "V12.3"
+          },
+          {
+            "bom-ref": "V12.3.3",
+            "identifier": "V12.3.3",
+            "text": "Verifique se o TLS ou outro mecanismo adequado de criptografia de transporte é utilizado em todas as conectividades entre os serviços internos baseados em HTTP na aplicação, e não faz retrocesso (fallback) para comunicações inseguras ou não criptografadas.",
+            "parent": "V12.3"
+          },
+          {
+            "bom-ref": "V12.3.4",
+            "identifier": "V12.3.4",
+            "text": "Verifique se as conexões TLS entre os serviços internos utilizam certificados confiáveis. Onde certificados autoassinados (self-signed) ou gerados internamente forem utilizados, o serviço consumidor deve ser configurado para confiar apenas em CAs internas específicas e em certificados autoassinados específicos.",
+            "parent": "V12.3"
+          },
+          {
+            "bom-ref": "V12.3.5",
+            "identifier": "V12.3.5",
+            "text": "Verifique se os serviços que se comunicam internamente em um sistema (comunicações intra-serviço) usam autenticação forte para garantir a verificação de cada endpoint. Métodos de autenticação fortes, como a autenticação de cliente TLS, devem ser empregados para assegurar a identidade, usando infraestrutura de chave pública e mecanismos que são resistentes a ataques de repetição (replay attacks). Para as arquiteturas de microserviços, considere o uso de uma malha de serviços (service mesh) para simplificar o gerenciamento de certificados e aprimorar a segurança.",
+            "parent": "V12.3"
+          },
+          {
+            "bom-ref": "V13",
+            "identifier": "V13",
+            "title": "Configuração"
+          },
+          {
+            "bom-ref": "V13.1",
+            "identifier": "V13.1",
+            "title": "Documentação da Configuração",
+            "parent": "V13"
+          },
+          {
+            "bom-ref": "V13.1.1",
+            "identifier": "V13.1.1",
+            "text": "Verifique se todas as necessidades de comunicação para a aplicação estão documentadas. Isso deve incluir os serviços externos dos quais a aplicação depende e os casos onde um usuário final poderia ser capaz de fornecer um local (endereço) externo ao qual a aplicação irá se conectar.",
+            "parent": "V13.1"
+          },
+          {
+            "bom-ref": "V13.1.2",
+            "identifier": "V13.1.2",
+            "text": "Verifique se, para cada serviço que a aplicação utiliza, a documentação define o número máximo de conexões concorrentes (ex., limites do pool de conexões) e como a aplicação se comporta quando o limite for atingido, incluindo qualquer mecanismo de contingência ou de recuperação, para evitar as condições de negação de serviço.",
+            "parent": "V13.1"
+          },
+          {
+            "bom-ref": "V13.1.3",
+            "identifier": "V13.1.3",
+            "text": "Verifique se a documentação da aplicação define estratégias de gestão de recursos para todos os sistemas externos ou serviços que utilizar (ex., banco de dados, manipuladores de arquivos (file handles), threads, conexões HTTP). Isso deve incluir os procedimentos de liberação de recursos, configurações do timeout, as formas de tratamento das falhas, e, onde existir lógica de repetição implementada, especificar os limites de repetição, atrasos (delays) e os algoritmos back-off. Para operações de request–response síncronas usando HTTP isso deve obrigar o uso de pequenos timeouts (limites de tempo) e proibir as repetições (retries), ou impô-las usando fortes limitações para prevenir as cascatas de atrasos e a exaustão de recursos.",
+            "parent": "V13.1"
+          },
+          {
+            "bom-ref": "V13.1.4",
+            "identifier": "V13.1.4",
+            "text": "Verifique se a documentação da aplicação define quais segredos são críticos para a segurança da aplicação e estabelece um cronograma de rotação para eles, baseado no modelo de ameaças da organização e nos requisitos de negócio.",
+            "parent": "V13.1"
+          },
+          {
+            "bom-ref": "V13.2",
+            "identifier": "V13.2",
+            "title": "Configuração da Comunicação Backend",
+            "parent": "V13"
+          },
+          {
+            "bom-ref": "V13.2.1",
+            "identifier": "V13.2.1",
+            "text": "Verifique se as comunicações entre os componentes de backend da aplicação, os quais não suportam mecanismos padrões relativos as sessões com usuários, estão autenticadas. Isto engloba as APIs, camadas de dados e middlewares. A autenticação necessita operar com o uso de contas individuais dos serviços, tokens temporários, e métodos de autenticações baseadas com o emprego de certificados ao invés do emprego inalterável (estático) nas credenciais usadas como, por exemplo: senhas, chaves das APIs, compartilhamento das contas e privilégios que foram outorgados de acessos contínuos.",
+            "parent": "V13.2"
+          },
+          {
+            "bom-ref": "V13.2.2",
+            "identifier": "V13.2.2",
+            "text": "Verifique se a comunicação entre componentes das aplicações que rodam como aplicações tipo de servidor final (backend) entre os que figuram a execução de camadas relativas a operação de sistema em si do computador (SO - serviços do operating system local), APIs, middlewares e níveis referentes à dados e transações, ocorrem adotando as configurações das contas empregando a norma da utilização do princípio do menor privilégio, correspondente ao necessário para operar normalmente.",
+            "parent": "V13.2"
+          },
+          {
+            "bom-ref": "V13.2.3",
+            "identifier": "V13.2.3",
+            "text": "Verifique se, sempre no evento que requer utilização ou submissão com credenciais relativas a qualquer prestação e aceitação relativas aos serviços (autenticação de sistema), o valor enviado para e processado referente na conta de um \"consumidor\", de maneira e formas alguma for a credencial fornecida a de configuração de tipo padronizada de instalação sem mudanças anteriores (por ex: raiz/raiz ou, seja root/root admin/admin).",
+            "parent": "V13.2"
+          },
+          {
+            "bom-ref": "V13.2.4",
+            "identifier": "V13.2.4",
+            "text": "Verifique se ocorre utilização formal por lista explícita das definições aceitáveis para permitir com restrição positiva de aprovação para definir listas normais (allowlists) o apontamento referente de forma exata de e/ou apontando todos/todos os domínios referentes (e sistemas ou fontes de acessos) do qual o processo externo foi configurado por regras permitindo a aprovação contínua sobre as ações na rede as quais são tratadas internamente e autorizadas a enviar ligações diretas do processamento inicial provenientes delas mesmas originárias (isto é para conexões geradas internamente indo pra fora: \"outbounds requests\"). Isto tem de cobrir chamadas relacionadas para os transportes relativas transferências com fluxos (data loads, APIs)  ou  para requisição aos usos dos arquivos externos. A técnica dessa lista aceita poderá ocorrer no nível próprio restrito por programa através da aplicação, na estrutura através do próprio HTTP-Server (webserver de fronteira/camadas de roteamento), pelo nível lógico nas interfaces relativas as portas da rede/firewalls e também com junções complexas contendo intersecção entre múltiplos métodos em variadas divisões de processamento.",
+            "parent": "V13.2"
+          },
+          {
+            "bom-ref": "V13.2.5",
+            "identifier": "V13.2.5",
+            "text": "Verifique se as configurações referentes as normas para acesso a servidor central com suporte à rede da camada web possuam estritamente o emprego por de intersecção da adoção para que todos/todos componentes operando a comunicação operem uma estrita validação baseados em lista que contenham os mapeamentos definidos que possam aceitar a efetuação (aprovadas/allowlisted) quanto para as ordens relativas originadas pelas requisições como também aceitar trâmites provindos à carga referida relativas de documentos externos ou outros suportes referentes.",
+            "parent": "V13.2"
+          },
+          {
+            "bom-ref": "V13.2.6",
+            "identifier": "V13.2.6",
+            "text": "Verifique se, para onde as rotinas referentes à transações operacionais do programa façam conectividade apontada para fontes terceiras a outros subsistemas alheios, o projeto observe com obediência de todas definições expostas publicamente nos termos já acordados referidos no manual sobre conexões para configuração padronizada referente. Estas obrigações impõem, que obedeçam: os parâmetros com máxima cota dos volumes aceitos e as paralizações conjuntas em chamadas aceitáveis para concorrência de múltiplos clientes; adoções operacionais referente no sentido ao atingir no qual limite de carga se aproxima; comportamentos adotados em limites operantes com base restritiva ao atrasos impostos com tempo máximo na qual uma espera será encerrada em timeout com resposta final com falha (connection timeouts); adoção finalizada referentes às adoções dos mecanismos perante tentativas extras posteriores contidas referentes nos processos nas definições aplicadas das lógicas e tratamentos à contínuas repetições com base sobre de rotinas da \"estratégias nos retries\".",
+            "parent": "V13.2"
+          },
+          {
+            "bom-ref": "V13.3",
+            "identifier": "V13.3",
+            "title": "Gerenciamento de Segredos",
+            "parent": "V13"
+          },
+          {
+            "bom-ref": "V13.3.1",
+            "identifier": "V13.3.1",
+            "text": "Verifique se um sistema e procedimentos criados pra fazer guarda referidas das soluções perante os controles referentes as regras de acesso seguras para operar as chaves como as relativas e exemplificadas por meio aos sistemas para cofres a chaves operacionais e a controle as restrições ao acessos de criação são executados nos serviços na gestão relativas sobre proteção e manuseios controlados para assegurar a construção e guarda de segredos no processamento no servidor local das chamadas e de processos referidos do lado-backend da programação contendo segredos com proteções e salvaguardas nos destrancamentos. Entre esses dados incluem: as bases sensíveis com acesso sob formato tipo em senha codificadas restritas; os chaves de algoritmos; os componentes essenciais com as ligações com parâmetros às baseadas transacionadas para servidores no exterior alheios; senhas dinâmicas criadas em processos de seeds de código-aleatório das formas usadas pela validade nos testes do modo do tempo das chamadas nos TOTPS. A verificação impõe: Em situações nas quais dados são vitais, segredos deverão continuar omitidos na adoção dos locais perante arquivos abertos durante manipulações operacionais feitas referidas a bases nos próprios projetos no repasse as operações à nível de desenvolvimento como em bibliotecas no controle centralizados, no que se estenda até os conteúdos formados em pacotes e entregues criados nos \"builds/artifact\". Um projeto, ao atingir as especificações relativas em padrão final de enquadro no grau para nível da matriz em certificação na base L3 precisará por de padrão empregar referidos aparelhos exclusivos a execução dos suportes em \"aparelhos criados sob níveis das estruturas fisicamente separados por peças isoladas e fechadas via hardware\" da forma a qual define uma categoria e classes das configurações nos \"Modelos Físicos Em Hardwares Seguros- HSM - hardware Security Modules\"",
+            "parent": "V13.3"
+          },
+          {
+            "bom-ref": "V13.3.2",
+            "identifier": "V13.3.2",
+            "text": "Verifique se todos modelos e configurações nas ações com permissões referidas às leituras das rotinas nas proteções aos registros mantidos referenciando chaves sensíveis sigam obrigatoriamente a adoção as restrições com a normatização fundamentadas ao padrão contido pelas diretrizes baseadas nas doutrinas referente ao Princípio Dos Menores e Mínimos Privilégios (least privilege).",
+            "parent": "V13.3"
+          },
+          {
+            "bom-ref": "V13.3.3",
+            "identifier": "V13.3.3",
+            "text": "Verifique se, perante a necessidade e momento os quais todas atuações as quais utilizem de bases referentes de lógica de uso por códigos-aleatórios (criptográficas) serão transacionadas exclusivamente, sempre sendo iniciadas rodando através unicamente do meio isolado pelas zonas e setores restritos, através módulos referidos por meio seguro, utilizando os suportes referentes para as execuções (de modos tais através do qual referimos à uso referidos ao \"Vault\" / cofres na nuvem e modelos físicos como aos \"hardware security modules/ HSM\"), cuja obrigação do seu controle nas diretrizes nos processos deverão operar na coordenação perante os registros sigilosos ao resguardo do formato sigiloso sob proteções a vazamentos, aos acessos com intenção quebra e ou acesso de perdas operacionais relativas os dados das senhas e chaves que ocorram aos âmbitos os quais transacionam no mundo \"exterior\", além fronteiras perante estas as barreiras de módulo das garantias as manutenções contidas nas seguranças.",
+            "parent": "V13.3"
+          },
+          {
+            "bom-ref": "V13.3.4",
+            "identifier": "V13.3.4",
+            "text": "Verifique se as orientações para adoção referente do registro ao armazenamento perante códigos chaves (segredos) possuam em si no momento da elaboração em sistema com datas as quais estipulem regras referentes os quais as senhas de sistema embutidas se perderão valor de validações através regras com tempo limitador final expostos e cujas validações operacionais farão as manutenções gerando as atualizações cíclicas operantes (rotating) da mesma maneira referidas e impostas de formato ao obedecer fielmente as bases com exigências apontadas publicamente referenciadas nos meios disponíveis nos guias formais e regulamentos operacionais pela as bases referentes as políticas internas referentes através as documentações contidas na aplicação respectiva.",
+            "parent": "V13.3"
+          },
+          {
+            "bom-ref": "V13.4",
+            "identifier": "V13.4",
+            "title": "Vazamento de Informações Não Intencionais (Unintended Information Leakage)",
+            "parent": "V13"
+          },
+          {
+            "bom-ref": "V13.4.1",
+            "identifier": "V13.4.1",
+            "text": "Verifique se a aplicação opera na inicialização e contínuo serviço operacional (deployed) perante bases com condições das publicações originadas e isentas de processos contendo as transferências nos acompanhamentos gerados nas cópias sobre qualquer e relativas, provindas na sua extensão de todo base referida nas estruturas operantes em conjunto contendo embutidos aos originais metadados da engenharia que suportam o software a partir do processo de originais e bases que compões do controle da codificação primária da versões com referidas formas que englobam repositório contidos embutidas através do repasses as cópias do servidor por diretórios com arquivos através do padrão.git as quais através uso pelas extensões as de tipo das bases operacionais.svn  ou na falha referente que esta falha se faça embutir; na obrigações das presenças a qual estas informações a que estiverem publicadas: na configuração com publicações estas presenças devem operar através configurações as quais elas farão bases cujas restrições referidas a formas em publicações inalcançáveis com proibições as formas abertas pra redes referidas exteriores como nas proibições diretas de processamentos referentes através do formato base da estrutura de programação e a aplicação contidas de forma em bases na mesma através o próprio servidor operante (à si mesmo).",
+            "parent": "V13.4"
+          },
+          {
+            "bom-ref": "V13.4.2",
+            "identifier": "V13.4.2",
+            "text": "Verifique se configurações perante aos testes e também nas investigações os processos de correções internas as quais em ambientes através do desenvolvedores referentes através a rotinas referentes relativas o processos no \"modo debug\" do sistema de componentes a que constituem referidos a todos dos locais a programação em todo processo de servidores as qual já se fazem através dos meios nos quais de execução pública e também ativa do sistema em operações contínuas relativas de base a processos perante a \"modo e local no servidores-produções\" estão sendo desligados da atuação do sistema das opções de referidas aplicações (disabled): essa imposição da técnica visa o combate no contínuo dos acompanhamentos abertos as falhas e relativas ações em exposições não aceitas através aos detalhes dos módulos operacionais contidas gerados provindo referidas características a processos relativas os modos investigações operantes (debugging resources and feature) e das publicações operacionais dos fluxos do processo com extração através detalhes abertos através perante das vazões do sigilo a nível embutidos os quais produzem falhas por fluxos das lógicas de vazamento sobre vazões aos dados os relativas da \"information-leakage\".",
+            "parent": "V13.4"
+          },
+          {
+            "bom-ref": "V13.4.3",
+            "identifier": "V13.4.3",
+            "text": "Verifique se estruturas a respeito do nível através as operações no uso com processadores perante publicadores baseados aos provedores online relativas a provedores base web (web-servers), aos mesmos na prestação contínua operacionais referentes dos usuários acessando (clients), não repassam as devoluções relativas as ordens provindas na abertura de informações contendo repasses embutidas referentes aos catálogos ou de visualização relativas as aberturas sobre e das listagens do estrutura base através as navegações sobre árvores aos contendo aos respectivos ao uso nos diretório (direcory-listing) com a exceção aos processo relativas por ordens referidas a definições explícitas contidas através com bases pelas intenções documentadas e planejadas a níveis a aplicações (unless explicitly intended).",
+            "parent": "V13.4"
+          },
+          {
+            "bom-ref": "V13.4.4",
+            "identifier": "V13.4.4",
+            "text": "Verifique se através as atuações das regras provindas no protocolo padrão da base perante requisições do processador web o emprego as definições usando do tipo do modo HTTP apontado no estilo da comunicação TRACE estão proibidas através recusas a qual eles não possuem o uso em formatos suportado provindo ao níveis das aplicações através do processador central ativo os que no níveis a operação contínua com ambiente público em fase na versão de operações no ambientes de formato modo produtivo-produção para os sistemas. Esta exigência em ação fará proteções contidas a níveis às intenções provindas contra aos ataques a qual produzem vazões do sigilo da níveis e aberturas ao fluxos no referidos baseadas através por vazamentos dos dados que produzem sobre processos das \"information-leakage\".",
+            "parent": "V13.4"
+          },
+          {
+            "bom-ref": "V13.4.5",
+            "identifier": "V13.4.5",
+            "text": "Verifique se os componentes relativas dos relatórios referentes à publicações por usos dos repositórios contendo bases os quais fornecem, referidas através os quais detalham dos métodos os repasses no detalhamento a nível aos comandos dos manuais referentes sobre guias a referidos do emprego nos módulos referentes de \"documentações\" do serviços do projetos a processos contidos das operações como através e no exemplos operacionais com chamadas às API baseadas nos setores com atuações restrita do uso relativas ao meio de comunicação do nível local das referidas conexões com a camada por sistemas aos ambientes referentes às redes internas locais -e também relativas aos endereços e também dos nós da estrutura apontadas nas referidas como as terminações de acesso a processos operacionais apontadas nas requisições referidas com o emprego baseados à estrutura referidas a \"pontos de contato à análises de métrica operacional - endpoints de observações ou monitoring (monitoring endpoints) das requisições- continuem contidos na segurança a blindadas ao formatos restritos aos quais não operarão baseados as devoluções relativas na exibição por meio e formas ao formatos não expostos nas redes públicas, baseadas as exceções apenas dos processos em rotinas relativas referidas as ordens intencionalmente e, criadas, expressamente de uso provindo explícita de e formal intencionalmente.",
+            "parent": "V13.4"
+          },
+          {
+            "bom-ref": "V13.4.6",
+            "identifier": "V13.4.6",
+            "text": "Verifique se a aplicação não faz divulgações sobre detalhes que fornecem baseadas de acesso nas versões contidas ao nível aos referidos sobre informações das edições ou atualizações no suporte através as instalações sobre números referidos às datas nas informações precisas baseadas na relativas aos componente no processo interno nos que atuem nos sistemas e processos os quais trabalham na camadas a bases operantes das atuações relativas aos fundos do projetos (backend).",
+            "parent": "V13.4"
+          },
+          {
+            "bom-ref": "V13.4.7",
+            "identifier": "V13.4.7",
+            "text": "Verifique se a estrutura os quais controlam aos setores da camadas os processadores relativas contidos ao referidos aos ambientes por servidores com emprego do padrão da linguagem nos protocolos das provedoras web (web tier) operem baseados através das regras contendo parametrização de configurações que os estipulam as relativas normas cuja função atuará por processos no fornecimentos a serviços contendo a aceitações restritas apenas para entrega relativas as permissões contidas, em processos de serviços contendo em arquivos referidas de um modo a base específica relativas as regras às correspondentes restritas e restrições apenas com aceitações correspondentes e de uso relativas de terminações por sufixos no final a processos específicos referentes, com as as extensões com a função em arquivos permitidos definidos para proibir ao processo e devolução provindas e não repassar devolução indesejadas que em perdas sem que tenham a níveis e formato da forma de processos relativas com falhas em informações vazadas; falhas provindas do código aos originais arquivos a que contenham código fontes e perdas das aberturas por configurações internas do local no servidores.",
+            "parent": "V13.4"
+          },
+          {
+            "bom-ref": "V14",
+            "identifier": "V14",
+            "title": "Proteção de Dados"
+          },
+          {
+            "bom-ref": "V14.1",
+            "identifier": "V14.1",
+            "title": "Documentação de Proteção de Dados",
+            "parent": "V14"
+          },
+          {
+            "bom-ref": "V14.1.1",
+            "identifier": "V14.1.1",
+            "text": "Verifique se todos os dados sensíveis criados e processados pela aplicação foram identificados e classificados em níveis de proteção. Isso inclui dados que são apenas codificados e, portanto, facilmente decodificados, como strings Base64 ou a carga (payload) em texto simples (plaintext) dentro de um JWT. Os níveis de proteção precisam levar em consideração quaisquer regulamentações e normas de proteção de dados e privacidade com os quais a aplicação é obrigada a cumprir.",
+            "parent": "V14.1"
+          },
+          {
+            "bom-ref": "V14.1.2",
+            "identifier": "V14.1.2",
+            "text": "Verifique se todos os níveis de proteção de dados sensíveis têm um conjunto documentado de requisitos de proteção. Isso deve incluir (mas não se limitar a) requisitos relacionados a criptografia geral, verificação de integridade, retenção, como os dados devem ser registrados (logged), controles de acesso a dados sensíveis em registros, criptografia em nível de banco de dados, tecnologias de privacidade e melhoria de privacidade a serem usadas e outros requisitos de confidencialidade.",
+            "parent": "V14.1"
+          },
+          {
+            "bom-ref": "V14.2",
+            "identifier": "V14.2",
+            "title": "Proteção Geral de Dados",
+            "parent": "V14"
+          },
+          {
+            "bom-ref": "V14.2.1",
+            "identifier": "V14.2.1",
+            "text": "Verifique se dados sensíveis são enviados ao servidor apenas no corpo da mensagem HTTP ou em campos de cabeçalho, e que a URL e a query string (string de consulta) não contenham informações sensíveis, como uma chave de API ou um token de sessão.",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.2.2",
+            "identifier": "V14.2.2",
+            "text": "Verifique se a aplicação evita que dados sensíveis sejam armazenados em cache em componentes do servidor, como balanceadores de carga e caches de aplicação, ou garante que os dados sejam eliminados com segurança após o uso.",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.2.3",
+            "identifier": "V14.2.3",
+            "text": "Verifique se dados sensíveis definidos não são enviados a partes não confiáveis (por exemplo, rastreadores de usuário/user trackers) para prevenir a coleta indesejada de dados fora do controle da aplicação.",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.2.4",
+            "identifier": "V14.2.4",
+            "text": "Verifique se os controles em torno de dados sensíveis relacionados à criptografia, verificação de integridade, retenção, como os dados devem ser registrados (logged), controles de acesso em torno de dados sensíveis em logs, tecnologias de privacidade e melhoria de privacidade, são implementados conforme definido na documentação para o nível de proteção de dados específico.",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.2.5",
+            "identifier": "V14.2.5",
+            "text": "Verifique se os mecanismos de cache são configurados para armazenar em cache apenas respostas que possuam o content type (tipo de conteúdo) esperado para aquele recurso e não contenham conteúdo dinâmico e sensível. O servidor web deve retornar uma resposta 404 ou 302 quando um arquivo inexistente for acessado, em vez de retornar um arquivo válido diferente. Isso deve evitar ataques de Engano de Cache Web (Web Cache Deception attacks).",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.2.6",
+            "identifier": "V14.2.6",
+            "text": "Verifique se a aplicação retorna apenas os dados sensíveis mínimos necessários para a funcionalidade da aplicação. Por exemplo, retornar apenas alguns dos dígitos de um número de cartão de crédito e não o número completo. Se os dados completos forem exigidos, eles deverão ser mascarados na interface do usuário a menos que o usuário os visualize especificamente.",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.2.7",
+            "identifier": "V14.2.7",
+            "text": "Verifique se as informações sensíveis estão sujeitas à classificação de retenção de dados, garantindo que os dados desatualizados ou desnecessários sejam excluídos automaticamente, em um cronograma definido ou conforme a situação exigir.",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.2.8",
+            "identifier": "V14.2.8",
+            "text": "Verifique se as informações sensíveis são removidas dos metadados de arquivos enviados por usuários, a menos que o usuário tenha consentido com o armazenamento.",
+            "parent": "V14.2"
+          },
+          {
+            "bom-ref": "V14.3",
+            "identifier": "V14.3",
+            "title": "Proteção de Dados no Lado do Cliente (Client-side)",
+            "parent": "V14"
+          },
+          {
+            "bom-ref": "V14.3.1",
+            "identifier": "V14.3.1",
+            "text": "Verifique se os dados autenticados são apagados do armazenamento do cliente, como o DOM do navegador, após o cliente ou a sessão ser finalizada. O campo de cabeçalho de resposta HTTP 'Clear-Site-Data' pode ajudar com isso, mas o lado do cliente também deve conseguir limpar os dados se a conexão com o servidor não estiver disponível quando a sessão for encerrada.",
+            "parent": "V14.3"
+          },
+          {
+            "bom-ref": "V14.3.2",
+            "identifier": "V14.3.2",
+            "text": "Verifique se a aplicação define campos de cabeçalho de resposta HTTP anticanche adequados (ex., Cache-Control: no-store) para que dados sensíveis não sejam cacheados em navegadores.",
+            "parent": "V14.3"
+          },
+          {
+            "bom-ref": "V14.3.3",
+            "identifier": "V14.3.3",
+            "text": "Verifique se os dados armazenados no armazenamento do navegador (como localStorage, sessionStorage, IndexedDB ou cookies) não contêm dados sensíveis, com exceção de tokens de sessão.",
+            "parent": "V14.3"
+          },
+          {
+            "bom-ref": "V15",
+            "identifier": "V15",
+            "title": "Codificação e Arquitetura Seguras"
+          },
+          {
+            "bom-ref": "V15.1",
+            "identifier": "V15.1",
+            "title": "Documentação de Codificação e Arquitetura Seguras",
+            "parent": "V15"
+          },
+          {
+            "bom-ref": "V15.1.1",
+            "identifier": "V15.1.1",
+            "text": "Verifique se a documentação da aplicação define janelas de tempo de remediação baseadas em risco referentes nas atuações nas as versões baseadas a vulnerabilidades e na forma do controle da documentação relativas provindas nos arquivos em atualizações pelas quais afetam bibliotecas e os usos no geral e também provindas em e relativas em componente terceiro as que contenham referências perante vulnerabilidades, isto visando o ato em e relativas mitigações as relativas aos quais visam as mitigações com redução através minimização provindos nas consequências base aos usos dessas e na forma do processo através aos riscos com danos e perdas aos oriundos no processo e componentes as bases dos processos referentes.",
+            "parent": "V15.1"
+          },
+          {
+            "bom-ref": "V15.1.2",
+            "identifier": "V15.1.2",
+            "text": "Verifique se há processos referidos do qual baseiam no catálogo do tipo em inventário como em sistemas com listas através as referências operacionais base com listagens em arquivos de e materiais com bases referidas as do projeto das bibliotecas contendo aos códigos ou base das relativas dos uso nas listagens através ao (Software Bill of Materials - SBOM), as quais operem a gestão e manutenção a e e aos com o e o controle no registro sob todas referidas bibliotecas (de terceiro) as quais são transacionadas no fluxo referentes por utilidades na uso das ações correntes, isso referenciando o conjunto nas as confirmações aos processos com verificação a que as origens dessas ferramentas a componentes tenham o repasses aos através as origens na de depósitos do padrão referidos base (repositories) operadas confiavelmente sob prévias e de definições as referentes bases de confiáveis manutenções as atuações contínuas (continually maintained).",
+            "parent": "V15.1"
+          },
+          {
+            "bom-ref": "V15.1.3",
+            "identifier": "V15.1.3",
+            "text": "Verifique se a documentação da aplicação identifica funcionalidades que consomem tempo ou exigem muitos recursos. Isso deve incluir maneiras de evitar a perda de disponibilidade devido ao uso excessivo dessa funcionalidade e evitar uma situação em que construir uma resposta leve mais tempo do que o tempo limite (timeout) de resposta ao consumidor. As defesas possíveis podem incluir o processamento assíncrono, uso de filas e imposição nos limites sobre os processos executados no formato os processos ocorrem paralelos (parallel processes) e sob cota em processos definidos por a um processo e níveis referentes a e no máximo limitadas referida \"por usuários\" por cliente e níveis as taxas totais através o funcionamento e referentes de \"aplicações inteiras globais (per application)\".",
+            "parent": "V15.1"
+          },
+          {
+            "bom-ref": "V15.1.4",
+            "identifier": "V15.1.4",
+            "text": "Verifique se a documentação da aplicação destaca bibliotecas terceiras a quais com avaliação da gestão de processo operem a serem classificadas a apontamentos com riscos de componentes aos referidos na classe no grupo ao nível \"componentes de riscos\".",
+            "parent": "V15.1"
+          },
+          {
+            "bom-ref": "V15.1.5",
+            "identifier": "V15.1.5",
+            "text": "Verifique se a documentação da aplicação destaca partes do sistema a aplicação na que a uso no modelo na que atua com o operações através o uso dos processos perante base aos de modelos com as \"funcionalidades perigosas (dangerous functionality)\" são estarem referidas.",
+            "parent": "V15.1"
+          },
+          {
+            "bom-ref": "V15.2",
+            "identifier": "V15.2",
+            "title": "Arquitetura de Segurança e Dependências",
+            "parent": "V15"
+          },
+          {
+            "bom-ref": "V15.2.1",
+            "identifier": "V15.2.1",
+            "text": "Verifique se a aplicação a apenas a a nas com de nas contém dos os e componentes nas na formas em com que a não a de e de o violaram os limites estipulados e as métricas o do no a os que do sobre contidas a nas do relativas as o das relativas os cronograma do e e as no prazos do na documentação nas sobre relativas no atualizações de bases nas na nos em atualizações com e da com formas em remediação.",
+            "parent": "V15.2"
+          },
+          {
+            "bom-ref": "V15.2.2",
+            "identifier": "V15.2.2",
+            "text": "Verifique se a aplicação implementou relativas a o do e com formas de a nas do da proteções e a sobre defesas da em as no as contidas contra a o com perdas aos relativas nas no a da provindas de da de da perdas as em nas do formas e de as na das perdas os de de na disponibilidade e as a provindas devido ao a uso a da em na em relativas a à e as na na forma com uso com das as funcionalidades a qual com operam o no atuações a consumam de grandes proporções da de e do tempo a na ou a no ou as e que exijam das os a em formas em grandes os na os com e e no da e e as de exigentes grandes em de em consumo de formas de com na nas consumo nas sobre recursos e do a na de e relativas aos de os o da na ao de a e a e de o uso os decisões o da as a os com do das em de da em sobre nas a da em relativas na com base relativas na em das em a os documentadas a as e na formas em no das sobre de na e em a na a na documentadas as nas do do as de as com da em as a na a de no com os de das e a de a no e do a na da e e a na em de as em sobre o e com estratégias com e de e e a na a e e e.",
+            "parent": "V15.2"
+          },
+          {
+            "bom-ref": "V15.2.3",
+            "identifier": "V15.2.3",
+            "text": "Verifique se o de as em ambiente a a da no do em produção a e do de e contém da nas apenas as a da o de e com a na de nas de a com a no funcionalidades de com a na as que de e e em nas em são de e com a e do e da a a e exigidas na nas com e e nas e para do de que do a a a na e o em com de as da em a em do e a da nas de a a a na a e na aplicação a e a da a a nas com e nas a a funcionar de a a e as a com o em com e não e de na de na de de expõe e nas a de e a de e funcionalidades com de e a do as a o de em com na a as a a nas do e e as em e estranhas a a e do e a a de e do as e do e a as e a as do e de o a e (extraneous a a a a functionality) de e na da a o como a na as as e nas e códigos a de a a teste as nas a a e e a e a e e a as e e as e o e a (test a e de code) e nas a na as com em a trechos as a as a e nas as as as na de na e de a a de exemplo a na de a (sample as do a a snippets) e a as as e a nas e o a e e de a e a as de do funcionalidades do e de de a e de a desenvolvimento a de a a.",
+            "parent": "V15.2"
+          },
+          {
+            "bom-ref": "V15.2.4",
+            "identifier": "V15.2.4",
+            "text": "Verifique se na e de os na a de componentes de na de e terceiros na as na e e de na as todas as de as a na de a a de a na as na a as suas dependências do a da a a a transitivas na as são as e de a na na a nas incluídas na as a do na a de repositório da da a de de de a e de esperado na a a as de as seja de a a de a de de e e de ele e de as da as da da internamente de na da a da a na a de e e de a na na de propriedade a e da as da a da as ou a a da na uma da da a e a fonte na a de externa a e as e que a não do a de da há da as as da as e a na na as do as as de a a de risco da a as de a da a da de de de a um as a da as a a ataque as a as de da da a de a e de as da confusão a de a de a da da de a dependência a as de a.",
+            "parent": "V15.2"
+          },
+          {
+            "bom-ref": "V15.2.5",
+            "identifier": "V15.2.5",
+            "text": "Verifique se da as da a da as aplicação de de as e as de implementa da de as da de a de as as proteções do de da de adicionais da em da a da as a torno da a de as da de as a da partes as as da de as as da as da a a a de aplicação a da que de de a a as as as de as a da a são a a de de as as as a a documentadas de a a as como as a da as a as as contendo da de da a de de a a as as a as \"funcionalidade as as as as perigosa\" a as as de a de a ou as a a as de usando a a a as bibliotecas as as as de as a a de de de terceiros da as de as as as as as consideradas as de as de a as as \"componentes a as de a de a de risco\". a da as as as de as de Isso da as as a pode de as as a as da incluir as a as as técnicas as as de a a as de a como da as as a a sandboxing, da as a a a da encapsulamento, a as a as as conteinerização da a as as da as da as a as a as ou as da a a a as as a a isolamento as a as a a de de de de nível de da as a a rede as as de de as da a da a para da as de as de a a a as de as da atrasar as de de da a a as e as da a da de a de da a deter da as a a de de de da a atacantes a de de a da de de a de de que a a a a da as de de a a as as de da da comprometem a as de de da as da a de da da uma de da a da de da da de a de de da de parte da de as as da as da da a de de as as da as a uma as as da de a de da de as aplicação da a da da a de de de de a pivotar de de a de da as da as da da as de para as a as as a a de a as outro a as as a da as de de as lugar de da de a da as da a de a as a da a de da da da a as as a na a de de da as de de de da de de da de de da da a aplicação da da a de as a as de as da de de da a as.",
+            "parent": "V15.2"
+          },
+          {
+            "bom-ref": "V15.3",
+            "identifier": "V15.3",
+            "title": "Codificação Defensiva",
+            "parent": "V15"
+          },
+          {
+            "bom-ref": "V15.3.1",
+            "identifier": "V15.3.1",
+            "text": "Verifique se a aplicação retorna apenas o subconjunto necessário de campos de um objeto de dados. Por exemplo, ela não deve retornar um objeto de dados inteiro, pois alguns campos individuais não devem estar acessíveis aos usuários.",
+            "parent": "V15.3"
+          },
+          {
+            "bom-ref": "V15.3.2",
+            "identifier": "V15.3.2",
+            "text": "Verifique se, nos casos em que o backend da aplicação faz chamadas a URLs externas, ele esteja configurado para não seguir redirecionamentos, a menos que isso seja uma funcionalidade intencional.",
+            "parent": "V15.3"
+          },
+          {
+            "bom-ref": "V15.3.3",
+            "identifier": "V15.3.3",
+            "text": "Verifique se a aplicação possui contramedidas para se proteger contra ataques de atribuição em massa (mass assignment) limitando os campos permitidos por controlador (controller) e ação, por ex., não é possível inserir ou atualizar o valor de um campo quando isso não foi projetado para fazer parte daquela ação.",
+            "parent": "V15.3"
+          },
+          {
+            "bom-ref": "V15.3.4",
+            "identifier": "V15.3.4",
+            "text": "Verifique se todos os componentes de proxy e middleware transferem o endereço IP original do usuário corretamente usando campos de dados confiáveis que não possam ser manipulados pelo usuário final, e a aplicação e o servidor web usam este valor correto para decisões de logging e de segurança como limitação de taxa (rate limiting), levando em conta que mesmo o endereço IP original pode não ser confiável devido a IPs dinâmicos, VPNs ou firewalls corporativos.",
+            "parent": "V15.3"
+          },
+          {
+            "bom-ref": "V15.3.5",
+            "identifier": "V15.3.5",
+            "text": "Verifique se a aplicação garante explicitamente que as variáveis são do tipo correto e realiza operações de comparação e de igualdade estritas (strict equality and comparator operations). Isso é para evitar vulnerabilidades de confusão de tipos (type confusion) ou type juggling causadas pelo código da aplicação fazer uma suposição sobre um tipo de variável.",
+            "parent": "V15.3"
+          },
+          {
+            "bom-ref": "V15.3.6",
+            "identifier": "V15.3.6",
+            "text": "Verifique se o código JavaScript é escrito de uma forma que evita a poluição de protótipo (prototype pollution), por exemplo, usando Set() ou Map() em vez de objetos literais.",
+            "parent": "V15.3"
+          },
+          {
+            "bom-ref": "V15.3.7",
+            "identifier": "V15.3.7",
+            "text": "Verifique se a aplicação possui defesas contra ataques de poluição de parâmetros HTTP (HTTP parameter pollution attacks), particularmente se o framework da aplicação não faz distinção sobre a fonte (source) dos parâmetros de requisição (query string, body parameters, cookies ou campos de cabeçalho).",
+            "parent": "V15.3"
+          },
+          {
+            "bom-ref": "V15.4",
+            "identifier": "V15.4",
+            "title": "Concorrência Segura",
+            "parent": "V15"
+          },
+          {
+            "bom-ref": "V15.4.1",
+            "identifier": "V15.4.1",
+            "text": "Verifique se objetos compartilhados em códigos multi-thread (como caches, arquivos ou objetos na memória acessados por várias threads) são acessados ​​de forma segura usando tipos thread-safe e mecanismos de sincronização como locks (travas) ou semáforos para evitar condições de corrida e corrupção de dados.",
+            "parent": "V15.4"
+          },
+          {
+            "bom-ref": "V15.4.2",
+            "identifier": "V15.4.2",
+            "text": "Verifique se as checagens no estado de um recurso, como sua existência ou permissões, e as ações que dependem delas são executadas como uma operação atômica única para evitar as condições de corrida do tipo time-of-check to time-of-use (TOCTOU). Por exemplo, checando se um arquivo existe antes de abri-lo, ou verificando o acesso de um usuário antes de concedê-lo.",
+            "parent": "V15.4"
+          },
+          {
+            "bom-ref": "V15.4.3",
+            "identifier": "V15.4.3",
+            "text": "Verifique se bloqueios (locks) são usados ​​consistentemente para evitar que as threads fiquem presas, seja esperando umas pelas outras ou tentando novamente (retrying) sem parar, e se a lógica de travamento permanece dentro do código responsável por gerenciar o recurso para garantir que os bloqueios não possam ser modificados inadvertidamente ou maliciosamente por classes ou código externo.",
+            "parent": "V15.4"
+          },
+          {
+            "bom-ref": "V15.4.4",
+            "identifier": "V15.4.4",
+            "text": "Verifique se as políticas de alocação de recursos previnem o thread starvation ao garantir o acesso justo (fair access) aos recursos, como, por exemplo, pelo aproveitamento de pools de threads, permitindo que as threads de menor prioridade procedam dentro de um tempo razoável.",
+            "parent": "V15.4"
+          },
+          {
+            "bom-ref": "V16",
+            "identifier": "V16",
+            "title": "Registro de Segurança e Tratamento de Erros"
+          },
+          {
+            "bom-ref": "V16.1",
+            "identifier": "V16.1",
+            "title": "Documentação de Registros de Segurança (Security Logging)",
+            "parent": "V16"
+          },
+          {
+            "bom-ref": "V16.1.1",
+            "identifier": "V16.1.1",
+            "text": "Verifique se existe um inventário documentando o registro (logging) realizado em cada camada da pilha de tecnologia da aplicação, quais eventos estão sendo registrados, os formatos dos logs, onde esse log é armazenado, como é utilizado, como o acesso a ele é controlado, e por quanto tempo os logs são mantidos.",
+            "parent": "V16.1"
+          },
+          {
+            "bom-ref": "V16.2",
+            "identifier": "V16.2",
+            "title": "Registro (Logging) Geral",
+            "parent": "V16"
+          },
+          {
+            "bom-ref": "V16.2.1",
+            "identifier": "V16.2.1",
+            "text": "Verifique se cada entrada de log (log entry) inclui os metadados necessários (como quando, onde, quem, o que) que permitiriam uma investigação detalhada da linha do tempo quando um evento acontecer.",
+            "parent": "V16.2"
+          },
+          {
+            "bom-ref": "V16.2.2",
+            "identifier": "V16.2.2",
+            "text": "Verifique se as fontes de tempo para todos os componentes de registro estão sincronizadas, e que os carimbos de data/hora (timestamps) nos metadados do evento de segurança usem UTC ou incluam o deslocamento explícito (offset) do fuso horário. O UTC é recomendado para garantir a consistência através de sistemas distribuídos e para prevenir confusões durante as transições do horário de verão.",
+            "parent": "V16.2"
+          },
+          {
+            "bom-ref": "V16.2.3",
+            "identifier": "V16.2.3",
+            "text": "Verifique se a aplicação apenas armazena ou transmite os logs para os arquivos e serviços que estejam documentados no inventário de logs.",
+            "parent": "V16.2"
+          },
+          {
+            "bom-ref": "V16.2.4",
+            "identifier": "V16.2.4",
+            "text": "Verifique se os logs podem ser lidos e correlacionados pelo processador de log que está em uso, preferencialmente usando um formato de log comum.",
+            "parent": "V16.2"
+          },
+          {
+            "bom-ref": "V16.2.5",
+            "identifier": "V16.2.5",
+            "text": "Verifique se, ao registrar os dados sensíveis, a aplicação impõe o logging baseado no nível de proteção daquele dado. Por exemplo, pode não ser permitido logar determinados dados, como credenciais ou detalhes de pagamento. Outros dados, como os tokens de sessão, podem ser logados apenas ao estarem em hash ou mascarados, de forma total ou parcial.",
+            "parent": "V16.2"
+          },
+          {
+            "bom-ref": "V16.3",
+            "identifier": "V16.3",
+            "title": "Eventos de Segurança",
+            "parent": "V16"
+          },
+          {
+            "bom-ref": "V16.3.1",
+            "identifier": "V16.3.1",
+            "text": "Verifique se todas as operações de autenticação são registradas, incluindo as tentativas bem e malsucedidas. Metadados adicionais, como o tipo de autenticação ou os fatores usados, também deverão ser coletados.",
+            "parent": "V16.3"
+          },
+          {
+            "bom-ref": "V16.3.2",
+            "identifier": "V16.3.2",
+            "text": "Verifique se as tentativas falhas de autorização são registradas. Para o L3, isto deve incluir o registro de todas as decisões da autorização, incluindo o registro quando os dados sensíveis são acessados (sem registrar os dados sensíveis em si).",
+            "parent": "V16.3"
+          },
+          {
+            "bom-ref": "V16.3.3",
+            "identifier": "V16.3.3",
+            "text": "Verifique se a aplicação registra os eventos de segurança que foram definidos na documentação e que também registre as tentativas de ignorar (bypass) os controles de segurança, tais como a validação da entrada, a lógica de negócios e as medidas antiautomação.",
+            "parent": "V16.3"
+          },
+          {
+            "bom-ref": "V16.3.4",
+            "identifier": "V16.3.4",
+            "text": "Verifique se a aplicação registra os erros inesperados e as falhas dos controles de segurança, tais como falhas do TLS no backend.",
+            "parent": "V16.3"
+          },
+          {
+            "bom-ref": "V16.4",
+            "identifier": "V16.4",
+            "title": "Proteção de Logs",
+            "parent": "V16"
+          },
+          {
+            "bom-ref": "V16.4.1",
+            "identifier": "V16.4.1",
+            "text": "Verifique se todos os componentes de logging codificam os dados apropriadamente para evitar a injeção em logs (log injection).",
+            "parent": "V16.4"
+          },
+          {
+            "bom-ref": "V16.4.2",
+            "identifier": "V16.4.2",
+            "text": "Verifique se os logs estão protegidos contra o acesso não autorizado e não podem ser modificados.",
+            "parent": "V16.4"
+          },
+          {
+            "bom-ref": "V16.4.3",
+            "identifier": "V16.4.3",
+            "text": "Verifique se os logs são transmitidos de forma segura para um sistema logicamente isolado e separado para análise, detecção, alerta e encaminhamento (escalation). O objetivo é garantir que, caso a aplicação for invadida, os logs não sejam comprometidos.",
+            "parent": "V16.4"
+          },
+          {
+            "bom-ref": "V16.5",
+            "identifier": "V16.5",
+            "title": "Tratamento de Erros",
+            "parent": "V16"
+          },
+          {
+            "bom-ref": "V16.5.1",
+            "identifier": "V16.5.1",
+            "text": "Verifique se uma mensagem genérica é retornada ao consumidor perante as falhas quando ocorre um erro inesperado e de impacto na segurança, garantindo assim nenhuma exposição nos dados sensíveis do sistema interno (ex: como stack traces, comandos em queries, senhas chaves dos sistemas de processos, e os tokens em aberto).",
+            "parent": "V16.5"
+          },
+          {
+            "bom-ref": "V16.5.2",
+            "identifier": "V16.5.2",
+            "text": "Verifique se a aplicação continuará a atuar e no processamento em modos segurança perante os eventos das falhas através os acessos na bases dos recursos os de formatos externo e/ou externos a, e no o através a exemplo das chamadas aos os na do dos de processos em do padrões na (patterns) nas das sobre de as os do e com as nos referidos de a no como os a em as os do de de do e \"circuit a e a de do breakers\" a e na (disjuntores de de da circuitos) as a ou de de em de a degradação e e a harmoniosa da do de (graceful o da degradation).",
+            "parent": "V16.5"
+          },
+          {
+            "bom-ref": "V16.5.3",
+            "identifier": "V16.5.3",
+            "text": "Verifique se a aplicação a a o falha o e a as e e de da da de da de forma as de da de a de de a harmoniosa a o de a de da a e a segura a de da as da (fails e as e as de gracefully da e a de and a as de de securely), as de a a o incluindo as a as o de quando a as e da a a ocorre o a a as uma a a as da a e de a exceção, o de e a da da da prevenindo da de a as a da condições de da as a da o a de da a da de da \"fail-open\" o da da (falhar a da de de de a de de e de aberto) e a de da as de de como da e a a o a da de processar a de a a as uma da a a a transação de as da a da as apesar a de as de as a da dos de a de da da erros o de de as as resultantes a e da as da a da a lógica de de a da as de de da a a validação da a da as.",
+            "parent": "V16.5"
+          },
+          {
+            "bom-ref": "V16.5.4",
+            "identifier": "V16.5.4",
+            "text": "Verifique se a a a um a a de da de manipulador o a de de a a da as de o as erro a e da as as \"de a da as de da as da última o de a da da as de as da a instância\" a de de de a as de as (last as a de de as as da as resort) de as de as as as a é as a de a da as de definido da o a a o o que a de de de as as as irá a da a as as capturar da de a a de da as as todas de da as de as a a de de as a da a exceções o a de as de as as de de as da a as não de de da a da de a tratadas. de as de a a de Isto a as da a é a a o as as a a da de a tanto a de de as as a de para as as a de a evitar a a a de de a de as as de a a de de da perder de o de a da da da a as da a detalhes da a a de a do de a a o de da de da a de de as da a as de erro o a da as as da as da que a as as as de as a as de da de devem a de a de de a ir da as da da da de de a de a as de de para da da da de de os o as de arquivos de da de da da de da log, de a de de o a de de e as as a quanto a as da da de as as para as de de de a a as a a de a as as de a garantir as de a as da a que as a da as da a de da da de a um de da a o erro da da da de as de de a a a as as as não de de as a a de o derrube as da a o de o de as as a da da de de todo de da da de de de o as da a de da da a de de de da a processo da a a as de de as da as a as as as a de aplicação, a de de da de o da a a as a a de levando da a da as a da de a de de de da uma da de a as a a de de perda a da de da a as de as a as da de de as disponibilidade a a as a a as da de as a.",
+            "parent": "V16.5"
+          },
+          {
+            "bom-ref": "V17",
+            "identifier": "V17",
+            "title": "WebRTC"
+          },
+          {
+            "bom-ref": "V17.1",
+            "identifier": "V17.1",
+            "title": "Servidor TURN",
+            "parent": "V17"
+          },
+          {
+            "bom-ref": "V17.1.1",
+            "identifier": "V17.1.1",
+            "text": "Verifique se o serviço Traversal Using Relays around NAT (TURN) permite acesso apenas aos endereços IP que não são reservados a propósitos especiais (por exemplo, redes internas, broadcast, loopback). Note que isso se aplica tanto aos endereços IPv4 quanto aos IPv6.",
+            "parent": "V17.1"
+          },
+          {
+            "bom-ref": "V17.1.2",
+            "identifier": "V17.1.2",
+            "text": "Verifique se o serviço Traversal Using Relays around NAT (TURN) não é suscetível ao esgotamento de recursos quando usuários legítimos tentam abrir um grande número de portas no servidor TURN.",
+            "parent": "V17.1"
+          },
+          {
+            "bom-ref": "V17.2",
+            "identifier": "V17.2",
+            "title": "Mídia",
+            "parent": "V17"
+          },
+          {
+            "bom-ref": "V17.2.1",
+            "identifier": "V17.2.1",
+            "text": "Verifique se a chave para o certificado Datagram Transport Layer Security (DTLS) é gerenciada e protegida com base na política documentada para o gerenciamento de chaves criptográficas.",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.2.2",
+            "identifier": "V17.2.2",
+            "text": "Verifique se o servidor de mídia está configurado para utilizar e suportar as cipher suites aprovadas pelo Datagram Transport Layer Security (DTLS) e um perfil seguro de proteção para a Extensão DTLS a fim de estabelecer as chaves pro Secure Real-time Transport Protocol (DTLS-SRTP).",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.2.3",
+            "identifier": "V17.2.3",
+            "text": "Verifique se a autenticação do Secure Real-time Transport Protocol (SRTP) é checada no servidor de mídia com objetivo de prevenir aos ataques com Injeção da Real-time Transport Protocol (RTP) resultem base perante à seja tanto no formato numa criação com situação relativa em Negações dos Serviços e nas inclusão maliciosa através das inserções referentes de conteúdos de mídias base vídeo ou de áudio dentro aos contínuos percursos provindas das transmissões operadas do sistema aos fluxos contínuos nas mídias originais e legitimas (media streams).",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.2.4",
+            "identifier": "V17.2.4",
+            "text": "Verifique se o servidor de mídia consegue atuar e proceder processando nas execuções aos fluxos operantes com e perante tráfegos recebidos das chamadas através contínuas nas transmissões as mídias ao deparar os pacotes através os formatos inválidos através falhas malformados com proveniências usando Secure Real-time Transport Protocol (SRTP).",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.2.5",
+            "identifier": "V17.2.5",
+            "text": "Verifique se o servidor de mídia tem base operacional operante as quais possibilitem as execuções processando a níveis aos fluxos e as atividades através tráfegos a chamadas contínuas recebidas perante e através ao ataques com eventos por baseados na contínuas envios sucessivos nas bases às inundações (flood) contendo formatos nos chamadas feitas operados contendo a níveis por pacotes usando pelo protocolo tipo e formato por meio do Secure Real-time Transport Protocol (SRTP) os mesmos, através remessas que atestam sendo provindos dos usuários classificados base legítimos.",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.2.6",
+            "identifier": "V17.2.6",
+            "text": "Verifique se o servidor de mídia atua contendo com bases blindados no servidor onde ele não atue no estado ao formato através da vulnerabilidade em condições de vulnerabilidade em corrida \"ClientHello\" associados e com o tipo da falha das base operantes com atuações de Datagram Transport Layer Security (DTLS). E isso o fazendo referenciando a atuação através nas bases contendo confirmações o qual e caso através o banco dos conhecimento a onde constata com dados através referências publicamente com notório os quais ele opere através contendo as falhas ao ambiente, e através o modo onde façam atuações nas checagens testando através e executando com teste o modo da atuações no testes operando base com teste da a vulnerabilidade tipo Race condition (condição de corrida).",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.2.7",
+            "identifier": "V17.2.7",
+            "text": "Verifique se o mecanismo atuando as quais em processos na forma nas execuções com gravações através vídeos ou na base contendo o uso na formato em do processo a nível contendo gravações de áudio através a embutidas relativas a atuações na base por sistemas do servidores a mídia contenha no formato contendo blindagens operantes a quais permitam a contínua processos em formato na processamentos das contínuas formas nos tráfegos recebidas os operados nas transmissões recebidas referentes as mídias perante atuação provindo sobre e referentes ao baseados nos de inundações em contínuas formas os eventos com contínuas (flood) aos pacotes na base e tipo operando pelo método contendo no pacotes ao através no uso e formato por transmissões a com através Secure Real-time Transport Protocol (SRTP) provindas no atuações vindas no formato perante chamadas ao nível contendo usuários base os formatado legitimados.",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.2.8",
+            "identifier": "V17.2.8",
+            "text": "Verifique se o certificado através as base aos relativas de certificações do Datagram Transport Layer Security (DTLS) é submetido em atuações em checagens na através as comparações operando a formas de de avaliações em bases às relativas contra referidas de atributos nas propriedades das e através e aos atributo do padrão Session Description Protocol (SDP) referente com dados na nas em formato da impressão das a níveis ao das fingerprint, atuando com e ao processamento nas interrupções provindas nas atuações nas desliga contendo desativações às através no corte na formato nos no repasse da atuação no a o contínuos baseados operacionais contendo nos envio aos fluxo em transmissões perante chamadas por uso por nas relativas contidas relativas a caso nas checagens atuantes que contarem em as em através do nível referidos as as apontamentos nas falhas referidas, na formas relativas isso contendo o formato do base no objetivo a garantir e assegurar os dados da as atuações das relativas na autenticidades dos envios perante os fluxos relativas as e do transmissões base da contínua e as de mídia relativas do streams.",
+            "parent": "V17.2"
+          },
+          {
+            "bom-ref": "V17.3",
+            "identifier": "V17.3",
+            "title": "Sinalização",
+            "parent": "V17"
+          },
+          {
+            "bom-ref": "V17.3.1",
+            "identifier": "V17.3.1",
+            "text": "Verifique se o servidor de sinalização consegue continuar o processamento de mensagens de sinalização de entrada legítimas durante um ataque de inundação (flood attack). Isso deve ser alcançado implementando a limitação de taxa (rate limiting) no nível de sinalização.",
+            "parent": "V17.3"
+          },
+          {
+            "bom-ref": "V17.3.2",
+            "identifier": "V17.3.2",
+            "text": "Verifique se o servidor de sinalização consegue continuar o processamento de mensagens de sinalização legítimas ao encontrar uma mensagem de sinalização malformada que poderia causar uma condição de negação de serviço. Isso poderia incluir a implementação da validação da entrada (input validation), do tratamento seguro contra estouros de número inteiro (integer overflows), prevenindo estouros de buffer (buffer overflows) e o uso de outras técnicas robustas de tratamento de erros.",
+            "parent": "V17.3"
+          }
+        ],
+        "levels": [
+          {
+            "bom-ref": "level-1",
+            "identifier": "Level 1",
+            "description": "This level contains the minimum requirements to consider when securing an application and represents a critical starting point.",
+            "requirements": [
+              "V1.2.1",
+              "V1.2.2",
+              "V1.2.3",
+              "V1.2.4",
+              "V1.2.5",
+              "V1.3.1",
+              "V1.3.2",
+              "V1.5.1",
+              "V2.1.1",
+              "V2.2.1",
+              "V2.2.2",
+              "V2.3.1",
+              "V3.2.1",
+              "V3.2.2",
+              "V3.3.1",
+              "V3.4.1",
+              "V3.4.2",
+              "V3.5.1",
+              "V3.5.2",
+              "V3.5.3",
+              "V4.1.1",
+              "V4.4.1",
+              "V5.2.1",
+              "V5.2.2",
+              "V5.3.1",
+              "V5.3.2",
+              "V6.1.1",
+              "V6.2.1",
+              "V6.2.2",
+              "V6.2.3",
+              "V6.2.4",
+              "V6.2.5",
+              "V6.2.6",
+              "V6.2.7",
+              "V6.2.8",
+              "V6.3.1",
+              "V6.3.2",
+              "V6.4.1",
+              "V6.4.2",
+              "V7.2.1",
+              "V7.2.2",
+              "V7.2.3",
+              "V7.2.4",
+              "V7.4.1",
+              "V7.4.2",
+              "V8.1.1",
+              "V8.2.1",
+              "V8.2.2",
+              "V8.3.1",
+              "V9.1.1",
+              "V9.1.2",
+              "V9.1.3",
+              "V9.2.1",
+              "V10.4.1",
+              "V10.4.2",
+              "V10.4.3",
+              "V10.4.4",
+              "V10.4.5",
+              "V11.3.1",
+              "V11.3.2",
+              "V11.4.1",
+              "V12.1.1",
+              "V12.2.1",
+              "V12.2.2",
+              "V13.4.1",
+              "V14.2.1",
+              "V14.3.1",
+              "V15.1.1",
+              "V15.2.1",
+              "V15.3.1"
+            ]
+          },
+          {
+            "bom-ref": "level-2",
+            "identifier": "Level 2",
+            "description": "ASVS Level 2 requirements generally relate to either less common attacks or more complicated protections against common attacks. They may still be a first layer of defense, or they may require certain preconditions for the attack to be successful.",
+            "requirements": [
+              "V1.1.1",
+              "V1.1.2",
+              "V1.2.6",
+              "V1.2.7",
+              "V1.2.8",
+              "V1.2.9",
+              "V1.3.3",
+              "V1.3.4",
+              "V1.3.5",
+              "V1.3.6",
+              "V1.3.7",
+              "V1.3.8",
+              "V1.3.9",
+              "V1.3.10",
+              "V1.3.11",
+              "V1.4.1",
+              "V1.4.2",
+              "V1.4.3",
+              "V1.5.2",
+              "V2.1.2",
+              "V2.1.3",
+              "V2.2.3",
+              "V2.3.2",
+              "V2.3.3",
+              "V2.3.4",
+              "V2.4.1",
+              "V3.3.2",
+              "V3.3.3",
+              "V3.3.4",
+              "V3.4.3",
+              "V3.4.4",
+              "V3.4.5",
+              "V3.4.6",
+              "V3.5.4",
+              "V3.5.5",
+              "V3.7.1",
+              "V3.7.2",
+              "V4.1.2",
+              "V4.1.3",
+              "V4.2.1",
+              "V4.3.1",
+              "V4.3.2",
+              "V4.4.2",
+              "V4.4.3",
+              "V4.4.4",
+              "V5.1.1",
+              "V5.2.3",
+              "V5.4.1",
+              "V5.4.2",
+              "V5.4.3",
+              "V6.1.2",
+              "V6.1.3",
+              "V6.2.9",
+              "V6.2.10",
+              "V6.2.11",
+              "V6.2.12",
+              "V6.3.3",
+              "V6.3.4",
+              "V6.4.3",
+              "V6.4.4",
+              "V6.5.1",
+              "V6.5.2",
+              "V6.5.3",
+              "V6.5.4",
+              "V6.5.5",
+              "V6.6.1",
+              "V6.6.2",
+              "V6.6.3",
+              "V6.8.1",
+              "V6.8.2",
+              "V6.8.3",
+              "V6.8.4",
+              "V7.1.1",
+              "V7.1.2",
+              "V7.1.3",
+              "V7.3.1",
+              "V7.3.2",
+              "V7.4.3",
+              "V7.4.4",
+              "V7.4.5",
+              "V7.5.1",
+              "V7.5.2",
+              "V7.6.1",
+              "V7.6.2",
+              "V8.1.2",
+              "V8.2.3",
+              "V8.4.1",
+              "V9.2.2",
+              "V9.2.3",
+              "V9.2.4",
+              "V10.1.1",
+              "V10.1.2",
+              "V10.2.1",
+              "V10.2.2",
+              "V10.3.1",
+              "V10.3.2",
+              "V10.3.3",
+              "V10.3.4",
+              "V10.4.6",
+              "V10.4.7",
+              "V10.4.8",
+              "V10.4.9",
+              "V10.4.10",
+              "V10.4.11",
+              "V10.5.1",
+              "V10.5.2",
+              "V10.5.3",
+              "V10.5.4",
+              "V10.5.5",
+              "V10.6.1",
+              "V10.6.2",
+              "V10.7.1",
+              "V10.7.2",
+              "V10.7.3",
+              "V11.1.1",
+              "V11.1.2",
+              "V11.2.1",
+              "V11.2.2",
+              "V11.2.3",
+              "V11.3.3",
+              "V11.4.2",
+              "V11.4.3",
+              "V11.4.4",
+              "V11.5.1",
+              "V11.6.1",
+              "V12.1.2",
+              "V12.1.3",
+              "V12.3.1",
+              "V12.3.2",
+              "V12.3.3",
+              "V12.3.4",
+              "V13.1.1",
+              "V13.2.1",
+              "V13.2.2",
+              "V13.2.3",
+              "V13.2.4",
+              "V13.2.5",
+              "V13.3.1",
+              "V13.3.2",
+              "V13.4.2",
+              "V13.4.3",
+              "V13.4.4",
+              "V13.4.5",
+              "V14.1.1",
+              "V14.1.2",
+              "V14.2.2",
+              "V14.2.3",
+              "V14.2.4",
+              "V14.3.2",
+              "V14.3.3",
+              "V15.1.2",
+              "V15.1.3",
+              "V15.2.2",
+              "V15.2.3",
+              "V15.3.2",
+              "V15.3.3",
+              "V15.3.4",
+              "V15.3.5",
+              "V15.3.6",
+              "V15.3.7",
+              "V16.1.1",
+              "V16.2.1",
+              "V16.2.2",
+              "V16.2.3",
+              "V16.2.4",
+              "V16.2.5",
+              "V16.3.1",
+              "V16.3.2",
+              "V16.3.3",
+              "V16.3.4",
+              "V16.4.1",
+              "V16.4.2",
+              "V16.4.3",
+              "V16.5.1",
+              "V16.5.2",
+              "V16.5.3",
+              "V17.1.1",
+              "V17.2.1",
+              "V17.2.2",
+              "V17.2.3",
+              "V17.2.4",
+              "V17.3.1",
+              "V17.3.2"
+            ]
+          },
+          {
+            "bom-ref": "level-3",
+            "identifier": "Level 3",
+            "description": "ASVS Level 3 should be the goal for applications looking to demonstrate the highest levels of security and requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls.",
+            "requirements": [
+              "V1.2.10",
+              "V1.3.12",
+              "V1.5.3",
+              "V2.3.5",
+              "V2.4.2",
+              "V3.1.1",
+              "V3.2.3",
+              "V3.3.5",
+              "V3.4.7",
+              "V3.4.8",
+              "V3.5.6",
+              "V3.5.7",
+              "V3.5.8",
+              "V3.6.1",
+              "V3.7.3",
+              "V3.7.4",
+              "V3.7.5",
+              "V4.1.4",
+              "V4.1.5",
+              "V4.2.2",
+              "V4.2.3",
+              "V4.2.4",
+              "V4.2.5",
+              "V5.2.4",
+              "V5.2.5",
+              "V5.2.6",
+              "V5.3.3",
+              "V6.3.5",
+              "V6.3.6",
+              "V6.3.7",
+              "V6.3.8",
+              "V6.4.5",
+              "V6.4.6",
+              "V6.5.6",
+              "V6.5.7",
+              "V6.5.8",
+              "V6.6.4",
+              "V6.7.1",
+              "V6.7.2",
+              "V7.5.3",
+              "V8.1.3",
+              "V8.1.4",
+              "V8.2.4",
+              "V8.3.2",
+              "V8.3.3",
+              "V8.4.2",
+              "V10.2.3",
+              "V10.3.5",
+              "V10.4.12",
+              "V10.4.13",
+              "V10.4.14",
+              "V10.4.15",
+              "V10.4.16",
+              "V11.1.3",
+              "V11.1.4",
+              "V11.2.4",
+              "V11.2.5",
+              "V11.3.4",
+              "V11.3.5",
+              "V11.5.2",
+              "V11.6.2",
+              "V11.7.1",
+              "V11.7.2",
+              "V12.1.4",
+              "V12.1.5",
+              "V12.3.5",
+              "V13.1.2",
+              "V13.1.3",
+              "V13.1.4",
+              "V13.2.6",
+              "V13.3.3",
+              "V13.3.4",
+              "V13.4.6",
+              "V13.4.7",
+              "V14.2.5",
+              "V14.2.6",
+              "V14.2.7",
+              "V14.2.8",
+              "V15.1.4",
+              "V15.1.5",
+              "V15.2.4",
+              "V15.2.5",
+              "V15.4.1",
+              "V15.4.2",
+              "V15.4.3",
+              "V15.4.4",
+              "V16.5.4",
+              "V17.1.2",
+              "V17.2.5",
+              "V17.2.6",
+              "V17.2.7",
+              "V17.2.8"
+            ]
+          }
+        ],
+        "externalReferences": [
+          {
+            "type": "website",
+            "url": "https://owasp.org/asvs"
+          },
+          {
+            "type": "vcs",
+            "url": "https://github.com/OWASP/ASVS"
+          },
+          {
+            "type": "issue-tracker",
+            "url": "https://github.com/OWASP/ASVS/issues"
+          },
+          {
+            "type": "social",
+            "url": "https://twitter.com/OWASP_ASVS"
+          }
+        ]
+      }
+    ]
+  }
+}
