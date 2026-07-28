@@ -2,7 +2,7 @@
 
 ## Control Objective
 
-This category focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
+This chapter focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
 
 ## V3.1 Web Frontend Security Documentation
 
