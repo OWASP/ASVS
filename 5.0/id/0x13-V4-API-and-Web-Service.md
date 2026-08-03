@@ -1,64 +1,64 @@
 # V4 API and Web Service
 
-## Control Objective
+## Tujuan Kontrol
 
-Several considerations apply specifically to applications that expose APIs for use by web browsers or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers the relevant security configurations and mechanisms that should be applied.
+Beberapa pertimbangan berlaku secara khusus untuk aplikasi yang mengekspos API untuk digunakan oleh web browser atau consumer lainnya (umumnya menggunakan JSON, XML, atau GraphQL). Bab ini membahas konfigurasi dan mekanisme keamanan relevan yang harus diterapkan.
 
-Note that authentication, session management, and input validation concerns from other chapters also apply to APIs, so this chapter cannot be taken out of context or tested in isolation.
+Perlu dicatat bahwa hal-hal terkait authentication, session management, dan input validation dari bab lain juga berlaku untuk API, sehingga bab ini tidak dapat dipisahkan dari konteksnya atau diuji secara terpisah.
 
-## V4.1 Generic Web Service Security
+## V4.1 Keamanan Web Service Umum
 
-This section addresses general web service security considerations and, consequently, basic web service hygiene practices.
+Bagian ini membahas pertimbangan keamanan web service secara umum dan, oleh karena itu, praktik-praktik dasar kebersihan (hygiene) web service.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **4.1.1** | Verify that every HTTP response with a message body contains a Content-Type header field that matches the actual content of the response, including the charset parameter to specify safe character encoding (e.g., UTF-8, ISO-8859-1) according to IANA Media Types, such as "text/", "/+xml" and "/xml". | 1 |
-| **4.1.2** | Verify that only user-facing endpoints (intended for manual web-browser access) automatically redirect from HTTP to HTTPS, while other services or endpoints do not implement transparent redirects. This is to avoid a situation where a client is erroneously sending unencrypted HTTP requests, but since the requests are being automatically redirected to HTTPS, the leakage of sensitive data goes undiscovered. | 2 |
-| **4.1.3** | Verify that any HTTP header field used by the application and set by an intermediary layer, such as a load balancer, a web proxy, or a backend-for-frontend service, cannot be overridden by the end-user. Example headers might include X-Real-IP, X-Forwarded-*, or X-User-ID. | 2 |
-| **4.1.4** | Verify that only HTTP methods that are explicitly supported by the application or its API (including OPTIONS during preflight requests) can be used and that unused methods are blocked. | 3 |
-| **4.1.5** | Verify that per-message digital signatures are used to provide additional assurance on top of transport protections for requests or transactions which are highly sensitive or which traverse a number of systems. | 3 |
+| **4.1.1** | Verifikasi bahwa setiap HTTP response dengan message body memiliki Content-Type header field yang sesuai dengan konten sebenarnya dari response tersebut, termasuk parameter charset untuk menentukan character encoding yang aman (misalnya, UTF-8, ISO-8859-1) sesuai dengan IANA Media Types, seperti "text/", "/+xml" dan "/xml". | 1 |
+| **4.1.2** | Verifikasi bahwa hanya endpoint yang menghadap pengguna (user-facing, dimaksudkan untuk akses manual melalui web browser) yang secara otomatis melakukan redirect dari HTTP ke HTTPS, sedangkan layanan atau endpoint lainnya tidak menerapkan transparent redirects. Hal ini untuk menghindari situasi di mana client secara keliru mengirimkan HTTP request yang tidak terenkripsi, namun karena request tersebut secara otomatis diarahkan ke HTTPS, kebocoran data sensitif menjadi tidak terdeteksi. | 2 |
+| **4.1.3** | Verifikasi bahwa HTTP header field apa pun yang digunakan oleh aplikasi dan diatur oleh lapisan perantara (intermediary layer), seperti load balancer, web proxy, atau layanan backend-for-frontend, tidak dapat di-override oleh pengguna akhir. Contoh header dapat mencakup X-Real-IP, X-Forwarded-*, atau X-User-ID. | 2 |
+| **4.1.4** | Verifikasi bahwa hanya metode HTTP yang secara eksplisit didukung oleh aplikasi atau API-nya (termasuk OPTIONS selama preflight requests) yang dapat digunakan dan metode yang tidak digunakan diblokir. | 3 |
+| **4.1.5** | Verifikasi bahwa per-message digital signatures digunakan untuk memberikan jaminan tambahan di atas perlindungan transport untuk request atau transaksi yang sangat sensitif atau yang melintasi sejumlah sistem. | 3 |
 
-## V4.2 HTTP Message Structure Validation
+## V4.2 Validasi Struktur Pesan HTTP
 
-This section explains how the structure and header fields of an HTTP message should be validated to prevent attacks such as request smuggling, response splitting, header injection, and denial of service via overly long HTTP messages.
+Bagian ini menjelaskan bagaimana struktur dan header fields dari sebuah pesan HTTP harus divalidasi untuk mencegah serangan seperti request smuggling, response splitting, header injection, dan denial of service melalui pesan HTTP yang terlalu panjang.
 
-These requirements are relevant for general HTTP message processing and generation, but are especially important when converting HTTP messages between different HTTP versions.
+Persyaratan ini relevan untuk pemrosesan dan pembuatan pesan HTTP secara umum, namun menjadi sangat penting terutama saat mengonversi pesan HTTP antar versi HTTP yang berbeda.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **4.2.1** | Verify that all application components (including load balancers, firewalls, and application servers) determine boundaries of incoming HTTP messages using the appropriate mechanism for the HTTP version to prevent HTTP request smuggling. In HTTP/1.x, if a Transfer-Encoding header field is present, the Content-Length header must be ignored per RFC 2616. When using HTTP/2 or HTTP/3, if a Content-Length header field is present, the receiver must ensure that it is consistent with the length of the DATA frames. | 2 |
-| **4.2.2** | Verify that when generating HTTP messages, the Content-Length header field does not conflict with the length of the content as determined by the framing of the HTTP protocol, in order to prevent request smuggling attacks. | 3 |
-| **4.2.3** | Verify that the application does not send nor accept HTTP/2 or HTTP/3 messages with connection-specific header fields such as Transfer-Encoding to prevent response splitting and header injection attacks. | 3 |
-| **4.2.4** | Verify that the application only accepts HTTP/2 and HTTP/3 requests where the header fields and values do not contain any CR (\r), LF (\n), or CRLF (\r\n) sequences, to prevent header injection attacks. | 3 |
-| **4.2.5** | Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g., a long cookie header field), which results in the server always responding with an error status. | 3 |
+| **4.2.1** | Verifikasi bahwa semua komponen aplikasi (termasuk load balancer, firewall, dan application server) menentukan batasan pesan HTTP yang masuk menggunakan mekanisme yang sesuai untuk versi HTTP tersebut guna mencegah HTTP request smuggling. Pada HTTP/1.x, jika sebuah Transfer-Encoding header field ada, Content-Length header harus diabaikan sesuai RFC 2616. Saat menggunakan HTTP/2 atau HTTP/3, jika sebuah Content-Length header field ada, penerima harus memastikan bahwa nilai tersebut konsisten dengan panjang DATA frames. | 2 |
+| **4.2.2** | Verifikasi bahwa saat membuat pesan HTTP, Content-Length header field tidak bertentangan dengan panjang konten sebagaimana ditentukan oleh framing protokol HTTP, guna mencegah serangan request smuggling. | 3 |
+| **4.2.3** | Verifikasi bahwa aplikasi tidak mengirim maupun menerima pesan HTTP/2 atau HTTP/3 dengan connection-specific header fields seperti Transfer-Encoding guna mencegah serangan response splitting dan header injection. | 3 |
+| **4.2.4** | Verifikasi bahwa aplikasi hanya menerima request HTTP/2 dan HTTP/3 yang header fields dan nilainya tidak mengandung urutan CR (\r), LF (\n), atau CRLF (\r\n), guna mencegah serangan header injection. | 3 |
+| **4.2.5** | Verifikasi bahwa, jika aplikasi (backend atau frontend) membangun dan mengirim request, aplikasi tersebut menggunakan validation, sanitization, atau mekanisme lain untuk menghindari pembuatan URI (seperti untuk pemanggilan API) atau HTTP request header fields (seperti Authorization atau Cookie) yang terlalu panjang untuk diterima oleh komponen penerima. Hal ini dapat menyebabkan denial of service, seperti saat mengirimkan request yang terlalu panjang (misalnya, cookie header field yang panjang), yang mengakibatkan server selalu merespons dengan status error. | 3 |
 
 ## V4.3 GraphQL
 
-GraphQL is becoming more common as a way of creating data-rich clients that are not tightly coupled to a variety of backend services. This section covers security considerations for GraphQL.
+GraphQL semakin umum digunakan sebagai cara untuk membuat client yang kaya data (data-rich) yang tidak terikat erat dengan berbagai layanan backend. Bagian ini membahas pertimbangan keamanan untuk GraphQL.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **4.3.1** | Verify that a query allowlist, depth limiting, amount limiting, or query cost analysis is used to prevent GraphQL or data layer expression Denial of Service (DoS) as a result of expensive, nested queries. | 2 |
-| **4.3.2** | Verify that GraphQL introspection queries are disabled in the production environment unless the GraphQL API is meant to be used by other parties. | 2 |
+| **4.3.1** | Verifikasi bahwa query allowlist, depth limiting, amount limiting, atau query cost analysis digunakan untuk mencegah GraphQL atau data layer expression Denial of Service (DoS) akibat query yang mahal (expensive) dan bersarang (nested). | 2 |
+| **4.3.2** | Verifikasi bahwa GraphQL introspection queries dinonaktifkan pada environment produksi, kecuali jika GraphQL API tersebut memang dimaksudkan untuk digunakan oleh pihak lain. | 2 |
 
 ## V4.4 WebSocket
 
-WebSocket is a communications protocol that provides a simultaneous two-way communication channel over a single TCP connection. It was standardized by the IETF as RFC 6455 in 2011 and is distinct from HTTP, even though it is designed to work over HTTP ports 443 and 80.
+WebSocket adalah protokol komunikasi yang menyediakan saluran komunikasi dua arah secara simultan melalui satu koneksi TCP tunggal. Protokol ini distandarkan oleh IETF sebagai RFC 6455 pada tahun 2011 dan berbeda dari HTTP, meskipun dirancang untuk bekerja melalui port HTTP 443 dan 80.
 
-This section provides key security requirements to prevent attacks related to communication security and session management that specifically exploit this real-time communication channel.
+Bagian ini menyediakan persyaratan keamanan utama untuk mencegah serangan yang terkait dengan keamanan komunikasi dan session management yang secara khusus mengeksploitasi saluran komunikasi real-time ini.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **4.4.1** | Verify that WebSocket over TLS (WSS) is used for all WebSocket connections. | 1 |
-| **4.4.2** | Verify that, during the initial HTTP WebSocket handshake, the Origin header field is checked against a list of origins allowed for the application. | 2 |
-| **4.4.3** | Verify that, if the application's standard session management cannot be used, dedicated tokens are being used for this, which comply with the relevant Session Management security requirements. | 2 |
-| **4.4.4** | Verify that dedicated WebSocket session management tokens are initially obtained or validated through the previously authenticated HTTPS session when transitioning an existing HTTPS session to a WebSocket channel. | 2 |
+| **4.4.1** | Verifikasi bahwa WebSocket over TLS (WSS) digunakan untuk semua koneksi WebSocket. | 1 |
+| **4.4.2** | Verifikasi bahwa, selama initial HTTP WebSocket handshake, Origin header field diperiksa terhadap daftar origin yang diizinkan untuk aplikasi tersebut. | 2 |
+| **4.4.3** | Verifikasi bahwa, jika session management standar aplikasi tidak dapat digunakan, token khusus (dedicated tokens) digunakan untuk hal ini, yang sesuai dengan persyaratan keamanan Session Management yang relevan. | 2 |
+| **4.4.4** | Verifikasi bahwa token session management WebSocket khusus pada awalnya diperoleh atau divalidasi melalui sesi HTTPS yang telah terautentikasi sebelumnya, saat mengalihkan sesi HTTPS yang ada ke saluran WebSocket. | 2 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
 * [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
-* Resources on GraphQL Authorization from [graphql.org](https://graphql.org/learn/authorization/) and [Apollo](https://www.apollographql.com/docs/apollo-server/security/authentication/#authorization-methods).
+* Sumber daya mengenai GraphQL Authorization dari [graphql.org](https://graphql.org/learn/authorization/) dan [Apollo](https://www.apollographql.com/docs/apollo-server/security/authentication/#authorization-methods).
 * [OWASP Web Security Testing Guide: GraphQL Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL)
 * [OWASP Web Security Testing Guide: Testing WebSockets](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing/10-Testing_WebSockets)

@@ -1,73 +1,73 @@
 # V2 Validation and Business Logic
 
-## Control Objective
+## Tujuan Kontrol
 
-This chapter aims to ensure that a verified application meets the following high-level goals:
+Bab ini bertujuan untuk memastikan bahwa aplikasi yang diverifikasi memenuhi tujuan tingkat tinggi berikut:
 
-* Input received by the application matches business or functional expectations.
-* The business logic flow is sequential, processed in order, and cannot be bypassed.
-* Business logic includes limits and controls to detect and prevent automated attacks, such as continuous small funds transfers or adding a million friends one at a time.
-* High-value business logic flows have considered abuse cases and malicious actors, and have protections against spoofing, tampering, information disclosure, and elevation of privilege attacks.
+* Input yang diterima oleh aplikasi sesuai dengan ekspektasi bisnis atau fungsional.
+* Alur business logic bersifat sekuensial, diproses secara berurutan, dan tidak dapat dilewati (bypassed).
+* Business logic mencakup batasan dan kontrol untuk mendeteksi serta mencegah serangan otomatis, seperti transfer dana kecil yang dilakukan terus-menerus atau menambahkan satu juta teman satu per satu.
+* Alur business logic yang bernilai tinggi telah mempertimbangkan abuse case dan pelaku jahat (malicious actors), serta memiliki perlindungan terhadap serangan spoofing, tampering, information disclosure, dan elevation of privilege.
 
-## V2.1 Validation and Business Logic Documentation
+## V2.1 Dokumentasi Validation dan Business Logic
 
-Validation and business logic documentation should clearly define business logic limits, validation rules, and contextual consistency of combined data items, so it is clear what needs to be implemented in the application.
+Dokumentasi validation dan business logic harus secara jelas mendefinisikan batasan business logic, aturan validasi, dan konsistensi kontekstual dari kombinasi item data, sehingga jelas apa yang perlu diimplementasikan dalam aplikasi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **2.1.1** | Verify that the application's documentation defines input validation rules for how to check the validity of data items against an expected structure. This could be common data formats such as credit card numbers, email addresses, telephone numbers, or it could be an internal data format. | 1 |
-| **2.1.2** | Verify that the application's documentation defines how to validate the logical and contextual consistency of combined data items, such as checking that suburb and ZIP code match. | 2 |
-| **2.1.3** | Verify that expectations for business logic limits and validations are documented, including both per-user and globally across the application. | 2 |
+| **2.1.1** | Verifikasi bahwa dokumentasi aplikasi mendefinisikan aturan input validation untuk cara memeriksa validitas item data terhadap struktur yang diharapkan. Ini dapat berupa format data umum seperti nomor kartu kredit, alamat email, nomor telepon, atau dapat berupa format data internal. | 1 |
+| **2.1.2** | Verifikasi bahwa dokumentasi aplikasi mendefinisikan cara memvalidasi konsistensi logis dan kontekstual dari kombinasi item data, seperti memeriksa bahwa nama kelurahan/kecamatan dan kode pos saling cocok. | 2 |
+| **2.1.3** | Verifikasi bahwa ekspektasi untuk batasan dan validasi business logic didokumentasikan, baik per pengguna maupun secara global di seluruh aplikasi. | 2 |
 
 ## V2.2 Input Validation
 
-Effective input validation controls enforce business or functional expectations around the type of data the application expects to receive. This ensures good data quality and reduces the attack surface. However, it does not remove or replace the need to use correct encoding, parameterization, or sanitization when using the data in another component or for presenting it for output.
+Kontrol input validation yang efektif menegakkan ekspektasi bisnis atau fungsional terkait jenis data yang diharapkan diterima oleh aplikasi. Hal ini memastikan kualitas data yang baik dan mengurangi attack surface. Namun, hal ini tidak menghilangkan atau menggantikan kebutuhan untuk menggunakan encoding, parameterization, atau sanitization yang tepat saat data tersebut digunakan pada komponen lain atau saat disajikan sebagai output.
 
-In this context, "input" could come from a wide variety of sources, including HTML form fields, REST requests, URL parameters, HTTP header fields, cookies, files on disk, databases, and external APIs.
+Dalam konteks ini, "input" dapat berasal dari berbagai sumber, termasuk HTML form fields, REST requests, parameter URL, HTTP header fields, cookies, file pada disk, database, dan API eksternal.
 
-A business logic control might check that a particular input is a number less than 100. A functional expectation might check that a number is below a certain threshold, as that number controls how many times a particular loop will take place, and a high number could lead to excessive processing and a potential denial of service condition.
+Sebuah kontrol business logic dapat memeriksa bahwa input tertentu adalah angka kurang dari 100. Sebuah ekspektasi fungsional dapat memeriksa bahwa suatu angka berada di bawah ambang batas tertentu, karena angka tersebut mengontrol berapa kali sebuah loop tertentu akan dijalankan, dan angka yang tinggi dapat mengakibatkan pemrosesan berlebihan serta potensi kondisi denial of service.
 
-While schema validation is not explicitly mandated, it may be the most effective mechanism for full validation coverage of HTTP APIs or other interfaces that use JSON or XML.
+Meskipun schema validation tidak diwajibkan secara eksplisit, ini bisa menjadi mekanisme paling efektif untuk cakupan validasi penuh terhadap HTTP API atau interface lain yang menggunakan JSON atau XML.
 
-Please note the following points on Schema Validation:
+Perhatikan poin-poin berikut mengenai Schema Validation:
 
-* The "published version" of the JSON Schema validation specification is considered production-ready, but not strictly speaking "stable." When using JSON Schema validation, ensure there are no gaps with the guidance in the requirements below.
-* Any JSON Schema validation libraries in use should also be monitored and updated if necessary once the standard is formalized.
-* DTD validation should not be used, and framework DTD evaluation should be disabled, to avoid issues with XXE attacks against DTDs.
+* "Published version" dari spesifikasi JSON Schema validation dianggap sudah siap untuk produksi (production-ready), namun secara ketat belum bisa dikatakan "stabil". Saat menggunakan JSON Schema validation, pastikan tidak ada celah dengan panduan pada persyaratan di bawah ini.
+* Pustaka JSON Schema validation apa pun yang digunakan juga harus dipantau dan diperbarui jika diperlukan setelah standar tersebut diresmikan.
+* DTD validation tidak boleh digunakan, dan evaluasi DTD pada framework harus dinonaktifkan, guna menghindari masalah serangan XXE terhadap DTD.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **2.2.1** | Verify that input is validated to enforce business or functional expectations for that input. This should either use positive validation against an allow list of values, patterns, and ranges, or be based on comparing the input to an expected structure and logical limits according to predefined rules. For L1, this can focus on input which is used to make specific business or security decisions. For L2 and up, this should apply to all input. | 1 |
-| **2.2.2** | Verify that the application is designed to enforce input validation at a trusted service layer. While client-side validation improves usability and should be encouraged, it must not be relied upon as a security control. | 1 |
-| **2.2.3** | Verify that the application ensures that combinations of related data items are reasonable according to the pre-defined rules. | 2 |
+| **2.2.1** | Verifikasi bahwa input divalidasi untuk menegakkan ekspektasi bisnis atau fungsional terhadap input tersebut. Hal ini harus menggunakan positive validation terhadap allow list nilai, pola, dan rentang, atau berdasarkan perbandingan input dengan struktur yang diharapkan dan batasan logis sesuai aturan yang telah ditentukan sebelumnya. Untuk L1, hal ini dapat difokuskan pada input yang digunakan untuk membuat keputusan bisnis atau keamanan tertentu. Untuk L2 ke atas, hal ini harus berlaku untuk semua input. | 1 |
+| **2.2.2** | Verifikasi bahwa aplikasi dirancang untuk menegakkan input validation pada trusted service layer. Meskipun client-side validation meningkatkan usability dan harus didorong penggunaannya, hal ini tidak boleh diandalkan sebagai kontrol keamanan. | 1 |
+| **2.2.3** | Verifikasi bahwa aplikasi memastikan kombinasi item data yang saling terkait masuk akal (reasonable) sesuai dengan aturan yang telah ditentukan sebelumnya. | 2 |
 
-## V2.3 Business Logic Security
+## V2.3 Keamanan Business Logic
 
-This section considers key requirements to ensure that the application enforces business logic processes in the correct way and is not vulnerable to attacks that exploit the logic and flow of the application.
+Bagian ini membahas persyaratan utama untuk memastikan bahwa aplikasi menegakkan proses business logic dengan cara yang benar dan tidak rentan terhadap serangan yang mengeksploitasi logika dan alur aplikasi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **2.3.1** | Verify that the application will only process business logic flows for the same user in the expected sequential step order and without skipping steps. | 1 |
-| **2.3.2** | Verify that business logic limits are implemented per the application's documentation to avoid business logic flaws being exploited. | 2 |
-| **2.3.3** | Verify that transactions are being used at the business logic level such that either a business logic operation succeeds in its entirety or it is rolled back to the previous correct state. | 2 |
-| **2.3.4** | Verify that business logic level locking mechanisms are used to ensure that limited quantity resources (such as theater seats or delivery slots) cannot be double-booked by manipulating the application's logic. | 2 |
-| **2.3.5** | Verify that high-value business logic flows require multi-user approval to prevent unauthorized or accidental actions. This could include but is not limited to large monetary transfers, contract approvals, access to classified information, or safety overrides in manufacturing. | 3 |
+| **2.3.1** | Verifikasi bahwa aplikasi hanya akan memproses alur business logic untuk pengguna yang sama sesuai urutan langkah sekuensial yang diharapkan dan tanpa melewatkan langkah apa pun. | 1 |
+| **2.3.2** | Verifikasi bahwa batasan business logic diimplementasikan sesuai dokumentasi aplikasi untuk menghindari kelemahan business logic dieksploitasi. | 2 |
+| **2.3.3** | Verifikasi bahwa transactions digunakan pada level business logic sedemikian rupa sehingga sebuah operasi business logic berhasil dilakukan secara keseluruhan atau dikembalikan (rolled back) ke keadaan benar sebelumnya. | 2 |
+| **2.3.4** | Verifikasi bahwa mekanisme locking pada level business logic digunakan untuk memastikan resource dengan kuantitas terbatas (seperti kursi teater atau slot pengiriman) tidak dapat dipesan ganda (double-booked) dengan memanipulasi logika aplikasi. | 2 |
+| **2.3.5** | Verifikasi bahwa alur business logic yang bernilai tinggi memerlukan persetujuan multi-user (multi-user approval) untuk mencegah tindakan yang tidak sah atau tidak disengaja. Hal ini dapat mencakup, namun tidak terbatas pada, transfer uang dalam jumlah besar, persetujuan kontrak, akses ke informasi rahasia, atau safety override dalam proses manufaktur. | 3 |
 
 ## V2.4 Anti-automation
 
-This section includes anti-automation controls to ensure that human-like interactions are required and excessive automated requests are prevented.
+Bagian ini mencakup kontrol anti-automation untuk memastikan bahwa interaksi yang menyerupai interaksi manusia diperlukan dan permintaan otomatis yang berlebihan dapat dicegah.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **2.4.1** | Verify that anti-automation controls are in place to protect against excessive calls to application functions that could lead to data exfiltration, garbage-data creation, quota exhaustion, rate-limit breaches, denial-of-service, or overuse of costly resources. | 2 |
-| **2.4.2** | Verify that business logic flows require realistic human timing, preventing excessively rapid transaction submissions. | 3 |
+| **2.4.1** | Verifikasi bahwa kontrol anti-automation diterapkan untuk melindungi dari pemanggilan fungsi aplikasi secara berlebihan yang dapat menyebabkan data exfiltration, pembuatan data sampah (garbage-data), habisnya quota, pelanggaran rate-limit, denial-of-service, atau penggunaan berlebihan terhadap resource yang mahal. | 2 |
+| **2.4.2** | Verifikasi bahwa alur business logic memerlukan timing yang realistis layaknya manusia, guna mencegah pengiriman transaksi yang berlangsung terlalu cepat. | 3 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
 * [OWASP Web Security Testing Guide: Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README.html)
 * [OWASP Web Security Testing Guide: Business Logic Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README)
-* Anti-automation can be achieved in many ways, including the use of the [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
+* Anti-automation dapat dicapai dengan berbagai cara, termasuk penggunaan [OWASP Automated Threats to Web Applications](https://owasp.org/www-project-automated-threats-to-web-applications/)
 * [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 * [JSON Schema](https://json-schema.org/specification.html)

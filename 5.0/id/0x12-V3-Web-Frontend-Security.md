@@ -1,96 +1,96 @@
 # V3 Web Frontend Security
 
-## Control Objective
+## Tujuan Kontrol
 
-This category focuses on requirements designed to protect against attacks executed via a web frontend. These requirements do not apply to machine-to-machine solutions.
+Kategori ini berfokus pada persyaratan yang dirancang untuk melindungi dari serangan yang dilakukan melalui web frontend. Persyaratan ini tidak berlaku untuk solusi machine-to-machine.
 
-## V3.1 Web Frontend Security Documentation
+## V3.1 Dokumentasi Web Frontend Security
 
-This section outlines the browser security features that should be specified in the application's documentation.
+Bagian ini menjelaskan fitur keamanan browser yang harus ditentukan dalam dokumentasi aplikasi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **3.1.1** | Verify that application documentation states the expected security features that browsers using the application must support (such as HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), and other relevant HTTP security mechanisms). It must also define how the application must behave when some of these features are not available (such as warning the user or blocking access). | 3 |
+| **3.1.1** | Verifikasi bahwa dokumentasi aplikasi menyatakan fitur keamanan yang diharapkan didukung oleh browser yang digunakan untuk mengakses aplikasi (seperti HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), dan mekanisme keamanan HTTP relevan lainnya). Dokumentasi tersebut juga harus mendefinisikan bagaimana aplikasi harus berperilaku jika beberapa fitur ini tidak tersedia (seperti memberi peringatan kepada pengguna atau memblokir akses). | 3 |
 
-## V3.2 Unintended Content Interpretation
+## V3.2 Interpretasi Konten yang Tidak Diinginkan
 
-Rendering content or functionality in an incorrect context can result in malicious content being executed or displayed.
+Me-render konten atau fungsionalitas dalam konteks yang salah dapat mengakibatkan konten berbahaya dieksekusi atau ditampilkan.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **3.2.1** | Verify that security controls are in place to prevent browsers from rendering content or functionality in HTTP responses in an incorrect context (e.g., when an API, a user-uploaded file or other resource is requested directly). Possible controls could include: not serving the content unless HTTP request header fields (such as Sec-Fetch-\*) indicate it is the correct context, using the sandbox directive of the Content-Security-Policy header field or using the attachment disposition type in the Content-Disposition header field. | 1 |
-| **3.2.2** | Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript. | 1 |
-| **3.2.3** | Verify that the application avoids DOM clobbering when using client-side JavaScript by employing explicit variable declarations, performing strict type checking, avoiding storing global variables on the document object, and implementing namespace isolation. | 3 |
+| **3.2.1** | Verifikasi bahwa kontrol keamanan diterapkan untuk mencegah browser me-render konten atau fungsionalitas dalam HTTP responses pada konteks yang salah (misalnya, ketika sebuah API, file yang diunggah pengguna, atau resource lain diminta secara langsung). Kontrol yang mungkin dapat mencakup: tidak menyajikan konten kecuali HTTP request header fields (seperti Sec-Fetch-\*) menunjukkan bahwa itu adalah konteks yang benar, menggunakan sandbox directive pada Content-Security-Policy header field, atau menggunakan attachment disposition type pada Content-Disposition header field. | 1 |
+| **3.2.2** | Verifikasi bahwa konten yang dimaksudkan untuk ditampilkan sebagai teks, bukan di-render sebagai HTML, ditangani menggunakan fungsi rendering yang aman (seperti createTextNode atau textContent) untuk mencegah eksekusi konten yang tidak diinginkan seperti HTML atau JavaScript. | 1 |
+| **3.2.3** | Verifikasi bahwa aplikasi menghindari DOM clobbering ketika menggunakan client-side JavaScript dengan menerapkan deklarasi variabel secara eksplisit, melakukan strict type checking, menghindari penyimpanan variabel global pada objek document, dan menerapkan namespace isolation. | 3 |
 
-## V3.3 Cookie Setup
+## V3.3 Konfigurasi Cookie
 
-This section outlines requirements for securely configuring sensitive cookies to provide a higher level of assurance that they were created by the application itself and to prevent their contents from leaking or being inappropriately modified.
+Bagian ini menjelaskan persyaratan untuk mengonfigurasi cookie yang sensitif secara aman guna memberikan tingkat jaminan yang lebih tinggi bahwa cookie tersebut dibuat oleh aplikasi itu sendiri, serta mencegah isinya bocor atau dimodifikasi secara tidak sah.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **3.3.1** | Verify that cookies have the 'Secure' attribute set, and if the '\__Host-' prefix is not used for the cookie name, the '__Secure-' prefix must be used for the cookie name. | 1 |
-| **3.3.2** | Verify that each cookie's 'SameSite' attribute value is set according to the purpose of the cookie, to limit exposure to user interface redress attacks and browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 2 |
-| **3.3.3** | Verify that cookies have the '__Host-' prefix for the cookie name unless they are explicitly designed to be shared with other hosts. | 2 |
-| **3.3.4** | Verify that if the value of a cookie is not meant to be accessible to client-side scripts (such as a session token), the cookie must have the 'HttpOnly' attribute set and the same value (e. g. session token) must only be transferred to the client via the 'Set-Cookie' header field. | 2 |
-| **3.3.5** | Verify that when the application writes a cookie, the cookie name and value length combined are not over 4096 bytes. Overly large cookies will not be stored by the browser and therefore not sent with requests, preventing the user from using application functionality which relies on that cookie. | 3 |
+| **3.3.1** | Verifikasi bahwa cookie memiliki atribut 'Secure' yang diatur, dan jika prefix '\__Host-' tidak digunakan untuk nama cookie, maka prefix '__Secure-' harus digunakan untuk nama cookie tersebut. | 1 |
+| **3.3.2** | Verifikasi bahwa nilai atribut 'SameSite' pada setiap cookie diatur sesuai dengan tujuan cookie tersebut, untuk membatasi paparan terhadap user interface redress attacks dan browser-based request forgery attacks, yang umum dikenal sebagai cross-site request forgery (CSRF). | 2 |
+| **3.3.3** | Verifikasi bahwa cookie memiliki prefix '__Host-' untuk nama cookie, kecuali jika cookie tersebut memang dirancang secara eksplisit untuk dibagikan dengan host lain. | 2 |
+| **3.3.4** | Verifikasi bahwa jika nilai suatu cookie tidak dimaksudkan untuk dapat diakses oleh client-side scripts (seperti session token), cookie tersebut harus memiliki atribut 'HttpOnly' yang diatur dan nilai yang sama (misalnya session token) hanya boleh dikirimkan ke client melalui 'Set-Cookie' header field. | 2 |
+| **3.3.5** | Verifikasi bahwa saat aplikasi menulis sebuah cookie, panjang gabungan nama dan nilai cookie tidak melebihi 4096 byte. Cookie yang terlalu besar tidak akan disimpan oleh browser dan karenanya tidak akan dikirimkan bersama request, sehingga mencegah pengguna menggunakan fungsionalitas aplikasi yang bergantung pada cookie tersebut. | 3 |
 
-## V3.4 Browser Security Mechanism Headers
+## V3.4 Header Mekanisme Keamanan Browser
 
-This section describes which security headers should be set on HTTP responses to enable browser security features and restrictions when handling responses from the application.
+Bagian ini menjelaskan header keamanan mana yang harus diatur pada HTTP responses untuk mengaktifkan fitur keamanan dan pembatasan browser saat menangani response dari aplikasi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **3.4.1** | Verify that a Strict-Transport-Security header field is included on all responses to enforce an HTTP Strict Transport Security (HSTS) policy. A maximum age of at least 1 year must be defined, and for L2 and up, the policy must apply to all subdomains as well. | 1 |
-| **3.4.2** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field is a fixed value by the application, or if the Origin HTTP request header field value is used, it is validated against an allowlist of trusted origins. When 'Access-Control-Allow-Origin: *' needs to be used, verify that the response does not include any sensitive information. | 1 |
-| **3.4.3** | Verify that HTTP responses include a Content-Security-Policy response header field which defines directives to ensure the browser only loads and executes trusted content or resources, in order to limit execution of malicious JavaScript. As a minimum, a global policy must be used which includes the directives object-src 'none' and base-uri 'none' and defines either an allowlist or uses nonces or hashes. For an L3 application, a per-response policy with nonces or hashes must be defined. | 2 |
-| **3.4.4** | Verify that all HTTP responses contain an 'X-Content-Type-Options: nosniff' header field. This instructs browsers not to use content sniffing and MIME type guessing for the given response, and to require the response's Content-Type header field value to match the destination resource. For example, the response to a request for a style is only accepted if the response's Content-Type is 'text/css'. This also enables the use of the Cross-Origin Read Blocking (CORB) functionality by the browser. | 2 |
-| **3.4.5** | Verify that the application sets a referrer policy to prevent leakage of technically sensitive data to third-party services via the 'Referer' HTTP request header field. This can be done using the Referrer-Policy HTTP response header field or via HTML element attributes. Sensitive data could include path and query data in the URL, and for internal non-public applications also the hostname. | 2 |
-| **3.4.6** | Verify that the web application uses the frame-ancestors directive of the Content-Security-Policy header field for every HTTP response to ensure that it cannot be embedded by default and that embedding of specific resources is allowed only when necessary. Note that the X-Frame-Options header field, although supported by browsers, is obsolete and may not be relied upon. | 2 |
-| **3.4.7** | Verify that the Content-Security-Policy header field specifies a location to report violations. | 3 |
-| **3.4.8** | Verify that all HTTP responses that initiate a document rendering (such as responses with Content-Type text/html), include the Cross‑Origin‑Opener‑Policy header field with the same-origin directive or the same-origin-allow-popups directive as required. This prevents attacks that abuse shared access to Window objects, such as tabnabbing and frame counting. | 3 |
+| **3.4.1** | Verifikasi bahwa Strict-Transport-Security header field disertakan pada semua response untuk menegakkan kebijakan HTTP Strict Transport Security (HSTS). Sebuah maximum age minimal 1 tahun harus didefinisikan, dan untuk L2 ke atas, kebijakan tersebut juga harus berlaku untuk semua subdomain. | 1 |
+| **3.4.2** | Verifikasi bahwa Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field bernilai tetap (fixed value) yang ditentukan oleh aplikasi, atau jika nilai Origin HTTP request header field digunakan, nilai tersebut divalidasi terhadap allowlist origin tepercaya. Ketika 'Access-Control-Allow-Origin: *' perlu digunakan, verifikasi bahwa response tersebut tidak menyertakan informasi sensitif apa pun. | 1 |
+| **3.4.3** | Verifikasi bahwa HTTP responses menyertakan Content-Security-Policy response header field yang mendefinisikan directives untuk memastikan browser hanya memuat dan menjalankan konten atau resource yang tepercaya, guna membatasi eksekusi JavaScript berbahaya. Minimal, sebuah kebijakan global harus digunakan yang mencakup directives object-src 'none' dan base-uri 'none' serta mendefinisikan allowlist atau menggunakan nonces atau hashes. Untuk aplikasi L3, sebuah kebijakan per-response dengan nonces atau hashes harus didefinisikan. | 2 |
+| **3.4.4** | Verifikasi bahwa semua HTTP responses mengandung 'X-Content-Type-Options: nosniff' header field. Hal ini menginstruksikan browser untuk tidak menggunakan content sniffing dan MIME type guessing terhadap response tertentu, dan mewajibkan nilai Content-Type header field pada response tersebut sesuai dengan resource tujuan. Misalnya, response terhadap sebuah permintaan style hanya diterima jika Content-Type pada response tersebut adalah 'text/css'. Hal ini juga mengaktifkan penggunaan fungsionalitas Cross-Origin Read Blocking (CORB) oleh browser. | 2 |
+| **3.4.5** | Verifikasi bahwa aplikasi mengatur sebuah referrer policy untuk mencegah kebocoran data teknis yang sensitif ke layanan pihak ketiga melalui 'Referer' HTTP request header field. Hal ini dapat dilakukan dengan menggunakan Referrer-Policy HTTP response header field atau melalui atribut elemen HTML. Data sensitif dapat mencakup data path dan query pada URL, dan untuk aplikasi internal non-publik juga termasuk hostname. | 2 |
+| **3.4.6** | Verifikasi bahwa aplikasi web menggunakan frame-ancestors directive pada Content-Security-Policy header field untuk setiap HTTP response guna memastikan aplikasi tidak dapat di-embed secara default dan bahwa embedding resource tertentu hanya diizinkan jika diperlukan. Perlu dicatat bahwa X-Frame-Options header field, meskipun masih didukung oleh browser, sudah usang (obsolete) dan tidak boleh diandalkan. | 2 |
+| **3.4.7** | Verifikasi bahwa Content-Security-Policy header field menentukan lokasi untuk melaporkan pelanggaran (violations). | 3 |
+| **3.4.8** | Verifikasi bahwa semua HTTP responses yang memicu rendering dokumen (seperti response dengan Content-Type text/html), menyertakan Cross‑Origin‑Opener‑Policy header field dengan directive same-origin atau directive same-origin-allow-popups sesuai kebutuhan. Hal ini mencegah serangan yang menyalahgunakan shared access terhadap Window objects, seperti tabnabbing dan frame counting. | 3 |
 
-## V3.5 Browser Origin Separation
+## V3.5 Pemisahan Origin Browser
 
-When accepting a request to sensitive functionality on the server side, the application needs to ensure the request is initiated by the application itself or by a trusted party and has not been forged by an attacker.
+Saat menerima permintaan terhadap fungsionalitas sensitif pada sisi server, aplikasi perlu memastikan bahwa permintaan tersebut diinisiasi oleh aplikasi itu sendiri atau oleh pihak tepercaya dan bukan dipalsukan (forged) oleh penyerang.
 
-Sensitive functionality in this context could include accepting form posts for authenticated and non-authenticated users (such as an authentication request), state-changing operations, or resource-demanding functionality (such as data export).
+Fungsionalitas sensitif dalam konteks ini dapat mencakup penerimaan form posts untuk pengguna yang telah maupun belum terautentikasi (seperti permintaan autentikasi), operasi yang mengubah state, atau fungsionalitas yang memerlukan resource besar (seperti data export).
 
-The key protections here are browser security policies like Same Origin Policy for JavaScript and also SameSite logic for cookies. Another common protection is the CORS preflight mechanism. This mechanism will be critical for endpoints designed to be called from a different origin, but it can also be a useful request forgery prevention mechanism for endpoints which are not designed to be called from a different origin.
+Perlindungan utama di sini adalah kebijakan keamanan browser seperti Same Origin Policy untuk JavaScript dan juga logika SameSite untuk cookie. Perlindungan umum lainnya adalah mekanisme CORS preflight. Mekanisme ini sangat penting untuk endpoint yang dirancang untuk dipanggil dari origin yang berbeda, namun juga dapat menjadi mekanisme pencegahan request forgery yang berguna untuk endpoint yang tidak dirancang untuk dipanggil dari origin yang berbeda.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **3.5.1** | Verify that, if the application does not rely on the CORS preflight mechanism to prevent disallowed cross-origin requests to use sensitive functionality, these requests are validated to ensure they originate from the application itself. This may be done by using and validating anti-forgery tokens or requiring extra HTTP header fields that are not CORS-safelisted request-header fields. This is to defend against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF). | 1 |
-| **3.5.2** | Verify that, if the application relies on the CORS preflight mechanism to prevent disallowed cross-origin use of sensitive functionality, it is not possible to call the functionality with a request which does not trigger a CORS-preflight request. This may require checking the values of the 'Origin' and 'Content-Type' request header fields or using an extra header field that is not a CORS-safelisted header-field. | 1 |
-| **3.5.3** | Verify that HTTP requests to sensitive functionality use appropriate HTTP methods such as POST, PUT, PATCH, or DELETE, and not methods defined by the HTTP specification as "safe" such as HEAD, OPTIONS, or GET. Alternatively, strict validation of the Sec-Fetch-* request header fields can be used to ensure that the request did not originate from an inappropriate cross-origin call, a navigation request, or a resource load (such as an image source) where this is not expected. | 1 |
-| **3.5.4** | Verify that separate applications are hosted on different hostnames to leverage the restrictions provided by same-origin policy, including how documents or scripts loaded by one origin can interact with resources from another origin and hostname-based restrictions on cookies. | 2 |
-| **3.5.5** | Verify that messages received by the postMessage interface are discarded if the origin of the message is not trusted, or if the syntax of the message is invalid. | 2 |
-| **3.5.6** | Verify that JSONP functionality is not enabled anywhere across the application to avoid Cross-Site Script Inclusion (XSSI) attacks. | 3 |
-| **3.5.7** | Verify that data requiring authorization is not included in script resource responses, like JavaScript files, to prevent Cross-Site Script Inclusion (XSSI) attacks. | 3 |
-| **3.5.8** | Verify that authenticated resources (such as images, videos, scripts, and other documents) can be loaded or embedded on behalf of the user only when intended. This can be accomplished by strict validation of the Sec-Fetch-* HTTP request header fields to ensure that the request did not originate from an inappropriate cross-origin call, or by setting a restrictive Cross-Origin-Resource-Policy HTTP response header field to instruct the browser to block returned content. | 3 |
+| **3.5.1** | Verifikasi bahwa, jika aplikasi tidak mengandalkan mekanisme CORS preflight untuk mencegah cross-origin requests yang tidak diizinkan menggunakan fungsionalitas sensitif, request tersebut divalidasi untuk memastikan bahwa request tersebut berasal dari aplikasi itu sendiri. Hal ini dapat dilakukan dengan menggunakan dan memvalidasi anti-forgery tokens atau mewajibkan HTTP header fields tambahan yang bukan merupakan CORS-safelisted request-header fields. Hal ini bertujuan untuk melindungi dari browser-based request forgery attacks, yang umum dikenal sebagai cross-site request forgery (CSRF). | 1 |
+| **3.5.2** | Verifikasi bahwa, jika aplikasi mengandalkan mekanisme CORS preflight untuk mencegah penggunaan cross-origin yang tidak diizinkan terhadap fungsionalitas sensitif, tidak mungkin untuk memanggil fungsionalitas tersebut dengan request yang tidak memicu CORS-preflight request. Hal ini mungkin memerlukan pemeriksaan nilai 'Origin' dan 'Content-Type' request header fields atau menggunakan header field tambahan yang bukan merupakan CORS-safelisted header-field. | 1 |
+| **3.5.3** | Verifikasi bahwa HTTP requests terhadap fungsionalitas sensitif menggunakan metode HTTP yang sesuai seperti POST, PUT, PATCH, atau DELETE, dan bukan metode yang didefinisikan oleh spesifikasi HTTP sebagai "safe" seperti HEAD, OPTIONS, atau GET. Sebagai alternatif, validasi ketat terhadap Sec-Fetch-* request header fields dapat digunakan untuk memastikan bahwa request tidak berasal dari pemanggilan cross-origin yang tidak sesuai, navigation request, atau resource load (seperti image source) yang seharusnya tidak diharapkan. | 1 |
+| **3.5.4** | Verifikasi bahwa aplikasi yang terpisah di-hosting pada hostname yang berbeda untuk memanfaatkan pembatasan yang disediakan oleh same-origin policy, termasuk bagaimana dokumen atau script yang dimuat oleh satu origin dapat berinteraksi dengan resource dari origin dan hostname lain serta pembatasan cookie berbasis hostname. | 2 |
+| **3.5.5** | Verifikasi bahwa pesan yang diterima oleh interface postMessage dibuang (discarded) jika origin dari pesan tersebut tidak tepercaya, atau jika sintaks pesan tersebut tidak valid. | 2 |
+| **3.5.6** | Verifikasi bahwa fungsionalitas JSONP tidak diaktifkan di bagian mana pun dalam aplikasi untuk menghindari serangan Cross-Site Script Inclusion (XSSI). | 3 |
+| **3.5.7** | Verifikasi bahwa data yang memerlukan otorisasi tidak disertakan dalam response resource script, seperti file JavaScript, untuk mencegah serangan Cross-Site Script Inclusion (XSSI). | 3 |
+| **3.5.8** | Verifikasi bahwa resource yang memerlukan autentikasi (seperti gambar, video, script, dan dokumen lainnya) hanya dapat dimuat atau di-embed atas nama pengguna ketika memang dimaksudkan demikian. Hal ini dapat dicapai dengan validasi ketat terhadap Sec-Fetch-* HTTP request header fields untuk memastikan bahwa request tidak berasal dari pemanggilan cross-origin yang tidak sesuai, atau dengan mengatur Cross-Origin-Resource-Policy HTTP response header field yang bersifat restriktif untuk menginstruksikan browser memblokir konten yang dikembalikan. | 3 |
 
-## V3.6 External Resource Integrity
+## V3.6 Integritas Resource Eksternal
 
-This section provides guidance for the safe hosting of content on third-party sites.
+Bagian ini memberikan panduan untuk hosting konten yang aman pada situs pihak ketiga.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **3.6.1** | Verify that client-side assets, such as JavaScript libraries, CSS, or web fonts, are only hosted externally (e.g., on a Content Delivery Network) if the resource is static and versioned and Subresource Integrity (SRI) is used to validate the integrity of the asset. If this is not possible, there should be a documented security decision to justify this for each resource. | 3 |
+| **3.6.1** | Verifikasi bahwa client-side assets, seperti pustaka JavaScript, CSS, atau web fonts, hanya di-hosting secara eksternal (misalnya, pada sebuah Content Delivery Network) jika resource tersebut bersifat statis dan memiliki versi (versioned) serta Subresource Integrity (SRI) digunakan untuk memvalidasi integritas asset tersebut. Jika hal ini tidak memungkinkan, harus ada keputusan keamanan yang terdokumentasi untuk menjustifikasi hal tersebut pada setiap resource. | 3 |
 
-## V3.7 Other Browser Security Considerations
+## V3.7 Pertimbangan Keamanan Browser Lainnya
 
-This section includes various other security controls and modern browser security features required for client-side browser security.
+Bagian ini mencakup berbagai kontrol keamanan lain dan fitur keamanan browser modern yang diperlukan untuk keamanan browser sisi client.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **3.7.1** | Verify that the application only uses client-side technologies which are still supported and considered secure. Examples of technologies which do not meet this requirement include NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, or client-side Java applets. | 2 |
-| **3.7.2** | Verify that the application will only automatically redirect the user to a different hostname or domain (which is not controlled by the application) where the destination appears on an allowlist. | 2 |
-| **3.7.3** | Verify that the application shows a notification when the user is being redirected to a URL outside of the application's control, with an option to cancel the navigation. | 3 |
-| **3.7.4** | Verify that the application's top-level domain (e.g., site.tld) is added to the public preload list for HTTP Strict Transport Security (HSTS). This ensures that the use of TLS for the application is built directly into the main browsers, rather than relying only on the Strict-Transport-Security response header field. | 3 |
-| **3.7.5** | Verify that the application behaves as documented (such as warning the user or blocking access) if the browser used to access the application does not support the expected security features. | 3 |
+| **3.7.1** | Verifikasi bahwa aplikasi hanya menggunakan teknologi client-side yang masih didukung dan dianggap aman. Contoh teknologi yang tidak memenuhi persyaratan ini antara lain NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, atau client-side Java applets. | 2 |
+| **3.7.2** | Verifikasi bahwa aplikasi hanya akan secara otomatis mengarahkan (redirect) pengguna ke hostname atau domain yang berbeda (yang tidak dikendalikan oleh aplikasi) apabila tujuan tersebut terdapat pada sebuah allowlist. | 2 |
+| **3.7.3** | Verifikasi bahwa aplikasi menampilkan notifikasi ketika pengguna diarahkan (redirect) ke URL di luar kendali aplikasi, dengan opsi untuk membatalkan navigasi tersebut. | 3 |
+| **3.7.4** | Verifikasi bahwa top-level domain aplikasi (misalnya, site.tld) ditambahkan ke public preload list untuk HTTP Strict Transport Security (HSTS). Hal ini memastikan bahwa penggunaan TLS untuk aplikasi tertanam langsung pada browser-browser utama, alih-alih hanya mengandalkan Strict-Transport-Security response header field. | 3 |
+| **3.7.5** | Verifikasi bahwa aplikasi berperilaku sesuai dengan yang didokumentasikan (seperti memberi peringatan kepada pengguna atau memblokir akses) jika browser yang digunakan untuk mengakses aplikasi tidak mendukung fitur keamanan yang diharapkan. | 3 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
 * [Set-Cookie __Host- prefix details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes)
 * [OWASP Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
