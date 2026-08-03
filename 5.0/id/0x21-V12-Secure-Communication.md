@@ -1,57 +1,57 @@
 # V12 Secure Communication
 
-## Control Objective
+## Tujuan Kontrol
 
-This chapter includes requirements related to the specific mechanisms that should be in place to protect data in transit, both between an end-user client and a backend service, as well as between internal and backend services.
+Bab ini mencakup persyaratan yang terkait dengan mekanisme spesifik yang harus diterapkan untuk melindungi data yang sedang ditransmisikan (in transit), baik antara client pengguna akhir dan backend service, maupun antara layanan internal dan backend service.
 
-The general concepts promoted by this chapter include:
+Konsep umum yang didorong oleh bab ini meliputi:
 
-* Ensuring that communications are encrypted externally, and ideally internally as well.
-* Configuring encryption mechanisms using the latest guidance, including preferred algorithms and ciphers.
-* Ensuring that communications are not being intercepted by unauthorized parties through the use of signed certificates.
+* Memastikan bahwa komunikasi dienkripsi secara eksternal, dan idealnya juga secara internal.
+* Mengonfigurasi mekanisme enkripsi menggunakan panduan terkini, termasuk algoritma dan cipher yang direkomendasikan.
+* Memastikan bahwa komunikasi tidak diintersep oleh pihak yang tidak berwenang melalui penggunaan sertifikat yang ditandatangani (signed certificates).
 
-In addition to outlining general principles and best practices, the ASVS also provides more in-depth technical information about cryptographic strength in Appendix C - Cryptography Standards.
+Selain menguraikan prinsip umum dan praktik terbaik, ASVS juga menyediakan informasi teknis yang lebih mendalam mengenai kekuatan kriptografi pada Appendix C - Cryptography Standards.
 
-## V12.1 General TLS Security Guidance
+## V12.1 Panduan Umum Keamanan TLS
 
-This section provides initial guidance on how to secure TLS communications. Up-to-date tools should be used to review TLS configuration on an ongoing basis.
+Bagian ini menyediakan panduan awal mengenai cara mengamankan komunikasi TLS. Alat (tools) yang selalu diperbarui harus digunakan untuk meninjau konfigurasi TLS secara berkelanjutan.
 
-While the use of wildcard TLS certificates is not inherently insecure, a compromise of a certificate that is deployed across all owned environments (e.g., production, staging, development, and test) may lead to a compromise of the security posture of the applications using it. Proper protection, management, and the use of separate TLS certificates in different environments should be employed if possible.
+Meskipun penggunaan sertifikat TLS wildcard tidak secara inheren tidak aman, kompromi terhadap sebuah sertifikat yang digunakan di seluruh environment yang dimiliki (misalnya, produksi, staging, development, dan test) dapat mengakibatkan kompromi terhadap postur keamanan aplikasi yang menggunakannya. Perlindungan, pengelolaan yang tepat, serta penggunaan sertifikat TLS terpisah pada environment yang berbeda-beda harus diterapkan jika memungkinkan.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **12.1.1** | Verify that only the latest recommended versions of the TLS protocol are enabled, such as TLS 1.2 and TLS 1.3. The latest version of the TLS protocol must be the preferred option. | 1 |
-| **12.1.2** | Verify that only recommended cipher suites are enabled, with the strongest cipher suites set as preferred. L3 applications must only support cipher suites which provide forward secrecy. | 2 |
-| **12.1.3** | Verify that the application validates that mTLS client certificates are trusted before using the certificate identity for authentication or authorization. | 2 |
-| **12.1.4** | Verify that proper certification revocation, such as Online Certificate Status Protocol (OCSP) Stapling, is enabled and configured. | 3 |
-| **12.1.5** | Verify that Encrypted Client Hello (ECH) is enabled in the application's TLS settings to prevent exposure of sensitive metadata, such as the Server Name Indication (SNI), during TLS handshake processes. | 3 |
+| **12.1.1** | Verifikasi bahwa hanya versi terbaru protokol TLS yang direkomendasikan yang diaktifkan, seperti TLS 1.2 dan TLS 1.3. Versi terbaru dari protokol TLS harus menjadi opsi yang diutamakan (preferred). | 1 |
+| **12.1.2** | Verifikasi bahwa hanya cipher suite yang direkomendasikan yang diaktifkan, dengan cipher suite terkuat diatur sebagai yang diutamakan (preferred). Aplikasi L3 hanya boleh mendukung cipher suite yang menyediakan forward secrecy. | 2 |
+| **12.1.3** | Verifikasi bahwa aplikasi memvalidasi bahwa sertifikat client mTLS tepercaya sebelum menggunakan identitas sertifikat tersebut untuk authentication atau authorization. | 2 |
+| **12.1.4** | Verifikasi bahwa mekanisme pencabutan sertifikat (certificate revocation) yang tepat, seperti Online Certificate Status Protocol (OCSP) Stapling, diaktifkan dan dikonfigurasi. | 3 |
+| **12.1.5** | Verifikasi bahwa Encrypted Client Hello (ECH) diaktifkan pada pengaturan TLS aplikasi guna mencegah terekspornya metadata sensitif, seperti Server Name Indication (SNI), selama proses TLS handshake. | 3 |
 
-## V12.2 HTTPS Communication with External Facing Services
+## V12.2 Komunikasi HTTPS dengan Layanan yang Menghadap Eksternal
 
-Ensure all HTTP traffic to external-facing services which the application exposes is sent encrypted, with publicly trusted certificates.
+Pastikan seluruh lalu lintas HTTP menuju layanan yang menghadap eksternal (external-facing) yang diekspos oleh aplikasi dikirimkan secara terenkripsi, dengan sertifikat yang tepercaya secara publik.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **12.2.1** | Verify that TLS is used for all connectivity between a client and external facing, HTTP-based services, and does not fall back to insecure or unencrypted communications. | 1 |
-| **12.2.2** | Verify that external facing services use publicly trusted TLS certificates. | 1 |
+| **12.2.1** | Verifikasi bahwa TLS digunakan untuk seluruh konektivitas antara client dan layanan berbasis HTTP yang menghadap eksternal, dan tidak berpindah kembali (fall back) ke komunikasi yang tidak aman atau tidak terenkripsi. | 1 |
+| **12.2.2** | Verifikasi bahwa layanan yang menghadap eksternal menggunakan sertifikat TLS yang tepercaya secara publik. | 1 |
 
-## V12.3 General Service to Service Communication Security
+## V12.3 Keamanan Komunikasi Umum Antar Layanan (Service to Service)
 
-Server communications (both internal and external) involve more than just HTTP. Connections to and from other systems must also be secure, ideally using TLS.
+Komunikasi server (baik internal maupun eksternal) melibatkan lebih dari sekadar HTTP. Koneksi menuju dan dari sistem lain juga harus aman, idealnya menggunakan TLS.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **12.3.1** | Verify that an encrypted protocol such as TLS is used for all inbound and outbound connections to and from the application, including monitoring systems, management tools, remote access and SSH, middleware, databases, mainframes, partner systems, or external APIs. The server must not fall back to insecure or unencrypted protocols. | 2 |
-| **12.3.2** | Verify that TLS clients validate certificates received before communicating with a TLS server. | 2 |
-| **12.3.3** | Verify that TLS or another appropriate transport encryption mechanism used for all connectivity between internal, HTTP-based services within the application, and does not fall back to insecure or unencrypted communications. | 2 |
-| **12.3.4** | Verify that TLS connections between internal services use trusted certificates. Where internally generated or self-signed certificates are used, the consuming service must be configured to only trust specific internal CAs and specific self-signed certificates. | 2 |
-| **12.3.5** | Verify that services communicating internally within a system (intra-service communications) use strong authentication to ensure that each endpoint is verified. Strong authentication methods, such as TLS client authentication, must be employed to ensure identity, using public-key infrastructure and mechanisms that are resistant to replay attacks. For microservice architectures, consider using a service mesh to simplify certificate management and enhance security. | 3 |
+| **12.3.1** | Verifikasi bahwa sebuah protokol terenkripsi seperti TLS digunakan untuk seluruh koneksi masuk (inbound) dan keluar (outbound) menuju dan dari aplikasi, termasuk sistem monitoring, alat manajemen, remote access dan SSH, middleware, database, mainframe, sistem partner, atau API eksternal. Server tidak boleh berpindah kembali (fall back) ke protokol yang tidak aman atau tidak terenkripsi. | 2 |
+| **12.3.2** | Verifikasi bahwa client TLS memvalidasi sertifikat yang diterima sebelum berkomunikasi dengan server TLS. | 2 |
+| **12.3.3** | Verifikasi bahwa TLS atau mekanisme transport encryption lain yang sesuai digunakan untuk seluruh konektivitas antara layanan internal berbasis HTTP dalam aplikasi, dan tidak berpindah kembali (fall back) ke komunikasi yang tidak aman atau tidak terenkripsi. | 2 |
+| **12.3.4** | Verifikasi bahwa koneksi TLS antar layanan internal menggunakan sertifikat yang tepercaya. Ketika sertifikat yang dihasilkan secara internal atau self-signed digunakan, layanan yang mengonsumsi (consuming service) harus dikonfigurasi untuk hanya mempercayai CA internal tertentu dan sertifikat self-signed tertentu. | 2 |
+| **12.3.5** | Verifikasi bahwa layanan yang berkomunikasi secara internal dalam suatu sistem (intra-service communications) menggunakan strong authentication untuk memastikan bahwa setiap endpoint terverifikasi. Metode strong authentication, seperti TLS client authentication, harus diterapkan untuk memastikan identitas, menggunakan public-key infrastructure dan mekanisme yang tahan terhadap serangan replay. Untuk arsitektur microservice, pertimbangkan penggunaan sebuah service mesh untuk menyederhanakan pengelolaan sertifikat dan meningkatkan keamanan. | 3 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
 * [OWASP - Transport Layer Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html)
-* [Mozilla's Server Side TLS configuration guide](https://wiki.mozilla.org/Security/Server_Side_TLS)
-* [Mozilla's tool to generate known good TLS configurations](https://ssl-config.mozilla.org/).
-* [O-Saft - OWASP Project to validate TLS configuration](https://owasp.org/www-project-o-saft/)
+* [Panduan konfigurasi Server Side TLS dari Mozilla](https://wiki.mozilla.org/Security/Server_Side_TLS)
+* [Alat dari Mozilla untuk menghasilkan konfigurasi TLS yang telah dikenal baik](https://ssl-config.mozilla.org/).
+* [O-Saft - Proyek OWASP untuk memvalidasi konfigurasi TLS](https://owasp.org/www-project-o-saft/)

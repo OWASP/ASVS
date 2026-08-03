@@ -1,4 +1,4 @@
-# V2 Validation and Business Logic
+# V2 Validation dan Business Logic
 
 ## Tujuan Kontrol
 

@@ -1,82 +1,82 @@
-# V16 Security Logging and Error Handling
+# V16 Security Logging dan Error Handling
 
-## Control Objective
+## Tujuan Kontrol
 
-Security logs are distinct from error or performance logs and are used to record security-relevant events such as authentication decisions, access control decisions, and attempts to bypass security controls, such as input validation or business logic validation. Their purpose is to support detection, response, and investigation by providing high-signal, structured data for analysis tools like SIEMs.
+Security log berbeda dari log error atau performa dan digunakan untuk mencatat kejadian (events) yang relevan dengan keamanan, seperti keputusan otentikasi, keputusan kontrol akses, serta upaya untuk melompati (bypass) kontrol keamanan seperti validasi input atau validasi logika bisnis. Tujuannya adalah untuk mendukung deteksi, respons, dan investigasi dengan menyediakan data terstruktur yang ber-signal tinggi (high-signal) untuk alat analisis seperti SIEM.
 
-Logs should not include sensitive personal data unless legally required, and any logged data must be protected as a high-value asset. Logging must not compromise privacy or system security. Applications must also fail securely, avoiding unnecessary disclosure or disruption.
+Log tidak boleh mencakup data pribadi yang sensitif kecuali diwajibkan secara hukum, dan setiap data yang dicatat harus dilindungi sebagai aset bernilai tinggi. Logging tidak boleh mengompromikan privasi atau keamanan sistem. Aplikasi juga harus mengalami kegagalan secara aman (fail securely), menghindari pengungkapan informasi atau gangguan yang tidak perlu.
 
-For detailed implementation guidance, refer to the OWASP Cheat Sheets in the references section.
+Untuk panduan implementasi terperinci, lihat OWASP Cheat Sheets di bagian referensi.
 
-## V16.1 Security Logging Documentation
+## V16.1 Dokumentasi Security Logging
 
-This section ensures a clear and complete inventory of logging across the application stack. This is essential for effective security monitoring, incident response, and compliance.
+Bagian ini memastikan inventarisasi logging yang jelas dan lengkap di seluruh stack aplikasi. Hal ini sangat penting untuk pemantauan keamanan yang efektif, respons insiden, dan kepatuhan (compliance).
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **16.1.1** | Verify that an inventory exists documenting the logging performed at each layer of the application's technology stack, what events are being logged, log formats, where that logging is stored, how it is used, how access to it is controlled, and for how long logs are kept. | 2 |
+| **16.1.1** | Verifikasi bahwa terdapat inventaris yang mendokumentasikan logging yang dilakukan pada setiap lapisan technology stack aplikasi, event apa saja yang dicatat, format log, lokasi penyimpanan log tersebut, bagaimana log digunakan, bagaimana akses ke log dikontrol, dan berapa lama log disimpan. | 2 |
 
 ## V16.2 General Logging
 
-This section provides requirements to ensure that security logs are consistently structured and contain the expected metadata. The goal is to make logs machine-readable and analyzable across distributed systems and tools.
+Bagian ini memberikan persyaratan untuk memastikan bahwa security log terstruktur secara konsisten dan berisi metadata yang diharapkan. Tujuannya adalah membuat log dapat dibaca oleh mesin (machine-readable) dan dapat dianalisis di seluruh sistem dan tools terdistribusi.
 
-Naturally, security events often involve sensitive data. If such data is logged without consideration, the logs themselves become classified and therefore subject to encryption requirements, stricter retention policies, and potential disclosure during audits.
+Secara alami, event keamanan sering kali melibatkan data sensitif. Jika data tersebut dicatat tanpa pertimbangan, log itu sendiri akan menjadi terklasifikasi dan oleh karena itu tunduk pada persyaratan enkripsi, kebijakan retensi yang lebih ketat, serta potensi pengungkapan selama audit.
 
-Therefore, it is critical to log only what is necessary and to treat log data with the same care as other sensitive assets.
+Oleh karena itu, sangat penting untuk mencatat hanya apa yang diperlukan dan memperlakukan data log dengan tingkat kepedulian yang sama seperti aset sensitif lainnya.
 
-The requirements below establish foundational requirements for logging metadata, synchronization, format, and control.
+Persyaratan di bawah ini menetapkan fondasi dasar untuk metadata logging, sinkronisasi, format, dan kontrol.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **16.2.1** | Verify that each log entry includes necessary metadata (such as when, where, who, what) that would allow for a detailed investigation of the timeline when an event happens. | 2 |
-| **16.2.2** | Verify that time sources for all logging components are synchronized, and that timestamps in security event metadata use UTC or include an explicit time zone offset. UTC is recommended to ensure consistency across distributed systems and to prevent confusion during daylight saving time transitions. | 2 |
-| **16.2.3** | Verify that the application only stores or broadcasts logs to the files and services that are documented in the log inventory. | 2 |
-| **16.2.4** | Verify that logs can be read and correlated by the log processor that is in use, preferably by using a common logging format. | 2 |
-| **16.2.5** | Verify that when logging sensitive data, the application enforces logging based on the data's protection level. For example, it may not be allowed to log certain data, such as credentials or payment details. Other data, such as session tokens, may only be logged by being hashed or masked, either in full or partially. | 2 |
+| **16.2.1** | Verifikasi bahwa setiap entry log mencakup metadata yang diperlukan (seperti kapan, di mana, siapa, apa) yang memungkinkan investigasi mendalam terhadap garis waktu (timeline) saat terjadi suatu event. | 2 |
+| **16.2.2** | Verifikasi bahwa sumber waktu untuk semua komponen logging tersinkronisasi, dan timestamp pada metadata event keamanan menggunakan UTC atau menyertakan offset zona waktu yang eksplisit. UTC direkomendasikan untuk memastikan konsistensi di seluruh sistem terdistribusi dan mencegah kebingungan selama transisi daylight saving time. | 2 |
+| **16.2.3** | Verifikasi bahwa aplikasi hanya menyimpan atau menyiarkan (broadcast) log ke file dan layanan yang terdokumentasi dalam inventaris log. | 2 |
+| **16.2.4** | Verifikasi bahwa log dapat dibaca dan dikorelasikan oleh pemroses log (log processor) yang digunakan, sebaiknya dengan menggunakan format logging umum. | 2 |
+| **16.2.5** | Verifikasi bahwa saat mencatat data sensitif, aplikasi menerapkan logging berdasarkan tingkat perlindungan data tersebut. Sebagai contoh, data tertentu seperti kredensial atau rincian pembayaran mungkin tidak diizinkan untuk dicatat. Data lain seperti token sesi hanya boleh dicatat dengan di-hash atau di-masking, baik secara penuh maupun sebagian. | 2 |
 
 ## V16.3 Security Events
 
-This section defines requirements for logging security-relevant events within the application. Capturing these events is critical for detecting suspicious behavior, supporting investigations, and fulfilling compliance obligations.
+Bagian ini mendefinisikan persyaratan untuk mencatat event yang relevan dengan keamanan di dalam aplikasi. Menangkap event ini sangat penting untuk mendeteksi perilaku mencurigakan, mendukung investigasi, dan memenuhi kewajiban kepatuhan.
 
-This section outlines the types of events that should be logged but does not attempt to provide exhaustive detail. Each application has unique risk factors and operational context.
+Bagian ini menguraikan jenis event yang harus dicatat tetapi tidak mencoba memberikan rincian yang meyeluruh. Setiap aplikasi memiliki faktor risiko dan konteks operasional yang unik.
 
-Note that while ASVS includes logging of security events in scope, alerting and correlation (e.g., SIEM rules or monitoring infrastructure) are considered out of scope and are handled by operational and monitoring systems.
+Harap dicatat bahwa meskipun ASVS mencakup pencatatan event keamanan dalam cakupannya, pengalihan peringatan (*alerting*) dan korelasi (misalnya aturan SIEM atau infrastruktur pemantauan) dianggap di luar cakupan dan ditangani oleh sistem operasional dan pemantauan.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **16.3.1** | Verify that all authentication operations are logged, including successful and unsuccessful attempts. Additional metadata, such as the type of authentication or factors used, should also be collected. | 2 |
-| **16.3.2** | Verify that failed authorization attempts are logged. For L3, this must include logging all authorization decisions, including logging when sensitive data is accessed (without logging the sensitive data itself). | 2 |
-| **16.3.3** | Verify that the application logs the security events that are defined in the documentation and also logs attempts to bypass the security controls, such as input validation, business logic, and anti-automation. | 2 |
-| **16.3.4** | Verify that the application logs unexpected errors and security control failures such as backend TLS failures. | 2 |
+| **16.3.1** | Verifikasi bahwa semua operasi otentikasi dicatat, termasuk percobaan yang berhasil dan yang gagal. Metadata tambahan, seperti jenis otentikasi atau faktor yang digunakan, juga harus dikumpulkan. | 2 |
+| **16.3.2** | Verifikasi bahwa percobaan otorisasi yang gagal dicatat. Untuk L3, ini harus mencakup pencatatan semua keputusan otorisasi, termasuk mencatat saat data sensitif diakses (tanpa mencatat data sensitif itu sendiri). | 2 |
+| **16.3.3** | Verifikasi bahwa aplikasi mencatat event keamanan yang didefinisikan dalam dokumentasi dan juga mencatat upaya untuk melompati (*bypass*) kontrol keamanan, seperti validasi input, logika bisnis, dan anti-otomatisasi. | 2 |
+| **16.3.4** | Verifikasi bahwa aplikasi mencatat error yang tidak terduga dan kegagalan kontrol keamanan seperti kegagalan backend TLS. | 2 |
 
 ## V16.4 Log Protection
 
-Logs are valuable forensic artifacts and must be protected. If logs can be easily modified or deleted, they lose their integrity and become unreliable for incident investigations or legal proceedings. Logs may expose internal application behavior or sensitive metadata, making them an attractive target for attackers.
+Log adalah artefak forensik yang berharga dan harus dilindungi. Jika log dapat diubah atau dihapus dengan mudah, log tersebut kehilangan integritasnya dan menjadi tidak dapat diandalkan untuk investigasi insiden atau proses hukum. Log dapat mengekspos perilaku internal aplikasi atau metadata sensitif, menjadikannya target yang menarik bagi penyerang.
 
-This section defines requirements to ensure that logs are protected from unauthorized access, tampering, and disclosure, and that they are safely transmitted and stored in secure, isolated systems.
+Bagian ini mendefinisikan persyaratan untuk memastikan bahwa log dilindungi dari akses yang tidak sah, manipulasi, dan pengungkapan, serta ditransmisikan dan disimpan secara aman di dalam sistem yang aman dan terisolasi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **16.4.1** | Verify that all logging components appropriately encode data to prevent log injection. | 2 |
-| **16.4.2** | Verify that logs are protected from unauthorized access and cannot be modified. | 2 |
-| **16.4.3** | Verify that logs are securely transmitted to a logically separate system for analysis, detection, alerting, and escalation. The aim is to ensure that if the application is breached, the logs are not compromised. | 2 |
+| **16.4.1** | Verifikasi bahwa semua komponen logging melakukan encode data dengan tepat untuk mencegah log injection. | 2 |
+| **16.4.2** | Verifikasi bahwa log dilindungi dari akses yang tidak sah dan tidak dapat diubah. | 2 |
+| **16.4.3** | Verifikasi bahwa log ditransmisikan secara aman ke sistem terpisah secara logis untuk analisis, deteksi, alerting, dan eskalasi. Tujuannya adalah untuk memastikan bahwa jika aplikasi dibobol, log tidak ikut terkompromikan. | 2 |
 
 ## V16.5 Error Handling
 
-This section defines requirements to ensure that applications fail gracefully and securely without disclosing sensitive internal details.
+Bagian ini mendefinisikan persyaratan untuk memastikan bahwa aplikasi mengalami kegagalan secara baik (*graceful*) dan aman tanpa mengungkapkan rincian internal yang sensitif.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **16.5.1** | Verify that a generic message is returned to the consumer when an unexpected or security-sensitive error occurs, ensuring no exposure of sensitive internal system data such as stack traces, queries, secret keys, and tokens. | 2 |
-| **16.5.2** | Verify that the application continues to operate securely when external resource access fails, for example, by using patterns such as circuit breakers or graceful degradation. | 2 |
-| **16.5.3** | Verify that the application fails gracefully and securely, including when an exception occurs, preventing fail-open conditions such as processing a transaction despite errors resulting from validation logic. | 2 |
-| **16.5.4** | Verify that a "last resort" error handler is defined which will catch all unhandled exceptions. This is both to avoid losing error details that must go to log files and to ensure that an error does not take down the entire application process, leading to a loss of availability. | 3 |
+| **16.5.1** | Verifikasi bahwa pesan generik dikembalikan ke pengguna/konsumen saat terjadi error yang tidak terduga atau sensitif terhadap keamanan, memastikan tidak ada paparan data sistem internal yang sensitif seperti stack trace, query, secret key, dan token. | 2 |
+| **16.5.2** | Verifikasi bahwa aplikasi tetap beroperasi secara aman ketika akses sumber daya eksternal gagal, misalnya dengan menggunakan pola seperti circuit breaker atau pemulihan secara bertahap (*graceful degradation*). | 2 |
+| **16.5.3** | Verifikasi bahwa aplikasi mengalami kegagalan secara *graceful* dan aman, termasuk saat terjadi pengecualian (*exception*), mencegah kondisi *fail-open* seperti memproses transaksi meskipun terjadi error akibat logika validasi. | 2 |
+| **16.5.4** | Verifikasi bahwa error handler "last resort" (upaya terakhir) telah ditentukan untuk menangkap semua pengecualian (*unhandled exceptions*). Ini bertujuan untuk menghindari kehilangan rincian error yang harus masuk ke file log dan memastikan bahwa error tidak menjatuhkan seluruh proses aplikasi, yang mengakibatkan hilangnya ketersediaan (*availability*). | 3 |
 
-Note: Certain languages, (including Swift, Go, and through common design practice, many functional languages,) do not support exceptions or last-resort event handlers. In this case, architects and developers should use a pattern, language, or framework-friendly way to ensure that applications can securely handle exceptional, unexpected, or security-related events.
+Catatan: Bahasa tertentu, (termasuk Swift, Go, dan melalui praktik desain umum, banyak bahasa fungsional,) tidak mendukung *exceptions* atau *last-resort event handlers*. Dalam hal ini, arsitek dan pengembang harus menggunakan pola, bahasa, atau cara yang ramah *framework* untuk memastikan bahwa aplikasi dapat menangani event luar biasa, tidak terduga, atau terkait keamanan secara aman.
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
 * [OWASP Web Security Testing Guide: Testing for Error Handling](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README)
 * [OWASP Authentication Cheat Sheet section about error messages](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages)
