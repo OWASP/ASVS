@@ -1,105 +1,105 @@
 # V11 Cryptography
 
-## Control Objective
+## Tujuan Kontrol
 
-The objective of this chapter is to define best practices for the general use of cryptography, as well as to instill a fundamental understanding of cryptographic principles and inspire a shift toward more resilient and modern approaches. It encourages the following:
+Tujuan bab ini adalah untuk mendefinisikan praktik terbaik untuk penggunaan cryptography secara umum, serta menanamkan pemahaman mendasar mengenai prinsip-prinsip kriptografi dan mendorong pergeseran menuju pendekatan yang lebih tangguh dan modern. Bab ini mendorong hal-hal berikut:
 
-* Implementing robust cryptographic systems that fail securely, adapt to evolving threats, and are future-proof.
-* Utilizing cryptographic mechanisms that are both secure and aligned with industry best practices.
-* Maintaining a secure cryptographic key management system with appropriate access controls and auditing.
-* Regularly evaluating the cryptographic landscape to assess new risks and adapt algorithms accordingly.
-* Discovering and managing cryptographic use cases throughout the application's lifecycle to ensure that all cryptographic assets are accounted for and secured.
+* Menerapkan sistem kriptografi yang tangguh, yang gagal secara aman (fail securely), beradaptasi terhadap ancaman yang terus berkembang, dan tahan terhadap perkembangan di masa depan (future-proof).
+* Memanfaatkan mekanisme kriptografi yang aman sekaligus selaras dengan praktik terbaik industri.
+* Mempertahankan sistem manajemen kunci kriptografi yang aman dengan kontrol akses dan audit yang sesuai.
+* Secara berkala mengevaluasi lanskap kriptografi untuk menilai risiko baru dan menyesuaikan algoritma yang digunakan.
+* Menemukan dan mengelola kasus penggunaan kriptografi di sepanjang siklus hidup aplikasi guna memastikan bahwa semua aset kriptografi terdata dan terlindungi.
 
-In addition to outlining general principles and best practices, this document also provides more in-depth technical information about the requirements in Appendix C - Cryptography Standards. This includes algorithms and modes that are considered "approved" for the purposes of the requirements in this chapter.
+Selain menguraikan prinsip umum dan praktik terbaik, dokumen ini juga menyediakan informasi teknis yang lebih mendalam mengenai persyaratan pada Appendix C - Cryptography Standards. Hal ini mencakup algoritma dan mode yang dianggap "disetujui" (approved) untuk tujuan persyaratan pada bab ini.
 
-Requirements that use cryptography to solve a separate problem, such as secrets management or communications security, will be in different parts of the standard.
+Persyaratan yang menggunakan cryptography untuk menyelesaikan masalah yang berbeda, seperti secrets management atau communications security, akan berada pada bagian standar yang berbeda.
 
-## V11.1 Cryptographic Inventory and Documentation
+## V11.1 Inventaris dan Dokumentasi Kriptografi
 
-Applications need to be designed with strong cryptographic architecture to protect data assets according to their classification. Encrypting everything is wasteful; not encrypting anything is legally negligent. A balance must be struck, usually during architectural or high-level design, design sprints, or architectural spikes. Designing cryptography "on the fly" or retrofitting it will inevitably cost much more to implement securely than simply building it in from the start.
+Aplikasi perlu dirancang dengan arsitektur kriptografi yang kuat untuk melindungi aset data sesuai dengan klasifikasinya. Mengenkripsi segalanya adalah tindakan yang boros; tidak mengenkripsi apa pun adalah kelalaian secara hukum. Sebuah keseimbangan harus dicapai, biasanya selama tahap desain arsitektur atau desain tingkat tinggi, design sprint, atau architectural spike. Merancang cryptography secara "on the fly" atau menambahkannya belakangan (retrofitting) pasti akan memakan biaya jauh lebih besar untuk diimplementasikan secara aman dibandingkan langsung membangunnya sejak awal.
 
-It is important to ensure that all cryptographic assets are regularly discovered, inventoried, and assessed. Please see the appendix for more information on how this can be done.
+Penting untuk memastikan bahwa semua aset kriptografi secara rutin ditemukan, diinventarisasi, dan dinilai. Silakan lihat appendix untuk informasi lebih lanjut mengenai bagaimana hal ini dapat dilakukan.
 
-The need to future-proof cryptographic systems against the eventual rise of quantum computing is also critical. Post-Quantum Cryptography (PQC) refers to cryptographic algorithms designed to remain secure against attacks by quantum computers, which are expected to break widely used algorithms such as RSA and elliptic curve cryptography (ECC).
+Kebutuhan untuk membuat sistem kriptografi tahan di masa depan (future-proof) terhadap kemunculan quantum computing juga sangat krusial. Post-Quantum Cryptography (PQC) merujuk pada algoritma kriptografi yang dirancang untuk tetap aman terhadap serangan oleh quantum computer, yang diperkirakan akan dapat memecahkan algoritma yang banyak digunakan seperti RSA dan elliptic curve cryptography (ECC).
 
-Please see the appendix for current guidance on vetted PQC primitives and standards.
+Silakan lihat appendix untuk panduan terkini mengenai primitif dan standar PQC yang telah diverifikasi (vetted).
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **11.1.1** | Verify that there is a documented policy for management of cryptographic keys and a cryptographic key lifecycle that follows a key management standard such as NIST SP 800-57. This should include ensuring that keys are not overshared (for example, with more than two entities for shared secrets and more than one entity for private keys). | 2 |
-| **11.1.2** | Verify that a cryptographic inventory is performed, maintained, regularly updated, and includes all cryptographic keys, algorithms, and certificates used by the application. It must also document where keys can and cannot be used in the system, and the types of data that can and cannot be protected using the keys. | 2 |
-| **11.1.3** | Verify that cryptographic discovery mechanisms are employed to identify all instances of cryptography in the system, including encryption, hashing, and signing operations. | 3 |
-| **11.1.4** | Verify that a cryptographic inventory is maintained. This must include a documented plan that outlines the migration path to new cryptographic standards, such as post-quantum cryptography, in order to react to future threats. | 3 |
+| **11.1.1** | Verifikasi bahwa terdapat kebijakan terdokumentasi untuk manajemen kunci kriptografi dan sebuah siklus hidup kunci kriptografi yang mengikuti standar manajemen kunci seperti NIST SP 800-57. Hal ini harus mencakup memastikan bahwa kunci tidak dibagikan secara berlebihan (misalnya, dengan lebih dari dua entitas untuk shared secrets dan lebih dari satu entitas untuk private keys). | 2 |
+| **11.1.2** | Verifikasi bahwa sebuah inventaris kriptografi dilakukan, dipelihara, diperbarui secara berkala, dan mencakup semua kunci kriptografi, algoritma, serta sertifikat yang digunakan oleh aplikasi. Inventaris tersebut juga harus mendokumentasikan di mana kunci dapat dan tidak dapat digunakan dalam sistem, serta jenis data yang dapat dan tidak dapat dilindungi menggunakan kunci tersebut. | 2 |
+| **11.1.3** | Verifikasi bahwa mekanisme cryptographic discovery diterapkan untuk mengidentifikasi seluruh penggunaan cryptography dalam sistem, termasuk operasi enkripsi, hashing, dan signing. | 3 |
+| **11.1.4** | Verifikasi bahwa sebuah inventaris kriptografi dipelihara. Hal ini harus mencakup sebuah rencana terdokumentasi yang menguraikan jalur migrasi menuju standar kriptografi baru, seperti post-quantum cryptography, guna mengantisipasi ancaman di masa depan. | 3 |
 
-## V11.2 Secure Cryptography Implementation
+## V11.2 Implementasi Cryptography yang Aman
 
-This section defines the requirements for the selection, implementation, and ongoing management of core cryptographic algorithms for an application. The objective is to ensure that only robust, industry-accepted cryptographic primitives are deployed, in alignment with current standards (e.g., NIST, ISO/IEC) and best practices. Organizations must ensure that each cryptographic component is selected based on peer-reviewed evidence and practical security testing.
+Bagian ini mendefinisikan persyaratan untuk pemilihan, implementasi, dan pengelolaan berkelanjutan terhadap algoritma kriptografi inti untuk sebuah aplikasi. Tujuannya adalah untuk memastikan bahwa hanya primitif kriptografi yang tangguh dan diterima secara industri yang digunakan, selaras dengan standar terkini (misalnya, NIST, ISO/IEC) dan praktik terbaik. Organisasi harus memastikan bahwa setiap komponen kriptografi dipilih berdasarkan bukti yang telah ditinjau sejawat (peer-reviewed) dan pengujian keamanan praktis.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **11.2.1** | Verify that industry-validated implementations (including libraries and hardware-accelerated implementations) are used for cryptographic operations. | 2 |
-| **11.2.2** | Verify that the application is designed with crypto agility such that random number, authenticated encryption, MAC, or hashing algorithms, key lengths, rounds, ciphers and modes can be reconfigured, upgraded, or swapped at any time, to protect against cryptographic breaks. Similarly, it must also be possible to replace keys and passwords and re-encrypt data. This will allow for seamless upgrades to post-quantum cryptography (PQC), once high-assurance implementations of approved PQC schemes or standards are widely available. | 2 |
-| **11.2.3** | Verify that all cryptographic primitives utilize a minimum of 128-bits of security based on the algorithm, key size, and configuration. For example, a 256-bit ECC key provides roughly 128 bits of security where RSA requires a 3072-bit key to achieve 128 bits of security. | 2 |
-| **11.2.4** | Verify that all cryptographic operations are constant-time, with no 'short-circuit' operations in comparisons, calculations, or returns, to avoid leaking information. | 3 |
-| **11.2.5** | Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable vulnerabilities, such as Padding Oracle attacks. | 3 |
+| **11.2.1** | Verifikasi bahwa implementasi yang telah tervalidasi secara industri (termasuk pustaka dan implementasi yang dipercepat oleh perangkat keras) digunakan untuk operasi kriptografi. | 2 |
+| **11.2.2** | Verifikasi bahwa aplikasi dirancang dengan crypto agility sedemikian rupa sehingga algoritma random number, authenticated encryption, MAC, atau hashing, panjang kunci, rounds, cipher, dan mode dapat dikonfigurasi ulang, ditingkatkan (upgraded), atau diganti kapan saja, guna melindungi dari pembobolan (breaks) kriptografi. Demikian pula, harus dimungkinkan juga untuk mengganti kunci dan password serta melakukan re-enkripsi data. Hal ini akan memungkinkan peningkatan (upgrade) yang mulus menuju post-quantum cryptography (PQC), setelah implementasi dengan jaminan tinggi (high-assurance) dari skema atau standar PQC yang disetujui tersedia secara luas. | 2 |
+| **11.2.3** | Verifikasi bahwa semua primitif kriptografi menggunakan tingkat keamanan minimal 128-bit berdasarkan algoritma, ukuran kunci, dan konfigurasi. Misalnya, sebuah kunci ECC 256-bit memberikan tingkat keamanan kira-kira 128 bit, sedangkan RSA memerlukan kunci 3072-bit untuk mencapai tingkat keamanan 128 bit. | 2 |
+| **11.2.4** | Verifikasi bahwa semua operasi kriptografi bersifat constant-time, tanpa operasi 'short-circuit' pada perbandingan, kalkulasi, atau return, guna menghindari kebocoran informasi. | 3 |
+| **11.2.5** | Verifikasi bahwa semua modul kriptografi gagal secara aman (fail securely), dan error ditangani dengan cara yang tidak memungkinkan terjadinya kerentanan, seperti serangan Padding Oracle. | 3 |
 
-## V11.3 Encryption Algorithms
+## V11.3 Algoritma Enkripsi
 
-Authenticated encryption algorithms built on AES and CHACHA20 form the backbone of modern cryptographic practice.
+Algoritma authenticated encryption yang dibangun di atas AES dan CHACHA20 menjadi tulang punggung praktik kriptografi modern.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **11.3.1** | Verify that insecure block modes (e.g., ECB) and weak padding schemes (e.g., PKCS#1 v1.5) are not used. | 1 |
-| **11.3.2** | Verify that only approved ciphers and modes such as AES with GCM are used. | 1 |
-| **11.3.3** | Verify that encrypted data is protected against unauthorized modification preferably by using an approved authenticated encryption method or by combining an approved encryption method with an approved MAC algorithm. | 2 |
-| **11.3.4** | Verify that nonces, initialization vectors, and other single-use numbers are not used for more than one encryption key and data-element pair. The method of generation must be appropriate for the algorithm being used. | 3 |
-| **11.3.5** | Verify that any combination of an encryption algorithm and a MAC algorithm is operating in encrypt-then-MAC mode. | 3 |
+| **11.3.1** | Verifikasi bahwa block mode yang tidak aman (misalnya, ECB) dan skema padding yang lemah (misalnya, PKCS#1 v1.5) tidak digunakan. | 1 |
+| **11.3.2** | Verifikasi bahwa hanya cipher dan mode yang disetujui, seperti AES dengan GCM, yang digunakan. | 1 |
+| **11.3.3** | Verifikasi bahwa data yang terenkripsi dilindungi dari modifikasi yang tidak sah, sebaiknya dengan menggunakan metode authenticated encryption yang disetujui atau dengan mengombinasikan metode enkripsi yang disetujui dengan algoritma MAC yang disetujui. | 2 |
+| **11.3.4** | Verifikasi bahwa nonces, initialization vectors, dan angka sekali pakai (single-use numbers) lainnya tidak digunakan untuk lebih dari satu pasangan kunci enkripsi dan elemen data. Metode pembuatannya harus sesuai untuk algoritma yang digunakan. | 3 |
+| **11.3.5** | Verifikasi bahwa kombinasi apa pun antara algoritma enkripsi dan algoritma MAC beroperasi dalam mode encrypt-then-MAC. | 3 |
 
-## V11.4 Hashing and Hash-based Functions
+## V11.4 Hashing dan Fungsi Berbasis Hash
 
-Cryptographic hashes are used in a wide variety of cryptographic protocols, such as digital signatures, HMAC, key derivation functions (KDF), random bit generation, and password storage. The security of the cryptographic system is only as strong as the underlying hash functions used. This section outlines the requirements for using secure hash functions in cryptographic operations.
+Cryptographic hash digunakan dalam berbagai macam protokol kriptografi, seperti digital signatures, HMAC, key derivation functions (KDF), pembuatan bit acak (random bit generation), dan penyimpanan password. Keamanan sistem kriptografi hanya sekuat fungsi hash yang mendasarinya. Bagian ini menguraikan persyaratan untuk menggunakan fungsi hash yang aman dalam operasi kriptografi.
 
-For password storage, as well as the cryptography appendix, the [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) will also provide useful context and guidance.
+Untuk penyimpanan password, serta appendix kriptografi, [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#password-hashing-algorithms) juga akan memberikan konteks dan panduan yang berguna.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **11.4.1** | Verify that only approved hash functions are used for general cryptographic use cases, including digital signatures, HMAC, KDF, and random bit generation. Disallowed hash functions, such as MD5, must not be used for any cryptographic purpose. | 1 |
-| **11.4.2** | Verify that passwords are stored using an approved, computationally intensive, key derivation function (also known as a "password hashing function"), with parameter settings configured based on current guidance. The settings should balance security and performance to make brute-force attacks sufficiently challenging for the required level of security. | 2 |
-| **11.4.3** | Verify that hash functions used in digital signatures, as part of data authentication or data integrity are collision resistant and have appropriate bit-lengths. If collision resistance is required, the output length must be at least 256 bits. If only resistance to second pre-image attacks is required, the output length must be at least 128 bits. | 2 |
-| **11.4.4** | Verify that the application uses approved key derivation functions with key stretching parameters when deriving secret keys from passwords. The parameters in use must balance security and performance to prevent brute-force attacks from compromising the resulting cryptographic key. | 2 |
+| **11.4.1** | Verifikasi bahwa hanya fungsi hash yang disetujui yang digunakan untuk kasus penggunaan kriptografi secara umum, termasuk digital signatures, HMAC, KDF, dan random bit generation. Fungsi hash yang tidak diizinkan, seperti MD5, tidak boleh digunakan untuk tujuan kriptografi apa pun. | 1 |
+| **11.4.2** | Verifikasi bahwa password disimpan menggunakan sebuah key derivation function yang disetujui dan membutuhkan komputasi intensif (juga dikenal sebagai "fungsi hashing password"), dengan pengaturan parameter yang dikonfigurasi berdasarkan panduan terkini. Pengaturan tersebut harus menyeimbangkan antara keamanan dan performa agar serangan brute-force cukup sulit dilakukan sesuai tingkat keamanan yang dibutuhkan. | 2 |
+| **11.4.3** | Verifikasi bahwa fungsi hash yang digunakan pada digital signatures, sebagai bagian dari autentikasi data atau integritas data, tahan terhadap collision (collision resistant) dan memiliki panjang bit yang sesuai. Jika ketahanan terhadap collision dibutuhkan, panjang output harus minimal 256 bit. Jika hanya ketahanan terhadap serangan second pre-image yang dibutuhkan, panjang output harus minimal 128 bit. | 2 |
+| **11.4.4** | Verifikasi bahwa aplikasi menggunakan key derivation function yang disetujui dengan parameter key stretching saat menurunkan (deriving) secret key dari password. Parameter yang digunakan harus menyeimbangkan antara keamanan dan performa untuk mencegah serangan brute-force membobol kunci kriptografi yang dihasilkan. | 2 |
 
-## V11.5 Random Values
+## V11.5 Nilai Acak (Random Values)
 
-Cryptographically secure Pseudo-random Number Generation (CSPRNG) is incredibly difficult to get right. Generally, good sources of entropy within a system will be quickly depleted if over-used, but sources with less randomness can lead to predictable keys and secrets.
+Cryptographically secure Pseudo-random Number Generation (CSPRNG) sangat sulit untuk dilakukan dengan benar. Umumnya, sumber entropi yang baik dalam sebuah sistem akan cepat habis jika digunakan secara berlebihan, namun sumber dengan tingkat keacakan yang lebih rendah dapat mengakibatkan kunci dan secret yang dapat diprediksi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **11.5.1** | Verify that all random numbers and strings which are intended to be non-guessable must be generated using a cryptographically secure pseudo-random number generator (CSPRNG) and have at least 128 bits of entropy. Note that UUIDs do not respect this condition. | 2 |
-| **11.5.2** | Verify that the random number generation mechanism in use is designed to work securely, even under heavy demand. | 3 |
+| **11.5.1** | Verifikasi bahwa semua angka dan string acak yang dimaksudkan untuk tidak dapat ditebak (non-guessable) harus dihasilkan menggunakan cryptographically secure pseudo-random number generator (CSPRNG) dan memiliki entropi minimal 128 bit. Perlu dicatat bahwa UUID tidak memenuhi kondisi ini. | 2 |
+| **11.5.2** | Verifikasi bahwa mekanisme random number generation yang digunakan dirancang untuk bekerja secara aman, bahkan di bawah permintaan yang tinggi (heavy demand). | 3 |
 
 ## V11.6 Public Key Cryptography
 
-Public Key Cryptography will be used where it is not possible or not desirable to share a secret key between multiple parties.
+Public Key Cryptography digunakan pada kondisi di mana tidak memungkinkan atau tidak diinginkan untuk membagikan sebuah secret key antar beberapa pihak.
 
-As part of this, there exists a need for approved key exchange mechanisms, such as Diffie-Hellman and Elliptic Curve Diffie-Hellman (ECDH) to ensure that the cryptosystem remains secure against modern threats. The "Secure Communication" chapter provides requirements for TLS so the requirements in this section are intended for situations where Public Key Cryptography is being used in use cases other than TLS.
+Sebagai bagian dari hal ini, terdapat kebutuhan akan mekanisme key exchange yang disetujui, seperti Diffie-Hellman dan Elliptic Curve Diffie-Hellman (ECDH), guna memastikan bahwa sistem kriptografi tetap aman terhadap ancaman modern. Bab "Secure Communication" menyediakan persyaratan untuk TLS, sehingga persyaratan pada bagian ini dimaksudkan untuk situasi di mana Public Key Cryptography digunakan pada kasus penggunaan selain TLS.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **11.6.1** | Verify that only approved cryptographic algorithms and modes of operation are used for key generation and seeding, and digital signature generation and verification. Key generation algorithms must not generate insecure keys vulnerable to known attacks, for example, RSA keys which are vulnerable to Fermat factorization. | 2 |
-| **11.6.2** | Verify that approved cryptographic algorithms are used for key exchange (such as Diffie-Hellman) with a focus on ensuring that key exchange mechanisms use secure parameters. This will prevent attacks on the key establishment process which could lead to adversary-in-the-middle attacks or cryptographic breaks. | 3 |
+| **11.6.1** | Verifikasi bahwa hanya algoritma kriptografi dan mode operasi yang disetujui yang digunakan untuk pembuatan dan seeding kunci, serta pembuatan dan verifikasi digital signature. Algoritma pembuatan kunci tidak boleh menghasilkan kunci yang tidak aman dan rentan terhadap serangan yang telah diketahui, misalnya, kunci RSA yang rentan terhadap Fermat factorization. | 2 |
+| **11.6.2** | Verifikasi bahwa algoritma kriptografi yang disetujui digunakan untuk key exchange (seperti Diffie-Hellman) dengan fokus untuk memastikan bahwa mekanisme key exchange menggunakan parameter yang aman. Hal ini akan mencegah serangan terhadap proses key establishment yang dapat mengakibatkan serangan adversary-in-the-middle atau pembobolan kriptografi. | 3 |
 
-## V11.7 In-Use Data Cryptography
+## V11.7 Kriptografi Data yang Sedang Digunakan (In-Use)
 
-Protecting data while it is being processed is paramount. Techniques such as full memory encryption, encryption of data in transit, and ensuring data is encrypted as quickly as possible after use is recommended.
+Melindungi data selagi sedang diproses sangatlah penting. Teknik seperti full memory encryption, enkripsi data yang sedang ditransmisikan (in transit), dan memastikan data dienkripsi secepat mungkin setelah digunakan sangat direkomendasikan.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **11.7.1** | Verify that full memory encryption is in use that protects sensitive data while it is in use, preventing access by unauthorized users or processes. | 3 |
-| **11.7.2** | Verify that data minimization ensures the minimal amount of data is exposed during processing, and ensure that data is encrypted immediately after use or as soon as feasible. | 3 |
+| **11.7.1** | Verifikasi bahwa full memory encryption digunakan untuk melindungi data sensitif selagi sedang digunakan, mencegah akses oleh pengguna atau proses yang tidak berwenang. | 3 |
+| **11.7.2** | Verifikasi bahwa data minimization memastikan hanya jumlah data minimal yang terekspos selama pemrosesan, dan pastikan data dienkripsi segera setelah digunakan atau sesegera mungkin. | 3 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
 * [OWASP Web Security Testing Guide: Testing for Weak Cryptography](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography)
 * [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)

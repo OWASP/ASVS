@@ -1,47 +1,47 @@
 # Penilaian dan Sertifikasi
 
-## Sikap OWASP Terkait Sertifikasi dan Tanda Kepercayaan ASVS
+## Sikap OWASP Terhadap Sertifikasi ASVS dan Trust Mark
 
-OWASP, sebagai organisasi nirlaba yang netral terhadap vendor, tidak memberikan sertifikasi kepada vendor, pihak verifikator, atau perangkat lunak mana pun. Setiap jaminan, tanda kepercayaan, atau sertifikasi yang mengklaim kepatuhan terhadap ASVS tidak secara resmi didukung oleh OWASP; oleh karena itu, organisasi disarankan untuk berhati-hati terhadap klaim pihak ketiga mengenai sertifikasi ASVS.
+OWASP, sebagai organisasi nirlaba yang netral vendor, tidak menyertifikasi vendor, verifikator, atau perangkat lunak apa pun. Jaminan (*assurance*), *trust mark*, atau sertifikasi apa pun yang mengklaim kepatuhan ASVS tidak didukung secara resmi oleh OWASP, sehingga organisasi harus berhati-hati terhadap klaim pihak ketiga mengenai sertifikasi ASVS.
 
-Organisasi dapat menawarkan layanan jaminan, asalkan mereka tidak mengklaim memiliki sertifikasi resmi OWASP.
+Organisasi dapat menawarkan layanan jaminan (*assurance services*), asalkan mereka tidak mengklaim sertifikasi resmi dari OWASP.
 
 ## Cara Memverifikasi Kepatuhan ASVS
 
-ASVS sengaja tidak memberikan petunjuk pasti tentang bagaimana memverifikasi kepatuhan pada tingkat panduan pengujian. Namun, penting untuk menyoroti beberapa poin kunci.
+ASVS sengaja dibuat tidak preskriptif mengenai cara tepat memverifikasi kepatuhan pada tingkat panduan pengujian. Namun, penting untuk menyoroti beberapa poin kunci.
 
-### Laporan Verifikasi
+### Pelaporan Verifikasi
 
-Laporan pengujian penetrasi konvensional biasanya melaporkan masalah "berdasarkan pengecualian", dengan hanya mencantumkan kegagalan. Namun, laporan sertifikasi ASVS harus mencakup ruang lingkup, ringkasan seluruh persyaratan yang telah diperiksa, persyaratan di mana pengecualian ditemukan, serta panduan untuk mengatasi masalah tersebut. Beberapa persyaratan mungkin tidak berlaku (misalnya, manajemen sesi pada API stateless), dan hal ini harus dicantumkan dalam laporan.
+Laporan *penetration testing* tradisional biasanya melaporkan masalah "berdasarkan pengecualian" (*by exception*), yang hanya mencantumkan kegagalan. Namun, laporan sertifikasi ASVS harus mencakup cakupan (*scope*), ringkasan dari semua persyaratan yang diperiksa, persyaratan di mana pengecualian dicatat, serta panduan tentang penyelesaian masalah. Beberapa persyaratan mungkin tidak berlaku (misalnya, manajemen sesi pada API *stateless*), dan hal ini harus dicatat dalam laporan.
 
-### Ruang Lingkup Verifikasi
+### Cakupan Verifikasi
 
-Sebuah organisasi yang mengembangkan aplikasi umumnya tidak akan menerapkan semua persyaratan, karena beberapa di antaranya mungkin tidak relevan atau kurang signifikan berdasarkan fungsionalitas aplikasi tersebut. Pihak verifikator harus menjelaskan ruang lingkup verifikasi secara jelas, termasuk Tingkat mana yang ingin dicapai oleh organisasi tersebut dan persyaratan mana saja yang dimasukkan. Penjelasan ini harus didasarkan pada apa yang dimasukkan, bukan apa yang tidak dimasukkan. Mereka juga harus memberikan pendapat mengenai alasan pengecualian terhadap persyaratan yang belum diterapkan.
+Organisasi yang mengembangkan aplikasi umumnya tidak akan mengimplementasikan semua persyaratan, karena beberapa mungkin tidak relevan atau kurang signifikan berdasarkan fungsionalitas aplikasi tersebut. Verifikator harus memperjelas cakupan verifikasi, termasuk Level mana yang ingin dicapai oleh organisasi dan persyaratan mana saja yang dilingkupi. Hal ini harus dilihat dari perspektif apa saja yang dimasukkan, alih-alih apa yang tidak dimasukkan. Mereka juga harus memberikan pandangan/pendapat mengenai alasan mengecualikan persyaratan yang belum diimplementasikan.
 
-Hal ini diharapkan dapat membantu pembaca laporan verifikasi memahami konteks verifikasi tersebut dan mengambil keputusan yang tepat mengenai tingkat kepercayaan yang dapat mereka berikan terhadap aplikasi tersebut.
+Hal ini memungkinkan konsumen laporan verifikasi untuk memahami konteks verifikasi dan membuat keputusan yang tepat mengenai tingkat kepercayaan yang dapat mereka berikan pada aplikasi tersebut.
 
-Lembaga sertifikasi dapat memilih metode pengujian yang akan digunakan, namun harus mencantumkannya dalam laporan, dan metode tersebut sebaiknya dapat diulang. Berbagai metode, seperti pengujian penetrasi manual atau analisis kode sumber, dapat digunakan untuk memverifikasi aspek-aspek seperti validasi input, tergantung pada aplikasi dan persyaratannya.
+Organisasi penilai dapat memilih metode pengujian mereka sendiri, tetapi harus mengungkapkannya dalam laporan dan metode ini idealnya dapat diulang (*repeatable*). Berbagai metode, seperti *manual penetration test* atau analisis *source code*, dapat digunakan untuk memverifikasi aspek-aspek seperti validasi input, tergantung pada aplikasi dan persyaratannya.
 
 ### Mekanisme Verifikasi
 
-Terdapat sejumlah teknik berbeda yang mungkin diperlukan untuk memverifikasi persyaratan ASVS tertentu. Selain pengujian penetrasi (menggunakan kredensial yang sah untuk menjangkau seluruh aplikasi), verifikasi persyaratan ASVS mungkin memerlukan akses ke dokumentasi, kode sumber, konfigurasi, serta pihak-pihak yang terlibat dalam proses pengembangan. Terutama untuk memverifikasi persyaratan L2 dan L3. Merupakan praktik standar untuk menyediakan bukti temuan yang kuat dengan dokumentasi terperinci, yang dapat mencakup dokumen kerja, tangkapan layar, skrip, dan log pengujian. Hanya menjalankan alat otomatis tanpa pengujian menyeluruh tidak cukup untuk sertifikasi, karena setiap persyaratan harus diuji secara terverifikasi.
+Terdapat sejumlah teknik berbeda yang mungkin diperlukan untuk memverifikasi persyaratan ASVS tertentu. Selain *penetration testing* (menggunakan kredensial yang valid untuk mendapatkan cakupan aplikasi secara penuh), memverifikasi persyaratan ASVS dapat memerlukan akses ke dokumentasi, *source code*, konfigurasi, dan orang-orang yang terlibat dalam proses pengembangan. Terutama untuk memverifikasi persyaratan Level 2 dan Level 3. Sudah menjadi praktik standar untuk menyediakan bukti temuan yang kuat dengan dokumentasi terperinci, yang dapat mencakup lembar kerja (*work papers*), tangkapan layar, skrip, dan *log* pengujian. Hanya menjalankan alat otomatis tanpa pengujian menyeluruh tidaklah cukup untuk sertifikasi, karena setiap persyaratan harus diuji secara terverifikasi.
 
-Penggunaan otomatisasi untuk memverifikasi persyaratan ASVS merupakan topik yang selalu menarik perhatian. Oleh karena itu, penting untuk menjelaskan beberapa hal terkait pengujian otomatis dan pengujian kotak hitam.
+Penggunaan otomatisasi untuk memverifikasi persyaratan ASVS adalah topik yang terus-menerus menarik perhatian. Oleh karena itu, penting untuk memperjelas beberapa poin terkait pengujian otomatis dan *black box*.
 
-#### Peran Alat Pengujian Keamanan Otomatis
+#### Peran Alat Pengujian Keamanan Otomatis (Automated Security Testing Tools)
 
-Ketika alat pengujian keamanan otomatis seperti Dynamic Application Security Testing (DAST) dan Static Application Security Testing (SAST) diterapkan dengan benar dalam alur kerja pengembangan, alat-alat tersebut berpotensi mengidentifikasi beberapa masalah keamanan yang seharusnya tidak pernah terjadi. Namun, tanpa konfigurasi dan penyempurnaan yang cermat, alat-alat tersebut tidak akan memberikan cakupan yang diperlukan, dan tingginya tingkat "noise" akan menghalangi identifikasi serta penanganan masalah keamanan yang sesungguhnya.
+Ketika alat pengujian keamanan otomatis seperti *Dynamic and Static Application Security Testing* (DAST dan SAST) diimplementasikan dengan benar dalam *build pipeline*, alat tersebut mungkin dapat mengidentifikasi beberapa masalah keamanan yang seharusnya tidak pernah ada. Namun, tanpa konfigurasi dan penyesuaian (*tuning*) yang cermat, alat-alat ini tidak akan memberikan cakupan yang diperlukan, dan tingkat *noise* akan mencegah masalah keamanan yang sebenarnya untuk diidentifikasi dan dimitigasi.
 
-Meskipun hal ini mungkin dapat memenuhi beberapa persyaratan teknis yang lebih mendasar dan sederhana, seperti yang berkaitan dengan pengkodean keluaran atau sanitasi, penting untuk dicatat bahwa alat-alat ini tidak akan mampu sepenuhnya memverifikasi banyak persyaratan ASVS yang lebih rumit atau yang berkaitan dengan logika bisnis dan kontrol akses.
+Meskipun hal ini dapat memberikan cakupan untuk beberapa persyaratan teknis yang lebih dasar dan lugas seperti yang berkaitan dengan *output encoding* atau sanitasi, sangat penting untuk dicatat bahwa alat-alat ini tidak akan mampu sepenuhnya memverifikasi banyak persyaratan ASVS yang lebih rumit atau yang berkaitan dengan logika bisnis dan kontrol akses.
 
-Untuk persyaratan yang tidak terlalu sederhana, otomatisasi kemungkinan besar masih dapat diterapkan, namun untuk mewujudkannya, perlu ditulis verifikasi khusus aplikasi (ASVS). Verifikasi ini mungkin mirip dengan uji unit dan uji integrasi yang mungkin sudah digunakan oleh organisasi. Oleh karena itu, infrastruktur otomatisasi pengujian yang sudah ada ini mungkin dapat dimanfaatkan untuk menulis uji ASVS tersebut. Meskipun hal ini memerlukan investasi jangka pendek, manfaat jangka panjangnya—yaitu kemampuan untuk terus memverifikasi persyaratan ASVS ini—akan sangat signifikan.
+Untuk persyaratan yang kurang sederhana, kemungkinan otomatisasi masih dapat dimanfaatkan, tetapi verifikasi khusus aplikasi perlu ditulis untuk mencapainya. Ini mungkin mirip dengan *unit test* dan *integration test* yang mungkin sudah digunakan oleh organisasi. Oleh karena itu, infrastruktur otomatisasi pengujian yang ada dapat digunakan untuk menulis pengujian khusus ASVS ini. Meskipun hal ini memerlukan investasi jangka pendek, manfaat jangka panjang dari kemampuan memverifikasi persyaratan ASVS ini secara terus-menerus akan sangat signifikan.
 
-Singkatnya, dapat diuji secara otomatis ≠ menggunakan alat siap pakai.
+Singkatnya, dapat diuji menggunakan otomatisasi != menjalankan alat siap pakai (*off the shelf tool*).
 
-#### Peran Uji Penetrasi
+#### Peran Penetration Testing
 
-Meskipun L1 pada versi 4.0 telah dioptimalkan untuk pelaksanaan pengujian "black box" (tanpa dokumentasi dan tanpa kode sumber), standar tersebut tetap menegaskan bahwa hal itu bukanlah kegiatan jaminan kualitas yang efektif dan harus secara aktif dihindari.
+Meskipun L1 dalam versi 4.0 dioptimalkan untuk pengujian *black box* (tanpa dokumentasi dan tanpa *source code*), bahkan saat itu standar sudah menegaskan bahwa hal tersebut bukanlah aktivitas jaminan (*assurance*) yang efektif dan sangat tidak dianjurkan.
 
-Pengujian tanpa akses ke informasi tambahan yang diperlukan merupakan mekanisme verifikasi keamanan yang tidak efisien dan tidak efektif, karena hal ini mengabaikan peluang untuk meninjau sumber kode, mengidentifikasi ancaman dan kontrol yang terlewatkan, serta melakukan pengujian yang jauh lebih menyeluruh dalam waktu yang lebih singkat.
+Pengujian tanpa akses ke informasi tambahan yang diperlukan adalah mekanisme yang tidak efisien dan tidak efektif untuk verifikasi keamanan, karena kehilangan kesempatan untuk meninjau *source code*, mengidentifikasi ancaman dan kontrol yang hilang, serta melakukan pengujian yang jauh lebih menyeluruh dalam jangka waktu yang lebih singkat.
 
-Sangat disarankan untuk melakukan pengujian penetrasi berbasis dokumentasi atau kode sumber (hibrida), yang memiliki akses penuh kepada pengembang aplikasi dan dokumentasi aplikasi, daripada pengujian penetrasi tradisional. Hal ini tentu saja diperlukan untuk memverifikasi banyak persyaratan ASVS.
+Sangat disarankan untuk melakukan *penetration testing* berbasis dokumentasi atau *source code* (*hybrid*), yang memiliki akses penuh ke pengembang aplikasi dan dokumentasi aplikasi, daripada *penetration testing* tradisional. Hal ini tentu sangat diperlukan untuk memverifikasi banyak persyaratan ASVS.

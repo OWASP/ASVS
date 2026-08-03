@@ -1,60 +1,60 @@
 # V14 Data Protection
 
-## Control Objective
+## Tujuan Kontrol
 
-Applications cannot account for all usage patterns and user behaviors, and should therefore implement controls to limit unauthorized access to sensitive data on client devices.
+Aplikasi tidak dapat memperhitungkan seluruh pola penggunaan dan perilaku pengguna, sehingga perlu menerapkan kontrol untuk membatasi akses tidak sah terhadap data sensitif pada perangkat client.
 
-This chapter includes requirements related to defining what data needs to be protected, how it should be protected, and specific mechanisms to implement or pitfalls to avoid.
+Bab ini mencakup persyaratan yang terkait dengan mendefinisikan data apa yang perlu dilindungi, bagaimana data tersebut harus dilindungi, serta mekanisme spesifik yang perlu diterapkan atau jebakan (pitfalls) yang perlu dihindari.
 
-Another consideration for data protection is bulk extraction, modification, or excessive usage. Each system's requirements are likely to be very different, so determining what is "abnormal" must consider the threat model and business risk. From an ASVS perspective, detecting these issues is handled in the "Security Logging and Error Handling" chapter, and setting limits is handled in the "Validation and Business Logic" chapter.
+Pertimbangan lain untuk perlindungan data adalah ekstraksi massal (bulk extraction), modifikasi, atau penggunaan yang berlebihan. Persyaratan setiap sistem kemungkinan akan sangat berbeda-beda, sehingga penentuan apa yang dianggap "tidak wajar" (abnormal) harus mempertimbangkan model ancaman (threat model) dan risiko bisnis. Dari sudut pandang ASVS, pendeteksian masalah-masalah ini ditangani pada bab "Security Logging and Error Handling", dan penentuan batasan ditangani pada bab "Validation and Business Logic".
 
-## V14.1 Data Protection Documentation
+## V14.1 Dokumentasi Perlindungan Data
 
-A key prerequisite for being able to protect data is to categorize what data should be considered sensitive. There are likely to be several different levels of sensitivity, and for each level, the controls required to protect data at that level will be different.
+Prasyarat utama untuk dapat melindungi data adalah mengategorikan data apa yang harus dianggap sensitif. Kemungkinan akan terdapat beberapa tingkat sensitivitas yang berbeda, dan untuk setiap tingkat, kontrol yang diperlukan untuk melindungi data pada tingkat tersebut akan berbeda-beda.
 
-There are various privacy regulations and laws that affect how applications must approach the storage, use, and transmission of sensitive personal information. This section no longer tries to duplicate these types of data protection or privacy legislation, but rather focuses on key technical considerations for protecting sensitive data. Please consult local laws and regulations, and consult a qualified privacy specialist or lawyer as required.
+Terdapat berbagai regulasi dan undang-undang privasi yang memengaruhi bagaimana aplikasi harus melakukan pendekatan terhadap penyimpanan, penggunaan, dan transmisi informasi pribadi yang sensitif. Bagian ini tidak lagi berupaya menduplikasi jenis-jenis undang-undang perlindungan data atau privasi tersebut, melainkan berfokus pada pertimbangan teknis utama untuk melindungi data sensitif. Silakan berkonsultasi dengan hukum dan regulasi setempat, serta berkonsultasi dengan spesialis privasi atau pengacara yang berkualifikasi sesuai kebutuhan.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **14.1.1** | Verify that all sensitive data created and processed by the application has been identified and classified into protection levels. This includes data that is only encoded and therefore easily decoded, such as Base64 strings or the plaintext payload inside a JWT. Protection levels need to take into account any data protection and privacy regulations and standards which the application is required to comply with. | 2 |
-| **14.1.2** | Verify that all sensitive data protection levels have a documented set of protection requirements. This must include (but not be limited to) requirements related to general encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, database-level encryption, privacy and privacy-enhancing technologies to be used, and other confidentiality requirements. | 2 |
+| **14.1.1** | Verifikasi bahwa semua data sensitif yang dibuat dan diproses oleh aplikasi telah diidentifikasi dan diklasifikasikan ke dalam tingkat perlindungan (protection levels). Hal ini mencakup data yang hanya di-encode dan karenanya mudah di-decode, seperti string Base64 atau plaintext payload di dalam sebuah JWT. Tingkat perlindungan perlu mempertimbangkan regulasi dan standar perlindungan data serta privasi yang wajib dipatuhi oleh aplikasi. | 2 |
+| **14.1.2** | Verifikasi bahwa semua tingkat perlindungan data sensitif memiliki serangkaian persyaratan perlindungan yang terdokumentasi. Hal ini harus mencakup (namun tidak terbatas pada) persyaratan yang terkait dengan enkripsi secara umum, verifikasi integritas, retensi, bagaimana data tersebut dicatat (logged), kontrol akses terhadap data sensitif dalam log, enkripsi pada level database, privasi dan teknologi peningkat privasi (privacy-enhancing technologies) yang akan digunakan, serta persyaratan kerahasiaan lainnya. | 2 |
 
-## V14.2 General Data Protection
+## V14.2 Perlindungan Data Secara Umum
 
-This section contains various practical requirements related to the protection of data. Most are specific to particular issues such as unintended data leakage, but there is also a general requirement to implement protection controls based on the protection level required for each data item.
+Bagian ini berisi berbagai persyaratan praktis yang terkait dengan perlindungan data. Sebagian besar bersifat spesifik terhadap masalah tertentu seperti kebocoran data yang tidak disengaja, namun juga terdapat persyaratan umum untuk menerapkan kontrol perlindungan berdasarkan tingkat perlindungan yang dibutuhkan untuk setiap item data.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **14.2.1** | Verify that sensitive data is only sent to the server in the HTTP message body or header fields, and that the URL and query string do not contain sensitive information, such as an API key or session token. | 1 |
-| **14.2.2** | Verify that the application prevents sensitive data from being cached in server components, such as load balancers and application caches, or ensures that the data is securely purged after use. | 2 |
-| **14.2.3** | Verify that defined sensitive data is not sent to untrusted parties (e.g., user trackers) to prevent unwanted collection of data outside of the application's control. | 2 |
-| **14.2.4** | Verify that controls around sensitive data related to encryption, integrity verification, retention, how the data is to be logged, access controls around sensitive data in logs, privacy and privacy-enhancing technologies, are implemented as defined in the documentation for the specific data's protection level. | 2 |
-| **14.2.5** | Verify that caching mechanisms are configured to only cache responses which have the expected content type for that resource and do not contain sensitive, dynamic content. The web server should return a 404 or 302 response when a non-existent file is accessed rather than returning a different, valid file. This should prevent Web Cache Deception attacks. | 3 |
-| **14.2.6** | Verify that the application only returns the minimum required sensitive data for the application's functionality. For example, only returning some of the digits of a credit card number and not the full number. If the complete data is required, it should be masked in the user interface unless the user specifically views it. | 3 |
-| **14.2.7** | Verify that sensitive information is subject to data retention classification, ensuring that outdated or unnecessary data is deleted automatically, on a defined schedule, or as the situation requires. | 3 |
-| **14.2.8** | Verify that sensitive information is removed from the metadata of user-submitted files unless storage is consented to by the user. | 3 |
+| **14.2.1** | Verifikasi bahwa data sensitif hanya dikirimkan ke server melalui HTTP message body atau header fields, dan bahwa URL serta query string tidak mengandung informasi sensitif, seperti sebuah API key atau session token. | 1 |
+| **14.2.2** | Verifikasi bahwa aplikasi mencegah data sensitif di-cache pada komponen server, seperti load balancer dan application cache, atau memastikan bahwa data tersebut dihapus (purged) secara aman setelah digunakan. | 2 |
+| **14.2.3** | Verifikasi bahwa data sensitif yang telah didefinisikan tidak dikirimkan ke pihak yang tidak tepercaya (misalnya, user trackers) guna mencegah pengumpulan data yang tidak diinginkan di luar kendali aplikasi. | 2 |
+| **14.2.4** | Verifikasi bahwa kontrol terhadap data sensitif yang terkait dengan enkripsi, verifikasi integritas, retensi, bagaimana data tersebut dicatat (logged), kontrol akses terhadap data sensitif dalam log, serta privasi dan teknologi peningkat privasi, diterapkan sebagaimana didefinisikan dalam dokumentasi untuk tingkat perlindungan data tertentu. | 2 |
+| **14.2.5** | Verifikasi bahwa mekanisme caching dikonfigurasi untuk hanya menyimpan cache response yang memiliki content type yang sesuai untuk resource tersebut dan tidak mengandung konten dinamis yang sensitif. Web server harus mengembalikan response 404 atau 302 ketika sebuah file yang tidak ada diakses, alih-alih mengembalikan file lain yang valid. Hal ini seharusnya mencegah serangan Web Cache Deception. | 3 |
+| **14.2.6** | Verifikasi bahwa aplikasi hanya mengembalikan data sensitif minimal yang diperlukan untuk fungsionalitas aplikasi. Misalnya, hanya mengembalikan sebagian digit dari sebuah nomor kartu kredit, bukan nomor lengkapnya. Jika data lengkap memang diperlukan, data tersebut harus disamarkan (masked) pada user interface kecuali pengguna secara khusus melihatnya. | 3 |
+| **14.2.7** | Verifikasi bahwa informasi sensitif tunduk pada klasifikasi retensi data, memastikan bahwa data yang sudah usang atau tidak diperlukan dihapus secara otomatis, sesuai jadwal yang telah ditentukan, atau sesuai kebutuhan situasi. | 3 |
+| **14.2.8** | Verifikasi bahwa informasi sensitif dihapus dari metadata file yang dikirimkan oleh pengguna, kecuali penyimpanan telah disetujui (consented) oleh pengguna tersebut. | 3 |
 
-## V14.3 Client-side Data Protection
+## V14.3 Perlindungan Data di Sisi Client
 
-This section contains requirements preventing data from leaking in specific ways at the client or user agent side of an application.
+Bagian ini berisi persyaratan untuk mencegah kebocoran data dengan cara tertentu pada sisi client atau user agent dari sebuah aplikasi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **14.3.1** | Verify that authenticated data is cleared from client storage, such as the browser DOM, after the client or session is terminated. The 'Clear-Site-Data' HTTP response header field may be able to help with this but the client-side should also be able to clear up if the server connection is not available when the session is terminated. | 1 |
-| **14.3.2** | Verify that the application sets sufficient anti-caching HTTP response header fields (i.e., Cache-Control: no-store) so that sensitive data is not cached in browsers. | 2 |
-| **14.3.3** | Verify that data stored in browser storage (such as localStorage, sessionStorage, IndexedDB, or cookies) does not contain sensitive data, with the exception of session tokens. | 2 |
+| **14.3.1** | Verifikasi bahwa data yang terautentikasi dihapus dari penyimpanan client, seperti browser DOM, setelah client atau sesi dihentikan. HTTP response header field 'Clear-Site-Data' dapat membantu hal ini, namun sisi client juga harus mampu membersihkan data tersebut jika koneksi ke server tidak tersedia saat sesi dihentikan. | 1 |
+| **14.3.2** | Verifikasi bahwa aplikasi mengatur HTTP response header fields anti-caching yang memadai (yaitu, Cache-Control: no-store) sehingga data sensitif tidak di-cache pada browser. | 2 |
+| **14.3.3** | Verifikasi bahwa data yang disimpan pada browser storage (seperti localStorage, sessionStorage, IndexedDB, atau cookies) tidak mengandung data sensitif, dengan pengecualian untuk session token. | 2 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
-* [Consider using the Security Headers website to check security and anti-caching header fields](https://securityheaders.com/)
-* [Documentation about anti-caching headers by Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+* [Pertimbangkan menggunakan situs Security Headers untuk memeriksa header fields keamanan dan anti-caching](https://securityheaders.com/)
+* [Dokumentasi mengenai header anti-caching oleh Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
 * [OWASP Secure Headers project](https://owasp.org/www-project-secure-headers/)
 * [OWASP Privacy Risks Project](https://owasp.org/www-project-top-10-privacy-risks/)
 * [OWASP User Privacy Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html)
 * [Australian Privacy Principle 11 - Security of personal information](https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-11-app-11-security-of-personal-information)
-* [European Union General Data Protection Regulation (GDPR) overview](https://www.edps.europa.eu/data-protection_en)
+* [Ikhtisar European Union General Data Protection Regulation (GDPR)](https://www.edps.europa.eu/data-protection_en)
 * [European Union Data Protection Supervisor - Internet Privacy Engineering Network](https://www.edps.europa.eu/data-protection/ipen-internet-privacy-engineering-network_en)
-* [Information on the "Clear-Site-Data" header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data)
-* [White paper on Web Cache Deception](https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack-wp.pdf)
+* [Informasi mengenai header "Clear-Site-Data"](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data)
+* [White paper mengenai Web Cache Deception](https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack-wp.pdf)

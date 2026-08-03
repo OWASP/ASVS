@@ -2,7 +2,7 @@
 
 ## Tentang Standar
 
-Standar Verifikasi Keamanan Aplikasi adalah daftar persyaratan keamanan aplikasi yang dapat digunakan oleh arsitek, pengembang, penguji, pakar keamanan, penyedia alat, dan pengguna untuk merancang, membangun, menguji, dan memverifikasi keamanan aplikasi.
+Standar Verifikasi Keamanan Aplikasi (ASVS) adalah daftar persyaratan keamanan aplikasi yang dapat digunakan oleh arsitek, pengembang, penguji, pakar keamanan, penyedia alat, dan pengguna untuk merancang, membangun, menguji, dan memverifikasi keamanan aplikasi.
 
 ## Hak Cipta dan Lisensi
 

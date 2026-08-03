@@ -1,29 +1,29 @@
-# Kata Pengantar
+# Prakata
 
 Selamat datang di Standar Verifikasi Keamanan Aplikasi (ASVS) Versi 5.0.
 
-## Pendahuluan
+## Pengantar
 
-Diluncurkan pertama kali pada tahun 2008 melalui kolaborasi komunitas global, ASVS menetapkan serangkaian persyaratan keamanan yang komprehensif untuk merancang, mengembangkan, dan menguji aplikasi dan layanan web modern.
+Pertama kali diluncurkan pada tahun 2008 melalui kolaborasi komunitas global, ASVS mendefinisikan serangkaian persyaratan keamanan yang komprehensif untuk merancang, mengembangkan, dan menguji aplikasi serta layanan web modern.
 
-Setelah peluncuran ASVS 4.0 pada tahun 2019 dan pembaruan minornya (v4.0.3) pada tahun 2021, Versi 5.0 menandai tonggak penting—yang telah dimodernisasi untuk mencerminkan kemajuan terbaru dalam bidang keamanan perangkat lunak.
+Menyusul rilis ASVS 4.0 pada tahun 2019 dan pembaruan minornya (v4.0.3) pada tahun 2021, Versi 5.0 mewakili tonggak sejarah penting yang dimoderinisasi untuk mencerminkan kemajuan terbaru dalam keamanan perangkat lunak.
 
-ASVS 5.0 merupakan hasil dari kontribusi yang luas dari para pemimpin proyek, anggota kelompok kerja, dan komunitas OWASP secara luas untuk memperbarui dan menyempurnakan standar penting ini.
+ASVS 5.0 adalah hasil dari kontribusi luas dari para pemimpinan proyek, anggota kelompok kerja, dan komunitas OWASP yang lebih luas untuk memperbarui dan meningkatkan standar penting ini.
 
-## Prinsip-prinsip di balik versi 5.0
+## Prinsip-prinsip di Balik Versi 5.0
 
-Revisi besar-besaran ini disusun dengan mempertimbangkan beberapa prinsip utama:
+Revisi besar ini telah dikembangkan dengan mempertimbangkan beberapa prinsip utama:
 
-* Ruang Lingkup dan Fokus yang Disempurnakan: Versi standar ini dirancang agar lebih selaras dengan pilar-pilar dasar yang tercantum dalam namanya: Aplikasi, Keamanan, Verifikasi, dan Standar. Persyaratan telah ditulis ulang untuk lebih menekankan pada pencegahan celah keamanan daripada mewajibkan penerapan teknis tertentu. Teks persyaratan dimaksudkan agar mudah dipahami, dengan menjelaskan alasan di balik keberadaannya.
+* **Cakupan dan Fokus yang Disempurnakan:** Versi standar ini dirancang agar lebih selaras secara langsung dengan pilar-pilar dasar pada namanya: Application, Security, Verification, dan Standard. Persyaratan telah ditulis ulang untuk menekankan pencegahan cacat keamanan (*security flaws*) daripada mewajibkan implementasi teknis tertentu. Teks persyaratan dimaksudkan untuk menjelaskan dirinya sendiri (*self-explanatory*), yaitu menjelaskan alasan mengapa persyaratan tersebut ada.
 
-* Dukungan untuk Keputusan Keamanan yang Didokumentasikan: ASVS 5.0 memperkenalkan persyaratan untuk mendokumentasikan keputusan keamanan utama. Hal ini meningkatkan keterlacakan dan mendukung implementasi yang disesuaikan dengan konteks, sehingga memungkinkan organisasi menyesuaikan postur keamanannya dengan kebutuhan dan risiko spesifik mereka.
+* **Dukungan untuk Keputusan Keamanan yang Terdokumentasi:** ASVS 5.0 memperkenalkan persyaratan untuk mendokumentasikan keputusan keamanan utama. Hal ini meningkatkan keterlacakan (*traceability*) dan mendukung implementasi yang peka terhadap konteks, memungkinkan organisasi untuk menyesuaikan postur keamanan mereka sesuai dengan kebutuhan dan risiko spesifik mereka.
 
-* Tingkat yang Diperbarui: Meskipun ASVS tetap mempertahankan model tiga tingkatan, definisi tingkat-tingkat tersebut telah disempurnakan agar ASVS lebih mudah diterapkan. Tingkat 1 dirancang sebagai langkah awal dalam menerapkan ASVS, yang menyediakan lapisan pertahanan pertama. Tingkat 2 mencakup gambaran menyeluruh mengenai praktik keamanan standar, sedangkan Tingkat 3 memenuhi persyaratan tingkat lanjut dengan jaminan keamanan yang tinggi.
+* **Pembaruan Level:** Meskipun ASVS mempertahankan model tiga tingkatnya (*three-tier model*), definisi level telah berkembang untuk membuat ASVS lebih mudah diadopsi. Level 1 dirancang sebagai langkah awal untuk mengadopsi ASVS, yang menyediakan pertahanan lapisan pertama. Level 2 mewakili pandangan komprehensif tentang praktik keamanan standar, dan Level 3 menangani persyaratan tingkat lanjut (*high-assurance*).
 
-* Konten yang Disusun Ulang dan Diperluas: ASVS 5.0 mencakup sekitar 350 persyaratan yang tersebar di 17 bab. Bab-bab tersebut telah disusun ulang demi kejelasan dan kemudahan penggunaan. Tabel perbandingan dua arah antara versi 4.0 dan 5.0 disediakan untuk memudahkan proses migrasi.
+* **Restrukturisasi dan Perluasan Konten:** ASVS 5.0 mencakup sekitar 350 persyaratan di 17 bab. Bab-bab telah diatur ulang demi kejelasan dan kemudahan penggunaan. Pemetaan dua arah antara v4.0 dan v5.0 disediakan untuk memfasilitasi migrasi.
 
-## Menatap ke depan
+## Pandangan ke Depan
 
-Sama seperti pengamanan aplikasi yang tidak pernah benar-benar selesai, demikian pula halnya dengan ASVS. Meskipun Versi 5.0 merupakan rilis besar, pengembangan tetap berlanjut. Rilis ini memungkinkan komunitas yang lebih luas untuk memanfaatkan berbagai perbaikan dan penambahan yang telah terkumpul, sekaligus meletakkan landasan bagi peningkatan di masa mendatang. Hal ini dapat mencakup upaya yang diprakarsai oleh komunitas untuk menyusun panduan implementasi dan verifikasi yang dibangun di atas serangkaian persyaratan inti.
+Sama halnya seperti mengamankan aplikasi yang tidak pernah benar-benar selesai, begitu pula dengan ASVS. Meskipun Versi 5.0 merupakan rilis besar, pengembangannya terus berlanjut. Rilis ini memungkinkan komunitas yang lebih luas untuk memanfaatkan peningkatan dan penambahan yang telah dikumpulkan, sekaligus meletakkan dasar untuk peningkatan di masa mendatang. Ini dapat mencakup upaya berbasis komunitas untuk membuat panduan implementasi dan verifikasi yang dibangun di atas kumpulan persyaratan utama.
 
-ASVS 5.0 dirancang untuk menjadi landasan yang andal dalam pengembangan perangkat lunak yang aman. Komunitas diundang untuk mengadopsi, berkontribusi, dan mengembangkan standar ini guna bersama-sama meningkatkan standar keamanan aplikasi.
+ASVS 5.0 dirancang untuk berfungsi sebagai fondasi yang andal bagi pengembangan perangkat lunak yang aman. Komunitas diundang untuk mengadopsi, berkontribusi, dan membangun di atas standar ini untuk secara kolektif memajukan tingkat keamanan aplikasi.
