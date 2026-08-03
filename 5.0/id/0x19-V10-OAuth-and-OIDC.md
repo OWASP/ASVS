@@ -2,141 +2,141 @@
 
 ## Tujuan Kontrol
 
-OAuth2 (disebut sebagai OAuth dalam bab ini) adalah kerangka kerja standar industri untuk *delegated authorization*. Sebagai contoh, dengan menggunakan OAuth, sebuah aplikasi klien dapat memperoleh akses ke API (*server resources*) atas nama pengguna, asalkan pengguna tersebut telah memberikan otorisasi kepada aplikasi klien untuk melakukannya.
+OAuth2 (disebut sebagai OAuth dalam bab ini) adalah framework standar industri untuk delegated authorization. Misalnya, dengan menggunakan OAuth, sebuah aplikasi client dapat memperoleh akses ke API (server resources) atas nama pengguna, asalkan pengguna tersebut telah mengizinkan aplikasi client untuk melakukannya.
 
-Secara mandiri, OAuth tidak dirancang untuk autentikasi pengguna. Kerangka kerja *OpenID Connect (OIDC)* memperluas OAuth dengan menambahkan lapisan identitas pengguna di atas OAuth. OIDC memberikan dukungan untuk fitur-fitur termasuk informasi pengguna yang terstandarisasi, *Single Sign-On (SSO)*, dan manajemen sesi. Karena OIDC adalah ekstensi dari OAuth, persyaratan OAuth dalam bab ini juga berlaku untuk OIDC.
+Dengan sendirinya, OAuth tidak dirancang untuk autentikasi pengguna. Framework OpenID Connect (OIDC) memperluas OAuth dengan menambahkan sebuah lapisan identitas pengguna di atas OAuth. OIDC menyediakan dukungan untuk fitur-fitur termasuk informasi pengguna yang terstandardisasi, Single Sign-On (SSO), dan session management. Karena OIDC merupakan perluasan dari OAuth, persyaratan OAuth pada bab ini juga berlaku untuk OIDC.
 
 Peran-peran berikut didefinisikan dalam OAuth:
 
-* Klien OAuth adalah aplikasi yang mencoba untuk mendapatkan akses ke *server resources* (misalnya, dengan memanggil API menggunakan *access token* yang telah diterbitkan). Klien OAuth sering kali berupa aplikasi berbasis *server-side*.
-    * *Confidential client* adalah klien yang mampu menjaga kerahasiaan kredensial yang digunakannya untuk melakukan autentikasi ke *authorization server*.
-    * *Public client* tidak mampu menjaga kerahasiaan kredensial untuk autentikasi ke *authorization server*. Oleh karena itu, alih-alih melakukan autentikasi (misalnya, menggunakan parameter '*client_id*' dan '*client_secret*'), klien ini hanya mengidentifikasi dirinya sendiri (menggunakan parameter '*client_id*').   
-* *OAuth resource server* (*RS*) adalah API server yang mengekspos sumber daya ke *OAuth clients*.
-* *OAuth authorization server* (*AS*) adalah sebuah aplikasi server yang menerbitkan *access tokens* kepada *OAuth clients*. *Access tokens* ini memungkinkan *OAuth clients* untuk mengakses sumber daya *RS*, baik atas nama *end-user* maupun atas nama *OAuth client* itu sendiri. *AS* sering kali merupakan aplikasi yang terpisah, namun (jika sesuai) dapat juga diintegrasikan ke dalam *RS* yang memadai.
-* *Resource owner* (*RO*) adalah *end-user* yang memberikan otorisasi kepada *OAuth clients* untuk memperoleh akses terbatas ke sumber daya yang dihosting di *resource server* atas nama mereka. *Resource owner* memberikan persetujuan untuk *delegated authorization* ini dengan berinteraksi dengan *authorization server*.
+* OAuth client adalah aplikasi yang berupaya memperoleh akses ke server resources (misalnya, dengan memanggil sebuah API menggunakan access token yang diterbitkan). OAuth client sering kali berupa aplikasi server-side.
+    * Confidential client adalah client yang mampu menjaga kerahasiaan kredensial yang digunakannya untuk mengautentikasi dirinya sendiri dengan authorization server.
+    * Public client tidak mampu menjaga kerahasiaan kredensial untuk mengautentikasi dengan authorization server. Oleh karena itu, alih-alih mengautentikasi dirinya sendiri (misalnya, menggunakan parameter 'client_id' dan 'client_secret'), client tersebut hanya mengidentifikasi dirinya (menggunakan parameter 'client_id').
+* OAuth resource server (RS) adalah server API yang mengekspos resource kepada OAuth client.
+* OAuth authorization server (AS) adalah aplikasi server yang menerbitkan access token kepada OAuth client. Access token ini memungkinkan OAuth client mengakses resource RS, baik atas nama pengguna akhir (end-user) maupun atas nama OAuth client itu sendiri. AS sering kali merupakan aplikasi terpisah, namun (jika sesuai) dapat diintegrasikan ke dalam RS yang sesuai.
+* Resource owner (RO) adalah pengguna akhir yang mengizinkan OAuth client untuk memperoleh akses terbatas ke resource yang di-hosting pada resource server atas nama mereka. Resource owner menyetujui delegated authorization ini dengan berinteraksi dengan authorization server.
 
 Peran-peran berikut didefinisikan dalam OIDC:
 
-* *Relying party* (*RP*) adalah aplikasi klien yang meminta autentikasi *end-user* melalui *OpenID Provider*. *RP* mengambil peran sebagai *OAuth client*.
-* *OpenID Provider* (*OP*) adalah *OAuth AS* yang mampu melakukan autentikasi *end-user* dan memberikan *OIDC claims* kepada *RP*. *OP* bisa jadi merupakan *identity provider* (*IdP*), namun dalam skenario federasi, *OP* dan *identity provider* (tempat *end-user* melakukan autentikasi) bisa saja merupakan aplikasi server yang berbeda.
+* Relying party (RP) adalah aplikasi client yang meminta autentikasi pengguna akhir melalui OpenID Provider. RP berperan sebagai OAuth client.
+* OpenID Provider (OP) adalah sebuah OAuth AS yang mampu mengautentikasi pengguna akhir dan menyediakan OIDC claims kepada RP. OP dapat merupakan identity provider (IdP), namun dalam skenario federated, OP dan identity provider (tempat pengguna akhir melakukan autentikasi) dapat merupakan aplikasi server yang berbeda.
 
-*OAuth* dan *OIDC* pada awalnya dirancang untuk aplikasi pihak ketiga (*third-party applications*). Saat ini, keduanya juga sering digunakan oleh aplikasi pihak pertama (*first-party applications*). Namun, ketika digunakan dalam skenario pihak pertama, seperti untuk autentikasi dan manajemen sesi, protokol tersebut menambah kompleksitas tertentu yang mungkin menghadirkan tantangan keamanan baru.
+OAuth dan OIDC awalnya dirancang untuk aplikasi pihak ketiga (third-party). Saat ini, keduanya juga sering digunakan oleh aplikasi pihak pertama (first-party). Namun, ketika digunakan dalam skenario pihak pertama, seperti authentication dan session management, protokol tersebut menambahkan kompleksitas tertentu, yang dapat menimbulkan tantangan keamanan baru.
 
-*OAuth* dan *OIDC* dapat digunakan untuk berbagai jenis aplikasi, namun fokus untuk *ASVS* dan persyaratan dalam bab ini adalah pada aplikasi web dan *APIs*.
+OAuth dan OIDC dapat digunakan untuk berbagai jenis aplikasi, namun fokus untuk ASVS dan persyaratan pada bab ini adalah pada aplikasi web dan API.
 
-Karena *OAuth* dan *OIDC* dapat dianggap sebagai logika di atas teknologi web, persyaratan umum dari bab-bab lain selalu berlaku, dan bab ini tidak dapat dipisahkan dari konteks tersebut.
+Karena OAuth dan OIDC dapat dianggap sebagai logika di atas teknologi web, persyaratan umum dari bab-bab lain selalu berlaku, dan bab ini tidak dapat dipisahkan dari konteksnya.
 
-Bab ini membahas praktik terbaik saat ini untuk *OAuth2* dan *OIDC* yang selaras dengan spesifikasi yang ditemukan di <https://oauth.net/2/> dan <https://openid.net/developers/specs/>. Meskipun *RFC* dianggap sudah matang, mereka sering diperbarui. Oleh karena itu, penting untuk menyelaraskan dengan versi terbaru saat menerapkan persyaratan dalam bab ini. Lihat bagian referensi untuk rincian lebih lanjut.
+Bab ini membahas praktik terbaik terkini (best current practices) untuk OAuth2 dan OIDC yang selaras dengan spesifikasi yang terdapat pada <https://oauth.net/2/> dan <https://openid.net/developers/specs/>. Meskipun RFC dianggap sudah matang (mature), RFC tersebut sering diperbarui. Oleh karena itu, penting untuk menyelaraskan dengan versi terbaru saat menerapkan persyaratan pada bab ini. Lihat bagian referensi untuk detail lebih lanjut.
 
-Mengingat kompleksitas di bidang ini, sangatlah penting bagi solusi *OAuth* atau *OIDC* yang aman untuk menggunakan server otorisasi standar industri yang sudah dikenal luas dan menerapkan konfigurasi keamanan yang direkomendasikan.
+Mengingat kompleksitas area ini, sangat penting bagi solusi OAuth atau OIDC yang aman untuk menggunakan authorization server yang sudah dikenal dan menjadi standar industri serta menerapkan konfigurasi keamanan yang direkomendasikan.
 
-Terminologi yang digunakan dalam bab ini selaras dengan *OAuth RFCs* dan spesifikasi *OIDC*, namun perlu dicatat bahwa terminologi *OIDC* hanya digunakan untuk persyaratan khusus *OIDC*; jika tidak, maka terminologi *OAuth* yang digunakan.
+Terminologi yang digunakan dalam bab ini selaras dengan RFC OAuth dan spesifikasi OIDC, namun perlu dicatat bahwa terminologi OIDC hanya digunakan untuk persyaratan yang spesifik terhadap OIDC; selain itu, terminologi OAuth yang digunakan.
 
-Dalam konteks *OAuth* dan *OIDC*, istilah *token* dalam bab ini merujuk pada:
+Dalam konteks OAuth dan OIDC, istilah "token" pada bab ini merujuk pada:
 
-* *Access tokens*, yang hanya boleh dikonsumsi oleh *RS* dan dapat berupa *reference tokens* yang divalidasi menggunakan *introspection* atau *self-contained tokens* yang divalidasi menggunakan beberapa materi kunci.
-* *Refresh tokens*, yang hanya boleh dikonsumsi oleh *authorization server* yang menerbitkan token tersebut.
-* *OIDC ID Tokens*, yang hanya boleh dikonsumsi oleh klien yang memicu *authorization flow*.
+* Access token, yang hanya boleh dikonsumsi oleh RS dan dapat berupa reference token yang divalidasi menggunakan introspection atau self-contained token yang divalidasi menggunakan key material tertentu.
+* Refresh token, yang hanya boleh dikonsumsi oleh authorization server yang menerbitkan token tersebut.
+* OIDC ID Token, yang hanya boleh dikonsumsi oleh client yang memicu authorization flow.
 
-Tingkat risiko untuk beberapa persyaratan dalam bab ini bergantung pada apakah klien tersebut merupakan *confidential client* atau dianggap sebagai *public client*. Karena penggunaan *strong client authentication* memitigasi banyak vektor serangan, beberapa persyaratan mungkin diperlonggar ketika menggunakan *confidential client* untuk aplikasi *L1*.
+Level risiko untuk beberapa persyaratan pada bab ini bergantung pada apakah client tersebut merupakan confidential client atau dianggap sebagai public client. Karena penggunaan client authentication yang kuat dapat memitigasi banyak attack vector, beberapa persyaratan mungkin dilonggarkan saat menggunakan confidential client untuk aplikasi L1.
 
-## V10.1 Keamanan OAuth dan OIDC Generik
+## V10.1 Keamanan Umum OAuth dan OIDC
 
-Bagian ini mencakup persyaratan arsitektur umum yang berlaku untuk semua aplikasi yang menggunakan *OAuth* atau *OIDC*.
+Bagian ini membahas persyaratan arsitektur umum yang berlaku untuk semua aplikasi yang menggunakan OAuth atau OIDC.
 
-| # | Deskripsi | Tingkat |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **10.1.1** | Pastikan bahwa token hanya dikirim ke komponen yang benar-benar membutuhkannya. Misalnya, saat menggunakan pola backend-for-frontend untuk aplikasi JavaScript berbasis browser, token akses dan refresh hanya boleh diakses oleh backend. | 2 |
-| **10.1.2** | Pastikan bahwa klien hanya menerima nilai dari *authorization server* (seperti *authorization code* atau *ID Token*) jika nilai-nilai tersebut merupakan hasil dari *authorization flow* yang dimulai oleh sesi *user agent* dan transaksi yang sama. Hal ini mengharuskan rahasia yang dihasilkan klien, seperti *code_verifier* pada *proof key for code exchange* (*PKCE*), *state*, atau *nonce* pada *OIDC*, tidak dapat ditebak, bersifat spesifik untuk transaksi tersebut, dan terikat secara aman baik pada klien maupun sesi *user agent* tempat transaksi dimulai. | 2 |
+| **10.1.1** | Verifikasi bahwa token hanya dikirimkan ke komponen yang benar-benar memerlukannya. Misalnya, saat menggunakan pola backend-for-frontend untuk aplikasi JavaScript berbasis browser, access token dan refresh token hanya boleh dapat diakses oleh backend. | 2 |
+| **10.1.2** | Verifikasi bahwa client hanya menerima nilai dari authorization server (seperti authorization code atau ID Token) jika nilai tersebut berasal dari sebuah authorization flow yang diinisiasi oleh user agent session dan transaksi yang sama. Hal ini mensyaratkan bahwa secret yang dihasilkan oleh client, seperti proof key for code exchange (PKCE) 'code_verifier', 'state', atau OIDC 'nonce', tidak dapat ditebak, bersifat spesifik terhadap transaksi tersebut, dan terikat secara aman baik pada client maupun pada user agent session tempat transaksi tersebut dimulai. | 2 |
 
 ## V10.2 OAuth Client
 
-Persyaratan ini merinci tanggung jawab untuk aplikasi *OAuth client*. Klien tersebut dapat berupa, misalnya, *web server backend* (yang sering kali bertindak sebagai *Backend For Frontend*, *BFF*), integrasi layanan *backend*, atau *frontend Single Page Application* (*SPA*, yang juga dikenal sebagai aplikasi berbasis *browser*).
+Persyaratan ini merinci tanggung jawab untuk aplikasi OAuth client. Client dapat berupa, misalnya, sebuah backend web server (sering bertindak sebagai Backend For Frontend, BFF), sebuah integrasi backend service, atau sebuah frontend Single Page Application (SPA, dikenal juga sebagai aplikasi berbasis browser).
 
-Secara umum, klien *backend* dianggap sebagai *confidential clients* dan klien *frontend* dianggap sebagai *public clients*. Namun, aplikasi natif yang berjalan pada perangkat *end-user* dapat dianggap sebagai *confidential* ketika menggunakan *OAuth dynamic client registration*.
+Secara umum, backend client dianggap sebagai confidential client dan frontend client dianggap sebagai public client. Namun, aplikasi native yang berjalan pada perangkat pengguna akhir dapat dianggap sebagai confidential ketika menggunakan OAuth dynamic client registration.
 
-| # | Deskripsi | Tingkat |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **10.2.1** | Pastikan bahwa, jika *code flow* digunakan, *OAuth client* memiliki perlindungan terhadap serangan pemalsuan permintaan berbasis *browser*, yang umumnya dikenal sebagai *cross-site request forgery* (*CSRF*), yang memicu permintaan token, baik dengan menggunakan fungsionalitas *proof key for code exchange* (*PKCE*) atau dengan memeriksa parameter *state* yang dikirimkan dalam *authorization request*. | 2 |
-| **10.2.2** | Pastikan bahwa, jika *OAuth client* dapat berinteraksi dengan lebih dari satu *authorization server*, klien tersebut memiliki pertahanan terhadap *mix-up attacks*. Sebagai contoh, klien dapat mewajibkan *authorization server* untuk mengembalikan nilai parameter `iss` (*issuer*) dan memvalidasinya dalam *authorization response* serta *token response* | 2 |
-| **10.2.3** |Pastikan bahwa OAuth client hanya meminta scopes (atau parameter otorisasi lainnya) yang benar-benar diperlukan dalam setiap permintaan ke authorization server. | 3 |
+| **10.2.1** | Verifikasi bahwa, jika code flow digunakan, OAuth client memiliki perlindungan terhadap serangan browser-based request forgery, yang umum dikenal sebagai cross-site request forgery (CSRF), yang memicu token requests, baik dengan menggunakan fungsionalitas proof key for code exchange (PKCE) atau dengan memeriksa parameter 'state' yang dikirimkan pada authorization request. | 2 |
+| **10.2.2** | Verifikasi bahwa, jika OAuth client dapat berinteraksi dengan lebih dari satu authorization server, client tersebut memiliki pertahanan terhadap mix-up attacks. Misalnya, dapat dilakukan dengan mewajibkan authorization server mengembalikan nilai parameter 'iss' dan memvalidasinya pada authorization response dan token response. | 2 |
+| **10.2.3** | Verifikasi bahwa OAuth client hanya meminta scopes (atau parameter authorization lainnya) yang diperlukan pada request ke authorization server. | 3 |
 
 ## V10.3 OAuth Resource Server
 
-Dalam konteks ASVS dan bab ini, *resource server* adalah sebuah API. Untuk menyediakan akses yang aman, *resource server* harus:
+Dalam konteks ASVS dan bab ini, resource server adalah sebuah API. Untuk menyediakan akses yang aman, resource server harus:
 
-* Memvalidasi *access token*, sesuai dengan format token dan spesifikasi protokol yang relevan, misalnya, validasi JWT atau *OAuth token introspection*.
-* Jika valid, menegakkan keputusan otorisasi berdasarkan informasi dari *access token* dan izin yang telah diberikan. Sebagai contoh, *resource server* perlu memverifikasi bahwa klien (yang bertindak atas nama *RO*) memiliki wewenang untuk mengakses sumber daya yang diminta.
+* Memvalidasi access token, sesuai dengan format token dan spesifikasi protokol yang relevan, misalnya, JWT-validation atau OAuth token introspection.
+* Jika valid, menegakkan keputusan authorization berdasarkan informasi dari access token dan permission yang telah diberikan. Misalnya, resource server perlu memverifikasi bahwa client (yang bertindak atas nama RO) berwenang untuk mengakses resource yang diminta.
 
-Oleh karena itu, persyaratan yang tercantum di sini bersifat khusus untuk OAuth atau OIDC dan harus dilakukan setelah validasi token dan sebelum melakukan otorisasi berdasarkan informasi dari token tersebut.
+Oleh karena itu, persyaratan yang tercantum di sini bersifat spesifik terhadap OAuth atau OIDC dan harus dilakukan setelah validasi token dan sebelum melakukan authorization berdasarkan informasi dari token tersebut.
 
-| # | Deskripsi | Tingkat |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **10.3.1** | Pastikan bahwa *resource server* hanya menerima *access tokens* yang ditujukan untuk digunakan dengan layanan tersebut (*audience*). *Audience* dapat dicantumkan dalam *access token* yang terstruktur (seperti *claim* 'aud' dalam *JWT*), atau dapat diperiksa menggunakan *endpoint token introspection*. | 2 |
-| **10.3.2** | Pastikan bahwa *resource server* menegakkan keputusan otorisasi berdasarkan *claims* dari *access token* yang mendefinisikan delegasi otorisasi. Jika *claims* seperti 'sub', 'scope', dan 'authorization_details' ada, maka hal tersebut harus menjadi bagian dari pengambilan keputusan. | 2 |
-| **10.3.3** | Pastikan bahwa jika keputusan kontrol akses memerlukan identifikasi pengguna yang unik dari sebuah *access token* (*JWT* atau respons *token introspection* terkait), *resource server* mengidentifikasi pengguna dari *claims* yang tidak dapat dialihkan ke pengguna lain. Biasanya, hal ini berarti menggunakan kombinasi dari *claims* 'iss' (*issuer*) dan 'sub' (*subject*). | 2 |
-| **10.3.4** | Pastikan bahwa jika *resource server* memerlukan kekuatan autentikasi, metode, atau kebaruan tertentu, ia memverifikasi bahwa *access token* yang disajikan memenuhi batasan tersebut. Sebagai contoh, jika tersedia, masing-masing menggunakan *claims* OIDC 'acr', 'amr', dan 'auth_time'. | 2 |
-| **10.3.5** | Pastikan bahwa *resource server* mencegah penggunaan *access tokens* yang dicuri atau *replay* (pengulangan) *access tokens* (dari pihak yang tidak berwenang) dengan mewajibkan *sender-constrained access tokens*, baik menggunakan *Mutual TLS* untuk *OAuth 2* atau *OAuth 2 Demonstration of Proof of Possession* (*DPoP*). | 3 |
+| **10.3.1** | Verifikasi bahwa resource server hanya menerima access token yang dimaksudkan untuk digunakan dengan layanan tersebut (audience). Audience dapat disertakan dalam access token yang terstruktur (seperti claim 'aud' pada JWT), atau dapat diperiksa menggunakan token introspection endpoint. | 2 |
+| **10.3.2** | Verifikasi bahwa resource server menegakkan keputusan authorization berdasarkan claims dari access token yang mendefinisikan delegated authorization. Jika claims seperti 'sub', 'scope', dan 'authorization_details' ada, claims tersebut harus menjadi bagian dari keputusan tersebut. | 2 |
+| **10.3.3** | Verifikasi bahwa jika sebuah keputusan access control mensyaratkan identifikasi pengguna unik dari sebuah access token (JWT atau token introspection response terkait), resource server mengidentifikasi pengguna dari claims yang tidak dapat dipindahtangankan (reassigned) ke pengguna lain. Umumnya, hal ini berarti menggunakan kombinasi claims 'iss' dan 'sub'. | 2 |
+| **10.3.4** | Verifikasi bahwa, jika resource server mensyaratkan kekuatan, metode, atau kebaruan (recentness) autentikasi tertentu, resource server tersebut memverifikasi bahwa access token yang dipresentasikan memenuhi batasan-batasan tersebut. Misalnya, jika ada, dengan menggunakan claims OIDC 'acr', 'amr', dan 'auth_time' secara berurutan. | 2 |
+| **10.3.5** | Verifikasi bahwa resource server mencegah penggunaan access token yang dicuri atau replay access token (dari pihak yang tidak berwenang) dengan mewajibkan sender-constrained access token, baik Mutual TLS untuk OAuth 2 maupun OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 |
 
 ## V10.4 OAuth Authorization Server
 
-Persyaratan ini merinci tanggung jawab untuk server otorisasi OAuth, termasuk Penyedia OpenID.
+Persyaratan ini merinci tanggung jawab untuk OAuth authorization server, termasuk OpenID Provider.
 
-Untuk otentikasi klien, metode 'self_signed_tls_client_auth' diperbolehkan dengan prasyarat yang dibutuhkan oleh [section 2.2](https://datatracker.ietf.org/doc/html/rfc8705#name-self-signed-certificate-mut) dari [RFC 8705](https://datatracker.ietf.org/doc/html/rfc8705).
+Untuk client authentication, metode 'self_signed_tls_client_auth' diizinkan dengan prasyarat yang disyaratkan oleh [bagian 2.2](https://datatracker.ietf.org/doc/html/rfc8705#name-self-signed-certificate-mut) dari [RFC 8705](https://datatracker.ietf.org/doc/html/rfc8705).
 
-| # | Deskripsi | Tingkat |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **10.4.1** | Pastikan bahwa *authorization server* memvalidasi *redirect URIs* berdasarkan *allowlist* khusus klien dari URI yang telah didaftarkan sebelumnya menggunakan perbandingan string yang tepat (*exact string comparison*). | 1 |
-| **10.4.2** | Pastikan bahwa, jika *authorization server* mengembalikan *authorization code* dalam *authorization response*, kode tersebut hanya dapat digunakan satu kali untuk *token request*. Untuk permintaan valid kedua dengan *authorization code* yang sudah pernah digunakan untuk menerbitkan *access token*, *authorization server* harus menolak permintaan token tersebut dan mencabut semua token yang telah diterbitkan sebelumnya yang berkaitan dengan *authorization code* tersebut. | 1 |
-| **10.4.3** | Pastikan bahwa *authorization code* bersifat berumur pendek (*short-lived*). Masa berlaku maksimum dapat mencapai 10 menit untuk aplikasi L1 dan L2, serta maksimum 1 menit untuk aplikasi L3. | 1 |
-| **10.4.4** | Pastikan bahwa untuk klien tertentu, *authorization server* hanya mengizinkan penggunaan *grants* yang memang perlu digunakan oleh klien tersebut. Perhatikan bahwa *grants* 'token' (*Implicit flow*) dan 'password' (*Resource Owner Password Credentials flow*) tidak boleh lagi digunakan. | 1 |
-| **10.4.5** | Pastikan bahwa *authorization server* memitigasi serangan *refresh token replay* untuk *public clients*, lebih baik menggunakan *sender-constrained refresh tokens*, yaitu *Demonstrating Proof of Possession* (DPoP) atau *Certificate-Bound Access Tokens* menggunakan *mutual TLS* (mTLS). Untuk aplikasi L1 dan L2, *refresh token rotation* dapat digunakan. Jika *refresh token rotation* digunakan, *authorization server* harus membatalkan *refresh token* setelah digunakan, dan mencabut semua *refresh token* untuk otorisasi tersebut jika *refresh token* yang sudah digunakan dan dibatalkan diberikan kembali. | 1 |
-| **10.4.6** | Pastikan bahwa, jika *code grant* digunakan, *authorization server* memitigasi serangan intersepsi *authorization code* dengan mewajibkan *proof key for code exchange* (PKCE). Untuk *authorization requests*, *authorization server* harus mewajibkan nilai 'code_challenge' yang valid dan tidak boleh menerima nilai 'code_challenge_method' berupa 'plain'. Untuk *token request*, server harus mewajibkan validasi parameter 'code_verifier'. | 2 |
-| **10.4.7** | Pastikan bahwa jika *authorization server* mendukung pendaftaran klien dinamis tanpa autentikasi (*unauthenticated dynamic client registration*), server tersebut memitigasi risiko aplikasi klien yang berbahaya. Server harus memvalidasi metadata klien seperti setiap URI yang didaftarkan, memastikan persetujuan pengguna, dan memperingatkan pengguna sebelum memproses *authorization request* dengan aplikasi klien yang tidak tepercaya. | 2 |
-| **10.4.8** | Pastikan bahwa *refresh tokens* memiliki kedaluwarsa absolut, termasuk jika masa kedaluwarsa *refresh token* yang bergeser (*sliding expiration*) diterapkan. | 2 |
-| **10.4.9** | Pastikan bahwa *refresh tokens* dan *reference access tokens* dapat dicabut oleh pengguna yang berwenang menggunakan antarmuka pengguna *authorization server*, untuk memitigasi risiko klien berbahaya atau token yang dicuri. | 2 |
-| **10.4.10** | Pastikan bahwa *confidential client* diautentikasi untuk permintaan *backchannel* antara klien ke *authorization server*, seperti *token requests*, *pushed authorization requests* (PAR), dan *token revocation requests*. | 2 |
-| **10.4.11** | Pastikan bahwa konfigurasi *authorization server* hanya menetapkan *scopes* yang diperlukan kepada klien OAuth. | 2 |
-| **10.4.12** | Pastikan bahwa untuk klien tertentu, *authorization server* hanya mengizinkan nilai 'response_mode' yang memang perlu digunakan oleh klien tersebut. Sebagai contoh, dengan meminta *authorization server* memvalidasi nilai ini terhadap nilai yang diharapkan atau dengan menggunakan *pushed authorization request* (PAR) atau *JWT-secured Authorization Request* (JAR). | 3 |
-| **10.4.13** | Pastikan bahwa *grant type* 'code' selalu digunakan bersama dengan *pushed authorization requests* (PAR). | 3 |
-| **10.4.14** | Pastikan bahwa *authorization server* hanya menerbitkan *access tokens* yang terikat pada pengirim (*sender-constrained*/*Proof-of-Possession*), baik dengan *certificate-bound access tokens* menggunakan *mutual TLS* (mTLS) atau *DPoP-bound access tokens* (*Demonstration of Proof of Possession*). | 3 |
-| **10.4.15** | Pastikan bahwa, untuk *server-side client* (yang tidak dieksekusi di perangkat pengguna akhir), *authorization server* memastikan bahwa nilai parameter 'authorization_details' berasal dari *backend* klien dan pengguna tidak merusaknya. Sebagai contoh, dengan mewajibkan penggunaan *pushed authorization request* (PAR) atau *JWT-secured Authorization Request* (JAR). | 3 |
-| **10.4.16** | Pastikan bahwa klien bersifat rahasia (*confidential*) dan *authorization server* mewajibkan penggunaan metode autentikasi klien yang kuat (berbasis kriptografi kunci publik dan tahan terhadap serangan *replay*), seperti *mutual TLS* ('tls_client_auth', 'self_signed_tls_client_auth') atau *private key JWT* ('private_key_jwt'). | 3 |
+| **10.4.1** | Verifikasi bahwa authorization server memvalidasi redirect URI berdasarkan sebuah allowlist yang spesifik terhadap client dari URI yang telah didaftarkan sebelumnya (pre-registered) menggunakan exact string comparison. | 1 |
+| **10.4.2** | Verifikasi bahwa, jika authorization server mengembalikan authorization code pada authorization response, code tersebut hanya dapat digunakan sekali untuk sebuah token request. Untuk request kedua yang valid dengan sebuah authorization code yang telah digunakan sebelumnya untuk menerbitkan access token, authorization server harus menolak token request tersebut dan mencabut (revoke) semua token yang diterbitkan terkait dengan authorization code tersebut. | 1 |
+| **10.4.3** | Verifikasi bahwa authorization code memiliki masa berlaku yang singkat (short-lived). Masa berlaku maksimum dapat mencapai 10 menit untuk aplikasi L1 dan L2 serta hingga 1 menit untuk aplikasi L3. | 1 |
+| **10.4.4** | Verifikasi bahwa untuk client tertentu, authorization server hanya mengizinkan penggunaan grant yang memang perlu digunakan oleh client tersebut. Perlu dicatat bahwa grant 'token' (Implicit flow) dan 'password' (Resource Owner Password Credentials flow) sudah tidak boleh digunakan lagi. | 1 |
+| **10.4.5** | Verifikasi bahwa authorization server memitigasi serangan refresh token replay untuk public client, sebaiknya menggunakan sender-constrained refresh token, yaitu Demonstrating Proof of Possession (DPoP) atau Certificate-Bound Access Token menggunakan mutual TLS (mTLS). Untuk aplikasi L1 dan L2, refresh token rotation dapat digunakan. Jika refresh token rotation digunakan, authorization server harus melakukan invalidasi terhadap refresh token setelah digunakan, dan mencabut semua refresh token untuk authorization tersebut jika sebuah refresh token yang sudah digunakan dan tidak valid diberikan kembali. | 1 |
+| **10.4.6** | Verifikasi bahwa, jika code grant digunakan, authorization server memitigasi serangan authorization code interception dengan mewajibkan proof key for code exchange (PKCE). Untuk authorization request, authorization server harus mewajibkan nilai 'code_challenge' yang valid dan tidak boleh menerima nilai 'code_challenge_method' 'plain'. Untuk token request, authorization server harus mewajibkan validasi parameter 'code_verifier'. | 2 |
+| **10.4.7** | Verifikasi bahwa jika authorization server mendukung unauthenticated dynamic client registration, authorization server tersebut memitigasi risiko aplikasi client yang berbahaya. Authorization server harus memvalidasi metadata client seperti URI mana pun yang telah didaftarkan, memastikan persetujuan pengguna, dan memberikan peringatan kepada pengguna sebelum memproses sebuah authorization request dengan aplikasi client yang tidak tepercaya. | 2 |
+| **10.4.8** | Verifikasi bahwa refresh token memiliki masa kedaluwarsa mutlak (absolute expiration), termasuk jika sliding refresh token expiration diterapkan. | 2 |
+| **10.4.9** | Verifikasi bahwa refresh token dan reference access token dapat dicabut (revoked) oleh pengguna yang berwenang melalui user interface authorization server, guna memitigasi risiko client yang berbahaya atau token yang dicuri. | 2 |
+| **10.4.10** | Verifikasi bahwa confidential client diautentikasi untuk client-to-authorized server backchannel requests seperti token requests, pushed authorization requests (PAR), dan token revocation requests. | 2 |
+| **10.4.11** | Verifikasi bahwa konfigurasi authorization server hanya memberikan scopes yang diperlukan kepada OAuth client. | 2 |
+| **10.4.12** | Verifikasi bahwa untuk client tertentu, authorization server hanya mengizinkan nilai 'response_mode' yang memang perlu digunakan oleh client tersebut. Misalnya, dengan membuat authorization server memvalidasi nilai ini terhadap nilai yang diharapkan atau dengan menggunakan pushed authorization request (PAR) atau JWT-secured Authorization Request (JAR). | 3 |
+| **10.4.13** | Verifikasi bahwa grant type 'code' selalu digunakan bersama dengan pushed authorization requests (PAR). | 3 |
+| **10.4.14** | Verifikasi bahwa authorization server hanya menerbitkan sender-constrained (Proof-of-Possession) access token, baik menggunakan certificate-bound access token dengan mutual TLS (mTLS) maupun DPoP-bound access token (Demonstration of Proof of Possession). | 3 |
+| **10.4.15** | Verifikasi bahwa, untuk sebuah server-side client (yang tidak dieksekusi pada perangkat pengguna akhir), authorization server memastikan bahwa nilai parameter 'authorization_details' berasal dari backend client dan bahwa pengguna tidak telah memanipulasinya (tampered with). Misalnya, dengan mewajibkan penggunaan pushed authorization request (PAR) atau JWT-secured Authorization Request (JAR). | 3 |
+| **10.4.16** | Verifikasi bahwa client bersifat confidential dan authorization server mewajibkan penggunaan metode client authentication yang kuat (berbasis kriptografi kunci publik dan tahan terhadap serangan replay), seperti mutual TLS ('tls_client_auth', 'self_signed_tls_client_auth') atau private key JWT ('private_key_jwt'). | 3 |
 
 ## V10.5 OIDC Client
 
-Karena pihak yang mengandalkan OIDC bertindak sebagai klien OAuth, persyaratan dari bagian "Klien OAuth" juga berlaku.
+Karena OIDC relying party bertindak sebagai sebuah OAuth client, persyaratan dari bagian "OAuth Client" juga berlaku.
 
-Perlu dicatat bahwa bagian "Autentikasi dengan Penyedia Identitas" dalam bab "Autentikasi" juga berisi persyaratan umum yang relevan.
+Perlu dicatat bahwa bagian "Authentication with an Identity Provider" pada bab "Authentication" juga memuat persyaratan umum yang relevan.
 
-| # | Deskripsi | Tingkat |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **10.5.1** | Pastikan bahwa klien (sebagai *relying party*) memitigasi serangan *ID Token replay*. Sebagai contoh, dengan memastikan bahwa *claim* 'nonce' di dalam *ID Token* cocok dengan nilai 'nonce' yang dikirimkan dalam *authentication request* ke *OpenID Provider* (dalam *OAuth2* disebut sebagai *authorization request* yang dikirimkan ke *authorization server*). | 2 |
-| **10.5.2** | Pastikan bahwa klien mengidentifikasi pengguna secara unik dari *claims* dalam *ID Token*, biasanya melalui *claim* 'sub', yang tidak dapat dialokasikan kembali ke pengguna lain (dalam cakupan *identity provider* tersebut). | 2 |
-| **10.5.3** | Pastikan bahwa klien menolak upaya oleh *authorization server* yang berbahaya untuk meniru *authorization server* lain melalui metadata *authorization server*. Klien harus menolak metadata *authorization server* jika URL *issuer* dalam metadata tersebut tidak cocok secara persis dengan URL *issuer* yang telah dikonfigurasi sebelumnya dan diharapkan oleh klien. | 2 |
-| **10.5.4** | Pastikan bahwa klien memvalidasi bahwa *ID Token* memang ditujukan untuk digunakan oleh klien tersebut (*audience*) dengan memeriksa apakah *claim* 'aud' dari token tersebut sama dengan nilai 'client_id' milik klien. | 2 |
-| **10.5.5** | Pastikan bahwa, saat menggunakan *OIDC back-channel logout*, *relying party* memitigasi serangan *denial of service* melalui *forced logout* dan kebingungan antar-JWT (*cross-JWT confusion*) dalam alur *logout*. Klien harus memverifikasi bahwa *logout token* memiliki tipe yang benar dengan nilai 'logout+jwt', berisi *claim* 'event' dengan nama anggota yang tepat, dan tidak mengandung *claim* 'nonce'. Perlu dicatat bahwa sangat disarankan juga untuk memiliki masa kedaluwarsa yang pendek (misalnya, 2 menit). | 2 |
+| **10.5.1** | Verifikasi bahwa client (sebagai relying party) memitigasi serangan ID Token replay. Misalnya, dengan memastikan bahwa claim 'nonce' pada ID Token sesuai dengan nilai 'nonce' yang dikirimkan pada authentication request ke OpenID Provider (dalam OAuth2 disebut sebagai authorization request yang dikirimkan ke authorization server). | 2 |
+| **10.5.2** | Verifikasi bahwa client mengidentifikasi pengguna secara unik dari claims pada ID Token, biasanya claim 'sub', yang tidak dapat dipindahtangankan (reassigned) ke pengguna lain (dalam scope sebuah identity provider). | 2 |
+| **10.5.3** | Verifikasi bahwa client menolak upaya authorization server yang berbahaya untuk menyamar sebagai authorization server lain melalui metadata authorization server. Client harus menolak metadata authorization server jika URL issuer pada metadata authorization server tersebut tidak sama persis dengan URL issuer yang telah dikonfigurasi sebelumnya (pre-configured) dan diharapkan oleh client. | 2 |
+| **10.5.4** | Verifikasi bahwa client memvalidasi bahwa ID Token memang dimaksudkan untuk digunakan oleh client tersebut (audience) dengan memeriksa bahwa claim 'aud' dari token sesuai dengan nilai 'client_id' untuk client tersebut. | 2 |
+| **10.5.5** | Verifikasi bahwa, saat menggunakan OIDC back-channel logout, relying party memitigasi denial of service melalui forced logout dan cross-JWT confusion pada alur logout. Client harus memverifikasi bahwa logout token memiliki tipe yang benar dengan nilai 'logout+jwt', mengandung claim 'event' dengan nama member yang benar, dan tidak mengandung claim 'nonce'. Perlu dicatat bahwa juga direkomendasikan untuk memiliki masa kedaluwarsa yang singkat (misalnya, 2 menit). | 2 |
 
-## V10.6 Penyedia OpenID
+## V10.6 OpenID Provider
 
-Karena *OpenID Provider* bertindak sebagai *OAuth authorization server*, persyaratan dari bagian "*OAuth Authorization Server*" juga berlaku di sini.
+Karena OpenID Provider bertindak sebagai OAuth authorization server, persyaratan dari bagian "OAuth Authorization Server" juga berlaku.
 
-Perlu dicatat bahwa jika menggunakan alur *ID Token* (bukan *code flow*), tidak ada *access tokens* yang diterbitkan, sehingga banyak persyaratan untuk *OAuth Authorization Server* (AS) menjadi tidak relevan.
+Perlu dicatat bahwa jika menggunakan ID Token flow (bukan code flow), tidak ada access token yang diterbitkan, dan banyak persyaratan untuk OAuth AS tidak berlaku.
 
-| # | Deskripsi | Tingkat |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **10.6.1** | Pastikan bahwa *OpenID Provider* hanya mengizinkan nilai 'code', 'ciba', 'id_token', atau 'id_token code' untuk *response mode*. Perlu dicatat bahwa 'code' lebih disukai daripada 'id_token code' (*OIDC Hybrid flow*), dan 'token' (*Implicit flow* apa pun) tidak boleh digunakan. | 2 |
-| **10.6.2** | Pastikan bahwa *OpenID Provider* memitigasi serangan *denial of service* melalui *forced logout*. Hal ini dilakukan dengan mendapatkan konfirmasi eksplisit dari pengguna akhir atau, jika tersedia, memvalidasi parameter dalam *logout request* (yang diinisiasi oleh *relying party*), seperti 'id_token_hint'. | 2 |
+| **10.6.1** | Verifikasi bahwa OpenID Provider hanya mengizinkan nilai 'code', 'ciba', 'id_token', atau 'id_token code' untuk response mode. Perlu dicatat bahwa 'code' lebih diutamakan daripada 'id_token code' (OIDC Hybrid flow), dan 'token' (Implicit flow apa pun) tidak boleh digunakan. | 2 |
+| **10.6.2** | Verifikasi bahwa OpenID Provider memitigasi denial of service melalui forced logout. Dengan memperoleh konfirmasi eksplisit dari pengguna akhir atau, jika ada, memvalidasi parameter pada logout request (yang diinisiasi oleh relying party), seperti 'id_token_hint'. | 2 |
 
-## V10.7 Manajemen Persetujuan
+## V10.7 Manajemen Consent
 
-Persyaratan ini mencakup verifikasi persetujuan pengguna oleh *authorization server*. Tanpa verifikasi persetujuan pengguna yang tepat, aktor jahat dapat memperoleh izin atas nama pengguna melalui teknik *spoofing* atau rekayasa sosial (*social engineering*).
+Persyaratan ini membahas verifikasi consent pengguna oleh authorization server. Tanpa verifikasi consent pengguna yang tepat, pelaku jahat dapat memperoleh permission atas nama pengguna melalui spoofing atau social-engineering.
 
-| # | Deskripsi | Tingkat |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **10.7.1** | Pastikan bahwa *authorization server* memastikan pengguna menyetujui setiap permintaan otorisasi. Jika identitas klien tidak dapat dipastikan, *authorization server* harus selalu secara eksplisit meminta persetujuan dari pengguna. | 2 |
-| **10.7.2** | Pastikan bahwa ketika *authorization server* meminta persetujuan pengguna, server tersebut menyajikan informasi yang cukup dan jelas mengenai apa yang sedang disetujui. Jika memungkinkan, hal ini harus mencakup sifat dari otorisasi yang diminta (biasanya berdasarkan *scope*, *resource server*, atau rincian otorisasi *Rich Authorization Requests* (RAR)), identitas aplikasi yang diberi wewenang, serta masa berlaku dari otorisasi tersebut. | 2 |
-| **10.7.3** | Pastikan bahwa pengguna dapat meninjau, mengubah, dan mencabut persetujuan (*consents*) yang telah mereka berikan melalui *authorization server*. | 2 |
+| **10.7.1** | Verifikasi bahwa authorization server memastikan pengguna menyetujui (consent) setiap authorization request. Jika identitas client tidak dapat dipastikan, authorization server harus selalu secara eksplisit meminta consent kepada pengguna. | 2 |
+| **10.7.2** | Verifikasi bahwa saat authorization server meminta consent pengguna, authorization server tersebut menyajikan informasi yang cukup dan jelas mengenai apa yang sedang disetujui. Jika berlaku, hal ini harus mencakup sifat dari authorization yang diminta (biasanya berdasarkan scope, resource server, detail authorization Rich Authorization Requests (RAR)), identitas aplikasi yang diberi wewenang, dan masa berlaku dari authorization tersebut. | 2 |
+| **10.7.3** | Verifikasi bahwa pengguna dapat meninjau, mengubah, dan mencabut consent yang telah diberikan pengguna melalui authorization server. | 2 |
 
 ## Referensi
 
@@ -145,7 +145,7 @@ Untuk informasi lebih lanjut mengenai OAuth, silakan lihat:
 * [oauth.net](https://oauth.net/)
 * [OWASP OAuth 2.0 Protocol Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
 
-Untuk persyaratan terkait OAuth di ASVS, RFC yang telah diterbitkan dan yang masih dalam tahap draf digunakan:
+Untuk persyaratan terkait OAuth pada ASVS, RFC berikut yang telah dipublikasikan maupun yang masih berstatus draft digunakan:
 
 * [RFC6749 The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
 * [RFC6750 The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
@@ -163,7 +163,7 @@ Untuk persyaratan terkait OAuth di ASVS, RFC yang telah diterbitkan dan yang mas
 * [draft OAuth 2.0 for Browser-Based Applications](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)<!-- recheck on release -->
 * [draft The OAuth 2.1 Authorization Framework](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)<!-- recheck on release -->
 
-Untuk informasi lebih lanjut mengenai *OpenID Connect*, silakan lihat:
+Untuk informasi lebih lanjut mengenai OpenID Connect, silakan lihat:
 
 * [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 * [FAPI 2.0 Security Profile](https://openid.net/specs/fapi-security-profile-2_0-final.html)

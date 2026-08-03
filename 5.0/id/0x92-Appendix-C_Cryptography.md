@@ -1,31 +1,30 @@
-# Appendix C: Cryptography Standards
+# Lampiran C: Standar Kriptografi
 
-The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
+Bab "Kriptografi" bergerak lebih jauh dari sekadar mendefinisikan *best practices*. Bab ini bertujuan untuk meningkatkan pemahaman tentang prinsip-prinsip kriptografi dan mendorong adopsi metode keamanan yang lebih tangguh dan modern. Lampiran ini menyediakan informasi teknis terperinci mengenai setiap persyaratan, melengkapi standar menyeluruh yang diuraikan dalam bab "Kriptografi".
 
-This appendix defines the level of approval for different cryptographic mechanisms:
+Lampiran ini mendefinisikan tingkat persetujuan untuk berbagai mekanisme kriptografi:
 
-* Approved (A) mechanisms can be used in applications.
-* Legacy mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
-* Disallowed mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
+* Mekanisme Approved/Disetujui (A) dapat digunakan dalam aplikasi.
+* Mekanisme Legacy/Warisan (L) tidak boleh digunakan dalam aplikasi baru, tetapi mungkin masih digunakan hanya untuk kompatibilitas dengan aplikasi atau kode *legacy* yang ada. Meskipun penggunaan mekanisme ini saat ini tidak dianggap sebagai kerentanan dengan sendirinya, mekanisme tersebut harus digantikan oleh mekanisme yang lebih aman dan *future-proof* sesegera mungkin.
+* Mekanisme Disallowed/Dilarang (D) tidak boleh digunakan karena saat ini dianggap rusak atau tidak memberikan keamanan yang memadai.
 
-This list may be overridden in the context of a given application for various reasons including:
+Daftar ini dapat digantikan (*overridden*) dalam konteks aplikasi tertentu karena berbagai alasan termasuk:
 
-* new evolutions in the field of cryptography;
-* compliance with regulation.
+* Perkembangan baru di bidang kriptografi;
+* Kepatuhan terhadap regulasi (*compliance*).
 
-## Cryptographic Inventory and Documentation
+## Inventarisasi dan Dokumentasi Kriptografi
 
-This section provides additional information
-for V11.1 Cryptographic Inventory and Documentation.
+Bagian ini menyediakan informasi tambahan untuk V11.1 Inventarisasi dan Dokumentasi Kriptografi.
 
-It is important to ensure that all cryptographic assets, such as algorithms, keys, and certificates, are regularly discovered, inventoried, and assessed. For Level 3, this should include the use of static and dynamic scanning to discover the use of cryptography in an application. Tools such as SAST and DAST may help with this but it is possible that dedicated tools would be needed to get more comprehensive coverage. Freeware examples of tools include:
+Penting untuk memastikan bahwa semua aset kriptografi, seperti algoritma, kunci, dan sertifikat, secara teratur ditemukan, diinventarisasi, dan dievaluasi. Untuk Level 3, ini harus mencakup penggunaan pemindaian statis dan dinamis untuk menemukan penggunaan kriptografi dalam aplikasi. *Tools* seperti SAST dan DAST dapat membantu dalam hal ini, tetapi mungkin diperlukan *tools* khusus untuk mendapatkan cakupan yang lebih komprehensif. Contoh *tools* gratis (*freeware*) meliputi:
 
 * [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
 * [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
 
-## Equivalent Strengths of Cryptographic Parameters
+## Kekuatan Setara dari Parameter Kriptografi
 
-The relative security strengths for various cryptographic systems are in this table (from [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final), p.71):
+Kekuatan keamanan relatif untuk berbagai sistem kriptografi ada dalam tabel ini (dari [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final), hal. 71):
 
 | Security Strength | Symmetric Key Algorithms | Finite Field | Integer Factorisation | Elliptic Curve |
 |--|--|--|--|--|
@@ -35,38 +34,36 @@ The relative security strengths for various cryptographic systems are in this ta
 | 192 | AES-192 | L = 7680 <br> N = 384 | k = 7680 | f = 384-511 |
 | 256 | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
 
-Example of applications:
+Contoh aplikasi:
 
 * Finite Field Cryptography: DSA, FFDH, MQV
 * Integer Factorisation Cryptography: RSA
 * Elliptic Curve Cryptography: ECDSA, EdDSA, ECDH, MQV
 
-Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
+Catatan: Bagian ini mengasumsikan bahwa belum ada komputer kuantum; jika komputer tersebut ada, estimasi untuk 3 kolom terakhir tidak lagi berlaku.
 
-## Random Values
+## Nilai Acak (Random Values)
 
-This section provides additional information
-for V11.5 Random Values.
+Bagian ini menyediakan informasi tambahan untuk V11.5 Nilai Acak (*Random Values*).
 
-| Name | Version/Reference | Notes | Status |
+| Nama | Versi/Referensi | Catatan | Status |
 |:---|:----|:----|:-:|
-| `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), also found in iOS, Android, and other Linux-based POSIX operating systems. Based on [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | Utilizing ChaCha20 stream. Found in iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) and Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) with the correct settings provided to each. | A |
-| `/dev/urandom` | Linux kernel's special file for providing random data | Provides high-quality, entropy sources from hardware randomness | A |
-| `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | As used in common implementations, such as [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) set by [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers). | A |
+| `/dev/random` | Linux 4.8+ [(Okt 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), juga ditemukan pada iOS, Android, dan sistem operasi POSIX berbasis Linux lainnya. Berdasarkan [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | Menggunakan stream ChaCha20. Ditemukan di iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) dan Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) dengan pengaturan yang benar yang diberikan pada masing-masing OS. | A |
+| `/dev/urandom` | File khusus kernel Linux untuk menyediakan data acak | Menyediakan sumber entropi berkualitas tinggi dari acak perangkat keras (*hardware randomness*) | A |
+| `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | Seperti yang digunakan dalam implementasi umum, seperti [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) yang diatur oleh [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers). | A |
 | `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
 | `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
-| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2), available in [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) and [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | Provides secure random bytes directly from the kernel's entropy source with a straightforward and minimal API. It’s more modern and avoids pitfalls associated with older APIs. | A |
+| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2), tersedia di [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) dan [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | Menyediakan byte acak yang aman langsung dari sumber entropi kernel dengan API yang sederhana dan minimalis. Metode ini lebih modern dan menghindari masalah yang terkait dengan API lama. | A |
 
-The underlying hash function used with HMAC-DRBG or Hash-DRBG must be approved for this usage.
+Fungsi hash mendasar yang digunakan dengan HMAC-DRBG atau Hash-DRBG harus disetujui untuk penggunaan ini.
 
-## Cipher Algorithms
+## Algoritma Cipher
 
-This section provides additional information
-for V11.3 Encryption Algorithms.
+Bagian ini menyediakan informasi tambahan untuk V11.3 Algoritma Enkripsi.
 
-Approved cipher algorithms are listed in order of preference.
+Algoritma cipher yang disetujui (*Approved*) terdaftar berdasarkan urutan preferensi.
 
-| Symmetric Key Algorithms | Reference | Status |
+| Algoritma Kunci Simetris | Referensi | Status |
 | ------ | ------ |:-:|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | A |
 | Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | A |
@@ -83,55 +80,55 @@ Approved cipher algorithms are listed in order of preference.
 | ARC4 | | D |
 | DES | | D |
 
-### AES Cipher Modes
+### Mode Cipher AES
 
-Block ciphers, such as AES, can be used with different modes of operations. Many modes of operations, such as Electronic codebook (ECB), are insecure and must not be used. The Galois/Counter Mode (GCM) and Counter with cipher block chaining message authentication code (CCM) modes of operations provide authenticated encryption and should be used in modern applications.
+Block cipher, seperti AES, dapat digunakan dengan mode operasi yang berbeda. Banyak mode operasi, seperti Electronic Codebook (ECB), tidak aman dan tidak boleh digunakan. Mode operasi Galois/Counter Mode (GCM) dan Counter with cipher block chaining message authentication code (CCM) menyediakan enkripsi terotentikasi (*authenticated encryption*) dan harus digunakan dalam aplikasi modern.
 
-Approved modes are listed in order of preference.
+Mode yang disetujui (*Approved*) terdaftar berdasarkan urutan preferensi.
 
-| Mode | Authenticated | Reference | Status | Restriction |
+| Mode | Terotentikasi | Referensi | Status | Pembatasan |
 |--|--|--|:-:|--|
-| GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
-| CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
-| CBC | No | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | L | |
-| CCM-8 | Yes | | D | |
-| ECB | No | | D | |
-| CFB | No | | D | |
-| OFB | No | | D | |
-| CTR | No | | D | |
+| GCM | Ya | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
+| CCM | Ya | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
+| CBC | Tidak | [NIST SP 800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) | L | |
+| CCM-8 | Ya | | D | |
+| ECB | Tidak | | D | |
+| CFB | Tidak | | D | |
+| OFB | Tidak | | D | |
+| CTR | Tidak | | D | |
 
-Notes:
+Catatan:
 
-* All encrypted messages must be authenticated. For ANY use of CBC mode there MUST be an associated hashing MAC algorithm to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used. The only application where encryption without a MAC algorithm is allowed is disk encryption.
-* If CBC is used, it shall be guaranteed that the verification of the padding is performed in constant time.
-* When using CCM-8, the MAC tag only has 64 bits of security. This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
-* Disk encryption is considered out of scope for the ASVS. Therefore this appendix does not list any approved method for disk encryption. For this usage, encryption without authentication is usually accepted and the XTS, XEX and LRW modes are typically used.
+* Semua pesan yang dienkripsi harus diotentikasi. Untuk SETIAP penggunaan mode CBC, HARUS ada algoritma MAC hashing terkait untuk memvalidasi pesan. Secara umum, ini HARUS diterapkan dalam metode Encrypt-Then-Hash (tetapi TLS 1.2 menggunakan Hash-Then-Encrypt sebagai gantinya). Jika hal ini tidak dapat dijamin, maka CBC TIDAK BOLEH digunakan. Satu-satunya aplikasi di mana enkripsi tanpa algoritma MAC diizinkan adalah enkripsi disk.
+* Jika CBC digunakan, harus dijamin bahwa verifikasi *padding* dilakukan dalam waktu konstan (*constant time*).
+* Saat menggunakan CCM-8, tag MAC hanya memiliki keamanan 64 bit. Ini tidak sesuai dengan persyaratan 6.2.9 yang memerlukan keamanan setidaknya 128 bit.
+* Enkripsi disk dianggap di luar cakupan ASVS. Oleh karena itu, lampiran ini tidak mencantumkan metode yang disetujui untuk enkripsi disk. Untuk penggunaan ini, enkripsi tanpa otentikasi biasanya diterima dan mode XTS, XEX, serta LRW biasanya digunakan.
 
 ### Key Wrapping
 
-Cryptographic key wrap (and corresponding key unwrap) is a method of protecting an existing key by encapsulating (i.e., wrapping) it by employing an additional encryption mechanism so that the original key is not obviously exposed, e.g., during a transfer. This additional key used to protect the original key is referred to as the wrap key.
+Cryptographic key wrap (dan unwrap kunci terkait) adalah metode untuk melindungi kunci yang ada dengan mengapsulkan (misalnya, membungkus/wrapping) kunci tersebut menggunakan mekanisme enkripsi tambahan sehingga kunci asli tidak terekspos secara jelas, misalnya selama transfer. Kunci tambahan yang digunakan untuk melindungi kunci asli ini disebut sebagai *wrap key*.
 
-This operation may be performed when it is desirable to protect keys in places deemed untrustworthy, or to send sensitive keys over untrusted networks or within applications.
-However, serious consideration should be given to understanding the nature (e.g., the identity and the purpose) of the original key prior to committing to a wrap/unwrap procedure as this may have repercussions for both source and target systems/applications in terms of security and especially compliance which may include audit trails of a key's function (e.g., signing) as well as appropriate key storage.
+Operasi ini dapat dilakukan ketika ingin melindungi kunci di tempat-tempat yang dianggap tidak terpercaya, atau untuk mengirimkan kunci sensitif melalui jaringan yang tidak terpercaya atau di dalam aplikasi.
+Namun, pertimbangan serius harus diberikan untuk memahami sifat (seperti identitas dan tujuan) dari kunci asli sebelum melakukan prosedur wrap/unwrap karena hal ini dapat berimplikasi pada sistem/aplikasi sumber dan target dalam hal keamanan dan terutama kepatuhan yang mungkin mencakup jejak audit (*audit trails*) dari fungsi kunci (seperti penandatanganan) serta penyimpanan kunci yang tepat.
 
-Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) and considering forward-looking provisions against the quantum threat. Cipher modes using AES are the following, in order of preference:
+Secara khusus, AES-256 HARUS digunakan untuk *key wrapping*, mengikuti [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) dan mempertimbangkan ketentuan jangka panjang terhadap ancaman kuantum. Mode cipher yang menggunakan AES adalah sebagai berikut, berdasarkan urutan preferensi:
 
-| Key Wrapping | Reference | Status |
+| Key Wrapping | Referensi | Status |
 |--|--|:-:|
 | KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 | KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 
-AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
+AES-192 dan AES-128 BOLEH digunakan jika kasus penggunaan menghendakinya, tetapi alasannya HARUS didokumentasikan dalam inventarisasi kriptografi entitas.
 
-### Authenticated Encryption
+### Enkripsi Terotentikasi (Authenticated Encryption)
 
-With the exception of disk encryption, encrypted data must be protected against unauthorized modification using some form of authenticated encryption (AE) scheme, usually using an authenticated encryption with associated data (AEAD) scheme.
+Dengan pengecualian enkripsi disk, data terenkripsi harus dilindungi dari modifikasi tanpa izin menggunakan beberapa bentuk skema Authenticated Encryption (AE), biasanya menggunakan skema Authenticated Encryption with Associated Data (AEAD).
 
-The application should preferably use an approved AEAD scheme. It might alternatively combine an approved cipher scheme and an approved MAC algorithm with a Encrypt-then-MAC construct.
+Aplikasi sebaiknya menggunakan skema AEAD yang disetujui. Secara alternatif, aplikasi dapat menggabungkan skema cipher yang disetujui dan algoritma MAC yang disetujui dengan konstruksi Encrypt-then-MAC.
 
-MAC-then-encrypt is still allowed for compatibility with legacy applications. It is used in TLS v1.2 with old ciphers suites.
+MAC-then-encrypt masih diizinkan untuk kompatibilitas dengan aplikasi *legacy*. Ini digunakan dalam TLS v1.2 dengan *cipher suites* lama.
 
-| AEAD mechanism | Reference | Status |
+| Mekanisme AEAD | Referensi | Status |
 |---|---------|:-:|
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
@@ -142,20 +139,19 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |Encrypt-then-MAC | | A |
 |MAC-then-encrypt | | L |
 
-## Hash Functions
+## Fungsi Hash
 
-This section provides additional information
-for V11.4 Hashing and Hash-based Functions.
+Bagian ini menyediakan informasi tambahan untuk V11.4 Hashing dan Fungsi Berbasis Hash.
 
-### Hash Functions for General Use Cases
+### Fungsi Hash untuk Kasus Penggunaan Umum
 
-The following table lists hash functions approved in general cryptographic use cases such as digital signatures:
+Tabel berikut mencantumkan fungsi hash yang disetujui dalam kasus penggunaan kriptografi umum seperti tanda tangan digital:
 
-* Approved hash functions provide strong collision resistance and are suitable for high-security applications.
-* Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
-* Hash function with less than 254 bit of output have insufficient collision resistancea and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
+* Fungsi hash yang disetujui memberikan resistensi kolisi (*collision resistance*) yang kuat dan cocok untuk aplikasi keamanan tinggi.
+* Beberapa dari algoritma ini menawarkan resistensi yang kuat terhadap serangan jika digunakan dengan manajemen kunci kriptografi yang tepat, sehingga secara tambahan disetujui untuk fungsi HMAC, KDF, dan RBG.
+* Fungsi hash dengan output kurang dari 254 bit memiliki resistensi kolisi yang tidak memadai dan tidak boleh digunakan untuk tanda tangan digital atau aplikasi lain yang memerlukan resistensi kolisi. Untuk penggunaan lain, fungsi tersebut mungkin digunakan untuk kompatibilitas dan verifikasi HANYA dengan sistem *legacy*, tetapi tidak boleh digunakan dalam desain baru.
 
-| Hash function | Reference | Status | Restrictions |
+| Fungsi Hash | Referensi | Status | Pembatasan |
 | ------ | ----------- |:-:| ---------- |
 | SHA3-512 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
 | SHA-512 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
@@ -168,19 +164,19 @@ The following table lists hash functions approved in general cryptographic use c
 | BLAKE2s | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | A | |
 | BLAKE2b | [BLAKE2: simpler, smaller, fast as MD5](https://eprint.iacr.org/2013/322) | A | |
 | BLAKE3 | [BLAKE3 one function, fast everywhere](https://github.com/BLAKE3-team/BLAKE3-specs/raw/master/blake3.pdf) | A | |
-| SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
-| SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
-| SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
-| SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | L | Not suitable for HMAC, KDF, RBG, digital signatures |
-| CRC (any length) |  | D |  |
+| SHA-224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Tidak cocok untuk HMAC, KDF, RBG, tanda tangan digital |
+| SHA-512/224 | [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | L | Tidak cocok untuk HMAC, KDF, RBG, tanda tangan digital |
+| SHA3-224 | [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | L | Tidak cocok untuk HMAC, KDF, RBG, tanda tangan digital |
+| SHA-1 | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | L | Tidak cocok untuk HMAC, KDF, RBG, tanda tangan digital |
+| CRC (panjang apa pun) |  | D |  |
 | MD4 | [RFC 1320](https://www.rfc-editor.org/info/rfc1320) | D | |
 | MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321) | D | |
 
-### Hash Functions for Password Storage
+### Fungsi Hash untuk Penyimpanan Kata Sandi
 
-For secure password hashing, dedicated hash functions must be used. These slow-hashing algorithms mitigate brute-force and dictionary attacks by increasing the computational difficulty of password cracking.
+Untuk hashing kata sandi yang aman, fungsi hash khusus harus digunakan. Algoritma *slow-hashing* ini memitigasi serangan *brute-force* dan *dictionary attack* dengan meningkatkan kesulitan komputasi dalam pembongkaran kata sandi (*password cracking*).
 
-| KDF        | Reference | Required Parameters | Status |
+| KDF        | Referensi | Parameter yang Diperlukan | Status |
 | ---------- | --------- | ------------ |:-:|
 | argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
 |          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
@@ -193,22 +189,22 @@ For secure password hashing, dedicated hash functions must be used. These slow-h
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
 
-Approved password-based key derivations functions can be used for password storage.
+Fungsi derivasi kunci berbasis kata sandi yang disetujui dapat digunakan untuk penyimpanan kata sandi.
 
 ## Key Derivation Functions (KDFs)
 
-### General Key Derivation Functions
+### Key Derivation Functions Umum
 
-| KDF              | Reference                                                                                     | Status |
+| KDF              | Referensi                                                                                     | Status |
 | ---------------- | -------- |:-:|
 | HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
 | TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
 | MD5-based KDFs   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
 | SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
 
-### Password-based Key Derivation Functions
+### Key Derivation Functions Berbasis Kata Sandi
 
-| KDF        | Reference | Required Parameters | Status |
+| KDF        | Referensi | Parameter yang Diperlukan | Status |
 | ---------- | --------- | ------------ |:-:|
 | argon2id   | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
 |            |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
@@ -219,34 +215,33 @@ Approved password-based key derivations functions can be used for password stora
 | PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
 | PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
 
-## Key Exchange Mechanisms
+## Mekanisme Pertukaran Kunci (Key Exchange)
 
-This section provides additional information
-for V11.6 Public Key Cryptography.
+Bagian ini menyediakan informasi tambahan untuk V11.6 Kriptografi Kunci Publik.
 
-### KEX Schemes
+### Skema KEX
 
-A security strength of 112 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the following table.
+Kekuatan keamanan 112 bit atau lebih tinggi HARUS dipastikan untuk semua skema Pertukaran Kunci (*Key Exchange*), dan implementasinya HARUS mengikuti pilihan parameter dalam tabel berikut.
 
-| Scheme | Domain Parameters | Forward Secrecy |Status |
+| Skema | Parameter Domain | Forward Secrecy | Status |
 |--|--|--|:-:|
-| Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Yes | A |
-| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Yes | A |
-| Encrypted key transport with RSA-PKCS#1 v1.5 | | No | D |
+| Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Ya | A |
+| Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Ya | A |
+| Encrypted key transport dengan RSA-PKCS#1 v1.5 | | Tidak | D |
 
-Where the following parameters are:
+Di mana parameter berikut adalah:
 
-* k is the key size for RSA keys.
-* L is the size of the public key and N is the size of the private key for finite field cryptography.
-* f is the range of key sizes for ECC.
+* k adalah ukuran kunci untuk kunci RSA.
+* L adalah ukuran kunci publik dan N adalah ukuran kunci privat untuk kriptografi finite field.
+* f adalah rentang ukuran kunci untuk ECC.
 
-Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) and [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final). Specifically, IKEv1 MUST NOT be used in production.
+Setiap implementasi baru TIDAK BOLEH menggunakan skema apa pun yang TIDAK patuh terhadap [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) dan [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final). Secara khusus, IKEv1 TIDAK BOLEH digunakan dalam lingkungan produksi.
 
-### Diffie-Hellman groups
+### Grup Diffie-Hellman
 
-The following groups are approved for implementations of Diffie-Hellman key exchange. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+Grup berikut disetujui untuk implementasi pertukaran kunci Diffie-Hellman. Kekuatan keamanan didokumentasikan dalam [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Lampiran D, dan [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-| Group            | Status |
+| Grup             | Status |
 |------------------|:------:|
 | P-224, secp224r1 | A      |
 | P-256, secp256r1 | A      |
@@ -275,9 +270,9 @@ The following groups are approved for implementations of Diffie-Hellman key exch
 
 ## Message Authentication Codes (MAC)
 
-Message Authentication Codes (MACs) are cryptographic constructs used to verify the integrity and authenticity of a message. A MAC takes a message and a secret key as inputs and produces a fixed-size tag (the MAC value). MACs are widely used in secure communication protocols (e.g., TLS/SSL) to ensure that messages exchanged between parties are authentic and intact.
+Message Authentication Codes (MAC) adalah konstruksi kriptografi yang digunakan untuk memverifikasi integritas dan keaslian (*authenticity*) suatu pesan. MAC menerima pesan dan kunci rahasia sebagai input dan menghasilkan tag berukuran tetap (nilai MAC). MAC banyak digunakan dalam protokol komunikasi aman (misalnya TLS/SSL) untuk memastikan bahwa pesan yang dipertukarkan antar pihak adalah otentik dan utuh.
 
-| MAC Algorithm | Reference                                                                                 | Status |
+| Algoritma MAC | Referensi                                                                                 | Status |
 | ----------    | --------------- |:-:|
 | HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
 | HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
@@ -291,21 +286,21 @@ Message Authentication Codes (MACs) are cryptographic constructs used to verify 
 | HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L |
 | HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
 
-## Digital Signatures
+## Tanda Tangan Digital (Digital Signatures)
 
-Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+Skema tanda tangan HARUS menggunakan ukuran kunci dan parameter yang disetujui sesuai [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-| Signature Algorithm            | Reference                                                  | Status |
+| Algoritma Tanda Tangan        | Referensi                                                  | Status |
 | ------------------------------ | ---------------------------------------------              | :-:    |
 | EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | A      |
 | XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | A      |
 | ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
 | RSA-RSSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | A      |
 | RSA-SSA-PKCS#1 v1.5            | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | D      |
-| DSA (any key size)             | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
+| DSA (ukuran kunci apa pun)     | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
 
-## Post-Quantum Encryption Standards
+## Standar Enkripsi Pasca-Kuantum (Post-Quantum Encryption)
 
-PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there is minimal hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
+Implementasi PQC harus sejalan dengan [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) karena sejauh ini masih minim kode yang diperkuat (*hardened code*) maupun referensi implementasi. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
-The proposed [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) post-quantum hybrid TLS key agreement method is supported by major browsers such as [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). It may be used in cryptographic testing environments or when available within industry- or government-approved libraries.
+Metode *key agreement* TLS hibrida pasca-kuantum yang diusulkan [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) telah didukung oleh peramban-peramban utama seperti [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) dan [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). Metode ini dapat digunakan dalam lingkungan pengujian kriptografi atau ketika tersedia dalam pustaka (*libraries*) yang disetujui oleh industri atau pemerintah.

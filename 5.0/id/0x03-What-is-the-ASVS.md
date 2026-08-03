@@ -1,195 +1,195 @@
 # Apa itu ASVS?
 
-Standar Verifikasi Keamanan Aplikasi (ASVS) menetapkan persyaratan keamanan untuk aplikasi dan layanan web, serta merupakan sumber daya yang berharga bagi siapa pun yang ingin merancang, mengembangkan, dan memelihara aplikasi yang aman atau mengevaluasi keamanannya.
+Application Security Verification Standard (ASVS) mendefinisikan persyaratan keamanan untuk aplikasi dan layanan web, serta merupakan sumber daya yang berharga bagi siapa saja yang bertujuan untuk merancang, mengembangkan, dan memelihara aplikasi yang aman atau mengevaluasi keamanannya.
 
-Bab ini menguraikan aspek-aspek penting dalam penggunaan ASVS, termasuk ruang lingkupnya, struktur tingkatan berbasis prioritasnya, serta kasus penggunaan utama standar tersebut.
+Bab ini menguraikan aspek-aspek esensial dari penggunaan ASVS, termasuk cakupannya, struktur level berbasis prioritas, dan kasus penggunaan (*use cases*) utama untuk standar ini.
 
-## Ruang Lingkup ASVS
+## Cakupan ASVS
 
-Ruang lingkup ASVS ditentukan oleh namanya: Aplikasi, Keamanan, Verifikasi, dan Standar. Ruang lingkup ini menetapkan persyaratan mana yang dimasukkan atau dikecualikan, dengan tujuan utama untuk mengidentifikasi prinsip-prinsip keamanan yang harus dipenuhi. Ruang lingkup ini juga mencakup persyaratan dokumentasi, yang berfungsi sebagai landasan bagi persyaratan implementasi.
+Cakupan (*scope*) dari ASVS didefinisikan oleh namanya: Application, Security, Verification, dan Standard. ASVS menetapkan persyaratan mana yang dimasukkan atau dikecualikan, dengan tujuan utama untuk mengidentifikasi prinsip-prinsip keamanan yang harus dicapai. Cakupan ini juga mempertimbangkan persyaratan dokumentasi, yang berfungsi sebagai fondasi bagi persyaratan implementasi.
 
-Tidak ada yang namanya ruang lingkup bagi penyerang. Oleh karena itu, persyaratan ASVS harus dievaluasi bersamaan dengan pedoman untuk aspek-aspek lain dalam siklus hidup aplikasi, termasuk proses CI/CD, hosting, dan kegiatan operasional.
+Tidak ada yang namanya cakupan bagi penyerang (*attacker*). Oleh karena itu, persyaratan ASVS harus dievaluasi bersamaan dengan panduan untuk aspek-aspek lain dari siklus hidup aplikasi, termasuk proses CI/CD, *hosting*, dan aktivitas operasional.
 
-### Aplikasi
+### Aplikasi (Application)
 
-ASVS mendefinisikan “aplikasi” sebagai produk perangkat lunak yang sedang dikembangkan, di mana pengendalian keamanan harus diintegrasikan. ASVS tidak mengatur aktivitas siklus hidup pengembangan atau menentukan cara aplikasi harus dibangun melalui jalur CI/CD; sebaliknya, ASVS menetapkan hasil keamanan yang harus dicapai dalam produk itu sendiri.
+ASVS mendefinisikan "aplikasi" sebagai produk perangkat lunak yang sedang dikembangkan, di mana kontrol keamanan harus diintegrasikan ke dalamnya. ASVS tidak menetapkan aktivitas siklus hidup pengembangan atau mendikte bagaimana aplikasi harus dibangun melalui *pipeline* CI/CD; melainkan menentukan hasil keamanan yang harus dicapai dalam produk itu sendiri.
 
-Komponen yang menangani, memodifikasi, atau memvalidasi lalu lintas HTTP, seperti Web Application Firewalls (WAF), load balancer, atau proxy, dapat dianggap sebagai bagian dari aplikasi untuk tujuan-tujuan spesifik tersebut, karena beberapa kontrol keamanan bergantung langsung pada komponen-komponen tersebut atau dapat diimplementasikan melalui mereka. Komponen-komponen ini perlu dipertimbangkan dalam persyaratan yang berkaitan dengan respons yang disimpan dalam cache, pembatasan laju, atau pembatasan koneksi masuk dan keluar berdasarkan sumber dan tujuan.
+Komponen yang melayani, mengubah, atau memvalidasi lalu lintas HTTP, seperti Web Application Firewall (WAF), *load balancer*, atau *proxy*, dapat dianggap sebagai bagian dari aplikasi untuk tujuan spesifik tersebut, karena beberapa kontrol keamanan bergantung langsung padanya atau dapat diimplementasikan melaluinya. Komponen-komponen ini harus dipertimbangkan untuk persyaratan yang berkaitan dengan respons yang di-cache, *rate limiting*, atau pembatasan koneksi masuk dan keluar berdasarkan sumber dan tujuan.
 
-Sebaliknya, ASVS umumnya tidak memasukkan persyaratan yang tidak secara langsung berkaitan dengan aplikasi atau yang konfigurasinya berada di luar lingkup tanggung jawab aplikasi. Misalnya, masalah DNS biasanya ditangani oleh tim atau unit kerja yang terpisah.
+Sebaliknya, ASVS umumnya mengecualikan persyaratan yang tidak relevan secara langsung dengan aplikasi atau di mana konfigurasinya berada di luar tanggung jawab aplikasi. Sebagai contoh, masalah DNS biasanya dikelola oleh tim atau fungsi yang terpisah.
 
-Demikian pula, meskipun aplikasi bertanggung jawab atas bagaimana ia menggunakan input dan menghasilkan output, jika sebuah proses eksternal berinteraksi dengan aplikasi atau datanya, hal itu dianggap berada di luar cakupan ASVS. Misalnya, mencadangkan aplikasi atau datanya biasanya merupakan tanggung jawab proses eksternal dan tidak dikendalikan oleh aplikasi atau pengembangnya.
+Demikian pula, meskipun aplikasi bertanggung jawab atas cara mengonsumsi input dan menghasilkan output, jika proses eksternal berinteraksi dengan aplikasi atau datanya, proses tersebut dianggap di luar cakupan (*out of scope*) ASVS. Misalnya, pencadangan (*backup*) aplikasi atau datanya biasanya merupakan tanggung jawab proses eksternal dan tidak dikontrol oleh aplikasi atau pengembangnya.
 
-### Keamanan
+### Keamanan (Security)
 
-Setiap persyaratan harus memiliki dampak yang dapat dibuktikan terhadap keamanan. Ketiadaan suatu persyaratan harus mengakibatkan aplikasi menjadi kurang aman, dan penerapan persyaratan tersebut harus mengurangi baik kemungkinan maupun dampak dari risiko keamanan.
+Setiap persyaratan harus memiliki dampak yang terbukti terhadap keamanan. Absennya suatu persyaratan harus mengakibatkan aplikasi menjadi kurang aman, dan mengimplementasikan persyaratan tersebut harus mengurangi kemungkinan atau dampak dari risiko keamanan.
 
-Pertimbangan lain apa pun, seperti aspek fungsional, gaya penulisan kode, atau persyaratan kebijakan, tidak termasuk dalam cakupan ini.
+Semua pertimbangan lainnya, seperti aspek fungsional, gaya penulisan kode (*code style*), atau persyaratan kebijakan, berada di luar cakupan.
 
-### Verifikasi
+### Verifikasi (Verification)
 
-Persyaratan tersebut harus dapat diverifikasi, dan hasil verifikasi harus berupa keputusan “gagal” atau “lulus”.
+Persyaratan harus dapat diverifikasi (*verifiable*), dan verifikasi tersebut harus menghasilkan keputusan "gagal" (*fail*) atau "lulus" (*pass*).
 
-### Standar
+### Standar (Standard)
 
-ASVS dirancang sebagai kumpulan persyaratan keamanan yang harus diterapkan untuk memenuhi standar tersebut. Artinya, persyaratan tersebut terbatas pada penetapan tujuan keamanan yang ingin dicapai. Informasi terkait lainnya dapat dikembangkan berdasarkan ASVS atau dihubungkan melalui pemetaan.
+ASVS dirancang untuk menjadi kumpulan persyaratan keamanan yang diimplementasikan untuk mematuhi standar. Ini berarti bahwa persyaratan dibatasi untuk mendefinisikan tujuan keamanan yang ingin dicapai. Informasi relevan lainnya dapat dibangun di atas ASVS atau dihubungkan melalui pemetaan (*mappings*).
 
-Secara khusus, OWASP memiliki banyak proyek, dan ASVS secara sengaja menghindari tumpang tindih dengan konten di proyek-proyek lain. Misalnya, pengembang mungkin memiliki pertanyaan, “bagaimana cara menerapkan persyaratan tertentu dalam teknologi atau lingkungan saya,” dan hal ini seharusnya dibahas dalam proyek Cheat Sheet Series. Sementara itu, penguji mungkin memiliki pertanyaan, “bagaimana cara menguji persyaratan ini dalam lingkungan ini,” dan hal ini seharusnya dibahas dalam proyek Web Security Testing Guide.
+Secara khusus, OWASP memiliki banyak proyek, dan ASVS secara sengaja menghindari tumpang tindih dengan konten di proyek lain. Sebagai contoh, pengembang mungkin memiliki pertanyaan, "bagaimana cara mengimplementasikan persyaratan tertentu dalam teknologi atau lingkungan spesifik saya," dan ini harus dicakup oleh proyek *Cheat Sheet Series*. Verifikator mungkin memiliki pertanyaan "bagaimana cara menguji persyaratan ini di lingkungan ini," dan ini harus dicakup oleh proyek *Web Security Testing Guide*.
 
-Meskipun ASVS tidak hanya ditujukan untuk para ahli keamanan, buku ini mengharuskan pembaca memiliki pengetahuan teknis untuk memahami isinya atau kemampuan untuk meneliti konsep-konsep tertentu.
+Meskipun ASVS tidak hanya ditujukan untuk digunakan oleh pakar keamanan, standar ini tetap mengharapkan pembaca memiliki pengetahuan teknis untuk memahami kontennya atau memiliki kemampuan untuk meneliti konsep-konsep tertentu.
 
-### Persyaratan
+### Persyaratan (Requirement)
 
-Istilah "persyaratan" digunakan secara khusus dalam ASVS karena istilah tersebut menggambarkan hal-hal yang harus dipenuhi untuk memenuhi ketentuan tersebut. ASVS hanya memuat persyaratan (harus) dan tidak memuat rekomendasi (sebaiknya) sebagai syarat utama.
+Kata *requirement* (persyaratan) digunakan secara khusus dalam ASVS karena menggambarkan apa yang harus dicapai untuk memenuhinya. ASVS hanya berisi persyaratan wajib (*must*) dan tidak berisi rekomendasi (*should*) sebagai kondisi utama.
 
-Dengan kata lain, rekomendasi—baik yang hanya merupakan salah satu dari banyak opsi yang mungkin untuk memecahkan suatu masalah maupun pertimbangan gaya penulisan kode—tidak memenuhi definisi sebagai suatu persyaratan.
+Dengan kata lain, rekomendasi, baik yang hanya berupa salah satu dari banyak opsi untuk menyelesaikan masalah atau pertimbangan gaya penulisan kode, tidak memenuhi definisi untuk menjadi sebuah persyaratan.
 
-Persyaratan ASVS dirancang untuk mencakup prinsip-prinsip keamanan tertentu tanpa terlalu terikat pada metode implementasi atau teknologi tertentu, sekaligus secara jelas menjelaskan alasan keberadaannya. Hal ini juga berarti bahwa persyaratan tersebut tidak didasarkan pada metode verifikasi atau implementasi tertentu.
+Persyaratan ASVS dimaksudkan untuk menangani prinsip-prinsip keamanan tertentu tanpa terlalu spesifik pada implementasi atau teknologi, sekaligus memberikan penjelasan mandiri tentang mengapa persyaratan itu ada. Ini juga berarti persyaratan tidak dibangun di sekitar metode verifikasi atau implementasi tertentu.
 
-### Keputusan keamanan yang terdokumentasi
+### Keputusan Keamanan yang Terdokumentasi
 
-Dalam keamanan perangkat lunak, merencanakan desain keamanan dan mekanisme yang akan digunakan sejak awal akan menghasilkan implementasi yang lebih konsisten dan andal pada produk atau fitur yang telah jadi.
+Dalam keamanan perangkat lunak, merencanakan desain keamanan dan mekanisme yang akan digunakan sejak awal akan mengarah pada implementasi yang lebih konsisten dan andal pada produk atau fitur yang selesai dibuat.
 
-Selain itu, untuk persyaratan tertentu, implementasinya akan menjadi rumit dan sangat spesifik sesuai dengan kebutuhan aplikasi. Contoh umum meliputi izin akses, validasi masukan, dan kontrol perlindungan terhadap berbagai tingkat data sensitif.
+Selain itu, untuk persyaratan tertentu, implementasinya akan rumit dan sangat spesifik dengan kebutuhan aplikasi. Contoh umumnya meliputi hak akses (*permissions*), validasi input, dan kontrol perlindungan di sekitar berbagai tingkat data sensitif.
 
-Untuk mengatasi hal ini, alih-alih membuat pernyataan umum seperti "semua data harus dienkripsi" atau mencoba mencakup setiap kemungkinan skenario penggunaan dalam suatu persyaratan, telah dimasukkan persyaratan dokumentasi yang mewajibkan agar pendekatan dan konfigurasi yang diterapkan oleh pengembang aplikasi terhadap jenis-jenis pengendalian tersebut harus didokumentasikan. Hal ini kemudian dapat ditinjau untuk memastikan kesesuaiannya, dan implementasi yang sebenarnya dapat dibandingkan dengan dokumentasi tersebut guna menilai apakah implementasi tersebut sesuai dengan harapan.
+Untuk mengatasi hal ini, daripada membuat pernyataan umum seperti "semua data harus dienkripsi" atau mencoba mencakup setiap kemungkinan kasus penggunaan dalam satu persyaratan, persyaratan dokumentasi dimasukkan untuk mewajibkan agar pendekatan dan konfigurasi pengembang aplikasi terhadap jenis kontrol ini didokumentasikan. Dokumentasi ini kemudian dapat ditinjau kesesuaiannya dan implementasi aktualnya dapat dibandingkan dengan dokumentasi untuk menilai apakah implementasi sesuai dengan ekspektasi.
 
-Persyaratan ini dimaksudkan untuk mendokumentasikan keputusan yang telah diambil oleh organisasi pengembang aplikasi terkait cara menerapkan persyaratan keamanan tertentu.
+Persyaratan ini dimaksudkan untuk mendokumentasikan keputusan yang telah diambil oleh organisasi pengembang aplikasi mengenai cara mengimplementasikan persyaratan keamanan tertentu.
 
-Persyaratan dokumentasi selalu tercantum pada bagian pertama suatu bab (meskipun tidak semua bab memilikinya) dan selalu disertai dengan persyaratan implementasi terkait, di mana keputusan yang didokumentasikan tersebut harus benar-benar diterapkan. Intinya di sini adalah bahwa memverifikasi keberadaan dokumentasi dan memastikan implementasi yang sebenarnya merupakan dua kegiatan yang terpisah.
+Persyaratan dokumentasi selalu berada di bagian pertama dari suatu bab (meskipun tidak setiap bab memilikinya) dan selalu memiliki persyaratan implementasi terkait di mana keputusan yang didokumentasikan tersebut harus benar-benar diterapkan. Poin di sini adalah bahwa memverifikasi keberadaan dokumentasi dan memverifikasi implementasi aktualnya adalah dua aktivitas yang terpisah.
 
-Ada dua faktor utama yang mendasari dimasukkannya persyaratan-persyaratan ini. Faktor pertama adalah bahwa persyaratan keamanan sering kali melibatkan penerapan aturan, misalnya jenis file apa saja yang boleh diunggah, kontrol bisnis apa saja yang harus diterapkan, serta karakter apa saja yang diperbolehkan untuk bidang tertentu. Aturan-aturan ini akan berbeda untuk setiap aplikasi, dan oleh karena itu, ASVS tidak dapat secara preskriptif menentukan seperti apa aturan tersebut seharusnya, dan lembar panduan singkat atau tanggapan yang lebih terperinci pun tidak akan membantu dalam hal ini. Demikian pula, tanpa dokumentasi keputusan-keputusan ini, tidak akan mungkin untuk melakukan verifikasi terhadap persyaratan yang mengimplementasikan keputusan-keputusan tersebut.
+Ada dua pendorong utama dimasukannya persyaratan ini:
+1. Pendorong pertama adalah bahwa persyaratan keamanan sering kali melibatkan penegakan aturan, misal: jenis file apa yang diizinkan untuk diunggah, kontrol bisnis apa yang harus ditegakkan, karakter apa saja yang diizinkan untuk kolom tertentu. Aturan-aturan ini akan berbeda untuk setiap aplikasi, dan oleh karena itu, ASVS tidak dapat mendefinisikan secara preskriptif bagaimana aturan tersebut seharusnya, begitu pula *cheat sheet* atau respons yang lebih detail tidak dapat membantu dalam kasus ini. Demikian pula, tanpa keputusan ini didokumentasikan, verifikasi persyaratan yang mengimplementasikan keputusan tersebut tidak akan mungkin dilakukan.
+2. Pendorong kedua adalah untuk persyaratan tertentu, penting untuk memberikan fleksibilitas kepada pengembang aplikasi mengenai cara mengatasi tantangan keamanan tertentu. Misalnya, dalam versi ASVS sebelumnya, aturan *session timeout* sangat preskriptif. Secara praktis, banyak aplikasi (terutama yang berhadapan langsung dengan konsumen) memiliki aturan yang jauh lebih longgar dan memilih untuk mengimplementasikan kontrol mitigasi lainnya. Oleh karena itu, persyaratan dokumentasi secara eksplisit memberikan fleksibilitas di seputar hal ini.
 
-Faktor pendorong kedua adalah bahwa untuk persyaratan tertentu, penting untuk memberikan keleluasaan dalam pengembangan aplikasi terkait cara menangani tantangan keamanan tertentu. Misalnya, pada versi ASVS sebelumnya, aturan batas waktu sesi sangat ketat. Dalam praktiknya, banyak aplikasi, terutama yang berorientasi pada konsumen, menerapkan aturan yang jauh lebih longgar dan lebih memilih untuk menerapkan langkah-langkah mitigasi lain sebagai gantinya. Oleh karena itu, persyaratan dokumentasi secara eksplisit memberikan keleluasaan dalam hal ini.
+Jelas, tidak diharapkan bahwa masing-masing pengembang individu yang membuat dan mendokumentasikan keputusan ini, melainkan organisasi secara keseluruhan yang mengambil keputusan tersebut dan menyampaikannya kepada pengembang yang kemudian mematuhinya.
 
-Jelaslah bahwa pengembang individu tidak diharapkan untuk membuat dan mendokumentasikan keputusan-keputusan tersebut; sebaliknya, organisasi secara keseluruhan lah yang akan mengambil keputusan-keputusan tersebut dan memastikan bahwa keputusan-keputusan itu dikomunikasikan kepada para pengembang, yang kemudian akan memastikan untuk mematuhinya.
+Menyediakan spesifikasi dan desain fitur baru kepada pengembang adalah bagian standar dari pengembangan perangkat lunak. Demikian pula, pengembang diharapkan menggunakan komponen umum dan mekanisme *user interface* yang ada alih-alih membuat keputusan sendiri setiap saat. Dengan demikian, memperluas hal ini ke ranah keamanan seharusnya tidak dipandang sebagai hal yang mengejutkan atau kontroversial.
 
-Memberikan spesifikasi dan desain fitur serta fungsionalitas baru kepada para pengembang merupakan bagian standar dari pengembangan perangkat lunak. Demikian pula, para pengembang diharapkan menggunakan komponen dan mekanisme antarmuka pengguna yang umum, alih-alih membuat keputusan sendiri setiap kali. Oleh karena itu, memperluas hal ini ke bidang keamanan seharusnya tidak dianggap mengejutkan atau kontroversial.
+Ada juga fleksibilitas tentang cara mencapai hal ini. Keputusan keamanan dapat didokumentasikan dalam dokumen tertulis yang dirujuk oleh pengembang. Atau, keputusan keamanan dapat didokumentasikan dan diimplementasikan dalam pustaka kode umum (*common code library*) yang diwajibkan untuk digunakan oleh semua pengembang. Dalam kedua kasus tersebut, hasil yang diinginkan tetap tercapai.
 
-Ada juga fleksibilitas dalam hal cara mencapai hal ini. Keputusan keamanan dapat didokumentasikan dalam sebuah dokumen tertulis, yang diharapkan dapat dijadikan acuan oleh para pengembang. Atau, keputusan keamanan dapat didokumentasikan dan diimplementasikan dalam pustaka kode umum yang wajib digunakan oleh semua pengembang. Dalam kedua kasus tersebut, hasil yang diinginkan tetap tercapai.
+## Tingkat Verifikasi Keamanan Aplikasi (Application Security Verification Levels)
 
-## Tingkat Verifikasi Keamanan Aplikasi
+ASVS mendefinisikan tiga tingkat verifikasi keamanan, di mana setiap tingkat meningkat dalam kedalaman dan kompleksitasnya. Tujuan umumnya adalah agar organisasi memulai dari tingkat pertama untuk mengatasi masalah keamanan yang paling krusial, lalu naik ke tingkat yang lebih tinggi sesuai dengan kebutuhan organisasi dan aplikasi. Tingkat ini dapat ditampilkan sebagai L1, L2, dan L3 dalam dokumen dan teks persyaratan.
 
-ASVS menetapkan tiga tingkatan verifikasi keamanan, dengan setiap tingkatan memiliki tingkat kedalaman dan kompleksitas yang semakin tinggi. Tujuan umumnya adalah agar organisasi memulai dari tingkatan pertama untuk menangani masalah keamanan yang paling kritis, kemudian naik ke tingkatan yang lebih tinggi sesuai dengan kebutuhan organisasi dan aplikasi. Tingkatan-tingkatan tersebut dapat disebut sebagai L1, L2, dan L3 dalam dokumen dan teks persyaratan.
+Setiap level ASVS menunjukkan persyaratan keamanan yang wajib dicapai pada level tersebut, dengan sisa persyaratan di level yang lebih tinggi berfungsi sebagai rekomendasi.
 
-Setiap tingkat ASVS menunjukkan persyaratan keamanan yang harus dipenuhi pada tingkat tersebut, sedangkan persyaratan pada tingkat yang lebih tinggi disajikan sebagai rekomendasi.
+Untuk menghindari persyaratan duplikat atau persyaratan yang tidak lagi relevan pada level yang lebih tinggi, beberapa persyaratan berlaku untuk level tertentu tetapi memiliki kondisi yang lebih ketat untuk level di atasnya.
 
-Untuk menghindari persyaratan yang tumpang tindih atau persyaratan yang tidak lagi relevan pada tingkat yang lebih tinggi, beberapa persyaratan berlaku untuk tingkat tertentu namun memiliki ketentuan yang lebih ketat pada tingkat yang lebih tinggi.
+### Evaluasi Level
 
-### Tingkat penilaian
+Level-level ini didefinisikan berdasarkan evaluasi prioritas dari setiap persyaratan yang berpatokan pada pengalaman implementasi dan pengujian keamanan. Fokus utamanya adalah membandingkan pengurangan risiko (*risk reduction*) dengan upaya untuk mengimplementasikan persyaratan tersebut (*effort to implement*). Faktor kunci lainnya adalah menjaga ambang batas masuk (*barrier to entry*) tetap rendah.
 
-Tingkat-tingkat tersebut ditentukan melalui evaluasi berbasis prioritas terhadap setiap persyaratan, yang didasarkan pada pengalaman dalam menerapkan dan menguji persyaratan keamanan. Fokus utamanya adalah membandingkan pengurangan risiko dengan upaya yang diperlukan untuk menerapkan persyaratan tersebut. Faktor penting lainnya adalah menjaga agar hambatan untuk memulai tetap rendah.
+Pengurangan risiko mempertimbangkan sejauh mana persyaratan tersebut mengurangi tingkat risiko keamanan dalam aplikasi, dengan memperhitungkan faktor dampak klasik *Confidentiality*, *Integrity*, dan *Availability*, serta mempertimbangkan apakah ini merupakan lapisan pertahanan utama (*primary layer of defense*) atau pertahanan berlapis (*defense in depth*).
 
-Pengurangan risiko mempertimbangkan sejauh mana persyaratan tersebut menurunkan tingkat risiko keamanan dalam aplikasi, dengan memperhitungkan faktor-faktor dampak klasik berupa Kerahasiaan, Integritas, dan Ketersediaan, serta mempertimbangkan apakah hal ini merupakan lapisan pertahanan utama atau apakah hal ini dapat dikategorikan sebagai pertahanan berlapis.
+Diskusi ketat di sekitar kriteria dan keputusan tingkat telah menghasilkan alokasi yang seharusnya berlaku untuk sebagian besar kasus, sambil menerima bahwa hal ini mungkin tidak 100% cocok untuk setiap situasi. Ini berarti dalam kasus tertentu, organisasi mungkin ingin memprioritaskan persyaratan dari level yang lebih tinggi lebih awal berdasarkan pertimbangan risiko spesifik mereka sendiri.
 
-Diskusi mendalam mengenai kriteria dan keputusan penetapan tingkatan tersebut telah menghasilkan alokasi yang seharusnya berlaku untuk sebagian besar kasus, meskipun diakui bahwa hal ini mungkin tidak sepenuhnya sesuai untuk setiap situasi. Artinya, dalam kasus tertentu, organisasi mungkin ingin memprioritaskan persyaratan dari tingkatan yang lebih tinggi lebih awal berdasarkan pertimbangan risiko spesifik mereka sendiri.
+Jenis persyaratan di setiap level dapat dikarakterisasikan sebagai berikut:
 
-Jenis-jenis persyaratan pada setiap tingkat dapat digambarkan sebagai berikut.
+### Level 1
 
-### Tingkat 1
+Tingkat ini berisi persyaratan minimum yang harus dipertimbangkan saat mengamankan aplikasi dan mewakili titik awal yang sangat penting. Tingkat ini berisi sekitar 20% dari seluruh persyaratan ASVS. Tujuan dari tingkat ini adalah memiliki persyaratan sesedikit mungkin untuk menurunkan ambang batas masuk.
 
-Tingkat ini mencakup persyaratan minimum yang perlu dipertimbangkan dalam mengamankan suatu aplikasi dan merupakan titik awal yang sangat penting. Tingkat ini mencakup sekitar 20% dari persyaratan ASVS. Tujuan dari tingkat ini adalah untuk meminimalkan jumlah persyaratan, guna mengurangi hambatan untuk memulai.
+Persyaratan ini umumnya kritis atau mendasar, sebagai pertahanan lapisan pertama untuk mencegah serangan umum yang tidak memerlukan kerentanan atau prakondisi lain agar dapat dieksploitasi.
 
-Persyaratan-persyaratan ini umumnya bersifat kritis atau mendasar, yaitu persyaratan pertahanan tingkat pertama untuk mencegah serangan umum yang tidak memerlukan kerentanan atau prasyarat lain agar dapat dieksploitasi.
+Selain persyaratan pertahanan lapisan pertama, beberapa persyaratan memiliki dampak yang lebih kecil pada level yang lebih tinggi, seperti persyaratan yang berkaitan dengan kata sandi. Persyaratan tersebut lebih penting untuk Level 1, karena pada level yang lebih tinggi, persyaratan otentikasi multi-faktor (*multi-factor authentication*) menjadi lebih relevan.
 
-Selain persyaratan lapisan pertahanan pertama, ada beberapa persyaratan yang dampaknya lebih kecil pada tingkat yang lebih tinggi, seperti persyaratan yang berkaitan dengan kata sandi. Persyaratan tersebut lebih penting untuk Tingkat 1, karena pada tingkat yang lebih tinggi, persyaratan otentikasi multi-faktor mulai berlaku.
+Level 1 tidak selalu dapat diuji dengan *penetration test* oleh penguji eksternal tanpa akses internal ke dokumentasi atau kode (seperti pengujian *black box*), meskipun jumlah persyaratan yang lebih sedikit seharusnya membuatnya lebih mudah untuk diverifikasi.
 
-Tingkat 1 belum tentu dapat diuji penetrasi oleh penguji eksternal yang tidak memiliki akses internal ke dokumentasi atau kode (seperti pengujian “black box”), meskipun jumlah persyaratan yang lebih sedikit seharusnya membuatnya lebih mudah untuk diverifikasi.
+### Level 2
 
-### Tingkat 2
+Sebagian besar aplikasi harus berusaha mencapai tingkat keamanan ini. Sekitar 50% persyaratan dalam ASVS berada di L2, yang berarti aplikasi perlu mengimplementasikan sekitar 70% dari seluruh persyaratan ASVS (semua persyaratan L1 dan L2) agar sesuai dengan L2.
 
-Sebagian besar aplikasi seharusnya berupaya mencapai tingkat keamanan ini. Sekitar 50% dari persyaratan dalam ASVS termasuk dalam kategori L2, yang berarti sebuah aplikasi harus menerapkan sekitar 70% dari persyaratan dalam ASVS (seluruh persyaratan L1 dan L2) agar memenuhi standar L2.
+Persyaratan ini umumnya berkaitan dengan serangan yang kurang umum atau perlindungan yang lebih rumit terhadap serangan umum. Persyaratan ini mungkin masih berupa pertahanan lapisan pertama, atau mungkin memerlukan prakondisi tertentu agar serangan berhasil.
 
-Persyaratan ini umumnya berkaitan dengan serangan yang kurang umum atau langkah-langkah perlindungan yang lebih rumit terhadap serangan yang umum. Persyaratan tersebut mungkin masih berfungsi sebagai lapisan pertahanan pertama, atau mungkin memerlukan prasyarat tertentu agar serangan tersebut berhasil.
+### Level 3
 
-### Tingkat 3
+Tingkat ini harus menjadi target bagi aplikasi yang ingin menunjukkan tingkat keamanan tertinggi dan menyediakan sisa ~30% persyaratan terakhir yang harus dipenuhi.
 
-Tingkat ini seharusnya menjadi target bagi aplikasi yang ingin menunjukkan tingkat keamanan tertinggi, dan mencakup sekitar 30% persyaratan terakhir yang harus dipenuhi.
+Persyaratan pada bagian ini umumnya merupakan mekanisme pertahanan berlapis (*defense-in-depth*) atau kontrol lain yang berguna tetapi sulit diimplementasikan.
 
-Persyaratan dalam bagian ini umumnya berupa mekanisme pertahanan berlapis atau pengendalian lain yang bermanfaat namun sulit diterapkan.
+### Level Mana yang Harus Dicapai
 
-### Tingkat mana yang ingin dicapai
+Level berbasis prioritas dimaksudkan untuk memberikan gambaran tentang kematangan keamanan aplikasi (*application security maturity*) dari organisasi dan aplikasi tersebut. Daripada ASVS mendikte secara kaku level apa yang harus dicapai oleh suatu aplikasi, organisasi harus menganalisis risikonya dan memutuskan level mana yang menurut mereka sesuai, tergantung pada sensitivitas aplikasi dan ekspektasi dari pengguna aplikasi.
 
-Tingkat-tingkat yang didasarkan pada prioritas ini dimaksudkan untuk menggambarkan tingkat kematangan keamanan aplikasi organisasi dan aplikasi itu sendiri. Alih-alih ASVS secara tegas menentukan tingkat mana yang harus dicapai oleh suatu aplikasi, organisasi sebaiknya menganalisis risikonya dan memutuskan tingkat mana yang menurutnya sesuai, tergantung pada tingkat sensitivitas aplikasi dan, tentu saja, ekspektasi para pengguna aplikasi tersebut.
+Sebagai contoh, *startup* tahap awal yang hanya mengumpulkan data sensitif secara terbatas dapat memutuskan untuk berfokus pada Level 1 untuk target keamanan awalnya, tetapi sebuah bank mungkin akan kesulitan membenarkan tingkat di bawah Level 3 kepada nasabahnya untuk aplikasi perbankan *online* mereka.
 
-Misalnya, sebuah perusahaan rintisan yang masih dalam tahap awal dan hanya mengumpulkan data sensitif dalam jumlah terbatas mungkin memutuskan untuk berfokus pada Tingkat 1 sebagai sasaran keamanan awalnya, tetapi sebuah bank mungkin akan kesulitan meyakinkan pelanggannya bahwa aplikasi perbankan daringnya layak menggunakan tingkat keamanan di bawah Tingkat 3.
-
-## Cara menggunakan ASVS
+## Cara Menggunakan ASVS
 
 ### Struktur ASVS
 
-ASVS terdiri dari total sekitar 350 persyaratan yang dibagi ke dalam 17 bab, yang masing-masing dibagi lagi ke dalam beberapa bagian.
+ASVS terdiri dari total sekitar 350 persyaratan yang dibagi menjadi 17 bab, di mana masing-masing bab dibagi lagi menjadi beberapa bagian.
 
-Tujuan dari pembagian bab dan bagian ini adalah untuk mempermudah pemilihan atau penyaringan bab dan bagian berdasarkan hal-hal yang relevan bagi penerapan tertentu. Misalnya, untuk API machine-to-machine, persyaratan dalam Bab V3 yang berkaitan dengan antarmuka web tidak akan relevan. Jika OAuth atau WebRTC tidak digunakan, maka bab-bab tersebut juga dapat diabaikan.
+Tujuan dari pembagian bab dan bagian ini adalah untuk mempermudah pemeliharaan atau penyaringan bab dan bagian berdasarkan apa yang relevan untuk aplikasi. Misalnya, untuk API *machine-to-machine*, persyaratan dalam bab V3 yang terkait dengan *web frontend* tidak akan relevan. Jika tidak ada penggunaan OAuth atau WebRTC, bab-bab tersebut juga dapat diabaikan.
 
-### Strategi Peluncuran
+### Strategi Rilis
 
-Rilis ASVS mengikuti pola "Major.Minor.Patch", dan angka-angka tersebut memberikan informasi mengenai perubahan yang terjadi dalam rilis tersebut. Pada rilis major, angka pertama yang berubah; pada rilis minor, angka kedua yang berubah; dan pada rilis patch, angka ketiga yang berubah.
+Rilis ASVS mengikuti pola "Major.Minor.Patch" dan nomor-nomor tersebut memberikan informasi tentang apa yang telah berubah dalam rilis tersebut:
 
-* Rilis besar (Major) - Perombakan menyeluruh; hampir semua hal mungkin telah berubah, termasuk nomor persyaratan. Diperlukan evaluasi ulang untuk memastikan kepatuhan (misalnya, 4.0.3 -> 5.0.0).
-* Rilis minor — Persyaratan mungkin ditambahkan atau dihapus, tetapi penomoran versi secara keseluruhan akan tetap sama. Penilaian ulang terhadap kepatuhan akan diperlukan, tetapi seharusnya lebih mudah (misalnya, 5.0.0 -> 5.1.0).
-* Rilis tambalan (Patch) - Persyaratan mungkin dihapus (misalnya, jika merupakan duplikat atau sudah usang) atau dibuat lebih longgar, tetapi aplikasi yang telah memenuhi persyaratan pada rilis sebelumnya juga akan memenuhi persyaratan pada rilis tambalan tersebut (misalnya, 5.0.0 -> 5.0.1).
+* **Major release** - Restrukturisasi penuh, hampir semuanya dapat berubah, termasuk nomor persyaratan. Reevaluasi kepatuhan akan diperlukan (misalnya, 4.0.3 -> 5.0.0).
+* **Minor release** - Persyaratan dapat ditambahkan atau dihapus, tetapi penomoran secara keseluruhan akan tetap sama. Reevaluasi kepatuhan akan diperlukan, tetapi seharusnya lebih mudah (misalnya, 5.0.0 -> 5.1.0).
+* **Patch release** - Persyaratan dapat dihapus (misalnya, jika duplikat atau usang) atau dibuat lebih longgar, tetapi aplikasi yang mematuhi rilis sebelumnya juga akan mematuhi rilis *patch* ini (misalnya, 5.0.0 -> 5.0.1).
 
-Hal di atas secara khusus berkaitan dengan persyaratan dalam ASVS. Perubahan pada teks di sekitarnya dan konten lain seperti lampiran tidak akan dianggap sebagai perubahan yang berdampak signifikan.
+Hal-hal di atas secara khusus berkaitan dengan persyaratan dalam ASVS. Perubahan pada teks sekitarnya dan konten lain seperti lampiran tidak dianggap sebagai perubahan besar (*breaking change*).
 
-### Fleksibilitas dengan ASVS
+### Fleksibilitas dalam ASVS
 
-Beberapa poin yang dijelaskan di atas, seperti persyaratan dokumentasi dan mekanisme tingkatan, memungkinkan penggunaan ASVS secara lebih fleksibel dan disesuaikan dengan kebutuhan organisasi.
+Beberapa poin yang dijelaskan di atas, seperti persyaratan dokumentasi dan mekanisme level, memberikan kemampuan untuk menggunakan ASVS secara lebih fleksibel dan spesifik sesuai kebutuhan organisasi.
 
-Selain itu, organisasi sangat dianjurkan untuk membuat cabang (fork) yang disesuaikan dengan organisasi atau domain tertentu, yang menyesuaikan persyaratan berdasarkan karakteristik dan tingkat risiko spesifik dari aplikasi mereka. Namun, penting untuk menjaga keterlacakan sehingga pemenuhan persyaratan 4.1.1 memiliki arti yang sama di seluruh versi.
+Selain itu, organisasi sangat didorong untuk membuat *fork* khusus organisasi atau domain yang menyesuaikan persyaratan berdasarkan karakteristik spesifik dan tingkat risiko aplikasi mereka. Namun, penting untuk menjaga keterlacakan (*traceability*) sehingga memenuhi persyaratan 4.1.1 berarti hal yang sama di semua versi.
 
-Idealnya, setiap organisasi sebaiknya menyusun ASVS yang disesuaikan dengan kebutuhannya sendiri, dengan menghilangkan bagian-bagian yang tidak relevan (misalnya, GraphQL, WebSockets, SOAP, jika tidak digunakan). Versi atau lampiran ASVS khusus organisasi juga merupakan wadah yang tepat untuk memberikan panduan implementasi khusus organisasi, yang merinci pustaka atau sumber daya yang harus digunakan dalam memenuhi persyaratan.
+Ideally, setiap organisasi harus membuat ASVS tersendiri yang disesuaikan, dengan mengabaikan bagian yang tidak relevan (misalnya GraphQL, WebSockets, SOAP, jika tidak digunakan). Versi atau suplemen ASVS khusus organisasi juga merupakan tempat yang baik untuk menyediakan panduan implementasi internal, yang merinci pustaka (*libraries*) atau sumber daya yang digunakan saat mematuhi persyaratan.
 
-### Cara Merujuk pada Persyaratan ASVS
+### Cara Merujuk Persyaratan ASVS
 
-Setiap persyaratan memiliki pengenal dalam format `<chapter>.<section>.<requirement>`, di mana setiap elemen berupa angka. Misalnya, `1.11.3`.
+Setiap persyaratan memiliki pengenal (*identifier*) dalam format `<bab>.<bagian>.<persyaratan>`, di mana setiap elemen berupa angka. Contohnya, `1.11.3`.
 
-* Nilai `<chapter>` menunjukkan bab asal persyaratan tersebut; misalnya, semua persyaratan `1.#.#` berasal dari bab ‘Pengkodean dan Pembersihan’.
-* Nilai `<section>` mengacu pada bagian dalam bab tersebut di mana persyaratan tersebut tercantum, misalnya: semua persyaratan `1.2.#` terdapat dalam bagian ‘Pencegahan Injeksi’ pada bab ‘Pengkodean dan Sanitasi’.
-* Nilai `<requirement>` mengidentifikasi persyaratan spesifik dalam bab dan bagian tersebut, misalnya, `1.2.5` yang pada versi 5.0.0 standar ini berbunyi:
+* Nilai `<bab>` sesuai dengan bab asal persyaratan tersebut; contohnya, semua persyaratan `1.#.#` berasal dari bab 'Encoding and Sanitization'.
+* Nilai `<bagian>` sesuai dengan bagian dalam bab tersebut di mana persyaratan muncul; contohnya: semua persyaratan `1.2.#` berada di bagian 'Injection Prevention' pada bab 'Encoding and Sanitization'.
+* Nilai `<persyaratan>` mengidentifikasi persyaratan spesifik dalam bab dan bagian tersebut, misalnya `1.2.5` yang pada versi 5.0.0 dari standar ini berbunyi:
 
-> Pastikan bahwa aplikasi tersebut terlindungi dari serangan injeksi perintah sistem operasi (OS Command Injection) dan bahwa panggilan sistem (system calls) operasi menggunakan kueri sistem operasi yang diparameterkan atau mengenkode keluaran baris perintah sesuai konteks.
+> Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
 
-Karena pengenal (identifier) dapat berubah antar versi standar, disarankan agar dokumen, laporan, atau alat lain menggunakan format berikut: `v<version>-<chapter>.<section>.<requirement>`, di mana: 'version' adalah tag versi ASVS. Misalnya: `v5.0.0-1.2.5` akan diartikan secara spesifik sebagai persyaratan ke-5 dalam bagian 'Pencegahan Injeksi' dari bab 'Pengkodean dan Sanitasi' pada versi 5.0.0. (Hal ini dapat diringkas sebagai `v<version>-<requirement_identifier>`.)
+Karena pengenal dapat berubah antar versi standar, lebih disukai jika dokumen, laporan, atau alat lain menggunakan format berikut: `v<versi>-<bab>.<bagian>.<persyaratan>`, di mana 'versi' adalah tag versi ASVS. Contohnya: `v5.0.0-1.2.5` akan dipahami sebagai persyaratan ke-5 dalam bagian 'Injection Prevention' dari bab 'Encoding and Sanitization' pada versi 5.0.0. (Ini dapat diringkas sebagai `v<versi>-<pengenal_persyaratan>`.)
 
-Catatan: Huruf `v` yang mendahului nomor versi dalam format tersebut harus selalu ditulis dengan huruf kecil.
+*Catatan: Huruf `v` yang mendahului nomor versi dalam format ini harus selalu menggunakan huruf kecil.*
 
-Jika identifier digunakan tanpa menyertakan elemen `v<version>`, maka identifier tersebut dianggap merujuk pada konten Standar Verifikasi Keamanan Aplikasi terbaru. Seiring berkembangnya standar ini, hal tersebut dapat menimbulkan masalah; oleh karena itu, penulis atau pengembang disarankan untuk menyertakan elemen version.
+Jika pengenal digunakan tanpa menyertakan elemen `v<versi>`, maka dianggap merujuk pada konten Application Security Verification Standard terbaru. Seiring berkembang dan berubahnya standar, hal ini dapat menimbulkan masalah, itulah sebabnya penulis atau pengembang harus menyertakan elemen versi.
 
-Daftar persyaratan ASVS tersedia dalam format CSV, JSON, dan format lain yang mungkin berguna sebagai referensi atau untuk keperluan pemrograman.
+Daftar persyaratan ASVS disediakan dalam format CSV, JSON, dan format lain yang dapat berguna untuk referensi atau penggunaan terprogram.
 
-### Membuat fork dari ASVS
+### Melakukan Fork pada ASVS
 
-Organisasi dapat memperoleh manfaat dari penerapan ASVS dengan memilih salah satu dari tiga tingkatan tersebut atau dengan membuat cabang khusus bidang yang menyesuaikan persyaratan sesuai dengan tingkat risiko aplikasi. Pembuatan cabang semacam ini dianjurkan, asalkan tetap menjaga keterlacakan sehingga pemenuhan persyaratan 4.1.1 memiliki arti yang sama di seluruh versi.
+Organisasi dapat memperoleh manfaat dari mengadopsi ASVS dengan memilih salah satu dari tiga level atau dengan membuat *fork* khusus domain yang menyesuaikan persyaratan per tingkat risiko aplikasi. Jenis *fork* ini sangat didorong, asalkan mempertahankan keterlacakan (*traceability*) sehingga memenuhi persyaratan 4.1.1 berarti hal yang sama di semua versi.
 
-Idealnya, setiap organisasi sebaiknya menyusun ASVS yang disesuaikan dengan kebutuhannya sendiri, dengan menghilangkan bagian-bagian yang tidak relevan (misalnya, GraphQL, WebSockets, SOAP, jika tidak digunakan). Pembuatan cabang (forking) sebaiknya dimulai dengan ASVS Level 1 sebagai acuan dasar, kemudian ditingkatkan ke Level 2 atau 3 sesuai dengan tingkat risiko aplikasi.
+Ideally, setiap organisasi harus membuat ASVS tersendiri yang disesuaikan, dengan mengabaikan bagian yang tidak relevan (misalnya GraphQL, Websockets, SOAP, jika tidak digunakan). Proses *forking* harus dimulai dengan ASVS Level 1 sebagai tolok ukur (*baseline*), lalu meningkat ke Level 2 atau 3 berdasarkan risiko aplikasi.
 
-## Contoh penerapan ASVS
+## Kasus Penggunaan (Use Cases) ASVS
 
-ASVS dapat digunakan untuk mengevaluasi keamanan suatu aplikasi, dan hal ini akan dibahas lebih mendalam pada bab berikutnya. Namun, telah diidentifikasi beberapa kegunaan potensial lainnya untuk ASVS (atau versi fork-nya).
+ASVS dapat digunakan untuk menilai keamanan aplikasi dan ini dijelaskan lebih mendalam di bab berikutnya. Namun, beberapa potensi penggunaan lain untuk ASVS (atau versi *fork*) telah diidentifikasi:
 
-### Panduan Arsitektur Keamanan yang Terperinci
+### Sebagai Panduan Arsitektur Keamanan Terperinci
 
-Salah satu kegunaan yang paling umum dari Standar Verifikasi Keamanan Aplikasi (ASVS) adalah sebagai sumber daya bagi para arsitek keamanan. Sumber daya yang tersedia mengenai cara membangun arsitektur aplikasi yang aman masih terbatas, terutama untuk aplikasi modern. ASVS dapat digunakan untuk mengisi kekosongan tersebut dengan memungkinkan para arsitek keamanan memilih kontrol yang lebih baik untuk mengatasi masalah umum, seperti pola perlindungan data dan strategi validasi input. Persyaratan arsitektur dan dokumentasi akan sangat berguna dalam hal ini.
+Salah satu penggunaan ASVS yang paling umum adalah sebagai sumber daya bagi *security architect*. Sumber daya yang tersedia tentang cara membangun arsitektur aplikasi yang aman sangat terbatas, terutama untuk aplikasi modern. ASVS dapat digunakan untuk mengisi celah tersebut dengan memungkinkan *security architect* memilih kontrol yang lebih baik untuk masalah umum, seperti pola perlindungan data dan strategi validasi input. Persyaratan arsitektur dan dokumentasi akan sangat berguna untuk tujuan ini.
 
-### Sebagai Panduan Pemrograman Aman yang Khusus
+### Sebagai Referensi Secure Coding Khusus
 
-ASVS dapat digunakan sebagai landasan untuk menyusun pedoman penulisan kode yang aman selama pengembangan aplikasi, sehingga membantu pengembang memastikan bahwa mereka tetap memperhatikan aspek keamanan saat membuat perangkat lunak. Meskipun ASVS dapat dijadikan landasan, organisasi sebaiknya menyusun pedoman khusus mereka sendiri yang jelas dan terpadu, dan idealnya disusun berdasarkan masukan dari insinyur keamanan atau arsitek keamanan. Sebagai kelanjutan dari hal ini, organisasi didorong untuk, sejauh mungkin, menyiapkan mekanisme dan pustaka keamanan yang telah disetujui yang dapat dirujuk dalam panduan tersebut dan digunakan oleh pengembang.
+ASVS dapat digunakan sebagai dasar untuk menyiapkan referensi pengodean aman (*secure coding reference*) selama pengembangan aplikasi, membantu pengembang memastikan mereka tetap mempertimbangkan keamanan saat membuat perangkat lunak. Meskipun ASVS dapat menjadi basisnya, organisasi harus menyiapkan panduan spesifik mereka sendiri yang jelas dan terpadu, dan idealnya disiapkan berdasarkan arahan dari *security engineer* atau *security architect*. Sebagai ekstensi dari hal ini, organisasi didorong untuk menyiapkan mekanisme keamanan dan pustaka (*libraries*) yang disetujui yang dapat dirujuk dalam panduan dan digunakan oleh pengembang.
 
-### Sebagai Panduan untuk Pengujian Unit dan Integrasi Otomatis
+### Sebagai Panduan untuk Pengujian Otomatis (Unit & Integration Tests)
 
-ASVS dirancang agar sangat mudah diuji. Beberapa verifikasi bersifat teknis, sedangkan persyaratan lain (seperti persyaratan arsitektur dan dokumentasi) mungkin memerlukan tinjauan dokumentasi atau arsitektur. Dengan membuat uji unit dan integrasi yang menguji dan melakukan fuzzing terhadap kasus penyalahgunaan tertentu dan relevan yang terkait dengan persyaratan yang dapat diverifikasi secara teknis, seharusnya lebih mudah untuk memeriksa apakah kontrol-kontrol ini beroperasi dengan benar pada setiap build. Misalnya, pengujian tambahan dapat dibuat untuk rangkaian pengujian pengontrol login, yang menguji parameter nama pengguna untuk nama pengguna default umum, enumerasi akun, brute forcing, injeksi LDAP dan SQL, serta XSS. Demikian pula, pengujian pada parameter kata sandi harus mencakup kata sandi umum, panjang kata sandi, injeksi byte null, penghapusan parameter, XSS, dan lainnya.
+ASVS dirancang agar sangat dapat diuji (*testable*). Beberapa verifikasi bersifat teknis sedangkan persyaratan lain (seperti persyaratan arsitektur dan dokumentasi) mungkin memerlukan peninjauan dokumentasi atau arsitektur. Dengan membangun *unit test* dan *integration test* yang menguji serta melakukan *fuzzing* untuk kasus-kasus penyalahgunaan (*abuse cases*) yang spesifik dan relevan terkait dengan persyaratan teknis, akan lebih mudah untuk memastikan bahwa kontrol tersebut beroperasi dengan benar pada setiap *build*. Misalnya, pengujian tambahan dapat dibuat untuk *test suite* kontroler *login*, menguji parameter *username* untuk *default username* umum, *account enumeration*, *brute force*, *LDAP/SQL injection*, dan *XSS*. Demikian pula, pengujian pada parameter *password* harus mencakup kata sandi umum, panjang kata sandi, *null byte injection*, penghapusan parameter, *XSS*, dan lainnya.
 
-### Untuk Pelatihan Pengembangan yang Aman
+### Untuk Pelatihan Pengembangan Aman (Secure Development Training)
 
-ASVS juga dapat digunakan untuk mendefinisikan karakteristik perangkat lunak yang aman. Banyak kursus _secure coding_ hanyalah kursus peretasan etis yang diselingi sedikit tips pengkodean. Hal ini belum tentu membantu pengembang menulis kode yang lebih aman. Sebaliknya, kursus pengembangan aman dapat menggunakan ASVS dengan fokus yang kuat pada mekanisme positif yang terdapat dalam ASVS, alih-alih 10 hal negatif yang harus dihindari. Struktur ASVS juga menyediakan kerangka logis untuk membahas berbagai topik saat mengamankan sebuah aplikasi.
+ASVS juga dapat digunakan untuk mendefinisikan karakteristik perangkat lunak yang aman. Banyak kursus "secure coding" hanya berupa kursus *ethical hacking* yang diberi sedikit tip pengodean. Ini mungkin tidak membantu pengembang untuk menulis kode yang lebih aman. Sebaliknya, kursus pengembangan aman dapat menggunakan ASVS dengan fokus kuat pada mekanisme positif yang ditemukan dalam ASVS, daripada Top 10 hal negatif yang tidak boleh dilakukan. Struktur ASVS juga memberikan alur logika yang teratur untuk mempelajari berbagai topik saat mengamankan aplikasi.
 
-### Sebagai Kerangka Kerja untuk Mengarahkan Pengadaan Perangkat Lunak yang Aman
+### Sebagai Kerangka Kerja Pengadaan Perangkat Lunak Aman
 
-ASVS merupakan kerangka kerja yang sangat baik untuk membantu proses pengadaan perangkat lunak yang aman atau pengadaan layanan pengembangan khusus. Pembeli cukup menetapkan persyaratan bahwa perangkat lunak yang ingin mereka peroleh harus dikembangkan sesuai dengan tingkat ASVS X, dan meminta penjual untuk membuktikan bahwa perangkat lunak tersebut memenuhi tingkat ASVS X.
+ASVS adalah kerangka kerja yang sangat baik untuk membantu pengadaan perangkat lunak aman atau pengadaan layanan pengembangan kustom. Pembeli hanya perlu menetapkan persyaratan bahwa perangkat lunak yang ingin mereka beli harus dikembangkan pada ASVS Level X, dan meminta penjual membuktikan bahwa perangkat lunak tersebut memenuhi ASVS Level X.
 
-## Penerapan ASVS dalam Praktik
+## Menerapkan ASVS dalam Praktik
 
-Ancaman yang berbeda memiliki motivasi yang berbeda pula. Beberapa industri memiliki aset informasi dan teknologi yang unik serta persyaratan kepatuhan regulasi yang spesifik sesuai bidangnya.
+Ancaman yang berbeda memiliki motivasi yang berbeda pula. Beberapa industri memiliki aset informasi/teknologi yang unik serta persyaratan kepatuhan regulasi khusus domain.
 
-Organisasi sangat dianjurkan untuk menganalisis secara mendalam karakteristik risiko unik mereka berdasarkan sifat bisnisnya, dan berdasarkan risiko serta persyaratan bisnis tersebut, menentukan tingkat ASVS yang sesuai.
+Organisasi sangat didorong untuk melihat secara mendalam karakteristik risiko unik mereka berdasarkan sifat bisnis mereka, dan berdasarkan risiko serta persyaratan bisnis tersebut, tentukan level ASVS yang sesuai.

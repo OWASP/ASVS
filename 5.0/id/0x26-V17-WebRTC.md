@@ -1,71 +1,71 @@
 # V17 WebRTC
 
-## Control Objective
+## Tujuan Kontrol
 
-Web Real-Time Communication (WebRTC) enables real-time voice, video, and data exchange in modern applications. As adoption increases, securing WebRTC infrastructure becomes critical. This section provides security requirements for stakeholders who develop, host, or integrate WebRTC systems.
+Web Real-Time Communication (WebRTC) memungkinkan pertukaran suara, video, dan data secara *real-time* dalam aplikasi modern. Seiring dengan peningkatan adopsinya, mengamankan infrastruktur WebRTC menjadi sangat krusial. Bagian ini menyediakan persyaratan keamanan bagi para pemangku kepentingan yang mengembangkang, meng-host, atau mengintegrasikan sistem WebRTC.
 
-The WebRTC market can be broadly categorized into three segments:
+Pasar WebRTC secara garis besar dapat dikategorikan menjadi tiga segmen:
 
-1. Product Developers: Proprietary and open-source vendors that create and supply WebRTC products and solutions. Their focus is on developing robust and secure WebRTC technologies that can be used by others.
+1. Product Developers: Vendor *proprietary* dan *open-source* yang membuat dan menyuplai produk serta solusi WebRTC. Fokus mereka adalah mengembangkan teknologi WebRTC yang tangguh dan aman yang dapat digunakan oleh pihak lain.
 
-2. Communication Platforms as a Service (CPaaS): Providers that offer APIs, SDKs, and the necessary infrastructure or platforms to enable WebRTC functionalities. CPaaS providers may use products from the first category or develop their own WebRTC software to offer these services.
+2. Communication Platforms as a Service (CPaaS): Penyedia yang menawarkan API, SDK, serta infrastruktur atau platform yang diperlukan untuk mengaktifkan fungsionalitas WebRTC. Penyedia CPaaS dapat menggunakan produk dari kategori pertama atau mengembangkan perangkat lunak WebRTC mereka sendiri untuk menawarkan layanan ini.
 
-3. Service Providers: Organizations that leverage products from product developers or CPaaS providers, or develop their own WebRTC solutions. They create and implement applications for online conferencing, healthcare, e-learning, and other domains where real-time communication is crucial.
+3. Service Providers: Organisasi yang memanfaatkan produk dari pengembang produk atau penyedia CPaaS, atau mengembangkan solusi WebRTC mereka sendiri. Mereka membuat dan mengimplementasikan aplikasi untuk konferensi *online*, layanan kesehatan, *e-learning*, dan domain lainnya di mana komunikasi *real-time* sangat penting.
 
-The security requirements outlined here are primarily focused on Product Developers, CPaaS, and Service Providers who:
+Persyaratan keamanan yang diuraikan di sini utamanya difokuskan pada Pengembang Produk, CPaaS, dan Penyedia Layanan yang:
 
-* Utilize open-source solutions to build their WebRTC applications.
-* Use commercial WebRTC products as part of their infrastructure.
-* Use internally developed WebRTC solutions or integrate various components into a cohesive service offering.
+* Memanfaatkan solusi *open-source* untuk membangun aplikasi WebRTC mereka.
+* Menggunakan produk WebRTC komersial sebagai bagian dari infrastruktur mereka.
+* Menggunakan solusi WebRTC yang dikembangkan secara internal atau mengintegrasikan berbagai komponen menjadi satu penawaran layanan yang kohesif.
 
-It is important to note that these security requirements do not apply to developers who exclusively use SDKs and APIs provided by CPaaS vendors. For such developers, the CPaaS providers are typically responsible for most of the underlying security concerns within their platforms, and a generic security standard like ASVS may not fully address their needs.
+Penting untuk dicatat bahwa persyaratan keamanan ini tidak berlaku bagi pengembang yang secara eksklusif menggunakan SDK dan API yang disediakan oleh vendor CPaaS. Bagi pengembang tersebut, penyedia CPaaS biasanya bertanggung jawab atas sebagian besar masalah keamanan yang mendasari platform mereka, dan standar keamanan generik seperti ASVS mungkin tidak sepenuhnya memenuhi kebutuhan mereka.
 
 ## V17.1 TURN Server
 
-This section defines security requirements for systems that operate their own TURN (Traversal Using Relays around NAT) servers. TURN servers assist in relaying media in restrictive network environments but can pose risks if misconfigured. These controls focus on secure address filtering and protection against resource exhaustion.
+Bagian ini mendefinisikan persyaratan keamanan untuk sistem yang mengoperasikan server TURN (Traversal Using Relays around NAT) milik mereka sendiri. Server TURN membantu meneruskan (*relay*) media dalam lingkungan jaringan yang terbatas, tetapi dapat menimbulkan risiko jika salah dikonfigurasi. Kontrol ini berfokus pada penyaringan alamat yang aman dan perlindungan terhadap kehabisan sumber daya (*resource exhaustion*).
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **17.1.1** | Verify that the Traversal Using Relays around NAT (TURN) service only allows access to IP addresses that are not reserved for special purposes (e.g., internal networks, broadcast, loopback). Note that this applies to both IPv4 and IPv6 addresses. | 2 |
-| **17.1.2** | Verify that the Traversal Using Relays around NAT (TURN) service is not susceptible to resource exhaustion when legitimate users attempt to open a large number of ports on the TURN server. | 3 |
+| **17.1.1** | Verifikasi bahwa layanan Traversal Using Relays around NAT (TURN) hanya mengizinkan akses ke alamat IP yang tidak dipesan untuk tujuan khusus (misalnya, jaringan internal, *broadcast*, *loopback*). Perhatikan bahwa ini berlaku untuk alamat IPv4 dan IPv6. | 2 |
+| **17.1.2** | Verifikasi bahwa layanan Traversal Using Relays around NAT (TURN) tidak rentan terhadap kehabisan sumber daya (*resource exhaustion*) ketika pengguna yang sah mencoba membuka sejumlah besar *port* pada server TURN. | 3 |
 
 ## V17.2 Media
 
-These requirements only apply to systems that host their own WebRTC media servers, such as Selective Forwarding Units (SFUs), Multipoint Control Units (MCUs), recording servers, or gateway servers. Media servers handle and distribute media streams, making their security critical to protect communication between peers. Safeguarding media streams is paramount in WebRTC applications to prevent eavesdropping, tampering, and denial-of-service attacks that could compromise user privacy and communication quality.
+Persyaratan ini hanya berlaku untuk sistem yang meng-host server media WebRTC milik mereka sendiri, seperti Selective Forwarding Units (SFUs), Multipoint Control Units (MCUs), server perekaman, atau server gateway. Server media menangani dan mendistribusikan *stream* media, menjadikan keamanannya sangat krusial untuk melindungi komunikasi antar *peer*. Mengamankan *stream* media sangat penting dalam aplikasi WebRTC untuk mencegah penyadapan (*eavesdropping*), manipulasi data (*tampering*), dan serangan *Denial-of-Service* (DoS) yang dapat mengompromikan privasi pengguna dan kualitas komunikasi.
 
-In particular, it is necessary to implement protections against flood attacks such as rate limiting, validating timestamps, using synchronized clocks to match real-time intervals, and managing buffers to prevent overflow and maintain proper timing. If packets for a particular media session arrive too quickly, excess packets should be dropped. It is also important to protect the system from malformed packets by implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques.
+Secara khusus, sangat penting untuk mengimplementasikan perlindungan terhadap *flood attack* seperti *rate limiting*, memvalidasi *timestamp*, menggunakan jam yang tersinkronisasi untuk mencocokkan interval *real-time*, dan mengelola *buffer* untuk mencegah *overflow* serta menjaga pewaktuan yang tepat. Jika paket untuk sesi media tertentu tiba terlalu cepat, paket berlebih harus dibuang (*dropped*). Penting juga untuk melindungi sistem dari paket yang rusak (*malformed*) dengan menerapkan validasi input, menangani *integer overflow* secara aman, mencegah *buffer overflow*, dan menggunakan teknik penanganan error yang tangguh lainnya.
 
-Systems that rely solely on peer-to-peer media communication between web browsers, without the involvement of intermediate media servers, are excluded from these specific media-related security requirements.
+Sistem yang hanya mengandalkan komunikasi media *peer-to-peer* antar peramban web, tanpa keterlibatan server media perantara, dikecualikan dari persyaratan keamanan terkait media khusus ini.
 
-This section refers to the use of Datagram Transport Layer Security (DTLS) in the context of WebRTC. A requirement related to having a documented policy for the management of cryptographic keys can be found in the "Cryptography" chapter. Information on approved cryptographic methods can be found either in the Cryptography Appendix of the ASVS or in documents such as NIST SP 800‑52 Rev. 2 or BSI TR‑02102‑2 (Version 2025‑01).
+Bagian ini mengacu pada penggunaan Datagram Transport Layer Security (DTLS) dalam konteks WebRTC. Persyaratan yang berkaitan dengan kepemilikan kebijakan terdokumentasi untuk pengelolaan kunci kriptografi dapat ditemukan pada bab "Kriptografi". Informasi tentang metode kriptografi yang disetujui dapat ditemukan dalam Lampiran Kriptografi ASVS atau dalam dokumen seperti NIST SP 800-52 Rev. 2 atau BSI TR-02102-2 (Versi 2025-01).
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **17.2.1** | Verify that the key for the Datagram Transport Layer Security (DTLS) certificate is managed and protected based on the documented policy for management of cryptographic keys. | 2 |
-| **17.2.2** | Verify that the media server is configured to use and support approved Datagram Transport Layer Security (DTLS) cipher suites and a secure protection profile for the DTLS Extension for establishing keys for the Secure Real-time Transport Protocol (DTLS-SRTP). | 2 |
-| **17.2.3** | Verify that Secure Real-time Transport Protocol (SRTP) authentication is checked at the media server to prevent Real-time Transport Protocol (RTP) injection attacks from leading to either a Denial of Service condition or audio or video media insertion into media streams. | 2 |
-| **17.2.4** | Verify that the media server is able to continue processing incoming media traffic when encountering malformed Secure Real-time Transport Protocol (SRTP) packets. | 2 |
-| **17.2.5** | Verify that the media server is able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 |
-| **17.2.6** | Verify that the media server is not susceptible to the "ClientHello" Race Condition vulnerability in Datagram Transport Layer Security (DTLS) by checking if the media server is publicly known to be vulnerable or by performing the race condition test. | 3 |
-| **17.2.7** | Verify that any audio or video recording mechanisms associated with the media server are able to continue processing incoming media traffic during a flood of Secure Real-time Transport Protocol (SRTP) packets from legitimate users. | 3 |
-| **17.2.8** | Verify that the Datagram Transport Layer Security (DTLS) certificate is checked against the Session Description Protocol (SDP) fingerprint attribute, terminating the media stream if the check fails, to ensure the authenticity of the media stream. | 3 |
+| **17.2.1** | Verifikasi bahwa kunci untuk sertifikat Datagram Transport Layer Security (DTLS) dikelola dan dilindungi berdasarkan kebijakan terdokumentasi untuk pengelolaan kunci kriptografi. | 2 |
+| **17.2.2** | Verifikasi bahwa server media dikonfigurasi untuk menggunakan dan mendukung *cipher suites* Datagram Transport Layer Security (DTLS) yang disetujui serta *protection profile* yang aman untuk DTLS Extension dalam menetapkan kunci bagi Secure Real-time Transport Protocol (DTLS-SRTP). | 2 |
+| **17.2.3** | Verifikasi bahwa otentikasi Secure Real-time Transport Protocol (SRTP) diperiksa pada server media untuk mencegah serangan injeksi Real-time Transport Protocol (RTP) yang dapat menyebabkan kondisi *Denial of Service* atau penyisipan media audio atau video ke dalam *stream* media. | 2 |
+| **17.2.4** | Verifikasi bahwa server media mampu melanjutkan pemrosesan lalu lintas media yang masuk ketika menemui paket Secure Real-time Transport Protocol (SRTP) yang cacat (*malformed*). | 2 |
+| **17.2.5** | Verifikasi bahwa server media mampu melanjutkan pemrosesan lalu lintas media yang masuk selama terjadinya lonjakan paket (*flood*) Secure Real-time Transport Protocol (SRTP) dari pengguna yang sah. | 3 |
+| **17.2.6** | Verifikasi bahwa server media tidak rentan terhadap kerentanan *Race Condition* "ClientHello" pada Datagram Transport Layer Security (DTLS) dengan memeriksa apakah server media secara publik diketahui rentan atau dengan melakukan pengujian *race condition*. | 3 |
+| **17.2.7** | Verifikasi bahwa setiap mekanisme perekaman audio atau video yang terkait dengan server media mampu melanjutkan pemrosesan lalu lintas media yang masuk selama terjadinya lonjakan paket (*flood*) Secure Real-time Transport Protocol (SRTP) dari pengguna yang sah. | 3 |
+| **17.2.8** | Verifikasi bahwa sertifikat Datagram Transport Layer Security (DTLS) diperiksa terhadap atribut *fingerprint* Session Description Protocol (SDP), dan menghentikan *stream* media jika pemeriksaan gagal, untuk memastikan keaslian (*authenticity*) dari *stream* media. | 3 |
 
 ## V17.3 Signaling
 
-This section defines requirements for systems that operate their own WebRTC signaling servers. Signaling coordinates peer-to-peer communication and must be resilient against attacks that could disrupt session establishment or control.
+Bagian ini mendefinisikan persyaratan untuk sistem yang mengoperasikan server *signaling* WebRTC milik mereka sendiri. *Signaling* mengoordinasikan komunikasi *peer-to-peer* dan harus tangguh terhadap serangan yang dapat mengganggu pembuatan atau kontrol sesi.
 
-To ensure secure signaling, systems must handle malformed inputs gracefully and remain available under load.
+Untuk memastikan *signaling* yang aman, sistem harus menangani input yang cacat (*malformed*) dengan baik (*gracefully*) dan tetap tersedia di bawah beban kerja yang tinggi.
 
-| # | Description | Level |
+| # | Deskripsi | Level |
 | :---: | :--- | :---: |
-| **17.3.1** | Verify that the signaling server is able to continue processing legitimate incoming signaling messages during a flood attack. This should be achieved by implementing rate limiting at the signaling level. | 2 |
-| **17.3.2** | Verify that the signaling server is able to continue processing legitimate signaling messages when encountering malformed signaling message that could cause a denial of service condition. This could include implementing input validation, safely handling integer overflows, preventing buffer overflows, and employing other robust error-handling techniques. | 2 |
+| **17.3.1** | Verifikasi bahwa server *signaling* mampu melanjutkan pemrosesan pesan *signaling* masuk yang sah selama serangan *flood*. Hal ini harus dicapai dengan mengimplementasikan *rate limiting* pada tingkat *signaling*. | 2 |
+| **17.3.2** | Verifikasi bahwa server *signaling* mampu melanjutkan pemrosesan pesan *signaling* yang sah ketika menemui pesan *signaling* yang cacat (*malformed*) yang dapat menyebabkan kondisi *Denial of Service*. Ini dapat mencakup pengimplementasian validasi input, penanganan *integer overflow* secara aman, pencegahan *buffer overflow*, dan penggunaan teknik penanganan error yang tangguh lainnya. | 2 |
 
-## References
+## Referensi
 
-For more information, see also:
+Untuk informasi lebih lanjut, lihat juga:
 
-* The WebRTC DTLS ClientHello DoS is best documented at [Enable Security's blog post aimed at security professionals](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) and the associated [white paper aimed at WebRTC developers](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
+* WebRTC DTLS ClientHello DoS didokumentasikan paling baik pada [postingan blog Enable Security yang ditujukan untuk profesional keamanan](https://www.enablesecurity.com/blog/novel-dos-vulnerability-affecting-webrtc-media-servers/) dan [white paper terkait yang ditujukan untuk pengembang WebRTC](https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/)
 * [RFC 3550 - RTP: A Transport Protocol for Real-Time Applications](https://www.rfc-editor.org/rfc/rfc3550)
 * [RFC 3711 - The Secure Real-time Transport Protocol (SRTP)](https://datatracker.ietf.org/doc/html/rfc3711)
 * [RFC 5764 - Datagram Transport Layer Security (DTLS) Extension to Establish Keys for the Secure Real-time Transport Protocol (SRTP))](https://datatracker.ietf.org/doc/html/rfc5764)

@@ -1,4 +1,4 @@
-# Appendix B: Referensi
+# Lampiran B: Referensi
 
 Proyek-proyek OWASP berikut ini kemungkinan besar akan bermanfaat bagi pengguna/pengadopsi standar ini:
 
