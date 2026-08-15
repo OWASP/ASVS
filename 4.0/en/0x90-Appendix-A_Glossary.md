@@ -34,7 +34,7 @@
 - **Public Switched Telephone Network** (PSTN) - The traditional telephone network including both fixed-line telephones and mobile telephones.
 - **Relying Party** (RP) - Generally an application which is relying on a user having authenticated against a separate authentication provider. The application is relying on some sort of token or set of signed assertions provided by that authentication provider to trust that the user is who they say they are.
 - **Static application security testing** (SAST) - A set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities. SAST solutions analyze an application from the “inside out” in a non-running state.
-- **Software development lifecycle** (SDLC) - The step by step process by which software is developed going from the initial requirements to deployment and maintainance.
+- **Software development lifecycle** (SDLC) - The step by step process by which software is developed going from the initial requirements to deployment and maintenance.
 - **Security Architecture** – An abstraction of an application's design that identifies and describes where and how security controls are used, and also identifies and describes the location and sensitivity of both user and application data.
 - **Security Configuration** – The runtime configuration of an application that affects how security controls are used.
 - **Security Control** – A function or component that performs a security check (e.g. an access control check) or when called results in a security effect (e.g. generating an audit record).
