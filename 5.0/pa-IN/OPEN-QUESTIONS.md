@@ -214,6 +214,89 @@ These policies are **already locked** and not open for review:
 
 If a reviewer wants to challenge a locked policy, please open a separate GitHub issue rather than commenting inline — the policy lock is corpus-wide, not a per-chapter decision.
 
+## Q13 — Corpus-wide term normalisations applied 2026-08-22 (confirm or reverse)
+
+Applied while publishing the August 2026 batch (0x03, V1, V2, V3, V4, V6, V7). Each is a single pick now used consistently; reviewers may reverse any of them corpus-wide.
+
+| EN term | Pick | Was | Type | Reasoning |
+|---|---|---|---|---|
+| risk (vs threat) | ਜੋਖਮ (risk) · ਖ਼ਤਰਾ (threat) | V6/V7/V8 used ਖ਼ਤਰਾ for both | T | A security standard must keep risk and threat distinct; 0x03 already used ਜੋਖਮ |
+| session management | ਸੈਸ਼ਨ ਪ੍ਰਬੰਧਨ | README: ਸੈਸ਼ਨ ਪ੍ਰਬੰਧ | T | Matches V5 ਫ਼ਾਈਲ ਪ੍ਰਬੰਧਨ; README row updated |
+| authorization | ਅਧਿਕਾਰੀਕਰਨ | README: ਅਧਿਕਾਰ | T | Q3 decision; ਅਧਿਕਾਰ now free for "right/entitlement" |
+| storage exhaustion (V5) | ਭੰਡਾਰਨ ਖ਼ਤਮ ਹੋ ਜਾਣਾ | ਭੰਡਾਰਨ ਥਕਾਵਟ | T | ਥਕਾਵਟ = tiredness, not depletion (fidelity fix) |
+| stateless / stateful | ਸਟੇਟਲੈੱਸ / ਸਟੇਟਫੁੱਲ (glossed once) | Q8 open | L | First use in V7 decides per Q8; native ਸਥਿਤੀ-ਰਹਿਤ remains the alternative |
+| entropy | ਐਂਟਰੋਪੀ | V7 had ਐਂਟਰੌਪੀ | L | Spelling normalised to V6 |
+| must / must not | ਲਾਜ਼ਮੀ ਹੈ / ਨਹੀਂ … ਚਾਹੀਦਾ (hard prohibition) | several rows had softened to ਚਾਹੀਦਾ or "ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ" (cannot) | — | Modality must match the English; reviewers restored force in V1 1.5.2, V2 2.2.2, V3 3.4.6 |
+| bypass | ਬਾਈਪਾਸ (bypass) | ਟਾਲਣਾ (= postpone) | L | Fidelity fix, V2 |
+| resolve (DNS/entity/format string) | ਰਿਜ਼ੌਲਵ (resolve) | ਹੱਲ (= solve) | L | Fidelity fix, V1 |
+
+## Q14 — Retained-term-only headings (`## V4.3 GraphQL`, `## V4.4 WebSocket`)
+
+| | |
+|---|---|
+| **Current pick** | `## V4.3 GraphQL (ਗ੍ਰਾਫ਼ਕਿਊਐੱਲ)` — Latin term kept, Gurmukhi pronunciation in parentheses |
+| **Alternatives** | (a) repeat the Latin heading unchanged for the Panjabi line; (b) append a Panjabi noun, e.g. `GraphQL ਸੁਰੱਖਿਆ` |
+| **Reasoning** | Rule 4 says never transliterate R-terms, but the dual-block model needs a Panjabi heading line. Pronunciation-in-parens follows the README acronym column and keeps the term retrievable. Corpus-wide decision needed |
+
+## Q15 — New loan vs native picks in V1–V4 (batch)
+
+| EN term | Pick | Type | Alternative |
+|---|---|---|---|
+| escaping | ਐਸਕੇਪਿੰਗ | L | ਬਚਾਅ-ਚਿੰਨ੍ਹ ਲਗਾਉਣਾ (T, opaque) |
+| interpreter | ਇੰਟਰਪ੍ਰੇਟਰ | L | ਵਿਆਖਿਆਕਾਰ (reads as human interpreter) |
+| parameterized queries | ਪੈਰਾਮੀਟਰਾਈਜ਼ਡ ਕਿਊਰੀਆਂ | L | ਮਾਪਦੰਡੀ ਕਿਊਰੀਆਂ |
+| canonical form | ਕੈਨੋਨੀਕਲ ਰੂਪ | L | ਮਿਆਰੀ ਰੂਪ (loses normalisation sense) |
+| deserialization / parser | ਡੀਸੀਰੀਅਲਾਈਜ਼ੇਸ਼ਨ / ਪਾਰਸਰ | L | — |
+| defense-in-depth | ਡੂੰਘਾਈ-ਵਿੱਚ-ਰੱਖਿਆ | T | ਬਹੁ-ਪਰਤੀ ਰੱਖਿਆ (arguably clearer) |
+| weakness (vs vulnerability) | ਖ਼ਾਮੀ | T | ਕਮਜ਼ੋਰੀ is locked to vulnerability |
+| untrusted | ਗ਼ੈਰ-ਭਰੋਸੇਯੋਗ | T | ਭਰੋਸੇਯੋਗ ਨਾ ਹੋਣ ਵਾਲਾ (V8 8.3.1, longer) |
+| business logic | ਕਾਰੋਬਾਰੀ ਤਰਕ | T | ਵਪਾਰਕ ਤਰਕ |
+| transaction (DB/atomic) | ਟ੍ਰਾਂਜ਼ੈਕਸ਼ਨ | L | ਲੈਣ-ਦੇਣ (reads financial-only) |
+| schema validation | ਸਕੀਮਾ ਪ੍ਰਮਾਣਿਕਤਾ | H | ਢਾਂਚਾ is locked to architecture |
+| anti-automation | ਸਵੈਚਾਲਨ-ਵਿਰੋਧੀ | T | ਐਂਟੀ-ਆਟੋਮੇਸ਼ਨ |
+| spoofing | ਸਪੂਫ਼ਿੰਗ | L | ਨਕਲ; ਭੇਸ-ਬਦਲੀ |
+| origin / cross-origin (V3) | ਓਰਿਜਿਨ / ਕਰਾਸ-ਓਰਿਜਿਨ | L | ਮੂਲ (ambiguous with "by default"); V4 normalised to ਓਰਿਜਿਨਾਂ on 2026-08-22 |
+| HTTP response | ਜਵਾਬ (0x03, V1, V4, V5, V6) / ਪ੍ਰਤੀਕਿਰਿਆ (V3 ×20) | T | **Inconsistent — corpus majority is ਜਵਾਬ; V3 left unchanged because the nouns differ in gender and a mechanical swap would break agreement. Needs a human pass on V3** |
+| HTTP method | ਮੈਥਡ (method names Latin) | L | ਵਿਧੀ collides with generic "method/mechanism" |
+| hostname | ਹੋਸਟਨੇਮ | L | ਹੋਸਟਨਾਮ (H) |
+| nonce | ਨੌਂਸ | L | — |
+| request smuggling / response splitting | ਬੇਨਤੀ ਸਮਗਲਿੰਗ / ਜਵਾਬ ਵਿਭਾਜਨ | H/T | retain Latin as attack names |
+| introspection (GraphQL) | GraphQL introspection | R | ਆਤਮ-ਨਿਰੀਖਣ rejected (devotional connotation, Gurmat rule) |
+| denial of service | ਸੇਵਾ-ਇਨਕਾਰ | T | V4 normalised on 2026-08-22 to the V2/V5 form |
+
+## Q16 — New picks in V6 / V7 (batch)
+
+| EN term | Pick | Type | Alternative |
+|---|---|---|---|
+| secret (noun) / Secret Management | ਭੇਦ / ਭੇਦ ਪ੍ਰਬੰਧਨ | T | ਗੁਪਤ (kept for adjectival "secret questions/keys") |
+| assertion (SAML) | ਅਸਰਸ਼ਨ | L | ਕਥਨ; ਦਾਅਵਾ is reserved for JWT "claim" |
+| push notification / push bombing | ਪੁਸ਼ ਸੂਚਨਾ / ਪੁਸ਼ ਬੌਂਬਿੰਗ | H/L | ਪੁਸ਼ ਨੋਟੀਫ਼ਿਕੇਸ਼ਨ / ਪੁਸ਼ ਬੰਬਾਰੀ |
+| number matching | ਨੰਬਰ ਮਿਲਾਨ | T | ਨੰਬਰ ਮੈਚਿੰਗ |
+| red flag | ਗੰਭੀਰ ਚੇਤਾਵਨੀ ਸੰਕੇਤ | T | ਲਾਲ ਝੰਡਾ (calque) |
+| enterprise / throwaway identity | ਸੰਸਥਾਗਤ / ਅਸਥਾਈ ਪਛਾਣ | T | ਇੰਟਰਪ੍ਰਾਈਜ਼ / ਡਿਸਪੋਜ਼ੇਬਲ (L) |
+| fallback | ਫ਼ਾਲਬੈਕ | L | ਬਦਲਵੀਂ ਪਹੁੰਚ |
+| reference token | ਹਵਾਲਾ ਟੋਕਨ | T | ਰੈਫ਼ਰੈਂਸ ਟੋਕਨ |
+| re-authentication | ਮੁੜ-ਪ੍ਰਮਾਣੀਕਰਨ | T | ਪੁਨਰ-ਪ੍ਰਮਾਣੀਕਰਨ |
+| inactivity timeout / session lifetime | ਗ਼ੈਰ-ਸਰਗਰਮੀ ਸਮਾਂ-ਸੀਮਾ / ਸੈਸ਼ਨ ਜੀਵਨਕਾਲ | T | ਨਿਸ਼ਕਿਰਿਆ …; ਸੈਸ਼ਨ ਮਿਆਦ |
+| federated / Relying Party | ਸੰਘੀ / ਨਿਰਭਰ ਧਿਰ | T | ਫ਼ੈਡਰੇਟਿਡ; ਭਰੋਸਾ ਕਰਨ ਵਾਲੀ ਧਿਰ |
+| party | ਧਿਰ | T | V9 normalised from ਪੱਖ on 2026-08-22 |
+| session hijacking | ਸੈਸ਼ਨ ਹਾਈਜੈਕਿੰਗ | L | ਸੈਸ਼ਨ ਅਗਵਾ |
+| authenticity (V6 L13) | ਪ੍ਰਮਾਣਿਕਤਾ | T | collides with README "validation" = ਪ੍ਰਮਾਣਿਕਤਾ — glossary note |
+
+## Q17 — New picks in 0x03 What is the ASVS? (batch)
+
+| EN term | Pick | Type | Alternative |
+|---|---|---|---|
+| major / minor / patch release | ਮੇਜਰ / ਮਾਈਨਰ / ਪੈਚ ਰਿਲੀਜ਼ | L | ਮੁੱਖ / ਗੌਣ / ਪੈਚ (loses semver retrievability) |
+| fork | ਫ਼ੋਰਕ | L | ਸ਼ਾਖਾ collides with git "branch" |
+| architecture / architect | ਆਰਕੀਟੈਕਚਰ / ਆਰਕੀਟੈਕਟ | L | README says ਢਾਂਚਾ; chapters (V8/V12) use the loan — **glossary/corpus disagreement** |
+| framework | ਫ੍ਰੇਮਵਰਕ | L | ਢਾਂਚਾ (already used for structure) |
+| traceability / baseline | ਖੋਜਯੋਗਤਾ / ਆਧਾਰ-ਰੇਖਾ | T | ਟ੍ਰੇਸੇਬਿਲਟੀ / ਬੇਸਲਾਈਨ |
+| breaking change | ਤੋੜਨ ਵਾਲੀ ਤਬਦੀਲੀ | T | ਬ੍ਰੇਕਿੰਗ ਚੇਂਜ |
+| account enumeration | ਖਾਤਾ ਐਨੂਮਰੇਸ਼ਨ | H | ਖਾਤਾ ਸੂਚੀਕਰਨ |
+| identifier | ਪਛਾਣਕਰਤਾ (corpus precedent) | T | ਪਛਾਣਕ (standard in Panjabi software localisation) |
+| domain-specific | ਖੇਤਰ-ਵਿਸ਼ੇਸ਼ | T | ਡੋਮੇਨ-ਵਿਸ਼ੇਸ਼ reads as DNS domain |
+
 ---
 
 ## Maintainer

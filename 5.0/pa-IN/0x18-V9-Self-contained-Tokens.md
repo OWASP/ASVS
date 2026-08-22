@@ -21,7 +21,7 @@ The use of self-contained tokens has become very widespread, even outside of OAu
 
 This section includes requirements to ensure that the token has been produced by a trusted party and has not been tampered with.
 
-ਇਸ ਭਾਗ ਵਿੱਚ ਇਹ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਲੋੜਾਂ ਸ਼ਾਮਲ ਹਨ ਕਿ ਟੋਕਨ ਕਿਸੇ ਭਰੋਸੇਯੋਗ ਪੱਖ ਦੁਆਰਾ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ ਅਤੇ ਇਸ ਨਾਲ ਛੇੜਛਾੜ ਨਹੀਂ ਕੀਤੀ ਗਈ।
+ਇਸ ਭਾਗ ਵਿੱਚ ਇਹ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਲੋੜਾਂ ਸ਼ਾਮਲ ਹਨ ਕਿ ਟੋਕਨ ਕਿਸੇ ਭਰੋਸੇਯੋਗ ਧਿਰ ਦੁਆਰਾ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ ਅਤੇ ਇਸ ਨਾਲ ਛੇੜਛਾੜ ਨਹੀਂ ਕੀਤੀ ਗਈ।
 
 | # | Description | Level |
 | :---: | :--- | :---: |

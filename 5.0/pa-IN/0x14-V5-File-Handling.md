@@ -10,7 +10,7 @@
 
 The use of files can present a variety of risks to the application, including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
 
-ਫ਼ਾਈਲਾਂ ਦੀ ਵਰਤੋਂ ਐਪਲੀਕੇਸ਼ਨ ਲਈ ਕਈ ਤਰ੍ਹਾਂ ਦੇ ਖ਼ਤਰੇ ਪੇਸ਼ ਕਰ ਸਕਦੀ ਹੈ, ਜਿਸ ਵਿੱਚ ਸੇਵਾ-ਇਨਕਾਰ (denial of service), ਅਣਅਧਿਕਾਰਤ ਪਹੁੰਚ, ਅਤੇ ਭੰਡਾਰਨ ਥਕਾਵਟ ਸ਼ਾਮਲ ਹਨ। ਇਸ ਅਧਿਆਇ ਵਿੱਚ ਇਹਨਾਂ ਖ਼ਤਰਿਆਂ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਲੋੜਾਂ ਸ਼ਾਮਲ ਹਨ।
+ਫ਼ਾਈਲਾਂ ਦੀ ਵਰਤੋਂ ਐਪਲੀਕੇਸ਼ਨ ਲਈ ਕਈ ਤਰ੍ਹਾਂ ਦੇ ਖ਼ਤਰੇ ਪੇਸ਼ ਕਰ ਸਕਦੀ ਹੈ, ਜਿਸ ਵਿੱਚ ਸੇਵਾ-ਇਨਕਾਰ (denial of service), ਅਣਅਧਿਕਾਰਤ ਪਹੁੰਚ, ਅਤੇ ਭੰਡਾਰਨ ਖ਼ਤਮ ਹੋ ਜਾਣਾ ਸ਼ਾਮਲ ਹਨ। ਇਸ ਅਧਿਆਇ ਵਿੱਚ ਇਹਨਾਂ ਖ਼ਤਰਿਆਂ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਲੋੜਾਂ ਸ਼ਾਮਲ ਹਨ।
 
 ## V5.1 File Handling Documentation
 ## V5.1 ਫ਼ਾਈਲ ਪ੍ਰਬੰਧਨ ਦਸਤਾਵੇਜ਼ੀਕਰਨ

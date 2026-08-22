@@ -61,7 +61,7 @@ This translation uses a **bilingual** format — each English paragraph is follo
 | English | ਗੁਰਮੁਖੀ | Romanized / ਰੋਮਨ ਲਿਪੀ | ਕਿਸਮ |
 |---------|---------|----------------------|:---:|
 | Authentication | ਪ੍ਰਮਾਣੀਕਰਨ | pramāṇīkaran | T |
-| Authorization | ਅਧਿਕਾਰ | adhikār | T |
+| Authorization | ਅਧਿਕਾਰੀਕਰਨ | adhikārīkaraṇ | T |
 | Identity | ਪਛਾਣ | pachāṇ | T |
 | Credential | ਪ੍ਰਮਾਣ-ਪੱਤਰ | pramāṇ-pattar | T |
 | Password | ਪਾਸਵਰਡ | pāsvarḍ | L |
@@ -70,7 +70,7 @@ This translation uses a **bilingual** format — each English paragraph is follo
 | One-time Password (OTP) | ਇੱਕ-ਵਾਰੀ ਪਾਸਵਰਡ | ikk-vārī pāsvarḍ | H |
 | Passkey | ਪਾਸਕੀ | pāskī | L |
 | Session | ਸੈਸ਼ਨ | saishan | L |
-| Session Management | ਸੈਸ਼ਨ ਪ੍ਰਬੰਧ | saishan prabanndh | H |
+| Session Management | ਸੈਸ਼ਨ ਪ੍ਰਬੰਧਨ | saishan prabanndh | H |
 | Timeout | ਸਮਾਂ-ਸੀਮਾ | samāṅ-sīmā | T |
 | Token | ਟੋਕਨ | ṭokan | L |
 
