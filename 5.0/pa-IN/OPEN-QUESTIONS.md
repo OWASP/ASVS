@@ -299,6 +299,19 @@ Applied while publishing the August 2026 batch (0x03, V1, V2, V3, V4, V6, V7). E
 
 ---
 
+## Q18 — Introductory chapters retranslated to dual-block (0x04, 0x05) + `certification` pick
+
+| | |
+|---|---|
+| **What changed (2026-08-22)** | `0x04-Assessment_and_Certification.md` and `0x05-For-Users-Of-4.0.md` were Panjabi-only, code-switched drafts (English words such as *vendors, verifiers, software, compliance, requirements, scope, philosophy* left in Latin inside Panjabi sentences; ਪੁਸ਼ਟੀ for "verify"). Both were retranslated in full from the current upstream English in the dual-block format, QA-gated and independently reviewed. `0x01` gained the upstream Jim Manico acknowledgement sentence. |
+| **certification / certify** | **ਸਰਟੀਫ਼ਿਕੇਸ਼ਨ** (L) — the first draft used ਪ੍ਰਮਾਣੀਕਰਨ, which is locked to *authentication*, so "OWASP does not certify vendors" read as "does not authenticate". Chapter title is now `ਮੁਲਾਂਕਣ ਅਤੇ ਸਰਟੀਫ਼ਿਕੇਸ਼ਨ`. Alternative: ਪ੍ਰਮਾਣ-ਪੱਤਰੀਕਰਨ (T, unattested). |
+| **0x05 title** | `v4.x ਦੇ ਮੁਕਾਬਲੇ ਤਬਦੀਲੀਆਂ` (literal mirror of "Changes Compared to v4.x"); earlier wrapper pages said `v4.x ਤੋਂ ਤਬਦੀਲੀਆਂ`. |
+| **New picks (0x04)** | trust mark→ਭਰੋਸਾ ਚਿੰਨ੍ਹ · assurance→ਭਰੋਸਾ · stance→ਰੁਖ਼ · vendor-neutral nonprofit→ਵਿਕਰੇਤਾ-ਨਿਰਪੱਖ ਗ਼ੈਰ-ਮੁਨਾਫ਼ਾ ਸੰਸਥਾ · prescriptive→ਨਿਰਦੇਸ਼ਾਤਮਕ · testing guide→ਟੈਸਟਿੰਗ ਮਾਰਗਦਰਸ਼ਿਕਾ · penetration testing→ਪੈਨੇਟ੍ਰੇਸ਼ਨ ਟੈਸਟਿੰਗ (L; spelling normalised corpus-wide) · by exception→ਅਪਵਾਦ ਦੇ ਆਧਾਰ 'ਤੇ · non-applicable→ਗ਼ੈਰ-ਲਾਗੂ · rationale→ਤਰਕ-ਆਧਾਰ · findings→ਖੋਜਾਂ · work papers→ਕਾਰਜ-ਪੱਤਰ · coverage→ਕਵਰੇਜ (L; ਘੇਰਾ is locked to scope) · black box→ਬਲੈਕ ਬਾਕਸ (L) · off-the-shelf→ਤਿਆਰ-ਬਰ-ਤਿਆਰ · discouraged→ਨਿਰਉਤਸ਼ਾਹਿਤ |
+| **New picks (0x05)** | users of the standard→ਵਰਤੋਂਕਾਰ (application end-users stay ਉਪਭੋਗਤਾ) · philosophy→ਫ਼ਲਸਫ਼ਾ (ਦਰਸ਼ਨ rejected, devotional) · security goal→ਸੁਰੱਖਿਆ ਟੀਚਾ vs objective→ਸੁਰੱਖਿਆ ਉਦੇਸ਼ · prescriptiveness→ਨਿਰਦੇਸ਼ਾਤਮਕਤਾ · coupling→ਜੋੜ · fallacy→ਭੁਲੇਖਾ (ਭਰਮ rejected, maya overtone) · entry level→ਪ੍ਰਵੇਸ਼ ਪੱਧਰ · taxonomy→ਵਰਗੀਕਰਨ · access delegation→ਪਹੁੰਚ ਸੌਂਪਣ · single sign-on→ਸਿੰਗਲ ਸਾਈਨ-ਔਨ (L) · tick marks→ਟਿੱਕ ਚਿੰਨ੍ਹ · backwards compatibility→ਪਿਛਲੀ ਅਨੁਕੂਲਤਾ · legacy→ਪੁਰਾਣੇ (legacy) · relative→ਸਾਪੇਖਿਕ · Minimum/Standard/Advanced→"ਘੱਟੋ-ਘੱਟ"/"ਮਿਆਰੀ"/"ਉੱਨਤ" with English retained · standalone→ਸੁਤੰਤਰ · first-layer defense→ਪਹਿਲੀ-ਪਰਤ ਰੱਖਿਆ |
+| **Reviewer notes** | _to be filled_ |
+
+---
+
 ## Maintainer
 
 Gurvinder Singh, CISSP · CISA · GWAPT — [securityleader.ai](https://securityleader.ai) · [@GeeksikhSecurity](https://github.com/GeeksikhSecurity)

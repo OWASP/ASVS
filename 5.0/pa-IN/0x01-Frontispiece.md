@@ -1,3 +1,7 @@
+<!-- Translation Status: ✅ Complete -->
+<!-- Original: 5.0/en/0x01-Frontispiece.md -->
+<!-- Translator: GeeksikhSecurity -->
+
 # Frontispiece
 # ਸਿਰਲੇਖ ਪੰਨਾ
 
@@ -64,9 +68,9 @@ If a credit is missing from the 5.x credit list, please log a ticket at GitHub t
 
 ਜੇਕਰ 5.x ਕ੍ਰੈਡਿਟ ਸੂਚੀ ਵਿੱਚੋਂ ਕੋਈ ਕ੍ਰੈਡਿਟ ਗੁੰਮ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ GitHub 'ਤੇ ਟਿਕਟ ਦਰਜ ਕਰੋ ਤਾਂ ਜੋ ਭਵਿੱਖ ਦੇ 5.x ਅੱਪਡੇਟਾਂ ਵਿੱਚ ਮਾਨਤਾ ਮਿਲ ਸਕੇ।
 
-The Application Security Verification Standard builds on the work of those involved in ASVS 1.0 (2008) through 4.0 (2019). Much of the structure and many of the verification items that remain in ASVS today were originally written by Andrew van der Stock, Mike Boberski, Jeff Williams, and Dave Wichers, among numerous other contributors. Thank you to everyone who has contributed in the past. For a comprehensive list of earlier contributors, please consult each prior version.
+The Application Security Verification Standard builds on the work of those involved in ASVS 1.0 (2008) through 4.0 (2019). Much of the structure and many of the verification items that remain in ASVS today were originally written by Andrew van der Stock, Mike Boberski, Jeff Williams, and Dave Wichers, among numerous other contributors. We would also like to acknowledge Jim Manico for his significant and long-standing contributions to ASVS, starting as a Lead Author from version 1.0 (2009) and serving as a Project Lead from ASVS 4.0 through to after the release of ASVS 5.0. Thank you to everyone who has contributed in the past. For a comprehensive list of earlier contributors, please consult each prior version.
 
-ਐਪਲੀਕੇਸ਼ਨ ਸੁਰੱਖਿਆ ਤਸਦੀਕ ਮਿਆਰ ASVS 1.0 (2008) ਤੋਂ 4.0 (2019) ਤੱਕ ਸ਼ਾਮਲ ਲੋਕਾਂ ਦੇ ਕੰਮ 'ਤੇ ਬਣਿਆ ਹੈ। ਅੱਜ ASVS ਵਿੱਚ ਮੌਜੂਦ ਬਹੁਤ ਸਾਰੀ ਬਣਤਰ ਅਤੇ ਤਸਦੀਕ ਇਕਾਈਆਂ ਅਸਲ ਵਿੱਚ Andrew van der Stock, Mike Boberski, Jeff Williams, ਅਤੇ Dave Wichers ਦੁਆਰਾ ਲਿਖੀਆਂ ਗਈਆਂ ਸਨ, ਹੋਰ ਬਹੁਤ ਸਾਰੇ ਯੋਗਦਾਨੀਆਂ ਸਮੇਤ। ਅਤੀਤ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣ ਵਾਲੇ ਸਾਰਿਆਂ ਦਾ ਧੰਨਵਾਦ। ਪਹਿਲਾਂ ਦੇ ਯੋਗਦਾਨੀਆਂ ਦੀ ਵਿਆਪਕ ਸੂਚੀ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਹਰੇਕ ਪਿਛਲੇ ਸੰਸਕਰਣ ਵੇਖੋ।
+ਐਪਲੀਕੇਸ਼ਨ ਸੁਰੱਖਿਆ ਤਸਦੀਕ ਮਿਆਰ ASVS 1.0 (2008) ਤੋਂ 4.0 (2019) ਤੱਕ ਸ਼ਾਮਲ ਲੋਕਾਂ ਦੇ ਕੰਮ 'ਤੇ ਬਣਿਆ ਹੈ। ਅੱਜ ASVS ਵਿੱਚ ਮੌਜੂਦ ਬਹੁਤ ਸਾਰੀ ਬਣਤਰ ਅਤੇ ਤਸਦੀਕ ਇਕਾਈਆਂ ਅਸਲ ਵਿੱਚ Andrew van der Stock, Mike Boberski, Jeff Williams, ਅਤੇ Dave Wichers ਦੁਆਰਾ ਲਿਖੀਆਂ ਗਈਆਂ ਸਨ, ਹੋਰ ਬਹੁਤ ਸਾਰੇ ਯੋਗਦਾਨੀਆਂ ਸਮੇਤ। ਅਸੀਂ Jim Manico ਦਾ ਵੀ ਧੰਨਵਾਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹਾਂ, ਜਿਨ੍ਹਾਂ ਨੇ ASVS ਵਿੱਚ ਮਹੱਤਵਪੂਰਨ ਅਤੇ ਲੰਮੇ ਸਮੇਂ ਤੋਂ ਯੋਗਦਾਨ ਪਾਇਆ ਹੈ — ਸੰਸਕਰਣ 1.0 (2009) ਤੋਂ ਮੁੱਖ ਲੇਖਕ (Lead Author) ਵਜੋਂ ਸ਼ੁਰੂਆਤ ਕਰਕੇ, ਅਤੇ ASVS 4.0 ਤੋਂ ਲੈ ਕੇ ASVS 5.0 ਦੀ ਰਿਲੀਜ਼ ਤੋਂ ਬਾਅਦ ਤੱਕ ਪ੍ਰੋਜੈਕਟ ਲੀਡ (Project Lead) ਵਜੋਂ ਸੇਵਾ ਨਿਭਾ ਕੇ। ਅਤੀਤ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾਉਣ ਵਾਲੇ ਸਾਰਿਆਂ ਦਾ ਧੰਨਵਾਦ। ਪਹਿਲਾਂ ਦੇ ਯੋਗਦਾਨੀਆਂ ਦੀ ਵਿਆਪਕ ਸੂਚੀ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਹਰੇਕ ਪਿਛਲੇ ਸੰਸਕਰਣ ਵੇਖੋ।
 
 ## Panjabi Translation
 ## ਪੰਜਾਬੀ ਅਨੁਵਾਦ

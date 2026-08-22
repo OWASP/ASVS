@@ -1,3 +1,7 @@
+<!-- Translation Status: ✅ Complete -->
+<!-- Original: 5.0/en/0x02-Preface.md -->
+<!-- Translator: GeeksikhSecurity -->
+
 # Preface
 # ਮੁਖਬੰਧ
 
