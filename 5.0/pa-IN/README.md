@@ -79,7 +79,7 @@ This translation uses a **bilingual** format — each English paragraph is follo
 | English | ਗੁਰਮੁਖੀ | Romanized / ਰੋਮਨ ਲਿਪੀ | ਕਿਸਮ |
 |---------|---------|----------------------|:---:|
 | Cryptography | ਕ੍ਰਿਪਟੋਗ੍ਰਾਫੀ | kripṭogrāfī | L |
-| Encryption | ਇੰਕ੍ਰਿਪਸ਼ਨ | iṅkripshan | L |
+| Encryption | ਏਨਕ੍ਰਿਪਸ਼ਨ | enkripshan | L |
 | Hash | ਹੈਸ਼ | haish | L |
 | Digital Signature | ਡਿਜ਼ੀਟਲ ਦਸਤਖ਼ਤ | ḍizīṭal dastakhat | H |
 | Key | ਕੁੰਜੀ | kunjī | T |
@@ -137,7 +137,7 @@ This translation uses a **bilingual** format — each English paragraph is follo
 | Architecture | ਢਾਂਚਾ | ḍhāṅchā | T |
 | Configuration | ਸੰਰਚਨਾ | saṅrachnā | T |
 | Secure Coding | ਸੁਰੱਖਿਅਤ ਕੋਡਿੰਗ | surakhiat koḍiṅg | H |
-| Error Handling | ਗਲਤੀ ਸੰਭਾਲ | galtī saṅbhāl | T |
+| Error Handling | ਗਲਤੀ ਪ੍ਰਬੰਧਨ | galtī prabandhan | T |
 | Logging | ਲੌਗਿੰਗ | laugiṅg | L |
 | SDLC | ਸਾਫ਼ਟਵੇਅਰ ਵਿਕਾਸ ਜੀਵਨ-ਚੱਕਰ | sāfṭveyar vikās jīvan-chakkar | H |
 | SBOM | ਸਾਫ਼ਟਵੇਅਰ ਸਮੱਗਰੀ ਸੂਚੀ | sāfṭveyar samaggrī sūchī | H |

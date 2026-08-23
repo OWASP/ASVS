@@ -33,7 +33,7 @@ ASVS ਇੱਕ "ਐਪਲੀਕੇਸ਼ਨ" ਨੂੰ ਉਸ ਸਾਫ਼ਟਵ
 
 Components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application for those specific purposes, as some security controls depend directly on them or can be implemented through them. These components should be considered for requirements related to cached responses, rate limiting, or restricting incoming and outgoing connections based on source and destination.
 
-ਉਹ ਹਿੱਸੇ ਜੋ HTTP ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਪਰੋਸਦੇ, ਸੋਧਦੇ, ਜਾਂ ਪ੍ਰਮਾਣਿਤ ਕਰਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਵੈੱਬ ਐਪਲੀਕੇਸ਼ਨ ਫ਼ਾਇਰਵਾਲ (WAF), ਲੋਡ ਬੈਲੈਂਸਰ, ਜਾਂ ਪ੍ਰਾਕਸੀ, ਉਹਨਾਂ ਖ਼ਾਸ ਉਦੇਸ਼ਾਂ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਦਾ ਹਿੱਸਾ ਮੰਨੇ ਜਾ ਸਕਦੇ ਹਨ, ਕਿਉਂਕਿ ਕੁਝ ਸੁਰੱਖਿਆ ਨਿਯੰਤਰਣ ਸਿੱਧੇ ਉਹਨਾਂ 'ਤੇ ਨਿਰਭਰ ਕਰਦੇ ਹਨ ਜਾਂ ਉਹਨਾਂ ਰਾਹੀਂ ਲਾਗੂ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ। ਇਹਨਾਂ ਹਿੱਸਿਆਂ ਨੂੰ ਕੈਸ਼ ਕੀਤੇ ਜਵਾਬਾਂ, ਦਰ ਸੀਮਾ (rate limiting), ਜਾਂ ਸਰੋਤ ਅਤੇ ਮੰਜ਼ਿਲ ਦੇ ਆਧਾਰ 'ਤੇ ਅੰਦਰ-ਆਉਣ ਵਾਲੇ ਅਤੇ ਬਾਹਰ-ਜਾਣ ਵਾਲੇ ਸੰਪਰਕਾਂ ਨੂੰ ਪ੍ਰਤਿਬੰਧਿਤ ਕਰਨ ਨਾਲ ਸੰਬੰਧਿਤ ਲੋੜਾਂ ਲਈ ਵਿਚਾਰਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।
+ਉਹ ਹਿੱਸੇ ਜੋ HTTP ਟ੍ਰੈਫ਼ਿਕ ਨੂੰ ਪਰੋਸਦੇ, ਸੋਧਦੇ, ਜਾਂ ਪ੍ਰਮਾਣਿਤ ਕਰਦੇ ਹਨ, ਜਿਵੇਂ ਕਿ ਵੈੱਬ ਐਪਲੀਕੇਸ਼ਨ ਫ਼ਾਇਰਵਾਲ (WAF), ਲੋਡ ਬੈਲੈਂਸਰ, ਜਾਂ ਪ੍ਰੌਕਸੀ, ਉਹਨਾਂ ਖ਼ਾਸ ਉਦੇਸ਼ਾਂ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਦਾ ਹਿੱਸਾ ਮੰਨੇ ਜਾ ਸਕਦੇ ਹਨ, ਕਿਉਂਕਿ ਕੁਝ ਸੁਰੱਖਿਆ ਨਿਯੰਤਰਣ ਸਿੱਧੇ ਉਹਨਾਂ 'ਤੇ ਨਿਰਭਰ ਕਰਦੇ ਹਨ ਜਾਂ ਉਹਨਾਂ ਰਾਹੀਂ ਲਾਗੂ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ। ਇਹਨਾਂ ਹਿੱਸਿਆਂ ਨੂੰ ਕੈਸ਼ ਕੀਤੇ ਜਵਾਬਾਂ, ਦਰ ਸੀਮਾ (rate limiting), ਜਾਂ ਸਰੋਤ ਅਤੇ ਮੰਜ਼ਿਲ ਦੇ ਆਧਾਰ 'ਤੇ ਅੰਦਰ-ਆਉਣ ਵਾਲੇ ਅਤੇ ਬਾਹਰ-ਜਾਣ ਵਾਲੇ ਸੰਪਰਕਾਂ ਨੂੰ ਪ੍ਰਤਿਬੰਧਿਤ ਕਰਨ ਨਾਲ ਸੰਬੰਧਿਤ ਲੋੜਾਂ ਲਈ ਵਿਚਾਰਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।
 
 Conversely, ASVS generally excludes requirements that are not directly relevant to the application or where configuration is outside the application's responsibility. For example, DNS issues are typically managed by a separate team or function.
 

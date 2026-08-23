@@ -312,6 +312,55 @@ Applied while publishing the August 2026 batch (0x03, V1, V2, V3, V4, V6, V7). E
 
 ---
 
+## Q19 — August 2026 batch 3: V10, V11, V13–V17 (all security-requirement chapters now bilingual)
+
+**Status:** all 7 files translated, mechanically QA-gated, and independently fresh-context reviewed
+(V10: 1 fidelity fix — removed an added definitional gloss not in the English; V14: 2 fixes — cross-reference
+title mismatch + added content; V16: 1 fix — ਸੰਭਾਲ vs ਧਾਰਨ for "retention"; V17: 1 fix — dropped "either" in
+a two-outcome clause; V11/V13/V15: 0 fixes, already fidelity-correct).
+
+### Corpus-wide normalisations applied in this batch
+| Term | Was | Now |
+|---|---|---|
+| inventory (SBOM/asset) | ਵਸਤੂ-ਸੂਚੀ (V11) vs ਇਨਵੈਂਟਰੀ (V15, V16) | ਇਨਵੈਂਟਰੀ (L) — majority corpus usage |
+| connection pool | ਸੰਪਰਕ ਪੂਲ (V13) vs ਕਨੈਕਸ਼ਨ (V4, V14, 0x05) | ਕਨੈਕਸ਼ਨ ਪੂਲ |
+| retention | ਸੰਭਾਲ (V16, wrong — collides with "handling") vs ਧਾਰਨ (V14) | ਧਾਰਨ everywhere |
+| error handling | ਗਲਤੀ ਸੰਭਾਲ (README, V17) vs ਗਲਤੀ ਪ੍ਰਬੰਧਨ (V14, V16) | ਗਲਤੀ ਪ੍ਰਬੰਧਨ everywhere; README row + romanisation fixed |
+| encryption | ਇੰਕ੍ਰਿਪਸ਼ਨ (README) vs ਏਨਕ੍ਰਿਪਸ਼ਨ (corpus) | ਏਨਕ੍ਰਿਪਸ਼ਨ; README row + romanisation fixed |
+
+### New picks, still open / flagged for a corpus-wide decision
+| Term | Pick(s) in use | Note |
+|---|---|---|
+| HTTP response | ਜਵਾਬ (majority) vs ਪ੍ਰਤੀਕਿਰਿਆ (V3) | unresolved since Q13 — needs a human pass on V3 (gender agreement) |
+| configure (verb) | ਸੰਰਚਿਤ ਕਰਨਾ (V13) vs ਕੌਨਫ਼ਿਗਰ ਕਰਨਾ (V12) | pick one; ਸੰਰਚਨਾ is already the locked noun |
+| connection (bare, not "pool") | ਸੰਪਰਕ (V12) vs ਕਨੈਕਸ਼ਨ (V4/V13/V14) | pick one |
+| proxy | ਪ੍ਰੌਕਸੀ (majority, now incl. 0x03) vs ਪ੍ਰਾਕਸੀ | normalised to ਪ੍ਰੌਕਸੀ 2026-08-22 |
+| rate limiting | ਦਰ ਸੀਮਾ (majority) vs ਦਰ-ਸੀਮਾ (hyphenated) | normalised to ਦਰ ਸੀਮਾ (no hyphen) 2026-08-22 |
+| performance | ਪ੍ਰਦਰਸ਼ਨ (V5, V11) | alt ਕਾਰਗੁਜ਼ਾਰੀ considered, not adopted |
+| compromise (security) | ਸਮਝੌਤਾ (V6, V12, V15) | primary dictionary sense is "agreement" — flagged by V15 reviewer, not changed pending Sangat input |
+| documentation (process/heading noun) | ਦਸਤਾਵੇਜ਼ੀਕਰਨ (0x03, V3, V15) vs README's ਦਸਤਾਵੇਜ਼ (document) | not a conflict — different senses; README glossary should note the split |
+
+### Notable per-chapter picks (see individual translator reports for full lists)
+- **V10 (OAuth/OIDC):** role/artifact names retained in Latin (Authorization Server, Resource Server, PKCE, DPoP,
+  PAR, RAR, JAR, JARM); Relying Party=ਨਿਰਭਰ ਧਿਰ, identity provider=ਪਛਾਣ ਪ੍ਰਦਾਤਾ, claim=ਦਾਅਵਾ, consent=ਸਹਿਮਤੀ.
+- **V11 (Cryptography):** primitive=ਪ੍ਰਿਮਿਟਿਵ (L), KDF=ਕੁੰਜੀ-ਵਿਉਤਪੱਤੀ ਫੰਕਸ਼ਨ, IV=ਸ਼ੁਰੂਆਤੀ ਵੈਕਟਰ (IV),
+  collision resistant=ਟੱਕਰ-ਰੋਧਕ, constant-time=ਸਥਿਰ-ਸਮਾਂ, Padding Oracle/Fermat factorization retained as
+  named attacks (Q11/Q15 pattern).
+- **V13 (Configuration):** service account=ਸੇਵਾ ਖਾਤਾ, vault=ਵਾਲਟ (L), hardened=ਸਖ਼ਤ ਕੀਤਾ, source control=ਸਰੋਤ
+  ਨਿਯੰਤਰਣ, build artifacts=ਬਿਲਡ ਆਰਟੀਫ਼ੈਕਟ (L).
+- **V14 (Data Protection):** privacy-enhancing technologies=ਨਿੱਜਤਾ-ਵਧਾਊ ਤਕਨਾਲੋਜੀਆਂ, masked=ਮਾਸਕ ਕੀਤਾ (L),
+  Web Cache Deception retained as a named attack; client/browser storage=ਕਲਾਇੰਟ/ਬ੍ਰਾਊਜ਼ਰ ਭੰਡਾਰਨ (V6 uses
+  ਸਟੋਰੇਜ for password storage — different sense, not a conflict).
+- **V15 (Secure Coding):** dependency/type confusion, TOCTOU=ਜਾਂਚ-ਦੇ-ਸਮੇਂ ਤੋਂ ਵਰਤੋਂ-ਦੇ-ਸਮੇਂ (TOCTOU), mass
+  assignment/type juggling/prototype pollution retained as named vulnerability classes.
+- **V16 (Logging & Error Handling):** investigation=ਤਫ਼ਤੀਸ਼ (never ਜਾਂਚ, which is locked to "check"),
+  fail-open=ਫ਼ੇਲ-ਓਪਨ (L), circuit breaker=ਸਰਕਟ ਬ੍ਰੇਕਰ (L), correlation=ਸਹਿ-ਸੰਬੰਧ.
+- **V17 (WebRTC):** flood (from legitimate users)=ਹੜ੍ਹ kept distinct from DoS=ਸੇਵਾ-ਇਨਕਾਰ (attack); TURN/SFU/MCU
+  expansions retained Latin; heading pattern `## V17.1 TURN ਸਰਵਰ` (mixed, since "Server" translates — differs
+  from the pure-retained-term Q14 pattern used for the chapter H1 itself).
+
+---
+
 ## Maintainer
 
 Gurvinder Singh, CISSP · CISA · GWAPT — [securityleader.ai](https://securityleader.ai) · [@GeeksikhSecurity](https://github.com/GeeksikhSecurity)

@@ -18,7 +18,7 @@ Using "Panjabi" following Sikhri.org and Panjab Digital Library standards
 
 ## Progress Tracking
 
-_Status as of 2026-08-22: 15 of 27 files bilingual (AI draft v0.1, mechanically QA-gated and fresh-context reviewed; Sangat review pending). Remaining: V10, V11, V13–V17, Appendices A–E._
+_Status as of 2026-08-22 (pm): 22 of 27 files bilingual (AI draft v0.1, mechanically QA-gated and fresh-context reviewed; Sangat review pending). All 17 security-requirement chapters (V1-V17) plus the introductory chapters are now bilingual. Remaining: Appendices A-E._
 
 ### Phase A — Foundation (~960 words)
 - [x] 0x01-Frontispiece.md (282 words)
@@ -40,14 +40,14 @@ _Status as of 2026-08-22: 15 of 27 files bilingual (AI draft v0.1, mechanically 
 - [x] 0x16-V7-Session-Management.md (1,343 words)
 - [x] 0x17-V8-Authorization.md (843 words)
 - [x] 0x18-V9-Self-contained-Tokens.md (678 words)
-- [ ] 0x19-V10-OAuth-and-OIDC.md (3,080 words)
-- [ ] 0x20-V11-Cryptography.md (1,785 words)
+- [x] 0x19-V10-OAuth-and-OIDC.md (3,080 words)
+- [x] 0x20-V11-Cryptography.md (1,785 words)
 - [x] 0x21-V12-Secure-Communication.md (768 words)
-- [ ] 0x22-V13-Configuration.md (1,180 words)
-- [ ] 0x23-V14-Data-Protection.md (1,036 words)
-- [ ] 0x24-V15-Secure-Coding-and-Architecture.md (1,479 words)
-- [ ] 0x25-V16-Security-Logging-and-Error-Handling.md (1,211 words)
-- [ ] 0x26-V17-WebRTC.md (1,229 words)
+- [x] 0x22-V13-Configuration.md (1,180 words)
+- [x] 0x23-V14-Data-Protection.md (1,036 words)
+- [x] 0x24-V15-Secure-Coding-and-Architecture.md (1,479 words)
+- [x] 0x25-V16-Security-Logging-and-Error-Handling.md (1,211 words)
+- [x] 0x26-V17-WebRTC.md (1,229 words)
 
 ### Phase D — Appendices (~7,653 words)
 - [ ] 0x90-Appendix-A_Glossary.md (2,757 words)
