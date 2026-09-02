@@ -10,7 +10,7 @@ Cette section comprend l’obligation de documenter les caractéristiques attend
 
 | # | Description | Niveau |
 | :---: | :--- | :---: |
-| **5.1.1** | Vérifiez que la documentation définit les types de fichiers autorisés, les extensions de fichiers attendues et la taille maximale (y compris la taille décompressée) pour chaque fonctionnalité de Téléversement. De plus, assurez-vous que la documentation précise comment les fichiers sont sécurisés pour le téléchargement et le traitement des utilisateurs finaux, par exemple le comportement de l'application lorsqu'un fichier malveillant est détecté.| 2 |
+| **5.1.1** | Vérifiez que la documentation définit les types de fichiers autorisés, les extensions de fichiers attendues et la taille maximale (y compris la taille décompressée) pour chaque fonctionnalité de Téléversement. De plus, assurez-vous que la documentation précise comment les fichiers sont sécurisés pour le téléchargement et le traitement des utilisateurs finaux, par exemple le comportement de l'application lorsqu'un fichier malveillant est détecté. | 2 |
 
 ## V5.2 Téléversement de fichiers et contenu
 
@@ -22,8 +22,8 @@ La fonctionnalité de téléversement de fichiers est une source majeure de fich
 | **5.2.2** | Vérifiez que lorsque l'application accepte un fichier, seul ou dans une archive telle qu'un fichier zip, elle vérifie si l'extension de fichier correspond à une extension attendue et que le contenu correspond au type représenté par l'extension. Cela inclut, sans s'y limiter, la vérification des « octets magiques » initiaux, la réécriture d'images et l'utilisation de bibliothèques spécialisées pour la validation du contenu des fichiers. Pour le niveau L1, cela peut se concentrer uniquement sur les fichiers utilisés pour prendre des décisions métier ou de sécurité spécifiques. À partir du niveau L2, cela doit s'appliquer à tous les fichiers acceptés. | 1 |
 | **5.2.3** | Vérifiez que l'application vérifie les fichiers compressés (par exemple, zip, gz, docx, odt) par rapport à la taille maximale autorisée non compressée et au nombre maximal de fichiers avant de décompresser le fichier. | 2 |
 | **5.2.4** | Vérifiez qu'un quota de taille de fichier et un nombre maximal de fichiers par utilisateur sont appliqués pour garantir qu'un seul utilisateur ne puisse pas remplir le stockage avec trop de fichiers ou des fichiers excessivement volumineux. | 3 |
-| **5.2.5** | Vérifiez que l'application n'autorise pas le téléversement de fichiers compressés contenant des liens symboliques, sauf si cela est spécifiquement requis (auquel cas il sera nécessaire d'appliquer une liste d'autorisation des fichiers vers lesquels il est possible de créer des liens symboliques).| 3 |
-| **5.2.6** | Vérifiez que l'application rejette les images téléversées avec une taille de pixel supérieure au maximum autorisé, afin d'éviter les attaques par inondation de pixels.| 3 |
+| **5.2.5** | Vérifiez que l'application n'autorise pas le téléversement de fichiers compressés contenant des liens symboliques, sauf si cela est spécifiquement requis (auquel cas il sera nécessaire d'appliquer une liste d'autorisation des fichiers vers lesquels il est possible de créer des liens symboliques). | 3 |
+| **5.2.6** | Vérifiez que l'application rejette les images téléversées avec une taille de pixel supérieure au maximum autorisé, afin d'éviter les attaques par inondation de pixels. | 3 |
 
 ## V5.3 Stockage de fichiers
 
