@@ -14,11 +14,11 @@ ASVS 5.0 adalah hasil dari kontribusi luas dari para pemimpinan proyek, anggota 
 
 Revisi besar ini telah dikembangkan dengan mempertimbangkan beberapa prinsip utama:
 
-* **Cakupan dan Fokus yang Disempurnakan:** Versi standar ini dirancang agar lebih selaras secara langsung dengan pilar-pilar dasar pada namanya: Application, Security, Verification, dan Standard. Persyaratan telah ditulis ulang untuk menekankan pencegahan cacat keamanan (*security flaws*) daripada mewajibkan implementasi teknis tertentu. Teks persyaratan dimaksudkan untuk menjelaskan dirinya sendiri (*self-explanatory*), yaitu menjelaskan alasan mengapa persyaratan tersebut ada.
+* **Cakupan dan Fokus yang Disempurnakan:** Versi standar ini dirancang agar lebih selaras secara langsung dengan pilar-pilar dasar pada namanya: Application, Security, Verification, dan Standard. Persyaratan telah ditulis ulang untuk menekankan pencegahan cacat keamanan (_security flaws_) daripada mewajibkan implementasi teknis tertentu. Teks persyaratan dimaksudkan untuk menjelaskan dirinya sendiri (_self-explanatory_), yaitu menjelaskan alasan mengapa persyaratan tersebut ada.
 
-* **Dukungan untuk Keputusan Keamanan yang Terdokumentasi:** ASVS 5.0 memperkenalkan persyaratan untuk mendokumentasikan keputusan keamanan utama. Hal ini meningkatkan keterlacakan (*traceability*) dan mendukung implementasi yang peka terhadap konteks, memungkinkan organisasi untuk menyesuaikan postur keamanan mereka sesuai dengan kebutuhan dan risiko spesifik mereka.
+* **Dukungan untuk Keputusan Keamanan yang Terdokumentasi:** ASVS 5.0 memperkenalkan persyaratan untuk mendokumentasikan keputusan keamanan utama. Hal ini meningkatkan keterlacakan (_traceability_) dan mendukung implementasi yang peka terhadap konteks, memungkinkan organisasi untuk menyesuaikan postur keamanan mereka sesuai dengan kebutuhan dan risiko spesifik mereka.
 
-* **Pembaruan Level:** Meskipun ASVS mempertahankan model tiga tingkatnya (*three-tier model*), definisi level telah berkembang untuk membuat ASVS lebih mudah diadopsi. Level 1 dirancang sebagai langkah awal untuk mengadopsi ASVS, yang menyediakan pertahanan lapisan pertama. Level 2 mewakili pandangan komprehensif tentang praktik keamanan standar, dan Level 3 menangani persyaratan tingkat lanjut (*high-assurance*).
+* **Pembaruan Level:** Meskipun ASVS mempertahankan model tiga tingkatnya (_three-tier model_), definisi level telah berkembang untuk membuat ASVS lebih mudah diadopsi. Level 1 dirancang sebagai langkah awal untuk mengadopsi ASVS, yang menyediakan pertahanan lapisan pertama. Level 2 mewakili pandangan komprehensif tentang praktik keamanan standar, dan Level 3 menangani persyaratan tingkat lanjut (_high-assurance_).
 
 * **Restrukturisasi dan Perluasan Konten:** ASVS 5.0 mencakup sekitar 350 persyaratan di 17 bab. Bab-bab telah diatur ulang demi kejelasan dan kemudahan penggunaan. Pemetaan dua arah antara v4.0 dan v5.0 disediakan untuk memfasilitasi migrasi.
 
