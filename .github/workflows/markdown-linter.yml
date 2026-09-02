@@ -20,4 +20,4 @@ jobs:
         with:
           files: './5.0*'
           config_file: ".markdownlint.jsonc"
-          ignore_files: "tools, templates, images, id"
+          ignore_files: "tools, templates, images"
