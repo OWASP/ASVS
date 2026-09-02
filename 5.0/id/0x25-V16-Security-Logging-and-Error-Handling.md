@@ -40,13 +40,13 @@ Bagian ini mendefinisikan persyaratan untuk mencatat event yang relevan dengan k
 
 Bagian ini menguraikan jenis event yang harus dicatat tetapi tidak mencoba memberikan rincian yang meyeluruh. Setiap aplikasi memiliki faktor risiko dan konteks operasional yang unik.
 
-Harap dicatat bahwa meskipun ASVS mencakup pencatatan event keamanan dalam cakupannya, pengalihan peringatan (*alerting*) dan korelasi (misalnya aturan SIEM atau infrastruktur pemantauan) dianggap di luar cakupan dan ditangani oleh sistem operasional dan pemantauan.
+Harap dicatat bahwa meskipun ASVS mencakup pencatatan event keamanan dalam cakupannya, pengalihan peringatan (_alerting_) dan korelasi (misalnya aturan SIEM atau infrastruktur pemantauan) dianggap di luar cakupan dan ditangani oleh sistem operasional dan pemantauan.
 
 | # | Deskripsi | Level |
 | :---: | :--- | :---: |
 | **16.3.1** | Verifikasi bahwa semua operasi otentikasi dicatat, termasuk percobaan yang berhasil dan yang gagal. Metadata tambahan, seperti jenis otentikasi atau faktor yang digunakan, juga harus dikumpulkan. | 2 |
 | **16.3.2** | Verifikasi bahwa percobaan otorisasi yang gagal dicatat. Untuk L3, ini harus mencakup pencatatan semua keputusan otorisasi, termasuk mencatat saat data sensitif diakses (tanpa mencatat data sensitif itu sendiri). | 2 |
-| **16.3.3** | Verifikasi bahwa aplikasi mencatat event keamanan yang didefinisikan dalam dokumentasi dan juga mencatat upaya untuk melompati (*bypass*) kontrol keamanan, seperti validasi input, logika bisnis, dan anti-otomatisasi. | 2 |
+| **16.3.3** | Verifikasi bahwa aplikasi mencatat event keamanan yang didefinisikan dalam dokumentasi dan juga mencatat upaya untuk melompati (_bypass_) kontrol keamanan, seperti validasi input, logika bisnis, dan anti-otomatisasi. | 2 |
 | **16.3.4** | Verifikasi bahwa aplikasi mencatat error yang tidak terduga dan kegagalan kontrol keamanan seperti kegagalan backend TLS. | 2 |
 
 ## V16.4 Log Protection
@@ -63,16 +63,16 @@ Bagian ini mendefinisikan persyaratan untuk memastikan bahwa log dilindungi dari
 
 ## V16.5 Error Handling
 
-Bagian ini mendefinisikan persyaratan untuk memastikan bahwa aplikasi mengalami kegagalan secara baik (*graceful*) dan aman tanpa mengungkapkan rincian internal yang sensitif.
+Bagian ini mendefinisikan persyaratan untuk memastikan bahwa aplikasi mengalami kegagalan secara baik (_graceful_) dan aman tanpa mengungkapkan rincian internal yang sensitif.
 
 | # | Deskripsi | Level |
 | :---: | :--- | :---: |
 | **16.5.1** | Verifikasi bahwa pesan generik dikembalikan ke pengguna/konsumen saat terjadi error yang tidak terduga atau sensitif terhadap keamanan, memastikan tidak ada paparan data sistem internal yang sensitif seperti stack trace, query, secret key, dan token. | 2 |
-| **16.5.2** | Verifikasi bahwa aplikasi tetap beroperasi secara aman ketika akses sumber daya eksternal gagal, misalnya dengan menggunakan pola seperti circuit breaker atau pemulihan secara bertahap (*graceful degradation*). | 2 |
-| **16.5.3** | Verifikasi bahwa aplikasi mengalami kegagalan secara *graceful* dan aman, termasuk saat terjadi pengecualian (*exception*), mencegah kondisi *fail-open* seperti memproses transaksi meskipun terjadi error akibat logika validasi. | 2 |
-| **16.5.4** | Verifikasi bahwa error handler "last resort" (upaya terakhir) telah ditentukan untuk menangkap semua pengecualian (*unhandled exceptions*). Ini bertujuan untuk menghindari kehilangan rincian error yang harus masuk ke file log dan memastikan bahwa error tidak menjatuhkan seluruh proses aplikasi, yang mengakibatkan hilangnya ketersediaan (*availability*). | 3 |
+| **16.5.2** | Verifikasi bahwa aplikasi tetap beroperasi secara aman ketika akses sumber daya eksternal gagal, misalnya dengan menggunakan pola seperti circuit breaker atau pemulihan secara bertahap (_graceful degradation_). | 2 |
+| **16.5.3** | Verifikasi bahwa aplikasi mengalami kegagalan secara _graceful_ dan aman, termasuk saat terjadi pengecualian (_exception_), mencegah kondisi _fail-open_ seperti memproses transaksi meskipun terjadi error akibat logika validasi. | 2 |
+| **16.5.4** | Verifikasi bahwa error handler "last resort" (upaya terakhir) telah ditentukan untuk menangkap semua pengecualian (_unhandled exceptions_). Ini bertujuan untuk menghindari kehilangan rincian error yang harus masuk ke file log dan memastikan bahwa error tidak menjatuhkan seluruh proses aplikasi, yang mengakibatkan hilangnya ketersediaan (_availability_). | 3 |
 
-Catatan: Bahasa tertentu, (termasuk Swift, Go, dan melalui praktik desain umum, banyak bahasa fungsional,) tidak mendukung *exceptions* atau *last-resort event handlers*. Dalam hal ini, arsitek dan pengembang harus menggunakan pola, bahasa, atau cara yang ramah *framework* untuk memastikan bahwa aplikasi dapat menangani event luar biasa, tidak terduga, atau terkait keamanan secara aman.
+Catatan: Bahasa tertentu, (termasuk Swift, Go, dan melalui praktik desain umum, banyak bahasa fungsional,) tidak mendukung _exceptions_ atau _last-resort event handlers_. Dalam hal ini, arsitek dan pengembang harus menggunakan pola, bahasa, atau cara yang ramah _framework_ untuk memastikan bahwa aplikasi dapat menangani event luar biasa, tidak terduga, atau terkait keamanan secara aman.
 
 ## Referensi
 
