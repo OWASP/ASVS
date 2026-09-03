@@ -1,0 +1,2774 @@
+{
+  "Name": "Application Security Verification Standard Project",
+  "ShortName": "ASVS",
+  "Version": "",
+  "Description": "The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.",
+  "Requirements": [
+    {
+      "Shortcode": "V1",
+      "Ordinal": 1,
+      "ShortName": "Encoding",
+      "Name": "Encoding dan Sanitization",
+      "Items": [
+        {
+          "Shortcode": "V1.1",
+          "Ordinal": 1,
+          "Name": "Arsitektur Encoding dan Sanitization",
+          "Items": [
+            {
+              "Shortcode": "V1.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa input di-decode atau di-unescape ke dalam bentuk kanonik hanya satu kali, hanya di-decode ketika data yang di-encode dalam bentuk tersebut memang diharapkan, dan hal ini dilakukan sebelum pemrosesan input lebih lanjut, misalnya tidak dilakukan setelah input validation atau sanitization.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi melakukan output encoding dan escaping baik sebagai langkah terakhir sebelum digunakan oleh interpreter yang dituju, atau dilakukan oleh interpreter itu sendiri.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V1.2",
+          "Ordinal": 2,
+          "Name": "Pencegahan Injection",
+          "Items": [
+            {
+              "Shortcode": "V1.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa output encoding untuk HTTP response, dokumen HTML, atau dokumen XML relevan dengan konteks yang dibutuhkan, seperti melakukan encoding pada karakter yang relevan untuk elemen HTML, atribut HTML, komentar HTML, CSS, atau HTTP header fields, guna menghindari perubahan pada struktur pesan atau dokumen.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa ketika membangun URL secara dinamis, data tidak tepercaya di-encode sesuai dengan konteksnya (misalnya, URL encoding atau base64url encoding untuk parameter query atau path). Pastikan hanya protokol URL yang aman yang diizinkan (misalnya, larang javascript: atau data:).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa output encoding atau escaping digunakan saat membangun konten JavaScript secara dinamis (termasuk JSON), guna menghindari perubahan pada struktur pesan atau dokumen (untuk menghindari JavaScript dan JSON injection).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa pemilihan data atau query database (misalnya, SQL, HQL, NoSQL, Cypher) menggunakan parameterized queries, ORM, entity frameworks, atau dilindungi dengan cara lain dari SQL Injection dan serangan database injection lainnya. Hal ini juga relevan saat menulis stored procedures.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa aplikasi terlindungi dari OS command injection dan bahwa pemanggilan sistem operasi menggunakan parameterized OS queries atau menggunakan contextual command line output encoding.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.2.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa aplikasi terlindungi dari kerentanan LDAP injection, atau bahwa kontrol keamanan khusus untuk mencegah LDAP injection telah diterapkan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.2.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa aplikasi terlindungi dari serangan XPath injection dengan menggunakan query parameterization atau precompiled queries.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.2.8",
+              "Ordinal": 8,
+              "Description": "Verifikasi bahwa LaTeX processors dikonfigurasi secara aman (seperti tidak menggunakan flag \"--shell-escape\") dan sebuah allowlist perintah digunakan untuk mencegah serangan LaTeX injection.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.2.9",
+              "Ordinal": 9,
+              "Description": "Verifikasi bahwa aplikasi melakukan escape terhadap karakter khusus dalam regular expressions (biasanya menggunakan backslash) untuk mencegah karakter tersebut disalahartikan sebagai metacharacters.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.2.10",
+              "Ordinal": 10,
+              "Description": "Verifikasi bahwa aplikasi terlindungi dari CSV and Formula Injection. Aplikasi harus mengikuti aturan escaping yang didefinisikan dalam RFC 4180 bagian 2.6 dan 2.7 saat mengekspor konten CSV. Selain itu, saat mengekspor ke CSV atau format spreadsheet lain (seperti XLS, XLSX, atau ODF), karakter khusus (termasuk '=', '+', '-', '@', '\\t' (tab), dan '\\0' (null character)) harus di-escape dengan tanda kutip tunggal jika muncul sebagai karakter pertama dalam nilai suatu field.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V1.3",
+          "Ordinal": 3,
+          "Name": "Sanitization",
+          "Items": [
+            {
+              "Shortcode": "V1.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa semua input HTML tidak tepercaya dari WYSIWYG editor atau sejenisnya di-sanitize menggunakan pustaka atau fitur framework HTML sanitization yang terkenal dan aman.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi menghindari penggunaan eval() atau fitur dynamic code execution lainnya seperti Spring Expression Language (SpEL). Jika tidak ada alternatif lain, input pengguna yang disertakan harus di-sanitize sebelum dieksekusi.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa data yang diteruskan ke konteks yang berpotensi berbahaya di-sanitize terlebih dahulu untuk menerapkan langkah-langkah keamanan, seperti hanya mengizinkan karakter yang aman untuk konteks tersebut dan memotong (trimming) input yang terlalu panjang.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa konten Scalable Vector Graphics (SVG) scriptable yang disediakan pengguna divalidasi atau di-sanitize agar hanya berisi tag dan atribut (seperti untuk menggambar grafik) yang aman bagi aplikasi, misalnya, tidak mengandung script dan foreignObject.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa aplikasi melakukan sanitize atau menonaktifkan konten scriptable atau expression template language yang disediakan pengguna, seperti Markdown, CSS atau XSL stylesheets, BBCode, atau sejenisnya.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa aplikasi terlindungi dari serangan Server-side Request Forgery (SSRF), dengan memvalidasi data tidak tepercaya terhadap allowlist protokol, domain, path, dan port, serta melakukan sanitize terhadap karakter yang berpotensi berbahaya sebelum menggunakan data tersebut untuk memanggil layanan lain.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa aplikasi terlindungi dari serangan template injection dengan tidak mengizinkan template dibangun berdasarkan input tidak tepercaya. Jika tidak ada alternatif lain, input tidak tepercaya yang disertakan secara dinamis selama pembuatan template harus di-sanitize atau divalidasi secara ketat.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.8",
+              "Ordinal": 8,
+              "Description": "Verifikasi bahwa aplikasi melakukan sanitize secara tepat terhadap input tidak tepercaya sebelum digunakan dalam query Java Naming and Directory Interface (JNDI) dan bahwa JNDI dikonfigurasi secara aman untuk mencegah serangan JNDI injection.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.9",
+              "Ordinal": 9,
+              "Description": "Verifikasi bahwa aplikasi melakukan sanitize terhadap konten sebelum dikirim ke memcache untuk mencegah serangan injection.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.10",
+              "Ordinal": 10,
+              "Description": "Verifikasi bahwa format strings yang berpotensi diinterpretasikan dengan cara yang tidak terduga atau berbahaya saat digunakan telah di-sanitize sebelum diproses.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.11",
+              "Ordinal": 11,
+              "Description": "Verifikasi bahwa aplikasi melakukan sanitize terhadap input pengguna sebelum diteruskan ke sistem mail untuk melindungi dari SMTP atau IMAP injection.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.3.12",
+              "Ordinal": 12,
+              "Description": "Verifikasi bahwa regular expressions bebas dari elemen yang menyebabkan exponential backtracking, dan pastikan input tidak tepercaya di-sanitize untuk memitigasi serangan ReDoS atau Runaway Regex.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V1.4",
+          "Ordinal": 4,
+          "Name": "Memory, String, dan Unmanaged Code",
+          "Items": [
+            {
+              "Shortcode": "V1.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi menggunakan string yang memory-safe, memory copy, dan pointer arithmetic yang lebih aman untuk mendeteksi atau mencegah stack, buffer, atau heap overflow.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa teknik validasi sign, range, dan input digunakan untuk mencegah integer overflow.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa memory dan resource yang dialokasikan secara dinamis dibebaskan (released), dan bahwa referensi atau pointer ke memory yang telah dibebaskan dihapus atau diatur ke null untuk mencegah dangling pointers dan kerentanan use-after-free.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V1.5",
+          "Ordinal": 5,
+          "Name": "Safe Deserialization",
+          "Items": [
+            {
+              "Shortcode": "V1.5.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi mengonfigurasi XML parser untuk menggunakan konfigurasi yang restriktif dan bahwa fitur tidak aman seperti resolving external entities dinonaktifkan untuk mencegah serangan XML eXternal Entity (XXE).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V1.5.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa deserialization terhadap data tidak tepercaya menerapkan penanganan input yang aman, seperti menggunakan allowlist tipe objek atau membatasi tipe objek yang didefinisikan oleh client, untuk mencegah serangan deserialization. Mekanisme deserialization yang secara eksplisit didefinisikan sebagai tidak aman tidak boleh digunakan dengan input tidak tepercaya.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V1.5.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa parser yang berbeda-beda digunakan dalam aplikasi untuk tipe data yang sama (misalnya, JSON parser, XML parser, URL parser), melakukan parsing dengan cara yang konsisten dan menggunakan mekanisme character encoding yang sama untuk menghindari masalah seperti kerentanan JSON Interoperability atau perbedaan perilaku URI atau file parsing yang dapat dieksploitasi dalam serangan Remote File Inclusion (RFI) atau Server-side Request Forgery (SSRF).",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V2",
+      "Ordinal": 2,
+      "ShortName": "Validation",
+      "Name": "Validation dan Business Logic",
+      "Items": [
+        {
+          "Shortcode": "V2.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Validation dan Business Logic",
+          "Items": [
+            {
+              "Shortcode": "V2.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi mendefinisikan aturan input validation untuk cara memeriksa validitas item data terhadap struktur yang diharapkan. Ini dapat berupa format data umum seperti nomor kartu kredit, alamat email, nomor telepon, atau dapat berupa format data internal.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V2.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi mendefinisikan cara memvalidasi konsistensi logis dan kontekstual dari kombinasi item data, seperti memeriksa bahwa nama kelurahan/kecamatan dan kode pos saling cocok.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V2.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa ekspektasi untuk batasan dan validasi business logic didokumentasikan, baik per pengguna maupun secara global di seluruh aplikasi.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V2.2",
+          "Ordinal": 2,
+          "Name": "Input Validation",
+          "Items": [
+            {
+              "Shortcode": "V2.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa input divalidasi untuk menegakkan ekspektasi bisnis atau fungsional terhadap input tersebut. Hal ini harus menggunakan positive validation terhadap allow list nilai, pola, dan rentang, atau berdasarkan perbandingan input dengan struktur yang diharapkan dan batasan logis sesuai aturan yang telah ditentukan sebelumnya. Untuk L1, hal ini dapat difokuskan pada input yang digunakan untuk membuat keputusan bisnis atau keamanan tertentu. Untuk L2 ke atas, hal ini harus berlaku untuk semua input.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V2.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi dirancang untuk menegakkan input validation pada trusted service layer. Meskipun client-side validation meningkatkan usability dan harus didorong penggunaannya, hal ini tidak boleh diandalkan sebagai kontrol keamanan.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V2.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi memastikan kombinasi item data yang saling terkait masuk akal (reasonable) sesuai dengan aturan yang telah ditentukan sebelumnya.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V2.3",
+          "Ordinal": 3,
+          "Name": "Keamanan Business Logic",
+          "Items": [
+            {
+              "Shortcode": "V2.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi hanya akan memproses alur business logic untuk pengguna yang sama sesuai urutan langkah sekuensial yang diharapkan dan tanpa melewatkan langkah apa pun.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V2.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa batasan business logic diimplementasikan sesuai dokumentasi aplikasi untuk menghindari kelemahan business logic dieksploitasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V2.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa transactions digunakan pada level business logic sedemikian rupa sehingga sebuah operasi business logic berhasil dilakukan secara keseluruhan atau dikembalikan (rolled back) ke keadaan benar sebelumnya.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V2.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa mekanisme locking pada level business logic digunakan untuk memastikan resource dengan kuantitas terbatas (seperti kursi teater atau slot pengiriman) tidak dapat dipesan ganda (double-booked) dengan memanipulasi logika aplikasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V2.3.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa alur business logic yang bernilai tinggi memerlukan persetujuan multi-user (multi-user approval) untuk mencegah tindakan yang tidak sah atau tidak disengaja. Hal ini dapat mencakup, namun tidak terbatas pada, transfer uang dalam jumlah besar, persetujuan kontrak, akses ke informasi rahasia, atau safety override dalam proses manufaktur.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V2.4",
+          "Ordinal": 4,
+          "Name": "Anti-automation",
+          "Items": [
+            {
+              "Shortcode": "V2.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa kontrol anti-automation diterapkan untuk melindungi dari pemanggilan fungsi aplikasi secara berlebihan yang dapat menyebabkan data exfiltration, pembuatan data sampah (garbage-data), habisnya quota, pelanggaran rate-limit, denial-of-service, atau penggunaan berlebihan terhadap resource yang mahal.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V2.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa alur business logic memerlukan timing yang realistis layaknya manusia, guna mencegah pengiriman transaksi yang berlangsung terlalu cepat.",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V3",
+      "Ordinal": 3,
+      "ShortName": "Web",
+      "Name": "Web Frontend Security",
+      "Items": [
+        {
+          "Shortcode": "V3.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Web Frontend Security",
+          "Items": [
+            {
+              "Shortcode": "V3.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi menyatakan fitur keamanan yang diharapkan didukung oleh browser yang digunakan untuk mengakses aplikasi (seperti HTTPS, HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), dan mekanisme keamanan HTTP relevan lainnya). Dokumentasi tersebut juga harus mendefinisikan bagaimana aplikasi harus berperilaku jika beberapa fitur ini tidak tersedia (seperti memberi peringatan kepada pengguna atau memblokir akses).",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V3.2",
+          "Ordinal": 2,
+          "Name": "Interpretasi Konten yang Tidak Diinginkan",
+          "Items": [
+            {
+              "Shortcode": "V3.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa kontrol keamanan diterapkan untuk mencegah browser me-render konten atau fungsionalitas dalam HTTP responses pada konteks yang salah (misalnya, ketika sebuah API, file yang diunggah pengguna, atau resource lain diminta secara langsung). Kontrol yang mungkin dapat mencakup: tidak menyajikan konten kecuali HTTP request header fields (seperti Sec-Fetch-\\*) menunjukkan bahwa itu adalah konteks yang benar, menggunakan sandbox directive pada Content-Security-Policy header field, atau menggunakan attachment disposition type pada Content-Disposition header field.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa konten yang dimaksudkan untuk ditampilkan sebagai teks, bukan di-render sebagai HTML, ditangani menggunakan fungsi rendering yang aman (seperti createTextNode atau textContent) untuk mencegah eksekusi konten yang tidak diinginkan seperti HTML atau JavaScript.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi menghindari DOM clobbering ketika menggunakan client-side JavaScript dengan menerapkan deklarasi variabel secara eksplisit, melakukan strict type checking, menghindari penyimpanan variabel global pada objek document, dan menerapkan namespace isolation.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V3.3",
+          "Ordinal": 3,
+          "Name": "Konfigurasi Cookie",
+          "Items": [
+            {
+              "Shortcode": "V3.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa cookie memiliki atribut 'Secure' yang diatur, dan jika prefix '\\__Host-' tidak digunakan untuk nama cookie, maka prefix '__Secure-' harus digunakan untuk nama cookie tersebut.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa nilai atribut 'SameSite' pada setiap cookie diatur sesuai dengan tujuan cookie tersebut, untuk membatasi paparan terhadap user interface redress attacks dan browser-based request forgery attacks, yang umum dikenal sebagai cross-site request forgery (CSRF).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa cookie memiliki prefix '__Host-' untuk nama cookie, kecuali jika cookie tersebut memang dirancang secara eksplisit untuk dibagikan dengan host lain.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa jika nilai suatu cookie tidak dimaksudkan untuk dapat diakses oleh client-side scripts (seperti session token), cookie tersebut harus memiliki atribut 'HttpOnly' yang diatur dan nilai yang sama (misalnya session token) hanya boleh dikirimkan ke client melalui 'Set-Cookie' header field.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.3.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa saat aplikasi menulis sebuah cookie, panjang gabungan nama dan nilai cookie tidak melebihi 4096 byte. Cookie yang terlalu besar tidak akan disimpan oleh browser dan karenanya tidak akan dikirimkan bersama request, sehingga mencegah pengguna menggunakan fungsionalitas aplikasi yang bergantung pada cookie tersebut.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V3.4",
+          "Ordinal": 4,
+          "Name": "Header Mekanisme Keamanan Browser",
+          "Items": [
+            {
+              "Shortcode": "V3.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa Strict-Transport-Security header field disertakan pada semua response untuk menegakkan kebijakan HTTP Strict Transport Security (HSTS). Sebuah maximum age minimal 1 tahun harus didefinisikan, dan untuk L2 ke atas, kebijakan tersebut juga harus berlaku untuk semua subdomain.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header field bernilai tetap (fixed value) yang ditentukan oleh aplikasi, atau jika nilai Origin HTTP request header field digunakan, nilai tersebut divalidasi terhadap allowlist origin tepercaya. Ketika 'Access-Control-Allow-Origin: *' perlu digunakan, verifikasi bahwa response tersebut tidak menyertakan informasi sensitif apa pun.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa HTTP responses menyertakan Content-Security-Policy response header field yang mendefinisikan directives untuk memastikan browser hanya memuat dan menjalankan konten atau resource yang tepercaya, guna membatasi eksekusi JavaScript berbahaya. Minimal, sebuah kebijakan global harus digunakan yang mencakup directives object-src 'none' dan base-uri 'none' serta mendefinisikan allowlist atau menggunakan nonces atau hashes. Untuk aplikasi L3, sebuah kebijakan per-response dengan nonces atau hashes harus didefinisikan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.4.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa semua HTTP responses mengandung 'X-Content-Type-Options: nosniff' header field. Hal ini menginstruksikan browser untuk tidak menggunakan content sniffing dan MIME type guessing terhadap response tertentu, dan mewajibkan nilai Content-Type header field pada response tersebut sesuai dengan resource tujuan. Misalnya, response terhadap sebuah permintaan style hanya diterima jika Content-Type pada response tersebut adalah 'text/css'. Hal ini juga mengaktifkan penggunaan fungsionalitas Cross-Origin Read Blocking (CORB) oleh browser.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.4.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa aplikasi mengatur sebuah referrer policy untuk mencegah kebocoran data teknis yang sensitif ke layanan pihak ketiga melalui 'Referer' HTTP request header field. Hal ini dapat dilakukan dengan menggunakan Referrer-Policy HTTP response header field atau melalui atribut elemen HTML. Data sensitif dapat mencakup data path dan query pada URL, dan untuk aplikasi internal non-publik juga termasuk hostname.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.4.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa aplikasi web menggunakan frame-ancestors directive pada Content-Security-Policy header field untuk setiap HTTP response guna memastikan aplikasi tidak dapat di-embed secara default dan bahwa embedding resource tertentu hanya diizinkan jika diperlukan. Perlu dicatat bahwa X-Frame-Options header field, meskipun masih didukung oleh browser, sudah usang (obsolete) dan tidak boleh diandalkan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.4.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa Content-Security-Policy header field menentukan lokasi untuk melaporkan pelanggaran (violations).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V3.4.8",
+              "Ordinal": 8,
+              "Description": "Verifikasi bahwa semua HTTP responses yang memicu rendering dokumen (seperti response dengan Content-Type text/html), menyertakan Cross‑Origin‑Opener‑Policy header field dengan directive same-origin atau directive same-origin-allow-popups sesuai kebutuhan. Hal ini mencegah serangan yang menyalahgunakan shared access terhadap Window objects, seperti tabnabbing dan frame counting.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V3.5",
+          "Ordinal": 5,
+          "Name": "Pemisahan Origin Browser",
+          "Items": [
+            {
+              "Shortcode": "V3.5.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa, jika aplikasi tidak mengandalkan mekanisme CORS preflight untuk mencegah cross-origin requests yang tidak diizinkan menggunakan fungsionalitas sensitif, request tersebut divalidasi untuk memastikan bahwa request tersebut berasal dari aplikasi itu sendiri. Hal ini dapat dilakukan dengan menggunakan dan memvalidasi anti-forgery tokens atau mewajibkan HTTP header fields tambahan yang bukan merupakan CORS-safelisted request-header fields. Hal ini bertujuan untuk melindungi dari browser-based request forgery attacks, yang umum dikenal sebagai cross-site request forgery (CSRF).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.5.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa, jika aplikasi mengandalkan mekanisme CORS preflight untuk mencegah penggunaan cross-origin yang tidak diizinkan terhadap fungsionalitas sensitif, tidak mungkin untuk memanggil fungsionalitas tersebut dengan request yang tidak memicu CORS-preflight request. Hal ini mungkin memerlukan pemeriksaan nilai 'Origin' dan 'Content-Type' request header fields atau menggunakan header field tambahan yang bukan merupakan CORS-safelisted header-field.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.5.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa HTTP requests terhadap fungsionalitas sensitif menggunakan metode HTTP yang sesuai seperti POST, PUT, PATCH, atau DELETE, dan bukan metode yang didefinisikan oleh spesifikasi HTTP sebagai \"safe\" seperti HEAD, OPTIONS, atau GET. Sebagai alternatif, validasi ketat terhadap Sec-Fetch-* request header fields dapat digunakan untuk memastikan bahwa request tidak berasal dari pemanggilan cross-origin yang tidak sesuai, navigation request, atau resource load (seperti image source) yang seharusnya tidak diharapkan.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V3.5.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa aplikasi yang terpisah di-hosting pada hostname yang berbeda untuk memanfaatkan pembatasan yang disediakan oleh same-origin policy, termasuk bagaimana dokumen atau script yang dimuat oleh satu origin dapat berinteraksi dengan resource dari origin dan hostname lain serta pembatasan cookie berbasis hostname.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.5.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa pesan yang diterima oleh interface postMessage dibuang (discarded) jika origin dari pesan tersebut tidak tepercaya, atau jika sintaks pesan tersebut tidak valid.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.5.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa fungsionalitas JSONP tidak diaktifkan di bagian mana pun dalam aplikasi untuk menghindari serangan Cross-Site Script Inclusion (XSSI).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V3.5.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa data yang memerlukan otorisasi tidak disertakan dalam response resource script, seperti file JavaScript, untuk mencegah serangan Cross-Site Script Inclusion (XSSI).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V3.5.8",
+              "Ordinal": 8,
+              "Description": "Verifikasi bahwa resource yang memerlukan autentikasi (seperti gambar, video, script, dan dokumen lainnya) hanya dapat dimuat atau di-embed atas nama pengguna ketika memang dimaksudkan demikian. Hal ini dapat dicapai dengan validasi ketat terhadap Sec-Fetch-* HTTP request header fields untuk memastikan bahwa request tidak berasal dari pemanggilan cross-origin yang tidak sesuai, atau dengan mengatur Cross-Origin-Resource-Policy HTTP response header field yang bersifat restriktif untuk menginstruksikan browser memblokir konten yang dikembalikan.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V3.6",
+          "Ordinal": 6,
+          "Name": "Integritas Resource Eksternal",
+          "Items": [
+            {
+              "Shortcode": "V3.6.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa client-side assets, seperti pustaka JavaScript, CSS, atau web fonts, hanya di-hosting secara eksternal (misalnya, pada sebuah Content Delivery Network) jika resource tersebut bersifat statis dan memiliki versi (versioned) serta Subresource Integrity (SRI) digunakan untuk memvalidasi integritas asset tersebut. Jika hal ini tidak memungkinkan, harus ada keputusan keamanan yang terdokumentasi untuk menjustifikasi hal tersebut pada setiap resource.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V3.7",
+          "Ordinal": 7,
+          "Name": "Pertimbangan Keamanan Browser Lainnya",
+          "Items": [
+            {
+              "Shortcode": "V3.7.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi hanya menggunakan teknologi client-side yang masih didukung dan dianggap aman. Contoh teknologi yang tidak memenuhi persyaratan ini antara lain NSAPI plugins, Flash, Shockwave, ActiveX, Silverlight, NACL, atau client-side Java applets.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.7.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi hanya akan secara otomatis mengarahkan (redirect) pengguna ke hostname atau domain yang berbeda (yang tidak dikendalikan oleh aplikasi) apabila tujuan tersebut terdapat pada sebuah allowlist.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V3.7.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi menampilkan notifikasi ketika pengguna diarahkan (redirect) ke URL di luar kendali aplikasi, dengan opsi untuk membatalkan navigasi tersebut.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V3.7.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa top-level domain aplikasi (misalnya, site.tld) ditambahkan ke public preload list untuk HTTP Strict Transport Security (HSTS). Hal ini memastikan bahwa penggunaan TLS untuk aplikasi tertanam langsung pada browser-browser utama, alih-alih hanya mengandalkan Strict-Transport-Security response header field.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V3.7.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa aplikasi berperilaku sesuai dengan yang didokumentasikan (seperti memberi peringatan kepada pengguna atau memblokir akses) jika browser yang digunakan untuk mengakses aplikasi tidak mendukung fitur keamanan yang diharapkan.",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V4",
+      "Ordinal": 4,
+      "ShortName": "API",
+      "Name": "API dan Web Service",
+      "Items": [
+        {
+          "Shortcode": "V4.1",
+          "Ordinal": 1,
+          "Name": "Keamanan Web Service Umum",
+          "Items": [
+            {
+              "Shortcode": "V4.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa setiap HTTP response dengan message body memiliki Content-Type header field yang sesuai dengan konten sebenarnya dari response tersebut, termasuk parameter charset untuk menentukan character encoding yang aman (misalnya, UTF-8, ISO-8859-1) sesuai dengan IANA Media Types, seperti \"text/\", \"/+xml\" dan \"/xml\".",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V4.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa hanya endpoint yang menghadap pengguna (user-facing, dimaksudkan untuk akses manual melalui web browser) yang secara otomatis melakukan redirect dari HTTP ke HTTPS, sedangkan layanan atau endpoint lainnya tidak menerapkan transparent redirects. Hal ini untuk menghindari situasi di mana client secara keliru mengirimkan HTTP request yang tidak terenkripsi, namun karena request tersebut secara otomatis diarahkan ke HTTPS, kebocoran data sensitif menjadi tidak terdeteksi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V4.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa HTTP header field apa pun yang digunakan oleh aplikasi dan diatur oleh lapisan perantara (intermediary layer), seperti load balancer, web proxy, atau layanan backend-for-frontend, tidak dapat di-override oleh pengguna akhir. Contoh header dapat mencakup X-Real-IP, X-Forwarded-*, atau X-User-ID.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V4.1.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa hanya metode HTTP yang secara eksplisit didukung oleh aplikasi atau API-nya (termasuk OPTIONS selama preflight requests) yang dapat digunakan dan metode yang tidak digunakan diblokir.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V4.1.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa per-message digital signatures digunakan untuk memberikan jaminan tambahan di atas perlindungan transport untuk request atau transaksi yang sangat sensitif atau yang melintasi sejumlah sistem.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V4.2",
+          "Ordinal": 2,
+          "Name": "Validasi Struktur Pesan HTTP",
+          "Items": [
+            {
+              "Shortcode": "V4.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa semua komponen aplikasi (termasuk load balancer, firewall, dan application server) menentukan batasan pesan HTTP yang masuk menggunakan mekanisme yang sesuai untuk versi HTTP tersebut guna mencegah HTTP request smuggling. Pada HTTP/1.x, jika sebuah Transfer-Encoding header field ada, Content-Length header harus diabaikan sesuai RFC 2616. Saat menggunakan HTTP/2 atau HTTP/3, jika sebuah Content-Length header field ada, penerima harus memastikan bahwa nilai tersebut konsisten dengan panjang DATA frames.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V4.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa saat membuat pesan HTTP, Content-Length header field tidak bertentangan dengan panjang konten sebagaimana ditentukan oleh framing protokol HTTP, guna mencegah serangan request smuggling.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V4.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi tidak mengirim maupun menerima pesan HTTP/2 atau HTTP/3 dengan connection-specific header fields seperti Transfer-Encoding guna mencegah serangan response splitting dan header injection.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V4.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa aplikasi hanya menerima request HTTP/2 dan HTTP/3 yang header fields dan nilainya tidak mengandung urutan CR (\\r), LF (\\n), atau CRLF (\\r\\n), guna mencegah serangan header injection.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V4.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa, jika aplikasi (backend atau frontend) membangun dan mengirim request, aplikasi tersebut menggunakan validation, sanitization, atau mekanisme lain untuk menghindari pembuatan URI (seperti untuk pemanggilan API) atau HTTP request header fields (seperti Authorization atau Cookie) yang terlalu panjang untuk diterima oleh komponen penerima. Hal ini dapat menyebabkan denial of service, seperti saat mengirimkan request yang terlalu panjang (misalnya, cookie header field yang panjang), yang mengakibatkan server selalu merespons dengan status error.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V4.3",
+          "Ordinal": 3,
+          "Name": "GraphQL",
+          "Items": [
+            {
+              "Shortcode": "V4.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa query allowlist, depth limiting, amount limiting, atau query cost analysis digunakan untuk mencegah GraphQL atau data layer expression Denial of Service (DoS) akibat query yang mahal (expensive) dan bersarang (nested).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V4.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa GraphQL introspection queries dinonaktifkan pada environment produksi, kecuali jika GraphQL API tersebut memang dimaksudkan untuk digunakan oleh pihak lain.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V4.4",
+          "Ordinal": 4,
+          "Name": "WebSocket",
+          "Items": [
+            {
+              "Shortcode": "V4.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa WebSocket over TLS (WSS) digunakan untuk semua koneksi WebSocket.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V4.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa, selama initial HTTP WebSocket handshake, Origin header field diperiksa terhadap daftar origin yang diizinkan untuk aplikasi tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V4.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa, jika session management standar aplikasi tidak dapat digunakan, token khusus (dedicated tokens) digunakan untuk hal ini, yang sesuai dengan persyaratan keamanan Session Management yang relevan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V4.4.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa token session management WebSocket khusus pada awalnya diperoleh atau divalidasi melalui sesi HTTPS yang telah terautentikasi sebelumnya, saat mengalihkan sesi HTTPS yang ada ke saluran WebSocket.",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V5",
+      "Ordinal": 5,
+      "ShortName": "File",
+      "Name": "File Handling",
+      "Items": [
+        {
+          "Shortcode": "V5.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Penanganan File",
+          "Items": [
+            {
+              "Shortcode": "V5.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa dokumentasi mendefinisikan jenis file yang diizinkan, ekstensi file yang diharapkan, dan ukuran maksimum (termasuk ukuran setelah unpacked) untuk setiap fitur upload. Selain itu, pastikan dokumentasi tersebut menentukan bagaimana file dibuat aman bagi pengguna akhir untuk diunduh dan diproses, seperti bagaimana perilaku aplikasi ketika sebuah file berbahaya terdeteksi.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V5.2",
+          "Ordinal": 2,
+          "Name": "Upload File dan Konten",
+          "Items": [
+            {
+              "Shortcode": "V5.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi hanya akan menerima file dengan ukuran yang dapat diproses tanpa menyebabkan penurunan performa atau serangan denial of service.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V5.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa saat aplikasi menerima sebuah file, baik secara mandiri maupun di dalam sebuah archive seperti file zip, aplikasi memeriksa apakah ekstensi file sesuai dengan ekstensi file yang diharapkan dan memvalidasi bahwa isi file tersebut sesuai dengan tipe yang direpresentasikan oleh ekstensi tersebut. Hal ini mencakup, namun tidak terbatas pada, pemeriksaan 'magic bytes' awal, melakukan image re-writing, dan menggunakan pustaka khusus untuk validasi konten file. Untuk L1, hal ini dapat difokuskan hanya pada file yang digunakan untuk membuat keputusan bisnis atau keamanan tertentu. Untuk L2 ke atas, hal ini harus berlaku untuk semua file yang diterima.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V5.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi memeriksa file terkompresi (misalnya, zip, gz, docx, odt) terhadap ukuran maksimum yang diizinkan setelah dekompresi (uncompressed) dan terhadap jumlah maksimum file sebelum melakukan dekompresi file tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V5.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa kuota ukuran file dan jumlah maksimum file per pengguna diterapkan untuk memastikan bahwa satu pengguna tidak dapat memenuhi storage dengan terlalu banyak file, atau file yang berukuran sangat besar.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V5.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa aplikasi tidak mengizinkan pengunggahan file terkompresi yang berisi symlink kecuali hal ini memang secara khusus diperlukan (dalam hal ini perlu diterapkan allowlist untuk file-file yang dapat di-symlink).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V5.2.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa aplikasi menolak gambar yang diunggah dengan ukuran pixel lebih besar dari maksimum yang diizinkan, untuk mencegah serangan pixel flood.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V5.3",
+          "Ordinal": 3,
+          "Name": "Penyimpanan File",
+          "Items": [
+            {
+              "Shortcode": "V5.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa file yang diunggah atau dihasilkan dari input tidak tepercaya dan disimpan pada folder publik, tidak dieksekusi sebagai kode program server-side ketika diakses secara langsung melalui HTTP request.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V5.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa saat aplikasi membuat file paths untuk operasi file, aplikasi menggunakan data yang dihasilkan secara internal atau data tepercaya, bukan nama file yang dikirimkan oleh pengguna; atau jika nama file atau metadata file yang dikirimkan pengguna harus digunakan, validasi dan sanitization yang ketat harus diterapkan. Hal ini bertujuan untuk melindungi dari serangan path traversal, local atau remote file inclusion (LFI, RFI), dan server-side request forgery (SSRF).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V5.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa pemrosesan file di sisi server, seperti dekompresi file, mengabaikan informasi path yang disediakan oleh pengguna untuk mencegah kerentanan seperti zip slip.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V5.4",
+          "Ordinal": 4,
+          "Name": "Download File",
+          "Items": [
+            {
+              "Shortcode": "V5.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi memvalidasi atau mengabaikan nama file yang dikirimkan oleh pengguna, termasuk pada JSON, JSONP, atau parameter URL, dan menentukan sebuah nama file pada Content-Disposition header field dalam response.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V5.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa nama file yang disajikan (misalnya, pada HTTP response header fields atau lampiran email) di-encode atau di-sanitize (misalnya, mengikuti RFC 6266) untuk menjaga struktur dokumen dan mencegah serangan injection.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V5.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa file yang diperoleh dari sumber tidak tepercaya dipindai oleh antivirus scanner untuk mencegah penyajian konten berbahaya yang telah dikenal.",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V6",
+      "Ordinal": 6,
+      "ShortName": "Authentication",
+      "Name": "Athentication",
+      "Items": [
+        {
+          "Shortcode": "V6.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Athentication",
+          "Items": [
+            {
+              "Shortcode": "V6.1.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa dokumentasi aplikasi mendefinisikan bagaimana kontrol seperti rate limiting, anti-automation, dan adaptive response, digunakan untuk bertahan dari serangan seperti credential stuffing dan password brute force [cite: 1]. Dokumentasi harus memperjelas bagaimana kontrol ini dikonfigurasi dan mencegah penguncian akun yang berbahaya (malicious account lockout) [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.1.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa daftar kata-kata spesifik konteks didokumentasikan untuk mencegah penggunaannya dalam password [cite: 1]. Daftar tersebut dapat mencakup permutasi nama organisasi, nama produk, pengenal sistem (system identifiers), nama sandi proyek, nama departemen atau peran, dan sejenisnya [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.1.3",
+              "Ordinal": 3,
+              "Description": "Pastikan bahwa, jika aplikasi mencakup beberapa jalur Athentication, semuanya didokumentasikan bersama dengan kontrol keamanan dan kekuatan Athentication yang harus diterapkan secara konsisten di seluruh jalur tersebut [cite: 1].",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V6.2",
+          "Ordinal": 2,
+          "Name": "Keamanan Password",
+          "Items": [
+            {
+              "Shortcode": "V6.2.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa password yang diatur pengguna memiliki panjang setidaknya 8 karakter, meskipun minimal 15 karakter sangat direkomendasikan [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa pengguna dapat mengubah password mereka [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.3",
+              "Ordinal": 3,
+              "Description": "Pastikan bahwa fungsionalitas perubahan password memerlukan password pengguna saat ini dan yang baru [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.4",
+              "Ordinal": 4,
+              "Description": "Pastikan bahwa password yang dikirimkan selama pendaftaran akun atau perubahan password diperiksa terhadap sekumpulan, setidaknya, 3000 password teratas yang cocok dengan kebijakan password aplikasi, mis. panjang minimum [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.5",
+              "Ordinal": 5,
+              "Description": "Pastikan bahwa password dari komposisi apa pun dapat digunakan, tanpa aturan yang membatasi jenis karakter yang diizinkan [cite: 1]. Tidak boleh ada persyaratan untuk jumlah minimum karakter huruf besar atau kecil, angka, atau karakter khusus [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.6",
+              "Ordinal": 6,
+              "Description": "Pastikan bahwa kolom input password menggunakan type=password untuk menutupi (mask) entri [cite: 1]. Aplikasi dapat mengizinkan pengguna untuk sementara melihat seluruh password yang ditutupi, atau karakter terakhir yang diketik dari password [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.7",
+              "Ordinal": 7,
+              "Description": "Pastikan bahwa fungsi \"paste\", browser password helpers, dan external password managers diizinkan [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.8",
+              "Ordinal": 8,
+              "Description": "Pastikan bahwa aplikasi memverifikasi password pengguna persis seperti yang diterima dari pengguna, tanpa modifikasi apa pun seperti pemotongan (truncation) atau transformasi huruf (case transformation) [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.2.9",
+              "Ordinal": 9,
+              "Description": "Pastikan bahwa password dengan panjang setidaknya 64 karakter diizinkan [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.2.10",
+              "Ordinal": 10,
+              "Description": "Pastikan bahwa password pengguna tetap valid sampai diketahui telah disusupi (compromised) atau pengguna memutarnya (rotates) [cite: 1]. Aplikasi tidak boleh mensyaratkan rotasi kredensial berkala [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.2.11",
+              "Ordinal": 11,
+              "Description": "Pastikan bahwa daftar kata-kata spesifik konteks yang didokumentasikan digunakan untuk mencegah pembuatan password yang mudah ditebak [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.2.12",
+              "Ordinal": 12,
+              "Description": "Pastikan bahwa password yang dikirimkan selama pendaftaran akun atau perubahan password diperiksa terhadap sekumpulan password yang bocor (breached passwords) [cite: 1].",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V6.3",
+          "Ordinal": 3,
+          "Name": "Keamanan Athentication Umum",
+          "Items": [
+            {
+              "Shortcode": "V6.3.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa kontrol untuk mencegah serangan seperti credential stuffing dan password brute force diimplementasikan sesuai dengan dokumentasi keamanan aplikasi [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.3.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa akun pengguna default (misalnya, \"root\", \"admin\", atau \"sa\") tidak ada di dalam aplikasi atau dinonaktifkan [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.3.3",
+              "Ordinal": 3,
+              "Description": "Pastikan bahwa mekanisme multi-factor authentication (MFA) atau kombinasi mekanisme single-factor authentication harus digunakan untuk mengakses aplikasi [cite: 1]. Untuk L3, salah satu faktor harus berupa mekanisme hardware-based authentication yang memberikan ketahanan terhadap kompromi dan peniruan (impersonation resistance) terhadap serangan phishing sekaligus memverifikasi niat untuk mengAthentication dengan mewajibkan tindakan yang dimulai oleh pengguna (seperti menekan tombol pada FIDO hardware key atau ponsel) [cite: 1]. Melonggarkan salah satu pertimbangan dalam persyaratan ini memerlukan alasan yang didokumentasikan sepenuhnya dan serangkaian kontrol mitigasi yang komprehensif [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.3.4",
+              "Ordinal": 4,
+              "Description": "Pastikan bahwa, jika aplikasi mencakup beberapa jalur Athentication, tidak ada jalur yang tidak didokumentasikan dan kontrol keamanan serta kekuatan Athentication diterapkan secara konsisten [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.3.5",
+              "Ordinal": 5,
+              "Description": "Pastikan bahwa pengguna diberi tahu tentang upaya Athentication yang mencurigakan (berhasil atau tidak berhasil) [cite: 1]. Ini dapat mencakup upaya Athentication dari lokasi atau klien yang tidak biasa, Athentication yang berhasil sebagian (hanya satu dari beberapa faktor), upaya Athentication setelah periode tidak aktif yang lama, atau Athentication yang berhasil setelah beberapa upaya gagal [cite: 1].",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V6.3.6",
+              "Ordinal": 6,
+              "Description": "Pastikan bahwa email tidak digunakan sebagai mekanisme single-factor atau multi-factor authentication [cite: 1].",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V6.3.7",
+              "Ordinal": 7,
+              "Description": "Pastikan bahwa pengguna diberi tahu setelah pembaruan detail Athentication, seperti pengaturan ulang kredensial (credential resets) atau modifikasi username atau alamat email [cite: 1].",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V6.3.8",
+              "Ordinal": 8,
+              "Description": "Pastikan bahwa pengguna yang valid tidak dapat disimpulkan dari tantangan Athentication yang gagal, seperti dengan mendasarkan pada pesan kesalahan, kode respons HTTP, atau waktu respons yang berbeda [cite: 1]. Fungsionalitas pendaftaran dan lupa password (forgot password) juga harus memiliki perlindungan ini [cite: 1].",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V6.4",
+          "Ordinal": 4,
+          "Name": "Siklus Hidup dan Pemulihan Faktor Athentication",
+          "Items": [
+            {
+              "Shortcode": "V6.4.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa password awal atau kode aktivasi yang dihasilkan sistem dibuat secara acak dengan aman (securely randomly generated), mengikuti kebijakan password yang ada, dan kedaluwarsa setelah periode waktu yang singkat atau setelah pertama kali digunakan [cite: 1]. Rahasia awal ini tidak boleh diizinkan menjadi password jangka panjang [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.4.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa petunjuk password (password hints) atau knowledge-based authentication (disebut \"pertanyaan rahasia\") tidak digunakan [cite: 1].",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V6.4.3",
+              "Ordinal": 3,
+              "Description": "Pastikan bahwa proses yang aman untuk mengatur ulang password yang terlupakan diimplementasikan, yang tidak mengabaikan (bypass) mekanisme multi-factor authentication yang diaktifkan [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.4.4",
+              "Ordinal": 4,
+              "Description": "Pastikan bahwa jika suatu faktor multi-factor authentication hilang, bukti pembuktian identitas (identity proofing) dilakukan pada tingkat yang sama seperti saat pendaftaran (enrollment) [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.4.5",
+              "Ordinal": 5,
+              "Description": "Pastikan bahwa instruksi perpanjangan untuk mekanisme Athentication yang kedaluwarsa dikirim dengan waktu yang cukup untuk dilakukan sebelum mekanisme Athentication yang lama kedaluwarsa, mengatur pengingat otomatis jika perlu [cite: 1].",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V6.4.6",
+              "Ordinal": 6,
+              "Description": "Pastikan bahwa pengguna administratif dapat memulai proses pengaturan ulang password untuk pengguna, tetapi ini tidak mengizinkan mereka untuk mengubah atau memilih password pengguna [cite: 1]. Hal ini mencegah situasi di mana mereka mengetahui password pengguna [cite: 1].",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V6.5",
+          "Ordinal": 5,
+          "Name": "Persyaratan Umum Multi-factor Authentication",
+          "Items": [
+            {
+              "Shortcode": "V6.5.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa lookup secrets, permintaan atau kode Athentication out-of-band, dan time-based one-time passwords (TOTPs) hanya dapat berhasil digunakan sekali [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.5.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa, saat disimpan di backend aplikasi, lookup secrets dengan entropi kurang dari 112 bit (19 karakter alfanumerik acak atau 34 digit acak) di-hash dengan algoritma hashing penyimpanan password yang disetujui yang menggabungkan salt acak 32-bit [cite: 1]. Fungsi hash standar dapat digunakan jika rahasia tersebut memiliki entropi 112 bit atau lebih [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.5.3",
+              "Ordinal": 3,
+              "Description": "Pastikan bahwa lookup secrets, kode Athentication out-of-band, dan seed time-based one-time password (TOTP), dihasilkan menggunakan Cryptographically Secure Pseudorandom Number Generator (CSPRNG) untuk menghindari nilai yang dapat ditebak [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.5.4",
+              "Ordinal": 4,
+              "Description": "Pastikan bahwa lookup secrets dan kode Athentication out-of-band memiliki entropi minimal 20 bit (biasanya 4 karakter alfanumerik acak atau 6 digit acak sudah cukup) [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.5.5",
+              "Ordinal": 5,
+              "Description": "Pastikan bahwa permintaan, kode, atau token Athentication out-of-band, serta time-based one-time passwords (TOTPs) memiliki masa pakai yang ditentukan [cite: 1]. Permintaan out-of-band harus memiliki masa pakai maksimal 10 menit dan untuk TOTP masa pakai maksimal 30 detik [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.5.6",
+              "Ordinal": 6,
+              "Description": "Pastikan bahwa setiap faktor Athentication (termasuk physical devices) dapat dicabut jika terjadi pencurian atau kehilangan lainnya [cite: 1].",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V6.5.7",
+              "Ordinal": 7,
+              "Description": "Pastikan bahwa mekanisme Athentication biometrik hanya digunakan sebagai faktor sekunder (secondary factors) bersama dengan sesuatu yang Anda miliki (something you have) atau sesuatu yang Anda ketahui (something you know) [cite: 1].",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V6.5.8",
+              "Ordinal": 8,
+              "Description": "Pastikan bahwa time-based one-time passwords (TOTPs) diperiksa berdasarkan sumber waktu dari layanan tepercaya (trusted service) dan bukan dari waktu yang tidak tepercaya atau yang disediakan klien [cite: 1].",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V6.6",
+          "Ordinal": 6,
+          "Name": "Mekanisme Athentication Out-of-Band",
+          "Items": [
+            {
+              "Shortcode": "V6.6.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa mekanisme Athentication menggunakan Public Switched Telephone Network (PSTN) untuk mengirimkan One-time Passwords (OTPs) melalui telepon atau SMS hanya ditawarkan ketika nomor telepon telah divalidasi sebelumnya, metode alternatif yang lebih kuat (seperti Time based One-time Passwords) juga ditawarkan, dan layanan tersebut memberikan informasi tentang risiko keamanannya kepada pengguna [cite: 1]. Untuk aplikasi L3, telepon dan SMS tidak boleh tersedia sebagai opsi [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.6.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa permintaan, kode, atau token Athentication out-of-band terikat pada permintaan Athentication asli yang menghasilkannya dan tidak dapat digunakan untuk permintaan sebelumnya atau sesudahnya [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.6.3",
+              "Ordinal": 3,
+              "Description": "Pastikan bahwa mekanisme Athentication out-of-band berbasis kode dilindungi dari serangan brute force dengan menggunakan rate limiting [cite: 1]. Pertimbangkan juga untuk menggunakan kode dengan entropi setidaknya 64 bit [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.6.4",
+              "Ordinal": 4,
+              "Description": "Pastikan bahwa, jika push notifications digunakan untuk multi-factor authentication, rate limiting digunakan untuk mencegah serangan push bombing [cite: 1]. Pencocokan nomor (number matching) juga dapat memitigasi risiko ini [cite: 1].",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V6.7",
+          "Ordinal": 7,
+          "Name": "Mekanisme Athentication Kriptografi",
+          "Items": [
+            {
+              "Shortcode": "V6.7.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa sertifikat yang digunakan untuk memverifikasi asersi Athentication kriptografi disimpan dengan cara yang melindunginya dari modifikasi [cite: 1].",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V6.7.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa challenge nonce memiliki panjang setidaknya 64 bit, dan secara statistik unik atau unik selama masa pakai perangkat kriptografi tersebut [cite: 1].",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V6.8",
+          "Ordinal": 8,
+          "Name": "Athentication dengan Identity Provider",
+          "Items": [
+            {
+              "Shortcode": "V6.8.1",
+              "Ordinal": 1,
+              "Description": "Pastikan bahwa, jika aplikasi mendukung beberapa identity providers (IdPs), identitas pengguna tidak dapat dipalsukan (spoofed) melalui identity provider lain yang didukung (mis. dengan menggunakan user identifier yang sama) [cite: 1]. Mitigasi standar adalah aplikasi mendaftarkan dan mengidentifikasi pengguna menggunakan kombinasi IdP ID (berfungsi sebagai namespace) dan ID pengguna di IdP [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.8.2",
+              "Ordinal": 2,
+              "Description": "Pastikan bahwa keberadaan dan integritas tanda tangan digital pada asersi Athentication (misalnya pada JWTs atau SAML assertions) selalu divalidasi, menolak setiap asersi yang tidak ditandatangani atau memiliki tanda tangan tidak valid [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.8.3",
+              "Ordinal": 3,
+              "Description": "Pastikan bahwa SAML assertions diproses secara unik dan digunakan hanya sekali dalam periode validitas untuk mencegah replay attacks [cite: 1].",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V6.8.4",
+              "Ordinal": 4,
+              "Description": "Pastikan bahwa, jika sebuah aplikasi menggunakan Identity Provider (IdP) terpisah dan mengharapkan kekuatan Athentication, metode, atau kebaruan spesifik untuk fungsi tertentu, aplikasi memverifikasi ini menggunakan informasi yang dikembalikan oleh IdP [cite: 1]. Misalnya, jika OIDC digunakan, ini mungkin dicapai dengan memvalidasi klaim ID Token seperti 'acr', 'amr', dan 'auth_time' (jika ada) [cite: 1]. Jika IdP tidak memberikan informasi ini, aplikasi harus memiliki pendekatan fallback yang didokumentasikan yang mengasumsikan bahwa mekanisme Athentication kekuatan minimum telah digunakan (misalnya, single-factor authentication menggunakan username dan password) [cite: 1].",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V7",
+      "Ordinal": 7,
+      "ShortName": "Session",
+      "Name": "Session Management",
+      "Items": [
+        {
+          "Shortcode": "V7.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Session Management",
+          "Items": [
+            {
+              "Shortcode": "V7.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa inactivity timeout sesi pengguna dan absolute maximum session lifetime terdokumentasi, sesuai jika dikombinasikan dengan kontrol lainnya, dan bahwa dokumentasi tersebut mencakup justifikasi untuk setiap penyimpangan dari persyaratan re-authentication pada NIST SP 800-63B.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa dokumentasi mendefinisikan berapa banyak sesi paralel (concurrent) yang diizinkan untuk satu akun serta perilaku dan tindakan yang dimaksudkan ketika jumlah maksimum sesi aktif tercapai.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa semua sistem yang membuat dan mengelola sesi pengguna sebagai bagian dari ekosistem federated identity management (seperti sistem SSO) terdokumentasi beserta kontrol untuk mengoordinasikan session lifetime, terminasi, dan kondisi lain apa pun yang memerlukan re-authentication.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V7.2",
+          "Ordinal": 2,
+          "Name": "Keamanan Dasar Session Management",
+          "Items": [
+            {
+              "Shortcode": "V7.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi melakukan seluruh verifikasi session token menggunakan layanan backend yang tepercaya.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V7.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi menggunakan self-contained token atau reference token yang dihasilkan secara dinamis untuk session management, yaitu tidak menggunakan API secrets dan keys yang statis.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V7.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa jika reference token digunakan untuk merepresentasikan sesi pengguna, token tersebut bersifat unik dan dihasilkan menggunakan cryptographically secure pseudo-random number generator (CSPRNG) serta memiliki entropi minimal 128 bit.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V7.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa aplikasi menghasilkan session token baru pada saat autentikasi pengguna, termasuk re-authentication, dan menghentikan session token yang sedang berlaku (current).",
+              "L": "1"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V7.3",
+          "Ordinal": 3,
+          "Name": "Session Timeout",
+          "Items": [
+            {
+              "Shortcode": "V7.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa terdapat inactivity timeout sedemikian rupa sehingga re-authentication diberlakukan sesuai dengan analisis risiko dan keputusan keamanan yang terdokumentasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa terdapat absolute maximum session lifetime sedemikian rupa sehingga re-authentication diberlakukan sesuai dengan analisis risiko dan keputusan keamanan yang terdokumentasi.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V7.4",
+          "Ordinal": 4,
+          "Name": "Terminasi Sesi",
+          "Items": [
+            {
+              "Shortcode": "V7.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa ketika terminasi sesi dipicu (seperti logout atau expiration), aplikasi melarang penggunaan sesi tersebut lebih lanjut. Untuk reference token atau sesi stateful, hal ini berarti melakukan invalidasi terhadap data sesi pada backend aplikasi. Aplikasi yang menggunakan self-contained token memerlukan solusi seperti mempertahankan daftar token yang telah dihentikan, melarang token yang dibuat sebelum tanggal dan waktu tertentu per pengguna, atau melakukan rotasi signing key per pengguna.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V7.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi menghentikan semua sesi aktif ketika sebuah akun pengguna dinonaktifkan atau dihapus (seperti seorang karyawan yang keluar dari perusahaan).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V7.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi memberikan opsi untuk menghentikan semua sesi aktif lainnya setelah keberhasilan perubahan atau penghapusan faktor autentikasi apa pun (termasuk perubahan password melalui reset atau recovery dan, jika ada, pembaruan pengaturan MFA).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.4.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa semua halaman yang memerlukan autentikasi memiliki akses yang mudah dan terlihat jelas ke fungsionalitas logout.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.4.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa administrator aplikasi mampu menghentikan sesi aktif untuk pengguna tertentu atau untuk semua pengguna.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V7.5",
+          "Ordinal": 5,
+          "Name": "Pertahanan Terhadap Penyalahgunaan Sesi",
+          "Items": [
+            {
+              "Shortcode": "V7.5.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi mewajibkan re-authentication penuh sebelum mengizinkan modifikasi terhadap atribut akun yang sensitif yang dapat memengaruhi autentikasi, seperti alamat email, nomor telepon, konfigurasi MFA, atau informasi lain yang digunakan dalam account recovery.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.5.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa pengguna dapat melihat dan (setelah melakukan autentikasi ulang dengan setidaknya satu faktor) menghentikan sebagian atau seluruh sesi yang sedang aktif saat ini.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.5.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi mewajibkan autentikasi lebih lanjut dengan setidaknya satu faktor atau verifikasi sekunder sebelum melakukan transaksi atau operasi yang sangat sensitif.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V7.6",
+          "Ordinal": 6,
+          "Name": "Federated Re-authentication",
+          "Items": [
+            {
+              "Shortcode": "V7.6.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa session lifetime dan terminasi antara Relying Parties (RP) dan Identity Providers (IdP) berperilaku sebagaimana yang terdokumentasi, mewajibkan re-authentication sesuai kebutuhan seperti ketika waktu maksimum antar peristiwa autentikasi IdP tercapai.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V7.6.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa pembuatan sesi memerlukan persetujuan pengguna atau tindakan eksplisit, mencegah pembuatan sesi aplikasi baru tanpa interaksi pengguna.",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V8",
+      "Ordinal": 8,
+      "ShortName": "Authorization",
+      "Name": "Authorization",
+      "Items": [
+        {
+          "Shortcode": "V8.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Authorization",
+          "Items": [
+            {
+              "Shortcode": "V8.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa dokumentasi authorization mendefinisikan aturan untuk membatasi akses pada level fungsi (function-level) dan akses spesifik terhadap data berdasarkan permission consumer dan atribut resource.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V8.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa dokumentasi authorization mendefinisikan aturan untuk pembatasan akses pada level field (baik untuk read maupun write) berdasarkan permission consumer dan atribut resource. Perlu dicatat bahwa aturan ini mungkin bergantung pada nilai atribut lain dari objek data terkait, seperti state atau status.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V8.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi mendefinisikan atribut lingkungan dan kontekstual (termasuk namun tidak terbatas pada, waktu dalam sehari, lokasi pengguna, alamat IP, atau perangkat) yang digunakan dalam aplikasi untuk membuat keputusan keamanan, termasuk yang berkaitan dengan authentication dan authorization.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V8.1.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa dokumentasi authentication dan authorization mendefinisikan bagaimana faktor lingkungan dan kontekstual digunakan dalam pengambilan keputusan, selain authorization pada level fungsi, data spesifik, dan level field. Hal ini harus mencakup atribut yang dievaluasi, ambang batas (thresholds) risiko, dan tindakan yang diambil (misalnya, allow, challenge, deny, step-up authentication).",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V8.2",
+          "Ordinal": 2,
+          "Name": "Desain Authorization Umum",
+          "Items": [
+            {
+              "Shortcode": "V8.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi memastikan akses pada level fungsi dibatasi hanya untuk consumer dengan permission eksplisit.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V8.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi memastikan akses spesifik terhadap data dibatasi hanya untuk consumer dengan permission eksplisit terhadap item data tertentu guna memitigasi insecure direct object reference (IDOR) dan broken object level authorization (BOLA).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V8.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi memastikan akses pada level field dibatasi hanya untuk consumer dengan permission eksplisit terhadap field tertentu guna memitigasi broken object property level authorization (BOPLA).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V8.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa kontrol keamanan adaptif berdasarkan atribut lingkungan dan kontekstual consumer (seperti waktu dalam sehari, lokasi, alamat IP, atau perangkat) diterapkan untuk keputusan authentication dan authorization, sebagaimana didefinisikan dalam dokumentasi aplikasi. Kontrol ini harus diterapkan baik ketika consumer mencoba memulai sesi baru maupun selama sesi yang sedang berlangsung.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V8.3",
+          "Ordinal": 3,
+          "Name": "Authorization Level Operasi",
+          "Items": [
+            {
+              "Shortcode": "V8.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi menegakkan aturan authorization pada trusted service layer dan tidak mengandalkan kontrol yang dapat dimanipulasi oleh consumer yang tidak tepercaya, seperti client-side JavaScript.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V8.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa perubahan pada nilai yang menjadi dasar keputusan authorization diterapkan secara langsung (immediate). Jika perubahan tidak dapat diterapkan secara langsung (seperti ketika mengandalkan data pada self-contained token), harus ada kontrol mitigasi untuk memberikan peringatan ketika seorang consumer melakukan suatu tindakan pada saat mereka sudah tidak lagi berwenang untuk melakukannya, serta mengembalikan (revert) perubahan tersebut. Perlu dicatat bahwa alternatif ini tidak memitigasi kebocoran informasi (information leakage).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V8.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa akses terhadap sebuah objek didasarkan pada permission dari subjek asal (originating subject, misalnya consumer), bukan pada permission dari perantara atau layanan mana pun yang bertindak atas nama mereka. Misalnya, jika seorang consumer memanggil sebuah web service menggunakan self-contained token untuk autentikasi, dan layanan tersebut kemudian meminta data dari layanan lain, layanan kedua tersebut harus menggunakan token milik consumer, bukan token machine-to-machine dari layanan pertama, untuk membuat keputusan permission.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V8.4",
+          "Ordinal": 4,
+          "Name": "Pertimbangan Authorization Lainnya",
+          "Items": [
+            {
+              "Shortcode": "V8.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi multi-tenant menggunakan kontrol cross-tenant untuk memastikan operasi consumer tidak akan pernah memengaruhi tenant lain yang tidak memiliki permission untuk berinteraksi dengan mereka.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V8.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa akses ke interface administratif menerapkan beberapa lapisan keamanan, termasuk verifikasi identitas consumer secara berkelanjutan, penilaian postur keamanan perangkat (device security posture assessment), dan analisis risiko kontekstual, guna memastikan bahwa lokasi jaringan atau endpoint tepercaya bukan satu-satunya faktor untuk authorization, meskipun faktor-faktor tersebut dapat mengurangi kemungkinan akses tidak sah.",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V9",
+      "Ordinal": 9,
+      "ShortName": "Self",
+      "Name": "Self-contained Tokens",
+      "Items": [
+        {
+          "Shortcode": "V9.1",
+          "Ordinal": 1,
+          "Name": "Sumber dan Integritas Token",
+          "Items": [
+            {
+              "Shortcode": "V9.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa self-contained token divalidasi menggunakan digital signature atau MAC-nya untuk melindungi dari manipulasi (tampering) sebelum menerima isi token tersebut.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V9.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa hanya algoritma yang terdapat pada allowlist yang dapat digunakan untuk membuat dan memverifikasi self-contained token, untuk konteks tertentu. Allowlist tersebut harus mencakup algoritma yang diizinkan, idealnya hanya algoritma simetris atau asimetris saja, dan tidak boleh mencakup algoritma 'None'. Jika baik algoritma simetris maupun asimetris harus didukung, kontrol tambahan diperlukan untuk mencegah key confusion.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V9.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa key material yang digunakan untuk memvalidasi self-contained token berasal dari sumber tepercaya yang telah dikonfigurasi sebelumnya (pre-configured) untuk token issuer tersebut, guna mencegah penyerang menentukan sumber dan key yang tidak tepercaya. Untuk JWT dan struktur JWS lainnya, header seperti 'jku', 'x5u', dan 'jwk' harus divalidasi terhadap allowlist sumber tepercaya.",
+              "L": "1"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V9.2",
+          "Ordinal": 2,
+          "Name": "Konten Token",
+          "Items": [
+            {
+              "Shortcode": "V9.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa, jika sebuah rentang waktu validitas (validity time span) terdapat pada data token, token dan isinya hanya diterima jika waktu verifikasi berada dalam rentang waktu validitas tersebut. Misalnya, untuk JWT, claims 'nbf' dan 'exp' harus diverifikasi.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V9.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa layanan yang menerima sebuah token memvalidasi bahwa token tersebut memiliki tipe yang benar dan dimaksudkan untuk tujuan yang sesuai sebelum menerima isi token tersebut. Misalnya, hanya access token yang dapat diterima untuk keputusan authorization dan hanya ID Token yang dapat digunakan untuk membuktikan autentikasi pengguna.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V9.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa layanan hanya menerima token yang dimaksudkan untuk digunakan dengan layanan tersebut (audience). Untuk JWT, hal ini dapat dicapai dengan memvalidasi claim 'aud' terhadap allowlist yang didefinisikan pada layanan tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V9.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa, jika sebuah token issuer menggunakan private key yang sama untuk menerbitkan token bagi audience yang berbeda-beda, token yang diterbitkan tersebut mengandung sebuah audience restriction yang secara unik mengidentifikasi audience yang dituju. Hal ini akan mencegah sebuah token digunakan kembali dengan audience yang tidak dimaksudkan. Jika audience identifier disediakan secara dinamis (dynamically provisioned), token issuer harus memvalidasi audience tersebut guna memastikan bahwa hal ini tidak mengakibatkan audience impersonation.",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V10",
+      "Ordinal": 10,
+      "ShortName": "OAuth",
+      "Name": "OAuth dan OIDC",
+      "Items": [
+        {
+          "Shortcode": "V10.1",
+          "Ordinal": 1,
+          "Name": "Keamanan Umum OAuth dan OIDC",
+          "Items": [
+            {
+              "Shortcode": "V10.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa token hanya dikirimkan ke komponen yang benar-benar memerlukannya. Misalnya, saat menggunakan pola backend-for-frontend untuk aplikasi JavaScript berbasis browser, access token dan refresh token hanya boleh dapat diakses oleh backend.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa client hanya menerima nilai dari authorization server (seperti authorization code atau ID Token) jika nilai tersebut berasal dari sebuah authorization flow yang diinisiasi oleh user agent session dan transaksi yang sama. Hal ini mensyaratkan bahwa secret yang dihasilkan oleh client, seperti proof key for code exchange (PKCE) 'code_verifier', 'state', atau OIDC 'nonce', tidak dapat ditebak, bersifat spesifik terhadap transaksi tersebut, dan terikat secara aman baik pada client maupun pada user agent session tempat transaksi tersebut dimulai.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V10.2",
+          "Ordinal": 2,
+          "Name": "OAuth Client",
+          "Items": [
+            {
+              "Shortcode": "V10.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa, jika code flow digunakan, OAuth client memiliki perlindungan terhadap serangan browser-based request forgery, yang umum dikenal sebagai cross-site request forgery (CSRF), yang memicu token requests, baik dengan menggunakan fungsionalitas proof key for code exchange (PKCE) atau dengan memeriksa parameter 'state' yang dikirimkan pada authorization request.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa, jika OAuth client dapat berinteraksi dengan lebih dari satu authorization server, client tersebut memiliki pertahanan terhadap mix-up attacks. Misalnya, dapat dilakukan dengan mewajibkan authorization server mengembalikan nilai parameter 'iss' dan memvalidasinya pada authorization response dan token response.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa OAuth client hanya meminta scopes (atau parameter authorization lainnya) yang diperlukan pada request ke authorization server.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V10.3",
+          "Ordinal": 3,
+          "Name": "OAuth Resource Server",
+          "Items": [
+            {
+              "Shortcode": "V10.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa resource server hanya menerima access token yang dimaksudkan untuk digunakan dengan layanan tersebut (audience). Audience dapat disertakan dalam access token yang terstruktur (seperti claim 'aud' pada JWT), atau dapat diperiksa menggunakan token introspection endpoint.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa resource server menegakkan keputusan authorization berdasarkan claims dari access token yang mendefinisikan delegated authorization. Jika claims seperti 'sub', 'scope', dan 'authorization_details' ada, claims tersebut harus menjadi bagian dari keputusan tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa jika sebuah keputusan access control mensyaratkan identifikasi pengguna unik dari sebuah access token (JWT atau token introspection response terkait), resource server mengidentifikasi pengguna dari claims yang tidak dapat dipindahtangankan (reassigned) ke pengguna lain. Umumnya, hal ini berarti menggunakan kombinasi claims 'iss' dan 'sub'.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa, jika resource server mensyaratkan kekuatan, metode, atau kebaruan (recentness) autentikasi tertentu, resource server tersebut memverifikasi bahwa access token yang dipresentasikan memenuhi batasan-batasan tersebut. Misalnya, jika ada, dengan menggunakan claims OIDC 'acr', 'amr', dan 'auth_time' secara berurutan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.3.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa resource server mencegah penggunaan access token yang dicuri atau replay access token (dari pihak yang tidak berwenang) dengan mewajibkan sender-constrained access token, baik Mutual TLS untuk OAuth 2 maupun OAuth 2 Demonstration of Proof of Possession (DPoP).",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V10.4",
+          "Ordinal": 4,
+          "Name": "OAuth Authorization Server",
+          "Items": [
+            {
+              "Shortcode": "V10.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa authorization server memvalidasi redirect URI berdasarkan sebuah allowlist yang spesifik terhadap client dari URI yang telah didaftarkan sebelumnya (pre-registered) menggunakan exact string comparison.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V10.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa, jika authorization server mengembalikan authorization code pada authorization response, code tersebut hanya dapat digunakan sekali untuk sebuah token request. Untuk request kedua yang valid dengan sebuah authorization code yang telah digunakan sebelumnya untuk menerbitkan access token, authorization server harus menolak token request tersebut dan mencabut (revoke) semua token yang diterbitkan terkait dengan authorization code tersebut.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V10.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa authorization code memiliki masa berlaku yang singkat (short-lived). Masa berlaku maksimum dapat mencapai 10 menit untuk aplikasi L1 dan L2 serta hingga 1 menit untuk aplikasi L3.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V10.4.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa untuk client tertentu, authorization server hanya mengizinkan penggunaan grant yang memang perlu digunakan oleh client tersebut. Perlu dicatat bahwa grant 'token' (Implicit flow) dan 'password' (Resource Owner Password Credentials flow) sudah tidak boleh digunakan lagi.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V10.4.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa authorization server memitigasi serangan refresh token replay untuk public client, sebaiknya menggunakan sender-constrained refresh token, yaitu Demonstrating Proof of Possession (DPoP) atau Certificate-Bound Access Token menggunakan mutual TLS (mTLS). Untuk aplikasi L1 dan L2, refresh token rotation dapat digunakan. Jika refresh token rotation digunakan, authorization server harus melakukan invalidasi terhadap refresh token setelah digunakan, dan mencabut semua refresh token untuk authorization tersebut jika sebuah refresh token yang sudah digunakan dan tidak valid diberikan kembali.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V10.4.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa, jika code grant digunakan, authorization server memitigasi serangan authorization code interception dengan mewajibkan proof key for code exchange (PKCE). Untuk authorization request, authorization server harus mewajibkan nilai 'code_challenge' yang valid dan tidak boleh menerima nilai 'code_challenge_method' 'plain'. Untuk token request, authorization server harus mewajibkan validasi parameter 'code_verifier'.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.4.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa jika authorization server mendukung unauthenticated dynamic client registration, authorization server tersebut memitigasi risiko aplikasi client yang berbahaya. Authorization server harus memvalidasi metadata client seperti URI mana pun yang telah didaftarkan, memastikan persetujuan pengguna, dan memberikan peringatan kepada pengguna sebelum memproses sebuah authorization request dengan aplikasi client yang tidak tepercaya.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.4.8",
+              "Ordinal": 8,
+              "Description": "Verifikasi bahwa refresh token memiliki masa kedaluwarsa mutlak (absolute expiration), termasuk jika sliding refresh token expiration diterapkan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.4.9",
+              "Ordinal": 9,
+              "Description": "Verifikasi bahwa refresh token dan reference access token dapat dicabut (revoked) oleh pengguna yang berwenang melalui user interface authorization server, guna memitigasi risiko client yang berbahaya atau token yang dicuri.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.4.10",
+              "Ordinal": 10,
+              "Description": "Verifikasi bahwa confidential client diautentikasi untuk client-to-authorized server backchannel requests seperti token requests, pushed authorization requests (PAR), dan token revocation requests.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.4.11",
+              "Ordinal": 11,
+              "Description": "Verifikasi bahwa konfigurasi authorization server hanya memberikan scopes yang diperlukan kepada OAuth client.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.4.12",
+              "Ordinal": 12,
+              "Description": "Verifikasi bahwa untuk client tertentu, authorization server hanya mengizinkan nilai 'response_mode' yang memang perlu digunakan oleh client tersebut. Misalnya, dengan membuat authorization server memvalidasi nilai ini terhadap nilai yang diharapkan atau dengan menggunakan pushed authorization request (PAR) atau JWT-secured Authorization Request (JAR).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V10.4.13",
+              "Ordinal": 13,
+              "Description": "Verifikasi bahwa grant type 'code' selalu digunakan bersama dengan pushed authorization requests (PAR).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V10.4.14",
+              "Ordinal": 14,
+              "Description": "Verifikasi bahwa authorization server hanya menerbitkan sender-constrained (Proof-of-Possession) access token, baik menggunakan certificate-bound access token dengan mutual TLS (mTLS) maupun DPoP-bound access token (Demonstration of Proof of Possession).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V10.4.15",
+              "Ordinal": 15,
+              "Description": "Verifikasi bahwa, untuk sebuah server-side client (yang tidak dieksekusi pada perangkat pengguna akhir), authorization server memastikan bahwa nilai parameter 'authorization_details' berasal dari backend client dan bahwa pengguna tidak telah memanipulasinya (tampered with). Misalnya, dengan mewajibkan penggunaan pushed authorization request (PAR) atau JWT-secured Authorization Request (JAR).",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V10.4.16",
+              "Ordinal": 16,
+              "Description": "Verifikasi bahwa client bersifat confidential dan authorization server mewajibkan penggunaan metode client authentication yang kuat (berbasis kriptografi kunci publik dan tahan terhadap serangan replay), seperti mutual TLS ('tls_client_auth', 'self_signed_tls_client_auth') atau private key JWT ('private_key_jwt').",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V10.5",
+          "Ordinal": 5,
+          "Name": "OIDC Client",
+          "Items": [
+            {
+              "Shortcode": "V10.5.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa client (sebagai relying party) memitigasi serangan ID Token replay. Misalnya, dengan memastikan bahwa claim 'nonce' pada ID Token sesuai dengan nilai 'nonce' yang dikirimkan pada authentication request ke OpenID Provider (dalam OAuth2 disebut sebagai authorization request yang dikirimkan ke authorization server).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.5.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa client mengidentifikasi pengguna secara unik dari claims pada ID Token, biasanya claim 'sub', yang tidak dapat dipindahtangankan (reassigned) ke pengguna lain (dalam scope sebuah identity provider).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.5.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa client menolak upaya authorization server yang berbahaya untuk menyamar sebagai authorization server lain melalui metadata authorization server. Client harus menolak metadata authorization server jika URL issuer pada metadata authorization server tersebut tidak sama persis dengan URL issuer yang telah dikonfigurasi sebelumnya (pre-configured) dan diharapkan oleh client.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.5.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa client memvalidasi bahwa ID Token memang dimaksudkan untuk digunakan oleh client tersebut (audience) dengan memeriksa bahwa claim 'aud' dari token sesuai dengan nilai 'client_id' untuk client tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.5.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa, saat menggunakan OIDC back-channel logout, relying party memitigasi denial of service melalui forced logout dan cross-JWT confusion pada alur logout. Client harus memverifikasi bahwa logout token memiliki tipe yang benar dengan nilai 'logout+jwt', mengandung claim 'event' dengan nama member yang benar, dan tidak mengandung claim 'nonce'. Perlu dicatat bahwa juga direkomendasikan untuk memiliki masa kedaluwarsa yang singkat (misalnya, 2 menit).",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V10.6",
+          "Ordinal": 6,
+          "Name": "OpenID Provider",
+          "Items": [
+            {
+              "Shortcode": "V10.6.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa OpenID Provider hanya mengizinkan nilai 'code', 'ciba', 'id_token', atau 'id_token code' untuk response mode. Perlu dicatat bahwa 'code' lebih diutamakan daripada 'id_token code' (OIDC Hybrid flow), dan 'token' (Implicit flow apa pun) tidak boleh digunakan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.6.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa OpenID Provider memitigasi denial of service melalui forced logout. Dengan memperoleh konfirmasi eksplisit dari pengguna akhir atau, jika ada, memvalidasi parameter pada logout request (yang diinisiasi oleh relying party), seperti 'id_token_hint'.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V10.7",
+          "Ordinal": 7,
+          "Name": "Manajemen Consent",
+          "Items": [
+            {
+              "Shortcode": "V10.7.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa authorization server memastikan pengguna menyetujui (consent) setiap authorization request. Jika identitas client tidak dapat dipastikan, authorization server harus selalu secara eksplisit meminta consent kepada pengguna.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.7.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa saat authorization server meminta consent pengguna, authorization server tersebut menyajikan informasi yang cukup dan jelas mengenai apa yang sedang disetujui. Jika berlaku, hal ini harus mencakup sifat dari authorization yang diminta (biasanya berdasarkan scope, resource server, detail authorization Rich Authorization Requests (RAR)), identitas aplikasi yang diberi wewenang, dan masa berlaku dari authorization tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V10.7.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa pengguna dapat meninjau, mengubah, dan mencabut consent yang telah diberikan pengguna melalui authorization server.",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V11",
+      "Ordinal": 11,
+      "ShortName": "Cryptography",
+      "Name": "Cryptography",
+      "Items": [
+        {
+          "Shortcode": "V11.1",
+          "Ordinal": 1,
+          "Name": "Inventaris dan Dokumentasi Kriptografi",
+          "Items": [
+            {
+              "Shortcode": "V11.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa terdapat kebijakan terdokumentasi untuk manajemen kunci kriptografi dan sebuah siklus hidup kunci kriptografi yang mengikuti standar manajemen kunci seperti NIST SP 800-57. Hal ini harus mencakup memastikan bahwa kunci tidak dibagikan secara berlebihan (misalnya, dengan lebih dari dua entitas untuk shared secrets dan lebih dari satu entitas untuk private keys).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa sebuah inventaris kriptografi dilakukan, dipelihara, diperbarui secara berkala, dan mencakup semua kunci kriptografi, algoritma, serta sertifikat yang digunakan oleh aplikasi. Inventaris tersebut juga harus mendokumentasikan di mana kunci dapat dan tidak dapat digunakan dalam sistem, serta jenis data yang dapat dan tidak dapat dilindungi menggunakan kunci tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa mekanisme cryptographic discovery diterapkan untuk mengidentifikasi seluruh penggunaan cryptography dalam sistem, termasuk operasi enkripsi, hashing, dan signing.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V11.1.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa sebuah inventaris kriptografi dipelihara. Hal ini harus mencakup sebuah rencana terdokumentasi yang menguraikan jalur migrasi menuju standar kriptografi baru, seperti post-quantum cryptography, guna mengantisipasi ancaman di masa depan.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V11.2",
+          "Ordinal": 2,
+          "Name": "Implementasi Cryptography yang Aman",
+          "Items": [
+            {
+              "Shortcode": "V11.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa implementasi yang telah tervalidasi secara industri (termasuk pustaka dan implementasi yang dipercepat oleh perangkat keras) digunakan untuk operasi kriptografi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi dirancang dengan crypto agility sedemikian rupa sehingga algoritma random number, authenticated encryption, MAC, atau hashing, panjang kunci, rounds, cipher, dan mode dapat dikonfigurasi ulang, ditingkatkan (upgraded), atau diganti kapan saja, guna melindungi dari pembobolan (breaks) kriptografi. Demikian pula, harus dimungkinkan juga untuk mengganti kunci dan password serta melakukan re-enkripsi data. Hal ini akan memungkinkan peningkatan (upgrade) yang mulus menuju post-quantum cryptography (PQC), setelah implementasi dengan jaminan tinggi (high-assurance) dari skema atau standar PQC yang disetujui tersedia secara luas.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa semua primitif kriptografi menggunakan tingkat keamanan minimal 128-bit berdasarkan algoritma, ukuran kunci, dan konfigurasi. Misalnya, sebuah kunci ECC 256-bit memberikan tingkat keamanan kira-kira 128 bit, sedangkan RSA memerlukan kunci 3072-bit untuk mencapai tingkat keamanan 128 bit.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa semua operasi kriptografi bersifat constant-time, tanpa operasi 'short-circuit' pada perbandingan, kalkulasi, atau return, guna menghindari kebocoran informasi.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V11.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa semua modul kriptografi gagal secara aman (fail securely), dan error ditangani dengan cara yang tidak memungkinkan terjadinya kerentanan, seperti serangan Padding Oracle.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V11.3",
+          "Ordinal": 3,
+          "Name": "Algoritma Enkripsi",
+          "Items": [
+            {
+              "Shortcode": "V11.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa block mode yang tidak aman (misalnya, ECB) dan skema padding yang lemah (misalnya, PKCS#1 v1.5) tidak digunakan.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V11.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa hanya cipher dan mode yang disetujui, seperti AES dengan GCM, yang digunakan.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V11.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa data yang terenkripsi dilindungi dari modifikasi yang tidak sah, sebaiknya dengan menggunakan metode authenticated encryption yang disetujui atau dengan mengombinasikan metode enkripsi yang disetujui dengan algoritma MAC yang disetujui.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa nonces, initialization vectors, dan angka sekali pakai (single-use numbers) lainnya tidak digunakan untuk lebih dari satu pasangan kunci enkripsi dan elemen data. Metode pembuatannya harus sesuai untuk algoritma yang digunakan.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V11.3.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa kombinasi apa pun antara algoritma enkripsi dan algoritma MAC beroperasi dalam mode encrypt-then-MAC.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V11.4",
+          "Ordinal": 4,
+          "Name": "Hashing dan Fungsi Berbasis Hash",
+          "Items": [
+            {
+              "Shortcode": "V11.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa hanya fungsi hash yang disetujui yang digunakan untuk kasus penggunaan kriptografi secara umum, termasuk digital signatures, HMAC, KDF, dan random bit generation. Fungsi hash yang tidak diizinkan, seperti MD5, tidak boleh digunakan untuk tujuan kriptografi apa pun.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V11.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa password disimpan menggunakan sebuah key derivation function yang disetujui dan membutuhkan komputasi intensif (juga dikenal sebagai \"fungsi hashing password\"), dengan pengaturan parameter yang dikonfigurasi berdasarkan panduan terkini. Pengaturan tersebut harus menyeimbangkan antara keamanan dan performa agar serangan brute-force cukup sulit dilakukan sesuai tingkat keamanan yang dibutuhkan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa fungsi hash yang digunakan pada digital signatures, sebagai bagian dari autentikasi data atau integritas data, tahan terhadap collision (collision resistant) dan memiliki panjang bit yang sesuai. Jika ketahanan terhadap collision dibutuhkan, panjang output harus minimal 256 bit. Jika hanya ketahanan terhadap serangan second pre-image yang dibutuhkan, panjang output harus minimal 128 bit.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.4.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa aplikasi menggunakan key derivation function yang disetujui dengan parameter key stretching saat menurunkan (deriving) secret key dari password. Parameter yang digunakan harus menyeimbangkan antara keamanan dan performa untuk mencegah serangan brute-force membobol kunci kriptografi yang dihasilkan.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V11.5",
+          "Ordinal": 5,
+          "Name": "Nilai Acak (Random Values)",
+          "Items": [
+            {
+              "Shortcode": "V11.5.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa semua angka dan string acak yang dimaksudkan untuk tidak dapat ditebak (non-guessable) harus dihasilkan menggunakan cryptographically secure pseudo-random number generator (CSPRNG) dan memiliki entropi minimal 128 bit. Perlu dicatat bahwa UUID tidak memenuhi kondisi ini.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.5.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa mekanisme random number generation yang digunakan dirancang untuk bekerja secara aman, bahkan di bawah permintaan yang tinggi (heavy demand).",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V11.6",
+          "Ordinal": 6,
+          "Name": "Public Key Cryptography",
+          "Items": [
+            {
+              "Shortcode": "V11.6.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa hanya algoritma kriptografi dan mode operasi yang disetujui yang digunakan untuk pembuatan dan seeding kunci, serta pembuatan dan verifikasi digital signature. Algoritma pembuatan kunci tidak boleh menghasilkan kunci yang tidak aman dan rentan terhadap serangan yang telah diketahui, misalnya, kunci RSA yang rentan terhadap Fermat factorization.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V11.6.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa algoritma kriptografi yang disetujui digunakan untuk key exchange (seperti Diffie-Hellman) dengan fokus untuk memastikan bahwa mekanisme key exchange menggunakan parameter yang aman. Hal ini akan mencegah serangan terhadap proses key establishment yang dapat mengakibatkan serangan adversary-in-the-middle atau pembobolan kriptografi.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V11.7",
+          "Ordinal": 7,
+          "Name": "Kriptografi Data yang Sedang Digunakan (In-Use)",
+          "Items": [
+            {
+              "Shortcode": "V11.7.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa full memory encryption digunakan untuk melindungi data sensitif selagi sedang digunakan, mencegah akses oleh pengguna atau proses yang tidak berwenang.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V11.7.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa data minimization memastikan hanya jumlah data minimal yang terekspos selama pemrosesan, dan pastikan data dienkripsi segera setelah digunakan atau sesegera mungkin.",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V12",
+      "Ordinal": 12,
+      "ShortName": "Secure",
+      "Name": "Secure Communication",
+      "Items": [
+        {
+          "Shortcode": "V12.1",
+          "Ordinal": 1,
+          "Name": "Panduan Umum Keamanan TLS",
+          "Items": [
+            {
+              "Shortcode": "V12.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa hanya versi terbaru protokol TLS yang direkomendasikan yang diaktifkan, seperti TLS 1.2 dan TLS 1.3. Versi terbaru dari protokol TLS harus menjadi opsi yang diutamakan (preferred).",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V12.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa hanya cipher suite yang direkomendasikan yang diaktifkan, dengan cipher suite terkuat diatur sebagai yang diutamakan (preferred). Aplikasi L3 hanya boleh mendukung cipher suite yang menyediakan forward secrecy.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V12.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi memvalidasi bahwa sertifikat client mTLS tepercaya sebelum menggunakan identitas sertifikat tersebut untuk authentication atau authorization.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V12.1.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa mekanisme pencabutan sertifikat (certificate revocation) yang tepat, seperti Online Certificate Status Protocol (OCSP) Stapling, diaktifkan dan dikonfigurasi.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V12.1.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa Encrypted Client Hello (ECH) diaktifkan pada pengaturan TLS aplikasi guna mencegah terekspornya metadata sensitif, seperti Server Name Indication (SNI), selama proses TLS handshake.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V12.2",
+          "Ordinal": 2,
+          "Name": "Komunikasi HTTPS dengan Layanan yang Menghadap Eksternal",
+          "Items": [
+            {
+              "Shortcode": "V12.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa TLS digunakan untuk seluruh konektivitas antara client dan layanan berbasis HTTP yang menghadap eksternal, dan tidak berpindah kembali (fall back) ke komunikasi yang tidak aman atau tidak terenkripsi.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V12.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa layanan yang menghadap eksternal menggunakan sertifikat TLS yang tepercaya secara publik.",
+              "L": "1"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V12.3",
+          "Ordinal": 3,
+          "Name": "Keamanan Komunikasi Umum Antar Layanan (Service to Service)",
+          "Items": [
+            {
+              "Shortcode": "V12.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa sebuah protokol terenkripsi seperti TLS digunakan untuk seluruh koneksi masuk (inbound) dan keluar (outbound) menuju dan dari aplikasi, termasuk sistem monitoring, alat manajemen, remote access dan SSH, middleware, database, mainframe, sistem partner, atau API eksternal. Server tidak boleh berpindah kembali (fall back) ke protokol yang tidak aman atau tidak terenkripsi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V12.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa client TLS memvalidasi sertifikat yang diterima sebelum berkomunikasi dengan server TLS.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V12.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa TLS atau mekanisme transport encryption lain yang sesuai digunakan untuk seluruh konektivitas antara layanan internal berbasis HTTP dalam aplikasi, dan tidak berpindah kembali (fall back) ke komunikasi yang tidak aman atau tidak terenkripsi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V12.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa koneksi TLS antar layanan internal menggunakan sertifikat yang tepercaya. Ketika sertifikat yang dihasilkan secara internal atau self-signed digunakan, layanan yang mengonsumsi (consuming service) harus dikonfigurasi untuk hanya mempercayai CA internal tertentu dan sertifikat self-signed tertentu.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V12.3.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa layanan yang berkomunikasi secara internal dalam suatu sistem (intra-service communications) menggunakan strong authentication untuk memastikan bahwa setiap endpoint terverifikasi. Metode strong authentication, seperti TLS client authentication, harus diterapkan untuk memastikan identitas, menggunakan public-key infrastructure dan mekanisme yang tahan terhadap serangan replay. Untuk arsitektur microservice, pertimbangkan penggunaan sebuah service mesh untuk menyederhanakan pengelolaan sertifikat dan meningkatkan keamanan.",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V13",
+      "Ordinal": 13,
+      "ShortName": "Configuration",
+      "Name": "Configuration",
+      "Items": [
+        {
+          "Shortcode": "V13.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Konfigurasi",
+          "Items": [
+            {
+              "Shortcode": "V13.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa semua kebutuhan komunikasi untuk aplikasi terdokumentasi. Hal ini harus mencakup layanan eksternal yang diandalkan oleh aplikasi dan kasus-kasus di mana pengguna akhir mungkin dapat memberikan sebuah lokasi eksternal yang kemudian akan dihubungi oleh aplikasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa untuk setiap layanan yang digunakan aplikasi, dokumentasi mendefinisikan jumlah maksimum koneksi paralel (concurrent) (misalnya, batas connection pool) dan bagaimana perilaku aplikasi ketika batas tersebut tercapai, termasuk mekanisme fallback atau recovery apa pun, guna mencegah kondisi denial of service.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V13.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi mendefinisikan strategi manajemen resource untuk setiap sistem atau layanan eksternal yang digunakannya (misalnya, database, file handles, thread, koneksi HTTP). Hal ini harus mencakup prosedur pelepasan resource (resource-release), pengaturan timeout, penanganan kegagalan, dan jika logika retry diterapkan, penentuan batas retry, delay, dan algoritma back-off. Untuk operasi request-response HTTP yang bersifat sinkron, dokumentasi harus mewajibkan timeout yang singkat dan menonaktifkan retry atau membatasi retry secara ketat guna mencegah keterlambatan yang berantai (cascading delays) dan habisnya resource.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V13.1.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi mendefinisikan secrets yang krusial bagi keamanan aplikasi serta jadwal rotasinya, berdasarkan model ancaman (threat model) organisasi dan kebutuhan bisnis.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V13.2",
+          "Ordinal": 2,
+          "Name": "Konfigurasi Komunikasi Backend",
+          "Items": [
+            {
+              "Shortcode": "V13.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa komunikasi antar komponen aplikasi backend yang tidak mendukung mekanisme session pengguna standar aplikasi, termasuk API, middleware, dan data layer, telah diautentikasi. Autentikasi harus menggunakan akun layanan (service accounts) individual, token jangka pendek, atau autentikasi berbasis sertifikat, dan bukan kredensial yang tidak berubah seperti password, API key, atau akun bersama (shared accounts) dengan akses istimewa (privileged access).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa komunikasi antar komponen aplikasi backend, termasuk layanan lokal atau sistem operasi, API, middleware, dan data layer, dilakukan dengan akun yang diberikan hak akses (privilege) minimal yang diperlukan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa jika sebuah kredensial harus digunakan untuk autentikasi layanan, kredensial yang digunakan oleh consumer bukan merupakan kredensial default (misalnya, root/root atau admin/admin).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa sebuah allowlist digunakan untuk mendefinisikan resource atau sistem eksternal yang diizinkan untuk dihubungi oleh aplikasi (misalnya, untuk outbound requests, pemuatan data, atau akses file). Allowlist ini dapat diterapkan pada application layer, web server, firewall, atau kombinasi dari beberapa lapisan yang berbeda.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa web server atau application server dikonfigurasi dengan sebuah allowlist resource atau sistem yang dapat dikirimi request atau tempat pemuatan data atau file oleh server tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.2.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa ketika aplikasi terhubung ke layanan terpisah, aplikasi tersebut mengikuti konfigurasi terdokumentasi untuk setiap koneksi, seperti jumlah maksimum koneksi paralel, perilaku ketika jumlah maksimum koneksi yang diizinkan tercapai, timeout koneksi, dan strategi retry.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V13.3",
+          "Ordinal": 3,
+          "Name": "Manajemen Secret",
+          "Items": [
+            {
+              "Shortcode": "V13.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa sebuah solusi secrets management, seperti sebuah key vault, digunakan untuk membuat, menyimpan, mengontrol akses ke, dan menghapus secrets backend secara aman. Hal ini dapat mencakup password, key material, integrasi dengan database dan sistem pihak ketiga, key dan seed untuk token berbasis waktu, secrets internal lainnya, dan API key. Secrets tidak boleh disertakan dalam kode sumber aplikasi atau disertakan dalam build artifacts. Untuk aplikasi L3, hal ini harus melibatkan sebuah solusi yang didukung oleh perangkat keras (hardware-backed) seperti HSM.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa akses terhadap aset secret mematuhi prinsip least privilege.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa semua operasi kriptografi dilakukan menggunakan sebuah modul keamanan yang terisolasi (seperti sebuah vault atau hardware security module) guna mengelola dan melindungi key material secara aman dari paparan di luar modul keamanan tersebut.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V13.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa secrets dikonfigurasi untuk kedaluwarsa dan dirotasi berdasarkan dokumentasi aplikasi.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V13.4",
+          "Ordinal": 4,
+          "Name": "Kebocoran Informasi yang Tidak Diinginkan",
+          "Items": [
+            {
+              "Shortcode": "V13.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi di-deploy tanpa metadata source control apa pun, termasuk folder .git atau .svn, atau dengan cara sedemikian rupa sehingga folder-folder ini tidak dapat diakses baik secara eksternal maupun oleh aplikasi itu sendiri.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V13.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa mode debug dinonaktifkan untuk semua komponen pada environment produksi guna mencegah terekspornya fitur debugging dan kebocoran informasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa web server tidak mengekspor directory listing kepada client kecuali memang secara eksplisit dimaksudkan demikian.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.4.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa penggunaan metode HTTP TRACE tidak didukung pada environment produksi, guna menghindari potensi kebocoran informasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.4.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa dokumentasi (seperti untuk API internal) dan endpoint monitoring tidak terekspos kecuali memang secara eksplisit dimaksudkan demikian.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V13.4.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa aplikasi tidak mengekspor informasi versi terperinci dari komponen backend.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V13.4.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa web tier dikonfigurasi untuk hanya menyajikan file dengan ekstensi file tertentu guna mencegah kebocoran informasi, konfigurasi, dan kode sumber yang tidak disengaja.",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V14",
+      "Ordinal": 14,
+      "ShortName": "Data",
+      "Name": "Data Protection",
+      "Items": [
+        {
+          "Shortcode": "V14.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Perlindungan Data",
+          "Items": [
+            {
+              "Shortcode": "V14.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa semua data sensitif yang dibuat dan diproses oleh aplikasi telah diidentifikasi dan diklasifikasikan ke dalam tingkat perlindungan (protection levels). Hal ini mencakup data yang hanya di-encode dan karenanya mudah di-decode, seperti string Base64 atau plaintext payload di dalam sebuah JWT. Tingkat perlindungan perlu mempertimbangkan regulasi dan standar perlindungan data serta privasi yang wajib dipatuhi oleh aplikasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V14.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa semua tingkat perlindungan data sensitif memiliki serangkaian persyaratan perlindungan yang terdokumentasi. Hal ini harus mencakup (namun tidak terbatas pada) persyaratan yang terkait dengan enkripsi secara umum, verifikasi integritas, retensi, bagaimana data tersebut dicatat (logged), kontrol akses terhadap data sensitif dalam log, enkripsi pada level database, privasi dan teknologi peningkat privasi (privacy-enhancing technologies) yang akan digunakan, serta persyaratan kerahasiaan lainnya.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V14.2",
+          "Ordinal": 2,
+          "Name": "Perlindungan Data Secara Umum",
+          "Items": [
+            {
+              "Shortcode": "V14.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa data sensitif hanya dikirimkan ke server melalui HTTP message body atau header fields, dan bahwa URL serta query string tidak mengandung informasi sensitif, seperti sebuah API key atau session token.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V14.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi mencegah data sensitif di-cache pada komponen server, seperti load balancer dan application cache, atau memastikan bahwa data tersebut dihapus (purged) secara aman setelah digunakan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V14.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa data sensitif yang telah didefinisikan tidak dikirimkan ke pihak yang tidak tepercaya (misalnya, user trackers) guna mencegah pengumpulan data yang tidak diinginkan di luar kendali aplikasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V14.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa kontrol terhadap data sensitif yang terkait dengan enkripsi, verifikasi integritas, retensi, bagaimana data tersebut dicatat (logged), kontrol akses terhadap data sensitif dalam log, serta privasi dan teknologi peningkat privasi, diterapkan sebagaimana didefinisikan dalam dokumentasi untuk tingkat perlindungan data tertentu.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V14.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa mekanisme caching dikonfigurasi untuk hanya menyimpan cache response yang memiliki content type yang sesuai untuk resource tersebut dan tidak mengandung konten dinamis yang sensitif. Web server harus mengembalikan response 404 atau 302 ketika sebuah file yang tidak ada diakses, alih-alih mengembalikan file lain yang valid. Hal ini seharusnya mencegah serangan Web Cache Deception.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V14.2.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa aplikasi hanya mengembalikan data sensitif minimal yang diperlukan untuk fungsionalitas aplikasi. Misalnya, hanya mengembalikan sebagian digit dari sebuah nomor kartu kredit, bukan nomor lengkapnya. Jika data lengkap memang diperlukan, data tersebut harus disamarkan (masked) pada user interface kecuali pengguna secara khusus melihatnya.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V14.2.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa informasi sensitif tunduk pada klasifikasi retensi data, memastikan bahwa data yang sudah usang atau tidak diperlukan dihapus secara otomatis, sesuai jadwal yang telah ditentukan, atau sesuai kebutuhan situasi.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V14.2.8",
+              "Ordinal": 8,
+              "Description": "Verifikasi bahwa informasi sensitif dihapus dari metadata file yang dikirimkan oleh pengguna, kecuali penyimpanan telah disetujui (consented) oleh pengguna tersebut.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V14.3",
+          "Ordinal": 3,
+          "Name": "Perlindungan Data di Sisi Client",
+          "Items": [
+            {
+              "Shortcode": "V14.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa data yang terautentikasi dihapus dari penyimpanan client, seperti browser DOM, setelah client atau sesi dihentikan. HTTP response header field 'Clear-Site-Data' dapat membantu hal ini, namun sisi client juga harus mampu membersihkan data tersebut jika koneksi ke server tidak tersedia saat sesi dihentikan.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V14.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi mengatur HTTP response header fields anti-caching yang memadai (yaitu, Cache-Control: no-store) sehingga data sensitif tidak di-cache pada browser.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V14.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa data yang disimpan pada browser storage (seperti localStorage, sessionStorage, IndexedDB, atau cookies) tidak mengandung data sensitif, dengan pengecualian untuk session token.",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V15",
+      "Ordinal": 15,
+      "ShortName": "Secure",
+      "Name": "Secure Coding dan Architecture",
+      "Items": [
+        {
+          "Shortcode": "V15.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Secure Coding dan Arsitektur",
+          "Items": [
+            {
+              "Shortcode": "V15.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi mendefinisikan jangka waktu remediasi berbasis risiko untuk versi komponen pihak ketiga yang memiliki kerentanan dan untuk pembaruan pustaka secara umum, guna meminimalkan risiko dari komponen-komponen tersebut.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V15.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa sebuah katalog inventaris, seperti software bill of materials (SBOM), dipelihara untuk semua pustaka pihak ketiga yang digunakan, termasuk memverifikasi bahwa komponen-komponen tersebut berasal dari repository yang telah ditentukan sebelumnya, tepercaya, dan terus terpelihara.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.1.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi mengidentifikasi fungsionalitas yang memakan waktu lama atau memerlukan resource besar. Hal ini harus mencakup cara mencegah hilangnya ketersediaan (availability) akibat penggunaan berlebihan terhadap fungsionalitas ini dan cara menghindari situasi di mana pembuatan sebuah response memakan waktu lebih lama daripada timeout consumer. Pertahanan yang mungkin dapat mencakup pemrosesan asinkron, penggunaan queue, dan pembatasan proses paralel per pengguna dan per aplikasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.1.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi menyoroti pustaka pihak ketiga yang dianggap sebagai \"risky component\".",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V15.1.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa dokumentasi aplikasi menyoroti bagian-bagian aplikasi di mana \"dangerous functionality\" digunakan.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V15.2",
+          "Ordinal": 2,
+          "Name": "Arsitektur Keamanan dan Dependensi",
+          "Items": [
+            {
+              "Shortcode": "V15.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi hanya mengandung komponen yang belum melanggar jangka waktu pembaruan dan remediasi yang terdokumentasi.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V15.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi telah menerapkan pertahanan terhadap hilangnya ketersediaan (availability) akibat fungsionalitas yang memakan waktu lama atau memerlukan resource besar, berdasarkan keputusan keamanan dan strategi terdokumentasi untuk hal ini.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa environment produksi hanya mencakup fungsionalitas yang diperlukan agar aplikasi dapat berfungsi, dan tidak mengekspor fungsionalitas yang tidak diperlukan seperti kode test, contoh cuplikan kode (sample snippets), dan fungsionalitas development.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa komponen pihak ketiga beserta seluruh dependensi transitifnya disertakan dari repository yang diharapkan, baik yang dimiliki secara internal maupun sumber eksternal, dan bahwa tidak ada risiko serangan dependency confusion.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V15.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa aplikasi menerapkan perlindungan tambahan pada bagian-bagian aplikasi yang terdokumentasi mengandung \"dangerous functionality\" atau menggunakan pustaka pihak ketiga yang dianggap sebagai \"risky component\". Hal ini dapat mencakup teknik seperti sandboxing, encapsulation, containerization, atau network level isolation untuk menghambat dan mencegah penyerang yang telah mengompromikan satu bagian aplikasi agar tidak dapat berpindah (pivoting) ke bagian lain dalam aplikasi.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V15.3",
+          "Ordinal": 3,
+          "Name": "Defensive Coding",
+          "Items": [
+            {
+              "Shortcode": "V15.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa aplikasi hanya mengembalikan subset field yang diperlukan dari sebuah objek data. Misalnya, aplikasi tidak boleh mengembalikan seluruh objek data, karena beberapa field individual seharusnya tidak dapat diakses oleh pengguna.",
+              "L": "1"
+            },
+            {
+              "Shortcode": "V15.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa ketika backend aplikasi melakukan pemanggilan ke URL eksternal, aplikasi tersebut dikonfigurasi untuk tidak mengikuti redirect kecuali hal tersebut memang merupakan fungsionalitas yang dimaksudkan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi memiliki penanggulangan (countermeasures) untuk melindungi dari serangan mass assignment dengan membatasi field yang diizinkan per controller dan action, misalnya, tidak memungkinkan untuk menyisipkan atau memperbarui nilai sebuah field ketika hal tersebut tidak dimaksudkan menjadi bagian dari action tersebut.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa semua komponen proxying dan middleware meneruskan alamat IP asli pengguna secara benar menggunakan field data tepercaya yang tidak dapat dimanipulasi oleh pengguna akhir, dan aplikasi serta web server menggunakan nilai yang benar ini untuk logging dan keputusan keamanan seperti rate limiting, dengan mempertimbangkan bahwa bahkan alamat IP asli mungkin tidak dapat diandalkan akibat IP dinamis, VPN, atau firewall perusahaan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.3.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa aplikasi secara eksplisit memastikan bahwa variabel memiliki tipe yang benar dan melakukan operasi strict equality dan comparator. Hal ini untuk menghindari kerentanan type juggling atau type confusion yang disebabkan oleh kode aplikasi yang membuat asumsi mengenai tipe sebuah variabel.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.3.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa kode JavaScript ditulis dengan cara yang mencegah prototype pollution, misalnya, dengan menggunakan Set() atau Map() alih-alih object literal.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V15.3.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa aplikasi memiliki pertahanan terhadap serangan HTTP parameter pollution, terutama jika application framework tidak membedakan sumber dari request parameter (query string, body parameters, cookies, atau header fields).",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V15.4",
+          "Ordinal": 4,
+          "Name": "Concurrency yang Aman",
+          "Items": [
+            {
+              "Shortcode": "V15.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa objek bersama (shared objects) dalam kode multi-threaded (seperti cache, file, atau objek in-memory yang diakses oleh beberapa thread) diakses secara aman dengan menggunakan tipe yang thread-safe dan mekanisme sinkronisasi seperti locks atau semaphores guna menghindari race conditions dan kerusakan data.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V15.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa pemeriksaan terhadap state sebuah resource, seperti keberadaannya atau permission-nya, dan tindakan yang bergantung padanya dilakukan sebagai satu operasi atomik guna mencegah race conditions time-of-check to time-of-use (TOCTOU). Misalnya, memeriksa apakah sebuah file ada sebelum membukanya, atau memverifikasi akses pengguna sebelum memberikannya.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V15.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa locks digunakan secara konsisten guna menghindari thread yang terjebak (stuck), baik karena saling menunggu satu sama lain maupun melakukan retry tanpa henti, dan bahwa logika locking tetap berada dalam kode yang bertanggung jawab mengelola resource tersebut guna memastikan lock tidak dapat dimodifikasi secara tidak sengaja atau secara jahat oleh class atau kode eksternal.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V15.4.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa kebijakan alokasi resource mencegah thread starvation dengan memastikan akses yang adil terhadap resource, seperti dengan memanfaatkan thread pool, yang memungkinkan thread dengan prioritas lebih rendah untuk tetap berjalan dalam jangka waktu yang wajar.",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V16",
+      "Ordinal": 16,
+      "ShortName": "Security",
+      "Name": "Security Logging dan Error Handling",
+      "Items": [
+        {
+          "Shortcode": "V16.1",
+          "Ordinal": 1,
+          "Name": "Dokumentasi Security Logging",
+          "Items": [
+            {
+              "Shortcode": "V16.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa terdapat inventaris yang mendokumentasikan logging yang dilakukan pada setiap lapisan technology stack aplikasi, event apa saja yang dicatat, format log, lokasi penyimpanan log tersebut, bagaimana log digunakan, bagaimana akses ke log dikontrol, dan berapa lama log disimpan.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V16.2",
+          "Ordinal": 2,
+          "Name": "General Logging",
+          "Items": [
+            {
+              "Shortcode": "V16.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa setiap entry log mencakup metadata yang diperlukan (seperti kapan, di mana, siapa, apa) yang memungkinkan investigasi mendalam terhadap garis waktu (timeline) saat terjadi suatu event.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa sumber waktu untuk semua komponen logging tersinkronisasi, dan timestamp pada metadata event keamanan menggunakan UTC atau menyertakan offset zona waktu yang eksplisit. UTC direkomendasikan untuk memastikan konsistensi di seluruh sistem terdistribusi dan mencegah kebingungan selama transisi daylight saving time.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi hanya menyimpan atau menyiarkan (broadcast) log ke file dan layanan yang terdokumentasi dalam inventaris log.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa log dapat dibaca dan dikorelasikan oleh pemroses log (log processor) yang digunakan, sebaiknya dengan menggunakan format logging umum.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa saat mencatat data sensitif, aplikasi menerapkan logging berdasarkan tingkat perlindungan data tersebut. Sebagai contoh, data tertentu seperti kredensial atau rincian pembayaran mungkin tidak diizinkan untuk dicatat. Data lain seperti token sesi hanya boleh dicatat dengan di-hash atau di-masking, baik secara penuh maupun sebagian.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V16.3",
+          "Ordinal": 3,
+          "Name": "Security Events",
+          "Items": [
+            {
+              "Shortcode": "V16.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa semua operasi otentikasi dicatat, termasuk percobaan yang berhasil dan yang gagal. Metadata tambahan, seperti jenis otentikasi atau faktor yang digunakan, juga harus dikumpulkan.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa percobaan otorisasi yang gagal dicatat. Untuk L3, ini harus mencakup pencatatan semua keputusan otorisasi, termasuk mencatat saat data sensitif diakses (tanpa mencatat data sensitif itu sendiri).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.3.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi mencatat event keamanan yang didefinisikan dalam dokumentasi dan juga mencatat upaya untuk melompati (_bypass_) kontrol keamanan, seperti validasi input, logika bisnis, dan anti-otomatisasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.3.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa aplikasi mencatat error yang tidak terduga dan kegagalan kontrol keamanan seperti kegagalan backend TLS.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V16.4",
+          "Ordinal": 4,
+          "Name": "Log Protection",
+          "Items": [
+            {
+              "Shortcode": "V16.4.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa semua komponen logging melakukan encode data dengan tepat untuk mencegah log injection.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.4.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa log dilindungi dari akses yang tidak sah dan tidak dapat diubah.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.4.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa log ditransmisikan secara aman ke sistem terpisah secara logis untuk analisis, deteksi, alerting, dan eskalasi. Tujuannya adalah untuk memastikan bahwa jika aplikasi dibobol, log tidak ikut terkompromikan.",
+              "L": "2"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V16.5",
+          "Ordinal": 5,
+          "Name": "Error Handling",
+          "Items": [
+            {
+              "Shortcode": "V16.5.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa pesan generik dikembalikan ke pengguna/konsumen saat terjadi error yang tidak terduga atau sensitif terhadap keamanan, memastikan tidak ada paparan data sistem internal yang sensitif seperti stack trace, query, secret key, dan token.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.5.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa aplikasi tetap beroperasi secara aman ketika akses sumber daya eksternal gagal, misalnya dengan menggunakan pola seperti circuit breaker atau pemulihan secara bertahap (_graceful degradation_).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.5.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa aplikasi mengalami kegagalan secara _graceful_ dan aman, termasuk saat terjadi pengecualian (_exception_), mencegah kondisi _fail-open_ seperti memproses transaksi meskipun terjadi error akibat logika validasi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V16.5.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa error handler \"last resort\" (upaya terakhir) telah ditentukan untuk menangkap semua pengecualian (_unhandled exceptions_). Ini bertujuan untuk menghindari kehilangan rincian error yang harus masuk ke file log dan memastikan bahwa error tidak menjatuhkan seluruh proses aplikasi, yang mengakibatkan hilangnya ketersediaan (_availability_).",
+              "L": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Shortcode": "V17",
+      "Ordinal": 17,
+      "ShortName": "WebRTC",
+      "Name": "WebRTC",
+      "Items": [
+        {
+          "Shortcode": "V17.1",
+          "Ordinal": 1,
+          "Name": "TURN Server",
+          "Items": [
+            {
+              "Shortcode": "V17.1.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa layanan Traversal Using Relays around NAT (TURN) hanya mengizinkan akses ke alamat IP yang tidak dipesan untuk tujuan khusus (misalnya, jaringan internal, _broadcast_, _loopback_). Perhatikan bahwa ini berlaku untuk alamat IPv4 dan IPv6.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V17.1.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa layanan Traversal Using Relays around NAT (TURN) tidak rentan terhadap kehabisan sumber daya (_resource exhaustion_) ketika pengguna yang sah mencoba membuka sejumlah besar _port_ pada server TURN.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V17.2",
+          "Ordinal": 2,
+          "Name": "Media",
+          "Items": [
+            {
+              "Shortcode": "V17.2.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa kunci untuk sertifikat Datagram Transport Layer Security (DTLS) dikelola dan dilindungi berdasarkan kebijakan terdokumentasi untuk pengelolaan kunci kriptografi.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V17.2.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa server media dikonfigurasi untuk menggunakan dan mendukung _cipher suites_ Datagram Transport Layer Security (DTLS) yang disetujui serta _protection profile_ yang aman untuk DTLS Extension dalam menetapkan kunci bagi Secure Real-time Transport Protocol (DTLS-SRTP).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V17.2.3",
+              "Ordinal": 3,
+              "Description": "Verifikasi bahwa otentikasi Secure Real-time Transport Protocol (SRTP) diperiksa pada server media untuk mencegah serangan injeksi Real-time Transport Protocol (RTP) yang dapat menyebabkan kondisi _Denial of Service_ atau penyisipan media audio atau video ke dalam _stream_ media.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V17.2.4",
+              "Ordinal": 4,
+              "Description": "Verifikasi bahwa server media mampu melanjutkan pemrosesan lalu lintas media yang masuk ketika menemui paket Secure Real-time Transport Protocol (SRTP) yang cacat (_malformed_).",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V17.2.5",
+              "Ordinal": 5,
+              "Description": "Verifikasi bahwa server media mampu melanjutkan pemrosesan lalu lintas media yang masuk selama terjadinya lonjakan paket (_flood_) Secure Real-time Transport Protocol (SRTP) dari pengguna yang sah.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V17.2.6",
+              "Ordinal": 6,
+              "Description": "Verifikasi bahwa server media tidak rentan terhadap kerentanan _Race Condition_ \"ClientHello\" pada Datagram Transport Layer Security (DTLS) dengan memeriksa apakah server media secara publik diketahui rentan atau dengan melakukan pengujian _race condition_.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V17.2.7",
+              "Ordinal": 7,
+              "Description": "Verifikasi bahwa setiap mekanisme perekaman audio atau video yang terkait dengan server media mampu melanjutkan pemrosesan lalu lintas media yang masuk selama terjadinya lonjakan paket (_flood_) Secure Real-time Transport Protocol (SRTP) dari pengguna yang sah.",
+              "L": "3"
+            },
+            {
+              "Shortcode": "V17.2.8",
+              "Ordinal": 8,
+              "Description": "Verifikasi bahwa sertifikat Datagram Transport Layer Security (DTLS) diperiksa terhadap atribut _fingerprint_ Session Description Protocol (SDP), dan menghentikan _stream_ media jika pemeriksaan gagal, untuk memastikan keaslian (_authenticity_) dari _stream_ media.",
+              "L": "3"
+            }
+          ]
+        },
+        {
+          "Shortcode": "V17.3",
+          "Ordinal": 3,
+          "Name": "Signaling",
+          "Items": [
+            {
+              "Shortcode": "V17.3.1",
+              "Ordinal": 1,
+              "Description": "Verifikasi bahwa server _signaling_ mampu melanjutkan pemrosesan pesan _signaling_ masuk yang sah selama serangan _flood_. Hal ini harus dicapai dengan mengimplementasikan _rate limiting_ pada tingkat _signaling_.",
+              "L": "2"
+            },
+            {
+              "Shortcode": "V17.3.2",
+              "Ordinal": 2,
+              "Description": "Verifikasi bahwa server _signaling_ mampu melanjutkan pemrosesan pesan _signaling_ yang sah ketika menemui pesan _signaling_ yang cacat (_malformed_) yang dapat menyebabkan kondisi _Denial of Service_. Ini dapat mencakup pengimplementasian validasi input, penanganan _integer overflow_ secara aman, pencegahan _buffer overflow_, dan penggunaan teknik penanganan error yang tangguh lainnya.",
+              "L": "2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
