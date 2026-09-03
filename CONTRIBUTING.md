@@ -133,6 +133,7 @@ If you are interested in creating a translation, here are some pointers for how 
         * [French](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/fr/)
         * [Korean](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ko/)
         * [Portuguese (Brazilian)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/pt/)
+        * [Indonesian](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/id/)
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
 * We would request that you **specifically base your translation** on the 5.0/en folder from the **v5.0.0** branch as this is now static at the 5.0.0 version.
