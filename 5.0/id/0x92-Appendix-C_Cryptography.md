@@ -15,7 +15,8 @@ Daftar ini dapat digantikan (_overridden_) dalam konteks aplikasi tertentu karen
 
 ## Inventarisasi dan Dokumentasi Kriptografi
 
-Bagian ini menyediakan informasi tambahan untuk V11.1 Inventarisasi dan Dokumentasi Kriptografi.
+Bagian ini menyediakan informasi tambahan
+untuk V11.1 Inventarisasi dan Dokumentasi Kriptografi.
 
 Penting untuk memastikan bahwa semua aset kriptografi, seperti algoritma, kunci, dan sertifikat, secara teratur ditemukan, diinventarisasi, dan dievaluasi. Untuk Level 3, ini harus mencakup penggunaan pemindaian statis dan dinamis untuk menemukan penggunaan kriptografi dalam aplikasi. _Tools_ seperti SAST dan DAST dapat membantu dalam hal ini, tetapi mungkin diperlukan _tools_ khusus untuk mendapatkan cakupan yang lebih komprehensif. Contoh _tools_ gratis (_freeware_) meliputi:
 
