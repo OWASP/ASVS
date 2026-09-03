@@ -61,7 +61,8 @@ Fungsi hash mendasar yang digunakan dengan HMAC-DRBG atau Hash-DRBG harus disetu
 
 ## Algoritma Cipher
 
-Bagian ini menyediakan informasi tambahan untuk V11.3 Algoritma Enkripsi.
+Bagian ini menyediakan informasi tambahan
+untuk V11.3 Algoritma Enkripsi.
 
 Algoritma cipher yang disetujui (_Approved_) terdaftar berdasarkan urutan preferensi.
 
@@ -143,7 +144,8 @@ MAC-then-encrypt masih diizinkan untuk kompatibilitas dengan aplikasi _legacy_. 
 
 ## Fungsi Hash
 
-Bagian ini menyediakan informasi tambahan untuk V11.4 Hashing dan Fungsi Berbasis Hash.
+Bagian ini menyediakan informasi tambahan
+untuk V11.4 Hashing dan Fungsi Berbasis Hash.
 
 ### Fungsi Hash untuk Kasus Penggunaan Umum
 
@@ -219,7 +221,8 @@ Fungsi derivasi kunci berbasis kata sandi yang disetujui dapat digunakan untuk p
 
 ## Mekanisme Pertukaran Kunci (Key Exchange)
 
-Bagian ini menyediakan informasi tambahan untuk V11.6 Kriptografi Kunci Publik.
+Bagian ini menyediakan informasi tambahan
+untuk V11.6 Kriptografi Kunci Publik.
 
 ### Skema KEX
 
