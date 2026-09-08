@@ -10,11 +10,11 @@
 4. OWASP Software Assurance Maturity Model (SAMM): [https://owasp.org/www-project-samm/](https://owasp.org/www-project-samm/)
 5. OWASP Secure Headers Project: [https://owasp.org/www-project-secure-headers/](https://owasp.org/www-project-secure-headers/)
 
-## مشروع OWASP Cheat Sheet Series
+## مشروع سلسلة الأوراق المرجعية من OWASP
 
-[هذا المشروع](https://owasp.org/www-project-cheat-sheets/) يضم عدة أوراق مرجعية ذات صلة بمواضيع مختلفة في ASVS.
+[هذا المشروع](https://owasp.org/www-project-cheat-sheets/) يضم عدة أوراق مرجعية ذات صلة بمواضيع مختلفة في معيار التحقق من أمان التطبيقات.
 
-وهناك تخطيط إلى ASVS يمكن الاطلاع عليه هنا: [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
+وهناك تخطيط إلى معيار التحقق من أمان التطبيقات يمكن الاطلاع عليه هنا: [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
 
 ## المشاريع المتعلقة بأمان الأجهزة المحمولة
 

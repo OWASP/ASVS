@@ -1,151 +1,151 @@
-# V10 OAuth and OIDC
+# V10 معياري OAuth وOIDC
 
-## Control Objective
+## الهدف من ضوابط الأمان
 
-OAuth2 (referred to as OAuth in this chapter) is an industry-standard framework for delegated authorization. For example, using OAuth, a client application can obtain access to APIs (server resources) on a user's behalf, provided the user has authorized the client application to do so.
+إن OAuth2 (المشار إليه بـ OAuth في هذا الفصل) إطار عمل معياري في الصناعة للتخويل المفوَّض. فعلى سبيل المثال، يمكن لتطبيق عميل، باستخدام OAuth، أن يحصل على وصول إلى واجهات برمجة التطبيقات (موارد الخادم) بالنيابة عن مستخدم، بشرط أن يكون المستخدم قد خوّل تطبيق العميل بذلك.
 
-By itself, OAuth is not designed for user authentication. The OpenID Connect (OIDC) framework extends OAuth by adding a user identity layer on top of OAuth. OIDC provides support for features including standardized user information, Single Sign-On (SSO), and session management. As OIDC is an extension of OAuth, the OAuth requirements in this chapter also apply to OIDC.
+وليس OAuth بحد ذاته مصمّمًا لمصادقة المستخدمين. ويوسّع إطار عمل OpenID Connect (OIDC) نطاق OAuth بإضافة طبقة هوية للمستخدم فوقه. ويوفّر OIDC دعمًا لميزات منها معلومات المستخدم الموحّدة والدخول الموحّد (SSO) وإدارة الجلسات. وبما أن OIDC امتداد لـ OAuth، فإن متطلبات OAuth في هذا الفصل تنطبق على OIDC كذلك.
 
-The following roles are defined in OAuth:
+وتُعرَّف الأدوار التالية في OAuth:
 
-* The OAuth client is the application that attempts to obtain access to server resources (e.g., by calling an API using the issued access token). The OAuth client is often a server-side application.
-    * A confidential client is a client capable of maintaining the confidentiality of the credentials it uses to authenticate itself with the authorization server.
-    * A public client is not capable of maintaining the confidentiality of credentials for authenticating with the authorization server. Therefore, instead of authenticating itself (e.g., using 'client_id' and 'client_secret' parameters), it only identifies itself (using a 'client_id' parameter).
-* The OAuth resource server (RS) is the server API exposing resources to OAuth clients.
-* The OAuth authorization server (AS) is a server application that issues access tokens to OAuth clients. These access tokens allow OAuth clients to access RS resources, either on behalf of an end-user or on the OAuth client's own behalf. The AS is often a separate application, but (if appropriate) it may be integrated into a suitable RS.
-* The resource owner (RO) is the end-user who authorizes OAuth clients to obtain limited access to resources hosted on the resource server on their behalf. The resource owner consents to this delegated authorization by interacting with the authorization server.
+* عميل OAuth هو التطبيق الذي يحاول الحصول على وصول إلى موارد الخادم (مثلًا باستدعاء واجهة برمجة تطبيقات باستخدام رمز الوصول الصادر). وعميل OAuth كثيرًا ما يكون تطبيقًا من جانب الخادم.
+    * العميل السرّي هو عميل قادر على الحفاظ على سرّية بيانات الاعتماد التي يستخدمها للمصادقة على نفسه لدى خادم التخويل.
+    * العميل العام غير قادر على الحفاظ على سرّية بيانات الاعتماد اللازمة للمصادقة لدى خادم التخويل. ولذلك، فبدلًا من المصادقة على نفسه (مثلًا باستخدام المعاملين 'client_id' و'client_secret')، فإنه يعرّف نفسه فقط (باستخدام المعامل 'client_id').
+* خادم موارد OAuth (RS) هو واجهة برمجة تطبيقات الخادم التي تعرض الموارد لعملاء OAuth.
+* خادم تخويل OAuth (AS) هو تطبيق خادم يُصدر رموز الوصول لعملاء OAuth. وتتيح رموز الوصول هذه لعملاء OAuth الوصول إلى موارد خادم الموارد، إما بالنيابة عن مستخدم نهائي أو بالنيابة عن عميل OAuth نفسه. وكثيرًا ما يكون خادم التخويل تطبيقًا منفصلًا، لكنه قد يكون (إذا كان ذلك ملائمًا) مدمجًا في خادم موارد مناسب.
+* مالك الموارد (RO) هو المستخدم النهائي الذي يخوّل عملاء OAuth للحصول على وصول محدود إلى الموارد المستضافة على خادم الموارد بالنيابة عنه. ويوافق مالك الموارد على هذا التخويل المفوَّض بالتفاعل مع خادم التخويل.
 
-The following roles are defined in OIDC:
+وتُعرَّف الأدوار التالية في OIDC:
 
-* The relying party (RP) is the client application requesting end-user authentication through the OpenID Provider. It assumes the role of an OAuth client.
-* The OpenID Provider (OP) is an OAuth AS that is capable of authenticating the end-user and provides OIDC claims to an RP. The OP may be the identity provider (IdP), but in federated scenarios, the OP and the identity provider (where the end-user authenticates) may be different server applications.
+* الطرف المعوِّل (RP) هو تطبيق العميل الذي يطلب مصادقة المستخدم النهائي عبر مزوّد OpenID. وهو يتولى دور عميل OAuth.
+* مزوّد OpenID (OP) هو خادم تخويل OAuth قادر على مصادقة المستخدم النهائي ويوفّر مطالبات OIDC للطرف المعوِّل. وقد يكون مزوّد OpenID هو مزوّد الهوية (IdP)، لكن في السيناريوهات الاتحادية قد يكون مزوّد OpenID ومزوّد الهوية (الذي يصادق المستخدم النهائي لديه) تطبيقَي خادم مختلفين.
 
-OAuth and OIDC were initially designed for third-party applications. Today, they are often used by first-party applications as well. However, when used in first-party scenarios, such as authentication and session management, the protocol adds some complexity, which may introduce new security challenges.
+وقد صُمِّم OAuth وOIDC في البداية لتطبيقات الأطراف الثالثة. وهما اليوم يُستخدمان كثيرًا من قِبل تطبيقات الطرف الأول كذلك. لكن عند استخدامهما في سيناريوهات الطرف الأول، مثل المصادقة وإدارة الجلسات، يضيف البروتوكول بعض التعقيد، ما قد يُدخل تحديات أمنية جديدة.
 
-OAuth and OIDC can be used for many types of applications, but the focus for ASVS and the requirements in this chapter is on web applications and APIs.
+ويمكن استخدام OAuth وOIDC في أنواع كثيرة من التطبيقات، لكن تركيز معيار التحقق من أمان التطبيقات والمتطلبات في هذا الفصل على تطبيقات الويب وواجهات برمجة التطبيقات.
 
-Since OAuth and OIDC can be considered logic on top of web technologies, general requirements from other chapters always apply, and this chapter cannot be taken out of context.
+وبما أن OAuth وOIDC يمكن اعتبارهما منطقًا فوق تقنيات الويب، فإن المتطلبات العامة من الفصول الأخرى تنطبق دائمًا، ولا يمكن أخذ هذا الفصل خارج سياقه.
 
-This chapter addresses best current practices for OAuth2 and OIDC aligned with specifications found at <https://oauth.net/2/> and <https://openid.net/developers/specs/>. Even if RFCs are considered mature, they are updated frequently. Thus, it is important to align with the latest versions when applying the requirements in this chapter. See the references section for more details.
+ويتناول هذا الفصل الممارسات الفضلى الراهنة لـ OAuth2 وOIDC بما يتوافق مع المواصفات الموجودة في <https://oauth.net/2/> و<https://openid.net/developers/specs/>. وحتى إن كانت وثائق RFC تُعدّ ناضجة، فإنها تُحدَّث بصورة متكرّرة. ولذلك من المهم التوافق مع أحدث الإصدارات عند تطبيق المتطلبات في هذا الفصل. انظر قسم المراجع لمزيد من التفاصيل.
 
-Given the complexity of the area, it is vitally important for a secure OAuth or OIDC solution to use well-known industry-standard authorization servers and apply the recommended security configuration.
+وبالنظر إلى تعقيد هذا المجال، فمن الأهمية الحيوية لأي حل آمن يعتمد OAuth أو OIDC أن يستخدم خوادم تخويل معيارية معروفة في الصناعة وأن يطبّق التكوين الأمني الموصى به.
 
-Terminology used in this chapter aligns with OAuth RFCs and OIDC specifications, but note that OIDC terminology is only used for OIDC-specific requirements; otherwise, OAuth terminology is used.
+والمصطلحات المستخدمة في هذا الفصل متوافقة مع وثائق RFC الخاصة بـ OAuth ومواصفات OIDC، لكن لاحظ أن مصطلحات OIDC لا تُستخدم إلا في المتطلبات الخاصة بـ OIDC؛ وفيما عدا ذلك تُستخدم مصطلحات OAuth.
 
-In the context of OAuth and OIDC, the term "token" in this chapter refers to:
+وفي سياق OAuth وOIDC، يشير مصطلح "الرمز المميز" في هذا الفصل إلى:
 
-* Access tokens, which shall only be consumed by the RS and can either be reference tokens that are validated using introspection or self-contained tokens that are validated using some key material.
-* Refresh tokens, which shall only be consumed by the authorization server that issued the token.
-* OIDC ID Tokens, which shall only be consumed by the client that triggered the authorization flow.
+* رموز الوصول، التي لا يجوز أن يستهلكها إلا خادم الموارد، ويمكن أن تكون إما رموزًا مرجعية يُتحقَّق منها بالاستبطان أو رموزًا مكتفية بذاتها يُتحقَّق منها باستخدام مادة مفاتيح ما.
+* رموز التحديث، التي لا يجوز أن يستهلكها إلا خادم التخويل الذي أصدر الرمز.
+* رموز الهوية في OIDC، التي لا يجوز أن يستهلكها إلا العميل الذي استهلّ مسار التخويل.
 
-The risk levels for some of the requirements in this chapter depend on whether the client is a confidential client or regarded as a public client. Since using strong client authentication mitigates many attack vectors, a few requirements might be relaxed when using a confidential client for L1 applications.
+وتعتمد مستويات المخاطر لبعض المتطلبات في هذا الفصل على ما إذا كان العميل عميلًا سرّيًا أو يُعدّ عميلًا عامًا. وبما أن استخدام مصادقة قوية للعميل يخفّف من متجهات هجوم كثيرة، فقد تُخفَّف بعض المتطلبات عند استخدام عميل سرّي في تطبيقات المستوى 1.
 
-## V10.1 Generic OAuth and OIDC Security
+## V10.1 الأمان العام لـ OAuth وOIDC
 
-This section covers generic architectural requirements that apply to all applications using OAuth or OIDC.
+يتناول هذا القسم المتطلبات المعمارية العامة التي تنطبق على جميع التطبيقات التي تستخدم OAuth أو OIDC.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **10.1.1** | Verify that tokens are only sent to components that strictly need them. For example, when using a backend-for-frontend pattern for browser-based JavaScript applications, access and refresh tokens shall only be accessible for the backend. | 2 |
-| **10.1.2** | Verify that the client only accepts values from the authorization server (such as the authorization code or ID Token) if these values result from an authorization flow that was initiated by the same user agent session and transaction. This requires that client-generated secrets, such as the proof key for code exchange (PKCE) 'code_verifier', 'state' or OIDC 'nonce', are not guessable, are specific to the transaction, and are securely bound to both the client and the user agent session in which the transaction was started. | 2 |
+| **10.1.1** | تحقق من أن الرموز المميزة لا تُرسل إلا إلى المكوّنات التي تحتاج إليها حصرًا. فعلى سبيل المثال، عند استخدام نمط الواجهة الخلفية للواجهة الأمامية في تطبيقات JavaScript القائمة على المتصفح، لا يجوز أن تكون رموز الوصول والتحديث متاحة إلا للواجهة الخلفية. | 2 |
+| **10.1.2** | تحقق من أن العميل لا يقبل القيم الواردة من خادم التخويل (مثل رمز التخويل أو رمز الهوية) إلا إذا كانت هذه القيم ناتجة عن مسار تخويل استهلّته جلسة وكيل المستخدم والمعاملة نفسها. ويقتضي ذلك أن تكون الأسرار التي يولّدها العميل، مثل 'code_verifier' الخاص بمفتاح إثبات تبادل الرمز (PKCE) أو 'state' أو 'nonce' في OIDC، غير قابلة للتخمين وخاصة بالمعاملة ومرتبطة بأمان بكل من العميل وجلسة وكيل المستخدم التي بدأت فيها المعاملة. | 2 |
 
-## V10.2 OAuth Client
+## V10.2 عميل OAuth
 
-These requirements detail the responsibilities for OAuth client applications. The client can be, for example, a web server backend (often acting as a Backend For Frontend, BFF), a backend service integration, or a frontend Single Page Application (SPA, aka browser-based application).
+تبيّن هذه المتطلبات مسؤوليات تطبيقات عميل OAuth. وقد يكون العميل، على سبيل المثال، واجهة خلفية لخادم ويب (تعمل غالبًا كواجهة خلفية للواجهة الأمامية، BFF)، أو تكاملًا لخدمة في الواجهة الخلفية، أو تطبيق صفحة واحدة في الواجهة الأمامية (SPA، المعروف كذلك بالتطبيق القائم على المتصفح).
 
-In general, backend clients are regarded as confidential clients and frontend clients are regarded as public clients. However, native applications running on the end-user device can be regarded as confidential when using OAuth dynamic client registration.
+وعمومًا، تُعدّ عملاء الواجهة الخلفية عملاء سرّيين وتُعدّ عملاء الواجهة الأمامية عملاء عامين. لكن التطبيقات الأصيلة التي تعمل على جهاز المستخدم النهائي يمكن أن تُعدّ سرّية عند استخدام التسجيل الديناميكي للعملاء في OAuth.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **10.2.1** | Verify that, if the code flow is used, the OAuth client has protection against browser-based request forgery attacks, commonly known as cross-site request forgery (CSRF), which trigger token requests, either by using proof key for code exchange (PKCE) functionality or checking the 'state' parameter that was sent in the authorization request. | 2 |
-| **10.2.2** | Verify that, if the OAuth client can interact with more than one authorization server, it has a defense against mix-up attacks. For example, it could require that the authorization server return the 'iss' parameter value and validate it in the authorization response and the token response. | 2 |
-| **10.2.3** | Verify that the OAuth client only requests the required scopes (or other authorization parameters) in requests to the authorization server. | 3 |
+| **10.2.1** | تحقق من أن عميل OAuth، في حال استخدام مسار الرمز، يمتلك حماية من هجمات تزوير الطلبات القائمة على المتصفح، المعروفة عمومًا بتزوير الطلبات عبر المواقع (CSRF)، التي تُشغّل طلبات الرموز، وذلك إما باستخدام وظيفة مفتاح إثبات تبادل الرمز (PKCE) أو بفحص المعامل 'state' الذي أُرسل في طلب التخويل. | 2 |
+| **10.2.2** | تحقق من أن عميل OAuth، إذا كان يمكنه التفاعل مع أكثر من خادم تخويل، يمتلك دفاعًا عن هجمات الخلط. فعلى سبيل المثال، قد يشترط أن يعيد خادم التخويل قيمة المعامل 'iss' وأن يتحقق منها في استجابة التخويل واستجابة الرمز. | 2 |
+| **10.2.3** | تحقق من أن عميل OAuth لا يطلب سوى النطاقات المطلوبة (أو معاملات التخويل الأخرى) في الطلبات الموجّهة إلى خادم التخويل. | 3 |
 
-## V10.3 OAuth Resource Server
+## V10.3 خادم موارد OAuth
 
-In the context of ASVS and this chapter, the resource server is an API. To provide secure access, the resource server must:
+في سياق معيار التحقق من أمان التطبيقات وهذا الفصل، يكون خادم الموارد واجهة برمجة تطبيقات. ولتوفير وصول آمن، يجب على خادم الموارد أن:
 
-* Validate the access token, according to the token format and relevant protocol specifications, e.g., JWT-validation or OAuth token introspection.
-* If valid, enforce authorization decisions based on the information from the access token and permissions which have been granted. For example, the resource server needs to verify that the client (acting on behalf of RO) is authorized to access the requested resource.
+* يتحقق من رمز الوصول، وفق صيغة الرمز ومواصفات البروتوكول المعنية، مثل التحقق من JWT أو استبطان رموز OAuth.
+* يُنفِذ، إذا كان الرمز صحيحًا، قرارات التخويل بناءً على المعلومات المستقاة من رمز الوصول والصلاحيات التي مُنحت. فعلى سبيل المثال، يلزم خادم الموارد أن يتحقق من أن العميل (العامل بالنيابة عن مالك الموارد) مخوَّل بالوصول إلى المورد المطلوب.
 
-Therefore, the requirements listed here are OAuth or OIDC specific and should be performed after token validation and before performing authorization based on information from the token.
+ولذلك فإن المتطلبات المدرجة هنا خاصة بـ OAuth أو OIDC وينبغي تنفيذها بعد التحقق من الرمز وقبل تنفيذ التخويل بناءً على المعلومات المستقاة منه.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **10.3.1** | Verify that the resource server only accepts access tokens that are intended for use with that service (audience). The audience may be included in a structured access token (such as the 'aud' claim in JWT), or it can be checked using the token introspection endpoint. | 2 |
-| **10.3.2** | Verify that the resource server enforces authorization decisions based on claims from the access token that define delegated authorization. If claims such as 'sub', 'scope', and 'authorization_details' are present, they must be part of the decision. | 2 |
-| **10.3.3** | Verify that if an access control decision requires identifying a unique user from an access token (JWT or related token introspection response), the resource server identifies the user from claims that cannot be reassigned to other users. Typically, it means using a combination of 'iss' and 'sub' claims. | 2 |
-| **10.3.4** | Verify that, if the resource server requires specific authentication strength, methods, or recentness, it verifies that the presented access token satisfies these constraints. For example, if present, using the OIDC 'acr', 'amr' and 'auth_time' claims respectively. | 2 |
-| **10.3.5** | Verify that the resource server prevents the use of stolen access tokens or replay of access tokens (from unauthorized parties) by requiring sender-constrained access tokens, either Mutual TLS for OAuth 2 or OAuth 2 Demonstration of Proof of Possession (DPoP). | 3 |
+| **10.3.1** | تحقق من أن خادم الموارد لا يقبل سوى رموز الوصول المخصّصة للاستخدام مع تلك الخدمة (الجهة المستهدفة). وقد تكون الجهة المستهدفة مُدرجة في رمز وصول مُهيكل (مثل مطالبة 'aud' في JWT)، أو يمكن فحصها باستخدام نقطة نهاية استبطان الرموز. | 2 |
+| **10.3.2** | تحقق من أن خادم الموارد يُنفِذ قرارات التخويل بناءً على المطالبات المستقاة من رمز الوصول التي تحدّد التخويل المفوَّض. وإذا كانت مطالبات مثل 'sub' و'scope' و'authorization_details' موجودة، فيجب أن تكون جزءًا من القرار. | 2 |
+| **10.3.3** | تحقق من أنه، إذا كان قرار التحكم في الوصول يقتضي تحديد مستخدم فريد من رمز وصول (JWT أو استجابة استبطان الرمز المتصلة به)، فإن خادم الموارد يحدّد المستخدم من مطالبات لا يمكن إعادة تخصيصها لمستخدمين آخرين. ويعني ذلك عادةً استخدام تركيبة من مطالبتي 'iss' و'sub'. | 2 |
+| **10.3.4** | تحقق من أن خادم الموارد، إذا كان يشترط قوة أو طرائق أو حداثة مصادقة معيّنة، يتحقق من أن رمز الوصول المُقدَّم يستوفي هذه القيود. فعلى سبيل المثال، باستخدام مطالبات OIDC 'acr' و'amr' و'auth_time' على التوالي، إن وُجدت. | 2 |
+| **10.3.5** | تحقق من أن خادم الموارد يمنع استخدام رموز الوصول المسروقة أو إعادة إرسال رموز الوصول (من أطراف غير مصرَّح لها) باشتراط رموز وصول مقيَّدة بالمُرسِل، إما باستخدام TLS المتبادل لـ OAuth 2 أو إثبات الحيازة (DPoP) في OAuth 2. | 3 |
 
-## V10.4 OAuth Authorization Server
+## V10.4 خادم تخويل OAuth
 
-These requirements detail the responsibilities for OAuth authorization servers, including OpenID Providers.
+تبيّن هذه المتطلبات مسؤوليات خوادم تخويل OAuth، بما فيها مزوّدو OpenID.
 
-For client authentication, the 'self_signed_tls_client_auth' method is allowed with the prerequisites required by [section 2.2](https://datatracker.ietf.org/doc/html/rfc8705#name-self-signed-certificate-mut) of [RFC 8705](https://datatracker.ietf.org/doc/html/rfc8705).
+وبالنسبة إلى مصادقة العميل، يُسمح بطريقة 'self_signed_tls_client_auth' بالشروط المسبقة التي يقتضيها [القسم 2.2](https://datatracker.ietf.org/doc/html/rfc8705#name-self-signed-certificate-mut) من [RFC 8705](https://datatracker.ietf.org/doc/html/rfc8705).
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **10.4.1** | Verify that the authorization server validates redirect URIs based on a client-specific allowlist of pre-registered URIs using exact string comparison. | 1 |
-| **10.4.2** | Verify that, if the authorization server returns the authorization code in the authorization response, it can be used only once for a token request. For the second valid request with an authorization code that has already been used to issue an access token, the authorization server must reject a token request and revoke any issued tokens related to the authorization code. | 1 |
-| **10.4.3** | Verify that the authorization code is short-lived. The maximum lifetime can be up to 10 minutes for L1 and L2 applications and up to 1 minute for L3 applications. | 1 |
-| **10.4.4** | Verify that for a given client, the authorization server only allows the usage of grants that this client needs to use. Note that the grants 'token' (Implicit flow) and 'password' (Resource Owner Password Credentials flow) must no longer be used. | 1 |
-| **10.4.5** | Verify that the authorization server mitigates refresh token replay attacks for public clients, preferably using sender-constrained refresh tokens, i.e., Demonstrating Proof of Possession (DPoP) or Certificate-Bound Access Tokens using mutual TLS (mTLS). For L1 and L2 applications, refresh token rotation may be used. If refresh token rotation is used, the authorization server must invalidate the refresh token after usage, and revoke all refresh tokens for that authorization if an already used and invalidated refresh token is provided. | 1 |
-| **10.4.6** | Verify that, if the code grant is used, the authorization server mitigates authorization code interception attacks by requiring proof key for code exchange (PKCE). For authorization requests, the authorization server must require a valid 'code_challenge' value and must not accept a 'code_challenge_method' value of 'plain'. For a token request, it must require validation of the 'code_verifier' parameter. | 2 |
-| **10.4.7** | Verify that if the authorization server supports unauthenticated dynamic client registration, it mitigates the risk of malicious client applications. It must validate client metadata such as any registered URIs, ensure the user's consent, and warn the user before processing an authorization request with an untrusted client application. | 2 |
-| **10.4.8** | Verify that refresh tokens have an absolute expiration, including if sliding refresh token expiration is applied. | 2 |
-| **10.4.9** | Verify that refresh tokens and reference access tokens can be revoked by an authorized user using the authorization server user interface, to mitigate the risk of malicious clients or stolen tokens. | 2 |
-| **10.4.10** | Verify that confidential client is authenticated for client-to-authorized server backchannel requests such as token requests, pushed authorization requests (PAR), and token revocation requests. | 2 |
-| **10.4.11** | Verify that the authorization server configuration only assigns the required scopes to the OAuth client. | 2 |
-| **10.4.12** | Verify that for a given client, the authorization server only allows the 'response_mode' value that this client needs to use. For example, by having the authorization server validate this value against the expected values or by using pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 |
-| **10.4.13** | Verify that grant type 'code' is always used together with pushed authorization requests (PAR). | 3 |
-| **10.4.14** | Verify that the authorization server issues only sender-constrained (Proof-of-Possession) access tokens, either with certificate-bound access tokens using mutual TLS (mTLS) or DPoP-bound access tokens (Demonstration of Proof of Possession). | 3 |
-| **10.4.15** | Verify that, for a server-side client (which is not executed on the end-user device), the authorization server ensures that the 'authorization_details' parameter value is from the client backend and that the user has not tampered with it. For example, by requiring the usage of pushed authorization request (PAR) or JWT-secured Authorization Request (JAR). | 3 |
-| **10.4.16** | Verify that the client is confidential and the authorization server requires the use of strong client authentication methods (based on public-key cryptography and resistant to replay attacks), such as mutual TLS ('tls_client_auth', 'self_signed_tls_client_auth') or private key JWT ('private_key_jwt'). | 3 |
+| **10.4.1** | تحقق من أن خادم التخويل يتحقق من معرّفات إعادة التوجيه بناءً على قائمة سماح خاصة بالعميل تتضمّن معرّفات مسجّلة مسبقًا، باستخدام مقارنة نصية دقيقة. | 1 |
+| **10.4.2** | تحقق من أنه، إذا أعاد خادم التخويل رمز التخويل في استجابة التخويل، فلا يمكن استخدامه إلا مرة واحدة لطلب رمز. وعند ورود طلب صحيح ثانٍ برمز تخويل استُخدم بالفعل لإصدار رمز وصول، يجب على خادم التخويل رفض طلب الرمز وإبطال أي رموز صادرة متصلة برمز التخويل. | 1 |
+| **10.4.3** | تحقق من أن رمز التخويل قصير الأجل. ويمكن أن يبلغ العمر الأقصى 10 دقائق لتطبيقات المستويين 1 و2 ودقيقة واحدة لتطبيقات المستوى 3. | 1 |
+| **10.4.4** | تحقق من أن خادم التخويل، لعميل معيّن، لا يسمح إلا باستخدام المنح التي يحتاج هذا العميل إلى استخدامها. ولاحظ أن المنحتين 'token' (المسار الضمني) و'password' (مسار بيانات اعتماد كلمة مرور مالك الموارد) يجب ألا تُستخدما بعد الآن. | 1 |
+| **10.4.5** | تحقق من أن خادم التخويل يخفّف من هجمات إعادة إرسال رموز التحديث للعملاء العامين، ويُفضَّل باستخدام رموز تحديث مقيَّدة بالمُرسِل، أي إثبات الحيازة (DPoP) أو رموز وصول مرتبطة بالشهادات باستخدام TLS المتبادل (mTLS). وبالنسبة إلى تطبيقات المستويين 1 و2، يمكن استخدام تدوير رموز التحديث. وإذا استُخدم تدوير رموز التحديث، فيجب على خادم التخويل إبطال رمز التحديث بعد استخدامه، وإبطال جميع رموز التحديث لذلك التخويل إذا قُدّم رمز تحديث مستخدم ومُبطَل بالفعل. | 1 |
+| **10.4.6** | تحقق من أن خادم التخويل، في حال استخدام منحة الرمز، يخفّف من هجمات اعتراض رمز التخويل باشتراط مفتاح إثبات تبادل الرمز (PKCE). وبالنسبة إلى طلبات التخويل، يجب على خادم التخويل اشتراط قيمة 'code_challenge' صحيحة ويجب ألا يقبل قيمة 'plain' للمعامل 'code_challenge_method'. وبالنسبة إلى طلب الرمز، يجب أن يشترط التحقق من المعامل 'code_verifier'. | 2 |
+| **10.4.7** | تحقق من أن خادم التخويل، إذا كان يدعم التسجيل الديناميكي غير المصادَق عليه للعملاء، يخفّف من خطر تطبيقات العملاء الخبيثة. ويجب أن يتحقق من بيانات العميل الوصفية مثل أي معرّفات مسجّلة، وأن يضمن موافقة المستخدم، وأن يحذّر المستخدم قبل معالجة طلب تخويل بتطبيق عميل غير موثوق. | 2 |
+| **10.4.8** | تحقق من أن لرموز التحديث انتهاء صلاحية مطلقًا، بما في ذلك في حال تطبيق انتهاء صلاحية متزحلق لرموز التحديث. | 2 |
+| **10.4.9** | تحقق من أن رموز التحديث ورموز الوصول المرجعية يمكن إبطالها بواسطة مستخدم مخوَّل عبر واجهة مستخدم خادم التخويل، وذلك للتخفيف من خطر العملاء الخبيثة أو الرموز المسروقة. | 2 |
+| **10.4.10** | تحقق من أن العميل السرّي مُصادَق عليه في طلبات القناة الخلفية من العميل إلى الخادم المخوَّل، مثل طلبات الرموز وطلبات التخويل المدفوعة (PAR) وطلبات إبطال الرموز. | 2 |
+| **10.4.11** | تحقق من أن تكوين خادم التخويل لا يخصّص لعميل OAuth إلا النطاقات المطلوبة. | 2 |
+| **10.4.12** | تحقق من أن خادم التخويل، لعميل معيّن، لا يسمح إلا بقيمة 'response_mode' التي يحتاج هذا العميل إلى استخدامها. وذلك مثلًا بأن يتحقق خادم التخويل من هذه القيمة مقابل القيم المتوقعة أو باستخدام طلب التخويل المدفوع (PAR) أو طلب التخويل المؤمَّن بـ JWT (JAR). | 3 |
+| **10.4.13** | تحقق من أن نوع المنحة 'code' يُستخدم دائمًا مع طلبات التخويل المدفوعة (PAR). | 3 |
+| **10.4.14** | تحقق من أن خادم التخويل لا يُصدر إلا رموز وصول مقيَّدة بالمُرسِل (إثبات الحيازة)، إما رموز وصول مرتبطة بالشهادات باستخدام TLS المتبادل (mTLS) أو رموز وصول مرتبطة بـ DPoP (إثبات الحيازة). | 3 |
+| **10.4.15** | تحقق من أن خادم التخويل، بالنسبة إلى عميل من جانب الخادم (لا يُنفَّذ على جهاز المستخدم النهائي)، يضمن أن قيمة المعامل 'authorization_details' واردة من واجهة العميل الخلفية وأن المستخدم لم يتلاعب بها. وذلك مثلًا باشتراط استخدام طلب التخويل المدفوع (PAR) أو طلب التخويل المؤمَّن بـ JWT (JAR). | 3 |
+| **10.4.16** | تحقق من أن العميل سرّي وأن خادم التخويل يشترط استخدام طرائق مصادقة قوية للعميل (مبنية على تشفير المفتاح العام ومقاومة لهجمات إعادة الإرسال)، مثل TLS المتبادل ('tls_client_auth' و'self_signed_tls_client_auth') أو JWT بالمفتاح الخاص ('private_key_jwt'). | 3 |
 
-## V10.5 OIDC Client
+## V10.5 عميل OIDC
 
-As the OIDC relying party acts as an OAuth client, the requirements from the section "OAuth Client" apply as well.
+بما أن الطرف المعوِّل في OIDC يعمل كعميل OAuth، فإن المتطلبات الواردة في قسم "عميل OAuth" تنطبق كذلك.
 
-Note that the "Authentication with an Identity Provider" section in the "Authentication" chapter also contains relevant general requirements.
+ولاحظ أن قسم "المصادقة عبر مزوّد هوية" في فصل "المصادقة" يحتوي كذلك على متطلبات عامة ذات صلة.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **10.5.1** | Verify that the client (as the relying party) mitigates ID Token replay attacks. For example, by ensuring that the 'nonce' claim in the ID Token matches the 'nonce' value sent in the authentication request to the OpenID Provider (in OAuth2 refereed to as the authorization request sent to the authorization server). | 2 |
-| **10.5.2** | Verify that the client uniquely identifies the user from ID Token claims, usually the 'sub' claim, which cannot be reassigned to other users (for the scope of an identity provider). | 2 |
-| **10.5.3** | Verify that the client rejects attempts by a malicious authorization server to impersonate another authorization server through authorization server metadata. The client must reject authorization server metadata if the issuer URL in the authorization server metadata does not exactly match the pre-configured issuer URL expected by the client. | 2 |
-| **10.5.4** | Verify that the client validates that the ID Token is intended to be used for that client (audience) by checking that the 'aud' claim from the token is equal to the 'client_id' value for the client. | 2 |
-| **10.5.5** | Verify that, when using OIDC back-channel logout, the relying party mitigates denial of service through forced logout and cross-JWT confusion in the logout flow. The client must verify that the logout token is correctly typed with a value of 'logout+jwt', contains the 'event' claim with the correct member name, and does not contain a 'nonce' claim. Note that it is also recommended to have a short expiration (e.g., 2 minutes). | 2 |
+| **10.5.1** | تحقق من أن العميل (بوصفه الطرف المعوِّل) يخفّف من هجمات إعادة إرسال رمز الهوية. وذلك مثلًا بالتأكد من أن مطالبة 'nonce' في رمز الهوية تطابق قيمة 'nonce' المُرسلة في طلب المصادقة إلى مزوّد OpenID (المشار إليه في OAuth2 بطلب التخويل المُرسل إلى خادم التخويل). | 2 |
+| **10.5.2** | تحقق من أن العميل يحدّد المستخدم على نحو فريد من مطالبات رمز الهوية، وعادةً مطالبة 'sub'، التي لا يمكن إعادة تخصيصها لمستخدمين آخرين (في نطاق مزوّد هوية واحد). | 2 |
+| **10.5.3** | تحقق من أن العميل يرفض محاولات خادم تخويل خبيث لانتحال هوية خادم تخويل آخر عبر البيانات الوصفية لخادم التخويل. ويجب على العميل رفض البيانات الوصفية لخادم التخويل إذا لم يطابق عنوان URL الخاص بالجهة المُصدِرة في تلك البيانات، مطابقةً دقيقة، عنوان URL المُهيّأ مسبقًا والمتوقع من قِبل العميل. | 2 |
+| **10.5.4** | تحقق من أن العميل يتحقق من أن رمز الهوية مخصّص للاستخدام من قِبل ذلك العميل (الجهة المستهدفة)، وذلك بفحص أن مطالبة 'aud' في الرمز مساوية لقيمة 'client_id' الخاصة بالعميل. | 2 |
+| **10.5.5** | تحقق من أن الطرف المعوِّل، عند استخدام تسجيل الخروج عبر القناة الخلفية في OIDC، يخفّف من حجب الخدمة عن طريق تسجيل الخروج القسري ومن الالتباس بين رموز JWT في مسار تسجيل الخروج. ويجب على العميل التحقق من أن رمز تسجيل الخروج مُصنَّف على نحو صحيح بالقيمة 'logout+jwt'، وأنه يحتوي على مطالبة 'event' باسم العضو الصحيح، وأنه لا يحتوي على مطالبة 'nonce'. ولاحظ أنه يُوصى كذلك بأن يكون له انتهاء صلاحية قصير (مثلًا دقيقتان). | 2 |
 
-## V10.6 OpenID Provider
+## V10.6 مزوّد OpenID
 
-As OpenID Providers act as OAuth authorization servers, the requirements from the section "OAuth Authorization Server" apply as well.
+بما أن مزوّدي OpenID يعملون كخوادم تخويل OAuth، فإن المتطلبات الواردة في قسم "خادم تخويل OAuth" تنطبق كذلك.
 
-Note that if using the ID Token flow (not the code flow), no access tokens are issued, and many of the requirements for OAuth AS are not applicable.
+ولاحظ أنه في حال استخدام مسار رمز الهوية (وليس مسار الرمز)، لا تُصدر رموز وصول، وكثير من متطلبات خادم تخويل OAuth تكون غير منطبقة.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **10.6.1** | Verify that the OpenID Provider only allows values 'code', 'ciba', 'id_token', or 'id_token code' for response mode. Note that 'code' is preferred over 'id_token code' (the OIDC Hybrid flow), and 'token' (any Implicit flow) must not be used. | 2 |
-| **10.6.2** | Verify that the OpenID Provider mitigates denial of service through forced logout. By obtaining explicit confirmation from the end-user or, if present, validating parameters in the logout request (initiated by the relying party), such as the 'id_token_hint'. | 2 |
+| **10.6.1** | تحقق من أن مزوّد OpenID لا يسمح إلا بالقيم 'code' أو 'ciba' أو 'id_token' أو 'id_token code' لنمط الاستجابة. ولاحظ أن 'code' مفضّلة على 'id_token code' (المسار الهجين في OIDC)، وأن 'token' (أي مسار ضمني) يجب ألا تُستخدم. | 2 |
+| **10.6.2** | تحقق من أن مزوّد OpenID يخفّف من حجب الخدمة عن طريق تسجيل الخروج القسري. وذلك بالحصول على تأكيد صريح من المستخدم النهائي أو، إن وُجدت، بالتحقق من المعاملات في طلب تسجيل الخروج (الذي يستهلّه الطرف المعوِّل)، مثل 'id_token_hint'. | 2 |
 
-## V10.7 Consent Management
+## V10.7 إدارة الموافقة
 
-These requirements cover the verification of the user's consent by the authorization server. Without proper user consent verification, a malicious actor may obtain permissions on the user's behalf through spoofing or social-engineering.
+تتناول هذه المتطلبات التحقق من موافقة المستخدم بواسطة خادم التخويل. فمن دون تحقق سليم من موافقة المستخدم، قد يحصل فاعل خبيث على صلاحيات بالنيابة عن المستخدم عن طريق الانتحال أو الهندسة الاجتماعية.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **10.7.1** | Verify that the authorization server ensures that the user consents to each authorization request. If the identity of the client cannot be assured, the authorization server must always explicitly prompt the user for consent. | 2 |
-| **10.7.2** | Verify that when the authorization server prompts for user consent, it presents sufficient and clear information about what is being consented to. When applicable, this should include the nature of the requested authorizations (typically based on scope, resource server, Rich Authorization Requests (RAR) authorization details), the identity of the authorized application, and the lifetime of these authorizations. | 2 |
-| **10.7.3** | Verify that the user can review, modify, and revoke consents which the user has granted through the authorization server. | 2 |
+| **10.7.1** | تحقق من أن خادم التخويل يضمن موافقة المستخدم على كل طلب تخويل. وإذا لم يكن من الممكن ضمان هوية العميل، فيجب على خادم التخويل أن يطلب موافقة المستخدم صراحةً دائمًا. | 2 |
+| **10.7.2** | تحقق من أن خادم التخويل، عند طلبه موافقة المستخدم، يعرض معلومات كافية وواضحة عمّا تجري الموافقة عليه. وينبغي أن يشمل ذلك، حيث ينطبق، طبيعة التخويلات المطلوبة (عادةً بناءً على النطاق وخادم الموارد وتفاصيل التخويل في طلبات التخويل الغنية (RAR))، وهوية التطبيق المخوَّل، وعمر هذه التخويلات. | 2 |
+| **10.7.3** | تحقق من أن المستخدم يمكنه مراجعة الموافقات التي منحها عبر خادم التخويل وتعديلها وإبطالها. | 2 |
 
-## References
+## المراجع
 
-For more information on OAuth, please see:
+لمزيد من المعلومات عن OAuth، يُرجى الاطلاع على:
 
 * [oauth.net](https://oauth.net/)
 * [OWASP OAuth 2.0 Protocol Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
 
-For OAuth-related requirements in ASVS following published and in draft status RFC-s are used:
+وبالنسبة إلى المتطلبات المتعلقة بـ OAuth في معيار التحقق من أمان التطبيقات، تُستخدم وثائق RFC المنشورة والتي في حالة مسوّدة التالية:
 
 * [RFC6749 The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
 * [RFC6750 The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
@@ -163,7 +163,7 @@ For OAuth-related requirements in ASVS following published and in draft status R
 * [draft OAuth 2.0 for Browser-Based Applications](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps)<!-- recheck on release -->
 * [draft The OAuth 2.1 Authorization Framework](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-12)<!-- recheck on release -->
 
-For more information on OpenID Connect, please see:
+ولمزيد من المعلومات عن OpenID Connect، يُرجى الاطلاع على:
 
 * [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 * [FAPI 2.0 Security Profile](https://openid.net/specs/fapi-security-profile-2_0-final.html)

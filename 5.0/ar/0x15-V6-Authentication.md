@@ -1,159 +1,159 @@
-# V6 Authentication
+# V6 المصادقة
 
-## Control Objective
+## الهدف من ضوابط الأمان
 
-Authentication is the process of establishing or confirming the authenticity of an individual or device. It involves verifying claims made by a person or about a device, ensuring resistance to impersonation, and preventing the recovery or interception of passwords.
+المصادقة هي عملية إرساء أو تأكيد أصالة فرد أو جهاز. وهي تتضمّن التحقق من المطالبات التي يقدّمها شخص أو التي تُقدَّم عن جهاز، وضمان المقاومة لانتحال الهوية، ومنع استعادة كلمات المرور أو اعتراضها.
 
-[NIST SP 800-63](https://pages.nist.gov/800-63-3/) is a modern, evidence-based standard that is valuable for organizations worldwide, but is particularly relevant to US agencies and those interacting with US agencies.
+إن [NIST SP 800-63](https://pages.nist.gov/800-63-3/) معيار حديث قائم على الأدلة وقيّم للمؤسسات في جميع أنحاء العالم، لكنه وثيق الصلة على وجه الخصوص بالوكالات الأمريكية وبمن يتعامل معها.
 
-While many of the requirements in this chapter are based on the second section of the standard (known as NIST SP 800-63B "Digital Identity Guidelines - Authentication and Lifecycle Management"), the chapter focuses on common threats and frequently exploited authentication weaknesses. It does not attempt to comprehensively cover every point in the standard. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
+ومع أن كثيرًا من المتطلبات في هذا الفصل مبنية على القسم الثاني من ذلك المعيار (المعروف بـ NIST SP 800-63B "إرشادات الهوية الرقمية - المصادقة وإدارة دورة الحياة")، فإن الفصل يركّز على التهديدات الشائعة ونقاط ضعف المصادقة الشائعة الاستغلال. وهو لا يحاول تغطية كل نقطة في المعيار تغطيةً شاملة. وللحالات التي يكون فيها الامتثال الكامل لـ NIST SP 800-63 ضروريًا، يُرجى الرجوع إلى NIST SP 800-63.
 
-Additionally, NIST SP 800-63 terminology may sometimes differ, and this chapter often uses more commonly understood terminology to improve clarity.
+وإضافةً إلى ذلك، قد تختلف مصطلحات NIST SP 800-63 أحيانًا، ويستخدم هذا الفصل غالبًا مصطلحات أكثر شيوعًا في الفهم لتحسين الوضوح.
 
-A common feature of more advanced applications is the ability to adapt authentication stages required based on various risk factors. This feature is covered in the "Authorization" chapter, since these mechanisms also need to be considered for authorization decisions.
+ومن السمات الشائعة في التطبيقات الأكثر تقدّمًا القدرة على تكييف مراحل المصادقة المطلوبة بناءً على عوامل مخاطر متنوعة. وهذه السمة مشمولة في فصل "التخويل"، إذ يلزم مراعاة هذه الآليات في قرارات التخويل كذلك.
 
-## V6.1 Authentication Documentation
+## V6.1 توثيق المصادقة
 
-This section contains requirements detailing the authentication documentation that should be maintained for an application. This is crucial for implementing and assessing how the relevant authentication controls should be configured.
+يحتوي هذا القسم على متطلبات تبيّن توثيق المصادقة الذي ينبغي الاحتفاظ به لتطبيق ما. وهذا بالغ الأهمية لتنفيذ ضوابط المصادقة المعنية وتقدير كيفية تهيئتها.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.1.1** | Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation must make clear how these controls are configured and prevent malicious account lockout. | 1 |
-| **6.1.2** | Verify that a list of context-specific words is documented in order to prevent their use in passwords. The list could include permutations of organization names, product names, system identifiers, project codenames, department or role names, and similar. | 2 |
-| **6.1.3** | Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which must be consistently enforced across them. | 2 |
+| **6.1.1** | تحقق من أن وثائق التطبيق تحدّد كيفية استخدام ضوابط مثل تحديد المعدّل ومكافحة الأتمتة والاستجابة التكيّفية للدفاع عن هجمات مثل حشو بيانات الاعتماد والقوة الغاشمة على كلمات المرور. ويجب أن توضّح الوثائق كيفية تهيئة هذه الضوابط ومنع الإغلاق الخبيث للحسابات. | 1 |
+| **6.1.2** | تحقق من توثيق قائمة بالكلمات الخاصة بالسياق لمنع استخدامها في كلمات المرور. وقد تشتمل القائمة على تصاريف أسماء المؤسسة وأسماء المنتجات ومعرّفات الأنظمة والأسماء الرمزية للمشاريع وأسماء الأقسام أو الأدوار وما شابهها. | 2 |
+| **6.1.3** | تحقق من أنه، إذا كان التطبيق يشتمل على مسارات مصادقة متعددة، فإنها موثّقة جميعًا إلى جانب ضوابط الأمان وقوة المصادقة التي يجب إنفاذها باتساق فيها كلها. | 2 |
 
-## V6.2 Password Security
+## V6.2 أمان كلمات المرور
 
-Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, passphrases, PINs, unlock patterns, and picking the correct kitten or another image element. They are generally considered "something you know" and are often used as a single-factor authentication mechanism.
+كلمات المرور، التي يسمّيها NIST SP 800-63 "الأسرار المحفوظة"، تشمل كلمات المرور وعبارات المرور وأرقام التعريف الشخصية وأنماط إلغاء القفل واختيار الهُريرة الصحيحة أو عنصر صورة آخر. وتُعدّ عمومًا "شيئًا تعرفه" وتُستخدم غالبًا كآلية مصادقة أحادية العامل.
 
-As such, this section contains requirements for making sure that passwords are created and handled securely. Most of the requirements are L1 as they are most important at that level. From L2 onwards, multi-factor authentication mechanisms are required, where passwords may be one of those factors.
+ولذلك يحتوي هذا القسم على متطلبات للتأكد من إنشاء كلمات المرور والتعامل معها بأمان. ومعظم المتطلبات من المستوى 1 لأنها أكثر أهمية في ذلك المستوى. ومن المستوى 2 وما بعده، تكون آليات المصادقة متعددة العوامل مطلوبة، وقد تكون كلمات المرور أحد تلك العوامل.
 
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+وتتعلق المتطلبات في هذا القسم في معظمها بـ [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) من [إرشادات NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.2.1** | Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | 1 |
-| **6.2.2** | Verify that users can change their password. | 1 |
-| **6.2.3** | Verify that password change functionality requires the user's current and new password. | 1 |
-| **6.2.4** | Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords which match the application's password policy, e.g. minimum length. | 1 |
-| **6.2.5** | Verify that passwords of any composition can be used, without rules limiting the type of characters permitted. There must be no requirement for a minimum number of upper or lower case characters, numbers, or special characters. | 1 |
-| **6.2.6** | Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | 1 |
-| **6.2.7** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | 1 |
-| **6.2.8** | Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 1 |
-| **6.2.9** | Verify that passwords of at least 64 characters are permitted. | 2 |
-| **6.2.10** | Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | 2 |
-| **6.2.11** | Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | 2 |
-| **6.2.12** | Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | 2 |
+| **6.2.1** | تحقق من أن كلمات المرور التي يعيّنها المستخدم لا تقل عن 8 محارف طولًا، وإن كان يُوصى بقوة بحد أدنى قدره 15 محرفًا. | 1 |
+| **6.2.2** | تحقق من أن المستخدمين يمكنهم تغيير كلمة مرورهم. | 1 |
+| **6.2.3** | تحقق من أن وظيفة تغيير كلمة المرور تتطلّب كلمة مرور المستخدم الحالية والجديدة. | 1 |
+| **6.2.4** | تحقق من أن كلمات المرور المُقدَّمة أثناء تسجيل الحساب أو تغيير كلمة المرور تُفحص مقابل مجموعة متاحة تشمل، على الأقل، أشهر 3000 كلمة مرور مطابقة لسياسة كلمات المرور في التطبيق، مثل الحد الأدنى للطول. | 1 |
+| **6.2.5** | تحقق من إمكانية استخدام كلمات مرور بأي تركيب، دون قواعد تحدّ من نوع المحارف المسموح بها. ويجب ألا يكون هناك اشتراط لعدد أدنى من الأحرف الكبيرة أو الصغيرة أو الأرقام أو المحارف الخاصة. | 1 |
+| **6.2.6** | تحقق من أن حقول إدخال كلمة المرور تستخدم type=password لإخفاء الإدخال. وقد تسمح التطبيقات للمستخدم بعرض كلمة المرور المخفية بالكامل مؤقتًا، أو آخر محرف مكتوب منها. | 1 |
+| **6.2.7** | تحقق من السماح بوظيفة "اللصق" ومساعدات كلمات المرور في المتصفح ومديري كلمات المرور الخارجيين. | 1 |
+| **6.2.8** | تحقق من أن التطبيق يتحقق من كلمة مرور المستخدم كما استُلمت منه بالضبط، دون أي تعديلات مثل الاقتطاع أو تحويل حالة الأحرف. | 1 |
+| **6.2.9** | تحقق من السماح بكلمات مرور لا يقل طولها عن 64 محرفًا. | 2 |
+| **6.2.10** | تحقق من أن كلمة مرور المستخدم تبقى صالحة حتى يُكتشف أنها مخترقة أو يبدّلها المستخدم. ويجب ألا يشترط التطبيق تدويرًا دوريًا لبيانات الاعتماد. | 2 |
+| **6.2.11** | تحقق من استخدام القائمة الموثّقة للكلمات الخاصة بالسياق لمنع إنشاء كلمات مرور سهلة التخمين. | 2 |
+| **6.2.12** | تحقق من أن كلمات المرور المُقدَّمة أثناء تسجيل الحساب أو تغييرها تُفحص مقابل مجموعة من كلمات المرور المسرّبة. | 2 |
 
-## V6.3 General Authentication Security
+## V6.3 الأمان العام للمصادقة
 
-This section contains general requirements for the security of authentication mechanisms as well as setting out the different expectations for levels. L2 applications must force the use of multi-factor authentication (MFA). L3 applications must use hardware-based authentication, performed in an attested and trusted execution environment (TEE). This could include device-bound passkeys, eIDAS Level of Assurance (LoA) High enforced authenticators, authenticators with NIST Authenticator Assurance Level 3 (AAL3) assurance, or an equivalent mechanism.
+يحتوي هذا القسم على متطلبات عامة لأمان آليات المصادقة، وكذلك على بيان التوقعات المختلفة للمستويات. فيجب على تطبيقات المستوى 2 أن تُلزم باستخدام المصادقة متعددة العوامل (MFA). ويجب على تطبيقات المستوى 3 أن تستخدم مصادقة قائمة على العتاد، تُنفَّذ في بيئة تنفيذ موثوقة ومُصدَّقة (TEE). وقد يشمل ذلك مفاتيح المرور المرتبطة بالجهاز، أو مُصادِقات مُنفَذة بمستوى توكيد عالٍ وفق eIDAS (LoA High)، أو مُصادِقات بمستوى توكيد المُصادِق الثالث وفق NIST (AAL3)، أو آلية مكافئة.
 
-While this is a relatively aggressive stance on MFA, it is critical to raise the bar around this to protect users, and any attempt to relax these requirements should be accompanied by a clear plan on how the risks around authentication will be mitigated, taking into account NIST's guidance and research on the topic.
+ومع أن هذا موقف صارم نسبيًا بشأن المصادقة متعددة العوامل، فمن الأهمية البالغة رفع مستوى الصعوبة في هذا الشأن لحماية المستخدمين، وينبغي أن تكون أي محاولة لتخفيف هذه المتطلبات مصحوبة بخطة واضحة عن كيفية التخفيف من المخاطر المتعلقة بالمصادقة، مع مراعاة إرشادات NIST وأبحاثها في الموضوع.
 
-Note that at the time of release, NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism ([archived copy](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
+ولاحظ أن NIST SP 800-63، في وقت الإصدار، يعتبر البريد الإلكتروني [غير مقبول](https://pages.nist.gov/800-63-FAQ/#q-b11) كآلية مصادقة ([نسخة محفوظة](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
 
-The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling), and [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
+وتتعلق المتطلبات في هذا القسم بأقسام متنوعة من [إرشادات NIST](https://pages.nist.gov/800-63-3/sp800-63b.html)، منها: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types) و[&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types) و[&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling) و[&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.3.1** | Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | 1 |
-| **6.3.2** | Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 |
-| **6.3.3** | Verify that either a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms, must be used in order to access the application. For L3, one of the factors must be a hardware-based authentication mechanism which provides compromise and impersonation resistance against phishing attacks while verifying the intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key or a mobile phone). Relaxing any of the considerations in this requirement requires a fully documented rationale and a comprehensive set of mitigating controls. | 2 |
-| **6.3.4** | Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 |
-| **6.3.5** | Verify that users are notified of suspicious authentication attempts (successful or unsuccessful). This may include authentication attempts from an unusual location or client, partially successful authentication (only one of multiple factors), an authentication attempt after a long period of inactivity or a successful authentication after several unsuccessful attempts. | 3 |
-| **6.3.6** | Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 |
-| **6.3.7** | Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 3 |
-| **6.3.8** | Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality must also have this protection. | 3 |
+| **6.3.1** | تحقق من تنفيذ ضوابط لمنع هجمات مثل حشو بيانات الاعتماد والقوة الغاشمة على كلمات المرور وفق وثائق أمان التطبيق. | 1 |
+| **6.3.2** | تحقق من أن حسابات المستخدمين الافتراضية (مثل "root" أو "admin" أو "sa") غير موجودة في التطبيق أو أنها معطّلة. | 1 |
+| **6.3.3** | تحقق من أنه يجب استخدام إما آلية مصادقة متعددة العوامل أو تركيبة من آليات المصادقة أحادية العامل للوصول إلى التطبيق. وبالنسبة إلى المستوى 3، يجب أن يكون أحد العوامل آلية مصادقة قائمة على العتاد توفّر مقاومة للاختراق وانتحال الهوية أمام هجمات التصيّد، مع التحقق من نية المصادقة باشتراط إجراء يبدأه المستخدم (مثل الضغط على زر في مفتاح FIDO عتادي أو في هاتف محمول). وأي تخفيف لأي من الاعتبارات في هذا المتطلب يقتضي مبرّرًا موثّقًا بالكامل ومجموعة شاملة من الضوابط المخفِّفة. | 2 |
+| **6.3.4** | تحقق من أنه، إذا كان التطبيق يشتمل على مسارات مصادقة متعددة، فلا توجد مسارات غير موثّقة، ومن أن ضوابط الأمان وقوة المصادقة مُنفَذة باتساق. | 2 |
+| **6.3.5** | تحقق من إبلاغ المستخدمين بمحاولات المصادقة المشبوهة (الناجحة أو غير الناجحة). وقد يشمل ذلك محاولات المصادقة من موقع أو عميل غير معتاد، أو المصادقة الناجحة جزئيًا (أحد عوامل متعددة فقط)، أو محاولة مصادقة بعد فترة طويلة من عدم النشاط، أو مصادقة ناجحة بعد عدة محاولات غير ناجحة. | 3 |
+| **6.3.6** | تحقق من أن البريد الإلكتروني لا يُستخدم كآلية مصادقة أحادية العامل ولا متعددة العوامل. | 3 |
+| **6.3.7** | تحقق من إبلاغ المستخدمين بعد التحديثات على تفاصيل المصادقة، مثل إعادة تعيين بيانات الاعتماد أو تعديل اسم المستخدم أو عنوان البريد الإلكتروني. | 3 |
+| **6.3.8** | تحقق من عدم إمكانية استنتاج المستخدمين الصحيحين من تحديات المصادقة الفاشلة، مثل الاستناد إلى رسائل الأخطاء أو رموز استجابة HTTP أو اختلاف أوقات الاستجابة. ويجب أن تتوافر هذه الحماية كذلك في وظيفتي التسجيل ونسيان كلمة المرور. | 3 |
 
-## V6.4 Authentication Factor Lifecycle and Recovery
+## V6.4 دورة حياة عوامل المصادقة واستعادتها
 
-Authentication factors may include passwords, soft tokens, hardware tokens, and biometric devices. Securely handling the lifecycle of these mechanisms is critical to the security of an application, and this section includes requirements related to this.
+قد تشمل عوامل المصادقة كلمات المرور والرموز البرمجية والرموز العتادية وأجهزة القياسات الحيوية. والتعامل الآمن مع دورة حياة هذه الآليات بالغ الأهمية لأمان التطبيق، ويشتمل هذا القسم على متطلبات متعلقة بذلك.
 
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+وتتعلق المتطلبات في هذا القسم في معظمها بـ [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) أو [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) من [إرشادات NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.4.1** | Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 |
-| **6.4.2** | Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | 1 |
-| **6.4.3** | Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 2 |
-| **6.4.4** | Verify that if a multi-factor authentication factor is lost, evidence of identity proofing is performed at the same level as during enrollment. | 2 |
-| **6.4.5** | Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 3 |
-| **6.4.6** | Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 3 |
+| **6.4.1** | تحقق من أن كلمات المرور الأولية أو رموز التنشيط التي يولّدها النظام تُولَّد عشوائيًا بأمان، وتتّبع سياسة كلمات المرور القائمة، وتنتهي صلاحيتها بعد فترة قصيرة أو بعد استخدامها أول مرة. ويجب ألا يُسمح لهذه الأسرار الأولية بأن تصبح كلمة المرور طويلة الأجل. | 1 |
+| **6.4.2** | تحقق من عدم وجود تلميحات لكلمات المرور أو مصادقة قائمة على المعرفة (ما يُسمّى "الأسئلة السرّية"). | 1 |
+| **6.4.3** | تحقق من تنفيذ عملية آمنة لإعادة تعيين كلمة مرور منسيّة، لا تتجاوز أي آليات مصادقة متعددة العوامل مُمكَّنة. | 2 |
+| **6.4.4** | تحقق من أنه، في حال فقدان أحد عوامل المصادقة متعددة العوامل، يُجرى إثبات للهوية بالمستوى نفسه المتّبع أثناء التسجيل. | 2 |
+| **6.4.5** | تحقق من أن تعليمات التجديد لآليات المصادقة التي تنتهي صلاحيتها تُرسل بوقت كافٍ لتنفيذها قبل انتهاء صلاحية آلية المصادقة القديمة، مع تهيئة تذكيرات مؤتمتة إذا لزم الأمر. | 3 |
+| **6.4.6** | تحقق من أن المستخدمين الإداريين يمكنهم بدء عملية إعادة تعيين كلمة المرور للمستخدم، لكن دون أن يتيح ذلك لهم تغيير كلمة مرور المستخدم أو اختيارها. وهذا يمنع وضعًا يعرفون فيه كلمة مرور المستخدم. | 3 |
 
-## V6.5 General Multi-factor authentication requirements
+## V6.5 المتطلبات العامة للمصادقة متعددة العوامل
 
-This section provides general guidance that will be relevant to various different multi-factor authentication methods.
+يوفّر هذا القسم إرشادات عامة تكون ذات صلة بطرائق مصادقة متعددة العوامل مختلفة ومتنوعة.
 
-The mechanisms include:
+وتشمل الآليات ما يلي:
 
-* Lookup Secrets
-* Time based One-time Passwords (TOTPs)
-* Out-of-Band mechanisms
+* أسرار البحث
+* كلمات المرور لمرة واحدة المعتمدة على الوقت (TOTPs)
+* الآليات خارج النطاق
 
-Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. This type of authentication mechanism is considered "something you have" because the codes are deliberately not memorable so will need to be stored somewhere.
+أسرار البحث هي قوائم مُولَّدة مسبقًا من الرموز السرّية، شبيهة بأرقام تخويل المعاملات (TAN) أو رموز استعادة وسائل التواصل الاجتماعي أو شبكة تحتوي على مجموعة من القيم العشوائية. ويُعدّ هذا النوع من آليات المصادقة "شيئًا تملكه" لأن الرموز غير قابلة للحفظ متعمّدًا ولذلك سيلزم تخزينها في مكان ما.
 
-Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have". Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing, or some additional value (such as transaction signing calculators) to be entered to create the final One-time Password (OTP).
+وكلمات المرور لمرة واحدة المعتمدة على الوقت (TOTPs) هي رموز فيزيائية أو برمجية تعرض تحديًا شبه عشوائي لمرة واحدة يتغيّر باستمرار. ويُعدّ هذا النوع من آليات المصادقة "شيئًا تملكه". وكلمات المرور لمرة واحدة متعددة العوامل شبيهة بأحادية العامل، لكنها تتطلّب إدخال رقم تعريف شخصي صحيح أو إلغاء قفل بالقياسات الحيوية أو إدخال USB أو إقران NFC أو قيمة إضافية (مثل حاسبات توقيع المعاملات) لإنشاء كلمة المرور لمرة واحدة النهائية (OTP).
 
-Details on out-of-band mechanisms will be provided in the next section.
+وستُقدَّم تفاصيل عن الآليات خارج النطاق في القسم التالي.
 
-The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+وتتعلق المتطلبات في هذه الأقسام في معظمها بـ [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets) و[&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices) و[&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers) و[&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers) و[&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators) و[&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) من [إرشادات NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.5.1** | Verify that lookup secrets, out-of-band authentication requests or codes, and time-based one-time passwords (TOTPs) are only successfully usable once. | 2 |
-| **6.5.2** | Verify that, when being stored in the application's backend, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 |
-| **6.5.3** | Verify that lookup secrets, out-of-band authentication code, and time-based one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 |
-| **6.5.4** | Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 |
-| **6.5.5** | Verify that out-of-band authentication requests, codes, or tokens, as well as time-based one-time passwords (TOTPs) have a defined lifetime. Out of band requests must have a maximum lifetime of 10 minutes and for TOTP a maximum lifetime of 30 seconds. | 2 |
-| **6.5.6** | Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 |
-| **6.5.7** | Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 |
-| **6.5.8** | Verify that time-based one-time passwords (TOTPs) are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 |
+| **6.5.1** | تحقق من أن أسرار البحث وطلبات أو رموز المصادقة خارج النطاق وكلمات المرور لمرة واحدة المعتمدة على الوقت (TOTPs) لا يمكن استخدامها بنجاح إلا مرة واحدة. | 2 |
+| **6.5.2** | تحقق من أن أسرار البحث التي تقل عشوائيتها عن 112 بتًا (19 محرفًا أبجديًا رقميًا عشوائيًا أو 34 رقمًا عشوائيًا)، عند تخزينها في الواجهة الخلفية للتطبيق، تُلبَّد بخوارزمية تلبيد معتمدة لتخزين كلمات المرور تشتمل على ملح عشوائي بطول 32 بتًا. ويمكن استخدام دالة تلبيد قياسية إذا كانت عشوائية السر 112 بتًا أو أكثر. | 2 |
+| **6.5.3** | تحقق من أن أسرار البحث ورموز المصادقة خارج النطاق وبذور كلمات المرور لمرة واحدة المعتمدة على الوقت تُولَّد باستخدام مولّد أعداد شبه عشوائية آمن تشفيريًا (CSPRNG) لتجنّب القيم القابلة للتوقع. | 2 |
+| **6.5.4** | تحقق من أن أسرار البحث ورموز المصادقة خارج النطاق تمتلك 20 بتًا على الأقل من العشوائية (وعادةً يكفي 4 محارف أبجدية رقمية عشوائية أو 6 أرقام عشوائية). | 2 |
+| **6.5.5** | تحقق من أن طلبات أو رموز أو رموز المصادقة خارج النطاق المميزة، وكذلك كلمات المرور لمرة واحدة المعتمدة على الوقت (TOTPs)، لها عمر محدّد. ويجب أن يكون للطلبات خارج النطاق عمر أقصى قدره 10 دقائق، ولكلمات المرور لمرة واحدة المعتمدة على الوقت عمر أقصى قدره 30 ثانية. | 2 |
+| **6.5.6** | تحقق من إمكانية إبطال أي عامل مصادقة (بما فيها الأجهزة الفيزيائية) في حال السرقة أو أي فقدان آخر. | 3 |
+| **6.5.7** | تحقق من أن آليات المصادقة بالقياسات الحيوية لا تُستخدم إلا كعوامل ثانوية إلى جانب إما شيء تملكه أو شيء تعرفه. | 3 |
+| **6.5.8** | تحقق من أن كلمات المرور لمرة واحدة المعتمدة على الوقت (TOTPs) تُفحص بناءً على مصدر وقت من خدمة موثوقة وليس من وقت غير موثوق أو مقدَّم من العميل. | 3 |
 
-## V6.6 Out-of-Band authentication mechanisms
+## V6.6 آليات المصادقة خارج النطاق
 
-This usually involves the authentication server communicating with a physical device over a secure secondary channel. For example, sending push notifications to mobile devices. This type of authentication mechanism is considered "something you have".
+يتضمّن ذلك عادةً تواصل خادم المصادقة مع جهاز فيزيائي عبر قناة ثانوية آمنة. على سبيل المثال، إرسال إشعارات دفع إلى الأجهزة المحمولة. ويُعدّ هذا النوع من آليات المصادقة "شيئًا تملكه".
 
-Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently considered to be ["restricted" authentication mechanisms](https://pages.nist.gov/800-63-FAQ/#q-b01) by NIST and should be deprecated in favor of Time based One-time Passwords (TOTPs), a cryptographic mechanism, or similar. NIST SP 800-63B [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network) recommends addressing the risks of device swap, SIM change, number porting, or other abnormal behavior, if telephone or SMS out-of-band authentication absolutely has to be supported. While this ASVS section does not mandate this as a requirement, not taking these precautions for a sensitive L2 app or an L3 app should be seen as a significant red flag.
+ولا يُسمح بآليات المصادقة خارج النطاق غير الآمنة مثل البريد الإلكتروني والصوت عبر الإنترنت (VOIP). وتُعدّ المصادقة عبر شبكة الهاتف العمومية المبدّلة والرسائل القصيرة حاليًا [آليات مصادقة "مقيّدة"](https://pages.nist.gov/800-63-FAQ/#q-b01) لدى NIST وينبغي إيقافها لصالح كلمات المرور لمرة واحدة المعتمدة على الوقت (TOTPs) أو آلية تشفيرية أو ما شابه. ويوصي NIST SP 800-63B في [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network) بمعالجة مخاطر تبديل الجهاز أو تغيير بطاقة SIM أو نقل الرقم أو أي سلوك شاذ آخر، إذا كان لا بد من دعم المصادقة خارج النطاق عبر الهاتف أو الرسائل القصيرة. ومع أن هذا القسم من معيار التحقق من أمان التطبيقات لا يُلزم بذلك كمتطلب، فإن عدم اتخاذ هذه الاحتياطات في تطبيق حساس من المستوى 2 أو في تطبيق من المستوى 3 ينبغي أن يُنظر إليه كعلامة تحذير كبيرة.
 
-Note that NIST has also recently provided guidance which [discourages the use of push notifications](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/#fig-3). While this ASVS section does not do so, it is important to be aware of the risks of "push bombing".
+ولاحظ أن NIST قدّم كذلك مؤخرًا إرشادات [تثني عن استخدام إشعارات الدفع](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/#fig-3). ومع أن هذا القسم من معيار التحقق من أمان التطبيقات لا يفعل ذلك، فمن المهم الوعي بمخاطر "إغراق إشعارات الدفع".
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.6.1** | Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when the phone number has previously been validated, alternate stronger methods (such as Time based One-time Passwords) are also offered, and the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 |
-| **6.6.2** | Verify that out-of-band authentication requests, codes, or tokens are bound to the original authentication request for which they were generated and are not usable for a previous or subsequent one. | 2 |
-| **6.6.3** | Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using rate limiting. Consider also using a code with at least 64 bits of entropy. | 2 |
-| **6.6.4** | Verify that, where push notifications are used for multi-factor authentication, rate limiting is used to prevent push bombing attacks. Number matching may also mitigate this risk. | 3 |
+| **6.6.1** | تحقق من أن آليات المصادقة التي تستخدم شبكة الهاتف العمومية المبدّلة (PSTN) لتسليم كلمات المرور لمرة واحدة (OTPs) عبر الهاتف أو الرسائل القصيرة لا تُقدَّم إلا إذا كان رقم الهاتف قد تم التحقق منه مسبقًا، وتُقدَّم كذلك طرائق بديلة أقوى (مثل كلمات المرور لمرة واحدة المعتمدة على الوقت)، وتوفّر الخدمة معلومات للمستخدمين عن مخاطرها الأمنية. وبالنسبة إلى تطبيقات المستوى 3، يجب ألا يكون الهاتف والرسائل القصيرة متاحين كخيارين. | 2 |
+| **6.6.2** | تحقق من أن طلبات أو رموز المصادقة خارج النطاق أو الرموز المميزة مرتبطة بطلب المصادقة الأصلي الذي وُلّدت من أجله وأنها غير قابلة للاستخدام في طلب سابق أو لاحق. | 2 |
+| **6.6.3** | تحقق من أن آلية المصادقة خارج النطاق القائمة على رمز محمية من هجمات القوة الغاشمة باستخدام تحديد المعدّل. وينبغي كذلك النظر في استخدام رمز بعشوائية لا تقل عن 64 بتًا. | 2 |
+| **6.6.4** | تحقق من أنه، حيث تُستخدم إشعارات الدفع للمصادقة متعددة العوامل، يُستخدم تحديد المعدّل لمنع هجمات إغراق إشعارات الدفع. وقد يخفّف مطابقة الأرقام من هذا الخطر كذلك. | 3 |
 
-## V6.7 Cryptographic authentication mechanism
+## V6.7 آلية المصادقة التشفيرية
 
-Cryptographic authentication mechanisms include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authentication server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key. The requirements in this section provide implementation-specific guidance for these mechanisms, with guidance on cryptographic algorithms being covered in the "Cryptography" chapter.
+تشمل آليات المصادقة التشفيرية البطاقات الذكية أو مفاتيح FIDO، حيث يتعيّن على المستخدم إدخال الجهاز التشفيري أو إقرانه بالحاسوب لإتمام المصادقة. ويرسل خادم المصادقة قيمة عشوائية للتحدي إلى الجهاز أو البرمجية التشفيرية، فيحسب الجهاز أو البرمجية استجابة بناءً على مفتاح تشفيري مخزَّن بأمان. وتوفّر المتطلبات في هذا القسم إرشادات خاصة بالتنفيذ لهذه الآليات، أما الإرشادات المتعلقة بخوارزميات التشفير فهي مشمولة في فصل "التشفير".
 
-Where shared or secret keys are used for cryptographic authentication, these should be stored using the same mechanisms as other system secrets, as documented in the "Secret Management" section in the "Configuration" chapter.
+وحيث تُستخدم مفاتيح مشتركة أو سرّية للمصادقة التشفيرية، ينبغي تخزينها باستخدام الآليات نفسها المستخدمة لأسرار النظام الأخرى، على النحو الموثّق في قسم "إدارة الأسرار" في فصل "التكوين".
 
-The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+وتتعلق المتطلبات في هذا القسم في معظمها بـ [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) من [إرشادات NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.7.1** | Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 |
-| **6.7.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 |
+| **6.7.1** | تحقق من أن الشهادات المستخدمة للتحقق من تأكيدات المصادقة التشفيرية مخزَّنة بطريقة تحميها من التعديل. | 3 |
+| **6.7.2** | تحقق من أن قيمة التحدي العشوائية لا يقل طولها عن 64 بتًا، وأنها فريدة إحصائيًا أو فريدة على مدى عمر الجهاز التشفيري. | 3 |
 
-## V6.8 Authentication with an Identity Provider
+## V6.8 المصادقة عبر مزوّد هوية
 
-Identity Providers (IdPs) provide federated identity for users. Users will often have more than one identity with multiple IdPs, such as an enterprise identity using Azure AD, Okta, Ping Identity, or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name just a few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the IdP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throwaway identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
+يوفّر مزوّدو الهوية (IdPs) هوية اتحادية للمستخدمين. وكثيرًا ما يكون للمستخدمين أكثر من هوية لدى مزوّدي هوية متعددين، مثل هوية مؤسسية باستخدام Azure AD أو Okta أو Ping Identity أو Google، أو هوية استهلاكية باستخدام Facebook أو Twitter أو Google أو WeChat، على سبيل الذكر لبعض البدائل الشائعة. وهذه القائمة ليست تزكية لهذه الشركات أو الخدمات، بل مجرّد تشجيع للمطوّرين على مراعاة واقع أن كثيرًا من المستخدمين لديهم هويات مُرسَّخة كثيرة. وينبغي للمؤسسات النظر في التكامل مع هويات المستخدمين القائمة، وفق ملف مخاطر قوة إثبات الهوية لدى مزوّد الهوية. فعلى سبيل المثال، من غير المرجّح أن تقبل مؤسسة حكومية هوية من وسائل التواصل الاجتماعي كوسيلة دخول إلى أنظمة حساسة، إذ يسهل إنشاء هويات مزيّفة أو للاستخدام مرة واحدة، في حين قد تحتاج شركة ألعاب محمولة فعلًا إلى التكامل مع منصات التواصل الاجتماعي الكبرى لتنمية قاعدة لاعبيها النشطين.
 
-Secure use of external identity providers requires careful configuration and verification to prevent identity spoofing or forged assertions. This section provides requirements to address these risks.
+ويقتضي الاستخدام الآمن لمزوّدي الهوية الخارجيين تهيئة وتحققًا دقيقين لمنع انتحال الهوية أو تزوير التأكيدات. ويوفّر هذا القسم متطلبات لمعالجة هذه المخاطر.
 
-| # | Description | Level |
+| # | الوصف | المستوى |
 | :---: | :--- | :---: |
-| **6.8.1** | Verify that, if the application supports multiple identity providers (IdPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). The standard mitigation would be for the application to register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IdP. | 2 |
-| **6.8.2** | Verify that the presence and integrity of digital signatures on authentication assertions (for example on JWTs or SAML assertions) are always validated, rejecting any assertions that are unsigned or have invalid signatures. | 2 |
-| **6.8.3** | Verify that SAML assertions are uniquely processed and used only once within the validity period to prevent replay attacks. | 2 |
-| **6.8.4** | Verify that, if an application uses a separate Identity Provider (IdP) and expects specific authentication strength, methods, or recentness for specific functions, the application verifies this using the information returned by the IdP. For example, if OIDC is used, this might be achieved by validating ID Token claims such as 'acr', 'amr', and 'auth_time' (if present). If the IdP does not provide this information, the application must have a documented fallback approach that assumes that the minimum strength authentication mechanism was used (for example, single-factor authentication using username and password). | 2 |
+| **6.8.1** | تحقق من أنه، إذا كان التطبيق يدعم مزوّدي هوية متعددين (IdPs)، فلا يمكن انتحال هوية المستخدم عبر مزوّد هوية مدعوم آخر (مثلًا باستخدام معرّف المستخدم نفسه). والتخفيف القياسي أن يسجّل التطبيق المستخدم ويعرّفه باستخدام تركيبة من معرّف مزوّد الهوية (بوصفه مساحة أسماء) ومعرّف المستخدم لدى ذلك المزوّد. | 2 |
+| **6.8.2** | تحقق من أن وجود التوقيعات الرقمية على تأكيدات المصادقة وسلامتها (مثلًا على رموز JWT أو تأكيدات SAML) يُتحقَّق منهما دائمًا، مع رفض أي تأكيدات غير موقّعة أو ذات توقيعات غير صحيحة. | 2 |
+| **6.8.3** | تحقق من أن تأكيدات SAML تُعالَج على نحو فريد وتُستخدم مرة واحدة فقط خلال مدة الصلاحية لمنع هجمات إعادة الإرسال. | 2 |
+| **6.8.4** | تحقق من أنه، إذا كان التطبيق يستخدم مزوّد هوية منفصلًا (IdP) ويتوقع قوة أو طرائق أو حداثة مصادقة معيّنة لوظائف بعينها، فإن التطبيق يتحقق من ذلك باستخدام المعلومات التي يعيدها مزوّد الهوية. فعلى سبيل المثال، إذا استُخدم OIDC، فقد يتحقق ذلك بالتحقق من مطالبات رمز الهوية مثل 'acr' و'amr' و'auth_time' (إن وُجدت). وإذا لم يوفّر مزوّد الهوية هذه المعلومات، فيجب أن يكون للتطبيق منهج احتياطي موثّق يفترض أن آلية المصادقة الأدنى قوة قد استُخدمت (مثلًا مصادقة أحادية العامل باستخدام اسم المستخدم وكلمة المرور). | 2 |
 
-## References
+## المراجع
 
-For more information, see also:
+لمزيد من المعلومات، انظر أيضًا:
 
 * [NIST SP 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST SP 800-63B - Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)

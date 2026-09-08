@@ -1,195 +1,195 @@
-# What is the ASVS?
+# ما هو معيار التحقق من أمان التطبيقات؟
 
-The Application Security Verification Standard (ASVS) defines security requirements for web applications and services, and it is a valuable resource for anyone aiming to design, develop, and maintain secure applications or evaluate their security.
+يحدّد معيار التحقق من أمان التطبيقات (ASVS) متطلبات أمنية لتطبيقات الويب وخدماته، وهو مورد قيّم لكل من يسعى إلى تصميم تطبيقات آمنة وتطويرها وصيانتها أو إلى تقييم أمانها.
 
-This chapter outlines the essential aspects of using the ASVS, including its scope, the structure of its priority-based levels, and the primary use cases for the standard.
+ويبيّن هذا الفصل الجوانب الجوهرية لاستخدام معيار التحقق من أمان التطبيقات، بما فيها نطاقه وبنية مستوياته القائمة على الأولوية وحالات الاستخدام الرئيسية للمعيار.
 
-## Scope of the ASVS
+## نطاق معيار التحقق من أمان التطبيقات
 
-The scope of the ASVS is defined by its name: Application, Security, Verification, and Standard. It establishes which requirements are included or excluded, with the overarching goal of identifying the security principles that must be achieved. The scope also considers documentation requirements, which serve as the foundation for implementation requirements.
+يتحدّد نطاق معيار التحقق من أمان التطبيقات باسمه: التطبيق والأمان والتحقق والمعيار. فهو يرسي أي المتطلبات مُدرجة وأيها مستثناة، مع الهدف الشامل لتحديد المبادئ الأمنية التي يجب تحقيقها. ويراعي النطاق كذلك متطلبات التوثيق، التي تشكّل الأساس لمتطلبات التنفيذ.
 
-There is no such thing as scope for attackers. Therefore, ASVS requirements should be evaluated alongside guidance for other aspects of the application lifecycle, including CI/CD processes, hosting, and operational activities.
+ولا وجود لشيء يُسمّى نطاقًا بالنسبة إلى المهاجمين. ولذلك ينبغي تقييم متطلبات معيار التحقق من أمان التطبيقات إلى جانب الإرشادات المتعلقة بجوانب أخرى من دورة حياة التطبيق، بما فيها عمليات التكامل والتسليم المستمرين (CI/CD) والاستضافة والأنشطة التشغيلية.
 
-### Application
+### التطبيق
 
-ASVS defines an "application" as the software product being developed, into which security controls must be integrated. ASVS does not prescribe development lifecycle activities or dictate how the application should be built via a CI/CD pipeline; instead, it specifies the security outcomes that must be achieved within the product itself.
+يُعرّف معيار التحقق من أمان التطبيقات "التطبيق" بأنه المنتج البرمجي قيد التطوير، الذي يجب دمج ضوابط الأمان فيه. ولا يفرض معيار التحقق من أمان التطبيقات أنشطة دورة حياة التطوير ولا يحدّد كيفية بناء التطبيق عبر خط CI/CD؛ بل يحدّد المخرجات الأمنية التي يجب تحقيقها داخل المنتج نفسه.
 
-Components that serve, modify, or validate HTTP traffic, such as Web Application Firewalls (WAFs), load balancers, or proxies, may be considered part of the application for those specific purposes, as some security controls depend directly on them or can be implemented through them. These components should be considered for requirements related to cached responses, rate limiting, or restricting incoming and outgoing connections based on source and destination.
+وقد تُعدّ المكوّنات التي تقدّم حِزَم HTTP أو تعدّلها أو تتحقق منها، مثل جدران حماية تطبيقات الويب (WAFs) أو موازنات الحمل أو الوكلاء، جزءًا من التطبيق لتلك الأغراض بعينها، إذ تعتمد بعض ضوابط الأمان عليها مباشرةً أو يمكن تنفيذها من خلالها. وينبغي مراعاة هذه المكوّنات في المتطلبات المتعلقة بالاستجابات المخزَّنة مؤقتًا أو تحديد المعدّل أو تقييد الاتصالات الواردة والصادرة بناءً على المصدر والمقصد.
 
-Conversely, ASVS generally excludes requirements that are not directly relevant to the application or where configuration is outside the application's responsibility. For example, DNS issues are typically managed by a separate team or function.
+وفي المقابل، يستثني معيار التحقق من أمان التطبيقات عمومًا المتطلبات التي ليست ذات صلة مباشرة بالتطبيق أو التي يكون تكوينها خارج مسؤولية التطبيق. على سبيل المثال، تُدار مشكلات نظام أسماء النطاقات (DNS) عادةً بواسطة فريق أو وظيفة منفصلة.
 
-Similarly, while the application is responsible for how it consumes input and produces output, if an external process interacts with the application or its data, it is considered out of scope for ASVS. For instance, backing up the application or its data is usually the responsibility of an external process and is not controlled by the application or its developers.
+وبالمثل، مع أن التطبيق مسؤول عن كيفية استهلاكه للمدخلات وإنتاجه للمخرجات، فإذا تفاعلت عملية خارجية مع التطبيق أو بياناته، فإنها تُعدّ خارج نطاق معيار التحقق من أمان التطبيقات. فعلى سبيل المثال، يكون النسخ الاحتياطي للتطبيق أو لبياناته عادةً مسؤولية عملية خارجية ولا يتحكّم فيه التطبيق أو مطوّروه.
 
-### Security
+### الأمان
 
-Every requirement must have a demonstrable impact on security. The absence of a requirement must result in a less secure application, and implementing the requirement must reduce either the likelihood or the impact of a security risk.
+يجب أن يكون لكل متطلب أثر ملموس على الأمان. ويجب أن يؤدي غياب المتطلب إلى تطبيق أقل أمانًا، ويجب أن يقلّل تنفيذ المتطلب إما احتمال وقوع خطر أمني أو أثره.
 
-All other considerations, such as functional aspects, code style, or policy requirements, are out of scope.
+أما جميع الاعتبارات الأخرى، مثل الجوانب الوظيفية أو أسلوب كتابة الشيفرة أو متطلبات السياسات، فهي خارج النطاق.
 
-### Verification
+### التحقق
 
-The requirement must be verifiable, and the verification must result in a "fail" or "pass" decision.
+يجب أن يكون المتطلب قابلًا للتحقق، ويجب أن يؤدي التحقق إلى قرار "فشل" أو "نجاح".
 
-### Standard
+### المعيار
 
-The ASVS is designed to be a collection of security requirements to be implemented to comply with the standard. This means that requirements are limited to defining the security goal to achieve that. Other related information can be built on top of ASVS or linked via mappings.
+صُمِّم معيار التحقق من أمان التطبيقات ليكون مجموعة من المتطلبات الأمنية التي يجب تنفيذها للامتثال للمعيار. ويعني ذلك أن المتطلبات تقتصر على تحديد الهدف الأمني الذي ينبغي تحقيقه. ويمكن بناء المعلومات الأخرى ذات الصلة فوق معيار التحقق من أمان التطبيقات أو ربطها به عبر التخطيطات.
 
-Specifically, OWASP has many projects, and the ASVS deliberately avoids overlapping with the content in other projects. For example, developers may have a question, "how do I implement a particular requirement in my particular technology or environment," and this should be covered by the Cheat Sheet Series project. Verifiers may have a question "how do I test this requirement in this environment," and this should be covered by the Web Security Testing Guide project.
+وعلى وجه التحديد، لدى OWASP مشاريع كثيرة، ويتجنّب معيار التحقق من أمان التطبيقات متعمّدًا التداخل مع محتوى المشاريع الأخرى. فعلى سبيل المثال، قد يكون لدى المطوّرين سؤال: "كيف أنفّذ متطلبًا معيّنًا في تقنيتي أو بيئتي بعينها"، وهذا ينبغي أن يغطّيه مشروع Cheat Sheet Series. وقد يكون لدى المدقّقين سؤال: "كيف أختبر هذا المتطلب في هذه البيئة"، وهذا ينبغي أن يغطّيه مشروع Web Security Testing Guide.
 
-Whilst the ASVS is not just intended for security experts to use, it does expect the reader to have technical knowledge to understand the content or the ability to research particular concepts.
+ومع أن معيار التحقق من أمان التطبيقات ليس موجّهًا لاستخدام خبراء الأمان وحدهم، فإنه يتوقع من القارئ أن يمتلك معرفة تقنية لفهم المحتوى أو القدرة على البحث في مفاهيم بعينها.
 
-### Requirement
+### المتطلب
 
-The word requirement is used specifically in the ASVS as it describes what must be achieved to satisfy it. The ASVS only contains requirements (must) and does not contain recommendations (should) as the main condition.
+تُستخدم كلمة متطلب في معيار التحقق من أمان التطبيقات على وجه التحديد لأنها تصف ما يجب تحقيقه لاستيفائه. ولا يحتوي معيار التحقق من أمان التطبيقات إلا على متطلبات (يجب) ولا يحتوي على توصيات (ينبغي) كشرط رئيسي.
 
-In other words, recommendations, whether they are just one of many possible options to solve a problem or code style considerations, do not satisfy the definition to be a requirement.
+وبعبارة أخرى، فإن التوصيات، سواء كانت مجرّد خيار من خيارات ممكنة كثيرة لحل مشكلة أو اعتبارات لأسلوب كتابة الشيفرة، لا تستوفي التعريف لتكون متطلبًا.
 
-ASVS requirements are intended to address specific security principles without being too implementation or technology-specific, at the same time, being self-explanatory as to why they exist. This also means that requirements are not built around a particular verification method or implementation.
+والمقصود من متطلبات معيار التحقق من أمان التطبيقات تناول مبادئ أمنية محدّدة دون أن تكون شديدة الخصوصية بالتنفيذ أو التقنية، وأن تكون في الوقت نفسه شارحة لنفسها فيما يخص سبب وجودها. ويعني ذلك كذلك أن المتطلبات ليست مبنية حول طريقة تحقق أو تنفيذ بعينها.
 
-### Documented security decisions
+### القرارات الأمنية الموثّقة
 
-In software security, planning security design and the mechanisms to be used early on will lead to a more consistent and reliable implementation in the finished product or feature.
+في أمان البرمجيات، سيؤدي التخطيط للتصميم الأمني والآليات التي ستُستخدم في وقت مبكر إلى تنفيذ أكثر اتساقًا وموثوقية في المنتج أو الميزة النهائية.
 
-Additionally, for certain requirements, implementation will be complicated and very specific to an application's needs. Common examples include permissions, input validation, and protective controls around different levels of sensitive data.
+وإضافةً إلى ذلك، سيكون التنفيذ في بعض المتطلبات معقّدًا وخاصًا جدًا باحتياجات التطبيق. ومن الأمثلة الشائعة الصلاحيات والتحقق من صحة المدخلات والضوابط الحمائية حول مستويات مختلفة من البيانات الحساسة.
 
-To account for this, rather than sweeping statements like "all data must be encrypted" or trying to cover every possible use case in a requirement, documentation requirements were included which mandate that the application developer's approach and configuration to these sorts of controls must be documented. This can then be reviewed for appropriateness and then the actual implementation can be compared to the documentation to assess whether the implementation matches expectations.
+ولمراعاة ذلك، وبدلًا من عبارات عامة مثل "يجب تشفير جميع البيانات" أو محاولة تغطية كل حالة استخدام ممكنة في متطلب واحد، أُدرجت متطلبات توثيق تُلزم بتوثيق منهج مطوّر التطبيق وتكوينه لهذه الأنواع من الضوابط. ويمكن بعد ذلك مراجعة ذلك للتأكد من ملاءمته، ثم مقارنة التنفيذ الفعلي بالوثائق لتقدير ما إذا كان التنفيذ يطابق التوقعات.
 
-These requirements are intended to document the decisions which the organization developing the application has taken regarding how to implement certain security requirements.
+والمقصود من هذه المتطلبات توثيق القرارات التي اتخذتها المؤسسة المطوّرة للتطبيق بشأن كيفية تنفيذ متطلبات أمنية معيّنة.
 
-Documentation requirements are always in the first section of a chapter (although not every chapter has them) and always have a related implementation requirement where the decisions that are documented should actually be put into place. The point here is that verifying that the documentation is in place and that the actual implementation are two separate activities.
+وتكون متطلبات التوثيق دائمًا في القسم الأول من الفصل (وإن لم يكن لكل فصل متطلبات توثيق)، ويكون لها دائمًا متطلب تنفيذ مرتبط بها ينبغي فيه تطبيق القرارات الموثّقة فعليًا. والمقصد هنا أن التحقق من وجود الوثائق والتحقق من التنفيذ الفعلي نشاطان منفصلان.
 
-There are two key drivers for including these requirements. The first driver is that a security requirement will often involve enforcing rules e.g., what kind of file types are allowed to be uploaded, what business controls should be enforced, what are the allowed characters for a particular field. These rules will differ for every application, and therefore, the ASVS cannot prescriptively define what they should be, nor will a cheat sheet or more detailed response help in this case. Similarly, without these decisions being documented, it will not be possible to perform verification of the requirements that implement these decisions.
+وهناك محرّكان رئيسيان لإدراج هذه المتطلبات. المحرّك الأول أن المتطلب الأمني كثيرًا ما يتضمّن إنفاذ قواعد، مثل أنواع الملفات المسموح بتحميلها، وضوابط العمل التي ينبغي إنفاذها، والمحارف المسموح بها في حقل معيّن. وستختلف هذه القواعد في كل تطبيق، ولذلك لا يستطيع معيار التحقق من أمان التطبيقات أن يحدّد إلزاميًا ما ينبغي أن تكون عليه، ولن تفيد ورقة مرجعية أو استجابة أكثر تفصيلًا في هذه الحالة. وبالمثل، فمن دون توثيق هذه القرارات، لن يكون من الممكن إجراء تحقق من المتطلبات التي تنفّذها.
 
-The second driver is that for certain requirements, it is important to provide an application development with flexibility regarding how to address particular security challenges. For example, in previous ASVS versions, session timeout rules were very prescriptive. Practically speaking, many applications, especially those that are consumer-facing, have much more relaxed rules and prefer to implement other mitigation controls instead. Documentation requirements, therefore, explicitly allow for flexibility around this.
+والمحرّك الثاني أنه من المهم، في متطلبات معيّنة، منح جهة تطوير التطبيق مرونة بشأن كيفية تناول تحديات أمنية بعينها. فعلى سبيل المثال، كانت قواعد مهلة الجلسة في إصدارات معيار التحقق من أمان التطبيقات السابقة إلزامية جدًا. ومن الناحية العملية، لدى تطبيقات كثيرة، وخصوصًا الموجّهة إلى المستهلكين، قواعد أكثر تسامحًا بكثير وتفضّل تنفيذ ضوابط تخفيف أخرى بدلًا من ذلك. ولذلك تتيح متطلبات التوثيق مرونة صريحة في هذا الشأن.
 
-Clearly, it is not expected that individual developers will be making and documenting these decisions but rather the organization as a whole will be taking those decisions and making sure that they are communicated to developers who then make sure to follow them.
+ومن الواضح أنه ليس من المتوقع أن يتخذ المطوّرون الأفراد هذه القرارات ويوثّقوها، بل ستتخذها المؤسسة ككل وتتأكد من إبلاغها إلى المطوّرين الذين يحرصون بعد ذلك على اتباعها.
 
-Providing developers with specifications and designs for new features and functionality is a standard part of software development. Similarly, developers are expected to use common components and user interface mechanisms rather than just making their own decisions each time. As such, extending this to security should not be seen as surprising or controversial.
+إن تزويد المطوّرين بمواصفات وتصاميم للميزات والوظائف الجديدة جزء معتاد من تطوير البرمجيات. وبالمثل، يُتوقع من المطوّرين استخدام مكوّنات وآليات واجهة مستخدم مشتركة بدلًا من مجرّد اتخاذ قراراتهم الخاصة كل مرة. ولذلك لا ينبغي أن يُنظر إلى توسيع ذلك ليشمل الأمان كأمر مفاجئ أو مثير للجدل.
 
-There is also flexibility around how to achieve this. Security decisions might be documented in a literal document, which developers are expected to refer to. Alternatively, security decisions could be documented and implemented in a common code library that all developers are mandated to use. In both cases, the desired result is achieved.
+وهناك مرونة كذلك في كيفية تحقيق ذلك. فقد تُوثَّق القرارات الأمنية في مستند فعلي يُتوقع من المطوّرين الرجوع إليه. وبدلًا من ذلك، قد تُوثَّق القرارات الأمنية وتُنفَّذ في مكتبة شيفرة مشتركة يُلزم جميع المطوّرين باستخدامها. وفي كلتا الحالتين تتحقق النتيجة المرجوة.
 
-## Application Security Verification Levels
+## مستويات التحقق من أمان التطبيقات
 
-The ASVS defines three security verification levels, with each level increasing in depth and complexity. The general aim is for organizations to start with the first level to address the most critical security concerns, and then move up to the higher levels according to the organization and application needs. Levels may be presented as L1, L2, and L3 in the document and in requirement texts.
+يحدّد معيار التحقق من أمان التطبيقات ثلاثة مستويات للتحقق الأمني، يتزايد كل مستوى منها في العمق والتعقيد. والهدف العام أن تبدأ المؤسسات بالمستوى الأول لتناول أهم الاعتبارات الأمنية، ثم تنتقل إلى المستويات الأعلى وفق احتياجات المؤسسة والتطبيق. وقد تُعرض المستويات في المستند وفي نصوص المتطلبات بالصور L1 وL2 وL3.
 
-Each ASVS level indicates the security requirements that are required to achieve from that level, with the higher remaining level requirements as recommendations.
+ويشير كل مستوى في معيار التحقق من أمان التطبيقات إلى المتطلبات الأمنية اللازم تحقيقها من ذلك المستوى، مع اعتبار متطلبات المستويات الأعلى المتبقية توصيات.
 
-In order to avoid duplicate requirements or requirements that are no longer relevant at higher levels, some requirements apply to a particular level but have more stringent conditions for higher levels.
+ولتجنّب المتطلبات المكرّرة أو المتطلبات التي لم تعد ذات صلة في المستويات الأعلى، تنطبق بعض المتطلبات على مستوى معيّن لكن بشروط أكثر صرامة في المستويات الأعلى.
 
-### Level evaluation
+### تقييم المستويات
 
-Levels are defined by priority-based evaluation of each requirement based on experience implementing and testing security requirements. The main focus is on comparing risk reduction with the effort to implement the requirement. Another key factor is to keep a low barrier to entry.
+تُحدَّد المستويات بتقييم قائم على الأولوية لكل متطلب بناءً على الخبرة في تنفيذ المتطلبات الأمنية واختبارها. والتركيز الرئيسي على مقارنة تقليل المخاطر بالجهد اللازم لتنفيذ المتطلب. وهناك عامل رئيسي آخر هو الحفاظ على حاجز دخول منخفض.
 
-Risk reduction considers the extent to which the requirement reduces the level of security risk within the application, taking into account the classic Confidentiality, Integrity, and Availability impact factors as well as considering whether this is a primary layer of defense or whether it would be considered defense in depth.
+ويراعي تقليل المخاطر مدى تقليل المتطلب لمستوى الخطر الأمني في التطبيق، مع مراعاة عوامل الأثر الكلاسيكية للسرية والسلامة والتوافر، وكذلك النظر في ما إذا كان هذا طبقة دفاع أولية أو يُعدّ دفاعًا في العمق.
 
-The rigorous discussions around both the criteria and the leveling decisions have resulted in an allocation which should hold true for the vast majority of cases, whilst accepting that it may not be a 100% fit for every situation. This means that in certain cases, organizations may wish to prioritize requirements from a higher level earlier on based on their own specific risk considerations.
+وقد أدّت المناقشات الدقيقة حول المعايير وقرارات المستويات على حد سواء إلى توزيع ينبغي أن يصحّ في الأغلبية الساحقة من الحالات، مع الإقرار بأنه قد لا يكون ملائمًا بنسبة 100% لكل وضع. ويعني ذلك أن المؤسسات قد ترغب في حالات معيّنة في إعطاء أولوية أبكر لمتطلبات من مستوى أعلى بناءً على اعتباراتها الخاصة للمخاطر.
 
-The types of requirements in each level could be characterized as follows.
+ويمكن توصيف أنواع المتطلبات في كل مستوى على النحو التالي.
 
-### Level 1
+### المستوى 1
 
-This level contains the minimum requirements to consider when securing an application and represents a critical starting point. This level contains around 20% of the ASVS requirements. The goal for this level is to have as few requirements as possible, to decrease the barrier to entry.
+يحتوي هذا المستوى على الحد الأدنى من المتطلبات التي ينبغي مراعاتها عند تأمين تطبيق، ويمثّل نقطة انطلاق بالغة الأهمية. ويحتوي هذا المستوى على نحو 20% من متطلبات معيار التحقق من أمان التطبيقات. والهدف من هذا المستوى أن يكون عدد المتطلبات أقل ما يمكن، لتخفيض حاجز الدخول.
 
-These requirements are generally critical or basic, first-layer of defense requirements for preventing common attacks that do not require other vulnerabilities or preconditions to be exploitable.
+وهذه المتطلبات عمومًا حرجة أو أساسية، وهي متطلبات الطبقة الأولى من الدفاع لمنع الهجمات الشائعة التي لا تتطلّب ثغرات أو شروطًا مسبقة أخرى لتكون قابلة للاستغلال.
 
-In addition to the first layer of defense requirements, some requirements have less of an impact at higher levels, such as requirements related to passwords. Those are more important for Level 1, as from higher levels, the multi-factor authentication requirements become relevant.
+وإضافةً إلى متطلبات الطبقة الأولى من الدفاع، هناك متطلبات أقل أثرًا في المستويات الأعلى، مثل المتطلبات المتعلقة بكلمات المرور. وهذه أكثر أهمية في المستوى 1، إذ تصبح متطلبات المصادقة متعددة العوامل ذات صلة من المستويات الأعلى.
 
-Level 1 is not necessarily penetration testable by an external tester without internal access to documentation or code (such as "black box" testing), although the lower number of requirements should make it easier to verify.
+والمستوى 1 ليس بالضرورة قابلًا لاختبار الاختراق بواسطة مختبر خارجي دون وصول داخلي إلى الوثائق أو الشيفرة (مثل اختبار "الصندوق الأسود")، وإن كان العدد الأقل من المتطلبات ينبغي أن يسهّل التحقق منه.
 
-### Level 2
+### المستوى 2
 
-Most applications should be striving to achieve this level of security. Around 50% of the requirements in the ASVS are L2 meaning that an application needs to implement around 70% of the requirements in the ASVS (all of the L1 and L2 requirements) in order to comply with L2.
+ينبغي أن تسعى معظم التطبيقات إلى تحقيق هذا المستوى من الأمان. فنحو 50% من متطلبات معيار التحقق من أمان التطبيقات هي من المستوى 2، ما يعني أن التطبيق يحتاج إلى تنفيذ نحو 70% من متطلبات معيار التحقق من أمان التطبيقات (جميع متطلبات المستويين 1 و2) للامتثال للمستوى 2.
 
-These requirements generally relate to either less common attacks or more complicated protections against common attacks. They may still be a first layer of defense, or they may require certain preconditions for the attack to be successful.
+وتتعلق هذه المتطلبات عمومًا إما بهجمات أقل شيوعًا أو بحماية أكثر تعقيدًا من الهجمات الشائعة. وقد تكون لا تزال طبقة دفاع أولية، أو قد تتطلّب شروطًا مسبقة معيّنة لنجاح الهجوم.
 
-### Level 3
+### المستوى 3
 
-This level should be the goal for applications looking to demonstrate the highest levels of security and provides the final ~30% of requirements to comply with.
+ينبغي أن يكون هذا المستوى هدفًا للتطبيقات التي تسعى إلى إظهار أعلى مستويات الأمان، وهو يوفّر النسبة الأخيرة البالغة نحو 30% من المتطلبات اللازمة للامتثال.
 
-Requirements in this section are generally either defense-in-depth mechanisms or other useful but hard-to-implement controls.
+والمتطلبات في هذا القسم عمومًا إما آليات دفاع في العمق أو ضوابط أخرى مفيدة لكن صعبة التنفيذ.
 
-### Which level to achieve
+### أي مستوى ينبغي تحقيقه
 
-The priority-based levels are intended to provide a reflection of the application security maturity of the organization and the application. Rather than the ASVS prescriptively stating what level an application should be at, an organization should analyze its risks and decide what level it believes it should be at, depending on the sensitivity of the application and of course, the expectations of the application's users.
+المقصود من المستويات القائمة على الأولوية أن توفّر انعكاسًا لنضج أمان التطبيقات في المؤسسة وفي التطبيق. وبدلًا من أن ينص معيار التحقق من أمان التطبيقات إلزاميًا على المستوى الذي ينبغي أن يكون التطبيق عليه، ينبغي للمؤسسة أن تحلّل مخاطرها وتقرّر المستوى الذي تعتقد أنه ينبغي أن تكون عليه، بحسب حساسية التطبيق، وبالطبع، توقعات مستخدمي التطبيق.
 
-For example, an early-stage startup that is only collecting limited sensitive data may decide to focus on Level 1 for its initial security goals, but a bank may have difficulty justifying anything less than Level 3 to its customers for its online banking application.
+على سبيل المثال، قد تقرّر شركة ناشئة في مرحلة مبكرة لا تجمع سوى بيانات حساسة محدودة أن تركّز على المستوى 1 لأهدافها الأمنية الأولية، لكن مصرفًا قد يجد صعوبة في تبرير أي شيء أدنى من المستوى 3 لعملائه في تطبيقه للخدمات المصرفية عبر الإنترنت.
 
-## How to use the ASVS
+## كيفية استخدام معيار التحقق من أمان التطبيقات
 
-### The structure of the ASVS
+### بنية معيار التحقق من أمان التطبيقات
 
-The ASVS is made up of a total of around 350 requirements which are divided into 17 chapters, each of which is further divided into sections.
+يتكوّن معيار التحقق من أمان التطبيقات من نحو 350 متطلبًا إجمالًا مقسّمة على 17 فصلًا، كل منها مقسّم كذلك إلى أقسام.
 
-The aim of the chapter and section division is to simplify choosing or filtering out chapters and sections based on the what is relevant for the application. For example, for a machine-to-machine API, the requirements in chapter V3 related to web frontends will not be relevant. If there is no use of OAuth or WebRTC, then those chapters can be ignored as well.
+والهدف من تقسيم الفصول والأقسام تبسيط اختيار الفصول والأقسام أو تصفيتها بناءً على ما هو ذو صلة بالتطبيق. فعلى سبيل المثال، بالنسبة إلى واجهة برمجة تطبيقات من آلة إلى آلة، لن تكون المتطلبات في الفصل V3 المتعلقة بواجهات الويب الأمامية ذات صلة. وإذا لم يكن هناك استخدام لـ OAuth أو WebRTC، فيمكن تجاهل هذين الفصلين كذلك.
 
-### Release strategy
+### استراتيجية الإصدار
 
-ASVS releases follow the pattern "Major.Minor.Patch" and the numbers provide information on what has changed within the release. In a major release, the first number will change, in a minor release, the second number will change, and in a patch release, the third number will change.
+تتبع إصدارات معيار التحقق من أمان التطبيقات النمط "رئيسي.ثانوي.ترقيعي"، وتوفّر الأرقام معلومات عمّا تغيّر في الإصدار. ففي الإصدار الرئيسي يتغيّر الرقم الأول، وفي الإصدار الثانوي يتغيّر الرقم الثاني، وفي الإصدار الترقيعي يتغيّر الرقم الثالث.
 
-* Major release - Full reorganization, almost everything may have changed, including requirement numbers. Reevaluation for compliance will be necessary (for example, 4.0.3 -> 5.0.0).
-* Minor release - Requirements may be added or removed, but overall numbering will stay the same. Reevaluation for compliance will be necessary, but should be easier (for example, 5.0.0 -> 5.1.0).
-* Patch release - Requirements may be removed (for example, if they are duplicates or outdated) or made less stringent, but an application that complied with the previous release will comply with the patch release as well (for example, 5.0.0 -> 5.0.1).
+* الإصدار الرئيسي - إعادة تنظيم كاملة، وقد يكون كل شيء تقريبًا قد تغيّر، بما في ذلك أرقام المتطلبات. وسيكون من الضروري إعادة التقييم للامتثال (مثلًا من 4.0.3 إلى 5.0.0).
+* الإصدار الثانوي - قد تُضاف متطلبات أو تُزال، لكن الترقيم العام سيبقى كما هو. وسيكون من الضروري إعادة التقييم للامتثال، لكنه ينبغي أن يكون أسهل (مثلًا من 5.0.0 إلى 5.1.0).
+* الإصدار الترقيعي - قد تُزال متطلبات (مثلًا إذا كانت مكرّرة أو متقادمة) أو تُجعل أقل صرامة، لكن التطبيق الذي امتثل للإصدار السابق سيمتثل للإصدار الترقيعي كذلك (مثلًا من 5.0.0 إلى 5.0.1).
 
-The above specifically relates to the requirements in the ASVS. Changes to surrounding text and other content such as the appendices will not be considered to be a breaking change.
+وينطبق ما سبق تحديدًا على المتطلبات في معيار التحقق من أمان التطبيقات. أما التغييرات في النص المحيط وغيره من المحتوى مثل الملاحق فلن تُعدّ تغييرًا قاطعًا للتوافق.
 
-### Flexibility with the ASVS
+### المرونة في معيار التحقق من أمان التطبيقات
 
-Several of the points described above, such as documentation requirements and the levels mechanism, provide the ability to use the ASVS in a more flexible and organization-specific way.
+توفّر عدة نقاط من الموصوفة أعلاه، مثل متطلبات التوثيق وآلية المستويات، القدرة على استخدام معيار التحقق من أمان التطبيقات بطريقة أكثر مرونة وأكثر خصوصية بالمؤسسة.
 
-Additionally, organizations are strongly encouraged to create an organization- or domain-specific fork that adjusts requirements based on the specific characteristics and risk levels of their applications. However, it is important to maintain traceability so that passing requirement 4.1.1 means the same across all versions.
+وإضافةً إلى ذلك، تُشجَّع المؤسسات بقوة على إنشاء نسخة متفرّعة خاصة بالمؤسسة أو بالمجال تعدّل المتطلبات بناءً على الخصائص ومستويات المخاطر المحدّدة لتطبيقاتها. لكن من المهم الحفاظ على إمكانية التتبّع بحيث يعني استيفاء المتطلب 4.1.1 الشيء نفسه في جميع الإصدارات.
 
-Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, WebSockets, SOAP, if unused). An organization-specific ASVS version or supplement is also a good place to provide organization-specific implementation guidance, detailing libraries or resources to use when complying with requirements.
+ومن الأفضل أن تنشئ كل مؤسسة نسخة معيار التحقق من أمان التطبيقات مُصمَّمة لها، مع حذف الأقسام غير ذات الصلة (مثل GraphQL وWebSockets وSOAP إذا لم تكن مستخدمة). كما أن نسخة معيار التحقق من أمان التطبيقات الخاصة بالمؤسسة أو ملحقها موضع جيد كذلك لتقديم إرشادات تنفيذ خاصة بالمؤسسة، تبيّن المكتبات أو الموارد التي ينبغي استخدامها عند الامتثال للمتطلبات.
 
-### How to Reference ASVS Requirements
+### كيفية الإشارة إلى متطلبات معيار التحقق من أمان التطبيقات
 
-Each requirement has an identifier in the format `<chapter>.<section>.<requirement>`, where each element is a number. For example, `1.11.3`.
+لكل متطلب معرّف بالصيغة `<chapter>.<section>.<requirement>`، حيث كل عنصر رقم. على سبيل المثال، `1.11.3`.
 
-* The `<chapter>` value corresponds to the chapter from which the requirement comes; for example, all `1.#.#` requirements are from the 'Encoding and Sanitization' chapter.
-* The `<section>` value corresponds to the section within that chapter where the requirement appears, for example: all `1.2.#` requirements are in the 'Injection Prevention' section of the 'Encoding and Sanitization' chapter.
-* The `<requirement>` value identifies the specific requirement within the chapter and section, for example, `1.2.5` which as of version 5.0.0 of this standard is:
+* تقابل قيمة `<chapter>` الفصل الذي يأتي منه المتطلب؛ فعلى سبيل المثال، جميع المتطلبات `1.#.#` هي من فصل 'الترميز والتنقية'.
+* تقابل قيمة `<section>` القسم داخل ذلك الفصل الذي يظهر فيه المتطلب، فعلى سبيل المثال: جميع المتطلبات `1.2.#` هي في قسم 'منع الحقن' من فصل 'الترميز والتنقية'.
+* تحدّد قيمة `<requirement>` المتطلب بعينه داخل الفصل والقسم، فعلى سبيل المثال `1.2.5` الذي هو، منذ الإصدار 5.0.0 من هذا المعيار:
 
-> Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding.
+> تحقق من أن التطبيق يحمي من حقن أوامر نظام التشغيل ومن أن استدعاءات نظام التشغيل تستخدم استعلامات مُمعَّمة لنظام التشغيل أو تستخدم ترميزًا سياقيًا لمخرجات سطر الأوامر.
 
-Since the identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: `v<version>-<chapter>.<section>.<requirement>`, where: 'version' is the ASVS version tag. For example: `v5.0.0-1.2.5` would be understood to mean specifically the 5th requirement in the 'Injection Prevention' section of the 'Encoding and Sanitization' chapter from version 5.0.0. (This could be summarized as `v<version>-<requirement_identifier>`.)
+وبما أن المعرّفات قد تتغيّر بين إصدارات المعيار، فمن الأفضل للمستندات أو التقارير أو الأدوات الأخرى استخدام الصيغة التالية: `v<version>-<chapter>.<section>.<requirement>`، حيث 'الإصدار' هو وسم إصدار معيار التحقق من أمان التطبيقات. على سبيل المثال: يُفهم من `v5.0.0-1.2.5` أنه يعني تحديدًا المتطلب الخامس في قسم 'منع الحقن' من فصل 'الترميز والتنقية' من الإصدار 5.0.0. (ويمكن تلخيص ذلك بالصورة `v<version>-<requirement_identifier>`.)
 
-Note: The `v` preceding the version number in the format should always be lowercase.
+ملاحظة: ينبغي أن يكون الحرف `v` السابق لرقم الإصدار في هذه الصيغة بحرف صغير دائمًا.
 
-If identifiers are used without including the `v<version>` element then they should be assumed to refer to the latest Application Security Verification Standard content. As the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
+وإذا استُخدمت المعرّفات دون إدراج عنصر `v<version>`، فينبغي افتراض أنها تشير إلى أحدث محتوى لمعيار التحقق من أمان التطبيقات. ومع نمو المعيار وتغيّره يصبح ذلك مشكلًا، ولهذا ينبغي للكتّاب أو المطوّرين إدراج عنصر الإصدار.
 
-ASVS requirement lists are made available in CSV, JSON, and other formats which may be useful for reference or programmatic use.
+وتُتاح قوائم متطلبات معيار التحقق من أمان التطبيقات بصيغ CSV وJSON وغيرها، وقد تكون مفيدة للرجوع إليها أو للاستخدام البرمجي.
 
-### Forking the ASVS
+### تفريع معيار التحقق من أمان التطبيقات
 
-Organizations can benefit from adopting ASVS by choosing one of the three levels or by creating a domain-specific fork that adjusts requirements per application risk level. This type of fork is encouraged, provided that it maintains traceability so that passing requirement 4.1.1 means the same across all versions.
+يمكن للمؤسسات أن تستفيد من تبنّي معيار التحقق من أمان التطبيقات باختيار أحد المستويات الثلاثة أو بإنشاء نسخة متفرّعة خاصة بالمجال تعدّل المتطلبات بحسب مستوى مخاطر التطبيق. وهذا النوع من التفريع مُشجَّع، بشرط أن يحافظ على إمكانية التتبّع بحيث يعني استيفاء المتطلب 4.1.1 الشيء نفسه في جميع الإصدارات.
 
-Ideally, each organization should create its own tailored ASVS, omitting irrelevant sections (e.g., GraphQL, Websockets, SOAP, if unused). Forking should start with ASVS Level 1 as a baseline, advancing to Levels 2 or 3 based on the application’s risk.
+ومن الأفضل أن تنشئ كل مؤسسة نسخة معيار التحقق من أمان التطبيقات مُصمَّمة لها، مع حذف الأقسام غير ذات الصلة (مثل GraphQL وWebsockets وSOAP إذا لم تكن مستخدمة). وينبغي أن يبدأ التفريع بالمستوى 1 من معيار التحقق من أمان التطبيقات كخط أساس، ثم التقدّم إلى المستويين 2 أو 3 بناءً على مخاطر التطبيق.
 
-## Use cases for the ASVS
+## حالات استخدام معيار التحقق من أمان التطبيقات
 
-The ASVS can be used to assess the security of an application and this is explored in more depth in the next chapter. However, several other potential uses for the ASVS (or a forked version) have been identified.
+يمكن استخدام معيار التحقق من أمان التطبيقات لتقييم أمان تطبيق، وهذا مستقصى بعمق أكبر في الفصل التالي. لكن هناك عدة استخدامات محتملة أخرى لمعيار التحقق من أمان التطبيقات (أو لنسخة متفرّعة منه) قد حُدّدت.
 
-### As Detailed Security Architecture Guidance
+### كإرشادات مفصّلة لمعمارية الأمان
 
-One of the more common uses for the Application Security Verification Standard is as a resource for security architects. There are limited resources available for how to build a secure application archiecture, especially with modern applications. ASVS can be used to fill in those gaps by allowing security architects to choose better controls for common problems, such as data protection patterns and input validation strategies. The architecture and documentation requirements will be particularly useful for this.
+من الاستخدامات الأكثر شيوعًا لمعيار التحقق من أمان التطبيقات استخدامه كمورد لمعماريي الأمان. فالموارد المتاحة عن كيفية بناء معمارية تطبيق آمنة محدودة، وخصوصًا مع التطبيقات الحديثة. ويمكن استخدام معيار التحقق من أمان التطبيقات لسدّ هذه الفجوات بتمكين معماريي الأمان من اختيار ضوابط أفضل للمشكلات الشائعة، مثل أنماط حماية البيانات واستراتيجيات التحقق من صحة المدخلات. وستكون متطلبات المعمارية والتوثيق مفيدة لذلك على وجه الخصوص.
 
-### As a Specialized Secure Coding Reference
+### كمرجع متخصّص للبرمجة الآمنة
 
-The ASVS can be used as a basis for preparing a secure coding reference during application development, helping developers to make sure that they keep security in mind when they build software. Whilst the ASVS can be the base, prganizations should prepare their own specific guidance which is clear and unified and ideally be prepared based on guidance from security engineers or security architects. As an extension to this, organizations are encouraged wherever possible to prepare approved security mechanisms and libraries that can be referenced in the guidance and used by developers.
+يمكن استخدام معيار التحقق من أمان التطبيقات كأساس لإعداد مرجع للبرمجة الآمنة أثناء تطوير التطبيقات، بما يساعد المطوّرين على التأكد من أنهم يضعون الأمان في اعتبارهم عند بناء البرمجيات. ومع أن معيار التحقق من أمان التطبيقات يمكن أن يكون الأساس، فينبغي للمؤسسات إعداد إرشاداتها الخاصة التي تكون واضحة وموحّدة، ومن الأفضل أن تُعدّ بناءً على توجيه من مهندسي الأمان أو معماريي الأمان. وكامتداد لذلك، تُشجَّع المؤسسات، حيثما أمكن، على إعداد آليات ومكتبات أمنية معتمدة يمكن الإشارة إليها في الإرشادات واستخدامها من قِبل المطوّرين.
 
-### As a Guide for Automated Unit and Integration Tests
+### كدليل لاختبارات الوحدة والتكامل المؤتمتة
 
-The ASVS is designed to be highly testable. Some verifications will be technical where as other requirements (such as the architectural and documentation requirements) may require documentation or architecture review. By building unit and integration tests that test and fuzz for specific and relevant abuse cases related to the requirements that are verifiable by technical means, it should be easier to check that these controls are operating correctly on each build. For example, additional tests can be crafted for the test suite for a login controller, testing the username parameter for common default usernames, account enumeration, brute forcing, LDAP and SQL injection, and XSS. Similarly, a test on the password parameter should include common passwords, password length, null byte injection, removing the parameter, XSS, and more.
+صُمِّم معيار التحقق من أمان التطبيقات ليكون قابلًا للاختبار بدرجة عالية. وستكون بعض عمليات التحقق تقنية، في حين قد تتطلّب متطلبات أخرى (مثل متطلبات المعمارية والتوثيق) مراجعة للوثائق أو للمعمارية. وببناء اختبارات وحدة وتكامل تختبر وتُشوّش حالات إساءة استخدام محدّدة وذات صلة بالمتطلبات القابلة للتحقق بوسائل تقنية، ينبغي أن يكون أسهل التحقق من أن هذه الضوابط تعمل على نحو صحيح في كل عملية بناء. فعلى سبيل المثال، يمكن صياغة اختبارات إضافية لمجموعة اختبارات متحكّم تسجيل الدخول، لاختبار معامل اسم المستخدم بحثًا عن أسماء المستخدمين الافتراضية الشائعة وتعداد الحسابات والقوة الغاشمة وحقن LDAP وSQL والبرمجة النصية عبر المواقع. وبالمثل، ينبغي أن يشمل اختبار معامل كلمة المرور كلمات المرور الشائعة وطول كلمة المرور وحقن البايت الفارغ وإزالة المعامل والبرمجة النصية عبر المواقع وغير ذلك.
 
-### For Secure Development Training
+### للتدريب على التطوير الآمن
 
-ASVS can also be used to define the characteristics of secure software. Many “secure coding” courses are simply ethical hacking courses with a light smear of coding tips. This may not necessarily help developers to write more secure code. Instead, secure development courses can use the ASVS with a strong focus on the positive mechanisms found in the ASVS, rather than the Top 10 negative things not to do. The ASVS structure also provides a logical structure for walking through the different topics when securing an application.
+يمكن استخدام معيار التحقق من أمان التطبيقات كذلك لتحديد خصائص البرمجيات الآمنة. فكثير من دورات "البرمجة الآمنة" هي مجرّد دورات في الاختراق الأخلاقي مع مسحة خفيفة من نصائح البرمجة. وقد لا يساعد ذلك بالضرورة المطوّرين على كتابة شيفرة أكثر أمانًا. وبدلًا من ذلك، يمكن لدورات التطوير الآمن أن تستخدم معيار التحقق من أمان التطبيقات مع تركيز قوي على الآليات الإيجابية الموجودة فيه، بدلًا من التركيز على الأشياء السلبية العشرة الأولى التي لا ينبغي فعلها. كما أن بنية معيار التحقق من أمان التطبيقات توفّر بنية منطقية للتنقّل بين المواضيع المختلفة عند تأمين تطبيق.
 
-### As a Framework for Guiding the Procurement of Secure Software
+### كإطار لتوجيه شراء البرمجيات الآمنة
 
-The ASVS is a great framework to help with secure software procurement or procurement of custom development services. The buyer can simply set a requirement that the software they wish to procure must be developed at ASVS level X, and request that the seller proves that the software satisfies ASVS level X.
+يُعدّ معيار التحقق من أمان التطبيقات إطارًا ممتازًا للمساعدة في شراء البرمجيات الآمنة أو شراء خدمات تطوير مخصّصة. فيمكن للمشتري ببساطة أن يضع متطلبًا بأن البرمجية التي يرغب في شرائها يجب أن تكون مطوّرة بمستوى معيار التحقق من أمان التطبيقات س، وأن يطلب من البائع إثبات أن البرمجية تستوفي مستوى معيار التحقق من أمان التطبيقات س.
 
-## Applying ASVS in Practice
+## تطبيق معيار التحقق من أمان التطبيقات عمليًا
 
-Different threats have different motivations. Some industries have unique information and technology assets and domain-specific regulatory compliance requirements.
+للتهديدات المختلفة دوافع مختلفة. ولبعض الصناعات أصول معلوماتية وتقنية فريدة ومتطلبات امتثال تنظيمية خاصة بالمجال.
 
-Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
+وتُشجَّع المؤسسات بقوة على النظر بعمق في خصائص مخاطرها الفريدة بناءً على طبيعة عملها، وأن تحدّد بناءً على تلك المخاطر ومتطلبات العمل مستوى معيار التحقق من أمان التطبيقات الملائم.

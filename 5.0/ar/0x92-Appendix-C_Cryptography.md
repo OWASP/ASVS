@@ -1,33 +1,33 @@
-# Appendix C: Cryptography Standards
+# الملحق ج: معايير التشفير
 
-The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
+يتجاوز فصل "التشفير" مجرّد تحديد الممارسات الفضلى. فهو يهدف إلى تعزيز فهم مبادئ التشفير والتشجيع على تبنّي طرائق أمنية أكثر صمودًا وحداثة. ويوفّر هذا الملحق معلومات تقنية مفصّلة عن كل متطلب، مكمّلًا المعايير الشاملة المبيّنة في فصل "التشفير".
 
-This appendix defines the level of approval for different cryptographic mechanisms:
+يحدّد هذا الملحق مستوى الاعتماد لآليات التشفير المختلفة:
 
-* Approved (A) mechanisms can be used in applications.
-* Legacy mechanisms (L) should not be used in applications but might still be used for compatibility with existing legacy applications or code onyly. While the usage of such these mechanisms is currently not considered to be a vulnerability in itself, they should be replaced by more secure and future-proof mechanisms as soon as possible.
-* Disallowed mechanisms (D) must not be used because they are currently considered broken or do not provide sufficient security.
+* الآليات المعتمدة (A) يمكن استخدامها في التطبيقات.
+* الآليات القديمة (L) لا ينبغي استخدامها في التطبيقات لكن قد تبقى مستخدمة للتوافق مع التطبيقات أو الشيفرات القديمة القائمة فقط. ومع أن استخدام هذه الآليات لا يُعدّ حاليًا ثغرة في حد ذاته، فينبغي استبدالها بآليات أكثر أمانًا وأصمد للمستقبل في أسرع وقت ممكن.
+* الآليات الممنوعة (D) يجب ألا تُستخدم لأنها تُعدّ حاليًا مكسورة أو لا توفّر أمانًا كافيًا.
 
-This list may be overridden in the context of a given application for various reasons including:
+وقد تُتجاوز هذه القائمة في سياق تطبيق معيّن لأسباب متنوعة منها:
 
-* new evolutions in the field of cryptography;
-* compliance with regulation.
+* التطورات الجديدة في مجال التشفير؛
+* الامتثال للتنظيمات.
 
-## Cryptographic Inventory and Documentation
+## جرد التشفير وتوثيقه
 
-This section provides additional information
-for V11.1 Cryptographic Inventory and Documentation.
+يوفّر هذا القسم معلومات إضافية
+عن V11.1 جرد التشفير وتوثيقه.
 
-It is important to ensure that all cryptographic assets, such as algorithms, keys, and certificates, are regularly discovered, inventoried, and assessed. For Level 3, this should include the use of static and dynamic scanning to discover the use of cryptography in an application. Tools such as SAST and DAST may help with this but it is possible that dedicated tools would be needed to get more comprehensive coverage. Freeware examples of tools include:
+من المهم التأكد من أن جميع الأصول التشفيرية، مثل الخوارزميات والمفاتيح والشهادات، تُستكشف وتُجرد وتُقيَّم بانتظام. وبالنسبة إلى المستوى 3، ينبغي أن يشمل ذلك استخدام الفحص الساكن والديناميكي لاستكشاف استخدام التشفير في التطبيق. وقد تساعد أدوات مثل SAST وDAST في ذلك، لكن من المحتمل أن تكون هناك حاجة إلى أدوات مخصّصة للحصول على تغطية أشمل. ومن أمثلة الأدوات المجانية:
 
 * [CryptoMon - Network Cryptography Monitor - using eBPF, written in python](https://github.com/Santandersecurityresearch/CryptoMon)
 * [Cryptobom Forge Tool: Generating Comprehensive CBOMs from CodeQL Outputs](https://github.com/Santandersecurityresearch/cryptobom-forge)
 
-## Equivalent Strengths of Cryptographic Parameters
+## القوى المكافئة لمعاملات التشفير
 
-The relative security strengths for various cryptographic systems are in this table (from [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final), p.71):
+ترد القوى الأمنية النسبية لأنظمة تشفير متنوعة في هذا الجدول (من [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)، ص. 71):
 
-| Security Strength | Symmetric Key Algorithms | Finite Field | Integer Factorisation | Elliptic Curve |
+| القوة الأمنية | خوارزميات المفتاح المتناظر | الحقل المنتهي | تحليل الأعداد الصحيحة إلى عوامل | المنحنى الإهليلجي |
 |--|--|--|--|--|
 | <= 80 | 2TDEA | L = 1024 <br> N = 160 | k = 1024 | f = 160-223 |
 | 112 | 3TDEA   | L = 2048 <br> N = 224 | k = 2048 | f = 224-255 |
@@ -35,20 +35,20 @@ The relative security strengths for various cryptographic systems are in this ta
 | 192 | AES-192 | L = 7680 <br> N = 384 | k = 7680 | f = 384-511 |
 | 256 | AES-256 | L = 15360 <br> N = 512 | k = 15360 | f = 512+ |
 
-Example of applications:
+أمثلة على التطبيقات:
 
-* Finite Field Cryptography: DSA, FFDH, MQV
-* Integer Factorisation Cryptography: RSA
-* Elliptic Curve Cryptography: ECDSA, EdDSA, ECDH, MQV
+* تشفير الحقل المنتهي: DSA وFFDH وMQV
+* تشفير تحليل الأعداد الصحيحة إلى عوامل: RSA
+* تشفير المنحنيات الإهليلجية: ECDSA وEdDSA وECDH وMQV
 
-Note: that this section assumes that no quantum computer exists; if such a computer would exist, the estimates for the last 3 columns would be no longer valid.
+ملاحظة: يفترض هذا القسم عدم وجود حاسوب كمومي؛ فإذا وُجد مثل هذا الحاسوب، فلن تبقى التقديرات في الأعمدة الثلاثة الأخيرة صالحة.
 
-## Random Values
+## القيم العشوائية
 
-This section provides additional information
-for V11.5 Random Values.
+يوفّر هذا القسم معلومات إضافية
+عن V11.5 القيم العشوائية.
 
-| Name | Version/Reference | Notes | Status |
+| الاسم | الإصدار/المرجع | ملاحظات | الحالة |
 |:---|:----|:----|:-:|
 | `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), also found in iOS, Android, and other Linux-based POSIX operating systems. Based on [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | Utilizing ChaCha20 stream. Found in iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) and Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) with the correct settings provided to each. | A |
 | `/dev/urandom` | Linux kernel's special file for providing random data | Provides high-quality, entropy sources from hardware randomness | A |
@@ -57,16 +57,16 @@ for V11.5 Random Values.
 | `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
 | `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2), available in [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) and [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | Provides secure random bytes directly from the kernel's entropy source with a straightforward and minimal API. It’s more modern and avoids pitfalls associated with older APIs. | A |
 
-The underlying hash function used with HMAC-DRBG or Hash-DRBG must be approved for this usage.
+يجب أن تكون دالة التلبيد الأساسية المستخدمة مع HMAC-DRBG أو Hash-DRBG معتمدة لهذا الاستخدام.
 
-## Cipher Algorithms
+## خوارزميات التشفير
 
-This section provides additional information
-for V11.3 Encryption Algorithms.
+يوفّر هذا القسم معلومات إضافية
+عن V11.3 خوارزميات التشفير.
 
-Approved cipher algorithms are listed in order of preference.
+خوارزميات التشفير المعتمدة مدرجة بترتيب التفضيل.
 
-| Symmetric Key Algorithms | Reference | Status |
+| خوارزميات المفتاح المتناظر | المرجع | الحالة |
 | ------ | ------ |:-:|
 | AES-256 | [FIPS 197](https://csrc.nist.gov/pubs/fips/197/final) | A |
 | Salsa20 | [Salsa 20 specification](https://cr.yp.to/snuffle/spec.pdf) | A |
@@ -83,13 +83,13 @@ Approved cipher algorithms are listed in order of preference.
 | ARC4 | | D |
 | DES | | D |
 
-### AES Cipher Modes
+### أنماط تشفير AES
 
-Block ciphers, such as AES, can be used with different modes of operations. Many modes of operations, such as Electronic codebook (ECB), are insecure and must not be used. The Galois/Counter Mode (GCM) and Counter with cipher block chaining message authentication code (CCM) modes of operations provide authenticated encryption and should be used in modern applications.
+يمكن استخدام تشفيرات الكتل، مثل AES، مع أنماط تشغيل مختلفة. وكثير من أنماط التشغيل، مثل كتاب الشيفرة الإلكتروني (ECB)، غير آمن ويجب ألا يُستخدم. أما نمط جالوا/العدّاد (GCM) ونمط العدّاد مع رمز مصادقة رسالة تسلسل كتل التشفير (CCM) فيوفّران تشفيرًا مصادَقًا عليه وينبغي استخدامهما في التطبيقات الحديثة.
 
-Approved modes are listed in order of preference.
+الأنماط المعتمدة مدرجة بترتيب التفضيل.
 
-| Mode | Authenticated | Reference | Status | Restriction |
+| النمط | مصادَق عليه | المرجع | الحالة | القيد |
 |--|--|--|:-:|--|
 | GCM | Yes | [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A | |
 | CCM | Yes | [NIST SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A | |
@@ -100,38 +100,38 @@ Approved modes are listed in order of preference.
 | OFB | No | | D | |
 | CTR | No | | D | |
 
-Notes:
+ملاحظات:
 
-* All encrypted messages must be authenticated. For ANY use of CBC mode there MUST be an associated hashing MAC algorithm to validate the message. In general, this MUST be applied in the Encrypt-Then-Hash method (but TLS 1.2 uses Hash-Then-Encrypt instead). If this cannot be guaranteed, then CBC MUST NOT be used. The only application where encryption without a MAC algorithm is allowed is disk encryption.
-* If CBC is used, it shall be guaranteed that the verification of the padding is performed in constant time.
-* When using CCM-8, the MAC tag only has 64 bits of security. This does not conform to requirement 6.2.9 which requires at least 128 bits of security.
-* Disk encryption is considered out of scope for the ASVS. Therefore this appendix does not list any approved method for disk encryption. For this usage, encryption without authentication is usually accepted and the XTS, XEX and LRW modes are typically used.
+* يجب أن تكون جميع الرسائل المشفّرة مصادَقًا عليها. ولأي استخدام لنمط CBC يجب أن تكون هناك خوارزمية MAC تلبيدية مرتبطة به للتحقق من الرسالة. وعمومًا، يجب تطبيق ذلك بطريقة التشفير ثم التلبيد (لكن TLS 1.2 يستخدم التلبيد ثم التشفير بدلًا من ذلك). وإذا لم يكن من الممكن ضمان ذلك، فيجب ألا يُستخدم CBC. والتطبيق الوحيد الذي يُسمح فيه بالتشفير دون خوارزمية MAC هو تشفير الأقراص.
+* في حال استخدام CBC، يجب ضمان أن التحقق من الحشو يُنفَّذ في زمن ثابت.
+* عند استخدام CCM-8، لا تمتلك وسيمة MAC سوى 64 بتًا من الأمان. وهذا لا يتوافق مع المتطلب 6.2.9 الذي يقتضي 128 بتًا من الأمان على الأقل.
+* يُعدّ تشفير الأقراص خارج نطاق معيار التحقق من أمان التطبيقات. ولذلك لا يُدرج هذا الملحق أي طريقة معتمدة لتشفير الأقراص. ولهذا الاستخدام، يُقبل عادةً التشفير دون مصادقة وتُستخدم عادةً الأنماط XTS وXEX وLRW.
 
-### Key Wrapping
+### تغليف المفاتيح
 
-Cryptographic key wrap (and corresponding key unwrap) is a method of protecting an existing key by encapsulating (i.e., wrapping) it by employing an additional encryption mechanism so that the original key is not obviously exposed, e.g., during a transfer. This additional key used to protect the original key is referred to as the wrap key.
+تغليف المفاتيح التشفيري (وما يقابله من فك التغليف) طريقة لحماية مفتاح قائم بتغليفه (أي تطويقه) باستخدام آلية تشفير إضافية بحيث لا يكون المفتاح الأصلي مكشوفًا بجلاء، مثلًا أثناء النقل. ويُشار إلى هذا المفتاح الإضافي المستخدم لحماية المفتاح الأصلي بمفتاح التغليف.
 
-This operation may be performed when it is desirable to protect keys in places deemed untrustworthy, or to send sensitive keys over untrusted networks or within applications.
-However, serious consideration should be given to understanding the nature (e.g., the identity and the purpose) of the original key prior to committing to a wrap/unwrap procedure as this may have repercussions for both source and target systems/applications in terms of security and especially compliance which may include audit trails of a key's function (e.g., signing) as well as appropriate key storage.
+وقد تُنفَّذ هذه العملية عندما يكون من المرغوب حماية المفاتيح في أماكن تُعدّ غير موثوقة، أو إرسال مفاتيح حساسة عبر شبكات غير موثوقة أو داخل التطبيقات.
+لكن ينبغي إيلاء اعتبار جدّي لفهم طبيعة المفتاح الأصلي (مثل هويته والغرض منه) قبل الإقدام على إجراء تغليف/فك تغليف، إذ قد تكون لذلك تبعات على الأنظمة أو التطبيقات المصدر والهدف على حد سواء من حيث الأمان، وخصوصًا الامتثال، الذي قد يشمل مسارات تدقيق لوظيفة المفتاح (مثل التوقيع) وكذلك التخزين الملائم للمفاتيح.
 
-Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) and considering forward-looking provisions against the quantum threat. Cipher modes using AES are the following, in order of preference:
+وعلى وجه التحديد، يجب استخدام AES-256 لتغليف المفاتيح، وفقًا لـ [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) ومع مراعاة الأحكام الاستشرافية ضد التهديد الكمومي. وأنماط التشفير التي تستخدم AES هي التالية، بترتيب التفضيل:
 
-| Key Wrapping | Reference | Status |
+| تغليف المفاتيح | المرجع | الحالة |
 |--|--|:-:|
 | KW | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 | KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 
-AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
+ويمكن استخدام AES-192 وAES-128 إذا اقتضت حالة الاستخدام ذلك، لكن يجب توثيق مبرّر ذلك في جرد التشفير الخاص بالجهة.
 
-### Authenticated Encryption
+### التشفير المصادَق عليه
 
-With the exception of disk encryption, encrypted data must be protected against unauthorized modification using some form of authenticated encryption (AE) scheme, usually using an authenticated encryption with associated data (AEAD) scheme.
+باستثناء تشفير الأقراص، يجب حماية البيانات المشفّرة من التعديل غير المصرَّح به باستخدام صورة ما من مخططات التشفير المصادَق عليه (AE)، وعادةً باستخدام مخطط التشفير المصادَق عليه مع البيانات المرتبطة (AEAD).
 
-The application should preferably use an approved AEAD scheme. It might alternatively combine an approved cipher scheme and an approved MAC algorithm with a Encrypt-then-MAC construct.
+وينبغي للتطبيق أن يستخدم مخطط AEAD معتمدًا تفضيلًا. وقد يجمع بدلًا من ذلك بين مخطط تشفير معتمد وخوارزمية MAC معتمدة ببنية التشفير ثم MAC.
 
-MAC-then-encrypt is still allowed for compatibility with legacy applications. It is used in TLS v1.2 with old ciphers suites.
+ولا يزال التلبيد ثم التشفير مسموحًا به للتوافق مع التطبيقات القديمة. وهو مستخدم في TLS v1.2 مع مجموعات التشفير القديمة.
 
-| AEAD mechanism | Reference | Status |
+| آلية AEAD | المرجع | الحالة |
 |---|---------|:-:|
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
@@ -142,20 +142,20 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |Encrypt-then-MAC | | A |
 |MAC-then-encrypt | | L |
 
-## Hash Functions
+## دوالّ التلبيد
 
-This section provides additional information
-for V11.4 Hashing and Hash-based Functions.
+يوفّر هذا القسم معلومات إضافية
+عن V11.4 التلبيد والدوالّ المبنية على التلبيد.
 
-### Hash Functions for General Use Cases
+### دوالّ التلبيد لحالات الاستخدام العامة
 
-The following table lists hash functions approved in general cryptographic use cases such as digital signatures:
+يسرد الجدول التالي دوالّ التلبيد المعتمدة في حالات الاستخدام التشفيري العامة مثل التوقيعات الرقمية:
 
-* Approved hash functions provide strong collision resistance and are suitable for high-security applications.
-* Some of these algorithms offer strong resistance to attacks when used with proper cryptographic key management, and so are additionally approved for HMAC, KDF, and RBG functions.
-* Hash function with less than 254 bit of output have insufficient collision resistancea and must not be used for digital signature or other applications requiring collision resistance. For other usages, they might be used for compatibility and verification ONLY with legacy systems but must not be used in new designs.
+* توفّر دوالّ التلبيد المعتمدة مقاومة قوية للتصادم وهي ملائمة للتطبيقات عالية الأمان.
+* توفّر بعض هذه الخوارزميات مقاومة قوية للهجمات عند استخدامها مع إدارة سليمة لمفاتيح التشفير، ولذلك فهي معتمدة إضافةً إلى ذلك لدوالّ HMAC وKDF وRBG.
+* دوالّ التلبيد التي يقل طول مخرَجها عن 254 بتًا لا تمتلك مقاومة كافية للتصادم ويجب ألا تُستخدم للتوقيع الرقمي أو غيره من التطبيقات التي تقتضي مقاومة التصادم. أما للاستخدامات الأخرى، فقد تُستخدم للتوافق والتحقق مع الأنظمة القديمة فقط، لكن يجب ألا تُستخدم في التصاميم الجديدة.
 
-| Hash function | Reference | Status | Restrictions |
+| دالة التلبيد | المرجع | الحالة | القيود |
 | ------ | ----------- |:-:| ---------- |
 | SHA3-512 |[FIPS 202](https://csrc.nist.gov/pubs/fips/202/final) | A | |
 | SHA-512 |[FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | A | |
@@ -176,77 +176,77 @@ The following table lists hash functions approved in general cryptographic use c
 | MD4 | [RFC 1320](https://www.rfc-editor.org/info/rfc1320) | D | |
 | MD5 | [RFC 1321](https://www.rfc-editor.org/info/rfc1321) | D | |
 
-### Hash Functions for Password Storage
+### دوالّ التلبيد لتخزين كلمات المرور
 
-For secure password hashing, dedicated hash functions must be used. These slow-hashing algorithms mitigate brute-force and dictionary attacks by increasing the computational difficulty of password cracking.
+لتلبيد كلمات المرور بأمان، يجب استخدام دوالّ تلبيد مخصّصة. وتخفّف خوارزميات التلبيد البطيء هذه من هجمات القوة الغاشمة وهجمات القواميس بزيادة الصعوبة الحسابية لكسر كلمات المرور.
 
-| KDF        | Reference | Required Parameters | Status |
+| KDF        | المرجع | المعاملات المطلوبة | الحالة |
 | ---------- | --------- | ------------ |:-:|
-| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
-|          |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
-|          |                                                     | t ≥ 3: m ≥ 12288 (12 MiB), p = 1 | A |
-| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
-|          |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
-|          |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
-| bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost ≥ 10 | A |
-| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
-| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
-| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
+| argon2id | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m >= 47104 (46 MiB), p = 1 | A |
+|          |                                                     | t = 2: m >= 19456 (19 MiB), p = 1 | A |
+|          |                                                     | t >= 3: m >= 12288 (12 MiB), p = 1 | A |
+| scrypt   | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N >= 2^17 (128 MiB), r = 8 | A |
+|          |                                                     | p = 2: N >= 2^16 (64 MiB), r = 8  | A |
+|          |                                                     | p >= 3: N >= 2^15 (32 MiB), r = 8  | A |
+| bcrypt | [A Future-Adaptable Password Scheme](https://www.researchgate.net/publication/2519476_A_Future-Adaptable_Password_Scheme) | cost >= 10 | A |
+| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations >= 210,000 | A |
+| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations >= 600,000 | A |
+| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations >= 1,300,000 | L |
 
-Approved password-based key derivations functions can be used for password storage.
+ويمكن استخدام دوالّ اشتقاق المفاتيح المعتمدة القائمة على كلمات المرور لتخزين كلمات المرور.
 
-## Key Derivation Functions (KDFs)
+## دوالّ اشتقاق المفاتيح (KDFs)
 
-### General Key Derivation Functions
+### دوالّ اشتقاق المفاتيح العامة
 
-| KDF              | Reference                                                                                     | Status |
+| KDF              | المرجع                                                                                        | الحالة |
 | ---------------- | -------- |:-:|
 | HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
 | TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
 | MD5-based KDFs   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
 | SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
 
-### Password-based Key Derivation Functions
+### دوالّ اشتقاق المفاتيح القائمة على كلمات المرور
 
-| KDF        | Reference | Required Parameters | Status |
+| KDF        | المرجع | المعاملات المطلوبة | الحالة |
 | ---------- | --------- | ------------ |:-:|
-| argon2id   | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m ≥ 47104 (46 MiB), p = 1 | A |
-|            |                                                     | t = 2: m ≥ 19456 (19 MiB), p = 1 | A |
-| scrypt     | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N ≥ 2^17 (128 MiB), r = 8 | A |
-|            |                                                     | p = 2: N ≥ 2^16 (64 MiB), r = 8  | A |
-|            |                                                     | p ≥ 3: N ≥ 2^15 (32 MiB), r = 8  | A |
-| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 210,000 | A |
-| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 600,000 | A |
-| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations ≥ 1,300,000 | L |
+| argon2id   | [RFC 9106](https://www.rfc-editor.org/info/rfc9106) | t = 1: m >= 47104 (46 MiB), p = 1 | A |
+|            |                                                     | t = 2: m >= 19456 (19 MiB), p = 1 | A |
+| scrypt     | [RFC 7914](https://www.rfc-editor.org/info/rfc7914) | p = 1: N >= 2^17 (128 MiB), r = 8 | A |
+|            |                                                     | p = 2: N >= 2^16 (64 MiB), r = 8  | A |
+|            |                                                     | p >= 3: N >= 2^15 (32 MiB), r = 8  | A |
+| PBKDF2-HMAC-SHA-512 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations >= 210,000 | A |
+| PBKDF2-HMAC-SHA-256 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations >= 600,000 | A |
+| PBKDF2-HMAC-SHA-1 | [NIST SP 800-132](https://csrc.nist.gov/pubs/sp/800/132/final), [FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) | iterations >= 1,300,000 | L |
 
-## Key Exchange Mechanisms
+## آليات تبادل المفاتيح
 
-This section provides additional information
-for V11.6 Public Key Cryptography.
+يوفّر هذا القسم معلومات إضافية
+عن V11.6 تشفير المفتاح العام.
 
-### KEX Schemes
+### مخططات تبادل المفاتيح
 
-A security strength of 112 bits or above MUST be ensured for all Key Exchange schemes, and their implementation MUST follow the parameter choices in the following table.
+يجب ضمان قوة أمنية قدرها 112 بتًا أو أكثر لجميع مخططات تبادل المفاتيح، ويجب أن يتّبع تنفيذها اختيارات المعاملات الواردة في الجدول التالي.
 
-| Scheme | Domain Parameters | Forward Secrecy |Status |
+| المخطط | معاملات المجال | السرّية التامة للتوجيه |الحالة |
 |--|--|--|:-:|
 | Finite Field Diffie-Hellman (FFDH) | L >= 3072 & N >= 256 | Yes | A |
 | Elliptic Curve Diffie-Hellman (ECDH) | f >= 256-383 | Yes | A |
 | Encrypted key transport with RSA-PKCS#1 v1.5 | | No | D |
 
-Where the following parameters are:
+حيث المعاملات التالية هي:
 
-* k is the key size for RSA keys.
-* L is the size of the public key and N is the size of the private key for finite field cryptography.
-* f is the range of key sizes for ECC.
+* k هو حجم المفتاح لمفاتيح RSA.
+* L هو حجم المفتاح العام وN هو حجم المفتاح الخاص لتشفير الحقل المنتهي.
+* f هو نطاق أحجام المفاتيح لتشفير المنحنيات الإهليلجية (ECC).
 
-Any new implementation MUST NOT use any scheme that is NOT compliant with [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) & [B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) and [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final). Specifically, IKEv1 MUST NOT be used in production.
+ويجب ألا يستخدم أي تنفيذ جديد أي مخطط غير متوافق مع [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final) و[B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) و[NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final). وعلى وجه التحديد، يجب ألا يُستخدم IKEv1 في الإنتاج.
 
-### Diffie-Hellman groups
+### مجموعات ديفي-هيلمان
 
-The following groups are approved for implementations of Diffie-Hellman key exchange. Security strengths are documented in [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final), Appendix D, and [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+المجموعات التالية معتمدة لتنفيذات تبادل المفاتيح بطريقة ديفي-هيلمان. والقوى الأمنية موثّقة في [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final)، الملحق د، وفي [NIST SP 800-57 Part 1 Rev.5](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-| Group            | Status |
+| المجموعة         | الحالة |
 |------------------|:------:|
 | P-224, secp224r1 | A      |
 | P-256, secp256r1 | A      |
@@ -273,11 +273,11 @@ The following groups are approved for implementations of Diffie-Hellman key exch
 | ffdhe6144        | A      |
 | ffdhe8192        | A      |
 
-## Message Authentication Codes (MAC)
+## رموز مصادقة الرسائل (MAC)
 
-Message Authentication Codes (MACs) are cryptographic constructs used to verify the integrity and authenticity of a message. A MAC takes a message and a secret key as inputs and produces a fixed-size tag (the MAC value). MACs are widely used in secure communication protocols (e.g., TLS/SSL) to ensure that messages exchanged between parties are authentic and intact.
+رموز مصادقة الرسائل (MACs) بِنى تشفيرية تُستخدم للتحقق من سلامة الرسالة وأصالتها. ويأخذ رمز MAC رسالة ومفتاحًا سرّيًا كمدخلات وينتج وسيمة ثابتة الحجم (قيمة MAC). وتُستخدم رموز MAC على نطاق واسع في بروتوكولات الاتصال الآمن (مثل TLS/SSL) لضمان أن الرسائل المتبادلة بين الأطراف أصيلة وسليمة.
 
-| MAC Algorithm | Reference                                                                                 | Status |
+| خوارزمية MAC | المرجع                                                                                    | الحالة |
 | ----------    | --------------- |:-:|
 | HMAC-SHA-256  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
 | HMAC-SHA-384  | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | A |
@@ -291,11 +291,11 @@ Message Authentication Codes (MACs) are cryptographic constructs used to verify 
 | HMAC-SHA-1    | [RFC 2104](https://www.rfc-editor.org/info/rfc2104) & [FIPS 198-1](https://csrc.nist.gov/pubs/fips/198-1/final) | L |
 | HMAC-MD5      | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                | D      |
 
-## Digital Signatures
+## التوقيعات الرقمية
 
-Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
+يجب أن تستخدم مخططات التوقيع أحجام مفاتيح ومعاملات معتمدة وفق [NIST SP 800-57 Part 1](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final).
 
-| Signature Algorithm            | Reference                                                  | Status |
+| خوارزمية التوقيع               | المرجع                                                     | الحالة |
 | ------------------------------ | ---------------------------------------------              | :-:    |
 | EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | A      |
 | XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | A      |
@@ -304,8 +304,8 @@ Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57
 | RSA-SSA-PKCS#1 v1.5            | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | D      |
 | DSA (any key size)             | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
 
-## Post-Quantum Encryption Standards
+## معايير التشفير ما بعد الكمومي
 
-PQC implementations must be in line with [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) as there is minimal hardened code nor implementation reference yet. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
+يجب أن تكون تنفيذات التشفير ما بعد الكمومي متوافقة مع [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd) إذ لا يوجد بعد سوى قدر ضئيل من الشيفرات المحصّنة أو المراجع التنفيذية. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
-The proposed [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) post-quantum hybrid TLS key agreement method is supported by major browsers such as [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). It may be used in cryptographic testing environments or when available within industry- or government-approved libraries.
+طريقة اتفاق المفاتيح الهجينة ما بعد الكمومية المقترحة [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) لـ TLS مدعومة من متصفحات رئيسية مثل [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) و[Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). ويمكن استخدامها في بيئات الاختبار التشفيري أو عند توافرها في مكتبات معتمدة صناعيًا أو حكوميًا.
