@@ -101,7 +101,7 @@ Uwagi:
 
 * Wszystkie zaszyfrowane komunikaty muszą być uwierzytelnione. Dla KAŻDEGO użycia trybu CBC MUSI istnieć powiązany algorytm MAC oparty na funkcji skrótu, walidujący komunikat. Zasadniczo MUSI to być stosowane w metodzie Encrypt-Then-Hash (choć TLS 1.2 używa zamiast tego Hash-Then-Encrypt). Jeśli nie można tego zagwarantować, CBC NIE MOŻE być używany. Jedynym zastosowaniem, w którym dozwolone jest szyfrowanie bez algorytmu MAC, jest szyfrowanie dysków.
 * Jeśli używany jest CBC, należy zagwarantować, że weryfikacja dopełnienia jest wykonywana w czasie stałym.
-* Przy stosowaniu CCM-8 znacznik MAC ma jedynie 64 bity bezpieczeństwa. Nie spełnia to wymagania 11.2.3, które wymaga co najmniej 128 bitów bezpieczeństwa.
+* Przy stosowaniu CCM-8 znacznik MAC ma jedynie 64 bity bezpieczeństwa. Nie spełnia to wymagania 6.2.9, które wymaga co najmniej 128 bitów bezpieczeństwa.
 * Szyfrowanie dysków jest uznawane za pozostające poza zakresem ASVS. Dlatego niniejszy załącznik nie wymienia żadnej zatwierdzonej metody szyfrowania dysków. Dla tego zastosowania szyfrowanie bez uwierzytelniania jest zwykle akceptowane i typowo stosowane są tryby XTS, XEX oraz LRW.
 
 ### Opakowywanie kluczy
@@ -301,6 +301,6 @@ Schematy podpisów MUSZĄ używać zatwierdzonych rozmiarów kluczy i parametró
 
 ## Postkwantowe standardy szyfrowania
 
-Implementacje kryptografii postkwantowej (PQC) powinny być zgodne z [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd), [FIPS-204](https://csrc.nist.gov/pubs/fips/204/ipd) oraz [FIPS-205](https://csrc.nist.gov/pubs/fips/205/ipd). W chwili obecnej nie ma wielu utwardzonych przykładów kodu ani implementacji referencyjnych dla tych standardów. Więcej szczegółów w [ogłoszeniu NIST o pierwszych trzech sfinalizowanych postkwantowych standardach szyfrowania (sierpień 2024)](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards).
+Implementacje PQC muszą być zgodne z [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)/[204](https://csrc.nist.gov/pubs/fips/204/ipd)/[205](https://csrc.nist.gov/pubs/fips/205/ipd), ponieważ obecnie dostępnych jest niewiele utwardzonych przykładów kodu ani implementacji referencyjnych. https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
 
 Proponowana postkwantowa hybrydowa metoda uzgadniania klucza TLS [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) jest wspierana przez główne przeglądarki, takie jak [Firefox w wydaniu 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) i [Chrome w wydaniu 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). Może być stosowana w kryptograficznych środowiskach testowych albo gdy jest dostępna w bibliotekach zatwierdzonych branżowo lub rządowo.
