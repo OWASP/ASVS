@@ -136,13 +136,9 @@ Powyższe odnosi się wyłącznie do wymagań ASVS. Zmiany w tekście towarzysz�
 
 Kilka z opisanych wyżej mechanizmów — takich jak wymagania dotyczące dokumentacji czy system poziomów — pozwala korzystać z ASVS w sposób bardziej elastyczny i dopasowany do organizacji.
 
-Dodatkowo zdecydowanie zachęca się organizacje do tworzenia własnych forków standardu, dostosowanych do organizacji lub domeny.
+Dodatkowo zdecydowanie zachęca się organizacje do tworzenia własnych forków standardu, dostosowanych do organizacji lub domeny, które dostosowują wymagania na podstawie specyficznych cech i poziomów ryzyka ich aplikacji. Należy jednak zachować identyfikowalność, tak aby spełnienie wymagania 4.1.1 oznaczało to samo we wszystkich wersjach.
 
-### Forkowanie ASVS
-
-Organizacje mogą czerpać korzyści z przyjęcia ASVS, wybierając jeden z trzech poziomów lub tworząc fork dostosowany do własnej domeny, który koryguje wymagania odpowiednio do poziomu ryzyka aplikacji. Tego typu forki są mile widziane, pod warunkiem zachowania identyfikowalności — tak aby spełnienie wymagania 4.1.1 oznaczało to samo we wszystkich wersjach.
-
-Najlepiej, aby każda organizacja stworzyła własną, dopasowaną wersję ASVS, pomijając nieistotne sekcje (np. GraphQL, WebSockets, SOAP — jeśli nie są używane). Punktem wyjścia forka powinien być poziom 1 ASVS, z przejściem na poziomy 2 lub 3 stosownie do ryzyka aplikacji.
+Najlepiej, aby każda organizacja stworzyła własną, dopasowaną wersję ASVS, pomijając nieistotne sekcje (np. GraphQL, WebSockets, SOAP — jeśli nie są używane). Własna wersja ASVS lub jej uzupełnienie to również dobre miejsce, aby zamieścić wytyczne wdrożeniowe specyficzne dla organizacji, wskazujące biblioteki lub zasoby, z których należy korzystać przy spełnianiu wymagań.
 
 ### Jak przywoływać wymagania ASVS
 
@@ -161,6 +157,12 @@ Uwaga: litera `v` poprzedzająca numer wersji w tym formacie powinna być zawsze
 Jeśli identyfikatory są używane bez elementu `v<wersja>`, należy przyjąć, że odnoszą się do najnowszej wersji Application Security Verification Standard. W miarę rozwoju i zmian standardu staje się to problematyczne — dlatego autorzy tekstów i programiści powinni uwzględniać element wersji.
 
 Listy wymagań ASVS są udostępniane w formatach CSV, JSON i innych, które mogą być przydatne do celów referencyjnych lub programistycznych.
+
+### Forkowanie ASVS
+
+Organizacje mogą czerpać korzyści z przyjęcia ASVS, wybierając jeden z trzech poziomów lub tworząc fork dostosowany do własnej domeny, który koryguje wymagania odpowiednio do poziomu ryzyka aplikacji. Tego typu forki są mile widziane, pod warunkiem zachowania identyfikowalności — tak aby spełnienie wymagania 4.1.1 oznaczało to samo we wszystkich wersjach.
+
+Najlepiej, aby każda organizacja stworzyła własną, dopasowaną wersję ASVS, pomijając nieistotne sekcje (np. GraphQL, WebSockets, SOAP — jeśli nie są używane). Punktem wyjścia forka powinien być poziom 1 ASVS, z przejściem na poziomy 2 lub 3 stosownie do ryzyka aplikacji.
 
 ## Przypadki użycia ASVS
 
