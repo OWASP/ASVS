@@ -8,7 +8,7 @@ Ogólne koncepcje promowane przez ten rozdział obejmują:
 
 * Zapewnienie, że komunikacja jest szyfrowana na zewnątrz, a najlepiej również wewnętrznie.
 * Konfigurowanie mechanizmów szyfrowania zgodnie z najnowszymi wytycznymi, w tym preferowanymi algorytmami i szyframi.
-* Stosowanie podpisanych certyfikatów, aby komunikacja nie była przechwytywana przez strony nieuprawnione.
+* Zapewnienie, że komunikacja nie jest przechwytywana przez strony nieuprawnione, poprzez stosowanie podpisanych certyfikatów.
 
 Oprócz przedstawienia ogólnych zasad i najlepszych praktyk ASVS dostarcza również bardziej szczegółowych informacji technicznych o sile kryptograficznej w Załączniku C — Standardy kryptograficzne.
 
