@@ -44,6 +44,6 @@ Istnieje szereg procesów bezpieczeństwa, które zostały usunięte z ASVS 5.0,
 Źródła:
 
 * [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
-* [OWASP Threat modeling](https://owasp.org/www-project-threat-modeling/)
+* [OWASP Threat modeling](https://owasp.org/www-community/Application_Threat_Modeling)
 * [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/securityengineering/sdl/)
