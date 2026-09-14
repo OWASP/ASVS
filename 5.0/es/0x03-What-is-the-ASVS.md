@@ -1,6 +1,6 @@
 # ¿Qué es el ASVS?
 
-El Estándar para la Verificación de Seguridad de Aplicaciones (ASVS) define los requerimientos de seguridad para aplicaciones y servicios web, constituye un recurso valioso para quienes desean diseñar, desarrollar y mantener aplicaciones seguras o evaluar su seguridad.
+El Estándar para la Verificación de Seguridad de Aplicaciones (Application Security Verification Standard, ASVS) define los requerimientos de seguridad para aplicaciones y servicios web, constituye un recurso valioso para quienes desean diseñar, desarrollar y mantener aplicaciones seguras o evaluar su seguridad.
 
 Este capítulo describe los aspectos esenciales del uso del ASVS, incluyendo su alcance, la estructura de sus niveles basados en prioridad y los principales casos de uso del estándar.
 
@@ -18,7 +18,7 @@ Los componentes que sirven, modifican o validan el tráfico HTTP, como los firew
 
 Por el contrario, ASVS generalmente excluye los requerimientos que no son directamente relevantes para la aplicación o cuya configuración escapa a su responsabilidad. Por ejemplo, los problemas de DNS suelen ser gestionados por un equipo o función independiente.
 
-De igual forma, si bien la aplicación es responsable de cómo consume entradas y produce salidas, si un proceso externo interactúa con la aplicación o sus datos, se considera fuera del alcance de ASVS. Por ejemplo, la copia de seguridad de la aplicación o sus datos suele ser responsabilidad de un proceso externo y no está controlada por la aplicación ni por sus desarrolladores.
+De igual forma, si bien la aplicación es responsable de cómo consume entradas y produce salidas, si un proceso externo interactúa con la aplicación o sus datos, se considera fuera del alcance del ASVS. Por ejemplo, la copia de seguridad de la aplicación o sus datos suele ser responsabilidad de un proceso externo y no está controlada por la aplicación ni por sus desarrolladores.
 
 ### Seguridad
 
@@ -32,33 +32,33 @@ El requerimiento debe ser verificable y la verificación debe resultar en una de
 
 ### Estándar
 
-El ASVS está diseñado como un conjunto de requerimientos de seguridad que deben implementarse para cumplir con el estándar. Esto significa que los requerimientos se limitan a definir el objetivo de seguridad para lograrlo. Otra información relacionada puede construirse sobre el ASVS o vincularse mediante mapeos.
+El ASVS está diseñado como un conjunto de requerimientos de seguridad que deben implementarse para cumplir con el estándar. Esto significa que los requerimientos se limitan a definir el objetivo de seguridad que debe ser cumplido. Otra información relacionada puede construirse sobre el ASVS o vincularse mediante mapeos.
 
-En concreto, OWASP cuenta con numerosos proyectos y el ASVS evita deliberadamente solaparse con el contenido de otros proyectos. Por ejemplo, los desarrolladores pueden preguntarse: "¿Cómo implemento un requerimiento particular en mi tecnología o entorno específico?", lo cual debería abordarse en el proyecto Cheat Sheet Series. Los verificadores pueden preguntarse: "¿Cómo pruebo este requerimiento en este entorno?", lo cual debería abordarse en el proyecto Web Security Testing Guide.
+En concreto, OWASP cuenta con numerosos proyectos y el ASVS evita deliberadamente solaparse con el contenido de otros proyectos. Por ejemplo, los desarrolladores pueden preguntarse: "¿Cómo implemento un requerimiento particular en mi tecnología o entorno específico?", lo cual debería abordarse en el proyecto [Cheat Sheet Series](https://cheatsheetseries.owasp.org/index.html). Los verificadores pueden preguntarse: "¿Cómo pruebo este requerimiento en este entorno?", lo cual debería abordarse en el proyecto [Web Security Testing Guide](https://owasp.github.io/www-project-web-security-testing-guide/latest/).
 
 Si bien el ASVS no está destinado únicamente a expertos en seguridad, se espera que el lector tenga conocimientos técnicos para comprender el contenido o la capacidad de investigar conceptos específicos.
 
 ### Requerimiento
 
-El término requerimiento se utiliza específicamente en ASVS ya que describe lo que debe lograrse para satisfacerlo. ASVS solo contiene requerimientos (deben) y no recomendaciones (deberían) como condición principal.
+El término "requerimiento" se utiliza específicamente en ASVS como aquello que describe lo que debe lograrse para satisfacer este requerimiento. ASVS solo contiene requerimientos (deben aplicarse) y no contiene recomendaciones (deberían aplicarse) como condición principal.
 
-En otras palabras, las recomendaciones, ya sean una de las muchas opciones posibles para resolver un problema o consideraciones de estilo de código, no cumplen la definición de requerimiento.
+En otras palabras, las recomendaciones, ya se trate de una de las muchas opciones posibles para resolver un problema o de consideraciones de estilo de código, no satisfacen la definición para ser consideradas un requerimiento.
 
-Los requerimientos de ASVS buscan abordar principios de seguridad específicos sin ser demasiado específicos de la implementación o la tecnología, y al mismo tiempo, justifican por sí mismos su existencia. Esto también significa que los requerimientos no se basan en un método de verificación o implementación en particular.
+Los requerimientos de ASVS buscan abordar principios de seguridad específicos sin estar demasiado ligados a una implementación o tecnología concretas, y al mismo tiempo, justifican por sí mismos su existencia. Esto también significa que los requerimientos no se basan en un método de verificación o implementación en particular.
 
 ### Decisiones de seguridad documentadas
 
-En seguridad de software, planear desde el principio el diseño de seguridad y los mecanismos que se utilizarán permitirá una implementación más consistente y fiable en el producto terminado o funcionalidad.
+En seguridad de software, planear desde el principio el diseño de seguridad y los mecanismos que se utilizarán se traduce en una implementación más consistente y fiable en el producto terminado o la funcionalidad agregada.
 
 Además, para ciertos requerimientos, la implementación será compleja y muy específica a las necesidades de la aplicación. Ejemplos comunes incluyen permisos, validación de entradas y controles de protección para diferentes niveles de datos sensibles.
 
-Para tener esto en cuenta, en lugar de afirmaciones generales como "todos los datos deben estar cifrados" o intentar abarcar todos los posibles casos de uso en un requerimiento, se incluyeron requerimientos de documentación que exigen que el enfoque del desarrollador de la aplicación y las configuraciones para este tipo de controles se documenten. Esto puede revisarse para comprobar su idoneidad y, posteriormente, la implementación real puede compararse con la documentación para evaluar si cumple con las expectativas.
+Para tener esto en cuenta, en lugar de afirmaciones generales como "todos los datos deben estar cifrados" o intentar abarcar todos los posibles casos de uso en un requerimiento, se incluyeron requerimientos de documentación que exigen que el enfoque del desarrollador de la aplicación y las configuraciones para este tipo de controles se documenten. Esto permitiría comprobar la idoneidad y, posteriormente, comparar la implementación real contra la documentación para evaluar si cumple con las expectativas.
 
-Estos requerimientos tienen como objetivo documentar las decisiones que la organización que desarrolla la aplicación ha tomado con respecto a cómo implementar ciertos requerimientos de seguridad.
+Estos requerimientos tienen como objetivo documentar las decisiones que la organización, que desarrolla la aplicación, ha tomado con respecto a cómo implementar ciertos requerimientos de seguridad.
 
 Los requerimientos de documentación siempre se encuentran en la primera sección de un capítulo (aunque no todos los capítulos los incluyen) y siempre tienen un requerimiento de implementación relacionado donde las decisiones documentadas deben implementarse. La cuestión es que verificar que la documentación esté disponible y que la implementación cumple con ella, son dos actividades independientes.
 
-Hay dos factores clave para incluir estos requerimientos. El primero es que un requerimiento de seguridad suele implicar la aplicación de reglas, por ejemplo, ¿qué tipos de archivos son permitidos para cargar?, ¿qué controles de negocio deben aplicarse?, ¿cuáles son los caracteres permitidos para un campo específico?. Estas reglas varían según la aplicación y, por lo tanto, el ASVS no puede definirlas de forma prescriptiva, ni una hoja de referencia (cheat sheet) o una respuesta más detallada servirá de ayuda en este caso. De igual manera, sin documentar estas decisiones no es posible hacer la verificación de los requerimientos que las implementan.
+Hay dos factores clave para incluir estos requerimientos. El primero es que un requerimiento de seguridad suele implicar la aplicación de reglas, por ejemplo, ¿qué tipos de archivos son permitidos para cargar?, ¿qué controles de negocio deben aplicarse?, ¿cuáles son los caracteres permitidos para un campo específico? Estas reglas varían según la aplicación y, por lo tanto, el ASVS no puede definirlas de forma prescriptiva, ni una hoja de referencia (cheat sheet) o una respuesta más detallada servirá de ayuda en este caso. De igual manera, sin documentar estas decisiones no es posible hacer la verificación de los requerimientos que las implementan.
 
 El segundo factor es que, para ciertos requerimientos, es importante proporcionar flexibilidad al desarrollo de aplicaciones en cuanto a cómo abordar desafíos de seguridad específicos. Por ejemplo, en versiones anteriores del ASVS, las reglas de tiempo de expiración (timeout) de sesión eran muy prescriptivas. En la práctica, muchas aplicaciones, especialmente las orientadas al consumidor, tienen reglas mucho más flexibles y prefieren implementar otros controles de mitigación. Por lo tanto los requerimientos de documentación permiten explícitamente esta flexibilidad.
 
@@ -66,21 +66,21 @@ Claramente, no se espera que los desarrolladores individuales tomen y documenten
 
 Proporcionar a los desarrolladores especificaciones y diseños para nuevas características y funcionalidades es parte integral del desarrollo de software. De igual manera, se espera que los desarrolladores utilicen componentes y mecanismos de interfaz de usuario comunes en lugar de simplemente tomar sus propias decisiones en cada ocasión. Por lo tanto, extender esto a la seguridad no debería considerarse sorprendente ni controvertido.
 
-También existe flexibilidad en cuanto a cómo lograr esto. Las decisiones de seguridad pueden documentarse en un documento literal, al que se espera que los desarrolladores se refieran. Alternativamente, las decisiones de seguridad pueden documentarse e implementarse en una librería de código común que todos los desarrolladores estén obligados a usar. En ambos casos, se logra el resultado deseado.
+También existe flexibilidad en cuanto a cómo lograr este objetivo. Las decisiones de seguridad pueden documentarse en un documento literal, que se espera que los desarrolladores usen como referencia. Alternativamente, las decisiones de seguridad pueden documentarse e implementarse en una librería de código común que todos los desarrolladores estén obligados a usar. En ambos casos, se logra el resultado deseado.
 
 ## Niveles de verificación de seguridad de aplicaciones
 
-El ASVS define tres niveles de verificación de seguridad, cada uno de los cuales aumenta en profundidad y complejidad. El objetivo general es que las organizaciones comiencen con el primer nivel para abordar las preocupaciones de seguridad más críticas y luego avancen a los niveles superiores según las necesidades de la organización y la aplicación. Los niveles pueden presentarse como 1, 2 y 3 en el documento y en los textos de requerimientos.
+El ASVS define tres niveles de verificación de seguridad, cada uno de los cuales aumenta en profundidad y complejidad. El objetivo general es que las organizaciones comiencen con el primer nivel para abordar las preocupaciones de seguridad más críticas y luego avancen a los niveles superiores según las necesidades de la organización y la aplicación. Los niveles pueden presentarse como L1, L2 y L3 en el documento y en los textos de requerimientos.
 
-Cada nivel del ASVS indica los requerimientos de seguridad que se deben cumplir para ese nivel, y los requerimientos restantes de nivel superior se presentan como recomendaciones.
+Cada nivel del ASVS indica los requerimientos de seguridad que se deben cumplir para ese nivel; los requerimientos restantes de nivel superior se presentan como recomendaciones.
 
 Para evitar requerimientos duplicados o requerimientos que ya no son relevantes en niveles superiores, algunos requerimientos se aplican a un nivel específico, pero tienen condiciones más estrictas para los niveles superiores.
 
 ### Evaluación de niveles
 
-Los niveles se definen mediante una evaluación por prioridades de cada requerimiento basada en la experiencia en la implementación y prueba de requerimientos de seguridad. El enfoque principal es comparar la reducción de riesgos con el esfuerzo necesario para implementar el requerimiento. Otro factor clave es mantener una barrera de entrada baja.
+Los niveles se definen mediante una evaluación por prioridades de cada requerimiento basada en la experiencia en implementación y prueba de requerimientos de seguridad. El enfoque principal es comparar la reducción de riesgos con el esfuerzo necesario para implementar el requerimiento. Otro factor clave es mantener una barrera de entrada baja.
 
-La reducción de riesgos considera hasta qué punto el requerimiento reduce el nivel de riesgo de seguridad dentro de la aplicación, considerando los factores de impacto clásicos de Confidencialidad, Integridad y Disponibilidad así como considerar si se trata de una capa primaria de defensa o si se trata de defensa en profundidad (defense in depth).
+La reducción de riesgos considera hasta qué punto el requerimiento reduce el nivel de riesgo de seguridad dentro de la aplicación, considerando los factores de impacto clásicos de Confidencialidad, Integridad y Disponibilidad así como considerar si se trata de una capa primaria de defensa o si se podría considerar defensa en profundidad (defense in depth).
 
 Los rigurosos debates sobre los criterios y las decisiones de nivelación han dado como resultado una asignación que debería ser válida en la gran mayoría de los casos, pero se acepta que puede no ser totalmente adecuada para todas las situaciones. Esto significa que, en ciertos casos, las organizaciones podrían desear priorizar los requerimientos de un nivel superior con antelación basándose en sus propias consideraciones de riesgos.
 
