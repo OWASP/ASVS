@@ -18,9 +18,10 @@ W przypadku ponownego wykorzystania lub rozpowszechniania należy wyraźnie poin
 
 ## Liderzy projektu
 
-|                       |                  |                  |
-|---------------------- |----------------- |----------------- |
-| Daniel Cuthbert       | Elar Lang        | Josh C Grossman  |
+|                  |                  |
+|----------------- |----------------- |
+| Elar Lang        | Josh C Grossman  |
+| Jim Manico       | Daniel Cuthbert  |
 
 ## Grupa robocza
 
@@ -42,4 +43,4 @@ Lista pozostałych współtwórców znajduje się w Załączniku E.
 
 Jeśli w liście zasług wersji 5.x brakuje czyjegoś nazwiska, prosimy o zgłoszenie tego w serwisie GitHub, aby osoba ta mogła zostać uwzględniona w przyszłych aktualizacjach wersji 5.x.
 
-Application Security Verification Standard opiera się na pracy osób zaangażowanych w rozwój ASVS od wersji 1.0 (2008) do 4.0 (2019). Znaczna część struktury oraz wiele wymagań weryfikacyjnych obecnych w ASVS do dziś zostało pierwotnie opracowanych przez Andrew van der Stocka, Mike'a Boberskiego, Jeffa Williamsa i Dave'a Wichersa, przy udziale wielu innych współtwórców. Pragniemy również podziękować Jimowi Manico za jego znaczący i wieloletni wkład w ASVS — począwszy od roli głównego autora wersji 1.0 (2009), a następnie lidera projektu od ASVS 4.0 aż do okresu po wydaniu ASVS 5.0. Dziękujemy wszystkim, którzy wnieśli swój wkład w przeszłości. Pełna lista wcześniejszych współtwórców znajduje się w poprzednich wersjach dokumentu.
+Application Security Verification Standard opiera się na pracy osób zaangażowanych w rozwój ASVS od wersji 1.0 (2008) do 4.0 (2019). Znaczna część struktury oraz wiele wymagań weryfikacyjnych obecnych w ASVS do dziś zostało pierwotnie opracowanych przez Andrew van der Stocka, Mike'a Boberskiego, Jeffa Williamsa i Dave'a Wichersa, przy udziale wielu innych współtwórców. Dziękujemy wszystkim, którzy wnieśli swój wkład w przeszłości. Pełna lista wcześniejszych współtwórców znajduje się w poprzednich wersjach dokumentu.
