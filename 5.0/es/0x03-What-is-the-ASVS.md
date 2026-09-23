@@ -50,7 +50,7 @@ Los requerimientos de ASVS buscan abordar principios de seguridad específicos s
 
 En seguridad de software, planear desde el principio el diseño de seguridad y los mecanismos que se utilizarán se traduce en una implementación más consistente y fiable en el producto terminado o la funcionalidad agregada.
 
-Además, para ciertos requerimientos, la implementación será compleja y muy específica a las necesidades de la aplicación. Ejemplos comunes incluyen permisos, validación de entradas y controles de protección para diferentes niveles de datos sensibles.
+Adicionalmente, para ciertos requerimientos, la implementación será compleja y muy específica a las necesidades de la aplicación. Ejemplos comunes incluyen permisos, validación de entradas y controles de protección para diferentes niveles de datos sensibles.
 
 Para tener esto en cuenta, en lugar de afirmaciones generales como "todos los datos deben estar cifrados" o intentar abarcar todos los posibles casos de uso en un requerimiento, se incluyeron requerimientos de documentación que exigen que el enfoque del desarrollador de la aplicación y las configuraciones para este tipo de controles se documenten. Esto permitiría comprobar la idoneidad y, posteriormente, comparar la implementación real contra la documentación para evaluar si cumple con las expectativas.
 
@@ -88,17 +88,17 @@ Los tipos de requerimientos en cada nivel podrían caracterizarse de la siguient
 
 ### Nivel 1
 
-Este nivel contiene los requerimientos mínimos a considerar para asegurar una aplicación y representa un punto de partida crucial. Este nivel abarca aproximadamente el 20 % de los requerimientos de ASVS. El objetivo de este nivel tener la menor cantidad de requerimientos posible y así minimizar las barreras de entrada.
+Este nivel contiene los requerimientos mínimos a considerar para asegurar una aplicación y representa un punto de partida crucial. Este nivel abarca aproximadamente el 20% de los requerimientos del ASVS. El objetivo de este nivel es tener la menor cantidad de requerimientos posible y así minimizar las barreras de entrada.
 
 Estos requerimientos son generalmente críticos o básicos, requerimientos de primera capa de defensa para prevenir ataques comunes que no requieren otras vulnerabilidades o condiciones previas para ser explotables.
 
 Además de los requerimientos de la primera capa de defensa, algunos requerimientos tienen menor impacto en niveles superiores, como los requerimientos relacionados con las contraseñas. Estos son más importantes para el Nivel 1, ya que a partir de niveles superiores, los requerimientos de autenticación multifactor cobran relevancia.
 
-El Nivel 1 no es necesariamente susceptible de pruebas de penetración por parte de un evaluador externo sin acceso interno a la documentación o el código (como las pruebas de "caja negra"), aunque la menor cantidad de requerimientos debería facilitar su verificación.
+El Nivel 1 no necesariamente puede verificarse mediante pruebas de penetración realizadas por un evaluador externo sin acceso interno a la documentación o el código (como las pruebas de "caja negra"), aunque la menor cantidad de requerimientos debería facilitar su verificación.
 
 ### Nivel 2
 
-La mayoría de las aplicaciones deberían esforzarse por alcanzar este nivel de seguridad. Alrededor del 50% de los requerimientos del ASVS son de nivel 2, lo que significa que una aplicación debe implementar alrededor del 70% de los requerimientos del ASVS (todos los requerimientos de nivel 1 y 2) para cumplir con el nivel 2.
+La mayoría de las aplicaciones deberían esforzarse por alcanzar este nivel de seguridad. Alrededor del 50% de los requerimientos del ASVS son de nivel 2 (L2), lo que significa que una aplicación debe implementar alrededor del 70% de los requerimientos del ASVS (todos los requerimientos L1 y L2) para cumplir con el nivel 2.
 
 Estos requerimientos generalmente se refieren a ataques menos comunes o a protecciones más complejas contra ataques comunes. Pueden seguir siendo una primera capa de defensa o requerir ciertas condiciones previas para que el ataque tenga éxito.
 
@@ -110,7 +110,7 @@ Los requerimientos de esta sección suelen ser mecanismos de defensa en profundi
 
 ### ¿Qué nivel alcanzar?
 
-Los niveles basados en prioridades buscan reflejar la madurez de la seguridad de aplicaciones tanto de la organización como de la aplicación. En lugar de que el ASVS establezca de forma prescriptiva el nivel de seguridad que debe alcanzar una aplicación, una organización debe analizar sus riesgos y decidir que nivel considera que debería alcanzar en función de la sensibilidad de la aplicación y, por supuesto, de las expectativas de sus usuarios.
+Los niveles basados en prioridades buscan reflejar la madurez de la seguridad de aplicaciones tanto de la organización como de la aplicación. En lugar de que el ASVS dicte de forma estricta el nivel de seguridad que debe alcanzar una aplicación, una organización debe analizar sus riesgos y decidir qué nivel considera que debería alcanzar en función de la sensibilidad de la aplicación y, por supuesto, de las expectativas de sus usuarios.
 
 Por ejemplo, una startup en fase inicial que solo recopila datos sensibles limitados podría optar por el Nivel 1 para sus objetivos iniciales de seguridad pero un banco podría tener dificultades para justificar ante sus clientes un nivel inferior al 3 para su aplicación de banca en línea.
 
@@ -120,7 +120,7 @@ Por ejemplo, una startup en fase inicial que solo recopila datos sensibles limit
 
 El ASVS consta de un total de aproximadamente 350 requerimientos divididos en 17 capítulos, cada uno de los cuales se subdivide en secciones.
 
-El objetivo de la división en capítulos y secciones es simplificar la selección o el filtrado de capítulos y secciones según su relevancia para la aplicación. Por ejemplo, para una API máquina a máquina los requerimientos del capítulo V3 relacionados con las interfaces web no serán relevantes. Si no se utiliza OAuth ni WebRTC, estos capítulos también pueden ignorarse.
+El objetivo de la división en capítulos y secciones es simplificar la selección o el filtrado de capítulos y secciones según su relevancia para la aplicación. Por ejemplo, para una API máquina a máquina (M2M API) los requerimientos del capítulo V3 relacionados con las interfaces web no serán relevantes. Si no se utiliza OAuth ni WebRTC, estos capítulos también pueden ignorarse.
 
 ### Estrategia de versiones
 
