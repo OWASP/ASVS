@@ -127,6 +127,8 @@ If you are interested in creating a translation, here are some pointers for how 
         * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
         * Spanish, see [#3238](https://github.com/OWASP/ASVS/issues/3238)
         * Panjabi, see[#3252](https://github.com/OWASP/ASVS/issues/3252)
+        * Arabic, [#3406](https://github.com/OWASP/ASVS/pull/3406)
+        * Polish, [#3408](https://github.com/OWASP/ASVS/pull/3408)
     * v5.0.0
         * [Turkish](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/tr/)
         * [Russian](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ru/)
