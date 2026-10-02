@@ -1,4 +1,4 @@
-# V3 Seguridad en Frontend Web
+# V3 Seguridad en frontend web
 
 ## Objetivo del control
 

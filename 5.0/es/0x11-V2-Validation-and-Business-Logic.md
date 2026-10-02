@@ -37,7 +37,7 @@ Tenga en cuenta los siguientes puntos sobre la validación de esquemas:
 
 | # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **2.2.1** | Verifique que la entrada esté validada para cumplir con las expectativas de negocio o funcionales para esa entrada. Esto debe, o bien, usar una validación positiva con una lista de valores permitidos, patrones, rangos, o basarse en la comparación de la entrada con una estructura esperada y límites lógicos según reglas predefinidas. Para L1, esto puede centrarse en la entrada utilizada para tomar decisiones de negocio o de seguridad específicas. Para L2 y superiores, esto debe aplicarse a todas las entradas. | 1 |
+| **2.2.1** | Verifique que la entrada esté validada para cumplir con las expectativas de negocio o funcionales para esa entrada. Esto debe, o bien, usar una validación positiva con una lista de valores permitidos, patrones, rangos, o basarse en la comparación de la entrada con una estructura esperada y límites lógicos según reglas predefinidas. Para el nivel 1 (L1), esto puede centrarse en la entrada utilizada para tomar decisiones de negocio o de seguridad específicas. A partir del nivel 2 (L2), esto debe aplicarse a todas las entradas. | 1 |
 | **2.2.2** | Verifique que la aplicación esté diseñada para aplicar la validación de entrada en una capa de servicio confiable. Si bien la validación del lado del cliente mejora la usabilidad y debe fomentarse, no debe considerarse un control de seguridad. | 1 |
 | **2.2.3** | Verifique que la aplicación garantice que las combinaciones de elementos de datos relacionados sean razonables según las reglas predefinidas. | 2 |
 
