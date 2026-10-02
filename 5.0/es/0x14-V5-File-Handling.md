@@ -1,54 +1,54 @@
-# V5 File Handling
+# V5 Manejo de archivos
 
-## Control Objective
+## Objetivo del control
 
-The use of files can present a variety of risks to the application, including denial of service, unauthorized access, and storage exhaustion. This chapter includes requirements to address these risks.
+El uso de archivos puede presentar diversos riesgos para la aplicación, entre ellos la denegación de servicio, el acceso no autorizado y el agotamiento del almacenamiento. Este capítulo incluye requerimientos para abordar estos riesgos.
 
-## V5.1 File Handling Documentation
+## V5.1 Documentación del manejo de archivos
 
-This section includes a requirement to document the expected characteristics of files accepted by the application, as a necessary precondition for developing and verifying relevant security checks.
+Esta sección incluye un requerimiento para documentar las características esperadas de los archivos que acepta la aplicación, como condición previa necesaria para desarrollar y verificar los controles de seguridad pertinentes.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **5.1.1** | Verify that the documentation defines the permitted file types, expected file extensions, and maximum size (including unpacked size) for each upload feature. Additionally, ensure that the documentation specifies how files are made safe for end-users to download and process, such as how the application behaves when a malicious file is detected. | 2 |
+| **5.1.1** | Verifique que la documentación defina los tipos de archivo permitidos, las extensiones de archivo esperadas y el tamaño máximo (incluido el tamaño descomprimido) para cada funcionalidad de carga. Además, asegúrese de que la documentación especifique cómo se garantiza que los archivos sean seguros para que los usuarios finales los descarguen y procesen, por ejemplo, cómo se comporta la aplicación cuando se detecta un archivo malicioso. | 2 |
 
-## V5.2 File Upload and Content
+## V5.2 Carga y contenido de archivos
 
-File upload functionality is a primary source of untrusted files. This section outlines the requirements for ensuring that the presence, volume, or content of these files cannot harm the application.
+La funcionalidad de carga de archivos es una fuente principal de archivos no confiables. Esta sección describe los requerimientos para garantizar que la presencia, el volumen o el contenido de estos archivos no puedan dañar la aplicación.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **5.2.1** | Verify that the application will only accept files of a size which it can process without causing a loss of performance or a denial of service attack. | 1 |
-| **5.2.2** | Verify that when the application accepts a file, either on its own or within an archive such as a zip file, it checks if the file extension matches an expected file extension and validates that the contents correspond to the type represented by the extension. This includes, but is not limited to, checking the initial 'magic bytes', performing image re-writing, and using specialized libraries for file content validation. For L1, this can focus just on files which are used to make specific business or security decisions. For L2 and up, this must apply to all files being accepted. | 1 |
-| **5.2.3** | Verify that the application checks compressed files (e.g., zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file. | 2 |
-| **5.2.4** | Verify that a file size quota and maximum number of files per user are enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files. | 3 |
-| **5.2.5** | Verify that the application does not allow uploading compressed files containing symlinks unless this is specifically required (in which case it will be necessary to enforce an allowlist of the files that can be symlinked to). | 3 |
-| **5.2.6** | Verify that the application rejects uploaded images with a pixel size larger than the maximum allowed, to prevent pixel flood attacks. | 3 |
+| **5.2.1** | Verifique que la aplicación solo acepte archivos de un tamaño que pueda procesar sin causar una pérdida de rendimiento ni un ataque de denegación de servicio. | 1 |
+| **5.2.2** | Verifique que, cuando la aplicación acepta un archivo, ya sea de forma individual o dentro de un archivo comprimido (como un zip), compruebe que la extensión del archivo coincide con una extensión esperada y valide que el contenido corresponde al tipo representado por la extensión. Esto incluye, entre otras cosas, la comprobación de los 'magic bytes' iniciales, la reescritura de imágenes y el uso de bibliotecas especializadas para la validación del contenido de los archivos. Para L1, esto puede centrarse únicamente en los archivos que se utilizan para tomar decisiones específicas de negocio o de seguridad. Para L2 y superiores, debe aplicarse a todos los archivos que se acepten. | 1 |
+| **5.2.3** | Verifique que la aplicación compruebe, antes de descomprimirlos, que los archivos comprimidos (por ejemplo, zip, gz, docx, odt) no superen el tamaño máximo permitido una vez descomprimidos ni el número máximo de archivos. | 2 |
+| **5.2.4** | Verifique que se aplique una cuota de espacio y un número máximo de archivos por usuario, para garantizar que un solo usuario no pueda llenar el almacenamiento con demasiados archivos o con archivos excesivamente grandes. | 3 |
+| **5.2.5** | Verifique que la aplicación no permita cargar archivos comprimidos que contengan enlaces simbólicos (symlinks), a menos que se requiera expresamente. En ese caso, será necesario aplicar una lista de permitidos (allowlist) con los archivos a los que pueden apuntar los enlaces simbólicos. | 3 |
+| **5.2.6** | Verifique que la aplicación rechace las imágenes cargadas cuyas dimensiones en píxeles superen el máximo permitido, para evitar ataques de saturación de píxeles (pixel flood). | 3 |
 
-## V5.3 File Storage
+## V5.3 Almacenamiento de archivos
 
-This section includes requirements to prevent files from being inappropriately executed after upload, to detect dangerous content, and to avoid untrusted data being used to control where files are being stored.
+Esta sección incluye requerimientos para evitar que los archivos se ejecuten de forma indebida tras su carga, para detectar contenido peligroso y para evitar que datos no confiables se utilicen para controlar dónde se almacenan los archivos.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **5.3.1** | Verify that files uploaded or generated by untrusted input and stored in a public folder, are not executed as server-side program code when accessed directly with an HTTP request. | 1 |
-| **5.3.2** | Verify that when the application creates file paths for file operations, instead of user-submitted filenames, it uses internally generated or trusted data, or if user-submitted filenames or file metadata must be used, strict validation and sanitization must be applied. This is to protect against path traversal, local or remote file inclusion (LFI, RFI), and server-side request forgery (SSRF) attacks. | 1 |
-| **5.3.3** | Verify that server-side file processing, such as file decompression, ignores user-provided path information to prevent vulnerabilities such as zip slip. | 3 |
+| **5.3.1** | Verifique que los archivos cargados o generados a partir de entradas no confiables y almacenados en una carpeta pública no se ejecuten como código de programa del lado del servidor cuando se acceda a ellos directamente mediante una solicitud HTTP. | 1 |
+| **5.3.2** | Verifique que, cuando la aplicación crea rutas de archivo para operaciones con archivos, utilice datos generados internamente o confiables en lugar de los nombres de archivo enviados por el usuario. Si es necesario utilizar nombres o metadatos de archivo enviados por el usuario, deben aplicarse una validación y una sanitización estrictas. Esto protege contra ataques de path traversal, inclusión de archivos locales o remotos (LFI, RFI) y Server-side Request Forgery (SSRF). | 1 |
+| **5.3.3** | Verifique que el procesamiento de archivos del lado del servidor, como la descompresión de archivos, ignore la información de rutas proporcionada por el usuario, para evitar vulnerabilidades como zip slip. | 3 |
 
-## V5.4 File Download
+## V5.4 Descarga de archivos
 
-This section contains requirements to mitigate risks when serving files to be downloaded, including path traversal and injection attacks. This also includes making sure they don't contain dangerous content.
+Esta sección contiene requerimientos para mitigar los riesgos al servir archivos para su descarga, incluidos los ataques de path traversal y de inyección. También incluye asegurar que los archivos no contengan contenido peligroso.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **5.4.1** | Verify that the application validates or ignores user-submitted filenames, including in a JSON, JSONP, or URL parameter and specifies a filename in the Content-Disposition header field in the response. | 2 |
-| **5.4.2** | Verify that file names served (e.g., in HTTP response header fields or email attachments) are encoded or sanitized (e.g., following RFC 6266) to preserve document structure and prevent injection attacks. | 2 |
-| **5.4.3** | Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent serving of known malicious content. | 2 |
+| **5.4.1** | Verifique que la aplicación valide o ignore los nombres de archivo enviados por el usuario, incluidos los que llegan en un parámetro JSON, JSONP o de URL, y que especifique un nombre de archivo en el campo de encabezado Content-Disposition de la respuesta. | 2 |
+| **5.4.2** | Verifique que los nombres de archivo servidos (por ejemplo, en los campos de encabezado de respuestas HTTP o en archivos adjuntos de correo electrónico) estén codificados o sanitizados (por ejemplo, siguiendo la RFC 6266) para preservar la estructura del documento y evitar ataques de inyección. | 2 |
+| **5.4.3** | Verifique que los archivos obtenidos de fuentes no confiables se analicen con antivirus para evitar servir contenido malicioso conocido. | 2 |
 
-## References
+## Referencias
 
-For more information, see also:
+Para obtener más información consulte también:
 
 * [OWASP File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
-* [Example of using symlinks for arbitrary file read](https://hackerone.com/reports/1439593)
-* [Explanation of "Magic Bytes" from Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
+* [Ejemplo de uso de enlaces simbólicos para la lectura arbitraria de archivos](https://hackerone.com/reports/1439593)
+* [Explicación de los "Magic Bytes" en Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
