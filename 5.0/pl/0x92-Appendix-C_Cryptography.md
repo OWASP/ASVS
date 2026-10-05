@@ -15,7 +15,8 @@ Lista ta może zostać nadpisana w kontekście danej aplikacji z różnych powod
 
 ## Inwentarz kryptograficzny i dokumentacja
 
-Ta sekcja dostarcza dodatkowych informacji dla V11.1 Inwentarz kryptograficzny i dokumentacja.
+Ta sekcja dostarcza dodatkowych informacji
+dla V11.1 Inwentarz kryptograficzny i dokumentacja.
 
 Ważne jest zapewnienie, że wszystkie zasoby kryptograficzne — takie jak algorytmy, klucze i certyfikaty — są regularnie wykrywane, inwentaryzowane i oceniane. Dla poziomu 3 powinno to obejmować użycie skanowania statycznego i dynamicznego do wykrywania użycia kryptografii w aplikacji. Pomocne mogą być narzędzia takie jak SAST i DAST, ale możliwe, że dla pełniejszego pokrycia potrzebne będą narzędzia dedykowane. Darmowe przykłady narzędzi obejmują:
 
