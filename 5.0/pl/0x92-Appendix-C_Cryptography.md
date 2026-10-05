@@ -45,7 +45,8 @@ Uwaga: ta sekcja zakłada, że nie istnieje komputer kwantowy; gdyby taki komput
 
 ## Wartości losowe
 
-Ta sekcja dostarcza dodatkowych informacji dla V11.5 Wartości losowe.
+Ta sekcja dostarcza dodatkowych informacji
+dla V11.5 Wartości losowe.
 
 | Nazwa | Wersja/odniesienie | Uwagi | Status |
 |:---|:----|:----|:-:|
@@ -60,7 +61,8 @@ Bazowa funkcja skrótu używana z HMAC-DRBG lub Hash-DRBG musi być zatwierdzona
 
 ## Algorytmy szyfrów
 
-Ta sekcja dostarcza dodatkowych informacji dla V11.3 Algorytmy szyfrowania.
+Ta sekcja dostarcza dodatkowych informacji
+dla V11.3 Algorytmy szyfrowania.
 
 Zatwierdzone algorytmy szyfrów wymieniono w kolejności preferencji.
 
@@ -142,7 +144,8 @@ MAC-then-encrypt jest nadal dozwolony dla zgodności ze starszymi aplikacjami. J
 
 ## Funkcje skrótu
 
-Ta sekcja dostarcza dodatkowych informacji dla V11.4 Haszowanie i funkcje oparte na skrótach.
+Ta sekcja dostarcza dodatkowych informacji
+dla V11.4 Haszowanie i funkcje oparte na skrótach.
 
 ### Funkcje skrótu do ogólnych przypadków użycia
 
@@ -218,7 +221,8 @@ Zatwierdzone funkcje wyprowadzania klucza oparte na hasłach mogą być używane
 
 ## Mechanizmy wymiany kluczy
 
-Ta sekcja dostarcza dodatkowych informacji dla V11.6 Kryptografia klucza publicznego.
+Ta sekcja dostarcza dodatkowych informacji
+dla V11.6 Kryptografia klucza publicznego.
 
 ### Schematy KEX
 
