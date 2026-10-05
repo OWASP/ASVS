@@ -46,6 +46,8 @@ PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex
 
 PANDOC_TEX_FLAGS=-f markdown -s -t latex 
 
+PANDOC_RTL_TABLE_FILTER=--lua-filter=$(TOOLSDIR)/rtl_tables.lua
+
 PANDOC_DOCX_FLAGS= -s \
 				  -t docx \
 				  -f markdown \
@@ -90,11 +92,11 @@ md: $(MD_FILES)
 	echo $(MD_FILES)
 
 $(PDF_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS) transform-md
-	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_PDF_FLAGS) $(PANDOC_RTL_TABLE_FILTER) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
 pdf: $(PDF_FILES)
 
 $(TEX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
-	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_TEX_FLAGS) $(PANDOC_RTL_TABLE_FILTER) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
 tex: $(TEX_FILES)
 
 $(DOCX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
