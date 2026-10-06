@@ -1,10 +1,10 @@
-# V5 Manejo de archivos
+# V5 Manejo de Archivos
 
-## Objetivo del control
+## Objetivo del Control
 
 El uso de archivos puede presentar diversos riesgos para la aplicación, entre ellos la denegación de servicio, el acceso no autorizado y el agotamiento del almacenamiento. Este capítulo incluye requerimientos para abordar estos riesgos.
 
-## V5.1 Documentación del manejo de archivos
+## V5.1 Documentación del Manejo de Archivos
 
 Esta sección incluye un requerimiento para documentar las características esperadas de los archivos que acepta la aplicación, como condición previa necesaria para desarrollar y verificar los controles de seguridad pertinentes.
 
@@ -12,7 +12,7 @@ Esta sección incluye un requerimiento para documentar las características espe
 | :---: | :--- | :---: |
 | **5.1.1** | Verifique que la documentación defina los tipos de archivo permitidos, las extensiones de archivo esperadas y el tamaño máximo (incluido el tamaño descomprimido) para cada funcionalidad de carga. Además, asegúrese de que la documentación especifique cómo se garantiza que los archivos sean seguros para que los usuarios finales los descarguen y procesen, por ejemplo, cómo se comporta la aplicación cuando se detecta un archivo malicioso. | 2 |
 
-## V5.2 Carga y contenido de archivos
+## V5.2 Carga y Contenido de Archivos
 
 La funcionalidad de carga de archivos es una fuente principal de archivos no confiables. Esta sección describe los requerimientos para garantizar que la presencia, el volumen o el contenido de estos archivos no puedan dañar la aplicación.
 
@@ -25,7 +25,7 @@ La funcionalidad de carga de archivos es una fuente principal de archivos no con
 | **5.2.5** | Verifique que la aplicación no permita cargar archivos comprimidos que contengan enlaces simbólicos (symlinks), a menos que se requiera expresamente. En ese caso, será necesario aplicar una lista de permitidos (allowlist) con los archivos a los que pueden apuntar los enlaces simbólicos. | 3 |
 | **5.2.6** | Verifique que la aplicación rechace las imágenes cargadas cuyas dimensiones en píxeles superen el máximo permitido, para evitar ataques de saturación de píxeles (pixel flood). | 3 |
 
-## V5.3 Almacenamiento de archivos
+## V5.3 Almacenamiento de Archivos
 
 Esta sección incluye requerimientos para evitar que los archivos se ejecuten de forma indebida tras su carga, para detectar contenido peligroso y para evitar que datos no confiables se utilicen para controlar dónde se almacenan los archivos.
 
@@ -35,7 +35,7 @@ Esta sección incluye requerimientos para evitar que los archivos se ejecuten de
 | **5.3.2** | Verifique que, cuando la aplicación crea rutas de archivo para operaciones con archivos, utilice datos generados internamente o confiables en lugar de los nombres de archivo enviados por el usuario. Si es necesario utilizar nombres o metadatos de archivo enviados por el usuario, deben aplicarse una validación y una sanitización estrictas. Esto protege contra ataques de path traversal, inclusión de archivos locales o remotos (LFI, RFI) y Server-side Request Forgery (SSRF). | 1 |
 | **5.3.3** | Verifique que el procesamiento de archivos del lado del servidor, como la descompresión de archivos, ignore la información de rutas proporcionada por el usuario, para evitar vulnerabilidades como zip slip. | 3 |
 
-## V5.4 Descarga de archivos
+## V5.4 Descarga de Archivos
 
 Esta sección contiene requerimientos para mitigar los riesgos al servir archivos para su descarga, incluidos los ataques de path traversal y de inyección. También incluye asegurar que los archivos no contengan contenido peligroso.
 

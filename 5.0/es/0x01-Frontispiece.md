@@ -1,12 +1,12 @@
 # Frontispiece
 
-## Acerca del estándar
+## Acerca del Estándar
 
 El Estándar para la verificación de seguridad de aplicaciones es una lista de requisitos de seguridad de aplicaciones que los arquitectos, desarrolladores, testers, profesionales de seguridad, proveedores de herramientas y consumidores pueden utilizar para definir, construir, probar y verificar aplicaciones seguras.
 
 ## Copyright y Licencia
 
-Versión 5.0.0, Mayo 2025
+Versión 5.0.0, mayo 2025
 
 ![license](../images/license.png)
 
@@ -14,30 +14,30 @@ Copyright © 2008-2025 The OWASP Foundation.
 
 Este documento es publicado bajo la [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
-Para cualquier reutilización o distribución se debe comunicar claramente los términos de la licencia de esta obra a otros.
+Para cualquier reutilización o distribución se deben comunicar claramente los términos de la licencia de esta obra a otros.
 
-## Líderes del proyecto
+## Líderes del Proyecto
 
 |                       |                  |
 |---------------------- |----------------- |
 | Elar Lang             | Josh C Grossman  |
 | Jim Manico            | Daniel Cuthbert  |
 
-## Grupo de trabajo
+## Grupo de Trabajo
 
 |                 |                   |                    |                  |
 |---------------- |------------------ |------------------- |----------------- |
 | Tobias Ahnoff   | Ralph Andalis     | Ryan Armstrong     | Gabriel Corona   |
 | Meghan Jacquot  | Shanni Prutchi    | Iman Sharafaldin   | Eden Yardeni     |
 
-## Otros contribuidores principales
+## Otros Contribuidores Principales
 
 |                   |                   |
 |-------------------|-------------------|
 | Sjoerd Langkemper | Isaac Lewis       |
 | Mark Carney       | Sandro Gauci      |
 
-## Otros contribuidores y revisores
+## Otros Contribuidores y Revisores
 
 Hemos incluido una lista de los demás colaboradores en el Apéndice E.
 

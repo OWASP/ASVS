@@ -46,7 +46,7 @@ En otras palabras, las recomendaciones, ya se trate de una de las muchas opcione
 
 Los requerimientos de ASVS buscan abordar principios de seguridad específicos sin estar demasiado ligados a una implementación o tecnología concretas, y al mismo tiempo, justifican por sí mismos su existencia. Esto también significa que los requerimientos no se basan en un método de verificación o implementación en particular.
 
-### Decisiones de seguridad documentadas
+### Decisiones de Seguridad Documentadas
 
 En seguridad de software, planear desde el principio el diseño de seguridad y los mecanismos que se utilizarán se traduce en una implementación más consistente y fiable en el producto terminado o la funcionalidad agregada.
 
@@ -68,7 +68,7 @@ Proporcionar a los desarrolladores especificaciones y diseños para nuevas carac
 
 También existe flexibilidad en cuanto a cómo lograr este objetivo. Las decisiones de seguridad pueden documentarse en un documento literal, que se espera que los desarrolladores usen como referencia. Alternativamente, las decisiones de seguridad pueden documentarse e implementarse en una librería de código común que todos los desarrolladores estén obligados a usar. En ambos casos, se logra el resultado deseado.
 
-## Niveles de verificación de seguridad de aplicaciones
+## Niveles de Verificación de Seguridad de Aplicaciones
 
 El ASVS define tres niveles de verificación de seguridad, cada uno de los cuales aumenta en profundidad y complejidad. El objetivo general es que las organizaciones comiencen con el primer nivel para abordar las preocupaciones de seguridad más críticas y luego avancen a los niveles superiores según las necesidades de la organización y la aplicación. Los niveles pueden presentarse como L1, L2 y L3 en el documento y en los textos de requerimientos.
 
@@ -76,7 +76,7 @@ Cada nivel del ASVS indica los requerimientos de seguridad que se deben cumplir 
 
 Para evitar requerimientos duplicados o requerimientos que ya no son relevantes en niveles superiores, algunos requerimientos se aplican a un nivel específico, pero tienen condiciones más estrictas para los niveles superiores.
 
-### Evaluación de niveles
+### Evaluación de Niveles
 
 Los niveles se definen mediante una evaluación por prioridades de cada requerimiento basada en la experiencia en implementación y prueba de requerimientos de seguridad. El enfoque principal es comparar la reducción de riesgos con el esfuerzo necesario para implementar el requerimiento. Otro factor clave es mantener una barrera de entrada baja.
 
@@ -108,21 +108,21 @@ Este nivel debería ser el objetivo para las aplicaciones que buscan demostrar l
 
 Los requerimientos de esta sección suelen ser mecanismos de defensa en profundidad u otros controles útiles pero difíciles de implementar.
 
-### ¿Qué nivel alcanzar?
+### ¿Qué Nivel Alcanzar?
 
 Los niveles basados en prioridades buscan reflejar la madurez de la seguridad de aplicaciones tanto de la organización como de la aplicación. En lugar de que el ASVS dicte de forma estricta el nivel de seguridad que debe alcanzar una aplicación, una organización debe analizar sus riesgos y decidir qué nivel considera que debería alcanzar en función de la sensibilidad de la aplicación y, por supuesto, de las expectativas de sus usuarios.
 
 Por ejemplo, una startup en fase inicial que solo recopila datos sensibles limitados podría optar por el Nivel 1 para sus objetivos iniciales de seguridad pero un banco podría tener dificultades para justificar ante sus clientes un nivel inferior al 3 para su aplicación de banca en línea.
 
-## Como usar el ASVS
+## Cómo Usar el ASVS
 
-### La estructura del ASVS
+### La Estructura del ASVS
 
 El ASVS consta de un total de aproximadamente 350 requerimientos divididos en 17 capítulos, cada uno de los cuales se subdivide en secciones.
 
 El objetivo de la división en capítulos y secciones es simplificar la selección o el filtrado de capítulos y secciones según su relevancia para la aplicación. Por ejemplo, para una API máquina a máquina (M2M API) los requerimientos del capítulo V3 relacionados con las interfaces web no serán relevantes. Si no se utiliza OAuth ni WebRTC, estos capítulos también pueden ignorarse.
 
-### Estrategia de versiones
+### Estrategia de Versiones
 
 Las versiones de ASVS siguen el patrón "Mayor.Menor.Parche" y los números indican qué ha cambiado en la versión. En una versión mayor, cambia el primer número; en una menor, el segundo; y en una versión de parche, cambia el tercer número.
 
@@ -138,9 +138,9 @@ Varios de los puntos descritos anteriormente, como los requerimientos de documen
 
 Además, se recomienda encarecidamente a las organizaciones crear una versión específica para su organización o dominio que ajuste los requerimientos en función de las características y los niveles de riesgo específicos de sus aplicaciones. Sin embargo, es importante mantener la trazabilidad para que el cumplimiento del requisito 4.1.1 se aplique de forma uniforme en todas las versiones.
 
-Idealmente, cada organización debería crear su propio ASVS personalizado omitiendo las secciones irrelevantes (por ejemplo, GraphQL, WebSockets o SOAP si no se utilizan). Una versión del ASVS específico para cada organización también es un buen lugar para proporcionar una guía de implementación específica para cada organización, detallando las librerias o los recursos que se pueden utilizar para cumplir con los requerimientos.
+Idealmente, cada organización debería crear su propio ASVS personalizado omitiendo las secciones irrelevantes (por ejemplo, GraphQL, WebSockets o SOAP si no se utilizan). Una versión del ASVS específico para cada organización también es un buen lugar para proporcionar una guía de implementación específica para cada organización, detallando las librerías o los recursos que se pueden utilizar para cumplir con los requerimientos.
 
-### Cómo referenciar los requerimientos del ASVS
+### Cómo Referenciar los Requerimientos del ASVS
 
 Cada requerimiento tiene un identificador con el formato `<capítulo>.<sección>.<requerimiento>`, donde cada elemento es un número. Por ejemplo, `1.11.3`.
 
@@ -158,37 +158,37 @@ Si se utilizan identificadores sin incluir el elemento `v<versión>`, se debe as
 
 Las listas de requerimientos del ASVS están disponibles en CSV, JSON y otros formatos que pueden resultar útiles como referencia o uso programático.
 
-### Hacer una copia del ASVS (forking)
+### Hacer una Copia del ASVS (forking)
 
 Las organizaciones pueden beneficiarse de la adopción del ASVS eligiendo uno de los tres niveles o creando una copia (fork) específica para cada dominio que ajuste los requerimientos según el nivel de riesgo de sus aplicaciones. Se recomienda este tipo de copia siempre que mantenga la trazabilidad para que el cumplimiento del requisito 4.1.1 sea igual en todas las versiones.
 
 Idealmente, cada organización debería crear su propio ASVS personalizado, omitiendo las secciones irrelevantes (por ejemplo, GraphQL, Websockets, SOAP, si no se utilizan). La copia (fork) debería comenzar con el nivel 1 de ASVS como base, y avanzar a los niveles 2 o 3 según el riesgo de la aplicación.
 
-## Casos de uso para el ASVS
+## Casos de Uso para el ASVS
 
 El ASVS puede utilizarse para evaluar la seguridad de una aplicación, tema que se explora con más profundidad en el siguiente capítulo. Sin embargo, se han identificado otros usos potenciales para el ASVS (o una versión específica).
 
-### Como una guía detallada sobre arquitectura de seguridad
+### Como una Guía Detallada sobre Arquitectura de Seguridad
 
 Uno de los usos más comunes del Estándar para la Verificación de Seguridad de Aplicaciones (ASVS) es como recurso para arquitectos de seguridad. Existen recursos limitados para construir una arquitectura de aplicaciones segura especialmente con aplicaciones modernas. El ASVS puede utilizarse para subsanar estas deficiencias permitiendo a los arquitectos de seguridad elegir mejores controles para problemas comunes como patrones de protección de datos y estrategias de validación de entradas. Los requerimientos de arquitectura y documentación serán especialmente útiles para esto.
 
-### Como referencia especializada en codificación segura
+### Como Referencia Especializada en Codificación Segura
 
-El ASVS puede utilizarse como base para preparar una referencia de codificación segura durante el desarrollo de aplicaciones, lo que ayuda a los desarrolladores a garantizar que tengan en cuenta la seguridad al crear software. Si bien el ASVS puede ser la base, las organizaciones deben elaborar su propia guía específica, clara y unificada, idealmente basada en la orientación de ingenieros o arquitectos de seguridad. Además, se anima a las organizaciones, siempre que sea posible, a preparar mecanismos y librerias de seguridad aprobados que puedan ser referenciados en la guía y utilizados por los desarrolladores.
+El ASVS puede utilizarse como base para preparar una referencia de codificación segura durante el desarrollo de aplicaciones, lo que ayuda a los desarrolladores a garantizar que tengan en cuenta la seguridad al crear software. Si bien el ASVS puede ser la base, las organizaciones deben elaborar su propia guía específica, clara y unificada, idealmente basada en la orientación de ingenieros o arquitectos de seguridad. Además, se anima a las organizaciones, siempre que sea posible, a preparar mecanismos y librerías de seguridad aprobados que puedan ser referenciados en la guía y utilizados por los desarrolladores.
 
-### Como guía para pruebas unitarias y de integración automatizadas
+### Como Guía para Pruebas Unitarias y de Integración Automatizadas
 
 El ASVS está diseñado para ser altamente testeable. Algunas verificaciones serán técnicas, mientras que otros requerimientos (como los de arquitectura y documentación) pueden requerir una revisión de la documentación o la arquitectura. Al crear pruebas unitarias y de integración que prueben y analicen casos de abuso específicos y relevantes relacionados con los requerimientos que sean verificables técnicamente, debería ser más fácil verificar el correcto funcionamiento de estos controles en cada compilación. Por ejemplo, se pueden crear pruebas adicionales para el conjunto de pruebas de un controlador de inicio de sesión, probando el parámetro de nombre de usuario para nombres de usuario predeterminados comunes, enumeración de cuentas, fuerza bruta, inyección de LDAP, SQL y XSS. De igual forma, una prueba del parámetro de contraseña debe incluir contraseñas comunes, longitud de contraseña, inyección de bytes nulos, eliminación del parámetro, XSS, etc.
 
-### Para una formación en desarrollo seguro
+### Para una Formación en Desarrollo Seguro
 
 El ASVS también puede utilizarse para definir las características del software seguro. Muchos cursos de “codificación segura” son simplemente cursos de hacking ético con algunos consejos de programación. Esto no necesariamente ayuda a los desarrolladores a escribir código más seguro. En cambio, los cursos de desarrollo seguro pueden utilizar el ASVS con un enfoque especial en los mecanismos positivos que se encuentran en él en lugar de en las 10 principales desventajas que no se deben hacer. La estructura del ASVS también proporciona una estructura lógica para explicar los diferentes temas al proteger una aplicación.
 
-### Como marco para orientar la adquisición de software seguro
+### Como Marco para Orientar la Adquisición de Software Seguro
 
 El ASVS es un excelente marco para facilitar la adquisición segura de software o la contratación de servicios de desarrollo a medida. El comprador puede simplemente exigir que el software que desea adquirir se desarrolle según el nivel X del ASVS y solicitar al vendedor que demuestre que el software cumple dicho nivel.
 
-## Aplicación del ASVS en la práctica
+## Aplicación del ASVS en la Práctica
 
 Cada amenaza tiene su propia motivación. Algunas industrias cuentan con activos de información y tecnología únicos y requerimientos de cumplimiento normativo específicos de cada sector.
 

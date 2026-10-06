@@ -1,166 +1,166 @@
-# V6 Authentication
+# V6 Autenticación
 
-## Control Objective
+## Objetivo del Control
 
-Authentication is the process of establishing or confirming the authenticity of an individual or device. It involves verifying claims made by a person or about a device, ensuring resistance to impersonation, and preventing the recovery or interception of passwords.
+La autenticación es el proceso de establecer o confirmar la autenticidad de una persona o dispositivo. Implica verificar las afirmaciones realizadas por una persona o sobre un dispositivo, garantizar la resistencia a la suplantación de identidad y evitar la recuperación o interceptación de contraseñas.
 
-[NIST SP 800-63](https://pages.nist.gov/800-63-3/) is a modern, evidence-based standard that is valuable for organizations worldwide, but is particularly relevant to US agencies and those interacting with US agencies.
+[NIST SP 800-63](https://pages.nist.gov/800-63-3/) es un estándar moderno basado en evidencia que resulta valioso para organizaciones de todo el mundo, pero es especialmente relevante para los organismos de Estados Unidos y quienes interactúan con ellos.
 
-While many of the requirements in this chapter are based on the second section of the standard (known as NIST SP 800-63B "Digital Identity Guidelines - Authentication and Lifecycle Management"), the chapter focuses on common threats and frequently exploited authentication weaknesses. It does not attempt to comprehensively cover every point in the standard. For cases where full NIST SP 800-63 compliance is necessary, please refer to NIST SP 800-63.
+Aunque muchos de los requerimientos de este capítulo se basan en la segunda sección del estándar (conocida como NIST SP 800-63B, "Directrices de identidad digital - Autenticación y gestión del ciclo de vida"), el capítulo se centra en amenazas comunes y debilidades de autenticación que se explotan con frecuencia. No pretende abarcar exhaustivamente todos los puntos del estándar. Cuando sea necesario cumplir íntegramente con NIST SP 800-63, consulte NIST SP 800-63.
 
-Additionally, NIST SP 800-63 terminology may sometimes differ, and this chapter often uses more commonly understood terminology to improve clarity.
+Además, la terminología de NIST SP 800-63 puede diferir en ocasiones, y este capítulo utiliza con frecuencia términos más ampliamente conocidos para mejorar la claridad.
 
-A common feature of more advanced applications is the ability to adapt authentication stages required based on various risk factors. This feature is covered in the "Authorization" chapter, since these mechanisms also need to be considered for authorization decisions.
+Una característica habitual de las aplicaciones más avanzadas es la capacidad de adaptar las etapas de autenticación requeridas según diversos factores de riesgo. Esta característica se aborda en el capítulo "Autorización", ya que estos mecanismos también deben tenerse en cuenta al tomar decisiones de autorización.
 
-## V6.1 Authentication Documentation
+## V6.1 Documentación de Autenticación
 
-This section contains requirements detailing the authentication documentation that should be maintained for an application. This is crucial for implementing and assessing how the relevant authentication controls should be configured.
+Esta sección contiene requerimientos que detallan la documentación de autenticación que debería mantenerse para una aplicación. Esto es fundamental para implementar y evaluar cómo deberían configurarse los controles de autenticación pertinentes.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.1.1** | Verify that application documentation defines how controls such as rate limiting, anti-automation, and adaptive response, are used to defend against attacks such as credential stuffing and password brute force. The documentation must make clear how these controls are configured and prevent malicious account lockout. | 1 |
-| **6.1.2** | Verify that a list of context-specific words is documented in order to prevent their use in passwords. The list could include permutations of organization names, product names, system identifiers, project codenames, department or role names, and similar. | 2 |
-| **6.1.3** | Verify that, if the application includes multiple authentication pathways, these are all documented together with the security controls and authentication strength which must be consistently enforced across them. | 2 |
+| **6.1.1** | Verificar que la documentación de la aplicación defina cómo se utilizan controles como la limitación de tasa, la prevención de la automatización y la respuesta adaptativa para defenderse de ataques como el relleno de credenciales (credential stuffing) y la fuerza bruta de contraseñas. La documentación debe dejar claro cómo se configuran estos controles y cómo evitan el bloqueo malicioso de cuentas. | 1 |
+| **6.1.2** | Verificar que se documente una lista de palabras específicas del contexto para impedir su uso en las contraseñas. La lista podría incluir permutaciones de nombres de organizaciones, nombres de productos, identificadores de sistemas, nombres en clave de proyectos, nombres de departamentos o roles y otros similares. | 2 |
+| **6.1.3** | Verificar que, si la aplicación incluye múltiples vías de autenticación, todas estén documentadas junto con los controles de seguridad y la robustez de autenticación que deben aplicarse de manera uniforme en todas ellas. | 2 |
 
-## V6.2 Password Security
+## V6.2 Seguridad de las Contraseñas
 
-Passwords, called "Memorized Secrets" by NIST SP 800-63, include passwords, passphrases, PINs, unlock patterns, and picking the correct kitten or another image element. They are generally considered "something you know" and are often used as a single-factor authentication mechanism.
+Las contraseñas, denominadas "secretos memorizados" por NIST SP 800-63, incluyen contraseñas, frases de contraseña, PINs, patrones de desbloqueo y la selección del gatito correcto u otro elemento de una imagen. Generalmente se consideran "algo que sabe" y suelen utilizarse como mecanismo de autenticación de un solo factor.
 
-As such, this section contains requirements for making sure that passwords are created and handled securely. Most of the requirements are L1 as they are most important at that level. From L2 onwards, multi-factor authentication mechanisms are required, where passwords may be one of those factors.
+Por ello, esta sección contiene requerimientos para garantizar que las contraseñas se creen y gestionen de forma segura. La mayoría de los requerimientos son de nivel 1 (L1), ya que son más importantes en ese nivel. A partir del nivel 2 (L2), se requieren mecanismos de autenticación multifactor, en los que las contraseñas pueden ser uno de los factores.
 
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Los requerimientos de esta sección se relacionan principalmente con la [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) de las [directrices de NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.2.1** | Verify that user set passwords are at least 8 characters in length although a minimum of 15 characters is strongly recommended. | 1 |
-| **6.2.2** | Verify that users can change their password. | 1 |
-| **6.2.3** | Verify that password change functionality requires the user's current and new password. | 1 |
-| **6.2.4** | Verify that passwords submitted during account registration or password change are checked against an available set of, at least, the top 3000 passwords which match the application's password policy, e.g. minimum length. | 1 |
-| **6.2.5** | Verify that passwords of any composition can be used, without rules limiting the type of characters permitted. There must be no requirement for a minimum number of upper or lower case characters, numbers, or special characters. | 1 |
-| **6.2.6** | Verify that password input fields use type=password to mask the entry. Applications may allow the user to temporarily view the entire masked password, or the last typed character of the password. | 1 |
-| **6.2.7** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | 1 |
-| **6.2.8** | Verify that the application verifies the user's password exactly as received from the user, without any modifications such as truncation or case transformation. | 1 |
-| **6.2.9** | Verify that passwords of at least 64 characters are permitted. | 2 |
-| **6.2.10** | Verify that a user's password stays valid until it is discovered to be compromised or the user rotates it. The application must not require periodic credential rotation. | 2 |
-| **6.2.11** | Verify that the documented list of context specific words is used to prevent easy to guess passwords being created. | 2 |
-| **6.2.12** | Verify that passwords submitted during account registration or password changes are checked against a set of breached passwords. | 2 |
+| **6.2.1** | Verificar que las contraseñas establecidas por los usuarios tengan al menos 8 caracteres, aunque se recomienda encarecidamente un mínimo de 15 caracteres. | 1 |
+| **6.2.2** | Verificar que los usuarios puedan cambiar su contraseña. | 1 |
+| **6.2.3** | Verificar que la funcionalidad de cambio de contraseña requiera la contraseña actual y la nueva contraseña del usuario. | 1 |
+| **6.2.4** | Verificar que las contraseñas enviadas durante el registro de una cuenta o el cambio de contraseña se comparen con un conjunto disponible de, al menos, las 3000 contraseñas más comunes que cumplan la política de contraseñas de la aplicación, por ejemplo, la longitud mínima. | 1 |
+| **6.2.5** | Verificar que puedan utilizarse contraseñas de cualquier composición, sin reglas que limiten el tipo de caracteres permitidos. No debe exigirse un número mínimo de letras mayúsculas o minúsculas, números o caracteres especiales. | 1 |
+| **6.2.6** | Verificar que los campos de entrada de contraseñas utilicen type=password para enmascarar lo que se introduce. Las aplicaciones pueden permitir que el usuario vea temporalmente toda la contraseña enmascarada o el último carácter introducido de la contraseña. | 1 |
+| **6.2.7** | Verificar que se permitan la funcionalidad de "pegar", los asistentes de contraseñas del navegador y los gestores de contraseñas externos. | 1 |
+| **6.2.8** | Verificar que la aplicación compruebe la contraseña del usuario exactamente como la recibe, sin modificaciones como truncamientos o conversiones entre mayúsculas y minúsculas. | 1 |
+| **6.2.9** | Verificar que se permitan contraseñas de al menos 64 caracteres. | 2 |
+| **6.2.10** | Verificar que la contraseña de un usuario siga siendo válida hasta que se descubra que ha sido comprometida o que el usuario la cambie. La aplicación no debe exigir la rotación periódica de credenciales. | 2 |
+| **6.2.11** | Verificar que se utilice la lista documentada de palabras específicas del contexto para impedir la creación de contraseñas fáciles de adivinar. | 2 |
+| **6.2.12** | Verificar que las contraseñas enviadas durante el registro de una cuenta o los cambios de contraseña se comparen con un conjunto de contraseñas filtradas. | 2 |
 
-## V6.3 General Authentication Security
+## V6.3 Seguridad General de la Autenticación
 
-This section contains general requirements for the security of authentication mechanisms as well as setting out the different expectations for levels. L2 applications must force the use of multi-factor authentication (MFA). L3 applications must use hardware-based authentication, performed in an attested and trusted execution environment (TEE). This could include device-bound passkeys, eIDAS Level of Assurance (LoA) High enforced authenticators, authenticators with NIST Authenticator Assurance Level 3 (AAL3) assurance, or an equivalent mechanism.
+Esta sección contiene requerimientos generales para la seguridad de los mecanismos de autenticación y establece las distintas expectativas para cada nivel. Las aplicaciones de nivel 2 (L2) deben exigir el uso de autenticación multifactor (MFA). Las aplicaciones de nivel 3 (L3) deben utilizar autenticación basada en hardware, realizada en un entorno de ejecución confiable (TEE) con atestación. Esto podría incluir claves de acceso (passkeys) vinculadas al dispositivo, autenticadores que cumplan el nivel de garantía (LoA) alto de eIDAS, autenticadores con nivel 3 de garantía del autenticador de NIST (AAL3) o un mecanismo equivalente.
 
-While this is a relatively aggressive stance on MFA, it is critical to raise the bar around this to protect users, and any attempt to relax these requirements should be accompanied by a clear plan on how the risks around authentication will be mitigated, taking into account NIST's guidance and research on the topic.
+Aunque esta postura respecto a la MFA es relativamente exigente, es fundamental elevar el nivel de protección de los usuarios. Cualquier intento de flexibilizar estos requerimientos debería ir acompañado de un plan claro sobre cómo se mitigarán los riesgos relacionados con la autenticación, teniendo en cuenta las directrices y la investigación de NIST sobre el tema.
 
-Note that at the time of release, NIST SP 800-63 considers email as [not acceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) as an authentication mechanism ([archived copy](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
+Tenga en cuenta que, en el momento de la publicación, NIST SP 800-63 considera el correo electrónico [no aceptable](https://pages.nist.gov/800-63-FAQ/#q-b11) como mecanismo de autenticación ([copia archivada](https://web.archive.org/web/20250330115328/https://pages.nist.gov/800-63-FAQ/#q-b11)).
 
-The requirements in this section relate to a variety of sections of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), including: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling), and [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
+Los requerimientos de esta sección se relacionan con varias secciones de las [directrices de NIST](https://pages.nist.gov/800-63-3/sp800-63b.html), entre ellas: [&sect; 4.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#421-permitted-authenticator-types), [&sect; 4.3.1](https://pages.nist.gov/800-63-3/sp800-63b.html#431-permitted-authenticator-types), [&sect; 5.2.2](https://pages.nist.gov/800-63-3/sp800-63b.html#522-rate-limiting-throttling) y [&sect; 6.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-612-post-enrollment-binding).
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.3.1** | Verify that controls to prevent attacks such as credential stuffing and password brute force are implemented according to the application's security documentation. | 1 |
-| **6.3.2** | Verify that default user accounts (e.g., "root", "admin", or "sa") are not present in the application or are disabled. | 1 |
-| **6.3.3** | Verify that either a multi-factor authentication mechanism or a combination of single-factor authentication mechanisms, must be used in order to access the application. For L3, one of the factors must be a hardware-based authentication mechanism which provides compromise and impersonation resistance against phishing attacks while verifying the intent to authenticate by requiring a user-initiated action (such as a button press on a FIDO hardware key or a mobile phone). Relaxing any of the considerations in this requirement requires a fully documented rationale and a comprehensive set of mitigating controls. | 2 |
-| **6.3.4** | Verify that, if the application includes multiple authentication pathways, there are no undocumented pathways and that security controls and authentication strength are enforced consistently. | 2 |
-| **6.3.5** | Verify that users are notified of suspicious authentication attempts (successful or unsuccessful). This may include authentication attempts from an unusual location or client, partially successful authentication (only one of multiple factors), an authentication attempt after a long period of inactivity or a successful authentication after several unsuccessful attempts. | 3 |
-| **6.3.6** | Verify that email is not used as either a single-factor or multi-factor authentication mechanism. | 3 |
-| **6.3.7** | Verify that users are notified after updates to authentication details, such as credential resets or modification of the username or email address. | 3 |
-| **6.3.8** | Verify that valid users cannot be deduced from failed authentication challenges, such as by basing on error messages, HTTP response codes, or different response times. Registration and forgot password functionality must also have this protection. | 3 |
+| **6.3.1** | Verificar que los controles para prevenir ataques como el relleno de credenciales (credential stuffing) y la fuerza bruta de contraseñas se implementen de acuerdo con la documentación de seguridad de la aplicación. | 1 |
+| **6.3.2** | Verificar que las cuentas de usuario predeterminadas (por ejemplo, "root", "admin" o "sa") no estén presentes en la aplicación o estén deshabilitadas. | 1 |
+| **6.3.3** | Verificar que, para acceder a la aplicación, sea obligatorio utilizar un mecanismo de autenticación multifactor o una combinación de mecanismos de autenticación de un solo factor. Para el nivel 3 (L3), uno de los factores debe ser un mecanismo de autenticación basado en hardware que ofrezca resistencia al compromiso y a la suplantación de identidad frente a ataques de phishing, y que verifique la intención de autenticarse al exigir una acción iniciada por el usuario (como pulsar un botón en una llave de hardware FIDO o en un teléfono móvil). Flexibilizar cualquiera de las consideraciones de este requerimiento exige una justificación completamente documentada y un conjunto integral de controles de mitigación. | 2 |
+| **6.3.4** | Verificar que, si la aplicación incluye múltiples vías de autenticación, no existan vías sin documentar y que los controles de seguridad y la robustez de autenticación se apliquen de manera uniforme. | 2 |
+| **6.3.5** | Verificar que se notifique a los usuarios sobre los intentos de autenticación sospechosos (exitosos o fallidos). Esto puede incluir intentos de autenticación desde una ubicación o un cliente inusuales, autenticaciones parcialmente exitosas (solo uno de varios factores), un intento de autenticación tras un largo período de inactividad o una autenticación exitosa después de varios intentos fallidos. | 3 |
+| **6.3.6** | Verificar que el correo electrónico no se utilice como mecanismo de autenticación de un solo factor ni multifactor. | 3 |
+| **6.3.7** | Verificar que se notifique a los usuarios después de actualizar los datos de autenticación, por ejemplo, tras restablecer las credenciales o modificar el nombre de usuario o la dirección de correo electrónico. | 3 |
+| **6.3.8** | Verificar que no se pueda deducir qué usuarios son válidos a partir de desafíos de autenticación fallidos, por ejemplo, basándose en mensajes de error, códigos de respuesta HTTP o diferencias en los tiempos de respuesta. Las funcionalidades de registro y recuperación de contraseñas olvidadas también deben contar con esta protección. | 3 |
 
-## V6.4 Authentication Factor Lifecycle and Recovery
+## V6.4 Ciclo de Vida y Recuperación de los Factores de Autenticación
 
-Authentication factors may include passwords, soft tokens, hardware tokens, and biometric devices. Securely handling the lifecycle of these mechanisms is critical to the security of an application, and this section includes requirements related to this.
+Los factores de autenticación pueden incluir contraseñas, tokens de software, tokens de hardware y dispositivos biométricos. Gestionar de forma segura el ciclo de vida de estos mecanismos es fundamental para la seguridad de una aplicación, y esta sección incluye requerimientos al respecto.
 
-The requirements in this section mostly relate to [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) or [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Los requerimientos de esta sección se relacionan principalmente con la [&sect; 5.1.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) o la [&sect; 6.1.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#replacement) de las [directrices de NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.4.1** | Verify that system generated initial passwords or activation codes are securely randomly generated, follow the existing password policy, and expire after a short period of time or after they are initially used. These initial secrets must not be permitted to become the long term password. | 1 |
-| **6.4.2** | Verify that password hints or knowledge-based authentication (so-called "secret questions") are not present. | 1 |
-| **6.4.3** | Verify that a secure process for resetting a forgotten password is implemented, that does not bypass any enabled multi-factor authentication mechanisms. | 2 |
-| **6.4.4** | Verify that if a multi-factor authentication factor is lost, evidence of identity proofing is performed at the same level as during enrollment. | 2 |
-| **6.4.5** | Verify that renewal instructions for authentication mechanisms which expire are sent with enough time to be carried out before the old authentication mechanism expires, configuring automated reminders if necessary. | 3 |
-| **6.4.6** | Verify that administrative users can initiate the password reset process for the user, but that this does not allow them to change or choose the user's password. This prevents a situation where they know the user's password. | 3 |
+| **6.4.1** | Verificar que las contraseñas iniciales o los códigos de activación generados por el sistema se generen de forma aleatoria y segura, cumplan la política de contraseñas existente y caduquen tras un período breve o después de su primer uso. No debe permitirse que estos secretos iniciales se conviertan en la contraseña a largo plazo. | 1 |
+| **6.4.2** | Verificar que no existan pistas de contraseñas ni autenticación basada en conocimiento (las denominadas "preguntas secretas"). | 1 |
+| **6.4.3** | Verificar que se implemente un proceso seguro para restablecer una contraseña olvidada que no eluda ningún mecanismo de autenticación multifactor habilitado. | 2 |
+| **6.4.4** | Verificar que, si se pierde un factor de autenticación multifactor, se compruebe la identidad mediante evidencias con el mismo nivel de exigencia que durante la inscripción. | 2 |
+| **6.4.5** | Verificar que las instrucciones de renovación de los mecanismos de autenticación que caducan se envíen con tiempo suficiente para llevarlas a cabo antes de que caduque el mecanismo anterior, configurando recordatorios automáticos si es necesario. | 3 |
+| **6.4.6** | Verificar que los usuarios administradores puedan iniciar el proceso de restablecimiento de contraseña para el usuario, pero que esto no les permita cambiar ni elegir su contraseña. Esto evita que puedan conocer la contraseña del usuario. | 3 |
 
-## V6.5 General Multi-factor authentication requirements
+## V6.5 Requerimientos Generales de Autenticación Multifactor
 
-This section provides general guidance that will be relevant to various different multi-factor authentication methods.
+Esta sección ofrece directrices generales que serán pertinentes para diversos métodos de autenticación multifactor.
 
-The mechanisms include:
+Los mecanismos incluyen:
 
-* Lookup Secrets
-* Time based One-time Passwords (TOTPs)
-* Out-of-Band mechanisms
+* Secretos de consulta
+* Contraseñas de un solo uso basadas en el tiempo (TOTPs)
+* Mecanismos fuera de banda
 
-Lookup secrets are pre-generated lists of secret codes, similar to Transaction Authorization Numbers (TAN), social media recovery codes, or a grid containing a set of random values. This type of authentication mechanism is considered "something you have" because the codes are deliberately not memorable so will need to be stored somewhere.
+Los secretos de consulta son listas pregeneradas de códigos secretos, similares a los números de autorización de transacciones (TAN), los códigos de recuperación de redes sociales o una cuadrícula que contiene un conjunto de valores aleatorios. Este tipo de mecanismo de autenticación se considera "algo que tiene", ya que los códigos están diseñados para no ser memorizables y, por lo tanto, deben almacenarse en algún lugar.
 
-Time based One-time Passwords (TOTPs) are physical or soft tokens that display a continually changing pseudo-random one-time challenge. This type of authentication mechanism is considered "something you have". Multi-factor TOTPs are similar to single-factor TOTPs, but require a valid PIN code, biometric unlocking, USB insertion or NFC pairing, or some additional value (such as transaction signing calculators) to be entered to create the final One-time Password (OTP).
+Las contraseñas de un solo uso basadas en el tiempo (TOTPs) son tokens físicos o de software que muestran un desafío seudoaleatorio de un solo uso que cambia continuamente. Este tipo de mecanismo de autenticación se considera "algo que tiene". Las TOTPs multifactor son similares a las TOTPs de un solo factor, pero requieren introducir un código PIN válido, realizar un desbloqueo biométrico, insertar un dispositivo USB o emparejar mediante NFC, o introducir algún valor adicional (como en las calculadoras de firma de transacciones) para crear la contraseña de un solo uso (OTP) final.
 
-Details on out-of-band mechanisms will be provided in the next section.
+En la siguiente sección se proporcionan detalles sobre los mecanismos fuera de banda.
 
-The requirements in these sections mostly relate to [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators), and [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Los requerimientos de estas secciones se relacionan principalmente con la [&sect; 5.1.2](https://pages.nist.gov/800-63-3/sp800-63b.html#-512-look-up-secrets), la [&sect; 5.1.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-513-out-of-band-devices), la [&sect; 5.1.4.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5142-single-factor-otp-verifiers), la [&sect; 5.1.5.2](https://pages.nist.gov/800-63-3/sp800-63b.html#5152-multi-factor-otp-verifiers), la [&sect; 5.2.1](https://pages.nist.gov/800-63-3/sp800-63b.html#521-physical-authenticators) y la [&sect; 5.2.3](https://pages.nist.gov/800-63-3/sp800-63b.html#523-use-of-biometrics) de las [directrices de NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.5.1** | Verify that lookup secrets, out-of-band authentication requests or codes, and time-based one-time passwords (TOTPs) are only successfully usable once. | 2 |
-| **6.5.2** | Verify that, when being stored in the application's backend, lookup secrets with less than 112 bits of entropy (19 random alphanumeric characters or 34 random digits) are hashed with an approved password storage hashing algorithm that incorporates a 32-bit random salt. A standard hash function can be used if the secret has 112 bits of entropy or more. | 2 |
-| **6.5.3** | Verify that lookup secrets, out-of-band authentication code, and time-based one-time password seeds, are generated using a Cryptographically Secure Pseudorandom Number Generator (CSPRNG) to avoid predictable values. | 2 |
-| **6.5.4** | Verify that lookup secrets and out-of-band authentication codes have a minimum of 20 bits of entropy (typically 4 random alphanumeric characters or 6 random digits is sufficient). | 2 |
-| **6.5.5** | Verify that out-of-band authentication requests, codes, or tokens, as well as time-based one-time passwords (TOTPs) have a defined lifetime. Out of band requests must have a maximum lifetime of 10 minutes and for TOTP a maximum lifetime of 30 seconds. | 2 |
-| **6.5.6** | Verify that any authentication factor (including physical devices) can be revoked in case of theft or other loss. | 3 |
-| **6.5.7** | Verify that biometric authentication mechanisms are only used as secondary factors together with either something you have or something you know. | 3 |
-| **6.5.8** | Verify that time-based one-time passwords (TOTPs) are checked based on a time source from a trusted service and not from an untrusted or client provided time. | 3 |
+| **6.5.1** | Verificar que los secretos de consulta, las solicitudes o los códigos de autenticación fuera de banda y las contraseñas de un solo uso basadas en el tiempo (TOTPs) solo puedan utilizarse con éxito una vez. | 2 |
+| **6.5.2** | Verificar que, al almacenarse en el backend de la aplicación, se aplique a los secretos de consulta con menos de 112 bits de entropía (19 caracteres alfanuméricos aleatorios o 34 dígitos aleatorios) un algoritmo de hash aprobado para el almacenamiento de contraseñas que incorpore una sal aleatoria de 32 bits. Puede utilizarse una función de hash estándar si el secreto tiene 112 bits de entropía o más. | 2 |
+| **6.5.3** | Verificar que los secretos de consulta, los códigos de autenticación fuera de banda y las semillas de las contraseñas de un solo uso basadas en el tiempo se generen mediante un generador de números seudoaleatorios criptográficamente seguro (CSPRNG) para evitar valores predecibles. | 2 |
+| **6.5.4** | Verificar que los secretos de consulta y los códigos de autenticación fuera de banda tengan un mínimo de 20 bits de entropía (normalmente bastan 4 caracteres alfanuméricos aleatorios o 6 dígitos aleatorios). | 2 |
+| **6.5.5** | Verificar que las solicitudes, los códigos o los tokens de autenticación fuera de banda, así como las contraseñas de un solo uso basadas en el tiempo (TOTPs), tengan una duración de validez definida. Las solicitudes fuera de banda deben tener una duración máxima de validez de 10 minutos y las TOTP, de 30 segundos. | 2 |
+| **6.5.6** | Verificar que cualquier factor de autenticación (incluidos los dispositivos físicos) pueda revocarse en caso de robo u otra pérdida. | 3 |
+| **6.5.7** | Verificar que los mecanismos de autenticación biométrica solo se utilicen como factores secundarios junto con algo que tiene o algo que sabe. | 3 |
+| **6.5.8** | Verificar que las contraseñas de un solo uso basadas en el tiempo (TOTPs) se comprueben utilizando una fuente de tiempo de un servicio confiable y no una hora no confiable o proporcionada por el cliente. | 3 |
 
-## V6.6 Out-of-Band authentication mechanisms
+## V6.6 Mecanismos de Autenticación fuera de Banda
 
-This usually involves the authentication server communicating with a physical device over a secure secondary channel. For example, sending push notifications to mobile devices. This type of authentication mechanism is considered "something you have".
+Esto suele implicar que el servidor de autenticación se comunique con un dispositivo físico a través de un canal secundario seguro. Por ejemplo, mediante el envío de notificaciones push a dispositivos móviles. Este tipo de mecanismo de autenticación se considera "algo que tiene".
 
-Unsafe out-of-band authentication mechanisms such as e-mail and VOIP are not permitted. PSTN and SMS authentication are currently considered to be ["restricted" authentication mechanisms](https://pages.nist.gov/800-63-FAQ/#q-b01) by NIST and should be deprecated in favor of Time based One-time Passwords (TOTPs), a cryptographic mechanism, or similar. NIST SP 800-63B [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network) recommends addressing the risks of device swap, SIM change, number porting, or other abnormal behavior, if telephone or SMS out-of-band authentication absolutely has to be supported. While this ASVS section does not mandate this as a requirement, not taking these precautions for a sensitive L2 app or an L3 app should be seen as a significant red flag.
+No se permiten mecanismos de autenticación fuera de banda inseguros, como el correo electrónico y VOIP. NIST considera actualmente la autenticación mediante PSTN y SMS como [mecanismos de autenticación "restringidos"](https://pages.nist.gov/800-63-FAQ/#q-b01), y deberían dejar de utilizarse en favor de contraseñas de un solo uso basadas en el tiempo (TOTPs), un mecanismo criptográfico u otro similar. La [&sect; 5.1.3.3](https://pages.nist.gov/800-63-3/sp800-63b.html#-5133-authentication-using-the-public-switched-telephone-network) de NIST SP 800-63B recomienda abordar los riesgos de sustitución del dispositivo, cambio de SIM, portabilidad del número u otros comportamientos anómalos si es absolutamente necesario admitir la autenticación fuera de banda por teléfono o SMS. Aunque esta sección de ASVS no lo establece como requerimiento obligatorio, no tomar estas precauciones en una aplicación sensible de nivel 2 (L2) o en una aplicación de nivel 3 (L3) debería considerarse una señal de alerta importante.
 
-Note that NIST has also recently provided guidance which [discourages the use of push notifications](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/#fig-3). While this ASVS section does not do so, it is important to be aware of the risks of "push bombing".
+Tenga en cuenta que NIST también ha publicado recientemente directrices que [desaconsejan el uso de notificaciones push](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/#fig-3). Aunque esta sección de ASVS no lo hace, es importante conocer los riesgos del "bombardeo de notificaciones push" (push bombing).
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.6.1** | Verify that authentication mechanisms using the Public Switched Telephone Network (PSTN) to deliver One-time Passwords (OTPs) via phone or SMS are offered only when the phone number has previously been validated, alternate stronger methods (such as Time based One-time Passwords) are also offered, and the service provides information on their security risks to users. For L3 applications, phone and SMS must not be available as options. | 2 |
-| **6.6.2** | Verify that out-of-band authentication requests, codes, or tokens are bound to the original authentication request for which they were generated and are not usable for a previous or subsequent one. | 2 |
-| **6.6.3** | Verify that a code based out-of-band authentication mechanism is protected against brute force attacks by using rate limiting. Consider also using a code with at least 64 bits of entropy. | 2 |
-| **6.6.4** | Verify that, where push notifications are used for multi-factor authentication, rate limiting is used to prevent push bombing attacks. Number matching may also mitigate this risk. | 3 |
+| **6.6.1** | Verificar que los mecanismos de autenticación que utilizan la red telefónica pública conmutada (PSTN) para entregar contraseñas de un solo uso (OTPs) por teléfono o SMS solo se ofrezcan cuando el número de teléfono se haya validado previamente, también se ofrezcan métodos alternativos más robustos (como las contraseñas de un solo uso basadas en el tiempo) y el servicio informe a los usuarios sobre sus riesgos de seguridad. En las aplicaciones de nivel 3 (L3), el teléfono y los SMS no deben estar disponibles como opciones. | 2 |
+| **6.6.2** | Verificar que las solicitudes, los códigos o los tokens de autenticación fuera de banda estén vinculados a la solicitud de autenticación original para la que se generaron y no puedan utilizarse para una anterior o posterior. | 2 |
+| **6.6.3** | Verificar que los mecanismos de autenticación fuera de banda basados en códigos estén protegidos contra ataques de fuerza bruta mediante la limitación de tasa. Considerar también el uso de un código con al menos 64 bits de entropía. | 2 |
+| **6.6.4** | Verificar que, cuando se utilicen notificaciones push para la autenticación multifactor, se aplique limitación de tasa para prevenir ataques de bombardeo de notificaciones push (push bombing). La coincidencia de números también puede mitigar este riesgo. | 3 |
 
-## V6.7 Cryptographic authentication mechanism
+## V6.7 Mecanismo de Autenticación Criptográfica
 
-Cryptographic authentication mechanisms include smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. The authentication server will send a challenge nonce to the cryptographic device or software, and the device or software calculates a response based upon a securely stored cryptographic key. The requirements in this section provide implementation-specific guidance for these mechanisms, with guidance on cryptographic algorithms being covered in the "Cryptography" chapter.
+Los mecanismos de autenticación criptográfica incluyen tarjetas inteligentes o llaves FIDO, en los que el usuario debe conectar o emparejar el dispositivo criptográfico con el equipo para completar la autenticación. El servidor de autenticación enviará un nonce de desafío al dispositivo o software criptográfico, que calculará una respuesta basada en una clave criptográfica almacenada de forma segura. Los requerimientos de esta sección proporcionan directrices específicas para la implementación de estos mecanismos, mientras que las directrices sobre algoritmos criptográficos se abordan en el capítulo "Criptografía".
 
-Where shared or secret keys are used for cryptographic authentication, these should be stored using the same mechanisms as other system secrets, as documented in the "Secret Management" section in the "Configuration" chapter.
+Cuando se utilicen claves compartidas o secretas para la autenticación criptográfica, estas deberían almacenarse utilizando los mismos mecanismos que los demás secretos del sistema, tal como se documenta en la sección "Gestión de secretos" del capítulo "Configuración".
 
-The requirements in this section mostly relate to [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) of [NIST's Guidance](https://pages.nist.gov/800-63-3/sp800-63b.html).
+Los requerimientos de esta sección se relacionan principalmente con la [&sect; 5.1.7.2](https://pages.nist.gov/800-63-3/sp800-63b.html#sfcdv) de las [directrices de NIST](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.7.1** | Verify that the certificates used to verify cryptographic authentication assertions are stored in a way protects them from modification. | 3 |
-| **6.7.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. | 3 |
+| **6.7.1** | Verificar que los certificados utilizados para verificar las aserciones de autenticación criptográfica se almacenen de manera que queden protegidos contra modificaciones. | 3 |
+| **6.7.2** | Verificar que el nonce de desafío tenga una longitud de al menos 64 bits y sea estadísticamente único o único durante toda la vida útil del dispositivo criptográfico. | 3 |
 
-## V6.8 Authentication with an Identity Provider
+## V6.8 Autenticación con un Proveedor de Identidad
 
-Identity Providers (IdPs) provide federated identity for users. Users will often have more than one identity with multiple IdPs, such as an enterprise identity using Azure AD, Okta, Ping Identity, or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name just a few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the IdP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throwaway identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
+Los proveedores de identidad (IdPs) proporcionan identidad federada a los usuarios. A menudo, los usuarios tienen más de una identidad con varios IdPs, como una identidad empresarial mediante Azure AD, Okta, Ping Identity o Google, o una identidad de consumidor mediante Facebook, Twitter, Google o WeChat, por mencionar solo algunas alternativas comunes. Esta lista no constituye un respaldo a estas empresas o servicios, sino una invitación a que los desarrolladores tengan en cuenta que muchos usuarios ya disponen de varias identidades establecidas. Las organizaciones deberían considerar la integración con las identidades existentes de los usuarios según el perfil de riesgo asociado a la robustez de la comprobación de identidad del IdP. Por ejemplo, es poco probable que un organismo gubernamental acepte una identidad de redes sociales para iniciar sesión en sistemas sensibles, ya que es fácil crear identidades falsas o desechables, mientras que una empresa de juegos móviles puede necesitar integrarse con las principales plataformas de redes sociales para aumentar su base de jugadores activos.
 
-Secure use of external identity providers requires careful configuration and verification to prevent identity spoofing or forged assertions. This section provides requirements to address these risks.
+El uso seguro de proveedores de identidad externos requiere una configuración y una verificación cuidadosas para evitar la suplantación de identidad o la falsificación de aserciones. Esta sección proporciona requerimientos para abordar estos riesgos.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **6.8.1** | Verify that, if the application supports multiple identity providers (IdPs), the user's identity cannot be spoofed via another supported identity provider (eg. by using the same user identifier). The standard mitigation would be for the application to register and identify the user using a combination of the IdP ID (serving as a namespace) and the user's ID in the IdP. | 2 |
-| **6.8.2** | Verify that the presence and integrity of digital signatures on authentication assertions (for example on JWTs or SAML assertions) are always validated, rejecting any assertions that are unsigned or have invalid signatures. | 2 |
-| **6.8.3** | Verify that SAML assertions are uniquely processed and used only once within the validity period to prevent replay attacks. | 2 |
-| **6.8.4** | Verify that, if an application uses a separate Identity Provider (IdP) and expects specific authentication strength, methods, or recentness for specific functions, the application verifies this using the information returned by the IdP. For example, if OIDC is used, this might be achieved by validating ID Token claims such as 'acr', 'amr', and 'auth_time' (if present). If the IdP does not provide this information, the application must have a documented fallback approach that assumes that the minimum strength authentication mechanism was used (for example, single-factor authentication using username and password). | 2 |
+| **6.8.1** | Verificar que, si la aplicación admite múltiples proveedores de identidad (IdPs), no se pueda suplantar la identidad del usuario mediante otro proveedor de identidad admitido (por ejemplo, utilizando el mismo identificador de usuario). La mitigación habitual sería que la aplicación registre e identifique al usuario mediante una combinación del ID del IdP (que actúa como espacio de nombres) y el ID del usuario en el IdP. | 2 |
+| **6.8.2** | Verificar que siempre se validen la presencia y la integridad de las firmas digitales de las aserciones de autenticación (por ejemplo, en JWTs o aserciones SAML), y que se rechace cualquier aserción sin firma o con una firma no válida. | 2 |
+| **6.8.3** | Verificar que las aserciones SAML se procesen y utilicen una sola vez dentro de su período de validez para prevenir ataques de repetición. | 2 |
+| **6.8.4** | Verificar que, si una aplicación utiliza un proveedor de identidad (IdP) independiente y exige una robustez, unos métodos o una antigüedad de autenticación específicos para determinadas funciones, la aplicación lo verifique mediante la información devuelta por el IdP. Por ejemplo, si se utiliza OIDC, esto podría lograrse validando declaraciones del token de ID (ID Token) como 'acr', 'amr' y 'auth_time' (si están presentes). Si el IdP no proporciona esta información, la aplicación debe contar con un procedimiento alternativo documentado que asuma que se utilizó el mecanismo de autenticación de menor robustez (por ejemplo, autenticación de un solo factor con nombre de usuario y contraseña). | 2 |
 
-## References
+## Referencias
 
-For more information, see also:
+Para obtener más información, consulte también:
 
-* [NIST SP 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
-* [NIST SP 800-63B - Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
-* [NIST SP 800-63 FAQ](https://pages.nist.gov/800-63-FAQ/)
-* [OWASP Web Security Testing Guide: Testing for Authentication](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/04-Authentication_Testing)
-* [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-* [OWASP Forgot Password Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
-* [OWASP Choosing and Using Security Questions Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html)
-* [CISA Guidance on "Number Matching"](https://www.cisa.gov/sites/default/files/publications/fact-sheet-implement-number-matching-in-mfa-applications-508c.pdf)
-* [Details on the FIDO Alliance](https://fidoalliance.org/)
+* [NIST SP 800-63 - Directrices de identidad digital](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
+* [NIST SP 800-63B - Autenticación y gestión del ciclo de vida](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf)
+* [Preguntas frecuentes de NIST SP 800-63](https://pages.nist.gov/800-63-FAQ/)
+* [Guía de pruebas de seguridad web de OWASP: Pruebas de autenticación](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/04-Authentication_Testing)
+* [Hoja de referencia de OWASP sobre almacenamiento de contraseñas](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+* [Hoja de referencia de OWASP sobre contraseñas olvidadas](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
+* [Hoja de referencia de OWASP sobre selección y uso de preguntas de seguridad](https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html)
+* [Directrices de CISA sobre la "coincidencia de números"](https://www.cisa.gov/sites/default/files/publications/fact-sheet-implement-number-matching-in-mfa-applications-508c.pdf)
+* [Información sobre la Alianza FIDO](https://fidoalliance.org/)

@@ -8,9 +8,9 @@ Lanzado originalmente en 2008 a través de una colaboración comunitaria global,
 
 Tras el lanzamiento de ASVS 4.0 en 2019 y su actualización menor (v4.0.3) en 2021, la versión 5.0 representa un hito importante, modernizada para reflejar los últimos avances en seguridad de software.
 
-ASVS 5.0 es el resultado de extensas contribuciones de líderes de proyectos, miembros de grupos de trabajo y la amplia comunidad OWASP  para actualizar y mejorar este importante estándar.
+ASVS 5.0 es el resultado de extensas contribuciones de líderes de proyectos, miembros de grupos de trabajo y la amplia comunidad OWASP para actualizar y mejorar este importante estándar.
 
-## Principios detrás de la versión 5.0
+## Principios detrás de la Versión 5.0
 
 Esta revisión mayor se ha desarrollado teniendo en mente varios principios clave:
 
@@ -22,7 +22,7 @@ Esta revisión mayor se ha desarrollado teniendo en mente varios principios clav
 
 * Contenido reestructurado y ampliado: ASVS 5.0 incluye aproximadamente 350 requerimientos en 17 capítulos. Los capítulos se han reorganizado para mayor claridad y usabilidad. Se proporciona una correspondencia bidireccional entre las versiones 4.0 y 5.0 para facilitar la migración.
 
-## Mirando hacia el futuro
+## Mirando hacia el Futuro
 
 Así como la tarea de asegurar una aplicación nunca está completamente terminada, tampoco lo está el ASVS. Si bien la versión 5.0 es una versión mayor, el desarrollo continúa. Esta versión permite que la comunidad en general se beneficie de las mejoras y adiciones acumuladas, y también sienta las bases para futuras mejoras. Esto podría incluir esfuerzos impulsados por la comunidad para crear guías de implementación y verificación basadas en el conjunto de requerimientos principales.
 
