@@ -38,6 +38,7 @@ XML_LEGACY_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME
 #TARGETS=$(addprefix $(DISTDIR)/,$(wildcard $(SOURCES)))
 TARGETS=$(addprefix $(BUILDDIRS)/,$(wildcard $(SOURCE_FILES)))
 EXPORT_TOOL=$(TOOLSDIR)/export.py
+DOCX_CJK_PATCH_TOOL=$(TOOLSDIR)/patch_docx_cjk.py
 
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
@@ -99,6 +100,7 @@ tex: $(TEX_FILES)
 
 $(DOCX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
 	pandoc $(PANDOC_DOCX_FLAGS) -o $@ $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+	@if [ "$(notdir $(@D))" = "zh-cn" ]; then python3 $(DOCX_CJK_PATCH_TOOL) $@ $@; fi
 docx: $(DOCX_FILES)
 
 $(ODT_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)

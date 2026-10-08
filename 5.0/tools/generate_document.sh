@@ -13,7 +13,11 @@ if ! command_exists pandoc; then
 fi
 
 generate_docx() {
-    pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 --toc -t docx -o "../docs_$1/OWASP_Application_Security_Verification_Standard_$2_$1.docx" *.md
+	output="../docs_$1/OWASP_Application_Security_Verification_Standard_$2_$1.docx"
+    pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 --toc -t docx -o "$output" *.md 0x00-Header.yaml
+	if [ "$1" = "zh-cn" ]; then
+		python3 ../tools/patch_docx_cjk.py "$output" "$output"
+	fi
 	echo " done."
 	echo -e ""
 	echo -e "Note: If you got an error 'Invalid UTF-8 stream', make sure you are on the newest version of pandoc from the project website (not just the OS package repo)"
