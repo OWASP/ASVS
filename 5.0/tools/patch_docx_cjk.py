@@ -93,6 +93,9 @@ def patch_docx(source: Path, destination: Path, patch_cjk: bool, patch_footer_te
                     content = patch_footer(content)
                 output_docx.writestr(item, content)
         os.replace(temp_path, destination)
+        # NamedTemporaryFile uses mode 0600. Restore normal generated-artifact
+        # permissions so the CI artifact uploader can read the DOCX.
+        os.chmod(destination, 0o644)
     finally:
         temp_path.unlink(missing_ok=True)
 
