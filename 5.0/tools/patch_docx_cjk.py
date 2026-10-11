@@ -73,7 +73,11 @@ def patch_footer(data: bytes) -> bytes:
 
 
 def patch_docx(source: Path, destination: Path, patch_cjk: bool, patch_footer_text: bool) -> None:
-    with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as temp:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    # Keep the temporary file on the destination filesystem. The document
+    # builder writes outputs to a mounted volume, so /tmp may be a different
+    # filesystem and cannot be atomically renamed over the destination.
+    with tempfile.NamedTemporaryFile(dir=destination.parent, suffix=".docx", delete=False) as temp:
         temp_path = Path(temp.name)
     try:
         with zipfile.ZipFile(source) as input_docx, zipfile.ZipFile(
@@ -88,7 +92,6 @@ def patch_docx(source: Path, destination: Path, patch_cjk: bool, patch_footer_te
                 elif patch_footer_text and re.fullmatch(r"word/footer[0-9]+\.xml", item.filename):
                     content = patch_footer(content)
                 output_docx.writestr(item, content)
-        destination.parent.mkdir(parents=True, exist_ok=True)
         os.replace(temp_path, destination)
     finally:
         temp_path.unlink(missing_ok=True)
