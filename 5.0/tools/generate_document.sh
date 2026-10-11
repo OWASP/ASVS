@@ -16,7 +16,7 @@ generate_docx() {
 	output="../docs_$1/OWASP_Application_Security_Verification_Standard_$2_$1.docx"
     pandoc -s -f gfm --reference-doc=../templates/reference.docx --columns 10000 --toc -t docx -o "$output" *.md 0x00-Header.yaml
 	if [ "$1" = "zh-cn" ]; then
-		python3 ../tools/patch_docx_cjk.py "$output" "$output"
+		python3 ../tools/patch_docx_cjk.py "$output" "$output" --fix-footer
 	fi
 	echo " done."
 	echo -e ""

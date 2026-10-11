@@ -12,57 +12,67 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import tempfile
 import zipfile
 from pathlib import Path
-import xml.etree.ElementTree as ET
 
 
-W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-ET.register_namespace("w", W_NS)
-
-
-def qname(name: str) -> str:
-    return f"{{{W_NS}}}{name}"
+def set_attribute(tag: str, name: str, value: str) -> str:
+    attribute = rf'\s{re.escape(name)}="[^"]*"'
+    replacement = f' {name}="{value}"'
+    if re.search(attribute, tag):
+        return re.sub(attribute, replacement, tag)
+    return tag[:-2] + replacement + "/>" if tag.endswith("/>") else tag[:-1] + replacement + ">"
 
 
 def patch_styles(data: bytes) -> bytes:
-    root = ET.fromstring(data)
+    text = data.decode("utf-8")
 
     # The document defaults apply to unstyled content and to styles that only
     # specify a Latin font. zh-CN selects the Hans entry in the theme.
-    for lang in root.findall(f".//{qname('lang')}"):
-        lang.set(qname("eastAsia"), "zh-CN")
+    text = re.sub(r"<w:lang\b[^>]*>", lambda match: set_attribute(match.group(), "w:eastAsia", "zh-CN"), text)
 
-    for style in root.findall(qname("style")):
-        if style.get(qname("styleId")) != "NormalWeb":
-            continue
-        fonts = style.find(f".//{qname('rFonts')}")
-        if fonts is not None:
-            fonts.attrib.pop(qname("eastAsia"), None)
-            fonts.set(qname("eastAsiaTheme"), "minorEastAsia")
-        lang = style.find(f".//{qname('lang')}")
-        if lang is None:
-            rpr = style.find(qname("rPr"))
-            if rpr is None:
-                rpr = ET.SubElement(style, qname("rPr"))
-            lang = ET.SubElement(rpr, qname("lang"))
-        lang.set(qname("eastAsia"), "zh-CN")
+    def patch_normal_web(match: re.Match[str]) -> str:
+        style = match.group()
 
-    return ET.tostring(root, encoding="utf-8", xml_declaration=True)
+        def patch_fonts(font_match: re.Match[str]) -> str:
+            fonts = re.sub(r'\s+w:eastAsia="[^"]*"', "", font_match.group())
+            return set_attribute(fonts, "w:eastAsiaTheme", "minorEastAsia")
+
+        return re.sub(r"<w:rFonts\b[^>]*>", patch_fonts, style, count=1)
+
+    text = re.sub(
+        r'<w:style\b(?=[^>]*\bw:styleId="NormalWeb")[\s\S]*?</w:style>',
+        patch_normal_web,
+        text,
+        count=1,
+    )
+    return text.encode("utf-8")
 
 
 def patch_settings(data: bytes) -> bytes:
-    root = ET.fromstring(data)
-    theme_lang = root.find(qname("themeFontLang"))
-    if theme_lang is None:
-        theme_lang = ET.Element(qname("themeFontLang"))
-        root.insert(0, theme_lang)
-    theme_lang.set(qname("eastAsia"), "zh-CN")
-    return ET.tostring(root, encoding="utf-8", xml_declaration=True)
+    text = data.decode("utf-8")
+    if re.search(r"<w:themeFontLang\b", text):
+        text = re.sub(
+            r"<w:themeFontLang\b[^>]*>",
+            lambda match: set_attribute(match.group(), "w:eastAsia", "zh-CN"),
+            text,
+            count=1,
+        )
+    else:
+        text = re.sub(r"(<w:settings\b[^>]*>)", r'\1<w:themeFontLang w:eastAsia="zh-CN"/>', text, count=1)
+    return text.encode("utf-8")
 
 
-def patch_docx(source: Path, destination: Path) -> None:
+def patch_footer(data: bytes) -> bytes:
+    return data.replace(
+        b"OWASP Application Security Verification Standard 4.0",
+        b"OWASP Application Security Verification Standard 5.0.0",
+    )
+
+
+def patch_docx(source: Path, destination: Path, patch_cjk: bool, patch_footer_text: bool) -> None:
     with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as temp:
         temp_path = Path(temp.name)
     try:
@@ -71,10 +81,12 @@ def patch_docx(source: Path, destination: Path) -> None:
         ) as output_docx:
             for item in input_docx.infolist():
                 content = input_docx.read(item.filename)
-                if item.filename == "word/styles.xml":
+                if patch_cjk and item.filename == "word/styles.xml":
                     content = patch_styles(content)
-                elif item.filename == "word/settings.xml":
+                elif patch_cjk and item.filename == "word/settings.xml":
                     content = patch_settings(content)
+                elif patch_footer_text and re.fullmatch(r"word/footer[0-9]+\.xml", item.filename):
+                    content = patch_footer(content)
                 output_docx.writestr(item, content)
         destination.parent.mkdir(parents=True, exist_ok=True)
         os.replace(temp_path, destination)
@@ -86,8 +98,10 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("source", type=Path)
     parser.add_argument("destination", type=Path)
+    parser.add_argument("--skip-cjk", action="store_true")
+    parser.add_argument("--fix-footer", action="store_true")
     args = parser.parse_args()
-    patch_docx(args.source, args.destination)
+    patch_docx(args.source, args.destination, not args.skip_cjk, args.fix_footer)
 
 
 if __name__ == "__main__":
