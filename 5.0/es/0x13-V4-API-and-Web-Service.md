@@ -1,64 +1,64 @@
-# V4 API and Web Service
+# V4 API y servicios web
 
-## Control Objective
+## Objetivo de control
 
-Several considerations apply specifically to applications that expose APIs for use by web browsers or other consumers (commonly using JSON, XML, or GraphQL). This chapter covers the relevant security configurations and mechanisms that should be applied.
+Se aplican varias consideraciones específicamente a las aplicaciones que exponen APIs para su uso por navegadores web u otros consumidores (normalmente mediante JSON, XML o GraphQL). Este capítulo cubre las configuraciones y mecanismos de seguridad relevantes que deben aplicarse.
 
-Note that authentication, session management, and input validation concerns from other chapters also apply to APIs, so this chapter cannot be taken out of context or tested in isolation.
+Tenga en cuenta que también se aplican a las APIs las cuestiones de autenticación, gestión de sesiones y validación de entradas de otros capítulos, por lo que este capítulo no se puede sacar de contexto ni probar de forma aislada.
 
-## V4.1 Generic Web Service Security
+## V4.1 Seguridad genérica de servicios web
 
-This section addresses general web service security considerations and, consequently, basic web service hygiene practices.
+Esta sección aborda las consideraciones generales de seguridad de los servicios web y, en consecuencia, las prácticas básicas de higiene de los servicios web.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **4.1.1** | Verify that every HTTP response with a message body contains a Content-Type header field that matches the actual content of the response, including the charset parameter to specify safe character encoding (e.g., UTF-8, ISO-8859-1) according to IANA Media Types, such as "text/", "/+xml" and "/xml". | 1 |
-| **4.1.2** | Verify that only user-facing endpoints (intended for manual web-browser access) automatically redirect from HTTP to HTTPS, while other services or endpoints do not implement transparent redirects. This is to avoid a situation where a client is erroneously sending unencrypted HTTP requests, but since the requests are being automatically redirected to HTTPS, the leakage of sensitive data goes undiscovered. | 2 |
-| **4.1.3** | Verify that any HTTP header field used by the application and set by an intermediary layer, such as a load balancer, a web proxy, or a backend-for-frontend service, cannot be overridden by the end-user. Example headers might include X-Real-IP, X-Forwarded-*, or X-User-ID. | 2 |
-| **4.1.4** | Verify that only HTTP methods that are explicitly supported by the application or its API (including OPTIONS during preflight requests) can be used and that unused methods are blocked. | 3 |
-| **4.1.5** | Verify that per-message digital signatures are used to provide additional assurance on top of transport protections for requests or transactions which are highly sensitive or which traverse a number of systems. | 3 |
+| **4.1.1** | Verifique que cada respuesta HTTP con cuerpo de mensaje contenga un campo de cabecera Content-Type que coincida con el contenido real de la respuesta, incluyendo el parámetro charset para especificar una codificación de caracteres segura (por ejemplo, UTF-8, ISO-8859-1) de acuerdo con los tipos de medios de IANA, como "text/", "/+xml" y "/xml". | 1 |
+| **4.1.2** | Verifique que solo los puntos finales orientados al usuario (destinados al acceso manual mediante navegador web) redirijan automáticamente de HTTP a HTTPS, mientras que otros servicios o puntos finales no implementen redirecciones transparentes. Esto evita una situación en la que un cliente esté enviando erroneamente solicitudes HTTP no cifradas, pero como las solicitudes se redirigen automáticamente a HTTPS, la filtración de datos sensibles pasa desapercibida. | 2 |
+| **4.1.3** | Verifique que cualquier campo de cabecera HTTP utilizado por la aplicación y establecido por una capa intermedia, como un balanceador de carga, un proxy web o un servicio backend-for-frontend, no pueda ser sobrescrito por el usuario final. Los encabezados de ejemplo podrían incluir X-Real-IP, X-Forwarded-* o X-User-ID. | 2 |
+| **4.1.4** | Verifique que solo se puedan utilizar los métodos HTTP que la aplicación o su API admiten explícitamente (incluido OPTIONS durante las solicitudes de preflight) y que se bloqueen los métodos no utilizados. | 3 |
+| **4.1.5** | Verifique que se utilicen firmas digitales por mensaje para aportar una garantía adicional además de las protecciones de transporte para solicitudes o transacciones altamente sensibles o que atraviesen varios sistemas. | 3 |
 
-## V4.2 HTTP Message Structure Validation
+## V4.2 Validación de la estructura de mensajes HTTP
 
-This section explains how the structure and header fields of an HTTP message should be validated to prevent attacks such as request smuggling, response splitting, header injection, and denial of service via overly long HTTP messages.
+Esta sección explica cómo debe validarse la estructura y los campos de cabecera de un mensaje HTTP para prevenir ataques como el smuggling de solicitudes, la división de respuestas, la inyección de cabeceras y la denegación de servicio mediante mensajes HTTP excesivamente largos.
 
-These requirements are relevant for general HTTP message processing and generation, but are especially important when converting HTTP messages between different HTTP versions.
+Estos requisitos son relevantes para el procesamiento y la generación generales de mensajes HTTP, pero son especialmente importantes al convertir mensajes HTTP entre diferentes versiones de HTTP.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **4.2.1** | Verify that all application components (including load balancers, firewalls, and application servers) determine boundaries of incoming HTTP messages using the appropriate mechanism for the HTTP version to prevent HTTP request smuggling. In HTTP/1.x, if a Transfer-Encoding header field is present, the Content-Length header must be ignored per RFC 2616. When using HTTP/2 or HTTP/3, if a Content-Length header field is present, the receiver must ensure that it is consistent with the length of the DATA frames. | 2 |
-| **4.2.2** | Verify that when generating HTTP messages, the Content-Length header field does not conflict with the length of the content as determined by the framing of the HTTP protocol, in order to prevent request smuggling attacks. | 3 |
-| **4.2.3** | Verify that the application does not send nor accept HTTP/2 or HTTP/3 messages with connection-specific header fields such as Transfer-Encoding to prevent response splitting and header injection attacks. | 3 |
-| **4.2.4** | Verify that the application only accepts HTTP/2 and HTTP/3 requests where the header fields and values do not contain any CR (\r), LF (\n), or CRLF (\r\n) sequences, to prevent header injection attacks. | 3 |
-| **4.2.5** | Verify that, if the application (backend or frontend) builds and sends requests, it uses validation, sanitization, or other mechanisms to avoid creating URIs (such as for API calls) or HTTP request header fields (such as Authorization or Cookie), which are too long to be accepted by the receiving component. This could cause a denial of service, such as when sending an overly long request (e.g., a long cookie header field), which results in the server always responding with an error status. | 3 |
+| **4.2.1** | Verifique que todos los componentes de la aplicación (incluidos los balanceadores de carga, los firewalls y los servidores de aplicaciones) determinen los límites de los mensajes HTTP entrantes utilizando el mecanismo apropiado para la versión de HTTP para prevenir el smuggling de solicitudes HTTP. En HTTP/1.x, si existe un campo de cabecera Transfer-Encoding, el campo Content-Length debe ignorarse conforme a la RFC 2616. Cuando se utiliza HTTP/2 o HTTP/3, si existe un campo de cabecera Content-Length, el receptor debe asegurarse de que es consistente con la longitud de los marcos DATA. | 2 |
+| **4.2.2** | Verifique que, al generar mensajes HTTP, el campo de cabecera Content-Length no entre en conflicto con la longitud del contenido según lo determinado por el encuadre del protocolo HTTP, para prevenir ataques de smuggling de solicitudes. | 3 |
+| **4.2.3** | Verifique que la aplicación no envía ni acepta mensajes HTTP/2 o HTTP/3 con campos de cabecera específicos de la conexión, como Transfer-Encoding, para prevenir ataques de división de respuestas e inyección de cabeceras. | 3 |
+| **4.2.4** | Verifique que la aplicación solo acepta solicitudes HTTP/2 y HTTP/3 en las que los campos de cabecera y sus valores no contienen ninguna secuencia CR (\r), LF (\n) ni CRLF (\r\n), para prevenir ataques de inyección de cabeceras. | 3 |
+| **4.2.5** | Verifique que, si la aplicación (backend o frontend) construye y envía solicitudes, utiliza validación, saneamiento u otros mecanismos para evitar crear URIs (como para llamadas a API) o campos de cabecera HTTP de solicitud (como Authorization o Cookie) demasiado largos para que el componente receptor los acepte. Esto podría causar una denegación de servicio, por ejemplo al enviar una solicitud excesivamente larga (por ejemplo, una cabecera Cookie muy larga), que hace que el servidor responda siempre con un estado de error. | 3 |
 
 ## V4.3 GraphQL
 
-GraphQL is becoming more common as a way of creating data-rich clients that are not tightly coupled to a variety of backend services. This section covers security considerations for GraphQL.
+GraphQL se está volviendo más común como forma de crear clientes ricos en datos que no están acoplados estrechamente a una variedad de servicios backend. Esta sección cubre las consideraciones de seguridad para GraphQL.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **4.3.1** | Verify that a query allowlist, depth limiting, amount limiting, or query cost analysis is used to prevent GraphQL or data layer expression Denial of Service (DoS) as a result of expensive, nested queries. | 2 |
-| **4.3.2** | Verify that GraphQL introspection queries are disabled in the production environment unless the GraphQL API is meant to be used by other parties. | 2 |
+| **4.3.1** | Verifique que se utilice una lista permitida de consultas, limitación de profundidad, limitación de cantidad o análisis de coste de consultas para prevenir la denegación de servicio (DoS) de GraphQL o de expresiones de la capa de datos como resultado de consultas anidadas y costosas. | 2 |
+| **4.3.2** | Verifique que las consultas de introspección de GraphQL estén deshabilitadas en el entorno de producción a menos que la API de GraphQL esté pensada para ser utilizada por otras partes. | 2 |
 
 ## V4.4 WebSocket
 
-WebSocket is a communications protocol that provides a simultaneous two-way communication channel over a single TCP connection. It was standardized by the IETF as RFC 6455 in 2011 and is distinct from HTTP, even though it is designed to work over HTTP ports 443 and 80.
+WebSocket es un protocolo de comunicaciones que proporciona un canal de comunicación bidireccional simultáneo a través de una única conexión TCP. Fue estandarizado por la IETF como RFC 6455 en 2011 y es distinto de HTTP, aunque está diseñado para funcionar a través de los puertos HTTP 443 y 80.
 
-This section provides key security requirements to prevent attacks related to communication security and session management that specifically exploit this real-time communication channel.
+Esta sección proporciona requisitos de seguridad clave para prevenir ataques relacionados con la seguridad de la comunicación y la gestión de sesiones que explotan específicamente este canal de comunicación en tiempo real.
 
-| # | Description | Level |
+| # | Descripción | Nivel |
 | :---: | :--- | :---: |
-| **4.4.1** | Verify that WebSocket over TLS (WSS) is used for all WebSocket connections. | 1 |
-| **4.4.2** | Verify that, during the initial HTTP WebSocket handshake, the Origin header field is checked against a list of origins allowed for the application. | 2 |
-| **4.4.3** | Verify that, if the application's standard session management cannot be used, dedicated tokens are being used for this, which comply with the relevant Session Management security requirements. | 2 |
-| **4.4.4** | Verify that dedicated WebSocket session management tokens are initially obtained or validated through the previously authenticated HTTPS session when transitioning an existing HTTPS session to a WebSocket channel. | 2 |
+| **4.4.1** | Verifique que se utilice WebSocket sobre TLS (WSS) para todas las conexiones WebSocket. | 1 |
+| **4.4.2** | Verifique que, durante el handshake inicial de WebSocket HTTP, el campo de cabecera Origin se compruebe con respecto a una lista de orígenes permitidos para la aplicación. | 2 |
+| **4.4.3** | Verifique que, si no puede utilizarse la gestión de sesiones estándar de la aplicación, se utilizan tokens dedicados para ello, que cumplan los requisitos de seguridad relevantes de gestión de sesiones. | 2 |
+| **4.4.4** | Verifique que los tokens dedicados de gestión de sesiones de WebSocket se obtengan o validen inicialmente a través de la sesión HTTPS autenticada previamente al transicionar una sesión HTTPS existente a un canal WebSocket. | 2 |
 
-## References
+## Referencias
 
-For more information, see also:
+Para obtener más información, consulte también:
 
 * [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
-* Resources on GraphQL Authorization from [graphql.org](https://graphql.org/learn/authorization/) and [Apollo](https://www.apollographql.com/docs/apollo-server/security/authentication/#authorization-methods).
+* Recursos sobre autorización de GraphQL en [graphql.org](https://graphql.org/learn/authorization/) y [Apollo](https://www.apollographql.com/docs/apollo-server/security/authentication/#authorization-methods).
 * [OWASP Web Security Testing Guide: GraphQL Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL)
 * [OWASP Web Security Testing Guide: Testing WebSockets](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/11-Client-side_Testing/10-Testing_WebSockets)
