@@ -1,1 +1,1 @@
-en tr ru fr ko pt id
+en tr ru fr ko pt id ar zh-cn pl
