@@ -124,11 +124,8 @@ If you are interested in creating a translation, here are some pointers for how 
     * In-progress
         * Persian (Farsi), [#3172](https://github.com/OWASP/ASVS/issues/3172)
         * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
-        * Simplified Chinese, see [#3191](https://github.com/OWASP/ASVS/issues/3191)
         * Spanish, see [#3238](https://github.com/OWASP/ASVS/issues/3238)
         * Panjabi, see[#3252](https://github.com/OWASP/ASVS/issues/3252)
-        * Arabic, [#3406](https://github.com/OWASP/ASVS/pull/3406)
-        * Polish, [#3408](https://github.com/OWASP/ASVS/pull/3408)
     * v5.0.0
         * [Turkish](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/tr/)
         * [Russian](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ru/)
@@ -136,6 +133,9 @@ If you are interested in creating a translation, here are some pointers for how 
         * [Korean](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ko/)
         * [Portuguese (Brazilian)](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/pt/)
         * [Indonesian](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/id/)
+        * [Arabic](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ar/)
+        * [Simplified Chinese](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/zh-cn/)
+        * [Polish](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/pl/)
 * If the language you are interested in appears, it would be great if you could reach out to the translator to see if you can help them.
 * Often there is work to do in creating markdown files or updating the translation to keep it up to date with latest changes.
 * We would request that you **specifically base your translation** on the 5.0/en folder from the **v5.0.0** branch as this is now static at the 5.0.0 version.
