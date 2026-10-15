@@ -886,6 +886,9 @@ $if(titlepage-background)$
 \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{$titlepage-background$}};
 $endif$
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
+$if(titlepage-ltr)$
+\begin{LTR}
+$endif$
 \begin{flushleft}
 \noindent
 \\[-1em]
@@ -900,7 +903,7 @@ $if(titlepage-background)$
   \setstretch{2}
   \vfill
   \vskip -8em
-  \noindent {\huge \textbf{\textsf{$title$}}}
+  \noindent {\huge \textbf{\textsf{$if(titlepage-title)$$titlepage-title$$else$$title$$endif$}}}
   $if(subtitle)$
   \vskip 1em
   {\Large \textsf{$subtitle$}}
@@ -913,7 +916,7 @@ $else$
 {
   \setstretch{1.4}
   \vfill
-  \noindent {\huge \textbf{\textsf{$title$}}}
+  \noindent {\huge \textbf{\textsf{$if(titlepage-title)$$titlepage-title$$else$$title$$endif$}}}
   $if(subtitle)$
   \vskip 1em
   {\Large \textsf{$subtitle$}}
@@ -934,6 +937,9 @@ $else$
 \textsf{$date$}
 $endif$
 \end{flushleft}
+$if(titlepage-ltr)$
+\end{LTR}
+$endif$
 \end{titlepage}
 \restoregeometry
 \pagenumbering{arabic} 
