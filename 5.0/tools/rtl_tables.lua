@@ -78,7 +78,10 @@ function Pandoc(document)
     return document
   end
 
-  local title = document.meta.title
+  -- Font names, language codes, paths, and other machine-readable metadata
+  -- must never acquire directional markup.
+  local metadata = document.meta
+  document.meta = {}
   document = document:walk({
     traverse = 'topdown',
     Table = align_table_right,
@@ -94,6 +97,16 @@ function Pandoc(document)
     end,
     Inlines = isolate_latin,
   })
+  document.meta = metadata
+  local title = metadata.title
+  for _, key in ipairs({'title', 'subtitle', 'date', 'header-left', 'header-center', 'header-right'}) do
+    local value = metadata[key]
+    if value and is_latin(pandoc.utils.stringify(value)) then
+      document.meta[key] = pandoc.MetaInlines({
+        pandoc.Span({pandoc.Str(pandoc.utils.stringify(value))}, {dir = 'ltr'})
+      })
+    end
+  end
   if title and is_latin(pandoc.utils.stringify(title)) then
     -- The large cover title needs a wrapping LTR paragraph, rather than
     -- the inline box used for the smaller running header.
