@@ -12,13 +12,13 @@ The following OWASP projects are most likely to be useful to users/adopters of t
 
 ## OWASP Cheat Sheet Series project
 
-[This project](https://owasp.org/www-project-cheat-sheets/) has several cheat sheets that will be relevant to different topics in the ASVS.
+[This project](https://cheatsheetseries.owasp.org/) has several cheat sheets that will be relevant to different topics in the ASVS.
 
 There is a mapping to the ASVS which can be found here: [https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
 
 ## Mobile Security Related Projects
 
-1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
+1. OWASP Mobile Application Security: [https://mas.owasp.org/](https://mas.owasp.org/)
 2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
 3. OWASP Mobile Security Testing Guide and Mobile Application Security Verification Standard: [https://owasp.org/www-project-mobile-security-testing-guide/](https://owasp.org/www-project-mobile-security-testing-guide/)
 
