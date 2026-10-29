@@ -36,7 +36,7 @@ ASVS 5.0 刪除了若干與安全流程有關的條目，但這些流程仍是�
 * 驗證使用安全軟體開發生命週期，在開發所有階段處理安全問題。
 * 驗證在每次設計變更或迭代規劃時使用威脅建模，以識別威脅、規劃對策、促進適當的風險回應，並指導安全測試。
 * 驗證所有使用者故事和功能都包含功能性安全約束，例如「作為使用者，我應能夠查看和編輯我的個人資料。我不應能夠查看或編輯其他任何人的個人資料」。
-* 驗證所有開發人員和測試人員都可以存取安全編碼檢查清單、安全要求、指南或策略。
+* 驗證所有開發人員和測試人員都可以存取安全編碼檢查清單、安全要求、指南或政策。
 * 驗證存在持續執行的流程，確保應用原始程式碼不含後門、惡意程式碼（例如「切香腸」攻擊、邏輯炸彈、時間炸彈），以及未記錄或隱藏的功能（例如彩蛋、不安全的偵錯工具）。如果無法完整存取包括第三方函式庫在內的所有原始程式碼，就無法滿足本條，因此它可能只適用於要求最高安全級別的應用。
 * 驗證已部署環境具備用於檢測和回應組態漂移的機制。這可以包括使用不可變基礎設施、根據安全基線自動重新部署，或使用漂移檢測工具將當前狀態與獲批准的組態進行比較。
 * 驗證所有第三方產品、庫、框架和服務都按其各自建議進行了組態加固。
@@ -44,6 +44,6 @@ ASVS 5.0 刪除了若干與安全流程有關的條目，但這些流程仍是�
 參考資料：
 
 * [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
-* [OWASP Threat modeling](https://owasp.org/www-project-threat-modeling/)
+* [OWASP Threat modeling](https://owasp.org/www-community/Application_Threat_Modeling)
 * [OWASP Software Assurance Maturity Model Project](https://owasp.org/www-project-samm/)
 * [Microsoft SDL](https://www.microsoft.com/en-us/securityengineering/sdl/)
