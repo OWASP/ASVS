@@ -38,6 +38,7 @@ XML_LEGACY_FILES := $(foreach lang, $(LANGDIRS), $(DISTDIR)/$(lang)/$(TARGETNAME
 #TARGETS=$(addprefix $(DISTDIR)/,$(wildcard $(SOURCES)))
 TARGETS=$(addprefix $(BUILDDIRS)/,$(wildcard $(SOURCE_FILES)))
 EXPORT_TOOL=$(TOOLSDIR)/export.py
+DOCX_CJK_PATCH_TOOL=$(TOOLSDIR)/patch_docx_cjk.py
 
 # Change LaTeX engine
 PANDOC_MD_FLAGS=-f gfm -s -t markdown
@@ -45,6 +46,8 @@ PANDOC_MD_FLAGS=-f gfm -s -t markdown
 PANDOC_PDF_FLAGS=-f markdown -s -t latex --pdf-engine=xelatex 
 
 PANDOC_TEX_FLAGS=-f markdown -s -t latex 
+
+PANDOC_RTL_TABLE_FILTER=--lua-filter=$(TOOLSDIR)/rtl_tables.lua
 
 PANDOC_DOCX_FLAGS= -s \
 				  -t docx \
@@ -90,15 +93,16 @@ md: $(MD_FILES)
 	echo $(MD_FILES)
 
 $(PDF_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS) transform-md
-	pandoc $(PANDOC_PDF_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_PDF_FLAGS) $(PANDOC_RTL_TABLE_FILTER) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
 pdf: $(PDF_FILES)
 
 $(TEX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
-	pandoc $(PANDOC_TEX_FLAGS) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_TEX_FLAGS) $(PANDOC_RTL_TABLE_FILTER) --include-in-header=$(TEMPLATEDIR)/header-eisvogel.tex -o $@ --template $(TEMPLATEDIR)/eisvogel.tex $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
 tex: $(TEX_FILES)
 
 $(DOCX_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
-	pandoc $(PANDOC_DOCX_FLAGS) -o $@ $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+	pandoc $(PANDOC_DOCX_FLAGS) $(PANDOC_RTL_TABLE_FILTER) -o $@ $(subst dist,build,$(@D)/*.md) $(subst dist,,$(@D)/0x00-Header.yaml)
+	@if [ "$(notdir $(@D))" = "zh-cn" ]; then python3 $(DOCX_CJK_PATCH_TOOL) $@ $@ --fix-footer; fi
 docx: $(DOCX_FILES)
 
 $(ODT_FILES): $(BUILD_FOLDERS) $(TARGETS) $(DIST_FOLDERS)
