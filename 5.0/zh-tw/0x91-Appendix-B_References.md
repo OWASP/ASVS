@@ -16,7 +16,7 @@
 
 可在此處找到與 ASVS 的映射：[https://cheatsheetseries.owasp.org/IndexASVS.html](https://cheatsheetseries.owasp.org/IndexASVS.html)
 
-## 移動安全相關專案
+## 行動安全相關專案
 
 1. OWASP Mobile Security Project: [https://owasp.org/www-project-mobile-security/](https://owasp.org/www-project-mobile-security/)
 2. OWASP Mobile Top 10 Risks: [https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/)
@@ -35,5 +35,9 @@
 以下網站也可能對本標準的使用者和採用者有所幫助：
 
 1. SecLists Github: [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
-2. MITRE 通用弱點枚舉（Common Weakness Enumeration，CWE）：[https://cwe.mitre.org/](https://cwe.mitre.org/)
-3. PCI Security Standards: [https://www.pcisecuritystandards.org/standards/](https://www.pcisecuritystandards.org/standards/)
+2. MITRE Common Weakness Enumeration: [https://cwe.mitre.org/](https://cwe.mitre.org/)
+3. PCI Security Standards Council: [https://www.pcisecuritystandards.org/](https://www.pcisecuritystandards.org/)
+4. PCI Data Security Standard (DSS) v3.2.1 Requirements and Security Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf)
+5. PCI Software Security Framework - Secure Software Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-Software-Standard-v1_0.pdf)
+6. PCI Secure Software Lifecycle (Secure SLC) Requirements and Assessment Procedures: [https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf](https://www.pcisecuritystandards.org/documents/PCI-Secure-SLC-Standard-v1_0.pdf)
+7. OWASP ASVS 4.0 Testing Guide [https://github.com/BlazingWind/OWASP-ASVS-4.0-testing-guide](https://github.com/BlazingWind/OWASP-ASVS-4.0-testing-guide)

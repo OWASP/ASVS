@@ -51,11 +51,11 @@
 | 名稱 | 版本/參考資料 | 說明 | 狀態 |
 |:-:|:-:|:-:|:-:|
 | `/dev/random` | Linux 4.8+ [（2016 年 10 月）](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3)，也存在於 iOS、Android 和其他基於 Linux 的 POSIX 作業系統中。基於 [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | 使用 ChaCha20 流。在正確組態的情況下，可通過 iOS 的 [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) 和 Android 的 [`SecureRandom`](https://developer.android.com/reference/java/security/SecureRandom) 使用。 | A |
-| `/dev/urandom` | Linux 內核中用於提供亂數據的特殊文件 | 由硬體隨機源提供高品質熵 | A |
+| `/dev/urandom` | Linux 核心中用於提供隨機資料的特殊檔案 | 由硬體隨機源提供高品質熵 | A |
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | 已用於常見實作，例如通過 [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers) 組態的 [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom)。 | A |
 | `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
 | `Hash-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
-| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2)，也可用於 [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) 和 [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | 通過簡潔的 API 直接從內核熵源獲取安全隨機位元組。該介面較為現代，可避免舊式 API 的常見問題。 | A |
+| `getentropy()` | [OpenBSD](https://man.openbsd.org/getentropy.2)，也可用於 [Linux glibc 2.25+](https://man7.org/linux/man-pages/man3/getentropy.3.html) 和 [macOS 10.12+](https://support.apple.com/en-gb/guide/security/seca0c73a75b/web) | 通過簡潔的 API 直接從核心熵源獲取安全隨機位元組。該介面較為現代，可避免舊式 API 的常見問題。 | A |
 
 HMAC-DRBG 或 Hash-DRBG 使用的底層雜湊函數必須是本標準認可用於此用途的函數。
 
@@ -103,8 +103,8 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 說明：
 
 * 所有加密訊息都必須經過訊息鑑別。使用任何 CBC 模式時，都必須同時使用基於雜湊的 MAC 演算法驗證訊息。通常必須採用先加密後雜湊（Encrypt-Then-Hash）的方式，但 TLS 1.2 使用先雜湊後加密（Hash-Then-Encrypt）。如果無法滿足這一要求，則不得使用 CBC。僅磁碟加密允許在不使用 MAC 演算法的情況下進行加密。
-* 使用 CBC 時，必須確保以恆定時間完成填充驗證。
-* 使用 CCM-8 時，MAC 標籤僅提供 64 位安全強度，不符合要求 11.2.3 中至少 128 位元安全強度的規定。
+* 使用 CBC 時，必須確保以恆定時間完成填補驗證。
+* 使用 CCM-8 時，MAC 標籤僅提供 64 位元安全強度，不符合要求 11.2.3 中至少 128 位元安全強度的規定。
 * 磁碟加密不在 ASVS 的範圍內，因此本附錄未列出本標準認可的磁碟加密方法。此類場景通常允許使用不具驗證性的加密，並普遍採用 XTS、XEX 和 LRW 模式。
 
 ### 金鑰封裝
@@ -112,7 +112,7 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 密碼學金鑰封裝（以及相應的金鑰解封）是指使用額外的加密機制封裝現有金鑰，使原始金鑰在傳輸等過程中不會直接暴露。用於保護原始金鑰的附加金鑰稱為封裝金鑰。
 
 當需要在不可信位置保護金鑰，或通過不可信網路及應用內部傳輸敏感金鑰時，可以使用此操作。
-不過，在決定執行封裝或解封前，應認真考慮並理解原始金鑰的屬性，例如身分和用途。這項操作可能影響源系統、目標系統或應用的安全性，尤其會影響合規性，包括金鑰功能（如簽名）的稽核記錄以及適當的金鑰儲存方式。
+不過，在決定執行封裝或解封前，應認真考慮並理解原始金鑰的屬性，例如身分和用途。這項操作可能影響源系統、目標系統或應用的安全性，尤其會影響合規性，包括金鑰功能（如簽章）的稽核記錄以及適當的金鑰儲存方式。
 
 金鑰封裝必須使用 AES-256，並遵循 [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final)，同時為未來的量子運算威脅做好準備。下表按優先順序列出基於 AES 的加密模式：
 
@@ -153,7 +153,7 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 
 * 本標準認可的雜湊函數具有較強的抗碰撞能力，適用於高安全性應用。
 * 其中部分演算法配合適當的密碼學金鑰管理時具有較強的抗攻擊能力，因此本標準也認可將其用於 HMAC、KDF 和 RBG。
-* 輸出長度不足 254 位的雜湊函數無法提供足夠的抗碰撞能力，不得用於數位簽章或其他要求抗碰撞能力的場景。在其他場景中，這類函數只能用於遺留系統的相容和驗證，不得用於新的設計。
+* 輸出長度不足 254 位元的雜湊函數無法提供足夠的抗碰撞能力，不得用於數位簽章或其他要求抗碰撞能力的場景。在其他場景中，這類函數只能用於遺留系統的相容和驗證，不得用於新的設計。
 
 | 雜湊函數 | 參考資料 | 狀態 | 限制 |
 | -------------- | ------------------------------------------------------------- |--|--|
@@ -226,7 +226,7 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 
 ### 金鑰交換方案
 
-所有金鑰交換方案必須達到至少 112 位的安全強度，並按照下表選擇實作參數。
+所有金鑰交換方案必須達到至少 112 位元的安全強度，並按照下表選擇實作參數。
 
 | 方案 | 域參數 | 前向保密 | 狀態 |
 |--|--|--|--|
@@ -240,7 +240,7 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 * 在有限域密碼學中，L 表示公開金鑰長度，N 表示私密金鑰長度。
 * f 表示 ECC 金鑰長度的範圍。
 
-任何新實作都不得使用不符合 [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final)、[NIST SP 800-56B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) 和 [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final) 的方案。尤其不得在生產環境中使用 IKEv1。
+任何新實作都不得使用不符合 [NIST SP 800-56A](https://csrc.nist.gov/pubs/sp/800/56/a/r3/final)、[NIST SP 800-56B](https://csrc.nist.gov/pubs/sp/800/56/b/r2/final) 和 [NIST SP 800-77](https://csrc.nist.gov/pubs/sp/800/77/r1/final) 的方案。尤其不得在正式環境中使用 IKEv1。
 
 ### Diffie-Hellman 群
 
@@ -275,7 +275,7 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 
 ## 訊息鑑別碼（MAC）
 
-訊息鑑別碼（MAC）是一種用於驗證訊息完整性和真實性的密碼學結構。MAC 以訊息和秘密金鑰作為輸入，生成固定長度的標籤，即 MAC 值。MAC 廣泛用於 TLS/SSL 等安全通信協議，以確保通信雙方交換的訊息真實且未被篡改。
+訊息鑑別碼（MAC）是一種用於驗證訊息完整性和真實性的密碼學結構。MAC 以訊息和秘密金鑰作為輸入，生成固定長度的標籤，即 MAC 值。MAC 廣泛用於 TLS/SSL 等安全通訊協議，以確保通訊雙方交換的訊息真實且未被篡改。
 
 | MAC 演算法 | 參考資料                                                                                       | 狀態 |
 | --------------| ----------------------------------------------------------------------------------------- | -------|
@@ -293,7 +293,7 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 
 ## 數位簽章
 
-簽名方案必須使用 [NIST SP 800-57 第 1 部分](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)認可的金鑰長度和參數。
+簽章方案必須使用 [NIST SP 800-57 第 1 部分](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)認可的金鑰長度和參數。
 
 | 簽章演算法                       | 參考資料                                                   | 狀態 |
 | ------------------------------ | ---------------------------------------------------------- | ------ |
@@ -308,4 +308,4 @@ AES 等區塊密碼可採用不同的工作模式。電子密碼本（ECB）等�
 
 後量子密碼學（PQC）實作應遵循 [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd)、[FIPS-204](https://csrc.nist.gov/pubs/fips/204/ipd) 和 [FIPS-205](https://csrc.nist.gov/pubs/fips/205/ipd)。目前，這些標準可用的加固程式碼示例或參考實作還不多。更多詳情見：[NIST 關於首批三項最終版後量子加密標準的公告（2024 年 8 月）](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards)。
 
-擬議的後量子混合 TLS 金鑰協商方法 [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) 已獲得 [Firefox 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) 和 [Chrome 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) 等主流瀏覽器支援。該方法可用於密碼學測試環境，也可在業界或政府批准的密碼庫提供支援時使用。
+擬議的後量子混合 TLS 金鑰協商方法 [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) 已獲得 [Firefox 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) 和 [Chrome 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html) 等主流瀏覽器支援。該方法可用於密碼學測試環境，也可在業界或政府批准的密碼學函式庫提供支援時使用。

@@ -4,7 +4,7 @@
 
 應用程式安全驗證標準（Application Security Verification Standard，ASVS）收錄了一組應用程式安全要求，可供架構師、開發人員、測試人員、安全專業人員、工具廠商和使用方用於定義、建置、測試和驗證安全的應用。
 
-## 版權和許可
+## 著作權與授權
 
 版本 5.0.0，2025 年 5 月
 
@@ -14,7 +14,7 @@
 
 本文件依據 [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) 發佈。
 
-復用或分發本作品時，必須向接收方明確說明本作品所採用的許可條款。
+重複使用或散布本作品時，必須向接收方明確說明本作品所採用的授權條款。
 
 ## 專案負責人
 
@@ -23,7 +23,7 @@
 | Elar Lang             | Josh C Grossman  |
 | Jim Manico            | Daniel Cuthbert  |
 
-## 工作組
+## 工作小組
 
 |                 |                   |                    |                  |
 |---------------- |------------------ |------------------- |----------------- |
