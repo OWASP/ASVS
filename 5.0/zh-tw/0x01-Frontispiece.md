@@ -18,9 +18,10 @@
 
 ## 專案負責人
 
-|                       |                  |                  |
-|---------------------- |----------------- |----------------- |
-| Daniel Cuthbert       | Elar Lang        | Josh C Grossman  |
+|                       |                  |
+|---------------------- |----------------- |
+| Elar Lang             | Josh C Grossman  |
+| Jim Manico            | Daniel Cuthbert  |
 
 ## 工作組
 
@@ -42,4 +43,4 @@
 
 如果 5.x 貢獻者名單中存在署名遺漏，請在 GitHub 上提交工單，以便在後續 5.x 更新中補充。
 
-應用程式安全驗證標準建立在 ASVS 1.0（2008）至 4.0（2019）歷屆參與者工作的基礎之上。ASVS 沿用至今的許多結構和驗證項，最初由 Andrew van der Stock、Mike Boberski、Jeff Williams、Dave Wichers 等眾多貢獻者編寫。我們還要感謝 Jim Manico 長期以來對 ASVS 作出的重大貢獻：他從 1.0 版（2009 年）起擔任主要作者，並從 ASVS 4.0 起擔任專案負責人，直至 ASVS 5.0 發佈之後。謹向所有曾參與本專案的人致謝。早期貢獻者的完整名單請參閱各個歷史版本。
+應用程式安全驗證標準建立在 ASVS 1.0（2008）至 4.0（2019）歷屆參與者工作的基礎之上。ASVS 沿用至今的許多結構和驗證項，最初由 Andrew van der Stock、Mike Boberski、Jeff Williams、Dave Wichers 等眾多貢獻者編寫。謹向所有曾參與本專案的人致謝。早期貢獻者的完整名單請參閱各個歷史版本。
