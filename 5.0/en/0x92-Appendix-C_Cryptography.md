@@ -1,6 +1,6 @@
 # Appendix C: Cryptography Standards
 
-The "Cryptography" chapter goes beyond simply defining best practices. It aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. This appendix provides detailed technical information regarding each requirement, complementing the overarching standards outlined in the "Cryptography" chapter.
+In this appendix, the ASVS goes beyond simply defining best practices for cryptography and aims to enhance understanding of cryptography principles and encourage the adoption of more resilient, modern security methods. The appendix provides detailed technical information, complementing the requirements in the "Cryptography" chapter.
 
 This appendix defines the level of approval for different cryptographic mechanisms:
 
