@@ -123,6 +123,8 @@ Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F]
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
 
+The wrap key MUST provide at least the same security strength as the key it protects (see "Equivalent Strengths of Cryptographic Parameters" above), so for example an AES-256 key MUST NOT be wrapped with an AES-128 key. This also applies to private keys that are wrapped with a symmetric key.
+
 ### Authenticated Encryption
 
 With the exception of disk encryption, encrypted data must be protected against unauthorized modification using some form of authenticated encryption (AE) scheme, usually using an authenticated encryption with associated data (AEAD) scheme.
