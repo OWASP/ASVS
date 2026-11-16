@@ -7,12 +7,18 @@ on:
     paths:
       - '**/*.md'
       - '**/*.markdown'
+      - '.github/workflows/spell-check.yml'
+      - '.github/workflows/config/cspell.json'
+      - '.github/workflows/config/local-custom.txt'
   pull_request:
     branches:
       - master
     paths:
       - '**/*.md'
       - '**/*.markdown'
+      - '.github/workflows/spell-check.yml'
+      - '.github/workflows/config/cspell.json'
+      - '.github/workflows/config/local-custom.txt'
   workflow_dispatch:
 
 jobs:
@@ -42,8 +48,18 @@ jobs:
             *.md
           separator: '\n'
 
+      - name: Detect spell-check workflow or configuration changes
+        if: github.event_name == 'pull_request'
+        id: config
+        uses: tj-actions/changed-files@v47
+        with:
+          files: |
+            .github/workflows/spell-check.yml
+            .github/workflows/config/cspell.json
+            .github/workflows/config/local-custom.txt
+
       - name: Run cspell on changed files (PR)
-        if: github.event_name == 'pull_request' && steps.files.outputs.any_changed == 'true'
+        if: github.event_name == 'pull_request' && steps.config.outputs.any_changed != 'true' && steps.files.outputs.any_changed == 'true'
         run: |
           # Convert literal '\n' to real newlines for safe file splitting
           files_string="${{ steps.files.outputs.all_changed_files }}"
@@ -60,7 +76,7 @@ jobs:
           # Run cspell on all changed files; its exit code will control the workflow outcome
           cspell --no-must-find-files --config .github/workflows/config/cspell.json "${files[@]}"
 
-      - name: Run cspell on all markdown files (push to main or manual)
-        if: github.event_name != 'pull_request'
+      - name: Run cspell on all markdown files (workflow/config changes, push or manual)
+        if: github.event_name != 'pull_request' || steps.config.outputs.any_changed == 'true'
         run: |
           cspell --config .github/workflows/config/cspell.json "5.0/en/**/*.md" "*.md"

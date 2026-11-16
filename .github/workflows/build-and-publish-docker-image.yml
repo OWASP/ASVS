@@ -17,14 +17,18 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: 'Login to GitHub Container Registry'
+        if: github.event_name != 'pull_request'
         uses: docker/login-action@v4.7.0
         with:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
 
-      - name: 'Build and publish Docker image'
+      - name: 'Build Docker image'
         run: |
           docker build ./docker/ --tag ghcr.io/owasp/asvs/documentbuilder:latest
-          docker push ghcr.io/owasp/asvs/documentbuilder:latest
+
+      - name: 'Publish Docker image'
+        if: github.event_name != 'pull_request'
+        run: docker push ghcr.io/owasp/asvs/documentbuilder:latest
 

@@ -22,17 +22,29 @@ jobs:
         filters: |
           docker:
             - 'docker/**/*'
+            - '.github/workflows/build-documents.yml'
+            - '.github/workflows/build-and-publish-docker-image.yml'
           v5:
             - '5.0/**/*'
+            - 'docker/**/*'
+            - 'Makefile'
+            - '.github/workflows/build-documents.yml'
+            - '.github/workflows/build-and-publish-docker-image.yml'
+            - '.github/workflows/create-5.0-outputs.yml'
           v4:
             - '4.0/**/*'
+            - 'docker/**/*'
+            - 'Makefile'
+            - '.github/workflows/build-documents.yml'
+            - '.github/workflows/build-and-publish-docker-image.yml'
+            - '.github/workflows/create-4.0-outputs.yml'
     outputs:
       docker: ${{ steps.filter.outputs.docker }}
       v4: ${{ steps.filter.outputs.v4 }}
       v5: ${{ steps.filter.outputs.v5 }}
 
   build-image:
-    if: needs.filters.outputs.docker == 'true'
+    if: github.event_name != 'pull_request' && needs.filters.outputs.docker == 'true'
     needs: filters
     uses: ./.github/workflows/build-and-publish-docker-image.yml
 
@@ -42,6 +54,8 @@ jobs:
       - build-image
       - filters
     uses: ./.github/workflows/create-4.0-outputs.yml
+    with:
+      build_local_image: ${{ github.event_name == 'pull_request' && needs.filters.outputs.docker == 'true' }}
     
   build-v5:
     if: ${{ always() && needs.filters.outputs.v5 == 'true' }}
@@ -49,6 +63,8 @@ jobs:
       - build-image
       - filters
     uses: ./.github/workflows/create-5.0-outputs.yml
+    with:
+      build_local_image: ${{ github.event_name == 'pull_request' && needs.filters.outputs.docker == 'true' }}
 
   publish-v5-latest:
     if: ${{ always() && github.event_name == 'push' && needs.filters.outputs.v5 == 'true' && github.ref == 'refs/heads/master' && (needs.build-v5.result == 'success') }}
