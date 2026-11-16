@@ -4,11 +4,15 @@ on:
   pull_request:
     paths:
       - '5.0/**'
+      - '.github/workflows/url-checker.yml'
+      - '.github/workflows/config/url-checker-config.json'
   push:
     branches:
       - master
     paths:
       - '5.0/**'
+      - '.github/workflows/url-checker.yml'
+      - '.github/workflows/config/url-checker-config.json'
   workflow_dispatch:
 
 jobs:
@@ -23,10 +27,21 @@ jobs:
       - name: Install markdown-link-check
         run: npm i -g markdown-link-check@3.14.2
 
+      - name: Detect URL-checker workflow or configuration changes
+        if: github.event_name == 'pull_request'
+        id: config
+        uses: tj-actions/changed-files@v47
+        with:
+          files: |
+            .github/workflows/url-checker.yml
+            .github/workflows/config/url-checker-config.json
+
       - name: Determine files to check
         id: files
+        env:
+          CHECK_ALL: ${{ steps.config.outputs.any_changed }}
         run: |
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          if [[ "${{ github.event_name }}" == "pull_request" && "$CHECK_ALL" != "true" ]]; then
             git diff --name-only --diff-filter=AM origin/${{ github.base_ref }} -- 5.0/ | grep '\.md$' > /tmp/files_to_check.txt || true
             echo "mode=modified" >> $GITHUB_OUTPUT
           else
