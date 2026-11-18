@@ -109,7 +109,7 @@ Notes:
 
 ### Key Wrapping
 
-Cryptographic key wrap (and corresponding key unwrap) is a method of protecting an existing key by encapsulating (i.e., wrapping) it by employing an additional encryption mechanism so that the original key is not obviously exposed, e.g., during a transfer. This additional key used to protect the original key is referred to as the wrap key.
+Cryptographic key wrap (and corresponding key unwrap) is a method of protecting an existing key by encapsulating (i.e., wrapping) it by employing an additional encryption mechanism so that the original key is not obviously exposed, e.g., during a transfer. This additional key used to protect the original key is referred to as the wrapping key (KEK).
 
 This operation may be performed when it is desirable to protect keys in places deemed untrustworthy, or to send sensitive keys over untrusted networks or within applications.
 However, serious consideration should be given to understanding the nature (e.g., the identity and the purpose) of the original key prior to committing to a wrap/unwrap procedure as this may have repercussions for both source and target systems/applications in terms of security and especially compliance which may include audit trails of a key's function (e.g., signing) as well as appropriate key storage.
@@ -122,6 +122,8 @@ Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F]
 | KWP | [NIST SP 800-38F](https://csrc.nist.gov/pubs/sp/800/38/f/final) | A |
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
+
+The wrapping key MUST provide at least the same security strength as the key it protects (see "Equivalent Strengths of Cryptographic Parameters" above), so for example an AES-256 key MUST NOT be wrapped with an AES-128 key. This also applies to private keys that are wrapped with a symmetric key.
 
 ### Authenticated Encryption
 
