@@ -6,11 +6,11 @@
 
 ## Introduction
 
-### What is [OWASP](https://owasp.org/)?
+### What is OWASP?
 
 The Open Worldwide Application Security Project (OWASP) is a nonprofit organization that works to improve the security of software. It has many programs to work towards this goal. One of those programs is the ASVS.
 
-### What is the [ASVS](https://owasp.org/www-project-application-security-verification-standard/)?
+### What is the ASVS?
 
 The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web application technical security controls and also provides developers with a list of requirements for secure development.
 
@@ -98,7 +98,22 @@ We are most likely to immediately accept changes to surrounding text and other c
 
 ### Before you open a Pull Request
 
-Please do not open a pull request without first opening an associated issue. Please do not open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. For example, [this link](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt) searches for issues (open and closed) related to bcrypt.
+### Before you open a Pull Request
+
+The goal: all discussions are easy to follow in one place (the issue), and the PR is a result of agreement in the related issue. There can be exceptions for typos and bug fixes.
+
+Therefore, please do not open a pull request directly without first opening an associated issue. Please do not open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. Please do not open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. For example, [this link](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt) searches for issues (open and closed) related to bcrypt.
+
+If there is an existing issue that reached an agreement, the usual gesture is to ask the PR from the issue opener or from the main contributor, the issue has an "Awaiting PR" label set, or there is other clear go-ahead for PR from a project lead.
+
+It is unlikely that there are issues with an agreement and just waiting a PR that no one is willing to do.
+
+In short
+
+  - Issue is opened
+  - Agreement in the issue
+  - Issue is marked with "Awaiting PR" label or other clear go-ahead from a project lead
+  - Time for a PR
 
 ### Numbering changes compared to the issues.
 
