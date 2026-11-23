@@ -50,7 +50,7 @@ for V11.5 Random Values.
 
 | Name | Version/Reference | Notes | Status |
 |:---|:----|:----|:-:|
-| `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), also found in iOS, Android, and other Linux-based POSIX operating systems. Based on [RFC7539](https://datatracker.ietf.org/doc/html/rfc7539) | Utilizing ChaCha20 stream. Found in iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) and Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) with the correct settings provided to each. | A |
+| `/dev/random` | Linux 4.8+ [(Oct 2016)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818e607b57c94ade9824dad63a96c2ea6b21baf3), also found in iOS, Android, and other Linux-based POSIX operating systems. Based on [RFC8439](https://datatracker.ietf.org/doc/html/rfc8439) | Utilizing ChaCha20 stream. Found in iOS [`SecRandomCopyBytes`](https://developer.apple.com/documentation/security/secrandomcopybytes(_:_:_:)?language=objc) and Android [`Secure Random`](https://developer.android.com/reference/java/security/SecureRandom) with the correct settings provided to each. | A |
 | `/dev/urandom` | Linux kernel's special file for providing random data | Provides high-quality, entropy sources from hardware randomness | A |
 | `AES-CTR-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | As used in common implementations, such as [Windows CNG API `BCryptGenRandom`](https://learn.microsoft.com/en-us/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom) set by [`BCRYPT_RNG_ALGORITHM`](https://learn.microsoft.com/en-us/windows/win32/seccng/cng-algorithm-identifiers). | A |
 | `HMAC-DRBG` | [NIST SP800-90A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf) | | A |
@@ -109,7 +109,7 @@ Notes:
 
 ### Key Wrapping
 
-Cryptographic key wrap (and corresponding key unwrap) is a method of protecting an existing key by encapsulating (i.e., wrapping) it by employing an additional encryption mechanism so that the original key is not obviously exposed, e.g., during a transfer. This additional key used to protect the original key is referred to as the wrap key.
+Cryptographic key wrap (and corresponding key unwrap) is a method of protecting an existing key by encapsulating (i.e., wrapping) it by employing an additional encryption mechanism so that the original key is not obviously exposed, e.g., during a transfer. This additional key used to protect the original key is referred to as the wrapping key (KEK).
 
 This operation may be performed when it is desirable to protect keys in places deemed untrustworthy, or to send sensitive keys over untrusted networks or within applications.
 However, serious consideration should be given to understanding the nature (e.g., the identity and the purpose) of the original key prior to committing to a wrap/unwrap procedure as this may have repercussions for both source and target systems/applications in terms of security and especially compliance which may include audit trails of a key's function (e.g., signing) as well as appropriate key storage.
@@ -123,6 +123,8 @@ Specifically, AES-256 MUST be used for key wrapping, following [NIST SP 800-38F]
 
 AES-192 and AES-128 MAY be used if the use case demands it, but its motivation MUST be documented in the entity's cryptography inventory.
 
+The wrapping key MUST provide at least the same security strength as the key it protects (see "Equivalent Strengths of Cryptographic Parameters" above), so for example an AES-256 key MUST NOT be wrapped with an AES-128 key. This also applies to private keys that are wrapped with a symmetric key.
+
 ### Authenticated Encryption
 
 With the exception of disk encryption, encrypted data must be protected against unauthorized modification using some form of authenticated encryption (AE) scheme, usually using an authenticated encryption with associated data (AEAD) scheme.
@@ -135,7 +137,7 @@ MAC-then-encrypt is still allowed for compatibility with legacy applications. It
 |---|---------|:-:|
 |AES-GCM | [SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) | A |
 |AES-CCM  | [SP 800-38C](https://csrc.nist.gov/pubs/sp/800/38/c/upd1/final) | A |
-|ChaCha-Poly1305 | [RFC 7539](https://datatracker.ietf.org/doc/html/rfc7539) | A |
+|ChaCha-Poly1305 | [RFC 8439](https://datatracker.ietf.org/doc/html/rfc8439) | A |
 |AEGIS-256 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
 |AEGIS-128 | [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
 |AEGIS-128L| [AEGIS: A Fast Authenticated Encryption Algorithm (v1.1)](https://competitions.cr.yp.to/round3/aegisv11.pdf) | A |
@@ -202,7 +204,7 @@ Approved password-based key derivations functions can be used for password stora
 | KDF              | Reference                                                                                     | Status |
 | ---------------- | -------- |:-:|
 | HKDF             | [RFC 5869](https://www.rfc-editor.org/info/rfc5869)                                           | A      |
-| TLS 1.2 PRF      | [RFC 5248](https://www.rfc-editor.org/info/rfc5248)                                           | L      |
+| TLS 1.2 PRF      | [RFC 5246](https://www.rfc-editor.org/info/rfc5246)                                           | L      |
 | MD5-based KDFs   | [RFC 1321](https://www.rfc-editor.org/info/rfc1321)                                           | D      |
 | SHA-1-based KDFs | [RFC 3174](https://www.rfc-editor.org/info/rfc3174) & [RFC 6194](https://www.rfc-editor.org/info/rfc6194) | D      |
 
@@ -299,13 +301,13 @@ Signature schemes MUST use approved key sizes and parameters per [NIST SP 800-57
 | ------------------------------ | ---------------------------------------------              | :-:    |
 | EdDSA (Ed25519, Ed448)         | [RFC 8032](https://www.rfc-editor.org/info/rfc8032)        | A      |
 | XEdDSA (Curve25519, Curve448)  | [XEdDSA](https://signal.org/docs/specifications/xeddsa/)   | A      |
-| ECDSA (P-256, P-384, P-521)    | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
-| RSA-RSSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | A      |
+| ECDSA (P-256, P-384, P-521)    | [FIPS 186-5](https://csrc.nist.gov/pubs/fips/186-5/final)  | A      |
+| RSASSA-PSS                   | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | A      |
 | RSA-SSA-PKCS#1 v1.5            | [RFC 8017](https://www.rfc-editor.org/info/rfc8017)        | D      |
 | DSA (any key size)             | [FIPS 186-4](https://csrc.nist.gov/pubs/fips/186-4/final)  | D      |
 
 ## Post-Quantum Encryption Standards
 
-Post-quantum cryptography (PQC) implementations should follow [FIPS-203](https://csrc.nist.gov/pubs/fips/203/ipd), [FIPS-204](https://csrc.nist.gov/pubs/fips/204/ipd), and [FIPS-205](https://csrc.nist.gov/pubs/fips/205/ipd). At this time, there are not many hardened code examples or reference implementations available for these standards. For further details, see the [NIST announcement of the first three finalized post-quantum encryption standards (August 2024)](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards).
+Post-quantum cryptography (PQC) implementations should follow [FIPS-203](https://csrc.nist.gov/pubs/fips/203/final), [FIPS-204](https://csrc.nist.gov/pubs/fips/204/final), and [FIPS-205](https://csrc.nist.gov/pubs/fips/205/final). At this time, there are not many hardened code examples or reference implementations available for these standards. For further details, see the [NIST announcement of the first three finalized post-quantum encryption standards (August 2024)](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards).
 
 The proposed [mlkem768x25519](https://datatracker.ietf.org/doc/draft-kwiatkowski-tls-ecdhe-mlkem/03/) post-quantum hybrid TLS key agreement method is supported by major browsers such as [Firefox release 132](https://www.mozilla.org/en-US/firefox/132.0/releasenotes/) and [Chrome release 131](https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html). It may be used in cryptographic testing environments or when available within industry- or government-approved libraries.
