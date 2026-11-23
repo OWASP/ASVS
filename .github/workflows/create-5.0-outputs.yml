@@ -5,6 +5,11 @@ on:
   # Scan on workflow call
   workflow_call:
     inputs:
+      build_local_image:
+        description: Build and use the document builder from this checkout
+        required: false
+        default: false
+        type: boolean
       languages:
         description: 'Languages to build (space-separated, e.g., "en tr")'
         required: false
@@ -30,13 +35,24 @@ jobs:
     name: Generate 5.0 outputs
     steps:
       - uses: docker/login-action@v4.7.0
+        if: github.event_name != 'pull_request'
         with: 
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/checkout@v7
-      - run: make 5.0
+      - name: Build local document builder
+        if: inputs.build_local_image
+        run: docker build ./docker/ --tag ghcr.io/owasp/asvs/documentbuilder:latest
+      - name: Generate documents
+        run: |
+          if [ "$BUILD_LOCAL_IMAGE" = "true" ]; then
+            make -o docker 5.0
+          else
+            make 5.0
+          fi
         env:
+          BUILD_LOCAL_IMAGE: ${{ inputs.build_local_image }}
           LANGS: ${{ inputs.languages || github.event.inputs.languages || 'en' }}
       - uses: actions/upload-artifact@v7.0.2
         with:

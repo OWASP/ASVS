@@ -4,6 +4,12 @@ name: Generate 4.0 Outputs
 on:
   # Scan on workflow call
   workflow_call:
+    inputs:
+      build_local_image:
+        description: Build and use the document builder from this checkout
+        required: false
+        default: false
+        type: boolean
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
 
@@ -13,12 +19,24 @@ jobs:
     name: Generate 4.0 outputs
     steps:
       - uses: docker/login-action@v4.7.0
+        if: github.event_name != 'pull_request'
         with: 
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/checkout@v7
-      - run: make 4.0
+      - name: Build local document builder
+        if: inputs.build_local_image
+        run: docker build ./docker/ --tag ghcr.io/owasp/asvs/documentbuilder:latest
+      - name: Generate documents
+        run: |
+          if [ "$BUILD_LOCAL_IMAGE" = "true" ]; then
+            make -o docker 4.0
+          else
+            make 4.0
+          fi
+        env:
+          BUILD_LOCAL_IMAGE: ${{ inputs.build_local_image }}
       - uses: actions/upload-artifact@v7.0.2
         with:
           name: ASVS 4.0.3
