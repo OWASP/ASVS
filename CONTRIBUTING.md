@@ -98,23 +98,23 @@ We are most likely to immediately accept changes to surrounding text and other c
 
 ### Before you open a Pull Request
 
-The goal: all discussions are easy to follow in one place (the issue), and the PR is a result of agreement in the related issue. There can be exceptions for typos and bug fixes.
+Our goal is to keep the discussion in the related issue so everyone can follow it in one place. The pull request should reflect what was agreed in the issue. Typos and bug fixes may be exceptions.
 
-Therefore, please do not
+Please follow these guidelines before opening an issue or pull request.
 
-  - Open a pull request directly without first opening an associated issue.
-  - Open an issue until you have used the search functionality to ensure that the issue has not previously been discussed and that there are no currently open issues relating to it. For example, [this link](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt) searches for issues (open and closed) related to bcrypt.
+- Make sure there is a related issue before opening a pull request.
+- Before opening an issue, search both open and closed issues to see whether the topic has already been discussed or a related issue is still open. For example, [search open and closed issues for bcrypt](https://github.com/OWASP/ASVS/issues?q=is%3Aissue+bcrypt).
 
-If there is an existing issue that reached an agreement, the usual gesture is to ask the PR from the issue opener or from the main contributor, the issue has an "Awaiting PR" label set, or there is other clear go-ahead for PR from a project lead.
+Once there's agreement in an issue, we usually ask the person who opened it or the main contributor to submit a pull request. The **Awaiting PR** label or another clear go-ahead from a project lead indicates that the issue is ready for a pull request.
 
-It is unlikely that there are issues with an agreement and just waiting a PR that no one is willing to do.
+It's rare for an agreed change to be waiting simply because no one has volunteered to submit a pull request.
 
-In short - steps to a PR:
+#### In summary, the steps to opening a pull request
 
-  - Issue is opened
-  - Agreement in the issue
-  - Issue is marked with "Awaiting PR" label or other clear go-ahead from a project lead
-  - Time for a PR
+- An issue is opened.
+- Participants reach agreement in the issue.
+- The issue receives the **Awaiting PR** label or a project lead gives another clear go-ahead.
+- A contributor opens the pull request.
 
 ### Numbering changes compared to the issues.
 
