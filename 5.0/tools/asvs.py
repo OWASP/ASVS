@@ -65,7 +65,7 @@ class ASVS:
         self.language = language_in
         prefix_char1, prefix_char2, prefix_char1_b = self.get_prefix()
 
-        version_regex = re.compile('Version (([\d.]+){3})')
+        version_regex = re.compile(r'Version (([\d.]+){3})')
         
         for line in open(os.path.join(self.language, "0x01-Frontispiece.md"), encoding="utf8"):
             m = re.search(version_regex, line)
@@ -86,7 +86,7 @@ class ASVS:
     
         for file in sorted(os.listdir(self.language)):
 
-            if re.match("0x\d{2}-V", file):
+            if re.match(r"0x\d{2}-V", file):
                 
                 chapter = {}
                 chapter_raw = {}
@@ -109,7 +109,7 @@ class ASVS:
                 # The filename_regex is used to match filenames that follow the pattern:
                 # "0xNN-VNNN-Name", where NN is a two-digit number, VNNN is a chapter number, 
                 # and Name is a string that does not contain a dot or hyphen.
-                filename_regex = re.compile('0x\d{2}-(V([0-9]{1,3}))-(\w[^-.]*)')
+                filename_regex = re.compile(r'0x\d{2}-(V([0-9]{1,3}))-(\w[^-.]*)')
                 
                 m = re.search(filename_regex, file)
                 if m:
@@ -137,18 +137,18 @@ class ASVS:
                 # This regex matches lines that start with a hash (#) followed by a space,
                 # prefix_char1 (usually 'V'), one or two digits, prefix_char1_b (which is usually empty)
                 # another space, and then some sort of text
-                chapter_heading_regex = re.compile("^#\s(" + prefix_char1 + "([0-9]{1,2})" + prefix_char1_b + ")\s([\w\s][^\n]*)")
+                chapter_heading_regex = re.compile(r"^#\s(" + prefix_char1 + "([0-9]{1,2})" + prefix_char1_b + r")\s([\w\s][^\n]*)")
 
                 # section_regex matches section headings in the format "## VNN.NNN Name".
-                section_regex = re.compile("## (" + prefix_char2 + "[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)")
+                section_regex = re.compile("## (" + prefix_char2 + r"[0-9]{1,2}.([0-9]{1,3})) ([\w\s][^\n]*)")
 
                 # This regex matches requirement lines with the format:
                 # **number** | text | text | text | text | numbers, separated by commas | text, separated by slashes
                 # req_regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|(.*?)\|"
                 #                        "(.*?)\|(.*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9/\s,.]*)\|{0,1}")
 
-                req_regex = re.compile("\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|"
-                                "([1-3 ]*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9\s,.]*)\|{0,1}")
+                req_regex = re.compile(r"\*\*([\d\.]+)\*\*\s\|\s{0,1}(.*?)\s{0,1}\|"
+                                r"([1-3 ]*?)\|([0-9,\s]*)\|{0,1}([A-Z0-9\s,.]*)\|{0,1}")
 
                 before_reqs = True
                 matched_already = False
