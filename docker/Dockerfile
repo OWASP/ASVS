@@ -1,7 +1,10 @@
 ARG CERT_FILE=none
 ARG WITH_CERT=no
 #First stage, start from alpine
-FROM alpine:3 AS base
+# Pinned to amd64: pandoc is downloaded as the amd64 tarball and TeX Live has no
+# aarch64 musl binaries, so on arm64 hosts (e.g. Apple Silicon) the build runs
+# under emulation instead of failing at the TinyTeX install.
+FROM --platform=linux/amd64 alpine:3 AS base
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apk add --update \
@@ -48,15 +51,15 @@ ENV DEBIAN_FRONTEND noninteractive
 
 #download fonts
 RUN for font in source-sans source-serif source-code-pro; do \
-	git_tarball_url="https://www.github.com/adobe-fonts/${font}"$(curl -L "https://github.com/adobe-fonts/${font}/tags" |  \
+	git_tarball_url="https://www.github.com/adobe-fonts/${font}"$(curl -fsSL --retry 5 "https://github.com/adobe-fonts/${font}/tags" |  \
 		     grep -o "/archive/refs/tags/.*\.zip" | grep -v 'variable' | sort -r | head -1 |tr -d '\n'); \
      echo "DOWNLOADING FROM: ${git_tarball_url}"; \
-     curl -L --retry 5 "${git_tarball_url}" --output "$font.zip"; \
-     unzip "${font}.zip" ; \
+     curl -fL --retry 5 "${git_tarball_url}" --output "$font.zip" && \
+     unzip "${font}.zip" || exit 1; \
     done
 RUN mkdir adobe-fonts
 RUN find $PWD/ -name "*.ttf" -exec install -m644 {} adobe-fonts/ \; || return 1
-RUN curl -L --retry 5 \
+RUN curl -fL --retry 5 \
     "https://github.com/aliftype/amiri/releases/download/1.003/Amiri-1.003.zip" \
     --output amiri.zip \
     && unzip amiri.zip \
@@ -73,7 +76,7 @@ RUN /root/.py-env/bin/pip install dicttoxml2 setuptools==69.0.3
 #install Pandoc
 RUN adduser -s /bin/bash -g "pandoc" -D pandoc
 
-RUN curl --output /tmp/pandoc.tar.gz -L https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz \
+RUN curl -fL --retry 5 --output /tmp/pandoc.tar.gz https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-linux-amd64.tar.gz \
             && tar xvzf /tmp/pandoc.tar.gz --strip-components 1 -C /usr/local/ \
             && rm /tmp/pandoc.tar.gz
 
@@ -87,7 +90,7 @@ USER pandoc
 WORKDIR /home/pandoc
 
 # Install Lua Filters for pandoc
-RUN curl --output /tmp/lua-filters.tar.gz -L https://github.com/pandoc/lua-filters/releases/latest/download/lua-filters.tar.gz  \
+RUN curl -fL --retry 5 --output /tmp/lua-filters.tar.gz https://github.com/pandoc/lua-filters/releases/latest/download/lua-filters.tar.gz  \
     && mkdir /home/pandoc/.pandoc \
     && tar xzf /tmp/lua-filters.tar.gz --strip-components=1 --one-top-level=/home/pandoc/.pandoc/ \
     && rm /tmp/lua-filters.tar.gz
@@ -98,9 +101,9 @@ FROM pandoc_base as tinytex_base
 # setup path
 ENV PATH=/home/pandoc/.TinyTeX/bin/x86_64-linuxmusl/:$PATH
 ENV TINY_TEX_VERSION=v0.45
-RUN curl -L "https://raw.githubusercontent.com/rstudio/tinytex/${TINY_TEX_VERSION}/tools/install-bin-unix.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" -e 's/retry-connrefused/tries 20/' > "install-unx.sh" \
+RUN curl -fL --retry 5 "https://raw.githubusercontent.com/rstudio/tinytex/${TINY_TEX_VERSION}/tools/install-bin-unix.sh" | sed -e 's/wget -qO-/curl -sL/' -e "s#\(sh -s\)#sed 's/wget/curl -LO/' | \1#" -e 's/retry-connrefused/tries 20/' > "install-unx.sh" \
 	&& chmod +x install-unx.sh
-RUN for i in 1 2 3 4 5; do bash -c "./install-unx.sh" && break || sleep 15; done && rm install-unx.sh
+RUN for i in 1 2 3 4 5; do bash -c "./install-unx.sh" && break; [ "$i" = 5 ] && exit 1; sleep 15; done && rm install-unx.sh
 
 FROM tinytex_base as latex_base
 
@@ -109,7 +112,7 @@ RUN /home/pandoc/.TinyTeX/bin/*/tlmgr path add
 
 # verify tlmgr version and add packages needed to build the documents
 RUN tlmgr --version 
-RUN for i in 1 2 3 4 5; do tlmgr update --self && break || sleep 15; done 
+RUN for i in 1 2 3 4 5; do tlmgr update --self && break; [ "$i" = 5 ] && exit 1; sleep 15; done
 RUN for i in 1 2 3 4 5; do tlmgr install \
     xecjk \
     ctex \
@@ -145,7 +148,7 @@ RUN for i in 1 2 3 4 5; do tlmgr install \
     ulem \
     upquote \
     xurl \
-    zref && break || sleep 15; done
+    zref && break; [ "$i" = 5 ] && exit 1; sleep 15; done
 
 FROM latex_base as work_layer
 #copy fonts from font_base
