@@ -46,7 +46,7 @@ Tags will start with either:
 * `I` - The change is acceptable for a minor release
 * `P` - The change is acceptable for a patch release
 
-The following tags will be used, their meaning should be should be clear and they will be added to the start of the requirement description.
+The following tags will be used, their meaning should be clear and they will be added to the start of the requirement description.
 
 * Patch tags:
   * `[P:WEAKENED]`
@@ -140,7 +140,7 @@ If you are interested in creating a translation, here are some pointers for how 
     * In-progress
         * Ukrainian, see [#3174](https://github.com/OWASP/ASVS/issues/3174)
         * Spanish, see [#3238](https://github.com/OWASP/ASVS/issues/3238)
-        * Panjabi, see[#3252](https://github.com/OWASP/ASVS/issues/3252)
+        * Panjabi, see [#3252](https://github.com/OWASP/ASVS/issues/3252)
     * v5.0.0
         * [Turkish](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/tr/)
         * [Russian](https://github.com/OWASP/ASVS/raw/v5.0.0/5.0/ru/)
