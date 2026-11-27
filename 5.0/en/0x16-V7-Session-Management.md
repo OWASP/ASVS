@@ -22,9 +22,9 @@ Regardless of whether a stateful or "stateless" session mechanism is chosen, the
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **7.1.1** | Verify that the user's session inactivity timeout and absolute maximum session lifetime are documented, are appropriate in combination with other controls, and that the documentation includes justification for any deviations from NIST SP 800-63B re-authentication requirements. | 2 |
+| **7.1.1** | Verify that the user's session inactivity timeout and absolute maximum session lifetime are documented, are appropriate in combination with other controls, and that the documentation includes justification for any deviations from NIST SP 800-63B reauthentication requirements. | 2 |
 | **7.1.2** | Verify that the documentation defines how many concurrent (parallel) sessions are allowed for one account as well as the intended behaviors and actions to be taken when the maximum number of active sessions is reached. | 2 |
-| **7.1.3** | Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other conditions that require re-authentication. | 2 |
+| **7.1.3** | Verify that all systems that create and manage user sessions as part of a federated identity management ecosystem (such as SSO systems) are documented along with controls to coordinate session lifetimes, termination, and any other conditions that require reauthentication. | 2 |
 
 ## V7.2 Fundamental Session Management Security
 
@@ -35,7 +35,7 @@ This section satisfies the essential requirements of secure sessions by verifyin
 | **7.2.1** | Verify that the application performs all session token verification using a trusted, backend service. | 1 |
 | **7.2.2** | Verify that the application uses either self-contained or reference tokens that are dynamically generated for session management, i.e. not using static API secrets and keys. | 1 |
 | **7.2.3** | Verify that if reference tokens are used to represent user sessions, they are unique and generated using a cryptographically secure pseudo-random number generator (CSPRNG) and possess at least 128 bits of entropy. | 1 |
-| **7.2.4** | Verify that the application generates a new session token on user authentication, including re-authentication, and terminates the current session token. | 1 |
+| **7.2.4** | Verify that the application generates a new session token on user authentication, including reauthentication, and terminates the current session token. | 1 |
 
 ## V7.3 Session Timeout
 
@@ -43,14 +43,14 @@ Session timeout mechanisms serve to minimize the window of opportunity for sessi
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **7.3.1** | Verify that there is an inactivity timeout such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
-| **7.3.2** | Verify that there is an absolute maximum session lifetime such that re-authentication is enforced according to risk analysis and documented security decisions. | 2 |
+| **7.3.1** | Verify that there is an inactivity timeout such that reauthentication is enforced according to risk analysis and documented security decisions. | 2 |
+| **7.3.2** | Verify that there is an absolute maximum session lifetime such that reauthentication is enforced according to risk analysis and documented security decisions. | 2 |
 
 ## V7.4 Session Termination
 
 Session termination may be handled either by the application itself or by the SSO provider if the SSO provider is handling session management instead of the application. It may be necessary to decide whether the SSO provider is in scope when considering the requirements in this section as some may be controlled by the provider.
 
-Session termination should result in requiring re-authentication and be effective across the application, federated login (if present), and any relying parties.
+Session termination should result in requiring reauthentication and be effective across the application, federated login (if present), and any relying parties.
 
 For stateful session mechanisms, termination typically involves invalidating the session on the backend. In the case of self-contained tokens, additional measures are required to revoke or block these tokens, as they may otherwise remain valid until expiration.
 
@@ -70,17 +70,17 @@ Note that the level-specific guidance in the "Authentication" chapter should be 
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **7.5.1** | Verify that the application requires full re-authentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 |
+| **7.5.1** | Verify that the application requires full reauthentication before allowing modifications to sensitive account attributes which may affect authentication such as email address, phone number, MFA configuration, or other information used in account recovery. | 2 |
 | **7.5.2** | Verify that users are able to view and (having authenticated again with at least one factor) terminate any or all currently active sessions. | 2 |
 | **7.5.3** | Verify that the application requires further authentication with at least one factor or secondary verification before performing highly sensitive transactions or operations. | 3 |
 
-## V7.6 Federated Re-authentication
+## V7.6 Federated Reauthentication
 
 This section relates to those writing Relying Party (RP) or Identity Provider (IdP) code. These requirements are derived from the [NIST SP 800-63C](https://pages.nist.gov/800-63-4/sp800-63c.html) for Federation & Assertions.
 
 | # | Description | Level |
 | :---: | :--- | :---: |
-| **7.6.1** | Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring re-authentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 |
+| **7.6.1** | Verify that session lifetime and termination between Relying Parties (RPs) and Identity Providers (IdPs) behave as documented, requiring reauthentication as necessary such as when the maximum time between IdP authentication events is reached. | 2 |
 | **7.6.2** | Verify that creation of a session requires either the user's consent or an explicit action, preventing the creation of new application sessions without user interaction. | 2 |
 
 ## References
