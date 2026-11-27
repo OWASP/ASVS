@@ -19,7 +19,7 @@ Stabilizing this is on our todo list but not a top priority.
 ### Document Compilation Instructions
 1. Install Docker on your computer (see instructions for different architectures [in the Docker docs](https://docs.docker.com/engine/install/))
 2. If running WSL or WSL2 make sure that you can talk to the Docker Daemon from the console
-3. Build the docker image: `docker build ./docker --tag ghcr.io/owasp/asvs/documentbuilder:latest`
+3. Build the docker image: `docker build ./docker --tag ghcr.io/owasp/asvs/documentbuilder:latest`. The image is always built for linux/amd64, since TeX Live has no ARM builds for Alpine. On ARM machines such as Apple Silicon Macs, Docker runs it under emulation, so the build and the document runs are slower.
 4. Run `make` in this directory. It will compile the latest bleeding edge to the `dist` directory of the latest release. You can specify a 
 particular target version, i.e. `make 4.0`, or you can run `make all` to compile all versions.
 
